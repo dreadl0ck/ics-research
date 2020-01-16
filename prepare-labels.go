@@ -198,6 +198,12 @@ func main() {
 		}
 	}
 
+	outputWriter.Flush()
+	err = outputWriter.Error()
+	if err != nil {
+		log.Fatal(err)
+	}
+
 	fmt.Println(count, "attacks written to", outputFile.Name())
 	fmt.Println("header:", header)
 }
