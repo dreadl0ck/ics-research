@@ -78,6 +78,7 @@ func main() {
 
 	header := []string{
 		"AttackNumber",
+		"AttackNumberOriginal",
 		"StartTime",
 		"EndTime",
 		"AttackDuration",
@@ -170,14 +171,20 @@ func main() {
 		}
 
 		year, month, day := start.Date()
-		end = time.Date(year, month, day, end.Hour(), end.Minute(), end.Second(), end.Nanosecond(), time.Local)
+		end = time.Date(year, month, day, end.Hour(), end.Minute(), end.Second(), end.Nanosecond(), start.Location())
+		duration := end.Sub(start).String()
+
+		// fmt.Println(i, "start", start)
+		// fmt.Println(i, "end", end)
+		// fmt.Println(duration)
 
 		count++
 		err = outputWriter.Write([]string{
-			r[0],                                // Attack Number
+			strconv.Itoa(count),                 // Attack Number
+			r[0],                                // Attack Number Original
 			strconv.FormatInt(start.Unix(), 10), // Start Time
 			strconv.FormatInt(end.Unix(), 10),   // End Time
-			start.Sub(end).String(),             // Attack Duration
+			duration,                            // Attack Duration
 			r[3],                                // Attack Points
 			strings.Join(addrs, ","),            // Adresses
 			r[5],                                // Attack Name
