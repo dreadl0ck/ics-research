@@ -14,6 +14,7 @@ import (
 	"path/filepath"
 	"strconv"
 	"strings"
+	"sync"
 	"time"
 )
 
@@ -51,6 +52,7 @@ func clearLine() {
 var (
 	flagAttackList = flag.String("attacks", "", "attack list CSV")
 	flagDir        = flag.String("dir", ".", "input directory (default is current directory)")
+	flagOut        = flag.String("out", ".", "output path")
 )
 
 func main() {
@@ -62,9 +64,10 @@ func main() {
 	}
 
 	var (
-		attacks = ParseAttackList(*flagAttackList)
+		attacks = parseAttackList(*flagAttackList)
 		files   []string
 		start   = time.Now()
+		wg      sync.WaitGroup
 	)
 
 	defer func() {
@@ -73,7 +76,7 @@ func main() {
 
 	err := filepath.Walk(*flagDir, func(path string, info os.FileInfo, err error) error {
 
-		if filepath.Ext(path) == ".csv" {
+		if filepath.Ext(path) == ".csv" && !strings.HasSuffix(path, "-labeled.csv") {
 			files = append(files, path)
 		}
 
@@ -84,116 +87,146 @@ func main() {
 	}
 
 	totalFiles := len(files)
-	fmt.Println("collected", totalFiles, "CSV files to label")
+	fmt.Println("collected", totalFiles, "CSV files for labeling")
 
 	fmt.Println("new CSV header:", header)
 
-	for current, file := range files {
+	for current, file := range files[:100] {
 
-		fmt.Println("[", current+1, "/", totalFiles, "]", "processing", file)
-
-		inputFile, err := os.Open(file)
-		if err != nil {
-			log.Fatal(err)
-		}
-		defer inputFile.Close()
-
-		outFileName := strings.TrimSuffix(file, ".csv") + "-labeled.csv"
-
-		outputFile, err := os.Create(outFileName)
-		if err != nil {
-			log.Fatal(err)
-		}
-		defer outputFile.Close()
+		wg.Add(1)
 
 		var (
-			inputReader       = csv.NewReader(inputFile)
-			outputWriter      = csv.NewWriter(outputFile)
-			numMatches, count int
+			fileName   = file
+			currentNum = current + 1
 		)
 
-		// write header
-		err = outputWriter.Write(header)
-		if err != nil {
-			log.Fatal(err)
-		}
+		go func() {
 
-		for {
-			r, err := inputReader.Read()
-			if err == io.EOF {
-				break
+			fmt.Println("[", currentNum, "/", totalFiles, "]", "processing", fileName)
+
+			inputFile, err := os.Open(fileName)
+			if err != nil {
+				log.Fatal(err)
 			}
+			defer inputFile.Close()
+
+			var outFileName = strings.TrimSuffix(fileName, ".csv") + "-labeled.csv"
+			if *flagOut != "." {
+				outFileName = filepath.Join(*flagOut, outFileName)
+			}
+
+			outputFile, err := os.Create(outFileName)
+			if err != nil {
+				log.Fatal(err)
+			}
+			defer outputFile.Close()
+
+			var (
+				inputReader       = csv.NewReader(inputFile)
+				outputWriter      = csv.NewWriter(outputFile)
+				numMatches, count int
+			)
+
+			// write header
+			err = outputWriter.Write(header)
 			if err != nil {
 				log.Fatal(err)
 			}
 
-			count++
+			for {
+				r, err := inputReader.Read()
+				if err == io.EOF {
+					break
+				}
+				if err != nil {
+					fmt.Println(err)
+					count++
+					continue
+				}
+				count++
 
-			// skip header
-			if count == 1 {
-				continue
-			}
+				// skip header
+				if count == 1 {
+					continue
+				}
 
-			// fields Network CSV:
-			// 0  num
-			// 1  date
-			// 2  time
-			// 3  orig
-			// 4  type
-			// 5  i/f_name
-			// 6  i/f_dir
-			// 7  src
-			// 8  dst
-			// 9  proto
-			// 10 appi_name
-			// 11 proxy_src_ip
-			// 12 Modbus_Function_Code
-			// 13 Modbus_Function_Description
-			// 14 Modbus_Transaction_ID
-			// 15 SCADA_Tag
-			// 16 Modbus_Value
-			// 17 service
-			// 18 s_port
-			// 19 Tag
-			// num,date,time,orig,type,i/f_name,i/f_dir,src,dst,proto,appi_name,proxy_src_ip,Modbus_Function_Code,Modbus_Function_Description,Modbus_Transaction_ID,SCADA_Tag,Modbus_Value,service,s_port,Tag
-			// 1,21Dec2015,22:17:56,192.168.1.48,log,eth1,outbound,192.168.1.60,192.168.1.10,tcp,CIP_read_tag_service,192.168.1.60,76,Read Tag Service,30721,HMI_LIT101,Number of Elements: 1,44818,53260,0
+				// fields Network CSV:
+				// 0  num
+				// 1  date
+				// 2  time
+				// 3  orig
+				// 4  type
+				// 5  i/f_name
+				// 6  i/f_dir
+				// 7  src
+				// 8  dst
+				// 9  proto
+				// 10 appi_name
+				// 11 proxy_src_ip
+				// 12 Modbus_Function_Code
+				// 13 Modbus_Function_Description
+				// 14 Modbus_Transaction_ID
+				// 15 SCADA_Tag
+				// 16 Modbus_Value
+				// 17 service
+				// 18 s_port
+				// 19 Tag
+				// num,date,time,orig,type,i/f_name,i/f_dir,src,dst,proto,appi_name,proxy_src_ip,Modbus_Function_Code,Modbus_Function_Description,Modbus_Transaction_ID,SCADA_Tag,Modbus_Value,service,s_port,Tag
+				// 1,21Dec2015,22:17:56,192.168.1.48,log,eth1,outbound,192.168.1.60,192.168.1.10,tcp,CIP_read_tag_service,192.168.1.60,76,Read Tag Service,30721,HMI_LIT101,Number of Elements: 1,44818,53260,0
 
-			var classification = "normal"
+				var classification = "normal"
 
-			t, err := time.Parse("2Jan200615:04:05", r[1]+r[2])
-			if err != nil {
-				log.Fatal(count, err)
-			}
-			// fmt.Println(r[1]+r[2], "time:", t)
-
-			for _, a := range attacks {
-				if a.during(t) {
-					if a.affectsHosts(r[7], r[8]) {
-						classification = a.AttackName
-						fmt.Println("match for", a.AttackName)
-						numMatches++
-						break
+				t, err := time.Parse("2Jan200615:04:05", r[1]+r[2])
+				if err != nil {
+					t, err = time.Parse("2Jan0615:04:05", r[1]+r[2])
+					if err != nil {
+						t, err = time.Parse("2-Jan-0615:04:05", r[1]+r[2])
+						if err != nil {
+							log.Println("[", currentNum, "/", totalFiles, "]", err)
+							sec, err := strconv.ParseInt(r[1]+r[2], 10, 64)
+							if err != nil {
+								log.Fatal("[", currentNum, "/", totalFiles, "]", " no valid timestamp format found!")
+							}
+							t = time.Unix(sec, 0)
+						}
 					}
+				}
+				// fmt.Println(r[1]+r[2], "time:", t)
+
+				for _, a := range attacks {
+					if a.during(t) {
+						if a.affectsHosts(r[7], r[8]) {
+							classification = a.AttackName
+							fmt.Println("match for", a.AttackName)
+							numMatches++
+							break
+						}
+					}
+				}
+
+				err = outputWriter.Write(append(r, classification))
+				if err != nil {
+					log.Fatal(err)
 				}
 			}
 
-			err = outputWriter.Write(append(r, classification))
+			outputWriter.Flush()
+			err = outputWriter.Error()
 			if err != nil {
 				log.Fatal(err)
 			}
-		}
 
-		outputWriter.Flush()
-		err = outputWriter.Error()
-		if err != nil {
-			log.Fatal(err)
-		}
-
-		fmt.Println("[", current+1, "/", totalFiles, "]", count, "records written to", outputFile.Name(), numMatches, "number of attacks labeled")
+			fmt.Println("[", currentNum+1, "/", totalFiles, "]", count, "records written to", outputFile.Name(), numMatches, "number of attacks labeled")
+			wg.Done()
+		}()
 	}
+
+	fmt.Println("started all jobs, waiting...")
+	wg.Wait()
+
 }
 
-func (a Attack) affectsHosts(src, dst string) bool {
+func (a attack) affectsHosts(src, dst string) bool {
 	for _, addr := range a.Adresses {
 		if addr == src || addr == dst {
 			return true
@@ -202,7 +235,7 @@ func (a Attack) affectsHosts(src, dst string) bool {
 	return false
 }
 
-func (a Attack) during(t time.Time) bool {
+func (a attack) during(t time.Time) bool {
 	if a.StartTime.Equal(t) || a.EndTime.Equal(t) {
 		return true
 	}
@@ -214,7 +247,10 @@ func (a Attack) during(t time.Time) bool {
 	return false
 }
 
-type Attack struct {
+// Attack information parsing
+// parses a CSV file that contains the attack timestamps and descriptions
+
+type attack struct {
 	AttackNumber   int
 	StartTime      time.Time
 	EndTime        time.Time
@@ -228,7 +264,7 @@ type Attack struct {
 	Notes          string
 }
 
-func ParseAttackList(path string) (labels []*Attack) {
+func parseAttackList(path string) (labels []*attack) {
 
 	fmt.Println("parsing attacks in", path)
 
@@ -287,7 +323,7 @@ func ParseAttackList(path string) (labels []*Attack) {
 			return strings.Split(strings.Trim(input, "\""), ",")
 		}
 
-		atk := &Attack{
+		atk := &attack{
 			AttackNumber:   num,                 // int
 			StartTime:      time.Unix(start, 0), // time.Time
 			EndTime:        time.Unix(end, 0),   // time.Time
