@@ -8,6 +8,7 @@
 # This program is based on code from Jeff Heaton's Washington University (in St. Louis) Course T81-558: Applications of Deep Neural Networks.                   #
 # It is licensed under the Apache License 2.0.                                                                                                                  #
 # It was modified by Philipp Mieden <dreadl0ck [at] protonmail [dot] ch> for the NETCAP research project.                                                       #
+# It was modfied by Rutger Beltman, the deep neural network code was replaced by a Code for a support vector machine.#
 # usage:                                                                                                                                                              #                   #
 # $ python3 tf-dnn.py -read data.csv
 # help:
@@ -21,10 +22,8 @@ import os
 
 from sklearn import svm
 from sklearn import metrics
-#import tensorflow.contrib.learn as skflow
 
 import numpy as np
-import matplotlib.pyplot as plt
 import argparse
 import shutil
 import base64
@@ -168,31 +167,6 @@ def hms_string(sec_elapsed):
         return "{}m {:2.0f}s".format(m, s)
     else:
         return "{}h {}m {:2.0f}s".format(h, m, s)
-
-# # Regression chart.
-# def chart_regression(pred,y,sort=True):
-#     t = pd.DataFrame({'pred' : pred, 'y' : y.flatten()})
-#     if sort:
-#         t.sort_values(by=['y'],inplace=True)
-#     a = plt.plot(t['y'].tolist(),label='expected')
-#     b = plt.plot(t['pred'].tolist(),label='prediction')
-#     plt.ylabel('output')
-#     plt.legend()
-#     plt.show()
-
-# # Remove all rows where the specified column is +/- sd standard deviations
-# def remove_outliers(df, name, sd):
-#     drop_rows = df.index[(np.abs(df[name] - df[name].mean()) >= (sd * df[name].std()))]
-#     df.drop(drop_rows, axis=0, inplace=True)
-
-
-# # Encode a column to a range between normalized_low and normalized_high.
-# def encode_numeric_range(df, name, normalized_low=-1, normalized_high=1,data_low=None, data_high=None):
-#     if data_low is None:
-#         data_low = min(df[name])
-#         data_high = max(df[name])
-
-#     df[name] = ((df[name] - data_low) / (data_high - data_low)) * (normalized_high - normalized_low) + normalized_low
 
 def drop_col(name, df):
     """
@@ -525,18 +499,6 @@ print("[INFO] num_classes", num_classes)
 # Remove incomplete records after encoding
 df.dropna(inplace=True,axis=1)
 
-##
-## DEEP NEURAL NETWORK
-##
-## Now we have the numeric feature vector, as it goes to the neural net
-## Next it needs to be broken into predictors and prediction,
-## then a train / test split is created.
-## Afterwards, the Neural Network is trained and classification accuracy validated.
-##
-
-from keras.models import Sequential
-from keras.layers.core import Dense, Activation
-from keras.callbacks import EarlyStopping
 
 print("[INFO] breaking into predictors and prediction...")
 
@@ -549,6 +511,7 @@ print("[INFO] creating train/test split")
 # it can be configured using the test_size commandline flag
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=arguments.test_size, random_state=42)
 
+# Create the SVM classifer.
 clf = svm.SVC()
 print("[INFO] fitting svm")
 clf.fit(x_train,y_train[:,1])
