@@ -57,10 +57,11 @@ func main() {
 		parts := strings.Split(string(line), ",")
 		//fmt.Println(parts)
 
+		count++
+		
 		// skip header
-		if count == 0 {
-			elemCount = len(parts) - 1
-			count++
+		if count == 1 {
+			elemCount = len(parts) - 1	
 
 			_, err = outFile.WriteString(strings.Join(parts, ",") + "\n")
 			if err != nil {
@@ -69,7 +70,6 @@ func main() {
 
 			continue
 		}
-		count++
 
 		if count%1000 == 0 {
 			clearLine()
