@@ -1,0 +1,137 @@
+[INFO] sys.argv: ['skl-svm.py', '-read', 'data/SWaT_Dataset_Attack_v0-fixed.csv']
+[INFO] arguments: Namespace(drop=None, dropna=False, loss='categorical_crossentropy', optimizer='adam', read='data/SWaT_Dataset_Attack_v0-fixed.csv', result_column='Normal/Attack', sample=None, string_dummy=False, string_index=True, test_size=0.25)
+[33mreading file data/SWaT_Dataset_Attack_v0-fixed.csv[0m
+[31mInput File Size: 121.8 MB[0m
+[33mRead 449919 rows.[0m
+[INFO] columns: Index([' Timestamp', 'FIT101', 'LIT101', ' MV101', 'P101', 'P102', ' AIT201',
+       'AIT202', 'AIT203', 'FIT201', ' MV201', ' P201', ' P202', 'P203',
+       ' P204', 'P205', 'P206', 'DPIT301', 'FIT301', 'LIT301', 'MV301',
+       'MV302', ' MV303', 'MV304', 'P301', 'P302', 'AIT401', 'AIT402',
+       'FIT401', 'LIT401', 'P401', 'P402', 'P403', 'P404', 'UV401', 'AIT501',
+       'AIT502', 'AIT503', 'AIT504', 'FIT501', 'FIT502', 'FIT503', 'FIT504',
+       'P501', 'P502', 'PIT501', 'PIT502', 'PIT503', 'FIT601', 'P601', 'P602',
+       'P603', 'Normal/Attack'],
+      dtype='object')
+
+[INFO] Analyzing: data/SWaT_Dataset_Attack_v0-fixed.csv
+[INFO] 449919 rows
+[INFO] **  Timestamp:449919 (100.0%)
+[INFO] ** FIT101:2788 (0.61967%)
+[INFO] ** LIT101:9843 (2.18773%)
+[INFO] **  MV101:[2:67.03207%,1:32.4694%,0:0.49853%]
+[INFO] ** P101:[2:69.32515%,1:30.67485%]
+[INFO] ** P102:[1:99.30543%,2:0.69457%]
+[INFO] **  AIT201:2137 (0.47497%)
+[INFO] ** AIT202:965 (0.21448%)
+[INFO] ** AIT203:2584 (0.57433%)
+[INFO] ** FIT201:3144 (0.69879%)
+[INFO] **  MV201:[2:69.56741%,1:30.02363%,0:0.40896%]
+[INFO] **  P201:[1:87.89315%,2:12.10685%]
+[INFO] **  P202:[1:100.0%]
+[INFO] ** P203:[2:69.06888%,1:30.93112%]
+[INFO] **  P204:[1:99.98755%,2:0.01245%]
+[INFO] ** P205:[2:69.11311%,1:30.88689%]
+[INFO] ** P206:[1:99.98778%,2:0.01222%]
+[INFO] ** DPIT301:4478 (0.99529%)
+[INFO] ** FIT301:5638 (1.25311%)
+[INFO] ** LIT301:7274 (1.61674%)
+[INFO] ** MV301:[1:98.48995%,2:1.12109%,0:0.38896%]
+[INFO] ** MV302:[2:75.63184%,1:23.70182%,0:0.66634%]
+[INFO] **  MV303:[1:96.6534%,2:2.84073%,0:0.50587%]
+[INFO] ** MV304:[1:88.4737%,2:10.82128%,0:0.70502%]
+[INFO] ** P301:[1:100.0%]
+[INFO] ** P302:[2:77.29458%,1:22.70542%]
+[INFO] ** AIT401:[148.808:57.27942%,148.8032:35.22145%,148.7936:3.87425%,148.8128:2.77939%,148.8176:0.32028%,148.7888:0.26538%,148.8272:0.0829%,148.784:0.08201%,148.7792:0.03734%,148.832:0.03067%,148.7695:0.01222%,148.8368:0.00445%,148.8416:0.004%,148.8561:0.00178%,148.7599:0.00156%,148.7647:0.00156%,148.8513:0.00133%]
+[INFO] ** AIT402:3166 (0.70368%)
+[INFO] ** FIT401:590 (0.13113%)
+[INFO] ** LIT401:12772 (2.83873%)
+[INFO] ** P401:[1:100.0%]
+[INFO] ** P402:[2:92.87916%,1:7.12084%]
+[INFO] ** P403:[1:99.98666%,2:0.01334%]
+[INFO] ** P404:[1:100.0%]
+[INFO] ** UV401:[2:92.58489%,1:7.41511%]
+[INFO] ** AIT501:1578 (0.35073%)
+[INFO] ** AIT502:2721 (0.60478%)
+[INFO] ** AIT503:1123 (0.2496%)
+[INFO] ** AIT504:331 (0.07357%)
+[INFO] ** FIT501:670 (0.14892%)
+[INFO] ** FIT502:1199 (0.26649%)
+[INFO] ** FIT503:313 (0.06957%)
+[INFO] ** FIT504:217 (0.04823%)
+[INFO] ** P501:[2:92.58622%,1:7.41378%]
+[INFO] ** P502:[1:100.0%]
+[INFO] ** PIT501:946 (0.21026%)
+[INFO] ** PIT502:[0.0:7.51913%,0.8009483000000001:7.16107%,0.9771569:6.8619%,0.9611379999999999:5.34541%,0.8169672:5.27095%,1.009195:4.81109%,0.7849293:4.64306%,1.0252139999999998:4.08251%,1.5858780000000001:3.90004%,0.8490052:3.27192%,0.945119:3.17457%,0.9291:2.98943%,1.5698590000000001:2.80739%,0.8970621:2.80384%,1.601897:2.72449%,0.8810431000000001:2.7056%,0.8650241:2.57157%,0.7689104:1.99525%,1.409669:1.74409%,1.5378209999999999:1.65963%,1.041233:1.56184%,1.4256879999999998:1.39136%,1.441707:1.30223%,1.505783:1.26956%,1.521802:1.23178%,1.4897639999999999:1.15687%,1.457726:1.10309%,1.057252:0.89683%,0.7368724:0.87682%,1.617916:0.86593%,1.377631:0.80592%,1.730048:0.68212%,1.7460669999999998:0.63478%,1.6499529999999998:0.58388%,1.0892899999999999:0.54032%,1.201422:0.5361%,1.6980099999999998:0.47075%,0.7208535:0.4692%,1.665972:0.43586%,1.681991:0.40185%,1.105309:0.3754%,1.361612:0.36784%,1.185403:0.3674%,1.762086:0.3574%,1.121328:0.31406%,0.7048345:0.27627%,1.345593:0.27605%,1.1373469999999999:0.25316%,1.169384:0.24049%,1.281517:0.2316%,1.217441:0.22649%,1.249479:0.21915%,1.7781049999999998:0.21204%,1.265498:0.18892%,0.6888155:0.18403%,1.297536:0.18203%,1.329574:0.16825%,0.6567776:0.0769%,1.810143:0.07535%,0.6407586:0.06023%,1.8261619999999998:0.03134%,0.6247397:0.01934%,1.842181:0.01156%,0.6087206999999999:0.01022%,1.8582:0.00489%,0.5766828:0.004%,0.5446448:0.00089%,0.5606638:0.00067%,1.9703330000000001:0.00067%,1.9062569999999999:0.00044%,0.1441707:0.00044%,0.08009483:0.00044%,0.25630349999999996:0.00022%,0.1762086:0.00022%,0.49658800000000003:0.00022%,0.3363983:0.00022%,0.44853109999999996:0.00022%,1.890238:0.00022%,0.2883414:0.00022%,0.48056899999999997:0.00022%,0.41649309999999995:0.00022%]
+[INFO] ** PIT503:869 (0.19315%)
+[INFO] ** FIT601:3696 (0.82148%)
+[INFO] ** P601:[1:100.0%]
+[INFO] ** P602:[1:99.09006%,2:0.90994%]
+[INFO] ** P603:[1:100.0%]
+[INFO] ** Normal/Attack:[Normal:87.85981%,Attack:12.14019%]
+[33mencode_numeric_zscore  Timestamp[0m
+[33mencode_numeric_zscore FIT101[0m
+[33mencode_numeric_zscore LIT101[0m
+[33mencode_numeric_zscore  MV101[0m
+[33mencode_numeric_zscore P101[0m
+[33mencode_numeric_zscore P102[0m
+[33mencode_numeric_zscore  AIT201[0m
+[33mencode_numeric_zscore AIT202[0m
+[33mencode_numeric_zscore AIT203[0m
+[33mencode_numeric_zscore FIT201[0m
+[33mencode_numeric_zscore  MV201[0m
+[33mencode_numeric_zscore  P201[0m
+[33mencode_numeric_zscore  P202[0m
+[33mencode_numeric_zscore P203[0m
+[33mencode_numeric_zscore  P204[0m
+[33mencode_numeric_zscore P205[0m
+[33mencode_numeric_zscore P206[0m
+[33mencode_numeric_zscore DPIT301[0m
+[33mencode_numeric_zscore FIT301[0m
+[33mencode_numeric_zscore LIT301[0m
+[33mencode_numeric_zscore MV301[0m
+[33mencode_numeric_zscore MV302[0m
+[33mencode_numeric_zscore  MV303[0m
+[33mencode_numeric_zscore MV304[0m
+[33mencode_numeric_zscore P301[0m
+[33mencode_numeric_zscore P302[0m
+[33mencode_numeric_zscore AIT401[0m
+[33mencode_numeric_zscore AIT402[0m
+[33mencode_numeric_zscore FIT401[0m
+[33mencode_numeric_zscore LIT401[0m
+[33mencode_numeric_zscore P401[0m
+[33mencode_numeric_zscore P402[0m
+[33mencode_numeric_zscore P403[0m
+[33mencode_numeric_zscore P404[0m
+[33mencode_numeric_zscore UV401[0m
+[33mencode_numeric_zscore AIT501[0m
+[33mencode_numeric_zscore AIT502[0m
+[33mencode_numeric_zscore AIT503[0m
+[33mencode_numeric_zscore AIT504[0m
+[33mencode_numeric_zscore FIT501[0m
+[33mencode_numeric_zscore FIT502[0m
+[33mencode_numeric_zscore FIT503[0m
+[33mencode_numeric_zscore FIT504[0m
+[33mencode_numeric_zscore P501[0m
+[33mencode_numeric_zscore P502[0m
+[33mencode_numeric_zscore PIT501[0m
+[33mencode_numeric_zscore PIT502[0m
+[33mencode_numeric_zscore PIT503[0m
+[33mencode_numeric_zscore FIT601[0m
+[33mencode_numeric_zscore P601[0m
+[33mencode_numeric_zscore P602[0m
+[33mencode_numeric_zscore P603[0m
+[INFO] result_column: Normal/Attack
+[33mencode_text_index Normal/Attack[0m
+[INFO] num_classes 2
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split
+[INFO] fitting svm
+[INFO] Testing SVM
+[INFO] statistics
+Accuracy: 0.9857574679943101
+Recall 0.9984498794350671
+precision 0.9855097101942039
+true  positives: 98549
+true  negatives: 12329
+false positives: 153
+false negatives: 153
