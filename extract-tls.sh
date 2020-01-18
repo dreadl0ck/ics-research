@@ -1,9 +1,10 @@
+
 #!/bin/bash
 
 for f in *.pcap
 do
-	mkdir -p modbus
+	mkdir -p tls
 	filename=$(basename -- "$f")
 	file=${filename%.pcap}
-	tcpdump -r "$f" -w "modbus/$file-modbus.pcap" tcp port 502
+	tcpdump -r "$f" -w "tls/$file-tls.pcap" tcp port 443
 done

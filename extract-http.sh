@@ -2,8 +2,8 @@
 
 for f in *.pcap
 do
-	mkdir -p modbus
+	mkdir -p http
 	filename=$(basename -- "$f")
 	file=${filename%.pcap}
-	tcpdump -r "$f" -w "modbus/$file-modbus.pcap" tcp port 502
+	tcpdump -r "$f" -w "http/$file-http.pcap" tcp port 80
 done
