@@ -1,0 +1,55 @@
+# External
+
+91.189.94.4 	pugot.canonical.com
+153.254.86.163	Valve-Corp-HK
+118.201.255.203	bb118-201-255-203.singnet.com.sg
+8.8.8.8			Google-DNS
+
+# Plant Internals
+
+0.0.0.0				
+10.10.10.2
+169.254.24.119
+192.168.1.1
+
+# 104 DMZ
+192.168.1.118
+192.168.1.130
+192.168.1.175
+192.168.1.176
+192.168.1.177
+192.168.1.178
+192.168.1.179
+192.168.1.181
+192.168.1.183
+
+# Process
+192.168.1.10	P1-PCN-Primary
+192.168.1.11	P1-PCN-Secondary
+192.168.1.20	P2-PCN-Primary
+192.168.1.21	P2-PCN-Secondary
+192.168.1.30	P3-PCN-Primary
+192.168.1.31	P3-PCN-Secondary
+192.168.1.40	P4-PCN-Primary
+192.168.1.41	P4-PCN-Secondary
+192.168.1.50	P5-PCN-Primary
+192.168.1.51	P5-PCN-Secondary
+192.168.1.60	P6-PCN-Primary
+192.168.1.61	P6-PCN-Secondary
+
+192.168.1.90
+192.168.1.99
+
+192.168.1.100
+
+192.168.1.105	Wireless-AP-Plant-Control-Net
+192.168.1.106
+
+192.168.1.200	Historian-Server
+192.168.1.201	Engineering-Workstation
+
+192.168.1.219
+192.168.1.220
+192.168.1.230
+192.168.1.233
+192.168.1.234
