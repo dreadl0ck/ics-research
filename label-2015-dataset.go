@@ -53,6 +53,11 @@ var (
 	flagAttackList = flag.String("attacks", "", "attack list CSV")
 	flagDir        = flag.String("dir", ".", "input directory (default is current directory)")
 	flagOut        = flag.String("out", ".", "output path")
+	// TODO
+	flagWorkers = flag.Int("workers", 100, "number of parallel processed files")
+
+	hitMap     = make(map[string]int)
+	hitMapLock sync.Mutex
 )
 
 func main() {
@@ -198,6 +203,11 @@ func main() {
 						if a.affectsHosts(r[7], r[8]) {
 							classification = a.AttackName
 							fmt.Println("match for", a.AttackName)
+
+							hitMapLock.Lock()
+							hitMap[a.AttackName]++
+							hitMapLock.Unlock()
+
 							numMatches++
 							break
 						}
@@ -224,6 +234,10 @@ func main() {
 	fmt.Println("started all jobs, waiting...")
 	wg.Wait()
 
+	fmt.Println("labels:")
+	for attackName, hits := range hitMap {
+		fmt.Println(attackName, hits)
+	}
 }
 
 func (a attack) affectsHosts(src, dst string) bool {
