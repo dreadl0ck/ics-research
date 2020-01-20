@@ -12,10 +12,12 @@ import (
 	"encoding/csv"
 	"flag"
 	"fmt"
+	"github.com/evilsocket/islazy/tui"
 	"io"
 	"log"
 	"os"
 	"path/filepath"
+	"sort"
 	"strconv"
 	"strings"
 	"sync"
@@ -128,10 +130,42 @@ func main() {
 	fmt.Println("started all jobs, waiting...")
 	wg.Wait()
 
-	fmt.Println("labels:")
-	for attackName, hits := range hitMap {
-		fmt.Println(attackName, hits)
+	// sort and print mapping stats
+	var atks attackResults
+	for n, hits := range hitMap {
+		atks = append(atks, attackResult{
+			name: n,
+			hits: hits,
+		})
 	}
+
+	sort.Sort(atks)
+
+	var rows [][]string
+	for _, a := range atks {
+		rows = append(rows, []string{strconv.Itoa(a.hits), a.name})
+	}
+
+	tui.Table(os.Stdout, []string{"Hits", "AttackName"}, rows)
+}
+
+// attackResults implements the sort.Sort interface
+
+type attackResults []attackResult
+
+type attackResult struct {
+	name string
+	hits int
+}
+
+func (s attackResults) Len() int {
+	return len(s)
+}
+func (s attackResults) Swap(i, j int) {
+	s[i], s[j] = s[j], s[i]
+}
+func (s attackResults) Less(i, j int) bool {
+	return s[i].hits < s[j].hits
 }
 
 /*
@@ -406,7 +440,7 @@ func (t task) label() {
 			if err != nil {
 				ti, err = time.Parse("2-Jan-0615:04:05", r[1]+r[2])
 				if err != nil {
-					log.Println(info, err)
+					log.Println(info, err, "file:", t.file, "line:", count)
 					sec, err := strconv.ParseInt(r[1]+r[2], 10, 64)
 					if err != nil {
 						fmt.Println(info, " no valid timestamp format found!", t.file)
