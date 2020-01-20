@@ -57,7 +57,7 @@ var (
 	flagAttackList = flag.String("attacks", "", "attack list CSV")
 	flagInput        = flag.String("in", ".", "input directory (default is current directory)")
 	flagOut        = flag.String("out", ".", "output path")
-	flagNumWorkers = flag.Int("workers", 10, "number of parallel processed files")
+	flagNumWorkers = flag.Int("workers", 100, "number of parallel processed files")
 
 	// stats about applied labels
 	hitMap     = make(map[string]int)
@@ -147,6 +147,20 @@ func main() {
 	}
 
 	tui.Table(os.Stdout, []string{"Hits", "AttackName"}, rows)
+
+	// print names of attacks that could not be mapped
+	var notMatched []string
+	for _, a := range attacks {
+		if _, ok := hitMap[a.AttackName]; !ok {
+			notMatched = append(notMatched, a.AttackName)
+		}
+	}
+	if len(notMatched) > 0 {
+		fmt.Println("could not map the following attacks:")
+	}
+	for _, name := range notMatched {
+		fmt.Println("-", name)
+	}
 }
 
 // attackResults implements the sort.Sort interface
