@@ -24,14 +24,14 @@ Install tensorflow on macOS:
 
 	brew install libtensorflow
 	unset PYTHONPATH
-	pip3 install requests
-	pip3 install tensorflow
+	pip3 install requests pandas keras numpy matplotlib
+	pip3 install tensorflow sklearn
 
 ### Linux
 
 Install tensorflow on linux:
 
 	apt install python3-pip
-	pip3 install tensorflow
-	pip3 install keras
+	pip3 install requests pandas keras numpy matplotlib
+	pip3 install tensorflow sklearn
 

@@ -21,6 +21,8 @@
 192.168.1.178
 192.168.1.179
 192.168.1.181
+
+# talks via UDP to bb118-201-255-203.singnet.com.sg in Dec 10:22h pcap
 192.168.1.183
 
 # Process
@@ -48,8 +50,9 @@
 192.168.1.200	Historian-Server
 192.168.1.201	Engineering-Workstation
 
-192.168.1.219
-192.168.1.220
+192.168.1.219   # Microsoft Mac, talks a lot to Historian at 10:22. Possibly data exfiltration destination?
+192.168.1.220   # Microsoft Mac, talks a lot to Historian at 10:22 Possibly data exfiltration destination?
+
 192.168.1.230
 192.168.1.233
 192.168.1.234
