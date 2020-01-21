@@ -5,7 +5,7 @@ package main
 // go run label-2015-dataset.go data/2015-12-22_034215_69.log.part01_sorted.csv data/List_of_attacks_Final-fixed.csv
 // build:
 // GOOS=linux go build -o bin/label-2015-dataset label-2015-dataset.go
-// server:
+// server: cd /datasets/SWaT/01_SWaT_Dataset_Dec\ 2015/Network
 // label-2015-dataset -attacks List_of_attacks_Final-fixed.csv -out /home/***REMOVED***/labeled-SWaT-2015-network
 
 import (
@@ -47,6 +47,7 @@ var header = []string{
 	"Tag",
 	"Normal/Attack",
 }
+var headerLen = len(header)
 
 /*
  * Globals
@@ -482,7 +483,24 @@ func (t task) label() {
 			}
 		}
 
-		err = outputWriter.Write(append(r, classification))
+		final := append(r, classification)
+		if len(final) == 22 {
+
+			// remove empty column in some of the provided CSV data
+			final[19] = final[20]
+			final[20] = final[21]
+
+			// remove last elem
+			final = final[:21]
+		}
+
+		// ensure no corrupted data is written into the output file
+		if len(final) != headerLen {
+			fmt.Println(info, "file:", t.file, "line:", count)
+			log.Fatal("length of data line does not match header length:", len(final), "!=", len(header))
+		}
+
+		err = outputWriter.Write(final)
 		if err != nil {
 			log.Fatal(err)
 		}
