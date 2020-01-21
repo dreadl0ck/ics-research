@@ -97,7 +97,7 @@ func main() {
 
 	err := filepath.Walk(*flagInput, func(path string, info os.FileInfo, err error) error {
 
-		if filepath.Ext(path) == ".csv" && !strings.HasSuffix(path, "-labeled.csv") {
+		if strings.HasSuffix(path, "_sorted.csv") {
 			files = append(files, path)
 		}
 
