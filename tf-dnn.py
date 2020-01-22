@@ -1,4 +1,4 @@
-#!/usr/bin/env python -u
+#!/usr/bin/env python3 -u
 # coding: utf-8
 # python buffers stdout when it's not a terminal, -u flag unbuffers
 # used to get output live when using tee
