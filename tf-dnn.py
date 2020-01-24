@@ -686,4 +686,5 @@ print()
 
 print("[INFO] Validation score: {}".format(colored(score, 'yellow')))
 print("[INFO] Exec Time: {}".format(colored(hms_string(time.time() - start_time), 'yellow')))
+
 print("[INFO] done.")

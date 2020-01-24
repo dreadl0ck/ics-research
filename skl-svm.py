@@ -88,6 +88,13 @@ def encode_text_index(df, name):
     df[name] = le.fit_transform(df[name])
     return le.classes_
 
+def encode_outputtype(df, name):
+    """
+    Creates a boolean Series and casting to int converts True and False to 1 and 0 respectively.
+    """
+    print(colored("encode_outputtype " + name, "yellow"))
+    df[name] = 1 if df[name] == "normal" else 0 
+
 def encode_bool(df, name):
     """
     Creates a boolean Series and casting to int converts True and False to 1 and 0 respectively.
@@ -267,6 +274,8 @@ if arguments.sample != None:
 # Always drop columns that are unique for every record
 drop_col('UID', df)
 drop_col('SessionID', df)
+drop_col('date', df)
+drop_col('time', df)
 
 # Drop additionally specified columns from the dataset
 if arguments.drop != None:
@@ -475,27 +484,29 @@ encoders = {
     'ALPNs'              : encode_string, # string
     'Ja3'                : encode_string, # string
 
-    # SWaT 2015 Network CSVs
-    "num"                          : encode_numeric_zscore,
-    "date"                         : encode_string,
-    "time"                         : encode_string,
-    "orig"                         : encode_string,
-    "type"                         : encode_string,
-    "i/f_name"                     : encode_string,
-    "i/f_dir"                      : encode_string,
-    "src"                          : encode_string,
-    "dst"                          : encode_string,
-    "proto"                        : encode_string,
-    "appi_name"                    : encode_string,
-    "proxy_src_ip"                 : encode_string,
-    "Modbus_Function_Code"         : encode_numeric_zscore,
-    "Modbus_Function_Description"  : encode_string,
-    "Modbus_Transaction_ID"        : encode_numeric_zscore,
-    "SCADA_Tag"                    : encode_string,
-    "Modbus_Value"                 : encode_string,
-    "service"                      : encode_numeric_zscore,
-    "s_port"                       : encode_numeric_zscore,
-    "Tag"                          : encode_numeric_zscore,
+    #labeled dataset swat specific
+    'num'                             : encode_string,
+    'date'                            : encode_string,
+    'time'                            : encode_string,
+    'orig'                            : encode_string,
+    'type'                            : encode_string,
+    'i/f_name'                        : encode_string,
+    'i/f_dir'                         : encode_string,
+    'src'                             : encode_string,
+    'dst'                             : encode_string,
+    'proto'                           : encode_string,
+    'appi_name'                       : encode_string,
+    'proxy_src_ip'                    : encode_string,
+    'Modbus_Function_Code'            : encode_numeric_zscore,
+    'Modbus_Function_Description'     : encode_string,
+    'Modbus_Transaction_ID'           : encode_numeric_zscore,
+    'SCADA_Tag'                       : encode_string,
+    'Modbus_Value'                    : encode_string,
+    'service'                         : encode_numeric_zscore,
+    's_port'                          : encode_numeric_zscore,
+    'Tag'                             : encode_numeric_zscore,
+    'Normal/Attack'                   : encode_outputtype,
+
 }
 
 import datetime
@@ -534,9 +545,11 @@ print("[INFO] creating train/test split")
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=arguments.test_size, random_state=42)
 
 # Create the SVM classifer.
+print("[INFO] y_train.shape", y_train.shape)
+print("[INFO] x_train.shape", x_train.shape)
 clf = svm.SVC()
 print("[INFO] fitting svm")
-clf.fit(x_train,y_train[:,1])
+clf.fit(x_train,y_train)
 print("[INFO] Testing SVM")
 y_predict = clf.predict(x_test)
 
