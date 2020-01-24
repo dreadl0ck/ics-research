@@ -289,7 +289,11 @@ if arguments.sample != None:
 
 # Always drop columns that are unique for every record
 drop_col('UID', df)
+drop_col('Timestamp', df)
 drop_col('SessionID', df)
+drop_col('num', df)
+drop_col('date', df)
+drop_col('time', df)
 
 # Drop additionally specified columns from the dataset
 if arguments.drop != None:
@@ -554,6 +558,7 @@ df.dropna(inplace=True,axis=1)
 ##
 
 from keras.models import Sequential
+from keras.layers import Flatten
 from keras.layers.core import Dense, Activation
 from keras.callbacks import EarlyStopping
 
@@ -575,13 +580,47 @@ print("[INFO] creating neural network...")
 # Type Sequential is a linear stack of layers
 model = Sequential()
 
+# LSTM Layer experiments
+#from tensorflow.keras import layers
+
+# Add an Embedding layer expecting input vocab of size 1000, and
+# output embedding dimension of size 64.
+#model.add(layers.Embedding(input_dim=x.shape[1], output_dim=64))
+
+from keras import layers
+from keras.layers import InputLayer
+
+#x_train = x_train.reshape(-1, x.shape[0], x.shape[1])
+#x_test  = x_test.reshape(-1, x.shape[0], x.shape[1])
+#y_train = y_train.reshape(-1, y.shape[0], y.shape[1])
+#y_test = y_test.reshape(-1, y.shape[0], y.shape[1])
+
+#print("input_shape:", x.shape[1])
+#model.add(InputLayer(input_shape=(x.shape[1],), name="input"))
+#model.add(InputLayer(input_shape=(x.shape[0],x.shape[1],), name="input"))
+
+#print("shape:", x.shape)
+#print("x", x)
+#x.reshape((-1,x.shape[0],x.shape[1]))
+#print("x", x)
+#x = x[None,:,:]
+
+#model.add(Flatten())
+#model.add(Dense(10, input_shape=(x.shape[0],x.shape[1],)))
+#print("[INFO] add LSTM layer...")
+# Add a LSTM layer with 128 internal units.
+#model.add(layers.LSTM(128))
+#model.add(layers.LSTM(128, return_sequences=True))
+#model.add(Flatten())
+#model.add(layers.Dense(y.shape[1], activation='softmax'))
+
 # add layers
 # first layer has to specify the input dimension
 model.add(Dense(10, input_dim=x.shape[1], kernel_initializer='normal', activation='relu')) # OUTPUT size: 10
 model.add(Dense(50, input_dim=x.shape[1], kernel_initializer='normal', activation='relu')) # OUTPUT size: 50
 model.add(Dense(10, input_dim=x.shape[1], kernel_initializer='normal', activation='relu')) # OUTPUT size: 10
 model.add(Dense(1, kernel_initializer='normal'))
-model.add(Dense(y.shape[1],activation='softmax'))
+model.add(Dense(y.shape[1],activation='softmax')) 
 
 import keras
 
@@ -595,6 +634,8 @@ METRICS = [
     keras.metrics.Recall(name='recall'),
     keras.metrics.AUC(name='auc'),
 ]
+
+print("[INFO] compiling model...")
 
 # compile model
 # 
@@ -610,8 +651,10 @@ monitor = EarlyStopping(
 )
 
 print("[INFO] fitting model...")
+
 model.fit(
-    x_train,y_train,
+    x_train,
+    y_train,
     validation_data=(x_test,y_test),
     callbacks=[monitor],
     verbose=2,
