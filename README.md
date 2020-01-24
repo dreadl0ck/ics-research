@@ -1,5 +1,11 @@
 # README
 
+## Server
+
+The datasets are stored on a partition that needs to be mounted:
+
+	mount /dev/sdb1 /datasets/
+
 ## Dataset exploration
 
 Filter traffic for modbus proto
@@ -57,3 +63,31 @@ Grab TF source and build: https://www.tensorflow.org/install/source
     ./bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tensorflow_pkg
     pip install /tmp/tensorflow_pkg/tensorflow-version-tags.whl
     
+## Label 2015 dataset
+
+Build tool for linux:
+
+	GOOS=linux go build -o bin/label-2015-dataset label-2015-dataset.go
+	scp bin/label-2015-dataset ***REMOVED***@***REMOVED***:/home/***REMOVED***
+
+On server: 
+	
+	sudo mv /home/***REMOVED***/label-2015-dataset /usr/local/bin
+	cd /datasets/SWaT/01_SWaT_Dataset_Dec\ 2015/Network
+	screen -L label-2015-dataset -attacks List_of_attacks_Final-fixed.csv -out /home/***REMOVED***/labeled-SWaT-2015-network
+
+Compress data:
+
+	screen -L zip -r /home/***REMOVED***/labeled-SWaT-2015-network.zip /home/***REMOVED***/labeled-SWaT-2015-network
+
+## Label 2019 dataset
+
+On server:
+
+	screen -L net.label -custom SWaT2019-attacks.csv
+
+## Tricks
+
+Remove labeled CSV files inside the current directory to free up storage space:
+
+	find . -iname *_labeled.csv -exec rm "{}" \;

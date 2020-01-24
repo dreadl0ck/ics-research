@@ -1,7 +1,7 @@
 package main
 
 // simple labeling for CSV files from the SWaT 2015 Network CSV dataset
-// usage:
+// usage for testing:
 // go run label-2015-dataset.go data/2015-12-22_034215_69.log.part01_sorted.csv data/List_of_attacks_Final-fixed.csv
 // build:
 // GOOS=linux go build -o bin/label-2015-dataset label-2015-dataset.go
