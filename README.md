@@ -80,11 +80,19 @@ Compress data:
 
 	screen -L zip -r /home/***REMOVED***/labeled-SWaT-2015-network.zip /home/***REMOVED***/labeled-SWaT-2015-network
 
+Download:
+
+	scp ***REMOVED***@***REMOVED***:/home/***REMOVED***/labeled-SWaT-2015-network.zip .
+
 ## Label 2019 dataset
 
-On server:
+On server, test by moving into a directory that contains audit records:
 
-	screen -L net.label -custom SWaT2019-attacks.csv
+	screen -L net.label -custom ../SWaT2019-attacks.csv
+
+To process all files, use the script:
+
+	screen -L label-audit-records.sh
 
 ## Tricks
 

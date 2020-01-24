@@ -546,6 +546,7 @@ num_classes = len(outcomes)
 print("[INFO] num_classes", num_classes)
 
 # Remove incomplete records after encoding
+# TODO: check how many records are removed by this
 df.dropna(inplace=True,axis=1)
 
 ##
@@ -616,9 +617,9 @@ from keras.layers import InputLayer
 
 # add layers
 # first layer has to specify the input dimension
-model.add(Dense(10, input_dim=x.shape[1], kernel_initializer='normal', activation='relu')) # OUTPUT size: 10
-model.add(Dense(50, input_dim=x.shape[1], kernel_initializer='normal', activation='relu')) # OUTPUT size: 50
-model.add(Dense(10, input_dim=x.shape[1], kernel_initializer='normal', activation='relu')) # OUTPUT size: 10
+model.add(Dense(25, input_dim=x.shape[1], kernel_initializer='normal', activation='relu')) # OUTPUT size: 10
+model.add(Dense(100, input_dim=x.shape[1], kernel_initializer='normal', activation='relu')) # OUTPUT size: 50
+model.add(Dense(25, input_dim=x.shape[1], kernel_initializer='normal', activation='relu')) # OUTPUT size: 10
 model.add(Dense(1, kernel_initializer='normal'))
 model.add(Dense(y.shape[1],activation='softmax')) 
 
