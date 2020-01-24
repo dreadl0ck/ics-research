@@ -1,4 +1,4 @@
-#!/usr/bin/env python -u
+#!/usr/bin/env python3 -u
 # coding: utf-8
 # python buffers stdout when it's not a terminal, -u flag unbuffers
 # used to get output live when using tee
@@ -15,17 +15,17 @@
 #################################################################################################################################################################
 
 import pandas as pd
-import io
-import requests
+#import io
+#import requests
 import os
 
 #import tensorflow.contrib.learn as skflow
 
 import numpy as np
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 import argparse
-import shutil
-import base64
+#import shutil
+#import base64
 import time
 import sys
 
@@ -497,9 +497,31 @@ encoders = {
     'SupportedPoints'    : encode_string, # string 
     'ALPNs'              : encode_string, # string
     'Ja3'                : encode_string, # string
+
+    # SWaT 2015 Network CSVs
+    "num"                          : encode_numeric_zscore,
+    "date"                         : encode_string,
+    "time"                         : encode_string,
+    "orig"                         : encode_string,
+    "type"                         : encode_string,
+    "i/f_name"                     : encode_string,
+    "i/f_dir"                      : encode_string,
+    "src"                          : encode_string,
+    "dst"                          : encode_string,
+    "proto"                        : encode_string,
+    "appi_name"                    : encode_string,
+    "proxy_src_ip"                 : encode_string,
+    "Modbus_Function_Code"         : encode_numeric_zscore,
+    "Modbus_Function_Description"  : encode_string,
+    "Modbus_Transaction_ID"        : encode_numeric_zscore,
+    "SCADA_Tag"                    : encode_string,
+    "Modbus_Value"                 : encode_string,
+    "service"                      : encode_numeric_zscore,
+    "s_port"                       : encode_numeric_zscore,
+    "Tag"                          : encode_numeric_zscore,
 }
 
-import datetime
+#import datetime
 
 # Encode all values by looking up each column name and picking the configured encoding method
 for col in df.columns:

@@ -5,7 +5,7 @@ package main
 // go run label-2015-dataset.go data/2015-12-22_034215_69.log.part01_sorted.csv data/List_of_attacks_Final-fixed.csv
 // build:
 // GOOS=linux go build -o bin/label-2015-dataset label-2015-dataset.go
-// server:
+// server: cd /datasets/SWaT/01_SWaT_Dataset_Dec\ 2015/Network
 // label-2015-dataset -attacks List_of_attacks_Final-fixed.csv -out /home/***REMOVED***/labeled-SWaT-2015-network
 
 import (
@@ -47,6 +47,7 @@ var header = []string{
 	"Tag",
 	"Normal/Attack",
 }
+var headerLen = len(header)
 
 /*
  * Globals
@@ -57,7 +58,7 @@ var (
 	flagAttackList = flag.String("attacks", "", "attack list CSV")
 	flagInput        = flag.String("in", ".", "input directory (default is current directory)")
 	flagOut        = flag.String("out", ".", "output path")
-	flagNumWorkers = flag.Int("workers", 10, "number of parallel processed files")
+	flagNumWorkers = flag.Int("workers", 100, "number of parallel processed files")
 
 	// stats about applied labels
 	hitMap     = make(map[string]int)
@@ -96,7 +97,7 @@ func main() {
 
 	err := filepath.Walk(*flagInput, func(path string, info os.FileInfo, err error) error {
 
-		if filepath.Ext(path) == ".csv" && !strings.HasSuffix(path, "-labeled.csv") {
+		if strings.HasSuffix(path, "_sorted.csv") {
 			files = append(files, path)
 		}
 
@@ -147,6 +148,20 @@ func main() {
 	}
 
 	tui.Table(os.Stdout, []string{"Hits", "AttackName"}, rows)
+
+	// print names of attacks that could not be mapped
+	var notMatched []string
+	for _, a := range attacks {
+		if _, ok := hitMap[a.AttackName]; !ok {
+			notMatched = append(notMatched, a.AttackName)
+		}
+	}
+	if len(notMatched) > 0 {
+		fmt.Println("could not map the following attacks:")
+	}
+	for _, name := range notMatched {
+		fmt.Println("-", name)
+	}
 }
 
 // attackResults implements the sort.Sort interface
@@ -468,7 +483,24 @@ func (t task) label() {
 			}
 		}
 
-		err = outputWriter.Write(append(r, classification))
+		final := append(r, classification)
+		if len(final) == 22 {
+
+			// remove empty column in some of the provided CSV data
+			final[19] = final[20]
+			final[20] = final[21]
+
+			// remove last elem
+			final = final[:21]
+		}
+
+		// ensure no corrupted data is written into the output file
+		if len(final) != headerLen {
+			fmt.Println(info, "file:", t.file, "line:", count)
+			log.Fatal("length of data line does not match header length:", len(final), "!=", len(header))
+		}
+
+		err = outputWriter.Write(final)
 		if err != nil {
 			log.Fatal(err)
 		}
