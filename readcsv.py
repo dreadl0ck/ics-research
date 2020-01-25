@@ -83,3 +83,4 @@ for i in range(0,len(files),10):
     # it can be configured using the test_size commandline flag
     x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=arguments.test_size, random_state=42)  
     model.fit(x_train,y_train,validation_data=(x_test,y_test), callbacks=[monitor], verbose=2, epochs=1)
+    model.save_weights('./checkpoints/epoch-{}-files-{}-{}.ckpt'.format(1,i,i+10))
