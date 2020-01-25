@@ -243,14 +243,19 @@ parser.add_argument('-sample', type=float, nargs='?', help='optionally sample on
 parser.add_argument('-dropna', default=False, action='store_true', help='drop rows with missing values')
 parser.add_argument('-string_dummy', default=False, action='store_true', help='encode strings as dummy variables')
 parser.add_argument('-string_index', default=True, action='store_true', help='encode strings as indices (default)')
-parser.add_argument('-test_size', type=float, default=0.25, help='specify size of the test data in percent (default: 0.25)')
+parser.add_argument('-test_size', type=float, default=0.5, help='specify size of the test data in percent (default: 0.25)')
 parser.add_argument('-loss', type=str, default='categorical_crossentropy', help='set function (default: categorical_crossentropy)')
 parser.add_argument('-optimizer', type=str, default='adam', help='set optimizer (default: adam)')
 parser.add_argument('-result_column', type=str, default='Normal/Attack', help='set name of the column with the prediction')
+parser.add_argument('-numCoreLayers', type=int, default=1, help='set number of core layers to use')
+parser.add_argument('-shuffle', default=False, help='shuffle data before feeding it to the DNN')
+parser.add_argument('-dropoutLayer', default=False, help='insert a dropout layer at the end')
+parser.add_argument('-coreLayerSize', type=int, default=24, help='shuffle data before feeding it to the DNN')
+parser.add_argument('-lstm', default=False, help='use a LSTM network')
 
-## parse commandline arguments
+# parse commandline arguments
 arguments = parser.parse_args()
-if arguments.read == None:
+if arguments.read is None:
     print("[INFO] need an input file. use the -r flag")
     exit(1)
 
@@ -277,7 +282,7 @@ df = pd.read_csv(
 
 print(colored("Read {} rows.".format(len(df)), "yellow"))
 
-if arguments.sample != None:
+if arguments.sample is not None:
     if arguments.sample >= 1.0:
         parser.error("invalid sample rate")
     
@@ -289,10 +294,18 @@ if arguments.sample != None:
 
 # Always drop columns that are unique for every record
 drop_col('UID', df)
+
+# only drop timestamp when using a normal DNN
+if not arguments.lstm:
+    drop_col('Timestamp', df)
+
 drop_col('SessionID', df)
+drop_col('num', df)
+drop_col('date', df)
+drop_col('time', df)
 
 # Drop additionally specified columns from the dataset
-if arguments.drop != None:
+if arguments.drop is not None:
     for col in arguments.drop.split(","):
         drop_col(col, df)
 
@@ -321,7 +334,7 @@ def expand_categories(values):
 def analyze(filename):
     print()
     print("[INFO] Analyzing: {}".format(filename))
-    df = pd.read_csv(filename,encoding=ENCODING)
+    df = pd.read_csv(filename, encoding=ENCODING)
     cols = df.columns.values
     total = float(len(df))
 
@@ -542,7 +555,14 @@ num_classes = len(outcomes)
 print("[INFO] num_classes", num_classes)
 
 # Remove incomplete records after encoding
-df.dropna(inplace=True,axis=1)
+# TODO: check how many records are removed by this
+df.dropna(inplace=True, axis=1)
+
+if arguments.lstm:
+    # drop last elem from dataframe, in case it contains an uneven number of elements
+    if len(df) % 2 != 0:
+        print("odd number of items, dropping last one...")
+        df = df.iloc[:-1]
 
 ##
 ## DEEP NEURAL NETWORK
@@ -553,21 +573,34 @@ df.dropna(inplace=True,axis=1)
 ## Afterwards, the Neural Network is trained and classification accuracy validated.
 ##
 
+BATCH_SIZE = 2048
+
+import keras
 from keras.models import Sequential
 from keras.layers.core import Dense, Activation
 from keras.callbacks import EarlyStopping
+from keras import layers
+from keras.layers import Dropout
+from keras.layers import InputLayer
+from keras.layers import Flatten
 
 print("[INFO] breaking into predictors and prediction...")
 
 # Break into X (predictors) & y (prediction)
 x, y = to_xy(df, arguments.result_column)
 
-print("[INFO] creating train/test split")
+print("[INFO] creating train/test split, data shuffling:", arguments.shuffle)
 
 # Create a test/train split.
 # by default, 25% of data is used for testing
 # it can be configured using the test_size commandline flag
-x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=arguments.test_size, random_state=42)
+x_train, x_test, y_train, y_test = train_test_split(
+    x,
+    y,
+    test_size=arguments.test_size,
+    random_state=42,
+    shuffle=arguments.shuffle
+)
 
 print("[INFO] creating neural network...")
 
@@ -575,15 +608,73 @@ print("[INFO] creating neural network...")
 # Type Sequential is a linear stack of layers
 model = Sequential()
 
-# add layers
-# first layer has to specify the input dimension
-model.add(Dense(10, input_dim=x.shape[1], kernel_initializer='normal', activation='relu')) # OUTPUT size: 10
-model.add(Dense(50, input_dim=x.shape[1], kernel_initializer='normal', activation='relu')) # OUTPUT size: 50
-model.add(Dense(10, input_dim=x.shape[1], kernel_initializer='normal', activation='relu')) # OUTPUT size: 10
-model.add(Dense(1, kernel_initializer='normal'))
-model.add(Dense(y.shape[1],activation='softmax'))
+print("--------SHAPES--------")
+print("x_train.shape", x_train.shape)
+print("x_test.shape", x_test.shape)
+print("y_train.shape", y_train.shape)
+print("y_test.shape", y_test.shape)
 
-import keras
+if arguments.lstm:
+
+    print(colored("[INFO] using LSTM layers", 'yellow'))
+    x_train = x_train.reshape(-1, x_train.shape[0], x.shape[1])
+    x_test = x_test.reshape(-1, x_test.shape[0], x.shape[1])
+    y_train = y_train.reshape(-1, y_train.shape[0], y.shape[1])
+    y_test = y_test.reshape(-1, y_test.shape[0], y.shape[1])
+
+    print("--------RESHAPED--------")
+    print("x_train.shape", x_train.shape)
+    print("x_test.shape", x_test.shape)
+    print("y_train.shape", y_train.shape)
+    print("y_test.shape", y_test.shape)
+
+    # TODO: using a timestep size of 1 and feeding numRows batches should also work
+    #x_train = np.reshape(x_train, (x_train.shape[0], 1, x_train.shape[1]))
+    #x_test = np.reshape(x_test, (x_test.shape[0], 1, x_test.shape[1]))
+
+    # construct input shape
+    input_shape=(x_train.shape[1],x.shape[1],)
+    print("> input_shape", input_shape)
+
+    lstmNeurons=12
+    print("> LSTM first and last layer neurons:", lstmNeurons)
+
+    # - The input of the LSTM is always a 3D array. (batch_size, time_steps, seq_len)
+    # - The output of the LSTM could be a 2D array or 3D array depending upon the return_sequences argument.
+    # - If return_sequence is False, the output is a 2D array. (batch_size, units)
+    # - If return_sequence is True, the output is a 3D array. (batch_size, time_steps, units)
+
+    model.add(layers.LSTM(lstmNeurons, input_shape=input_shape, return_sequences=True))
+
+    # add requested number of core layers
+    for i in range(0, arguments.numCoreLayers):
+        print("adding core layer", i)
+        model.add(layers.LSTM(24, input_shape=input_shape, return_sequences=True))
+
+    # add final LSTM layer
+    model.add(layers.LSTM(lstmNeurons, input_shape=input_shape, return_sequences=True))
+
+    # add dropout layer if requested
+    if arguments.dropoutLayer:
+        model.add(Dropout(rate=0.5))
+
+    # flatten if requested
+    # TODO: currently this breaks the shape
+    #model.add(Flatten())
+
+    # final layer
+    model.add(layers.Dense(y.shape[1], activation='softmax'))
+else:
+
+    print(colored("[INFO] using sequential dense layers", 'yellow'))
+    # DNN
+    # add layers
+    # first layer has to specify the input dimension
+    model.add(Dense(25, input_dim=x.shape[1], kernel_initializer='normal', activation='relu')) # OUTPUT size: 10
+    model.add(Dense(100, input_dim=x.shape[1], kernel_initializer='normal', activation='relu')) # OUTPUT size: 50
+    model.add(Dense(25, input_dim=x.shape[1], kernel_initializer='normal', activation='relu')) # OUTPUT size: 10
+    model.add(Dense(1, kernel_initializer='normal'))
+    model.add(Dense(y.shape[1], activation='softmax'))
 
 METRICS = [
     keras.metrics.TruePositives(name='tp'),
@@ -596,9 +687,16 @@ METRICS = [
     keras.metrics.AUC(name='auc'),
 ]
 
+print(colored("[INFO] compiling model...", 'yellow'))
+
 # compile model
 # 
-model.compile(loss=arguments.loss, optimizer=arguments.optimizer, metrics=METRICS)
+model.compile(
+    loss=arguments.loss, 
+    optimizer=arguments.optimizer, 
+    metrics=METRICS
+)
+model.summary()
 
 # create monitor for callback
 monitor = EarlyStopping(
@@ -609,27 +707,29 @@ monitor = EarlyStopping(
     mode='auto'
 )
 
-print("[INFO] fitting model...")
+print(colored("[INFO] fitting model...", 'yellow'))
+
+# TODO: batch_size=BATCH_SIZE, ?
 model.fit(
-    x_train,y_train,
+    x_train,
+    y_train,
     validation_data=(x_test,y_test),
     callbacks=[monitor],
     verbose=2,
     epochs=1000
 )
 
-print("[INFO] measuring accuracy...")
+print(colored("[INFO] measuring accuracy...", 'yellow'))
+
 pred = model.predict(x_test)
 pred = np.argmax(pred,axis=1)
 y_eval = np.argmax(y_test,axis=1)
 score = metrics.accuracy_score(y_eval, pred)
 
-print("[INFO] model summary:")
+print(colored("[INFO] model summary:", 'yellow'))
 model.summary()
 
-BATCH_SIZE = 2048
-
-print("[INFO] metrics:")
+print(colored("[INFO] metrics:", 'yellow'))
 baseline_results = model.evaluate(
     x_test,
     y_test, 

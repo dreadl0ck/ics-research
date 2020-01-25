@@ -1,7 +1,7 @@
 package main
 
 // simple labeling for CSV files from the SWaT 2015 Network CSV dataset
-// usage:
+// usage for testing:
 // go run label-2015-dataset.go data/2015-12-22_034215_69.log.part01_sorted.csv data/List_of_attacks_Final-fixed.csv
 // build:
 // GOOS=linux go build -o bin/label-2015-dataset label-2015-dataset.go
@@ -12,7 +12,6 @@ import (
 	"encoding/csv"
 	"flag"
 	"fmt"
-	"github.com/evilsocket/islazy/tui"
 	"io"
 	"log"
 	"os"
@@ -22,6 +21,8 @@ import (
 	"strings"
 	"sync"
 	"time"
+
+	"github.com/evilsocket/islazy/tui"
 )
 
 var header = []string{
@@ -56,7 +57,7 @@ var headerLen = len(header)
 var (
 	// commandline flags
 	flagAttackList = flag.String("attacks", "", "attack list CSV")
-	flagInput        = flag.String("in", ".", "input directory (default is current directory)")
+	flagInput      = flag.String("in", ".", "input directory (default is current directory)")
 	flagOut        = flag.String("out", ".", "output path")
 	flagNumWorkers = flag.Int("workers", 100, "number of parallel processed files")
 
@@ -69,7 +70,7 @@ var (
 
 	// worker pool
 	workers []chan task
-	next int
+	next    int
 )
 
 /*
@@ -86,9 +87,9 @@ func main() {
 	attacks = parseAttackList(*flagAttackList)
 
 	var (
-		files   []string
-		start   = time.Now()
-		wg      sync.WaitGroup
+		files []string
+		start = time.Now()
+		wg    sync.WaitGroup
 	)
 
 	defer func() {
@@ -114,7 +115,7 @@ func main() {
 	fmt.Println("output directory:", *flagOut)
 	fmt.Println("initializing", *flagNumWorkers, "workers")
 
-	for i:=0; i < *flagNumWorkers; i++ {
+	for i := 0; i < *flagNumWorkers; i++ {
 		workers = append(workers, worker())
 	}
 
@@ -325,9 +326,9 @@ func parseAttackList(path string) (labels []*attack) {
  */
 
 type task struct {
-	file string
+	file                string
 	current, totalFiles int
-	wg *sync.WaitGroup
+	wg                  *sync.WaitGroup
 }
 
 func handleTask(t task) {
@@ -352,7 +353,7 @@ func handleTask(t task) {
 
 // worker spawns a new worker goroutine
 // and returns a channel for receiving input packets.
-func worker() (chan task) {
+func worker() chan task {
 
 	// init channel to receive paths
 	chanInput := make(chan task)
@@ -374,7 +375,7 @@ func worker() (chan task) {
 
 func (t task) label() {
 
-	info := "["+ strconv.Itoa(t.current+1) + "/" + strconv.Itoa(t.totalFiles)+"]"
+	info := "[" + strconv.Itoa(t.current+1) + "/" + strconv.Itoa(t.totalFiles) + "]"
 	fmt.Println(info, "processing", t.file)
 
 	inputFile, err := os.Open(t.file)
@@ -470,7 +471,7 @@ func (t task) label() {
 		for _, a := range attacks {
 			if a.during(ti) {
 				if a.affectsHosts(r[7], r[8]) {
-					classification = a.AttackName
+					classification = a.AttackType
 					//fmt.Println("match for", a.AttackName)
 
 					hitMapLock.Lock()
