@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+from sklearn.model_selection import train_test_split
 import argparse
 import pandas as pd
 from glob import glob
@@ -53,34 +54,10 @@ if arguments.read == None:
 files = glob(arguments.read)
 files.sort()
 
+x_input = 19
+y_amount = 2
 
-# Create neural network
-# Type Sequential is a linear stack of layers
-#model = Sequential()
-
-# add layers
-# first layer has to specify the input dimension
-#model.add(Dense(10, input_dim=x.shape[1], kernel_initializer='normal', activation='relu')) # OUTPUT size: 10
-#model.add(Dense(50, input_dim=x.shape[1], kernel_initializer='normal', activation='relu')) # OUTPUT size: 50
-#model.add(Dense(10, input_dim=x.shape[1], kernel_initializer='normal', activation='relu')) # OUTPUT size: 10
-#model.add(Dense(1, kernel_initializer='normal'))
-#model.add(Dense(y.shape[1],activation='softmax'))
-
-
-METRICS = [ 
-    keras.metrics.TruePositives(name='tp'),
-    keras.metrics.FalsePositives(name='fp'),
-    keras.metrics.TrueNegatives(name='tn'),
-    keras.metrics.FalseNegatives(name='fn'), 
-    keras.metrics.BinaryAccuracy(name='accuracy'),
-    keras.metrics.Precision(name='precision'),
-    keras.metrics.Recall(name='recall'),
-    keras.metrics.AUC(name='auc'),
-]
-
-# compile model
-# 
-#model.compile(loss=arguments.loss, optimizer=arguments.optimizer, metrics=METRICS)
+model = create_dnn(x_input, y_amount, arguments.loss, arguments.optimizer)
 print("info 1")
 for i in range(0,len(files),10):
 
@@ -97,10 +74,12 @@ for i in range(0,len(files),10):
      
     # Break into X (predictors) & y (prediction)
     x, y = to_xy(df, arguments.result_column)
-    print("x.shape",x.shape)    
+    print("x.shape",x.shape, "y.shape", y.shape)
+    print(y[:,:3])
     print("[INFO] creating train/test split")
     
     # Create a test/train split.
     # by default, 25% of data is used for testing
     # it can be configured using the test_size commandline flag
     x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=arguments.test_size, random_state=42)  
+    model.fit(x_train,y_train,validation_data=(x_test,y_test), callbacks=[monitor], verbose=2, epochs=1)

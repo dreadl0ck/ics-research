@@ -1,4 +1,10 @@
+from keras.models import Sequential
+from keras.layers.core import Dense, Activation 
+import keras
+import numpy as np
+import pandas as pd
 from termcolor import colored
+from sklearn import preprocessing
 
 
 
@@ -8,7 +14,7 @@ def encode_string(df, name):
     """
     # replace missing values (NaN) with an empty string
     df[name].fillna('',inplace=True)
-    print(colored("encode_text_index " + name, "yellow"))
+    print(colored("encode_string " + name, "yellow"))
     le = preprocessing.LabelEncoder()
     df[name] = le.fit_transform(df[name])
     return le.classes_
@@ -69,18 +75,29 @@ def to_xy(df, target):
     # find out the type of the target column.  Is it really this hard? :(
     target_type = df[target].dtypes
     target_type = target_type[0] if hasattr(target_type, '__iter__') else target_type
+ 
+    values = df[target].values
+    normal = np.where(values == 0)
+
+    y_vector = np.zeros((values.shape[0],2))
+    y_vector[:,1] = 1
+    y_vector[normal,0] = 1
+    y_vector[normal,1] = 0
+    return df[result].values.astype(np.float32), y_vector
+
     # Encode to int for classification, float otherwise. TensorFlow likes 32 bits.
-    if target_type in (np.int64, np.int32):
-        # Classification
-        dummies = pd.get_dummies(df[target])
-        # as_matrix is deprecated
-        #return df.as_matrix(result).astype(np.float32), dummies.as_matrix().astype(np.float32)
-        return df[result].values.astype(np.float32), dummies.values.astype(np.float32)
-    else:
-        # Regression
-        # as_matrix is deprecated
-        #return df.as_matrix(result).astype(np.float32), df.as_matrix([target]).astype(np.float32)
-        return df[result].values.astype(np.float32), df[target].values.astype(np.float32)
+#     if target_type in (np.int64, np.int32):
+#         # Classification
+#         dummies = pd.get_dummies(df[target])
+#         print("dummies.values.shape",df[target].shape)
+#         # as_matrix is deprecated
+#         #return df.as_matrix(result).astype(np.float32), dummies.as_matrix().astype(np.float32)
+#         return df[result].values.astype(np.float32), dummies.values.astype(np.float32)
+#     else:
+#         # Regression
+#         # as_matrix is deprecated
+#         #return df.as_matrix(result).astype(np.float32), df.as_matrix([target]).astype(np.float32)
+#         return df[result].values.astype(np.float32), df[target].values.astype(np.float32)
 
 ## TODO: add flags for these
 
@@ -198,7 +215,7 @@ def encode_columns(df, result_column):
     
     # Encode result as text index
     print("[INFO] result_column:", result_column)
-    outcomes = encode_text_index(df, result_column)
+    outcomes = encode_string(df, result_column)
     
     # Print number of classes
     num_classes = len(outcomes)
@@ -206,3 +223,34 @@ def encode_columns(df, result_column):
     
     # Remove incomplete records after encoding
     df.dropna(inplace=True,axis=1) 
+
+
+def create_dnn(input_dim, output_dim, loss, optimizer):
+    # Create neural network
+    # Type Sequential is a linear stack of layers
+    model = Sequential()
+    
+    # add layers
+    # first layer has to specify the input dimension
+    model.add(Dense(10, input_dim=input_dim, kernel_initializer='normal', activation='relu')) # OUTPUT size: 10
+    model.add(Dense(50, input_dim=input_dim, kernel_initializer='normal', activation='relu')) # OUTPUT size: 50
+    model.add(Dense(10, input_dim=input_dim, kernel_initializer='normal', activation='relu')) # OUTPUT size: 10
+    model.add(Dense(1, kernel_initializer='normal'))
+    model.add(Dense(output_dim,activation='softmax'))
+    
+    
+    METRICS = [
+        keras.metrics.TruePositives(name='tp'),
+        keras.metrics.FalsePositives(name='fp'),
+        keras.metrics.TrueNegatives(name='tn'),
+        keras.metrics.FalseNegatives(name='fn'),
+        keras.metrics.BinaryAccuracy(name='accuracy'),
+        keras.metrics.Precision(name='precision'),
+        keras.metrics.Recall(name='recall'),
+        keras.metrics.AUC(name='auc'),
+    ]
+    
+    # compile model
+    # 
+    model.compile(loss=loss, optimizer=optimizer, metrics=METRICS)
+    return model
