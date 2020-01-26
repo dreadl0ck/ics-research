@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
 # only works for 1 epoch
+# Fow now the class_amount has to be 2, because this needs to be constant and the code doesn't support more. I know it is weird, but a longer term fix is needed rather than a quick patch.
 
 from sklearn.model_selection import train_test_split
 import argparse
@@ -11,8 +12,6 @@ import keras
 from keras.models import Sequential
 from keras.layers.core import Dense, Activation
 from keras.callbacks import EarlyStopping
-
-
 
 monitor = EarlyStopping(
     monitor='val_loss', 
@@ -33,7 +32,6 @@ METRICS = [
     keras.metrics.AUC(name='auc'), 
 ]
 
-
 #instantiate the parser
 parser = argparse.ArgumentParser(description='NETCAP compatible implementation of Network Anomaly Detection with a Deep Neural Network and TensorFlow')
 
@@ -47,7 +45,7 @@ parser.add_argument('-loss', type=str, default='categorical_crossentropy', help=
 parser.add_argument('-optimizer', type=str, default='adam', help='set optimizer (default: adam)')
 parser.add_argument('-result_column', type=str, default='Normal/Attack', help='set name of the column with the prediction')
 parser.add_argument('-dimensionality', type=int, required=True, help='The amount of columns in the csv')
-parser.add_argument('-class_amount', type=int, required=True, help='The amount of classes e.g. normal, attack1, attack3 is 3')
+parser.add_argument('-class_amount', type=int, default=2 help='The amount of classes e.g. normal, attack1, attack3 is 3')
 parser.add_argument('-batch_size', type=int, default=1, help='The amount of files to be read in. (default: 1)')
 parser.add_argument('-epochs', type=int, default=1, help='The amount of epochs. (default: 1)')
 
@@ -61,8 +59,6 @@ if arguments.read == None:
 files = glob(arguments.read)
 files.sort()
 
-#x_input = 19
-#y_amount = 2
 batch_size = arguments.batch_size
 
 model = create_dnn(arguments.dimensionality, arguments.class_amount, arguments.loss, arguments.optimizer)
@@ -91,18 +87,3 @@ for epoch in range(arguments.epochs):
         x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=arguments.test_size, random_state=42)  
         model.fit(x_train,y_train,validation_data=(x_test,y_test), callbacks=[monitor], verbose=2, epochs=1,batch_size=32)
         model.save_weights('./checkpoints/epoch-{}-files-{}-{}'.format(1,i,i+batch_size))
-
-
-
-
-# useful comments
-# set input size of dnn
-# set batch size
-# number of amount of files read in cofigurable
-# unzip actual data
-# and try for 1 epoch?
-    # concat 2 files.
-
-
-
-# write down how go program would preprocess program?kkkk
