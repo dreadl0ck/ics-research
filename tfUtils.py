@@ -20,16 +20,18 @@ METRICS = [
     keras.metrics.AUC(name='auc'),
 ]
 
+
 def encode_string(df, name):
     """
     Encodes text values to indexes(i.e. [1],[2],[3] for red,green,blue).
     """
     # replace missing values (NaN) with an empty string
-    df[name].fillna('',inplace=True)
+    df[name].fillna('', inplace=True)
     print(colored("encode_string " + name, "yellow"))
     le = preprocessing.LabelEncoder()
     df[name] = le.fit_transform(df[name])
     return le.classes_
+
 
 def encode_bool(df, name):
     """
@@ -37,6 +39,7 @@ def encode_bool(df, name):
     """
     print(colored("encode_bool " + name, "yellow"))
     df[name] = df[name].astype(int)
+
 
 def encode_numeric_zscore(df, name, mean=None, sd=None):
     """
@@ -52,6 +55,7 @@ def encode_numeric_zscore(df, name, mean=None, sd=None):
         sd = df[name].std()
 
     df[name] = (df[name] - mean) / sd
+
 
 encoders = {
 
@@ -225,6 +229,8 @@ encoders = {
     "s_port"                       : encode_numeric_zscore,
     "Tag"                          : encode_numeric_zscore,
 }
+
+
 def to_xy(df, target):
     """
     Converts a pandas dataframe to the x,y inputs that TensorFlow needs.
