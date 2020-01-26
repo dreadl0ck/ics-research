@@ -409,7 +409,7 @@ def encode_columns(df, result_column, lstm):
             df = df.iloc[:-1]
 
 
-def create_dnn(input_dim, output_dim, loss, optimizer, lstm, numCoreLayers, dropoutLayer):
+def create_dnn(input_dim, output_dim, loss, optimizer, lstm, numCoreLayers, dropoutLayer, lstmBatchSize):
 
     # Create neural network
     # Type Sequential is a linear stack of layers
@@ -418,7 +418,7 @@ def create_dnn(input_dim, output_dim, loss, optimizer, lstm, numCoreLayers, drop
     if lstm:
 
         # construct input shape
-        input_shape=(1000,input_dim,)
+        input_shape=(int(lstmBatchSize/2),input_dim,)
         print("> input_shape", input_shape)
 
         lstmNeurons=12

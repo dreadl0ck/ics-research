@@ -1,7 +1,11 @@
 #!/usr/local/bin/python3
 
-# only works for 1 epoch
-# Fow now the class_amount has to be 2, because this needs to be constant and the code doesn't support more. I know it is weird, but a longer term fix is needed rather than a quick patch.
+# Run LSTM, locally:
+# $ ./readcsv.py -read data/TCP_labeled.csv -dimensionality 22 -class_amount 2 -sample 0.5 -lstm true
+# on server, 2019 SWaT dataset:
+# $ ./readcsv.py -read */TCP_labeled.csv -dimensionality 22 -class_amount 2 -sample 0.5 -lstm true
+# on server, 2015 SWaT dataset:
+# $ ./readcsv.py -read */*_labeled.csv -dimensionality XX -class_amount 2 -sample 0.5 -lstm true
 
 from sklearn.model_selection import train_test_split
 import argparse
@@ -105,6 +109,7 @@ parser.add_argument('-shuffle', default=False, help='shuffle data before feeding
 parser.add_argument('-dropoutLayer', default=False, help='insert a dropout layer at the end')
 parser.add_argument('-coreLayerSize', type=int, default=24, help='shuffle data before feeding it to the DNN')
 parser.add_argument('-lstm', default=False, help='use a LSTM network')
+parser.add_argument('-lstmBatchSize', type=int, default=10000, help='LSTM network input number of rows')
 
 # parse commandline arguments
 arguments = parser.parse_args()
@@ -127,7 +132,8 @@ model = create_dnn(
     arguments.optimizer, 
     arguments.lstm, 
     arguments.numCoreLayers, 
-    arguments.dropoutLayer
+    arguments.dropoutLayer,
+    arguments.lstmBatchSize
 )
 
 def readCSV(f):
@@ -152,8 +158,14 @@ for epoch in range(arguments.epochs):
         print("[INFO] new dataset shape:", df.shape)
 
         if arguments.lstm:
-            for i in range(0, df.shape[0], 2000):
-                dfView = df[i:i+2000]
-                train_dnn(dfView)
+            for i in range(0, df.shape[0], arguments.lstmBatchSize):
+
+                dfCopy = df[i:i+arguments.lstmBatchSize]
+
+                # skip leftover that does not reach batch size
+                if len(dfCopy.index) != arguments.lstmBatchSize:
+                    continue
+
+                train_dnn(dfCopy)
         else:
             train_dnn(df)
