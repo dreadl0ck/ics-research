@@ -157,7 +157,7 @@ for epoch in range(arguments.epochs):
     print("[INFO] epoch {}/{}".format(epoch, arguments.epochs))
     for i in range(0, len(files), batch_size):
 
-        print("[INFO] loading file {}-{}".format(i, i+batch_size))
+        print("[INFO] loading file {}-{} on epoch {}/{}".format(i, i+batch_size, epoch, arguments.epochs))
         df_from_each_file = [readCSV(f) for f in files[i:(i+batch_size)]]
 
         if leftover and len(leftover.index):
