@@ -1,4 +1,4 @@
-#!/usr/local/bin/python3
+#!/usr/bin/python3
 
 # Run LSTM, locally:
 # $ ./readcsv.py -read data/TCP_labeled.csv -dimensionality 22 -class_amount 2 -sample 0.5 -lstm true
@@ -35,13 +35,6 @@ labeltypes = ["normal", "Single Stage Single Point Attacks", "Single Stage Multi
 
 #instantiate the parser
 def train_dnn(df):
-
-    print("[INFO] analyze dataset:", df.shape)
-    analyze(df)
-
-    print("[INFO] encoding dataset:", df.shape)
-    encode_columns(df, arguments.result_column, arguments.lstm, arguments.debug)
-    print("[INFO] AFTER encoding dataset:", df.shape)
 
     print("[INFO] breaking into predictors and prediction...")
     # Break into X (predictors) & y (prediction)
@@ -177,6 +170,13 @@ for epoch in range(arguments.epochs):
         process_dataset(df, arguments.sample, arguments.drop, arguments.lstm)
 
         print("[INFO] new dataset shape:", df.shape)
+
+        print("[INFO] analyze dataset:", df.shape)
+        analyze(df)
+
+        print("[INFO] encoding dataset:", df.shape)
+        encode_columns(df, arguments.result_column, arguments.lstm, arguments.debug)
+        print("[INFO] AFTER encoding dataset:", df.shape)
 
         if arguments.lstm:
             for i in range(0, df.shape[0], arguments.lstmBatchSize):
