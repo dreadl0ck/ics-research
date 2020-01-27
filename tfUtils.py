@@ -3,23 +3,11 @@ from keras.layers.core import Dense, Activation
 import keras
 import numpy as np
 import pandas as pd
+import os
 from termcolor import colored
 from sklearn import preprocessing
 from keras import layers
 from keras.layers import Dropout
-
-# metrics for model
-METRICS = [
-    keras.metrics.TruePositives(name='tp'),
-    keras.metrics.FalsePositives(name='fp'),
-    keras.metrics.TrueNegatives(name='tn'),
-    keras.metrics.FalseNegatives(name='fn'),
-    keras.metrics.BinaryAccuracy(name='accuracy'),
-    keras.metrics.Precision(name='precision'),
-    keras.metrics.Recall(name='recall'),
-    keras.metrics.AUC(name='auc'),
-]
-
 
 def encode_string(df, name):
     """
@@ -246,28 +234,27 @@ def to_xy(df, target, labeltypes):
     
     values = df[target].values
     y_vector = np.zeros((values.shape[0],len(labeltypes)))
-    
+
     # loop through all of the labeltypes and flag the columns that contain the label type
     for i,j in enumerate(labeltypes):
 
         indices = np.where(values == j)
         y_vector[indices,i] = 1
-
     return df[result].values.astype(np.float32), y_vector
 
     # Encode to int for classification, float otherwise. TensorFlow likes 32 bits.
-#     if target_type in (np.int64, np.int32):
-#         # Classification
-#         dummies = pd.get_dummies(df[target])
-#         print("dummies.values.shape",df[target].shape)
-#         # as_matrix is deprecated
-#         #return df.as_matrix(result).astype(np.float32), dummies.as_matrix().astype(np.float32)
-#         return df[result].values.astype(np.float32), dummies.values.astype(np.float32)
-#     else:
-#         # Regression
-#         # as_matrix is deprecated
-#         #return df.as_matrix(result).astype(np.float32), df.as_matrix([target]).astype(np.float32)
-#         return df[result].values.astype(np.float32), df[target].values.astype(np.float32)
+    # if target_type in (np.int64, np.int32):
+    #     # Classification
+    #     dummies = pd.get_dummies(df[target])
+    #     print("dummies.values.shape",df[target].shape)
+    #     # as_matrix is deprecated
+    #     #return df.as_matrix(result).astype(np.float32), dummies.as_matrix().astype(np.float32)
+    #     return df[result].values.astype(np.float32), dummies.values.astype(np.float32)
+    # else:
+    #     # Regression
+    #     # as_matrix is deprecated
+    #     #return df.as_matrix(result).astype(np.float32), df.as_matrix([target]).astype(np.float32)
+    #     return df[result].values.astype(np.float32), df[target].values.astype(np.float32)
 
 ## TODO: add flags for these
 
@@ -335,10 +322,12 @@ def file_size(file_path):
 def process_dataset(df, sample, drop, lstm):
     if sample != None:
         if sample >= 1.0:
-            parser.error("invalid sample rate")
+            print("invalid sample rate")
+            exit(1)
     
         if sample <= 0:
-            parser.error("invalid sample rate")
+            print("invalid sample rate")
+            exit(1)
     
     print("[INFO] sampling", sample)
     df = df.sample(frac=sample, replace=False)
@@ -406,8 +395,8 @@ def encode_columns(df, result_column, lstm):
 
     # Since this is now done in to_xy, we can skip encoding the result column here
     # Encode result as text index
-    # print("[INFO] result_column:", result_column)
-    # outcomes = encode_string(df, result_column)
+    #print("[INFO] result_column:", result_column)
+    #outcomes = encode_string(df, result_column)
     # Print number of classes
     #num_classes = len(outcomes)
     #print("[INFO] num_classes", num_classes)
@@ -416,7 +405,7 @@ def encode_columns(df, result_column, lstm):
     # TODO: apparently this also removes columns that contain only a single identical value for all rows
     # this behavior is undocumented, and breaks our code
     # because it changes the dimensionality of the input vector for some batches
-    #df.dropna(inplace=True, axis=1, how="all")
+    df.dropna(inplace=True, axis=1, how="all")
 
     if lstm:
         # drop last elem from dataframe, in case it contains an uneven number of elements
@@ -478,7 +467,19 @@ def create_dnn(input_dim, output_dim, loss, optimizer, lstm, numCoreLayers, core
         model.add(Dense(5, input_dim=input_dim, kernel_initializer='normal', activation='relu')) # OUTPUT size: 10
         model.add(Dense(1, kernel_initializer='normal'))
         model.add(Dense(output_dim, activation='softmax'))
-    
+
+    # metrics for model
+    METRICS = [
+        keras.metrics.TruePositives(name='tp'),
+        keras.metrics.FalsePositives(name='fp'),
+        keras.metrics.TrueNegatives(name='tn'),
+        keras.metrics.FalseNegatives(name='fn'),
+        keras.metrics.BinaryAccuracy(name='accuracy'),
+        keras.metrics.Precision(name='precision'),
+        keras.metrics.Recall(name='recall'),
+        keras.metrics.AUC(name='auc'),
+    ]
+
     # compile model
     #
     model.compile(
