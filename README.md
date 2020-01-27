@@ -130,11 +130,7 @@ Start experiments on Brussels:
 
     ***REMOVED***@brussels:/home/***REMOVED***/labeled-SWaT-2015-network# ../ics-research/readcsv.py -read "*-labeled.csv" -dimensionality 19 -lstm true -lstmBatchSize 10000 -epochs 3
     
-Commit version:
-
-    ***REMOVED***@brussels:/home/***REMOVED***/ics-research$ git rev-parse HEAD  
-        4f5ed93d439ca30cf82654f77f0186447327b9e0
-
+> commit version: 8fd1f38e275303bca1ae861a21b91720e4856bd2
 
 ## commands ran
 ### for normal dnn on 2015 labeled dataset:
