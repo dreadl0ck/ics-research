@@ -457,14 +457,19 @@ def create_dnn(input_dim, output_dim, loss, optimizer, lstm, numCoreLayers, core
         model.add(layers.Dense(output_dim, activation='softmax'))
     else:
 
-        print(colored("[INFO] using sequential dense layers", 'yellow'))
+        print(colored("[INFO] using Sequential Dense layers", 'yellow'))
+
         # DNN
         # add layers
         # first layer has to specify the input dimension
-        # TODO: make num core layers and sizes configurable
-        model.add(Dense(5, input_dim=input_dim, kernel_initializer='normal', activation='relu')) # OUTPUT size: 10
-        model.add(Dense(20, input_dim=input_dim, kernel_initializer='normal', activation='relu')) # OUTPUT size: 50
-        model.add(Dense(5, input_dim=input_dim, kernel_initializer='normal', activation='relu')) # OUTPUT size: 10
+        model.add(Dense(wrapLayerSize, input_dim=input_dim, kernel_initializer='normal', activation='relu'))
+
+        # add requested number of core layers
+        for i in range(0, numCoreLayers):
+            print("adding core layer", i)
+            model.add(Dense(coreLayerSize, input_dim=input_dim, kernel_initializer='normal', activation='relu'))
+
+        model.add(Dense(wrapLayerSize, input_dim=input_dim, kernel_initializer='normal', activation='relu'))
         model.add(Dense(1, kernel_initializer='normal'))
         model.add(Dense(output_dim, activation='softmax'))
 
