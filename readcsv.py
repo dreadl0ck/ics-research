@@ -3,11 +3,14 @@
 # only works for 1 epoch
 # Fow now the class_amount has to be 2, because this needs to be constant and the code doesn't support more. I know it is weird, but a longer term fix is needed rather than a quick patch.
 
-from sklearn.model_selection import train_test_split
-import argparse
-import pandas as pd
-from glob import glob
 from tfUtils import * 
+from glob import glob
+import argparse
+
+import pandas as pd
+
+from sklearn.model_selection import train_test_split
+
 import keras
 from keras.models import Sequential
 from keras.layers.core import Dense, Activation
@@ -20,17 +23,6 @@ monitor = EarlyStopping(
     verbose=1, 
     mode='auto'
 )
-
-METRICS = [ 
-    keras.metrics.TruePositives(name='tp'), 
-    keras.metrics.FalsePositives(name='fp'), 
-    keras.metrics.TrueNegatives(name='tn'), 
-    keras.metrics.FalseNegatives(name='fn'),  
-    keras.metrics.BinaryAccuracy(name='accuracy'), 
-    keras.metrics.Precision(name='precision'), 
-    keras.metrics.Recall(name='recall'), 
-    keras.metrics.AUC(name='auc'), 
-]
 
 #instantiate the parser
 parser = argparse.ArgumentParser(description='NETCAP compatible implementation of Network Anomaly Detection with a Deep Neural Network and TensorFlow')
@@ -45,7 +37,7 @@ parser.add_argument('-loss', type=str, default='categorical_crossentropy', help=
 parser.add_argument('-optimizer', type=str, default='adam', help='set optimizer (default: adam)')
 parser.add_argument('-result_column', type=str, default='Normal/Attack', help='set name of the column with the prediction')
 parser.add_argument('-dimensionality', type=int, required=True, help='The amount of columns in the csv')
-parser.add_argument('-class_amount', type=int, default=2 help='The amount of classes e.g. normal, attack1, attack3 is 3')
+parser.add_argument('-class_amount', type=int, default=2, help='The amount of classes e.g. normal, attack1, attack3 is 3')
 parser.add_argument('-batch_size', type=int, default=1, help='The amount of files to be read in. (default: 1)')
 parser.add_argument('-epochs', type=int, default=1, help='The amount of epochs. (default: 1)')
 
