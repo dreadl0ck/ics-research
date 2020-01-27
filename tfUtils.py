@@ -244,10 +244,10 @@ def to_xy(df, target, labeltypes):
     target_type = target_type[0] if hasattr(target_type, '__iter__') else target_type
  
     
-    
     values = df[target].values
     y_vector = np.zeros((values.shape[0],len(labeltypes)))
     
+    # loop through all of the labeltypes and flag the columns that contain the label type
     for i,j in enumerate(labeltypes):
 
         indices = np.where(values == j)
