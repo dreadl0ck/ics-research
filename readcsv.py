@@ -141,7 +141,8 @@ model = create_dnn(
     arguments.loss, 
     arguments.optimizer, 
     arguments.lstm, 
-    arguments.numCoreLayers, 
+    arguments.numCoreLayers,
+    arguments.coreLayerSize,
     arguments.dropoutLayer,
     arguments.lstmBatchSize,
     arguments.wrapLayerSize

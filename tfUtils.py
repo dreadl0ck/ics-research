@@ -427,7 +427,7 @@ def encode_columns(df, result_column, lstm):
     #with pd.option_context('display.max_rows', 10, 'display.max_columns', None):  # more options can be specified also
     #    print(df)
 
-def create_dnn(input_dim, output_dim, loss, optimizer, lstm, numCoreLayers, dropoutLayer, lstmBatchSize, wrapLayerSize):
+def create_dnn(input_dim, output_dim, loss, optimizer, lstm, numCoreLayers, coreLayerSize, dropoutLayer, lstmBatchSize, wrapLayerSize):
 
     # Create neural network
     # Type Sequential is a linear stack of layers
@@ -451,7 +451,7 @@ def create_dnn(input_dim, output_dim, loss, optimizer, lstm, numCoreLayers, drop
         # add requested number of core layers
         for i in range(0, numCoreLayers):
             print("adding core layer", i)
-            model.add(layers.LSTM(24, input_shape=input_shape, return_sequences=True))
+            model.add(layers.LSTM(coreLayerSize, input_shape=input_shape, return_sequences=True))
 
         # add final LSTM layer
         model.add(layers.LSTM(wrapLayerSize, input_shape=input_shape, return_sequences=True))
@@ -472,9 +472,10 @@ def create_dnn(input_dim, output_dim, loss, optimizer, lstm, numCoreLayers, drop
         # DNN
         # add layers
         # first layer has to specify the input dimension
-        model.add(Dense(25, input_dim=input_dim, kernel_initializer='normal', activation='relu')) # OUTPUT size: 10
-        model.add(Dense(100, input_dim=input_dim, kernel_initializer='normal', activation='relu')) # OUTPUT size: 50
-        model.add(Dense(25, input_dim=input_dim, kernel_initializer='normal', activation='relu')) # OUTPUT size: 10
+        # TODO: make num core layers and sizes configurable
+        model.add(Dense(5, input_dim=input_dim, kernel_initializer='normal', activation='relu')) # OUTPUT size: 10
+        model.add(Dense(20, input_dim=input_dim, kernel_initializer='normal', activation='relu')) # OUTPUT size: 50
+        model.add(Dense(5, input_dim=input_dim, kernel_initializer='normal', activation='relu')) # OUTPUT size: 10
         model.add(Dense(1, kernel_initializer='normal'))
         model.add(Dense(output_dim, activation='softmax'))
     
