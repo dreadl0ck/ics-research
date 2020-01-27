@@ -27,11 +27,12 @@ monitor = EarlyStopping(
 )
 
 def train_dnn(df):
-    print("[INFO] analyze dataset")
+    print("[INFO] analyze dataset:", df.shape)
     analyze(df)
 
-    print("[INFO] encoding dataset")
+    print("[INFO] encoding dataset:", df.shape)
     encode_columns(df, arguments.result_column, arguments.lstm)
+    print("[INFO] AFTER encoding dataset:", df.shape)
 
     print("[INFO] breaking into predictors and prediction...")
     # Break into X (predictors) & y (prediction)
@@ -142,6 +143,8 @@ def readCSV(f):
     print("[INFO] reading file", f)
     return pd.read_csv(f, delimiter=',', engine='c', encoding="utf-8-sig")
 
+leftover = None
+
 print("[INFO] created DNN now running the training")
 for epoch in range(arguments.epochs):
 
@@ -149,7 +152,10 @@ for epoch in range(arguments.epochs):
     for i in range(0, len(files), batch_size):
 
         print("[INFO] loading file {}-{}".format(i, i+batch_size))
-        df_from_each_file = (readCSV(f) for f in files[i:(i+batch_size)])
+        df_from_each_file = [readCSV(f) for f in files[i:(i+batch_size)]]
+
+        if leftover and len(leftover.index):
+            df_from_each_file.insert(0, leftover)
 
         print("[INFO] concatenate the files")
         df = pd.concat(df_from_each_file, ignore_index=True)
@@ -166,8 +172,10 @@ for epoch in range(arguments.epochs):
 
                 # skip leftover that does not reach batch size
                 if len(dfCopy.index) != arguments.lstmBatchSize:
+                    leftover = dfCopy
                     continue
 
                 train_dnn(dfCopy)
+                leftover = None
         else:
             train_dnn(df)

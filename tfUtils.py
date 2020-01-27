@@ -347,6 +347,9 @@ def process_dataset(df, sample, drop, lstm):
     # Always drop columns that are unique for every record
     drop_col('UID', df)
 
+    # Tag is always 0, remove this column
+    drop_col('Tag', df)
+
     if not lstm:
         drop_col('Timestamp', df)
         drop_col('num', df)
@@ -382,6 +385,12 @@ def analyze(df):
             expand_categories(df[col])
 
 def encode_columns(df, result_column, lstm):
+
+    print("df.columns", df.columns, len(df.columns))
+
+    #with pd.option_context('display.max_rows', 10, 'display.max_columns', None):  # more options can be specified also
+    #    print(df)
+
     for col in df.columns:
         colName = col.strip()
         if colName != result_column:
@@ -390,17 +399,20 @@ def encode_columns(df, result_column, lstm):
             else:
                 #print("[INFO] could not locate", colName, "in encoder dict. Defaulting to encode_numeric_zscore")
                 encode_numeric_zscore(df, col)
-    
+
     # Encode result as text index
     print("[INFO] result_column:", result_column)
     outcomes = encode_string(df, result_column)
-    
+
     # Print number of classes
     num_classes = len(outcomes)
     print("[INFO] num_classes", num_classes)
     
-    # Remove incomplete records after encoding
-    df.dropna(inplace=True, axis=1)
+    # Remove entirely incomplete columns after encoding
+    # TODO: apparently this also removes columns that contain only a single identical value for all rows
+    # this behavior is undocumented, and breaks our code
+    # because it changes the dimensionality of the input vector for some batches
+    #df.dropna(inplace=True, axis=1, how="all")
 
     if lstm:
         # drop last elem from dataframe, in case it contains an uneven number of elements
@@ -408,6 +420,8 @@ def encode_columns(df, result_column, lstm):
             print("odd number of items, dropping last one...")
             df = df.iloc[:-1]
 
+    #with pd.option_context('display.max_rows', 10, 'display.max_columns', None):  # more options can be specified also
+    #    print(df)
 
 def create_dnn(input_dim, output_dim, loss, optimizer, lstm, numCoreLayers, dropoutLayer, lstmBatchSize):
 
