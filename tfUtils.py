@@ -349,11 +349,11 @@ def process_dataset(df, sample, drop, lstm):
 
     if not lstm:
         drop_col('Timestamp', df)
+        drop_col('num', df)
+        drop_col('date', df)
+        drop_col('time', df)
 
     drop_col('SessionID', df)
-    drop_col('num', df)
-    drop_col('date', df)
-    drop_col('time', df)
 
     print("[INFO] columns:", df.columns)
    

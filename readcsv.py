@@ -85,6 +85,8 @@ def train_dnn(df):
         batch_size=32
     )
 
+    # TODO: mkdir checkpoints
+
     print("[INFO] saving weights")
     model.save_weights('./checkpoints/epoch-{}-files-{}-{}'.format(1, i, i+batch_size))
 
@@ -99,7 +101,7 @@ parser.add_argument('-dropna', default=False, action='store_true', help='drop ro
 parser.add_argument('-test_size', type=float, default=0.5, help='specify size of the test data in percent (default: 0.25)')
 parser.add_argument('-loss', type=str, default='categorical_crossentropy', help='set function (default: categorical_crossentropy)')
 parser.add_argument('-optimizer', type=str, default='adam', help='set optimizer (default: adam)')
-parser.add_argument('-result_column', type=str, default='result', help='set name of the column with the prediction')
+parser.add_argument('-result_column', type=str, default='Normal/Attack', help='set name of the column with the prediction')
 parser.add_argument('-dimensionality', type=int, required=True, help='The amount of columns in the csv')
 parser.add_argument('-class_amount', type=int, default=2, help='The amount of classes e.g. normal, attack1, attack3 is 3')
 parser.add_argument('-batch_size', type=int, default=1, help='The amount of files to be read in. (default: 1)')
