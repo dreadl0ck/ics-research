@@ -35,8 +35,6 @@ labeltypes = ["normal", "Single Stage Single Point Attacks", "Single Stage Multi
 
 #instantiate the parser
 def train_dnn(df):
-    print("[INFO] analyze dataset:", df.shape)
-    analyze(df)
 
     print("[INFO] encoding dataset:", df.shape)
     encode_columns(df, arguments.result_column, arguments.lstm)
@@ -118,7 +116,8 @@ parser.add_argument('-epochs', type=int, default=1, help='The amount of epochs. 
 parser.add_argument('-numCoreLayers', type=int, default=1, help='set number of core layers to use')
 parser.add_argument('-shuffle', default=False, help='shuffle data before feeding it to the DNN')
 parser.add_argument('-dropoutLayer', default=False, help='insert a dropout layer at the end')
-parser.add_argument('-coreLayerSize', type=int, default=24, help='shuffle data before feeding it to the DNN')
+parser.add_argument('-coreLayerSize', type=int, default=4, help='size of an DNN core layer')
+parser.add_argument('-wrapLayerSize', type=int, default=2, help='size of the first and last DNN layer')
 parser.add_argument('-lstm', default=False, help='use a LSTM network')
 parser.add_argument('-lstmBatchSize', type=int, default=10000, help='LSTM network input number of rows')
 
@@ -144,7 +143,8 @@ model = create_dnn(
     arguments.lstm, 
     arguments.numCoreLayers, 
     arguments.dropoutLayer,
-    arguments.lstmBatchSize
+    arguments.lstmBatchSize,
+    arguments.wrapLayerSize
 )
 
 def readCSV(f):
@@ -172,6 +172,9 @@ for epoch in range(arguments.epochs):
         process_dataset(df, arguments.sample, arguments.drop, arguments.lstm)
 
         print("[INFO] new dataset shape:", df.shape)
+
+        print("[INFO] analyze dataset:", df.shape)
+        analyze(df)
 
         if arguments.lstm:
             for i in range(0, df.shape[0], arguments.lstmBatchSize):

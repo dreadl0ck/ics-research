@@ -354,6 +354,7 @@ def process_dataset(df, sample, drop, lstm):
     drop_col('Tag', df)
 
     if not lstm:
+        print("dropping all time related columns...")
         drop_col('Timestamp', df)
         drop_col('num', df)
         drop_col('date', df)
@@ -426,7 +427,7 @@ def encode_columns(df, result_column, lstm):
     #with pd.option_context('display.max_rows', 10, 'display.max_columns', None):  # more options can be specified also
     #    print(df)
 
-def create_dnn(input_dim, output_dim, loss, optimizer, lstm, numCoreLayers, dropoutLayer, lstmBatchSize):
+def create_dnn(input_dim, output_dim, loss, optimizer, lstm, numCoreLayers, dropoutLayer, lstmBatchSize, wrapLayerSize):
 
     # Create neural network
     # Type Sequential is a linear stack of layers
@@ -438,15 +439,14 @@ def create_dnn(input_dim, output_dim, loss, optimizer, lstm, numCoreLayers, drop
         input_shape=(int(lstmBatchSize/2),input_dim,)
         print("> input_shape", input_shape)
 
-        lstmNeurons=12
-        print("> LSTM first and last layer neurons:", lstmNeurons)
+        print("> LSTM first and last layer neurons:", wrapLayerSize)
 
         # - The input of the LSTM is always a 3D array. (batch_size, time_steps, seq_len)
         # - The output of the LSTM could be a 2D array or 3D array depending upon the return_sequences argument.
         # - If return_sequence is False, the output is a 2D array. (batch_size, units)
         # - If return_sequence is True, the output is a 3D array. (batch_size, time_steps, units)
 
-        model.add(layers.LSTM(lstmNeurons, input_shape=input_shape, return_sequences=True))
+        model.add(layers.LSTM(wrapLayerSize, input_shape=input_shape, return_sequences=True))
 
         # add requested number of core layers
         for i in range(0, numCoreLayers):
@@ -454,7 +454,7 @@ def create_dnn(input_dim, output_dim, loss, optimizer, lstm, numCoreLayers, drop
             model.add(layers.LSTM(24, input_shape=input_shape, return_sequences=True))
 
         # add final LSTM layer
-        model.add(layers.LSTM(lstmNeurons, input_shape=input_shape, return_sequences=True))
+        model.add(layers.LSTM(wrapLayerSize, input_shape=input_shape, return_sequences=True))
 
         # add dropout layer if requested
         if dropoutLayer:
