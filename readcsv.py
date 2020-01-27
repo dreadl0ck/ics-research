@@ -53,11 +53,12 @@ def train_dnn(df):
         shuffle=arguments.shuffle
     )
 
-    print("--------SHAPES--------")
-    print("x_train.shape", x_train.shape)
-    print("x_test.shape", x_test.shape)
-    print("y_train.shape", y_train.shape)
-    print("y_test.shape", y_test.shape)
+    if arguments.debug:
+        print("--------SHAPES--------")
+        print("x_train.shape", x_train.shape)
+        print("x_test.shape", x_test.shape)
+        print("y_train.shape", y_train.shape)
+        print("y_test.shape", y_test.shape)
 
     if arguments.lstm:
 
@@ -67,11 +68,12 @@ def train_dnn(df):
         y_train = y_train.reshape(-1, y_train.shape[0], y.shape[1])
         y_test = y_test.reshape(-1, y_test.shape[0], y.shape[1])
 
-        print("--------RESHAPED--------")
-        print("x_train.shape", x_train.shape)
-        print("x_test.shape", x_test.shape)
-        print("y_train.shape", y_train.shape)
-        print("y_test.shape", y_test.shape)
+        if arguments.debug:
+            print("--------RESHAPED--------")
+            print("x_train.shape", x_train.shape)
+            print("x_test.shape", x_test.shape)
+            print("y_train.shape", y_train.shape)
+            print("y_test.shape", y_test.shape)
 
     # TODO: using a timestep size of 1 and feeding numRows batches should also work
     #x_train = np.reshape(x_train, (x_train.shape[0], 1, x_train.shape[1]))
@@ -92,6 +94,10 @@ def train_dnn(df):
 
     print("[INFO] saving weights")
     model.save_weights('./checkpoints/epoch-{}-files-{}-{}'.format(1, i, i+batch_size))
+
+def readCSV(f):
+    print("[INFO] reading file", f)
+    return pd.read_csv(f, delimiter=',', engine='c', encoding="utf-8-sig")
 
 # instantiate the parser
 parser = argparse.ArgumentParser(description='NETCAP compatible implementation of Network Anomaly Detection with a Deep Neural Network and TensorFlow')
@@ -144,20 +150,15 @@ model = create_dnn(
     arguments.lstmBatchSize,
     arguments.wrapLayerSize
 )
-
-def readCSV(f):
-    print("[INFO] reading file", f)
-    return pd.read_csv(f, delimiter=',', engine='c', encoding="utf-8-sig")
+print("[INFO] created DNN")
 
 leftover = None
-
-print("[INFO] created DNN now running the training")
 for epoch in range(arguments.epochs):
 
-    print("[INFO] epoch {}/{}".format(epoch, arguments.epochs))
+    print(colored("[INFO] epoch {}/{}".format(epoch, arguments.epochs), 'yellow'))
     for i in range(0, len(files), batch_size):
 
-        print("[INFO] loading file {}-{} on epoch {}/{}".format(i, i+batch_size, epoch, arguments.epochs))
+        print(colored("[INFO] loading file {}-{} on epoch {}/{}".format(i, i+batch_size, epoch, arguments.epochs), 'yellow'))
         df_from_each_file = [readCSV(f) for f in files[i:(i+batch_size)]]
 
         if leftover and len(leftover.index):
@@ -168,8 +169,6 @@ for epoch in range(arguments.epochs):
 
         print("[INFO] process dataset, shape:", df.shape)
         process_dataset(df, arguments.sample, arguments.drop, arguments.lstm)
-
-        print("[INFO] new dataset shape:", df.shape)
 
         print("[INFO] analyze dataset:", df.shape)
         analyze(df)
