@@ -123,3 +123,15 @@ df.columns Index(['num', 'date', 'time', 'orig', 'type', 'i/f_name', 'i/f_dir', 
     dtype='object') 18
     
 Modbus FCode, service, Tag
+
+
+
+
+
+## commands ran
+### for normal dnn on 2015 labeled dataset:
+command:
+python3 readcsv.py -read "/mnt/terradrive/labeled-SW015-network/*.csv" -dimensionality 19 -epochs 10
+commit version:
+***REMOVED***@***REMOVED***:~/ics-research$ git rev-parse HEAD
+4f5ed93d439ca30cf82654f77f0186447327b9e0
