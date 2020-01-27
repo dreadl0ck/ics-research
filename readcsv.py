@@ -7,11 +7,14 @@
 # on server, 2015 SWaT dataset:
 # $ ./readcsv.py -read */*_labeled.csv -dimensionality XX -class_amount 2 -sample 0.5 -lstm true
 
-from sklearn.model_selection import train_test_split
-import argparse
-import pandas as pd
-from glob import glob
 from tfUtils import * 
+from glob import glob
+import argparse
+
+import pandas as pd
+
+from sklearn.model_selection import train_test_split
+
 import keras
 from keras.models import Sequential
 from keras.layers.core import Dense, Activation
@@ -26,6 +29,11 @@ monitor = EarlyStopping(
     mode='auto'
 )
 
+# TODO hardcoded
+labeltypes = ["normal", "Single Stage Single Point Attacks", "Single Stage Multi Point Attacks", "Multi Stage Single Point Attacks", "Multi Stage Multi Point Attacks"]
+
+
+#instantiate the parser
 def train_dnn(df):
     print("[INFO] analyze dataset:", df.shape)
     analyze(df)
@@ -36,7 +44,7 @@ def train_dnn(df):
 
     print("[INFO] breaking into predictors and prediction...")
     # Break into X (predictors) & y (prediction)
-    x, y = to_xy(df, arguments.result_column)
+    x, y = to_xy(df, arguments.result_column, labeltypes)
 
     print("[INFO] creating train/test split:", arguments.test_size)
 
@@ -104,7 +112,7 @@ parser.add_argument('-loss', type=str, default='categorical_crossentropy', help=
 parser.add_argument('-optimizer', type=str, default='adam', help='set optimizer (default: adam)')
 parser.add_argument('-result_column', type=str, default='Normal/Attack', help='set name of the column with the prediction')
 parser.add_argument('-dimensionality', type=int, required=True, help='The amount of columns in the csv')
-parser.add_argument('-class_amount', type=int, default=2, help='The amount of classes e.g. normal, attack1, attack3 is 3')
+#parser.add_argument('-class_amount', type=int, default=2, help='The amount of classes e.g. normal, attack1, attack3 is 3')
 parser.add_argument('-batch_size', type=int, default=1, help='The amount of files to be read in. (default: 1)')
 parser.add_argument('-epochs', type=int, default=1, help='The amount of epochs. (default: 1)')
 parser.add_argument('-numCoreLayers', type=int, default=1, help='set number of core layers to use')
@@ -130,7 +138,7 @@ batch_size = arguments.batch_size
 # create models
 model = create_dnn(
     arguments.dimensionality, 
-    arguments.class_amount, 
+    len(labeltypes), 
     arguments.loss, 
     arguments.optimizer, 
     arguments.lstm, 

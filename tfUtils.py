@@ -231,7 +231,7 @@ encoders = {
 }
 
 
-def to_xy(df, target):
+def to_xy(df, target, labeltypes):
     """
     Converts a pandas dataframe to the x,y inputs that TensorFlow needs.
     """
@@ -243,13 +243,16 @@ def to_xy(df, target):
     target_type = df[target].dtypes
     target_type = target_type[0] if hasattr(target_type, '__iter__') else target_type
  
+    
+    
     values = df[target].values
-    normal = np.where(values == 0)
+    y_vector = np.zeros((values.shape[0],len(labeltypes)))
+    
+    for i,j in enumerate(labeltypes):
 
-    y_vector = np.zeros((values.shape[0],2))
-    y_vector[:,1] = 1
-    y_vector[normal,0] = 1
-    y_vector[normal,1] = 0
+        indices = np.where(values == j)
+        y_vector[indices,i] = 1
+
     return df[result].values.astype(np.float32), y_vector
 
     # Encode to int for classification, float otherwise. TensorFlow likes 32 bits.
@@ -400,13 +403,13 @@ def encode_columns(df, result_column, lstm):
                 #print("[INFO] could not locate", colName, "in encoder dict. Defaulting to encode_numeric_zscore")
                 encode_numeric_zscore(df, col)
 
+    # Since this is now done in to_xy, we can skip encoding the result column here
     # Encode result as text index
-    print("[INFO] result_column:", result_column)
-    outcomes = encode_string(df, result_column)
-
+    # print("[INFO] result_column:", result_column)
+    # outcomes = encode_string(df, result_column)
     # Print number of classes
-    num_classes = len(outcomes)
-    print("[INFO] num_classes", num_classes)
+    #num_classes = len(outcomes)
+    #print("[INFO] num_classes", num_classes)
     
     # Remove entirely incomplete columns after encoding
     # TODO: apparently this also removes columns that contain only a single identical value for all rows
