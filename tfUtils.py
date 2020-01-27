@@ -377,12 +377,13 @@ def analyze(df):
             print("[INFO] ** {}:{}".format(col,expand_categories(df[col])))
             expand_categories(df[col])
 
-def encode_columns(df, result_column, lstm):
+def encode_columns(df, result_column, lstm, debug):
 
-    print("df.columns", df.columns, len(df.columns))
-
-    #with pd.option_context('display.max_rows', 10, 'display.max_columns', None):  # more options can be specified also
-    #    print(df)
+    if debug:
+        print("--------------BEFORE----------------")
+        print("df.columns", df.columns, len(df.columns))
+        with pd.option_context('display.max_rows', 10, 'display.max_columns', None):  # more options can be specified also
+            print(df)
 
     for col in df.columns:
         colName = col.strip()
@@ -413,8 +414,11 @@ def encode_columns(df, result_column, lstm):
             print("odd number of items, dropping last one...")
             df = df.iloc[:-1]
 
-    #with pd.option_context('display.max_rows', 10, 'display.max_columns', None):  # more options can be specified also
-    #    print(df)
+    if debug:
+        print("--------------AFTER----------------")
+        print("df.columns", df.columns, len(df.columns))
+        with pd.option_context('display.max_rows', 10, 'display.max_columns', None):  # more options can be specified also
+            print(df)
 
 def create_dnn(input_dim, output_dim, loss, optimizer, lstm, numCoreLayers, coreLayerSize, dropoutLayer, lstmBatchSize, wrapLayerSize):
 

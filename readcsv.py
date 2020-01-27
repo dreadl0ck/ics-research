@@ -36,8 +36,11 @@ labeltypes = ["normal", "Single Stage Single Point Attacks", "Single Stage Multi
 #instantiate the parser
 def train_dnn(df):
 
+    print("[INFO] analyze dataset:", df.shape)
+    analyze(df)
+
     print("[INFO] encoding dataset:", df.shape)
-    encode_columns(df, arguments.result_column, arguments.lstm)
+    encode_columns(df, arguments.result_column, arguments.lstm, arguments.debug)
     print("[INFO] AFTER encoding dataset:", df.shape)
 
     print("[INFO] breaking into predictors and prediction...")
@@ -120,6 +123,7 @@ parser.add_argument('-coreLayerSize', type=int, default=4, help='size of an DNN 
 parser.add_argument('-wrapLayerSize', type=int, default=2, help='size of the first and last DNN layer')
 parser.add_argument('-lstm', default=False, help='use a LSTM network')
 parser.add_argument('-lstmBatchSize', type=int, default=10000, help='LSTM network input number of rows')
+parser.add_argument('-debug', default=False, help='debug mode on off')
 
 # parse commandline arguments
 arguments = parser.parse_args()
@@ -173,9 +177,6 @@ for epoch in range(arguments.epochs):
         process_dataset(df, arguments.sample, arguments.drop, arguments.lstm)
 
         print("[INFO] new dataset shape:", df.shape)
-
-        print("[INFO] analyze dataset:", df.shape)
-        analyze(df)
 
         if arguments.lstm:
             for i in range(0, df.shape[0], arguments.lstmBatchSize):

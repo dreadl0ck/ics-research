@@ -99,3 +99,27 @@ To process all files, use the script:
 Remove labeled CSV files inside the current directory to free up storage space:
 
 	find . -iname *_labeled.csv -exec rm "{}" \;
+
+## Eval Datasets
+
+### 2015
+
+Connect brussels
+        
+    sudo su
+    cd /home/***REMOVED***/labeled-SWaT-2015-network
+    screen -L ../ics-research/readcsv.py -read "*-labeled.csv" -dimensionality 19 -lstm true -lstmBatchSize 250000
+    
+df.columns Index(['num', 'date', 'time', 'orig', 'type', 'i/f_name', 'i/f_dir', 'src',
+       'dst', 'proto', 'appi_name', 'proxy_src_ip', 'Modbus_Function_Code',
+       'Modbus_Function_Description', 'Modbus_Transaction_ID', 'SCADA_Tag',
+       'Modbus_Value', 'service', 's_port', 'Tag', 'Normal/Attack'],
+      dtype='object') 21
+      
+df.columns Index(['num', 'date', 'time', 'orig', 'type', 'i/f_name', 'i/f_dir', 'src',
+     'dst', 'proto', 'appi_name', 'proxy_src_ip',
+     'Modbus_Function_Description', 'Modbus_Transaction_ID', 'SCADA_Tag',
+     'Modbus_Value', 's_port', 'Normal/Attack'],
+    dtype='object') 18
+    
+Modbus FCode, service, Tag
