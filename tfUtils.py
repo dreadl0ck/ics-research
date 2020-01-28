@@ -401,6 +401,12 @@ def encode_columns(df, result_column, lstm, debug):
     # Print number of classes
     #num_classes = len(outcomes)
     #print("[INFO] num_classes", num_classes)
+
+    if debug:
+        print("--------------AFTER ENCODING----------------")
+        print("df.columns", df.columns, len(df.columns))
+        with pd.option_context('display.max_rows', 10, 'display.max_columns', None):  # more options can be specified also
+            print(df)
     
     # Remove entirely incomplete columns after encoding
     # TODO: apparently this also removes columns that contain only a single identical value for all rows
@@ -415,7 +421,7 @@ def encode_columns(df, result_column, lstm, debug):
             df = df.iloc[:-1]
 
     if debug:
-        print("--------------AFTER----------------")
+        print("--------------AFTER DROPPING INCOMPLETE COLUMNS ----------------")
         print("df.columns", df.columns, len(df.columns))
         with pd.option_context('display.max_rows', 10, 'display.max_columns', None):  # more options can be specified also
             print(df)
