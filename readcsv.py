@@ -119,20 +119,20 @@ def run():
             df = pd.concat(df_from_each_file, ignore_index=True)
 
             print("[INFO] process dataset, shape:", df.shape)
-            if sample != None:
-                if sample >= 1.0:
+            if arguments.sample != None:
+                if arguments.sample >= 1.0:
                     print("invalid sample rate")
                     exit(1)
 
-                if sample <= 0:
+                if arguments.sample <= 0:
                     print("invalid sample rate")
                     exit(1)
 
-            print("[INFO] sampling", sample)
-            df = df.sample(frac=sample, replace=False)
+            print("[INFO] sampling", arguments.sample)
+            df = df.sample(frac=arguments.sample, replace=False)
 
-            if drop is not None:
-                for col in drop.split(","):
+            if arguments.drop is not None:
+                for col in arguments.drop.split(","):
                     drop_col(col, df)
 
             # Always drop columns that are unique for every record
@@ -141,7 +141,7 @@ def run():
             # Tag is always 0, remove this column
             drop_col('Tag', df)
 
-            if not lstm:
+            if not arguments.lstm:
                 print("dropping all time related columns...")
                 drop_col('Timestamp', df)
                 drop_col('num', df)
