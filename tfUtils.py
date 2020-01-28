@@ -351,6 +351,8 @@ def process_dataset(df, sample, drop, lstm):
     drop_col('SessionID', df)
 
     print("[INFO] columns:", df.columns)
+
+    return df
    
 def expand_categories(values):
     result = []
@@ -424,6 +426,8 @@ def encode_columns(df, result_column, lstm, debug):
         print("df.columns", df.columns, len(df.columns))
         with pd.option_context('display.max_rows', 10, 'display.max_columns', None):  # more options can be specified also
             print(df)
+
+    return df
 
 def create_dnn(input_dim, output_dim, loss, optimizer, lstm, numCoreLayers, coreLayerSize, dropoutLayer, lstmBatchSize, wrapLayerSize):
 

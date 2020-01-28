@@ -119,13 +119,13 @@ def run():
             df = pd.concat(df_from_each_file, ignore_index=True)
 
             print("[INFO] process dataset, shape:", df.shape)
-            process_dataset(df, arguments.sample, arguments.drop, arguments.lstm)
+            df = process_dataset(df, arguments.sample, arguments.drop, arguments.lstm)
 
             print("[INFO] analyze dataset:", df.shape)
             analyze(df)
 
             print("[INFO] encoding dataset:", df.shape)
-            encode_columns(df, arguments.result_column, arguments.lstm, arguments.debug)
+            df = encode_columns(df, arguments.result_column, arguments.lstm, arguments.debug)
             print("[INFO] AFTER encoding dataset:", df.shape)
 
             if arguments.lstm:
