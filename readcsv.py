@@ -20,6 +20,9 @@ from keras.models import Sequential
 from keras.layers.core import Dense, Activation
 from keras.callbacks import EarlyStopping
 from termcolor import colored
+import traceback
+
+import sys
 
 monitor = EarlyStopping(
     monitor='val_loss', 
@@ -33,8 +36,7 @@ monitor = EarlyStopping(
 labeltypes = ["normal", "Single Stage Single Point Attacks", "Single Stage Multi Point Attacks", "Multi Stage Single Point Attacks", "Multi Stage Multi Point Attacks"]
 #labeltypes = ["Normal", "Attack"]
 
-#instantiate the parser
-def train_dnn(df):
+def train_dnn(df, i):
 
     print("[INFO] breaking into predictors and prediction...")
     # Break into X (predictors) & y (prediction)
@@ -99,6 +101,48 @@ def readCSV(f):
     print("[INFO] reading file", f)
     return pd.read_csv(f, delimiter=',', engine='c', encoding="utf-8-sig")
 
+def run():
+    leftover = None
+    for epoch in range(arguments.epochs):
+
+        print(colored("[INFO] epoch {}/{}".format(epoch+1, arguments.epochs), 'yellow'))
+        for i in range(0, len(files), batch_size):
+
+            print(colored("[INFO] loading file {}-{}/{} on epoch {}/{}".format(i+1, i+batch_size, len(files), epoch+1, arguments.epochs), 'yellow'))
+            df_from_each_file = [readCSV(f) for f in files[i:(i+batch_size)]]
+
+            # ValueError: The truth value of a DataFrame is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
+            if leftover is not None:
+                df_from_each_file.insert(0, leftover)
+
+            print("[INFO] concatenate the files")
+            df = pd.concat(df_from_each_file, ignore_index=True)
+
+            print("[INFO] process dataset, shape:", df.shape)
+            process_dataset(df, arguments.sample, arguments.drop, arguments.lstm)
+
+            print("[INFO] analyze dataset:", df.shape)
+            analyze(df)
+
+            print("[INFO] encoding dataset:", df.shape)
+            encode_columns(df, arguments.result_column, arguments.lstm, arguments.debug)
+            print("[INFO] AFTER encoding dataset:", df.shape)
+
+            if arguments.lstm:
+                for i in range(0, df.shape[0], arguments.lstmBatchSize):
+
+                    dfCopy = df[i:i+arguments.lstmBatchSize]
+
+                    # skip leftover that does not reach batch size
+                    if len(dfCopy.index) != arguments.lstmBatchSize:
+                        leftover = dfCopy
+                        continue
+
+                    train_dnn(dfCopy,i)
+                    leftover = None
+            else:
+                train_dnn(df,i)
+
 # instantiate the parser
 parser = argparse.ArgumentParser(description='NETCAP compatible implementation of Network Anomaly Detection with a Deep Neural Network and TensorFlow')
 
@@ -113,7 +157,7 @@ parser.add_argument('-optimizer', type=str, default='adam', help='set optimizer 
 parser.add_argument('-result_column', type=str, default='Normal/Attack', help='set name of the column with the prediction')
 parser.add_argument('-dimensionality', type=int, required=True, help='The amount of columns in the csv')
 #parser.add_argument('-class_amount', type=int, default=2, help='The amount of classes e.g. normal, attack1, attack3 is 3')
-parser.add_argument('-batch_size', type=int, default=1, help='The amount of files to be read in. (default: 1)')
+parser.add_argument('-batch_size', type=int, default=2, help='The amount of files to be read in. (default: 1)')
 parser.add_argument('-epochs', type=int, default=1, help='The amount of epochs. (default: 1)')
 parser.add_argument('-numCoreLayers', type=int, default=1, help='set number of core layers to use')
 parser.add_argument('-shuffle', default=False, help='shuffle data before feeding it to the DNN')
@@ -152,42 +196,10 @@ model = create_dnn(
 )
 print("[INFO] created DNN")
 
-leftover = None
-for epoch in range(arguments.epochs):
+try:
+    run()
+except: # catch *all* exceptions
+    e = sys.exc_info()
+    print("[EXCEPTION]", e)
+    traceback.print_tb(e[2], None, None)
 
-    print(colored("[INFO] epoch {}/{}".format(epoch, arguments.epochs), 'yellow'))
-    for i in range(0, len(files), batch_size):
-
-        print(colored("[INFO] loading file {}-{} on epoch {}/{}".format(i, i+batch_size, epoch, arguments.epochs), 'yellow'))
-        df_from_each_file = [readCSV(f) for f in files[i:(i+batch_size)]]
-
-        if leftover and len(leftover.index):
-            df_from_each_file.insert(0, leftover)
-
-        print("[INFO] concatenate the files")
-        df = pd.concat(df_from_each_file, ignore_index=True)
-
-        print("[INFO] process dataset, shape:", df.shape)
-        process_dataset(df, arguments.sample, arguments.drop, arguments.lstm)
-
-        print("[INFO] analyze dataset:", df.shape)
-        analyze(df)
-
-        print("[INFO] encoding dataset:", df.shape)
-        encode_columns(df, arguments.result_column, arguments.lstm, arguments.debug)
-        print("[INFO] AFTER encoding dataset:", df.shape)
-
-        if arguments.lstm:
-            for i in range(0, df.shape[0], arguments.lstmBatchSize):
-
-                dfCopy = df[i:i+arguments.lstmBatchSize]
-
-                # skip leftover that does not reach batch size
-                if len(dfCopy.index) != arguments.lstmBatchSize:
-                    leftover = dfCopy
-                    continue
-
-                train_dnn(dfCopy)
-                leftover = None
-        else:
-            train_dnn(df)
