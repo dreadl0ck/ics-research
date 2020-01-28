@@ -120,7 +120,7 @@ def run():
 
             print("[INFO] process dataset, shape:", df.shape)
             if arguments.sample != None:
-                if arguments.sample >= 1.0:
+                if arguments.sample > 1.0:
                     print("invalid sample rate")
                     exit(1)
 
@@ -182,7 +182,7 @@ parser = argparse.ArgumentParser(description='NETCAP compatible implementation o
 # add commandline flags
 parser.add_argument('-read', required=True, type=str, help='Regex to find all labeled input CSV file to read from (required)')
 parser.add_argument('-drop', type=str, help='optionally drop specified columns, supply multiple with comma')
-parser.add_argument('-sample', type=float, nargs='?', help='optionally sample only a fraction of records')
+parser.add_argument('-sample', type=float, default=1.0, help='optionally sample only a fraction of records')
 parser.add_argument('-dropna', default=False, action='store_true', help='drop rows with missing values')
 parser.add_argument('-test_size', type=float, default=0.5, help='specify size of the test data in percent (default: 0.25)')
 parser.add_argument('-loss', type=str, default='categorical_crossentropy', help='set function (default: categorical_crossentropy)')
