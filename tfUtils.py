@@ -43,6 +43,9 @@ def encode_numeric_zscore(df, name, mean=None, sd=None):
         sd = df[name].std()
 
     df[name] = (df[name] - mean) / sd
+    
+    # replace missing values (NaN) with a 0
+    df[name].fillna(0,inplace=True)
 
 
 encoders = {
