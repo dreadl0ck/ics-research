@@ -293,8 +293,8 @@ def drop_col(name, df):
     """
     if name in df.columns:
         print(colored("dropping column: " + name, "yellow"))
-        #df.drop(name, axis=1, inplace=True)
-        del df[name]
+        df.drop(name, axis=1, inplace=True)
+        #del df[name]
 
 ## File Size Utils
 
