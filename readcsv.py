@@ -119,7 +119,38 @@ def run():
             df = pd.concat(df_from_each_file, ignore_index=True)
 
             print("[INFO] process dataset, shape:", df.shape)
-            process_dataset(df, arguments.sample, arguments.drop, arguments.lstm)
+            if sample != None:
+                if sample >= 1.0:
+                    print("invalid sample rate")
+                    exit(1)
+
+                if sample <= 0:
+                    print("invalid sample rate")
+                    exit(1)
+
+            print("[INFO] sampling", sample)
+            df = df.sample(frac=sample, replace=False)
+
+            if drop is not None:
+                for col in drop.split(","):
+                    drop_col(col, df)
+
+            # Always drop columns that are unique for every record
+            drop_col('UID', df)
+
+            # Tag is always 0, remove this column
+            drop_col('Tag', df)
+
+            if not lstm:
+                print("dropping all time related columns...")
+                drop_col('Timestamp', df)
+                drop_col('num', df)
+                drop_col('date', df)
+                drop_col('time', df)
+
+            drop_col('SessionID', df)
+
+            print("[INFO] columns:", df.columns)
 
             print("[INFO] analyze dataset:", df.shape)
             analyze(df)
