@@ -18,7 +18,7 @@ def encode_string(df, name):
     print(colored("encode_string " + name, "yellow"))
     le = preprocessing.LabelEncoder()
     # explicitly type cast to string, to avoid any numbers that slipped in to break the code
-    df[name] = le.fit_transform(df[string(name)])
+    df[name] = le.fit_transform(df[str(name)])
     return le.classes_
 
 
