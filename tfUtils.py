@@ -332,7 +332,7 @@ def process_dataset(df, sample, drop, lstm):
     print("[INFO] sampling", sample)
     df = df.sample(frac=sample, replace=False)
 
-    if drop != None:
+    if drop is not None:
         for col in drop.split(","): 
             drop_col(col, df)
 

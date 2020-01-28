@@ -129,19 +129,21 @@ def run():
             print("[INFO] AFTER encoding dataset:", df.shape)
 
             if arguments.lstm:
-                for i in range(0, df.shape[0], arguments.lstmBatchSize):
+                for batch_index in range(0, df.shape[0], arguments.lstmBatchSize):
 
-                    dfCopy = df[i:i+arguments.lstmBatchSize]
+                    print("[INFO] processing batch {}-{}/{} for LSTM".format(batch_index, batch_index+arguments.lstmBatchSize, df.shape[0]))
+
+                    dfCopy = df[batch_index:batch_index+arguments.lstmBatchSize]
 
                     # skip leftover that does not reach batch size
                     if len(dfCopy.index) != arguments.lstmBatchSize:
                         leftover = dfCopy
                         continue
 
-                    train_dnn(dfCopy,i)
+                    train_dnn(dfCopy, i)
                     leftover = None
             else:
-                train_dnn(df,i)
+                train_dnn(df, i)
 
 # instantiate the parser
 parser = argparse.ArgumentParser(description='NETCAP compatible implementation of Network Anomaly Detection with a Deep Neural Network and TensorFlow')
@@ -171,7 +173,7 @@ parser.add_argument('-debug', default=False, help='debug mode on off')
 # parse commandline arguments
 arguments = parser.parse_args()
 if arguments.read is None:
-    print("[INFO] need an input file. use the -r flag")
+    print("[INFO] need an input file / multi file regex. use the -read flag")
     exit(1)
 
 # get all files
@@ -196,6 +198,7 @@ model = create_dnn(
 )
 print("[INFO] created DNN")
 
+# MAIN
 try:
     run()
 except: # catch *all* exceptions
