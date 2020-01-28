@@ -135,10 +135,45 @@ Start experiments on Brussels:
 ## commands ran
 ### for normal dnn on 2015 labeled dataset:
 
+run 1: 27/1
 command:
-    python3 readcsv.py -read "/mnt/terradrive/labeled-SW015-network/*.csv" -dimensionality 19 -epochs 10
+   python3 readcsv.py -read "/mnt/terradrive/labeled-SW015-network/*.csv" -dimensionality 19 -epochs 10
 
 commit version:
     
     ***REMOVED***@***REMOVED***:~/ics-research$ git rev-parse HEAD  
     4f5ed93d439ca30cf82654f77f0186447327b9e0
+
+
+run 2: 28/1
+
+command:
+   python3 readcsv.py -read "/mnt/terradrive/labeled-SW015-network/*.csv" -dimensionality 19 -epochs 10
+
+commit version:
+   ***REMOVED***@***REMOVED***:~/ics-research$ git rev-parse HEAD
+f54739686d56ae45d7d0eeb9c2bbfaa3fcb7d10a
+
+
+run 3: 28/1 14:55
+command:
+screen -L python3 readcsv.py -read "/mnt/terradrive/labeled-SWaT-2015-network/2015-12-26_121116_89.log.part03_sorted-labeled.csv" -dimensionality 14 -epochs 10 -debug true -drop service,Modbus_Function_Code
+
+commit version:
+***REMOVED***@***REMOVED***:~/ics-research$ git rev-parse HEAD
+20fd6a5fb6239627eb4e7d791496368861e0e3f0
+
+run 4: 28/1 16:16
+command:
+screen -L python3 -u readcsv.py -read "/mnt/terradrive/labeled-SWaT-2015-network/*csv" -dimensionality 14 -epochs 10 -debug true -drop service,Modbus_Function_Cod
+
+commit version:
+***REMOVED***@***REMOVED***:/home/***REMOVED***/ics-research# git rev-parse HEAD
+20fd6a5fb6239627eb4e7d791496368861e0e3f0
+
+
+run 5: 28/1 23:55
+
+commit version:
+***REMOVED***@***REMOVED***:/home/***REMOVED***/ics-research# git rev-parse HEAD
+322ee5783702a582b86dd7dd015ccb84be3d54e2
