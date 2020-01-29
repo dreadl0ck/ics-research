@@ -1,6 +1,14 @@
 package main
 
-import "time"
+import (
+	"encoding/csv"
+	"fmt"
+	"log"
+	"os"
+	"strconv"
+	"strings"
+	"time"
+)
 
 /*
  * Attack
@@ -43,7 +51,6 @@ func (a attack) during(t time.Time) bool {
 
 // Attack information parsing
 // parses a CSV file that contains the attack timestamps and descriptions
-/*
 func parseAttackList(path string) (labels []*attack) {
 
 	fmt.Println("parsing attacks in", path)
@@ -128,4 +135,4 @@ func parseAttackList(path string) (labels []*attack) {
 	}
 
 	return
-}*/
+}

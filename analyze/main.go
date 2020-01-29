@@ -11,6 +11,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	"log"
 	"os"
 	"path/filepath"
 
@@ -19,9 +20,11 @@ import (
 	"strings"
 	"sync"
 	"time"
+
+	"github.com/davecgh/go-spew/spew"
 )
 
-var header = []string{
+var inputHeader = []string{
 	"num",
 	"date",
 	"time",
@@ -42,9 +45,31 @@ var header = []string{
 	"service",
 	"s_port",
 	"Tag",
+	//"Normal/Attack",
+}
+var inputHeaderLen = len(inputHeader)
+
+var outputHeader = []string{
+	"timestamp",
+	"orig",
+	"type",
+	"i/f_name",
+	"i/f_dir",
+	"src",
+	"dst",
+	"proto",
+	"appi_name",
+	"proxy_src_ip",
+	"Modbus_Function_Code",
+	"Modbus_Function_Description",
+	"Modbus_Transaction_ID",
+	"SCADA_Tag",
+	"Modbus_Value",
+	"service",
+	"s_port",
 	"Normal/Attack",
 }
-var headerLen = len(header)
+var outputHeaderLen = len(outputHeader)
 
 /*
  * Globals
@@ -56,7 +81,7 @@ var (
 	hitMapLock sync.Mutex
 
 	// attack information for mapping
-	//attacks []*attack
+	attacks []*attack
 
 	// worker pool
 	workers []chan task
@@ -64,6 +89,8 @@ var (
 
 	results     = make(map[string]*fileSummary)
 	resultMutex sync.Mutex
+
+	colSums map[string]columnSummary
 )
 
 /*
@@ -74,10 +101,10 @@ func main() {
 
 	flag.Parse()
 
-	//if *flagAttackList == "" {
-	//	log.Fatal("need an attack CSV for labeling")
-	//}
-	//attacks = parseAttackList(*flagAttackList)
+	if *flagAttackList == "" {
+		log.Fatal("need an attack CSV for labeling")
+	}
+	attacks = parseAttackList(*flagAttackList)
 
 	var (
 		files []string
@@ -100,7 +127,7 @@ func main() {
 	totalFiles := len(files)
 	fmt.Println("collected", totalFiles, "CSV files for labeling, num workers:", *flagNumWorkers)
 
-	fmt.Println("new CSV header:", header)
+	fmt.Println("new CSV header:", outputHeader)
 	fmt.Println("output directory:", *flagOut)
 	fmt.Println("initializing", *flagNumWorkers, "workers")
 
@@ -124,7 +151,12 @@ func main() {
 	fmt.Println("started all jobs, waiting...")
 	wg.Wait()
 
-	analyze(results)
+	colSums = analyze(results)
+	if colSums != nil {
+		for _, sum := range colSums {
+			spew.Dump(sum)
+		}
+	}
 
 	//// sort and print mapping stats
 	//var atks attackResults
