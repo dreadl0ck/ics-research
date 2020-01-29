@@ -201,3 +201,11 @@ tool name: datenwolf
 
 - DROP columns: Tag, date, num and time
 
+Generate colsums:
+
+    go run ../../datenwolf -analyze
+    # output: colSums-29Jan2020-170358.json
+
+Use colsums for labeling:
+
+    datenwolf -attacks ../List_of_attacks_Final-fixed.csv -colsums colSums-29Jan2020-170358.json -suffix "_sorted.csv" -out /home/***REMOVED***/labeled-SWaT-2015-network
