@@ -33,7 +33,7 @@ monitor = EarlyStopping(
 )
 
 # TODO hardcoded these are the labeltypes that can be found in the dataset
-labeltypes = ["normal", "Single Stage Single Point Attacks", "Single Stage Multi Point Attacks", "Multi Stage Single Point Attacks", "Multi Stage Multi Point Attacks"]
+labeltypes = ["normal", "Single Stage Single Point", "Single Stage Multi Point", "Multi Stage Single Point", "Multi Stage Multi Point"]
 #labeltypes = ["Normal", "Attack"]
 
 def train_dnn(df, i, epoch):
