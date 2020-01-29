@@ -1,3 +1,7 @@
+first file: _69
+first file: _124
+each file has 14 parts
+
 2015-12-28_113021_98.log.part12_sorted-labeled.csv : 103513 [Single Stage Single Point]
 2015-12-28_113021_98.log.part13_sorted-labeled.csv : 136049 [Single Stage Single Point]
 2015-12-28_164554_99.log.part01_sorted-labeled.csv : 66442 [Single Stage Single Point]

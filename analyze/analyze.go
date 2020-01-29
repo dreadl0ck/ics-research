@@ -25,7 +25,33 @@ var stringColumns = map[string]bool{
 	"dst":                         true,
 }
 
-func analyze(results map[string]*fileSummary) {
+type columnType int
+
+const (
+	typeString columnType = iota
+	typeNumeric
+)
+
+func (c columnType) String() string {
+	switch c {
+	case typeNumeric:
+		return "numeric"
+	case typeString:
+		return "string"
+	default:
+		return "invalid"
+	}
+}
+
+type columnSummary struct {
+	col           string
+	typ           columnType
+	uniqueStrings []string
+	std           float64
+	mean          float64
+}
+
+func analyze(results map[string]*fileSummary) map[string]columnSummary {
 
 	if *flagCountAttacks {
 		var attackFiles sort.StringSlice
@@ -46,7 +72,7 @@ func analyze(results map[string]*fileSummary) {
 			}
 			fmt.Println(file, ":", sum.attacks, uniqueAttacks)
 		}
-		return
+		return nil
 	}
 
 	d := &datasetSummary{
@@ -88,6 +114,8 @@ func analyze(results map[string]*fileSummary) {
 	fmt.Println("columns", d.columns, ansi.Reset)
 	//spew.Dump(d)
 
+	var colSums = make(map[string]columnSummary)
+
 	for col, data := range d.strings {
 		fmt.Println(ansi.Yellow, "> column:", col, "unique_values:", len(data), ansi.Reset)
 
@@ -122,6 +150,12 @@ func analyze(results map[string]*fileSummary) {
 					fmt.Println("   -", v)
 				}
 			}
+
+			colSums[col] = columnSummary{
+				col:           col,
+				typ:           typeString,
+				uniqueStrings: unique,
+			}
 		} else {
 
 			var values []float64
@@ -146,8 +180,17 @@ func analyze(results map[string]*fileSummary) {
 
 			mean, std := stat.MeanStdDev(values, nil)
 			fmt.Println(col, "mean:", mean, "stddev:", std)
+
+			colSums[col] = columnSummary{
+				col:  col,
+				typ:  typeNumeric,
+				mean: mean,
+				std:  std,
+			}
 		}
 	}
 
 	fmt.Println("skipped lines with missing values:", skipped)
+
+	return colSums
 }
