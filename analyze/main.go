@@ -9,19 +9,22 @@ package main
 // label-2015-dataset -attacks List_of_attacks_Final-fixed.csv -out /home/***REMOVED***/labeled-SWaT-2015-network
 
 import (
+	"encoding/json"
 	"flag"
 	"fmt"
+	"io/ioutil"
 	"log"
 	"os"
 	"path/filepath"
+	"sort"
 
-	//"sort"
-
+	"strconv"
 	"strings"
 	"sync"
 	"time"
 
 	"github.com/davecgh/go-spew/spew"
+	"github.com/evilsocket/islazy/tui"
 )
 
 var inputHeader = []string{
@@ -101,10 +104,9 @@ func main() {
 
 	flag.Parse()
 
-	if *flagAttackList == "" {
-		log.Fatal("need an attack CSV for labeling")
+	if *flagAttackList != "" {
+		attacks = parseAttackList(*flagAttackList)
 	}
-	attacks = parseAttackList(*flagAttackList)
 
 	var (
 		files []string
@@ -114,7 +116,7 @@ func main() {
 
 	err := filepath.Walk(*flagInput, func(path string, info os.FileInfo, err error) error {
 
-		if strings.HasSuffix(path, "-labeled.csv") {
+		if strings.HasSuffix(path, *flagPathSuffix) {
 			files = append(files, path)
 		}
 
@@ -126,21 +128,43 @@ func main() {
 
 	totalFiles := len(files)
 	fmt.Println("collected", totalFiles, "CSV files for labeling, num workers:", *flagNumWorkers)
-
 	fmt.Println("new CSV header:", outputHeader)
 	fmt.Println("output directory:", *flagOut)
 	fmt.Println("initializing", *flagNumWorkers, "workers")
 
+	// spawn workers
 	for i := 0; i < *flagNumWorkers; i++ {
 		workers = append(workers, worker())
 	}
 
+	// set max files
 	if *flagMaxFiles == 0 {
 		*flagMaxFiles = len(files)
 	}
+
+	if *flagColumnSummaries != "" {
+
+		data, err := ioutil.ReadFile(*flagColumnSummaries)
+		if err != nil {
+			log.Fatal(err)
+		}
+
+		err = json.Unmarshal(data, &colSums)
+		if err != nil {
+			log.Fatal("failed to unmarshal json", err)
+		}
+
+		fmt.Println("loaded column summaries:", len(colSums))
+
+		runLabeling(files, &wg, totalFiles)
+		return
+	}
+
+	// analyze task
 	for current, file := range files[:*flagMaxFiles] {
 		wg.Add(1)
 		handleTask(task{
+			typ:        typeAnalyze,
 			file:       file,
 			current:    current,
 			totalFiles: totalFiles,
@@ -148,51 +172,114 @@ func main() {
 		})
 	}
 
-	fmt.Println("started all jobs, waiting...")
+	fmt.Println("started all analysis jobs, waiting...")
 	wg.Wait()
 
+	printAnalysisInfo()
+
+	if *flagAnalyzeOnly {
+		fmt.Println("done in", time.Since(start))
+		return
+	}
+
+	// run labeling
+	runLabeling(files, &wg, totalFiles)
+
+	fmt.Println("done in", time.Since(start))
+}
+
+func runLabeling(files []string, wg *sync.WaitGroup, totalFiles int) {
+	for current, file := range files[:*flagMaxFiles] {
+		wg.Add(1)
+		handleTask(task{
+			typ:        typeLabel,
+			file:       file,
+			current:    current,
+			totalFiles: totalFiles,
+			wg:         wg,
+		})
+	}
+
+	fmt.Println("started all labeling jobs, waiting...")
+	wg.Wait()
+
+	printLabelInfo()
+}
+
+func printAnalysisInfo() {
+
+	fmt.Println("------- printAnalysisInfo")
+
+	fmt.Println("analyzing data...")
 	colSums = analyze(results)
-	if colSums != nil {
-		for _, sum := range colSums {
-			spew.Dump(sum)
+	if *flagDebug {
+		if colSums != nil {
+			for _, sum := range colSums {
+				if sum.Col != "Modbus_Value" {
+					spew.Dump(sum)
+				}
+			}
 		}
 	}
 
-	//// sort and print mapping stats
-	//var atks attackResults
-	//for n, hits := range hitMap {
-	//	atks = append(atks, attackResult{
-	//		name: n,
-	//		hits: hits,
-	//	})
-	//}
-	//
-	//sort.Sort(atks)
-	//
-	//var rows [][]string
-	//for _, a := range atks {
-	//	rows = append(rows, []string{strconv.Itoa(a.hits), a.name})
-	//}
+	fmt.Println("saving column summaries...")
 
-	//tui.Table(os.Stdout, []string{"Hits", "AttackName"}, rows)
-	//
-	//// print names of attacks that could not be mapped
-	//var notMatched []string
-	//for _, a := range attacks {
-	//	if _, ok := hitMap[a.AttackName]; !ok {
-	//		notMatched = append(notMatched, a.AttackName)
-	//	}
-	//}
-	//if len(notMatched) > 0 {
-	//	fmt.Println("could not map the following attacks:")
-	//}
-	//for _, name := range notMatched {
-	//	fmt.Println("-", name)
-	//}
+	data, err := json.Marshal(colSums)
+	if err != nil {
+		log.Fatal("failed to json marshal", err)
+	}
 
-	// for file, sum := range results {
-	// 	fmt.Println(file, sum)
-	// }
+	f, err := os.Create("colSums-" + time.Now().Format("2Jan2006-150405") + ".json")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer f.Close()
 
-	fmt.Println("done in", time.Since(start))
+	_, err = f.Write(data)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Println("saved column summaries to", f.Name())
+}
+
+func printLabelInfo() {
+
+	fmt.Println("------- printLabelInfo")
+
+	// sort and print mapping stats
+	var atks attackResults
+	for n, hits := range hitMap {
+		atks = append(atks, attackResult{
+			name: n,
+			hits: hits,
+		})
+	}
+
+	sort.Sort(atks)
+
+	var rows [][]string
+	for _, a := range atks {
+		rows = append(rows, []string{strconv.Itoa(a.hits), a.name})
+	}
+
+	tui.Table(os.Stdout, []string{"Hits", "AttackName"}, rows)
+
+	// print names of attacks that could not be mapped
+	var notMatched []string
+	for _, a := range attacks {
+		if _, ok := hitMap[a.AttackName]; !ok {
+			notMatched = append(notMatched, a.AttackName)
+		}
+	}
+	if len(notMatched) > 0 {
+		fmt.Println("could not map the following attacks:")
+	}
+	for _, name := range notMatched {
+		fmt.Println("-", name)
+	}
+
+	for file, sum := range results {
+		fmt.Println(file, sum)
+	}
 }

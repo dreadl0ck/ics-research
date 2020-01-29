@@ -13,40 +13,27 @@ import (
 	"time"
 )
 
-func getIndex(arr []string, val string) string {
+// For strings: num variants
+// For nums: stddev, mean, min, max
+type fileSummary struct {
+	file      string
+	lineCount int
+	columns   []string
 
-	for index, v := range arr {
-		if v == val {
-			return strconv.Itoa(index)
-		}
-	}
-
-	return "not-found"
+	// mapped column names to number of hits for each unique string
+	strings       map[string]map[string]int
+	skipped       int
+	attacks       int
+	uniqueAttacks map[string]struct{}
 }
 
-type correction struct {
-	old string
-	new string
-}
+type datasetSummary struct {
+	fileCount int
+	lineCount int
+	columns   []string
 
-func newCorrection(old, new string) correction {
-	return correction{
-		old: old,
-		new: new,
-	}
-}
-
-// columns mapped to corrections
-var cmap = map[string][]correction{
-	"proxy_src_ip": []correction{
-		newCorrection("192.16:.1.10", "192.168.1.10"),
-	},
-	"type": []correction{
-		newCorrection("loe", "log"),
-	},
-	"Modbus_Function_Description": []correction{
-		newCorrection("Read Tag Service - Responqe", "Read Tag Service - Response"),
-	},
+	// mapped column names to number of hits for each unique string
+	strings map[string]map[string]int
 }
 
 /*
@@ -128,29 +115,6 @@ func worker() chan task {
 
 	// return input channel
 	return chanInput
-}
-
-// For strings: num variants
-// For nums: stddev, mean, min, max
-type fileSummary struct {
-	file      string
-	lineCount int
-	columns   []string
-
-	// mapped column names to number of hits for each unique string
-	strings       map[string]map[string]int
-	skipped       int
-	attacks       int
-	uniqueAttacks map[string]struct{}
-}
-
-type datasetSummary struct {
-	fileCount int
-	lineCount int
-	columns   []string
-
-	// mapped column names to number of hits for each unique string
-	strings map[string]map[string]int
 }
 
 func (t task) analyze() *fileSummary {
@@ -269,17 +233,6 @@ func (t task) analyze() *fileSummary {
 	return s
 }
 
-var excludedCols = []string{"num", "date", "time"}
-
-func excluded(col string) bool {
-	for _, n := range excludedCols {
-		if n == col {
-			return true
-		}
-	}
-	return false
-}
-
 // 1) correct fields
 // 2) encode columns
 // 3) add labels
@@ -391,6 +344,8 @@ func (t task) label() {
 		// 17 service
 		// 18 s_port
 		// 19 Tag
+
+		// example:
 		// num,date,time,orig,type,i/f_name,i/f_dir,src,dst,proto,appi_name,proxy_src_ip,Modbus_Function_Code,Modbus_Function_Description,Modbus_Transaction_ID,SCADA_Tag,Modbus_Value,service,s_port,Tag
 		// 1,21Dec2015,22:17:56,192.168.1.48,log,eth1,outbound,192.168.1.60,192.168.1.10,tcp,CIP_read_tag_service,192.168.1.60,76,Read Tag Service,30721,HMI_LIT101,Number of Elements: 1,44818,53260,0
 
@@ -432,18 +387,17 @@ func (t task) label() {
 		}
 
 		// fix empty column in dataset
-		final := append(r, classification)
-		if len(final) == 22 {
+		if len(r) == 21 {
 
 			// remove empty column in some of the provided CSV data
-			final[19] = final[20]
-			final[20] = final[21]
+			r[18] = r[19]
+			r[19] = r[20]
 
 			// remove last elem
-			final = final[:21]
+			r = r[:20]
 		}
 
-		// apply corrections
+		// apply value corrections
 		for index, v := range r {
 			if corr, ok := cmap[inputHeader[index]]; ok {
 				for _, c := range corr {
@@ -454,13 +408,13 @@ func (t task) label() {
 			}
 		}
 
-		// TODO encode values
+		// encode values
 		for index, v := range r {
 			colName := inputHeader[index]
 			if sum, ok := colSums[colName]; ok {
-				switch sum.typ {
+				switch sum.Typ {
 				case typeString:
-					r[index] = getIndex(sum.uniqueStrings, v)
+					r[index] = getIndex(sum.UniqueStrings, v)
 				case typeNumeric:
 
 					i, err := strconv.ParseFloat(v, 64)
@@ -473,18 +427,19 @@ func (t task) label() {
 					}
 
 					// normalize with z_score
-					r[index] = strconv.FormatFloat((i-sum.mean)/sum.std, 'f', 5, 64)
+					r[index] = strconv.FormatFloat((i-sum.Mean)/sum.Std, 'f', 5, 64)
 				}
 			}
 		}
 
-		// TODO remove num, date, time columns
-		// and add timestamp
-		final = final[2:]
-		final[2] = strconv.FormatInt(ti.Unix(), 10)
+		// remove leading num and date columns
+		r = r[2:]
 
-		// TODO: remove Tag column and classification, then add classification again
-		final = append(final[:len(final)-2], classification)
+		// and add timestamp to time column
+		r[2] = strconv.FormatInt(ti.Unix(), 10)
+
+		// remove Tag column, and append classification
+		final := append(r[:len(r)-1], classification)
 
 		// ensure no corrupted data is written into the output file
 		if len(final) != outputHeaderLen {

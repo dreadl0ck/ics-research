@@ -44,11 +44,11 @@ func (c columnType) String() string {
 }
 
 type columnSummary struct {
-	col           string
-	typ           columnType
-	uniqueStrings []string
-	std           float64
-	mean          float64
+	Col           string     `json:"col"`
+	Typ           columnType `json:"typ"`
+	UniqueStrings []string   `json:"uniqueStrings"`
+	Std           float64    `json:"std"`
+	Mean          float64    `json:"mean"`
 }
 
 func analyze(results map[string]*fileSummary) map[string]columnSummary {
@@ -119,23 +119,6 @@ func analyze(results map[string]*fileSummary) map[string]columnSummary {
 	for col, data := range d.strings {
 		fmt.Println(ansi.Yellow, "> column:", col, "unique_values:", len(data), ansi.Reset)
 
-		// determine if column contains string or numeric data
-		//isString := true
-
-		// peek at first elem
-		// for value := range data {
-		// 	_, err := strconv.Atoi(value)
-		// 	if err != nil {
-		// 		_, err := strconv.ParseFloat(value, 64)
-		// 		if err == nil {
-		// 			isString = false
-		// 		}
-		// 	} else {
-		// 		isString = false
-		// 	}
-		// 	break
-		// }
-
 		// lookup type for column
 		isString := stringColumns[col]
 
@@ -152,9 +135,9 @@ func analyze(results map[string]*fileSummary) map[string]columnSummary {
 			}
 
 			colSums[col] = columnSummary{
-				col:           col,
-				typ:           typeString,
-				uniqueStrings: unique,
+				Col:           col,
+				Typ:           typeString,
+				UniqueStrings: unique,
 			}
 		} else {
 
@@ -182,10 +165,10 @@ func analyze(results map[string]*fileSummary) map[string]columnSummary {
 			fmt.Println(col, "mean:", mean, "stddev:", std)
 
 			colSums[col] = columnSummary{
-				col:  col,
-				typ:  typeNumeric,
-				mean: mean,
-				std:  std,
+				Col:  col,
+				Typ:  typeNumeric,
+				Mean: mean,
+				Std:  std,
 			}
 		}
 	}
