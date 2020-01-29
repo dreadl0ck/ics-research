@@ -7,6 +7,8 @@ import (
 	"log"
 	"os"
 	"strconv"
+
+	"github.com/mgutz/ansi"
 )
 
 func (t task) analyze() *fileSummary {
@@ -49,7 +51,12 @@ func (t task) analyze() *fileSummary {
 			break
 		}
 		if err != nil {
-			fmt.Println("error while reading next line from file", t.file, "error:", err)
+			fmt.Println("error while reading next line from file", t.file, "error:", err, "length:", len(r), "expected:", len(inputHeader))
+			fmt.Println(ansi.Red)
+			for _, e := range r {
+				fmt.Println("-" + e)
+			}
+			fmt.Println(ansi.Reset)
 			count++
 			continue
 		}
@@ -102,18 +109,18 @@ func (t task) analyze() *fileSummary {
 			}
 		}
 
+		// count values for each column
 		for i, col := range s.columns {
 
 			if excluded(col) {
 				continue
 			}
 
+			// ensure the corresponding map is initialized
 			if _, ok := s.strings[col]; !ok {
 				s.strings[col] = make(map[string]int)
-				s.strings[col][r[i]]++
-			} else {
-				s.strings[col][r[i]]++
 			}
+			s.strings[col][r[i]]++
 		}
 	}
 

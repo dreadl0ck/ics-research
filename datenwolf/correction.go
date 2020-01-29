@@ -24,3 +24,9 @@ var cmap = map[string][]correction{
 		newCorrection("Read Tag Service - Responqe", "Read Tag Service - Response"),
 	},
 }
+
+var simpleCorrect = map[string]string{
+	"192.16:.1.10":                "192.168.1.10",
+	"loe":                         "log",
+	"Read Tag Service - Responqe": "Read Tag Service - Response",
+}

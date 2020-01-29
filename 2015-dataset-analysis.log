@@ -1,0 +1,188 @@
+------- printAnalysisInfo
+analyzing data...
+DONE
+files: 784
+lines: 388719907
+columns [num date time orig type i/f_name i/f_dir src dst proto appi_name proxy_src_ip Modbus_Function_Code Modbus_Function_Description Modbus_Transaction_ID SCADA_Tag Modbus_Value service s_port Tag]
+ > column: proxy_src_ip unique_values: 23
+   - 192.168.1.199
+   - 192.168.1.201
+   - 192.168.1.134
+   - 192.168.1.100
+   - 192.168.1.249
+   - 192.168.1.202
+   - 192.168.1.20
+   - 192.168.1.88
+   - 10.19.1.211
+   - 169.254.245.229
+   - 192.168.1.19
+   - 192.168.1.136
+   - 192.168.1.157
+   - 192.168.1.30
+   - 192.168.1.49
+   - 10.15.51.65
+   - 192.168.1.40
+   - 0
+   - 192.168.1.60
+   - 192.16:.1.10
+   - 192.168.1.10
+   - 192.168.1.200
+   - 192.168.1.107
+ > column: i/f_name unique_values: 4
+   - geod daemon
+   - allow
+   - eth1
+   - 0
+ > column: i/f_dir unique_values: 2
+   - inbound
+   - outbound
+ > column: src unique_values: 23
+   - 192.168.1.249
+   - 192.168.1.20
+   - 192.168.1.49
+   - 192.168.1.201
+   - 192.168.1.200
+   - 192.168.1.157
+   - 192.168.1.100
+   - 192.168.1.30
+   - 192.168.1.199
+   - 192.168.1.10
+   - 192.168.1.136
+   - 192.168.1.19
+   - 169.254.245.229
+   - 10.15.51.65
+   - 0
+   - 192.168.1.40
+   - 192.168.1.202
+   - 192.168.1.134
+   - 192.168.1.107
+   - 10.19.1.211
+   - Application Control
+   - 192.168.1.88
+   - 192.168.1.60
+ > column: Modbus_Function_Description unique_values: 21
+   - 0
+   - Get Attributes All
+   - Unknown Function Code
+   - Reset
+   - Stop
+   - Reset - Response
+   - Start - Response
+   - Read Tag Service - Response
+   - Set_Attribute_List - Response
+   - Get Attributes List
+   - Write Tag Service
+   - Read Tag Service
+   - Write Tag Fragmented Service
+   - Write Tag Fragmented Service - Response
+   - Read Tag Service - Responqe
+   - Forward Close - Response
+   - Set Attribute List
+   - Unknown Function Code - Response
+   - Stop - Response
+   - Start
+   - Get Attributes List - Response
+ > column: orig unique_values: 3
+   - 192.168.1.48
+   - 192.168.1.87
+   - 192.168.1.88
+ > column: s_port unique_values: 385
+s_port mean: 53501.138803647635 stddev: 750.0302754186406
+ > column: type unique_values: 4
+   - log
+   - control
+   - alert
+   - loe
+ > column: dst unique_values: 28
+   - 192.168.1.100
+   - 192.148.1.10
+   - 192.168.1.88
+   - 255.255.255.255
+   - 10.19.255.255
+   - 239.192.2.63
+   - 192.168.1.255
+   - 239.255.255.250
+   - 192.168.1.40
+   - 192.168.1.30
+   - 192.168.1.10
+   - 169.254.255.255
+   - 239.192.4.191
+   - 192.168.1.70
+   - 192.168.1.103
+   - 0
+   - 192.168.1.201
+   - 192.168.1.200
+   - 224.0.0.252
+   - 192.168.1.19
+   - 192.168.1.157
+   - 192.168.1.20
+   - 192.168.1.50
+   - 192.168.1.87
+   - 192.168.1.60
+   - 224.0.0.251
+   - 192.168.1.49
+   - 192.168.1.11
+ > column: Modbus_Function_Code unique_values: 16
+Modbus_Function_Code mean: 75.93340446029691 stddev: 2.249154582659998
+ > column: Modbus_Transaction_ID unique_values: 65536
+Modbus_Transaction_ID mean: 32738.22744083698 stddev: 18935.269993505623
+ > column: appi_name unique_values: 38
+   - Multicast DNS Protocol (mDNS)
+   - Kaspersky Lab-update
+   - Common Industrial Protocol - execute PCCC
+   - Common Industrial Protocol - success
+   - CIP_func92
+   - EtherNet/IP
+   - Common Industrial Protocol - get attribute all
+   - DCE-RPC Protocol
+   - Web Browsing
+   - VNC
+   - CIP_func79
+   - CIP_write_tag_service
+   - Common Industrial Protocol - get attribute single
+   - Remote Desktop Protocol
+   - Simple Object Access Protocol
+   - CIP_gen
+   - Common Industrial Protocol
+   - Unknown Traffic
+   - NetBIOS Session Service
+   - CIP_func75
+   - Common Industrial Protocol - unconnected send-get attribute all
+   - CIP_read_tag_service
+   - NetBIOS Name Service
+   - Server Message Block (SMB)
+   - Common Industrial Protocol - RMW (Read/Modify/Write)
+   - DNS Protocol
+   - NetBIOS Datagram Service
+   - SSDP
+   - OSIsoft PI
+   - DHCP Protocol
+   - 0
+   - LLMNR Protocol
+   - DNP3 Protocol - initialize data to defaults
+   - Common Industrial Protocol - multiple service packet
+   - CIP_set_attributes_list
+   - Common Industrial Protocol - read data fragmented
+   - SIC Protocol
+   - Google Chrome
+ > column: service unique_values: 21
+service mean: 44816.97958904121 stddev: 211.6649953504354
+ > column: SCADA_Tag unique_values: 6
+   - 0
+   - HMI_LIT101
+   - HMI_AIT202
+   - HMI_FIT201
+   - HMI_LIT301
+   - HMI_LIT401
+ > column: Modbus_Value unique_values: 1606643
+ > column: Tag unique_values: 2
+map[0:368898683 1:19821224]
+Tag mean: 0.05099101857934948 stddev: 0.2199793960990005
+ > column: proto unique_values: 3
+   - tcp
+   - 0
+   - udp
+skipped lines with missing values: 0
+saving column summaries...
+saved column summaries to colSums-29Jan2020-221001.json
+done in 9m35.229500333s

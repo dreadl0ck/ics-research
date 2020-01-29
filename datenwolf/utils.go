@@ -18,6 +18,17 @@ import (
  * Utils
  */
 
+var excludedCols = []string{"num", "date", "time", "Referrer_self_uid"}
+
+func excluded(col string) bool {
+	for _, ex := range excludedCols {
+		if ex == col {
+			return true
+		}
+	}
+	return false
+}
+
 // ClearLine clears the current line of the terminal
 func clearLine() {
 	print("\033[2K\r")
@@ -32,17 +43,6 @@ func getIndex(arr []string, val string) string {
 	}
 
 	return "not-found"
-}
-
-var excludedCols = []string{"num", "date", "time"}
-
-func excluded(col string) bool {
-	for _, n := range excludedCols {
-		if n == col {
-			return true
-		}
-	}
-	return false
 }
 
 func runLabeling(files []string, wg *sync.WaitGroup, totalFiles int) {

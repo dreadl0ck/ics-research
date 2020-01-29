@@ -48,7 +48,7 @@ var inputHeader = []string{
 var inputHeaderLen = len(inputHeader)
 
 var outputHeader = []string{
-	"timestamp",
+	"unixtime",
 	"orig",
 	"type",
 	"i/f_name",
@@ -58,14 +58,14 @@ var outputHeader = []string{
 	"proto",
 	"appi_name",
 	"proxy_src_ip",
-	"Modbus_Function_Code",
-	"Modbus_Function_Description",
-	"Modbus_Transaction_ID",
-	"SCADA_Tag",
-	"Modbus_Value",
+	"modbus_function_code",
+	"modbus_function_description",
+	"modbus_transaction_id",
+	"scada_tag",
+	"modbus_value",
 	"service",
 	"s_port",
-	"Normal/Attack",
+	"classification",
 }
 var outputHeaderLen = len(outputHeader)
 

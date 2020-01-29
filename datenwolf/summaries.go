@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"sort"
 	"strconv"
+	"time"
 
 	"github.com/mgutz/ansi"
 	"gonum.org/v1/gonum/stat"
@@ -99,9 +100,15 @@ func merge(results map[string]*fileSummary) map[string]columnSummary {
 		d.lineCount += sum.lineCount
 		d.columns = sum.columns
 
-		//fmt.Println(sum.file, sum.columns)
+		if *flagDebug {
+			fmt.Println(ansi.Red+sum.file, "len(sum.columns):", len(sum.columns), "len(sum.strings):", len(sum.strings), ansi.Reset)
+			time.Sleep(1 * time.Second)
+		}
 
 		for col, values := range sum.strings {
+			if *flagDebug {
+				fmt.Println("column:", col, sum.file, sum.columns, len(sum.columns))
+			}
 			for key, num := range values {
 				d.strings[col][key] += num
 			}

@@ -10,6 +10,8 @@ import (
 	"strconv"
 	"strings"
 	"time"
+
+	"github.com/mgutz/ansi"
 )
 
 // 1) correct fields
@@ -65,6 +67,7 @@ func (t task) label() {
 		}
 		if err != nil {
 			fmt.Println("error while reading next line from file", t.file, "error:", err)
+			fmt.Println(r)
 			count++
 			continue
 		}
@@ -72,6 +75,14 @@ func (t task) label() {
 
 		// skip header
 		if count == 1 {
+			// debug empty column in dataset
+			if len(r) == 21 {
+				if *flagDebug {
+					fmt.Println(ansi.Red)
+					fmt.Println(r)
+					fmt.Println(ansi.Reset)
+				}
+			}
 			continue
 		}
 
@@ -146,7 +157,7 @@ func (t task) label() {
 				}
 			}
 		}
-		fmt.Println(r[1]+r[2], "time:", t)
+		//fmt.Println(r[1]+r[2], "time:", ti)
 
 		// determine classification
 		for _, a := range attacks {
@@ -165,32 +176,49 @@ func (t task) label() {
 			}
 		}
 
-		// fix empty column in dataset
+		// fix for additional column in dataset: Referrer_self_uid
+		// this column will be dropped from the dataset
+		// num,date,time,orig,type,i/f_name,i/f_dir,src,dst,proto,appi_name,proxy_src_ip,Modbus_Function_Code,Modbus_Function_Description,Modbus_Transaction_ID,SCADA_Tag,Modbus_Value,service,s_port,Referrer_self_uid,Tag
 		if len(r) == 21 {
-
-			// remove empty column in some of the provided CSV data
-			r[18] = r[19]
-			r[19] = r[20]
-
-			// remove last elem
+			// remove last elem: the value for tag
+			// the last column then contains the Referrer_self_uid, which will be overwritten with the value for the classification
+			// this is more efficient than shifting values between columns
 			r = r[:20]
 		}
 
+		// TODO kills performance, refactor ...
+		// apply value corrections
+		// for index, v := range r {
+		// 	if corr, ok := cmap[inputHeader[index]]; ok {
+		// 		for _, c := range corr {
+		// 			if v == c.old {
+		// 				if *flagDebug {
+		// 					fmt.Println("correction: changed", r[index], "to", c.new)
+		// 				}
+		// 				r[index] = c.new
+		// 			}
+		// 		}
+		// 	}
+		// }
+
 		// apply value corrections
 		for index, v := range r {
-			if corr, ok := cmap[inputHeader[index]]; ok {
-				for _, c := range corr {
-					if v == c.old {
-						r[index] = c.new
-					}
-				}
+			if new, ok := simpleCorrect[v]; ok {
+				fmt.Println("correction: changed", r[index], "to", new)
+				r[index] = new
 			}
 		}
 
 		// encode values
 		for index, v := range r {
+
+			// get column name
 			colName := inputHeader[index]
+
+			// lookup summary for column
 			if sum, ok := colSums[colName]; ok {
+
+				// handle data type
 				switch sum.Typ {
 				case typeString:
 					r[index] = getIndex(sum.UniqueStrings, v)
@@ -205,6 +233,7 @@ func (t task) label() {
 						i = float64(ii)
 					}
 
+					// TODO: make float precision configurable
 					// normalize with z_score
 					r[index] = strconv.FormatFloat((i-sum.Mean)/sum.Std, 'f', 5, 64)
 				}
@@ -214,19 +243,19 @@ func (t task) label() {
 		// remove leading num and date columns
 		r = r[2:]
 
-		// and add timestamp to time column
-		r[2] = strconv.FormatInt(ti.Unix(), 10)
+		// insert time column
+		r[0] = strconv.FormatInt(ti.Unix(), 10)
 
-		// remove Tag column, and append classification
-		final := append(r[:len(r)-1], classification)
+		// replace values Tag column with classification
+		r[len(r)-1] = classification
 
 		// ensure no corrupted data is written into the output file
-		if len(final) != outputHeaderLen {
+		if len(r) != outputHeaderLen {
 			fmt.Println(info, "file:", t.file, "line:", count)
-			log.Fatal("length of data line does not match header length:", len(final), "!=", len(outputHeader))
+			log.Fatal("length of data line does not match header length:", len(r), "!=", len(outputHeader))
 		}
 
-		err = outputWriter.Write(final)
+		err = outputWriter.Write(r)
 		if err != nil {
 			log.Fatal(err)
 		}
