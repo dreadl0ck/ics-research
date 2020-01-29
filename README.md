@@ -206,6 +206,12 @@ Generate colsums:
     go run ../../datenwolf -analyze
     # output: colSums-29Jan2020-170358.json
 
-Use colsums for labeling:
+Build:
 
-    datenwolf -attacks ../List_of_attacks_Final-fixed.csv -colsums colSums-29Jan2020-170358.json -suffix "_sorted.csv" -out /home/***REMOVED***/labeled-SWaT-2015-network
+    GOOS=linux go build -o bin/datenwolf ./datenwolf
+	scp bin/datenwolf ***REMOVED***@***REMOVED***:/home/***REMOVED***
+
+Start analysis and labeling on oslo:
+
+    cd "/datasets/SWaT/01_SWaT_Dataset_Dec 2015/Network"
+    screen -L /home/***REMOVED***/datenwolf -attacks List_of_attacks_Final-fixed.csv -suffix "_sorted.csv" -out /home/***REMOVED***/labeled-SWaT-2015-network
