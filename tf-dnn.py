@@ -616,7 +616,7 @@ print("y_test.shape", y_test.shape)
 
 if arguments.lstm:
 
-    print(colored("[INFO] using LSTM layers", 'yellow'))
+    print("[INFO] using LSTM layers")
     x_train = x_train.reshape(-1, x_train.shape[0], x.shape[1])
     x_test = x_test.reshape(-1, x_test.shape[0], x.shape[1])
     y_train = y_train.reshape(-1, y_train.shape[0], y.shape[1])

@@ -18,7 +18,7 @@ def encode_string(df, name):
     print(colored("encode_string " + name, "yellow"))
     le = preprocessing.LabelEncoder()
     # explicitly type cast to string, to avoid any numbers that slipped in to break the code
-    df[name] = le.fit_transform(df[str(name)])
+    df[name] = le.fit_transform(df[name].astype(str))
     return le.classes_
 
 
@@ -403,9 +403,9 @@ def create_dnn(input_dim, output_dim, loss, optimizer, lstm, numCoreLayers, core
 
         # construct input shape
         input_shape=(int(lstmBatchSize/2),input_dim,)
-        print("> input_shape", input_shape)
+        print("[INFO] input_shape", input_shape)
 
-        print("> LSTM first and last layer neurons:", wrapLayerSize)
+        print("[INFO] LSTM first and last layer neurons:", wrapLayerSize)
 
         # - The input of the LSTM is always a 3D array. (batch_size, time_steps, seq_len)
         # - The output of the LSTM could be a 2D array or 3D array depending upon the return_sequences argument.
@@ -443,7 +443,7 @@ def create_dnn(input_dim, output_dim, loss, optimizer, lstm, numCoreLayers, core
 
         # add requested number of core layers
         for i in range(0, numCoreLayers):
-            print("adding core layer", i)
+            print("[INFO] adding core layer", i)
             model.add(Dense(coreLayerSize, input_dim=input_dim, kernel_initializer='normal', activation='relu'))
 
         model.add(Dense(wrapLayerSize, input_dim=input_dim, kernel_initializer='normal', activation='relu'))

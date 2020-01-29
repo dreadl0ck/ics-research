@@ -36,7 +36,7 @@ monitor = EarlyStopping(
 labeltypes = ["normal", "Single Stage Single Point Attacks", "Single Stage Multi Point Attacks", "Multi Stage Single Point Attacks", "Multi Stage Multi Point Attacks"]
 #labeltypes = ["Normal", "Attack"]
 
-def train_dnn(df, i):
+def train_dnn(df, i, epoch):
 
     print("[INFO] breaking into predictors and prediction...")
     # Break into X (predictors) & y (prediction)
@@ -64,7 +64,7 @@ def train_dnn(df, i):
 
     if arguments.lstm:
 
-        print(colored("[INFO] using LSTM layers", 'yellow'))
+        print("[INFO] using LSTM layers")
         x_train = x_train.reshape(-1, x_train.shape[0], x.shape[1])
         x_test = x_test.reshape(-1, x_test.shape[0], x.shape[1])
         y_train = y_train.reshape(-1, y_train.shape[0], y.shape[1])
@@ -94,8 +94,8 @@ def train_dnn(df, i):
 
     # TODO: mkdir checkpoints
 
-    print("[INFO] saving weights")
-    model.save_weights('./checkpoints/epoch-{}-files-{}-{}'.format(1, i, i+batch_size))
+    print("[INFO] saving weights to checkpoints/epoch-{}-files-{}-{}".format(epoch, i, i+batch_size))
+    model.save_weights('./checkpoints/epoch-{}-files-{}-{}'.format(epoch, i, i+batch_size))
 
 def readCSV(f):
     print("[INFO] reading file", f)
@@ -118,6 +118,7 @@ def run():
             print("[INFO] concatenate the files")
             df = pd.concat(df_from_each_file, ignore_index=True)
 
+            # TODO move back into process_dataset?
             print("[INFO] process dataset, shape:", df.shape)
             if arguments.sample != None:
                 if arguments.sample > 1.0:
@@ -171,10 +172,10 @@ def run():
                         leftover = dfCopy
                         continue
 
-                    train_dnn(dfCopy, i)
+                    train_dnn(dfCopy, i, epoch+1)
                     leftover = None
             else:
-                train_dnn(df, i)
+                train_dnn(df, i, epoch+1)
 
 # instantiate the parser
 parser = argparse.ArgumentParser(description='NETCAP compatible implementation of Network Anomaly Detection with a Deep Neural Network and TensorFlow')
