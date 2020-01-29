@@ -177,3 +177,27 @@ run 5: 28/1 23:55
 commit version:
 ***REMOVED***@***REMOVED***:/home/***REMOVED***/ics-research# git rev-parse HEAD
 322ee5783702a582b86dd7dd015ccb84be3d54e2
+
+# Dataset analyzer
+tool name: datenwolf
+# analysis
+- which files contain attacks
+- unique strings for each row
+- mean, stddev, min and max for numbers
+# preprocessing
+- drop columns that only contain a single value
+- fix typos: ip, log and loe, Responqe etc
+- merge num, date and time to UNIX timestamps
+# encoding
+- zscore numbers
+- encode strings to numbers
+# labeling
+- use attack types
+# split
+- dataset split: 50% train, 25% test, 25% validation, LSTM batch size: 125000
+
+- IMPORTANT: preserve order when using LSTM
+- add code to run evaluation and print results
+
+- DROP columns: Tag, date, num and time
+
