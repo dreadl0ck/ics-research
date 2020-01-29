@@ -237,7 +237,7 @@ def to_xy(df, target, labeltypes):
 
     # loop through all of the labeltypes and flag the columns that contain the label type
     for i,j in enumerate(labeltypes):
-
+        print("[INFO] to_xy labeltype:", j)
         indices = np.where(values == j)
         y_vector[indices,i] = 1
     return df[result].values.astype(np.float32), y_vector
