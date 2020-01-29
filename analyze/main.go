@@ -16,15 +16,10 @@ import (
 	"log"
 	"os"
 	"path/filepath"
-	"sort"
 
-	"strconv"
 	"strings"
 	"sync"
 	"time"
-
-	"github.com/davecgh/go-spew/spew"
-	"github.com/evilsocket/islazy/tui"
 )
 
 var inputHeader = []string{
@@ -186,100 +181,4 @@ func main() {
 	runLabeling(files, &wg, totalFiles)
 
 	fmt.Println("done in", time.Since(start))
-}
-
-func runLabeling(files []string, wg *sync.WaitGroup, totalFiles int) {
-	for current, file := range files[:*flagMaxFiles] {
-		wg.Add(1)
-		handleTask(task{
-			typ:        typeLabel,
-			file:       file,
-			current:    current,
-			totalFiles: totalFiles,
-			wg:         wg,
-		})
-	}
-
-	fmt.Println("started all labeling jobs, waiting...")
-	wg.Wait()
-
-	printLabelInfo()
-}
-
-func printAnalysisInfo() {
-
-	fmt.Println("------- printAnalysisInfo")
-
-	fmt.Println("analyzing data...")
-	colSums = merge(results)
-	if *flagDebug {
-		if colSums != nil {
-			for _, sum := range colSums {
-				if sum.Col != "Modbus_Value" {
-					spew.Dump(sum)
-				}
-			}
-		}
-	}
-
-	fmt.Println("saving column summaries...")
-
-	data, err := json.Marshal(colSums)
-	if err != nil {
-		log.Fatal("failed to json marshal", err)
-	}
-
-	f, err := os.Create("colSums-" + time.Now().Format("2Jan2006-150405") + ".json")
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer f.Close()
-
-	_, err = f.Write(data)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	fmt.Println("saved column summaries to", f.Name())
-}
-
-func printLabelInfo() {
-
-	fmt.Println("------- printLabelInfo")
-
-	// sort and print mapping stats
-	var atks attackResults
-	for n, hits := range hitMap {
-		atks = append(atks, attackResult{
-			name: n,
-			hits: hits,
-		})
-	}
-
-	sort.Sort(atks)
-
-	var rows [][]string
-	for _, a := range atks {
-		rows = append(rows, []string{strconv.Itoa(a.hits), a.name})
-	}
-
-	tui.Table(os.Stdout, []string{"Hits", "AttackName"}, rows)
-
-	// print names of attacks that could not be mapped
-	var notMatched []string
-	for _, a := range attacks {
-		if _, ok := hitMap[a.AttackName]; !ok {
-			notMatched = append(notMatched, a.AttackName)
-		}
-	}
-	if len(notMatched) > 0 {
-		fmt.Println("could not map the following attacks:")
-	}
-	for _, name := range notMatched {
-		fmt.Println("-", name)
-	}
-
-	for file, sum := range results {
-		fmt.Println(file, sum)
-	}
 }
