@@ -1,179 +1,126 @@
 package main
 
 import (
+	"encoding/csv"
 	"fmt"
-	"sort"
+	"io"
+	"log"
+	"os"
 	"strconv"
-
-	"github.com/mgutz/ansi"
-	"gonum.org/v1/gonum/stat"
 )
 
-var stringColumns = map[string]bool{
-	"SCADA_Tag":                   true,
-	"type":                        true,
-	"orig":                        true,
-	"Modbus_Value":                true,
-	"proxy_src_ip":                true,
-	"proto":                       true,
-	"src":                         true,
-	"i/f_name":                    true,
-	"Modbus_Function_Description": true,
-	"appi_name":                   true,
-	"i/f_dir":                     true,
-	"Normal/Attack":               true,
-	"dst":                         true,
-}
+func (t task) analyze() *fileSummary {
 
-type columnType int
+	info := "[" + strconv.Itoa(t.current+1) + "/" + strconv.Itoa(t.totalFiles) + "]"
+	fmt.Println(info, "processing", t.file)
 
-const (
-	typeString columnType = iota
-	typeNumeric
-)
-
-func (c columnType) String() string {
-	switch c {
-	case typeNumeric:
-		return "numeric"
-	case typeString:
-		return "string"
-	default:
-		return "invalid"
+	inputFile, err := os.Open(t.file)
+	if err != nil {
+		log.Fatal(err)
 	}
-}
+	defer inputFile.Close()
 
-type columnSummary struct {
-	Col           string     `json:"col"`
-	Typ           columnType `json:"typ"`
-	UniqueStrings []string   `json:"uniqueStrings"`
-	Std           float64    `json:"std"`
-	Mean          float64    `json:"mean"`
-}
+	s := &fileSummary{
+		file:          t.file,
+		strings:       make(map[string]map[string]int),
+		uniqueAttacks: make(map[string]struct{}),
+	}
 
-func analyze(results map[string]*fileSummary) map[string]columnSummary {
+	var (
+		inputReader = csv.NewReader(inputFile)
+		//outputWriter      = csv.NewWriter(outputFile)
+		//numMatches int
+		count   int
+		skipped int
+		attacks int
+	)
+	if *flagReuseLineBuffer {
+		inputReader.ReuseRecord = true
+	}
 
-	if *flagCountAttacks {
-		var attackFiles sort.StringSlice
+	var (
+		r          []string
+		lastRecord int
+	)
 
-		for _, sum := range results {
-			if sum.attacks != 0 {
-				attackFiles = append(attackFiles, sum.file)
+	for {
+		r, err = inputReader.Read()
+		if err == io.EOF {
+			break
+		}
+		if err != nil {
+			fmt.Println("error while reading next line from file", t.file, "error:", err)
+			count++
+			continue
+		}
+		count++
+
+		// skip header
+		if count == 1 {
+			s.columns = make([]string, len(r))
+
+			// copy header, to allow reusing the record slice
+			for i, elem := range r {
+				s.columns[i] = elem
+			}
+
+			lastRecord = len(r) - 1
+			continue
+		}
+
+		if *flagCountAttacks {
+			if r[lastRecord] != "normal" {
+				attacks++
+				s.uniqueAttacks[r[lastRecord]] = struct{}{}
+				continue
 			}
 		}
 
-		attackFiles.Sort()
+		if *flagSkipIncompleteRecords {
+			skip := false
+			for index, v := range r {
+				if v == "" || v == " " {
 
-		for _, file := range attackFiles {
-			sum := results[file]
-			var uniqueAttacks []string
-			for a := range sum.uniqueAttacks {
-				uniqueAttacks = append(uniqueAttacks, a)
-			}
-			fmt.Println(file, ":", sum.attacks, uniqueAttacks)
-		}
-		return nil
-	}
+					if *flagDebug {
+						fmt.Println(t.file, "skipping record", count, "due to missing field for column", s.columns[index], "label:", r[len(r)-1])
+					}
 
-	d := &datasetSummary{
-		strings: make(map[string]map[string]int),
-	}
-
-	// init colums map
-	for _, sum := range results {
-		for col, _ := range sum.strings {
-			d.strings[col] = make(map[string]int)
-		}
-		break
-	}
-
-	var skipped int
-
-	// merge results
-	for _, sum := range results {
-
-		//fmt.Println(file, sum)
-		skipped += sum.skipped
-
-		d.fileCount++
-		d.lineCount += sum.lineCount
-		d.columns = sum.columns
-
-		//fmt.Println(sum.file, sum.columns)
-
-		for col, values := range sum.strings {
-			for key, num := range values {
-				d.strings[col][key] += num
-			}
-		}
-	}
-
-	fmt.Println(ansi.Red + "DONE")
-	fmt.Println("files:", d.fileCount)
-	fmt.Println("lines:", d.lineCount)
-	fmt.Println("columns", d.columns, ansi.Reset)
-	//spew.Dump(d)
-
-	var colSums = make(map[string]columnSummary)
-
-	for col, data := range d.strings {
-		fmt.Println(ansi.Yellow, "> column:", col, "unique_values:", len(data), ansi.Reset)
-
-		// lookup type for column
-		isString := stringColumns[col]
-
-		if isString {
-			var unique []string
-			for value := range data {
-				unique = append(unique, value)
-			}
-
-			if col != "Modbus_Value" && col != "time" {
-				for _, v := range unique {
-					fmt.Println("   -", v)
+					skipped++
+					count++
+					skip = true
 				}
 			}
-
-			colSums[col] = columnSummary{
-				Col:           col,
-				Typ:           typeString,
-				UniqueStrings: unique,
+			if skip {
+				continue
 			}
-		} else {
-
-			var values []float64
-
-			// create series over all data points
-			for value, num := range data {
-
-				v, err := strconv.ParseFloat(value, 64)
-				if err != nil {
-					fmt.Println("failed to parse float in col "+col+", error: ", err, value)
-					continue
-				}
-
-				for i := 0; i < num; i++ {
-					values = append(values, v)
+		}
+		if *flagZeroIncompleteRecords {
+			for index, v := range r {
+				if v == "" || v == " " {
+					r[index] = "0"
 				}
 			}
+		}
 
-			if col == "Tag" {
-				fmt.Println(data)
+		for i, col := range s.columns {
+
+			if excluded(col) {
+				continue
 			}
 
-			mean, std := stat.MeanStdDev(values, nil)
-			fmt.Println(col, "mean:", mean, "stddev:", std)
-
-			colSums[col] = columnSummary{
-				Col:  col,
-				Typ:  typeNumeric,
-				Mean: mean,
-				Std:  std,
+			if _, ok := s.strings[col]; !ok {
+				s.strings[col] = make(map[string]int)
+				s.strings[col][r[i]]++
+			} else {
+				s.strings[col][r[i]]++
 			}
 		}
 	}
 
-	fmt.Println("skipped lines with missing values:", skipped)
+	t.wg.Done()
+	s.lineCount = count - 1 // -1 for the CSV header
+	s.skipped = skipped
+	s.attacks = attacks
 
-	return colSums
+	return s
 }

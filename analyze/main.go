@@ -211,7 +211,7 @@ func printAnalysisInfo() {
 	fmt.Println("------- printAnalysisInfo")
 
 	fmt.Println("analyzing data...")
-	colSums = analyze(results)
+	colSums = merge(results)
 	if *flagDebug {
 		if colSums != nil {
 			for _, sum := range colSums {
