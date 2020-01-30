@@ -130,35 +130,43 @@ def run():
                     exit(1)
 
             print("[INFO] sampling", arguments.sample)
-            df = df.sample(frac=arguments.sample, replace=False)
+            if arguments.sample < 1.0:
+                df = df.sample(frac=arguments.sample, replace=False)
 
             if arguments.drop is not None:
                 for col in arguments.drop.split(","):
                     drop_col(col, df)
 
             # Always drop columns that are unique for every record
-            drop_col('UID', df)
+#           drop_col('UID', df)
 
             # Tag is always 0, remove this column
-            drop_col('Tag', df)
+#           drop_col('Tag', df)
 
             if not arguments.lstm:
                 print("dropping all time related columns...")
-                drop_col('Timestamp', df)
-                drop_col('num', df)
-                drop_col('date', df)
-                drop_col('time', df)
+                drop_col('unixtime', df)
+#               drop_col('Timestamp', df)
+#               drop_col('num', df)
+#               drop_col('date', df)
+#               drop_col('time', df)
 
-            drop_col('SessionID', df)
+#           drop_col('SessionID', df)
 
             print("[INFO] columns:", df.columns)
 
             print("[INFO] analyze dataset:", df.shape)
             analyze(df)
 
-            print("[INFO] encoding dataset:", df.shape)
-            encode_columns(df, arguments.result_column, arguments.lstm, arguments.debug)
-            print("[INFO] AFTER encoding dataset:", df.shape)
+#           print("[INFO] encoding dataset:", df.shape)
+#           encode_columns(df, arguments.result_column, arguments.lstm, arguments.debug)
+#           print("[INFO] AFTER encoding dataset:", df.shape)
+
+            if arguments.debug:
+                print("--------------AFTER DROPPING COLUMNS ----------------")
+                print("df.columns", df.columns, len(df.columns))
+                with pd.option_context('display.max_rows', 10, 'display.max_columns', None):  # more options can be specified also
+                    print(df)
 
             if arguments.lstm:
                 for batch_index in range(0, df.shape[0], arguments.lstmBatchSize):
@@ -188,7 +196,7 @@ parser.add_argument('-dropna', default=False, action='store_true', help='drop ro
 parser.add_argument('-test_size', type=float, default=0.5, help='specify size of the test data in percent (default: 0.25)')
 parser.add_argument('-loss', type=str, default='categorical_crossentropy', help='set function (default: categorical_crossentropy)')
 parser.add_argument('-optimizer', type=str, default='adam', help='set optimizer (default: adam)')
-parser.add_argument('-result_column', type=str, default='Normal/Attack', help='set name of the column with the prediction')
+parser.add_argument('-result_column', type=str, default='classification', help='set name of the column with the prediction')
 parser.add_argument('-dimensionality', type=int, required=True, help='The amount of columns in the csv')
 #parser.add_argument('-class_amount', type=int, default=2, help='The amount of classes e.g. normal, attack1, attack3 is 3')
 parser.add_argument('-batch_size', type=int, default=2, help='The amount of files to be read in. (default: 1)')
