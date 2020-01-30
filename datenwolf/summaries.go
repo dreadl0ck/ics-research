@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"sort"
 	"strconv"
+	"time"
 
 	"github.com/mgutz/ansi"
 	"gonum.org/v1/gonum/stat"
@@ -44,14 +45,14 @@ func (c columnType) String() string {
 }
 
 type columnSummary struct {
-	col           string
-	typ           columnType
-	uniqueStrings []string
-	std           float64
-	mean          float64
+	Col           string     `json:"col"`
+	Typ           columnType `json:"typ"`
+	UniqueStrings []string   `json:"uniqueStrings"`
+	Std           float64    `json:"std"`
+	Mean          float64    `json:"mean"`
 }
 
-func analyze(results map[string]*fileSummary) map[string]columnSummary {
+func merge(results map[string]*fileSummary) map[string]columnSummary {
 
 	if *flagCountAttacks {
 		var attackFiles sort.StringSlice
@@ -99,9 +100,15 @@ func analyze(results map[string]*fileSummary) map[string]columnSummary {
 		d.lineCount += sum.lineCount
 		d.columns = sum.columns
 
-		//fmt.Println(sum.file, sum.columns)
+		if *flagDebug {
+			fmt.Println(ansi.Red+sum.file, "len(sum.columns):", len(sum.columns), "len(sum.strings):", len(sum.strings), ansi.Reset)
+			time.Sleep(1 * time.Second)
+		}
 
 		for col, values := range sum.strings {
+			if *flagDebug {
+				fmt.Println("column:", col, sum.file, sum.columns, len(sum.columns))
+			}
 			for key, num := range values {
 				d.strings[col][key] += num
 			}
@@ -119,23 +126,6 @@ func analyze(results map[string]*fileSummary) map[string]columnSummary {
 	for col, data := range d.strings {
 		fmt.Println(ansi.Yellow, "> column:", col, "unique_values:", len(data), ansi.Reset)
 
-		// determine if column contains string or numeric data
-		//isString := true
-
-		// peek at first elem
-		// for value := range data {
-		// 	_, err := strconv.Atoi(value)
-		// 	if err != nil {
-		// 		_, err := strconv.ParseFloat(value, 64)
-		// 		if err == nil {
-		// 			isString = false
-		// 		}
-		// 	} else {
-		// 		isString = false
-		// 	}
-		// 	break
-		// }
-
 		// lookup type for column
 		isString := stringColumns[col]
 
@@ -152,9 +142,9 @@ func analyze(results map[string]*fileSummary) map[string]columnSummary {
 			}
 
 			colSums[col] = columnSummary{
-				col:           col,
-				typ:           typeString,
-				uniqueStrings: unique,
+				Col:           col,
+				Typ:           typeString,
+				UniqueStrings: unique,
 			}
 		} else {
 
@@ -182,10 +172,10 @@ func analyze(results map[string]*fileSummary) map[string]columnSummary {
 			fmt.Println(col, "mean:", mean, "stddev:", std)
 
 			colSums[col] = columnSummary{
-				col:  col,
-				typ:  typeNumeric,
-				mean: mean,
-				std:  std,
+				Col:  col,
+				Typ:  typeNumeric,
+				Mean: mean,
+				Std:  std,
 			}
 		}
 	}

@@ -208,3 +208,53 @@ tool name: datenwolf
 
 - DROP columns: Tag, date, num and time
 
+- add progress indicator
+- fix checkpoint naming for lstm: 'files' wrong
+
+Generate colsums:
+
+    go run ../../datenwolf -analyze
+    # output: colSums-29Jan2020-170358.json
+
+Build:
+
+    GOOS=linux go build -o bin/datenwolf ./datenwolf
+	scp bin/datenwolf ***REMOVED***@***REMOVED***:/home/***REMOVED***
+
+Start analysis and labeling on oslo:
+
+    cd "/datasets/SWaT/01_SWaT_Dataset_Dec 2015/Network"
+
+Local:
+
+    cd Network
+    go run ../../datenwolf -attacks List_of_attacks_Final-fixed.csv -file-filter attack-files.txt -suffix "_sorted.csv" -colsums colSums-29Jan2020-221001.json -workers 25
+
+Oslo:
+
+    screen -L /home/***REMOVED***/datenwolf -attacks List_of_attacks_Final-fixed.csv -suffix "_sorted.csv" -out /home/***REMOVED***/labeled-SWaT-2015-network -colsums /home/***REMOVED***/colSums-29Jan2020-221001.json -workers 25
+
+Brussels:
+
+    screen -L /home/***REMOVED***/datenwolf -attacks List_of_attacks_Final-fixed.csv -suffix "_sorted.csv" -colsums /home/***REMOVED***/colSums-29Jan2020-221001.json -workers 25 -offset 392
+
+# Push dataset to all servers
+
+    scp -r -P 9876 data/Network ***REMOVED***@***REMOVED***:/home/***REMOVED***
+    scp -r -P 9876 data/Network ***REMOVED***@***REMOVED***:/home/***REMOVED***
+    scp -r data/Network ***REMOVED***@***REMOVED***:/home/***REMOVED***
+
+Push labeling tool:
+
+    GOOS=linux go build -o bin/datenwolf ./datenwolf
+    scp -P 9876 bin/datenwolf ***REMOVED***@***REMOVED***:/home/***REMOVED***
+    scp -P 9876 bin/datenwolf ***REMOVED***@***REMOVED***:/home/***REMOVED***
+    scp bin/datenwolf ***REMOVED***@***REMOVED***:/home/***REMOVED***
+
+Start:
+
+    screen -L /home/***REMOVED***/datenwolf -attacks /home/***REMOVED***/Network/List_of_attacks_Final-fixed.csv -suffix _sorted.csv -colsums /home/***REMOVED***/Network/colSums-29Jan2020-221001.json -workers 25 -offset 0 -max 260 -out /home/***REMOVED***/Network/SWaT2015-Network-Labeled
+
+    screen -L /home/***REMOVED***/datenwolf -attacks /home/***REMOVED***/Network/List_of_attacks_Final-fixed.csv -suffix _sorted.csv -colsums /home/***REMOVED***/Network/colSums-29Jan2020-221001.json -workers 25 -offset 260 -max 520 -out /home/***REMOVED***/Network/SWaT2015-Network-Labeled
+
+    screen -L /home/***REMOVED***/datenwolf -attacks /home/***REMOVED***/Network/List_of_attacks_Final-fixed.csv -suffix _sorted.csv -colsums /home/***REMOVED***/Network/colSums-29Jan2020-221001.json -workers 25 -offset 520 -out /home/***REMOVED***/Network/SWaT2015-Network-Labeled
