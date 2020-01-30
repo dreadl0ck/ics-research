@@ -204,7 +204,7 @@ func (t task) label() {
 		// apply value corrections
 		for index, v := range r {
 			if new, ok := simpleCorrect[v]; ok {
-				fmt.Println("correction: changed", r[index], "to", new)
+				fmt.Println(t.file, ": correction: changed", r[index], "to", new)
 				r[index] = new
 			}
 		}

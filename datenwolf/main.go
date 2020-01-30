@@ -104,15 +104,35 @@ func main() {
 	}
 
 	var (
-		files []string
-		start = time.Now()
-		wg    sync.WaitGroup
+		files      []string
+		start      = time.Now()
+		wg         sync.WaitGroup
+		fileFilter []string
 	)
+
+	if *flagFileFilter != "" {
+		c, err := ioutil.ReadFile(*flagFileFilter)
+		if err != nil {
+			log.Fatal(err)
+		}
+		fileFilter = strings.Split(string(c), "\n")
+	}
 
 	err := filepath.Walk(*flagInput, func(path string, info os.FileInfo, err error) error {
 
 		if strings.HasSuffix(path, *flagPathSuffix) {
-			files = append(files, path)
+			if len(fileFilter) != 0 {
+				if contains(fileFilter, path) {
+					files = append(files, path)
+				}
+			} else {
+				files = append(files, path)
+			}
+		}
+		if *flagMaxFiles != 0 {
+			if len(files) == *flagMaxFiles {
+				return filepath.SkipDir
+			}
 		}
 
 		return nil
@@ -123,9 +143,16 @@ func main() {
 
 	totalFiles := len(files)
 	fmt.Println("collected", totalFiles, "CSV files for labeling, num workers:", *flagNumWorkers)
+	fmt.Println("offset", *flagOffset)
 	fmt.Println("new CSV header:", outputHeader)
+	fmt.Println("file_suffix", *flagPathSuffix)
 	fmt.Println("output directory:", *flagOut)
 	fmt.Println("initializing", *flagNumWorkers, "workers")
+
+	// validate offset arg
+	if *flagOffset >= totalFiles || *flagOffset < 0 {
+		log.Fatal("invalid value for file offset")
+	}
 
 	// spawn workers
 	for i := 0; i < *flagNumWorkers; i++ {
@@ -156,7 +183,7 @@ func main() {
 	}
 
 	// analyze task
-	for current, file := range files[:*flagMaxFiles] {
+	for current, file := range files[*flagOffset:*flagMaxFiles] {
 		wg.Add(1)
 		handleTask(task{
 			typ:        typeAnalyze,

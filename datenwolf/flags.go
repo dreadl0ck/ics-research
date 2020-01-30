@@ -17,4 +17,6 @@ var (
 	flagColumnSummaries       = flag.String("colsums", "", "column summary JSON file for loading")
 	flagAnalyzeOnly           = flag.Bool("analyze", false, "analyze only")
 	flagPathSuffix            = flag.String("suffix", "-labeled.csv", "suffix for all csv files to be parsed")
+	flagOffset                = flag.Int("offset", 0, "index offset from which file to start")
+	flagFileFilter            = flag.String("file-filter", "", "supply a text file with newline separated filenames to process")
 )

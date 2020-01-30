@@ -201,6 +201,9 @@ tool name: datenwolf
 
 - DROP columns: Tag, date, num and time
 
+- add progress indicator
+- fix checkpoint naming for lstm: 'files' wrong
+
 Generate colsums:
 
     go run ../../datenwolf -analyze
@@ -214,4 +217,16 @@ Build:
 Start analysis and labeling on oslo:
 
     cd "/datasets/SWaT/01_SWaT_Dataset_Dec 2015/Network"
-    screen -L /home/***REMOVED***/datenwolf -attacks List_of_attacks_Final-fixed.csv -suffix "_sorted.csv" -out /home/***REMOVED***/labeled-SWaT-2015-network
+
+Local:
+
+    cd Network
+    go run ../../datenwolf -attacks List_of_attacks_Final-fixed.csv -file-filter attack-files.txt -suffix "_sorted.csv" -colsums colSums-29Jan2020-221001.json -workers 25
+
+Oslo:
+
+    screen -L /home/***REMOVED***/datenwolf -attacks List_of_attacks_Final-fixed.csv -suffix "_sorted.csv" -out /home/***REMOVED***/labeled-SWaT-2015-network -colsums /home/***REMOVED***/colSums-29Jan2020-221001.json -workers 25
+
+Brussels:
+
+    screen -L /home/***REMOVED***/datenwolf -attacks List_of_attacks_Final-fixed.csv -suffix "_sorted.csv" -colsums /home/***REMOVED***/colSums-29Jan2020-221001.json -workers 25 -offset 392

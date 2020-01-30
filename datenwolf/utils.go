@@ -7,6 +7,7 @@ import (
 	"os"
 	"sort"
 	"strconv"
+	"strings"
 	"sync"
 	"time"
 
@@ -23,6 +24,15 @@ var excludedCols = []string{"num", "date", "time", "Referrer_self_uid"}
 func excluded(col string) bool {
 	for _, ex := range excludedCols {
 		if ex == col {
+			return true
+		}
+	}
+	return false
+}
+
+func contains(arr []string, val string) bool {
+	for _, v := range arr {
+		if strings.Contains(v, val) {
 			return true
 		}
 	}
@@ -46,7 +56,7 @@ func getIndex(arr []string, val string) string {
 }
 
 func runLabeling(files []string, wg *sync.WaitGroup, totalFiles int) {
-	for current, file := range files[:*flagMaxFiles] {
+	for current, file := range files[*flagOffset:*flagMaxFiles] {
 		wg.Add(1)
 		handleTask(task{
 			typ:        typeLabel,
