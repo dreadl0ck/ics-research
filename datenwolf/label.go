@@ -175,6 +175,8 @@ func (t task) label() {
 					hitMapLock.Unlock()
 
 					numMatches++
+
+					// 1 attack match max at the moment
 					break
 				}
 			}
@@ -219,28 +221,40 @@ func (t task) label() {
 			// get column name
 			colName := inputHeader[index]
 
+			// skip over values for excluded columns
+			if excluded(colName) {
+				continue
+			}
+
 			// lookup summary for column
 			if sum, ok := colSums[colName]; ok {
 
 				// handle data type
 				switch sum.Typ {
 				case typeString:
+
+					// set index number for strings
 					r[index] = getIndex(sum.UniqueStrings, v)
 				case typeNumeric:
 
+					// parse numbers as float
 					i, err := strconv.ParseFloat(v, 64)
 					if err != nil {
 						ii, err := strconv.Atoi(v)
 						if err != nil {
 							fmt.Println(ansi.Red, r, ansi.Reset)
-							fmt.Println("failed to parse number: ", v, " file: ", t.file, " count: ", count)
+							fmt.Println("[WARNING] failed to parse number: ", v, " file: ", t.file, " line: ", count, " column: ", colName, "setting it to zero by default!")
+
+							// we use zero to mark places with missing values
+							r[index] = "0"
+
 							continue
 						}
 						i = float64(ii)
 					}
 
 					// TODO: make float precision configurable
-					// normalize with z_score
+					// normalize with zscore method: zscore = (x-mean)/std
 					r[index] = strconv.FormatFloat((i-sum.Mean)/sum.Std, 'f', 5, 64)
 				}
 			}
@@ -249,10 +263,10 @@ func (t task) label() {
 		// remove leading num and date columns
 		r = r[2:]
 
-		// insert time column
+		// insert UNIX timestamp
 		r[0] = strconv.FormatInt(ti.Unix(), 10)
 
-		// replace values Tag column with classification
+		// replace values in 'Tag' column with classification
 		r[len(r)-1] = classification
 
 		// ensure no corrupted data is written into the output file
@@ -261,6 +275,7 @@ func (t task) label() {
 			log.Fatal("length of data line does not match header length:", len(r), "!=", len(outputHeader))
 		}
 
+		// write line
 		err = outputWriter.Write(r)
 		if err != nil {
 			log.Fatal(err)
@@ -273,6 +288,7 @@ func (t task) label() {
 		log.Fatal(err)
 	}
 
-	fmt.Println(info, count, "records,", numMatches, "attacks written to", filepath.Base(outputFile.Name()))
+	// -1 for the header
+	fmt.Println(info, count-1, "records,", numMatches, "attacks written to", filepath.Base(outputFile.Name()))
 	t.wg.Done()
 }

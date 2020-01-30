@@ -73,6 +73,8 @@ var outputHeaderLen = len(outputHeader)
  * Globals
  */
 
+const version = "v0.3.1"
+
 var (
 	// stats about applied labels
 	hitMap     = make(map[string]int)
@@ -98,6 +100,11 @@ var (
 func main() {
 
 	flag.Parse()
+
+	if *flagVersion {
+		fmt.Println(version)
+		return
+	}
 
 	if *flagAttackList != "" {
 		attacks = parseAttackList(*flagAttackList)
@@ -142,6 +149,7 @@ func main() {
 	}
 
 	totalFiles := len(files)
+	fmt.Println("started at", time.Now())
 	fmt.Println("collected", totalFiles, "CSV files for labeling, num workers:", *flagNumWorkers)
 	fmt.Println("offset", *flagOffset)
 	fmt.Println("new CSV header:", outputHeader)
