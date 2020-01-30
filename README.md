@@ -173,10 +173,17 @@ commit version:
 
 
 run 5: 28/1 23:55
+command
+(reverse-i-search)`-L': screen -L python3 -u readcsv.py -read "/mnt/terradrive/labeled-SWaT-2015-network/*csv" -dimensionality 15 -epochs 10 -debug true -drop service,Modbus_Function_Cod
+
 
 commit version:
 ***REMOVED***@***REMOVED***:/home/***REMOVED***/ics-research# git rev-parse HEAD
 322ee5783702a582b86dd7dd015ccb84be3d54e2
+
+
+run 6: 29-1 16:40 - prepared, but not ran
+screen -L python3 -u readcsv.py -read "/mnt/terradrive/labeled-SWaT-2015-network/*csv" -dimensionality 15 -epochs 10 -debug true -drop service,Modbus_Function_Code
 
 # Dataset analyzer
 tool name: datenwolf

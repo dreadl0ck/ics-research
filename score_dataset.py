@@ -47,17 +47,11 @@ def readCSV(f):
     return pd.read_csv(f, delimiter=',', engine='c', encoding="utf-8-sig")
 
 def run():
-    for file_name in files:
+    labeltypes_length = len(labeltypes)
 
-#             print(colored("[INFO] loading file {}-{}/{} on epoch {}/{}".format(i+2, i+batch_size, len(files), epoch+1, arguments.epochs), 'yellow'))
-#             df_from_each_file = [readCSV(f) for f in files[i:(i+batch_size)]]
-# 
-#             # ValueError: The truth value of a DataFrame is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
-#             if leftover is not None:
-#                 df_from_each_file.insert(0, leftover)
-# 
-#             print("[INFO] concatenate the files")
-#             df = pd.concat(df_from_each_file, ignore_index=True)
+    # cf_total is for summing up all of the confusion matrices from all of the seperate files
+    cf_total = np.zeros((labeltypes_length, labeltypes_length),dtype=np.int)
+    for file_name in files:
         df = readCSV(file_name)
 
         print("[INFO] process dataset, shape:", df.shape)
@@ -66,18 +60,10 @@ def run():
             for col in arguments.drop.split(","):
                 drop_col(col, df)
 
-        # Always drop columns that are unique for every record
-        drop_col('UID', df)
-
-        # Tag is always 0, remove this column
-        drop_col('Tag', df)
 
         if not arguments.lstm:
             print("dropping all time related columns...")
-            drop_col('Timestamp', df)
-            drop_col('num', df)
-            drop_col('date', df)
-            drop_col('time', df)
+            drop_col('unixtime',df)
 
         drop_col('SessionID', df)
 
@@ -87,13 +73,12 @@ def run():
         analyze(df)
 
         print("[INFO] encoding dataset:", df.shape)
-        encode_columns(df, arguments.result_column, arguments.lstm, arguments.debug)
+#        encode_columns(df, arguments.result_column, arguments.lstm, arguments.debug)
         print("[INFO] AFTER encoding dataset:", df.shape)
 
         if arguments.lstm:
             pass
         else:
-            
            
             x_test, y_test = to_xy(df, arguments.result_column, labeltypes)
             # Create a new model instance
@@ -102,8 +87,8 @@ def run():
             model.load_weights(arguments.model)
             print(colored("[INFO] measuring accuracy...", 'yellow'))
 
-            y_pred = model.predict(x_test)
-            pred = np.argmax(y_pred,axis=1)
+            pred = model.predict(x_test)
+            pred = np.argmax(pred,axis=1)
             y_eval = np.argmax(y_test,axis=1)
             score = metrics.accuracy_score(y_eval, pred)
             
@@ -121,20 +106,31 @@ def run():
             for name, value in zip(model.metrics_names, baseline_results):
               print(name, ': ', value)
             print()
-            
+           
             print("[INFO] Validation score: {}".format(colored(score, 'yellow')))
-            print("[INFO] confusion matrix:")
+
 
             unique, counts = np.unique(y_eval, return_counts=True)
             print("y_eval",dict(zip(unique, counts)))
-
+# 
             unique, counts = np.unique(pred, return_counts=True)
             print("pred",dict(zip(unique, counts)))
+# 
+#             print("y_test", np.sum(y_test,axis=0), np.sum(y_test,axis=1))
 
-            print("y_test", np.sum(y_test,axis=0), np.sum(y_test,axis=1))
+            cf = confusion_matrix(y_eval,pred,labels=np.arange(len(labeltypes)))
+            print("[INFO] confusion matrix for file ")
+            print(cf)
+            print("[INFO] confusion matrix after adding it to total:")
+            cf_total += cf
+            print(cf_total)
 
-            print(confusion_matrix(y_eval,pred))
-            
+
+
+#             cf = np.zeros((5,5))
+#             for i,j in zip(y_eval, pred):
+#                 cf[i,j] += 1
+#             print(cf)
                 
 # instantiate the parser
 parser = argparse.ArgumentParser(description='NETCAP compatible implementation of Network Anomaly Detection with a Deep Neural Network and TensorFlow')
@@ -148,7 +144,7 @@ parser.add_argument('-drop', type=str, help='optionally drop specified columns, 
 #parser.add_argument('-test_size', type=float, default=0.5, help='specify size of the test data in percent (default: 0.25)')
 parser.add_argument('-loss', type=str, default='categorical_crossentropy', help='set function (default: categorical_crossentropy)')
 parser.add_argument('-optimizer', type=str, default='adam', help='set optimizer (default: adam)')
-parser.add_argument('-result_column', type=str, default='Normal/Attack', help='set name of the column with the prediction')
+parser.add_argument('-result_column', type=str, default='classification', help='set name of the column with the prediction')
 parser.add_argument('-dimensionality', type=int, required=True, help='The amount of columns in the csv')
 #parser.add_argument('-class_amount', type=int, default=2, help='The amount of classes e.g. normal, attack1, attack3 is 3')
 #parser.add_argument('-batch_size', type=int, default=2, help='The amount of files to be read in. (default: 1)')
