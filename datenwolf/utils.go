@@ -32,7 +32,7 @@ func excluded(col string) bool {
 
 func contains(arr []string, val string) bool {
 	for _, v := range arr {
-		if strings.Contains(v, val) {
+		if strings.Contains(val, v) {
 			return true
 		}
 	}

@@ -66,8 +66,12 @@ func (t task) label() {
 			break
 		}
 		if err != nil {
-			fmt.Println("error while reading next line from file", t.file, "error:", err)
-			fmt.Println(r)
+			fmt.Println("error while reading next line from file", t.file, "error:", err, "length:", len(r), "expected:", len(inputHeader))
+			fmt.Println(ansi.Red)
+			for _, e := range r {
+				fmt.Println("-" + e)
+			}
+			fmt.Println(ansi.Reset)
 			count++
 			continue
 		}
@@ -228,7 +232,9 @@ func (t task) label() {
 					if err != nil {
 						ii, err := strconv.Atoi(v)
 						if err != nil {
-							log.Fatal("failed to parse number:", v, t.file, count)
+							fmt.Println(ansi.Red, r, ansi.Reset)
+							fmt.Println("failed to parse number: ", v, " file: ", t.file, " count: ", count)
+							continue
 						}
 						i = float64(ii)
 					}

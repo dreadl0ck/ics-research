@@ -179,6 +179,7 @@ func main() {
 		fmt.Println("loaded column summaries:", len(colSums))
 
 		runLabeling(files, &wg, totalFiles)
+		fmt.Println("done in", time.Since(start))
 		return
 	}
 
@@ -206,6 +207,5 @@ func main() {
 
 	// run labeling
 	runLabeling(files, &wg, totalFiles)
-
 	fmt.Println("done in", time.Since(start))
 }
