@@ -12,6 +12,7 @@ from glob import glob
 import argparse
 
 import pandas as pd
+from os import path
 
 from sklearn.model_selection import train_test_split
 
@@ -36,7 +37,7 @@ monitor = EarlyStopping(
 labeltypes = ["normal", "Single Stage Single Point", "Single Stage Multi Point", "Multi Stage Single Point", "Multi Stage Multi Point"]
 #labeltypes = ["Normal", "Attack"]
 
-def train_dnn(df, i, epoch):
+def train_dnn(df, i, epoch, batch_index=None):
 
     print("[INFO] breaking into predictors and prediction...")
     # Break into X (predictors) & y (prediction)
@@ -51,7 +52,7 @@ def train_dnn(df, i, epoch):
         x,
         y,
         test_size=arguments.test_size,
-        random_state=42,
+        random_state=42, # TODO
         shuffle=arguments.shuffle
     )
 
@@ -92,10 +93,19 @@ def train_dnn(df, i, epoch):
         batch_size=32
     )
 
-    # TODO: mkdir checkpoints
+    save_weights(i, epoch, batch_index=batch_index)
 
-    print("[INFO] saving weights to checkpoints/epoch-{}-files-{}-{}".format(epoch, i, i+batch_size))
-    model.save_weights('./checkpoints/epoch-{}-files-{}-{}'.format(epoch, i, i+batch_size))
+def save_weights(i, epoch, batch_index=None):
+
+    if not path.exists("checkpoints"):
+        os.mkdir("checkpoints")
+
+    if arguments.lstm:
+        print("[INFO] saving weights to checkpoints/lstm-epoch-{}-files-{}-{}-batch-{}-{}".format(epoch, i, i+batch_size, batch_index, batch_index+arguments.lstmBatchSize))
+        model.save_weights('./checkpoints/lstm-epoch-{}-files-{}-{}-batch-{}-{}'.format(epoch, i, i+batch_size, batch_index, batch_index+arguments.lstmBatchSize))
+    else:
+        print("[INFO] saving weights to checkpoints/epoch-{}-files-{}-{}".format(epoch, i, i+batch_size))
+        model.save_weights('./checkpoints/dnn-epoch-{}-files-{}-{}'.format(epoch, i, i+batch_size))
 
 def readCSV(f):
     print("[INFO] reading file", f)
@@ -180,7 +190,7 @@ def run():
                         leftover = dfCopy
                         continue
 
-                    train_dnn(dfCopy, i, epoch+1)
+                    train_dnn(dfCopy, i, epoch+1, batch_index)
                     leftover = None
             else:
                 train_dnn(df, i, epoch+1)

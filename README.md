@@ -185,28 +185,38 @@ commit version:
 run 6: 29-1 16:40 - prepared, but not ran
 screen -L python3 -u readcsv.py -read "/mnt/terradrive/labeled-SWaT-2015-network/*csv" -dimensionality 15 -epochs 10 -debug true -drop service,Modbus_Function_Code
 
-# Dataset analyzer
-tool name: datenwolf
-# analysis
+## Dataset analyzer
+
+### analysis
 - which files contain attacks
 - unique strings for each row
 - mean, stddev, min and max for numbers
-# preprocessing
+
+### preprocessing
+
 - drop columns that only contain a single value
 - fix typos: ip, log and loe, Responqe etc
 - merge num, date and time to UNIX timestamps
-# encoding
+
+### encoding
+
 - zscore numbers
 - encode strings to numbers
-# labeling
+
+### labeling
+
 - use attack types
-# split
+
+### split
+
 - dataset split: 50% train, 25% test, 25% validation, LSTM batch size: 125000
 
 - IMPORTANT: preserve order when using LSTM
 - add code to run evaluation and print results
 
 - DROP columns: Tag, date, num and time
+
+### TODO
 
 - add progress indicator
 - fix checkpoint naming for lstm: 'files' wrong
