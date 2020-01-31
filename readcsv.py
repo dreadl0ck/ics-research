@@ -16,6 +16,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 
 import keras
+from sklearn.metrics import confusion_matrix
 from keras.models import Sequential
 from keras.layers.core import Dense, Activation
 from keras.callbacks import EarlyStopping
@@ -93,8 +94,23 @@ def train_dnn(df, i, epoch):
     )
 
     # TODO: mkdir checkpoints
+    print('---------intermediate testing--------------')
+    
+    pred = model.predict(x_test)
+    pred = np.argmax(pred,axis=1)
+    y_eval = np.argmax(y_test,axis=1)
+    unique, counts = np.unique(y_eval, return_counts=True)
+    print("y_eval",dict(zip(unique, counts)))
+ 
+    unique, counts = np.unique(pred, return_counts=True)
+    print("pred",dict(zip(unique, counts)))
 
+    cf = confusion_matrix(y_eval,pred,labels=np.arange(len(labeltypes)))
+    print("[INFO] confusion matrix for file ")
+    print(cf)
+    
     print("[INFO] saving weights to checkpoints/epoch-{}-files-{}-{}".format(epoch, i, i+batch_size))
+    print('-----------------------------')
     model.save_weights('./checkpoints/epoch-{}-files-{}-{}'.format(epoch, i, i+batch_size))
 
 def readCSV(f):
