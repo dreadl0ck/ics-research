@@ -1,0 +1,315 @@
+python3 ../../train.py -read "2015-12-28_113021_98.log.part12_sorted-labeled.csv" -dimensionality 16 -lstm true -optimizer sgd -drop modbus_value -debug true
+
+Using TensorFlow backend.
+[INFO] input_shape (31250, 16)
+[INFO] LSTM first and last layer neurons: 2
+2020-01-31 18:15:46.805125: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2020-01-31 18:15:46.840090: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7f8ad56cc770 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-01-31 18:15:46.840127: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+adding core layer 0
+[INFO] created DNN
+[INFO] epoch 1/1
+[INFO] loading file 1-1/1 on epoch 1/1
+[INFO] reading file 2015-12-28_113021_98.log.part12_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (500000, 18)
+[INFO] sampling 1.0
+dropping column: modbus_value
+[INFO] columns: Index(['unixtime', 'orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst',
+       'proto', 'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] analyze dataset: (500000, 17)
+
+[INFO] analyzing data
+[INFO] 500000 rows
+[INFO] ** unixtime:1356 (0.2712%)
+[INFO] ** orig:[0:100.0%]
+[INFO] ** type:[0:99.9998%,2:0.0002%]
+[INFO] ** i/f_name:[2:99.9988%,3:0.0012%]
+[INFO] ** i/f_dir:[1:99.9988%,0:0.0012%]
+[INFO] ** src:[22:38.4088%,9:25.8982%,7:18.1636%,1:17.5218%,11:0.0014%,10:0.0014%,14:0.0012%,3:0.001%,2:0.001%,21:0.0006%,15:0.0004%,4:0.0004%,8:0.0002%]
+[INFO] ** dst:[21:43.266%,10:21.0416%,8:18.1634%,9:17.5214%,6:0.0016%,16:0.0012%,15:0.0012%,22:0.001%,18:0.0006%,26:0.0004%,25:0.0004%,19:0.0004%,17:0.0004%,24:0.0002%,7:0.0002%]
+[INFO] ** proto:[0:99.996%,2:0.0028%,1:0.0012%]
+[INFO] ** appi_name:[21:99.9928%,30:0.0012%,22:0.001%,17:0.0008%,31:0.0006%,26:0.0006%,7:0.0006%,23:0.0004%,18:0.0004%,0:0.0004%,28:0.0002%,27:0.0002%,24:0.0002%,16:0.0002%,15:0.0002%,5:0.0002%]
+[INFO] ** proxy_src_ip:[18:38.4088%,20:25.8982%,13:18.1636%,6:17.5218%,11:0.0014%,10:0.0014%,17:0.0012%,14:0.001%,1:0.001%,7:0.0006%,21:0.0004%,16:0.0004%,0:0.0002%]
+[INFO] ** modbus_function_code:[0.02961:99.9928%,-33.760870000000004:0.007%,0.9188299999999999:0.0002%]
+[INFO] ** modbus_function_description:[7:49.9974%,11:49.9954%,0:0.007%,15:0.0002%]
+[INFO] ** modbus_transaction_id:65536 (13.1072%)
+[INFO] ** scada_tag:[3:25.8976%,1:21.0406%,5:18.163%,4:17.521%,2:17.3678%,0:0.01%]
+[INFO] ** service:[0.0048200000000000005:99.9936%,-211.73542999999998:0.0012%,-211.08818:0.001%,-205.44247:0.0008%,-211.07873999999998:0.0008%,-211.09762999999998:0.0006%,-211.08346:0.0006%,-186.43601999999998:0.0006%,-186.44547:0.0004%,-185.9872:0.0002%,-202.75898:0.0002%]
+[INFO] ** s_port:[1.45442:25.8978%,-0.32151:21.0408%,-1.27613:18.1632%,-0.23351:17.5212%,-0.33484:17.368%,-71.33197:0.0012%,-71.14931:0.001%,-2.1481:0.0008%,-0.24151:0.0006%,-71.14798:0.0006%,-2.42942:0.0004%,4.44364:0.0004%,-1.02014:0.0004%,-64.19493:0.0004%,-5.1466400000000005:0.0002%,-1.2708:0.0002%,-58.035180000000004:0.0002%,4.076980000000001:0.0002%,-5.08665:0.0002%,1.47576:0.0002%,1.46509:0.0002%,4.29964:0.0002%,14.253910000000001:0.0002%,-68.79874000000001:0.0002%,6.1115699999999995:0.0002%,2.05573:0.0002%,-43.76509:0.0002%,10.67005:0.0002%,-1.27347:0.0002%,-58.032509999999995:0.0002%]
+[INFO] ** classification:[normal:79.2972%,Single Stage Single Point:20.7028%]
+--------------AFTER DROPPING COLUMNS ----------------
+df.columns Index(['unixtime', 'orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst',
+       'proto', 'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object') 17
+          unixtime  orig  type  i/f_name  i/f_dir  src  dst  proto  appi_name  \
+0       1451297796     0     0         2        1   22   21      0         21
+1       1451297796     0     0         2        1    9   21      0         21
+2       1451297796     0     0         2        1    7    8      0         21
+3       1451297796     0     0         2        1    1    9      0         21
+4       1451297796     0     0         2        1   22   10      0         21
+...            ...   ...   ...       ...      ...  ...  ...    ...        ...
+499995  1451299151     0     0         2        1    7    8      0         21
+499996  1451299151     0     0         2        1   22   10      0         21
+499997  1451299151     0     0         2        1   22   21      0         21
+499998  1451299151     0     0         2        1   22   10      0         21
+499999  1451299151     0     0         2        1    7    8      0         21
+
+        proxy_src_ip  modbus_function_code  modbus_function_description  \
+0                 18               0.02961                            7
+1                 20               0.02961                            7
+2                 13               0.02961                           11
+3                  6               0.02961                           11
+4                 18               0.02961                           11
+...              ...                   ...                          ...
+499995            13               0.02961                           11
+499996            18               0.02961                           11
+499997            18               0.02961                           11
+499998            18               0.02961                            7
+499999            13               0.02961                            7
+
+        modbus_transaction_id  scada_tag  service   s_port  \
+0                    -1.36540          2  0.00482 -0.33484
+1                    -1.55695          3  0.00482  1.45442
+2                     0.90148          5  0.00482 -1.27613
+3                     0.77753          4  0.00482 -0.23351
+4                    -1.38621          1  0.00482 -0.32151
+...                       ...        ...      ...      ...
+499995               -1.27932          5  0.00482 -1.27613
+499996                0.24699          1  0.00482 -0.32151
+499997                0.73908          2  0.00482 -0.33484
+499998                0.24699          1  0.00482 -0.32151
+499999               -1.27932          5  0.00482 -1.27613
+
+                   classification
+0                          normal
+1                          normal
+2                          normal
+3                          normal
+4                          normal
+...                           ...
+499995                     normal
+499996  Single Stage Single Point
+499997                     normal
+499998  Single Stage Single Point
+499999                     normal
+
+[500000 rows x 17 columns]
+[INFO] processing batch 0-125000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+CHUNK ANALYZE
+
+[INFO] analyzing data
+[INFO] 125000 rows
+[INFO] ** unixtime:340 (0.272%)
+[INFO] ** orig:[0:100.0%]
+[INFO] ** type:[0:100.0%]
+[INFO] ** i/f_name:[2:99.9984%,3:0.0016%]
+[INFO] ** i/f_dir:[1:99.9984%,0:0.0016%]
+[INFO] ** src:[22:38.3392%,9:25.9312%,7:18.2288%,1:17.4904%,10:0.0056%,11:0.0024%,14:0.0016%,15:0.0008%]
+[INFO] ** dst:[21:43.2816%,10:20.988%,8:18.2288%,9:17.4912%,6:0.0032%,26:0.0016%,25:0.0016%,15:0.0016%,22:0.0008%,18:0.0008%,7:0.0008%]
+[INFO] ** proto:[0:99.992%,2:0.0064%,1:0.0016%]
+[INFO] ** appi_name:[21:99.9904%,30:0.0016%,26:0.0016%,22:0.0016%,0:0.0016%,31:0.0008%,27:0.0008%,23:0.0008%,18:0.0008%]
+[INFO] ** proxy_src_ip:[18:38.3392%,20:25.9312%,13:18.2288%,6:17.4904%,11:0.0056%,10:0.0024%,17:0.0016%,16:0.0008%]
+[INFO] ** modbus_function_code:[0.02961:99.9904%,-33.760870000000004:0.0096%]
+[INFO] ** modbus_function_description:[7:49.996%,11:49.9944%,0:0.0096%]
+[INFO] ** modbus_transaction_id:46090 (36.872%)
+[INFO] ** scada_tag:[3:25.9304%,1:20.988%,5:18.2288%,4:17.4904%,2:17.3504%,0:0.012%]
+[INFO] ** service:[0.0048200000000000005:99.9904%,-186.44547:0.0016%,-211.07873999999998:0.0016%,-211.08818:0.0016%,-211.08346:0.0016%,-211.73542999999998:0.0016%,-202.75898:0.0008%,-186.43601999999998:0.0008%]
+[INFO] ** s_port:[1.45442:25.9304%,-0.32151:20.988%,-1.27613:18.2288%,-0.23351:17.4904%,-0.33484:17.3512%,-71.14798:0.0016%,-71.14931:0.0016%,-64.19493:0.0016%,-2.42942:0.0016%,-71.33197:0.0016%,-68.79874000000001:0.0008%,14.253910000000001:0.0008%,-1.02014:0.0008%,1.47576:0.0008%]
+[INFO] ** classification:[normal:100.0%]
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.25
+--------SHAPES--------
+x_train.shape (93750, 16)
+x_test.shape (31250, 16)
+y_train.shape (93750, 5)
+y_test.shape (31250, 5)
+[INFO] using LSTM layers
+--------RESHAPED--------
+x_train.shape (3, 31250, 16)
+x_test.shape (1, 31250, 16)
+y_train.shape (3, 31250, 5)
+y_test.shape (1, 31250, 5)
+[INFO] fitting model
+Train on 3 samples, validate on 1 samples
+Epoch 1/1
+2020-01-31 18:16:06.517512: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] remapper failed: Invalid argument: MutableGraphView::MutableGraphView error: node 'loss/dense_1_loss/categorical_crossentropy/weighted_loss/concat' has self cycle fanin 'loss/dense_1_loss/categorical_crossentropy/weighted_loss/concat'.
+2020-01-31 18:16:06.683096: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 0, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-01-31 18:16:06.775171: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 1, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-01-31 18:16:07.435866: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] arithmetic_optimizer failed: Invalid argument: The graph couldn't be sorted in topological order.
+2020-01-31 18:16:07.476475: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] remapper failed: Invalid argument: MutableGraphView::MutableGraphView error: node 'loss/dense_1_loss/categorical_crossentropy/weighted_loss/concat' has self cycle fanin 'loss/dense_1_loss/categorical_crossentropy/weighted_loss/concat'.
+2020-01-31 18:16:07.543840: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 0, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-01-31 18:16:07.616358: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 1, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-01-31 18:16:07.814647: W tensorflow/core/common_runtime/process_function_library_runtime.cc:697] Ignoring multi-device function optimization failure: Invalid argument: The graph couldn't be sorted in topological order.
+
+
+
+
+2020-01-31 18:30:26.742234: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] remapper failed: Invalid argument: MutableGraphView::MutableGraphView error: node 'loss/dense_1_loss/categorical_crossentropy/weighted_loss/concat' has self cycle fanin 'loss/dense_1_loss/categorical_crossentropy/weighted_loss/concat'.
+2020-01-31 18:30:26.870096: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 0, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-01-31 18:30:26.906952: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 1, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-01-31 18:30:27.357864: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] arithmetic_optimizer failed: Invalid argument: The graph couldn't be sorted in topological order.
+2020-01-31 18:30:27.379821: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] remapper failed: Invalid argument: MutableGraphView::MutableGraphView error: node 'loss/dense_1_loss/categorical_crossentropy/weighted_loss/concat' has self cycle fanin 'loss/dense_1_loss/categorical_crossentropy/weighted_loss/concat'.
+2020-01-31 18:30:27.426182: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 0, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-01-31 18:30:27.483801: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 1, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-01-31 18:30:27.619174: W tensorflow/core/common_runtime/process_function_library_runtime.cc:697] Ignoring multi-device function optimization failure: Invalid argument: The graph couldn't be sorted in topological order.
+ - 894s - loss: 1.7068 - tp: 0.0000e+00 - fp: 0.0000e+00 - tn: 375000.0000 - fn: 93750.0000 - accuracy: 0.8000 - precision: 0.0000e+00 - recall: 0.0000e+00 - auc: 1.8794e-04 - val_loss: 1.6704 - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 125000.0000 - val_fn: 31250.0000 - val_accuracy: 0.8000 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00 - val_auc: 0.1252
+[INFO] saving weights to checkpoints/lstm-epoch-1-files-0-1-batch-0-125000
+[INFO] processing batch 125000-250000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+CHUNK ANALYZE
+
+[INFO] analyzing data
+[INFO] 125000 rows
+[INFO] ** unixtime:340 (0.272%)
+[INFO] ** orig:[0:100.0%]
+[INFO] ** type:[0:99.9992%,2:0.0008%]
+[INFO] ** i/f_name:[2:99.9992%,3:0.0008%]
+[INFO] ** i/f_dir:[1:99.9992%,0:0.0008%]
+[INFO] ** src:[22:38.4536%,9:25.8808%,7:18.1864%,1:17.4736%,11:0.0032%,15:0.0008%,14:0.0008%,2:0.0008%]
+[INFO] ** dst:[21:43.2416%,10:21.0968%,8:18.1856%,9:17.472%,22:0.0024%,15:0.0008%,6:0.0008%]
+[INFO] ** proto:[0:99.9984%,2:0.0008%,1:0.0008%]
+[INFO] ** appi_name:[21:99.9952%,30:0.0008%,24:0.0008%,22:0.0008%,16:0.0008%,15:0.0008%,5:0.0008%]
+[INFO] ** proxy_src_ip:[18:38.4536%,20:25.8808%,13:18.1864%,6:17.4736%,10:0.0032%,17:0.0008%,16:0.0008%,14:0.0008%]
+[INFO] ** modbus_function_code:[0.02961:99.9952%,-33.760870000000004:0.004%,0.9188299999999999:0.0008%]
+[INFO] ** modbus_function_description:[7:49.9992%,11:49.996%,0:0.004%,15:0.0008%]
+[INFO] ** modbus_transaction_id:40145 (32.116%)
+[INFO] ** scada_tag:[3:25.88%,1:21.0936%,5:18.1856%,4:17.472%,2:17.36%,0:0.0088%]
+[INFO] ** service:[0.0048200000000000005:99.9984%,-211.08818:0.0008%,-211.73542999999998:0.0008%]
+[INFO] ** s_port:[1.45442:25.8808%,-0.32151:21.0936%,-1.27613:18.1856%,-0.23351:17.472%,-0.33484:17.36%,-2.1481:0.0032%,-0.24151:0.0016%,-71.14931:0.0008%,-1.02014:0.0008%,-1.2708:0.0008%,-71.33197:0.0008%]
+[INFO] ** classification:[normal:100.0%]
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.25
+--------SHAPES--------
+x_train.shape (93750, 16)
+x_test.shape (31250, 16)
+y_train.shape (93750, 5)
+y_test.shape (31250, 5)
+[INFO] using LSTM layers
+--------RESHAPED--------
+x_train.shape (3, 31250, 16)
+x_test.shape (1, 31250, 16)
+y_train.shape (3, 31250, 5)
+y_test.shape (1, 31250, 5)
+[INFO] fitting model
+Train on 3 samples, validate on 1 samples
+Epoch 1/1
+
+
+
+
+
+
+
+
+ - 823s - loss: 1.6704 - tp: 0.0000e+00 - fp: 0.0000e+00 - tn: 375000.0000 - fn: 93750.0000 - accuracy: 0.8000 - precision: 0.0000e+00 - recall: 0.0000e+00 - auc: 0.1252 - val_loss: 1.6183 - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 125000.0000 - val_fn: 31250.0000 - val_accuracy: 0.8000 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00 - val_auc: 0.3751
+[INFO] saving weights to checkpoints/lstm-epoch-1-files-0-1-batch-125000-250000
+[INFO] processing batch 250000-375000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+CHUNK ANALYZE
+
+[INFO] analyzing data
+[INFO] 125000 rows
+[INFO] ** unixtime:339 (0.2712%)
+[INFO] ** orig:[0:100.0%]
+[INFO] ** type:[0:100.0%]
+[INFO] ** i/f_name:[2:99.9984%,3:0.0016%]
+[INFO] ** i/f_dir:[1:99.9984%,0:0.0016%]
+[INFO] ** src:[22:38.4384%,9:25.8872%,7:18.068%,1:17.5984%,2:0.0024%,21:0.0016%,14:0.0016%,8:0.0008%,4:0.0008%,3:0.0008%]
+[INFO] ** dst:[21:43.2792%,10:21.0464%,8:18.0672%,9:17.5984%,16:0.0024%,19:0.0016%,15:0.0016%,6:0.0016%,24:0.0008%,18:0.0008%]
+[INFO] ** proto:[0:99.996%,2:0.0024%,1:0.0016%]
+[INFO] ** appi_name:[21:99.992%,17:0.0024%,30:0.0016%,22:0.0016%,31:0.0008%,23:0.0008%,18:0.0008%]
+[INFO] ** proxy_src_ip:[18:38.4384%,20:25.8872%,13:18.068%,6:17.5984%,14:0.0024%,17:0.0016%,7:0.0016%,21:0.0008%,1:0.0008%,0:0.0008%]
+[INFO] ** modbus_function_code:[0.02961:99.992%,-33.760870000000004:0.008%]
+[INFO] ** modbus_function_description:[7:49.9968%,11:49.9952%,0:0.008%]
+[INFO] ** modbus_transaction_id:39396 (31.5168%)
+[INFO] ** scada_tag:[3:25.8872%,1:21.0464%,5:18.0664%,4:17.5984%,2:17.392%,0:0.0096%]
+[INFO] ** service:[0.0048200000000000005:99.992%,-205.44247:0.0024%,-211.07873999999998:0.0016%,-211.08818:0.0016%,-211.73542999999998:0.0016%,-186.43601999999998:0.0008%]
+[INFO] ** s_port:[1.45442:25.8872%,-0.32151:21.0464%,-1.27613:18.0672%,-0.23351:17.5984%,-0.33484:17.392%,4.44364:0.0016%,-71.14931:0.0016%,-71.33197:0.0016%,-1.27347:0.0008%,-58.035180000000004:0.0008%,-43.76509:0.0008%,2.05573:0.0008%,6.1115699999999995:0.0008%]
+[INFO] ** classification:[normal:64.1176%,Single Stage Single Point:35.8824%]
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.25
+--------SHAPES--------
+x_train.shape (93750, 16)
+x_test.shape (31250, 16)
+y_train.shape (93750, 5)
+y_test.shape (31250, 5)
+[INFO] using LSTM layers
+--------RESHAPED--------
+x_train.shape (3, 31250, 16)
+x_test.shape (1, 31250, 16)
+y_train.shape (3, 31250, 5)
+y_test.shape (1, 31250, 5)
+[INFO] fitting model
+Train on 3 samples, validate on 1 samples
+Epoch 1/1
+
+
+
+
+
+ - 789s - loss: 1.5969 - tp: 0.0000e+00 - fp: 0.0000e+00 - tn: 375000.0000 - fn: 93750.0000 - accuracy: 0.8000 - precision: 0.0000e+00 - recall: 0.0000e+00 - auc: 0.5761 - val_loss: 1.5700 - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 125000.0000 - val_fn: 31250.0000 - val_accuracy: 0.8000 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00 - val_auc: 0.8749
+[INFO] saving weights to checkpoints/lstm-epoch-1-files-0-1-batch-250000-375000
+[INFO] processing batch 375000-500000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+CHUNK ANALYZE
+
+[INFO] analyzing data
+[INFO] 125000 rows
+[INFO] ** unixtime:340 (0.272%)
+[INFO] ** orig:[0:100.0%]
+[INFO] ** type:[0:100.0%]
+[INFO] ** i/f_name:[2:99.9992%,3:0.0008%]
+[INFO] ** i/f_dir:[1:99.9992%,0:0.0008%]
+[INFO] ** src:[22:38.404%,9:25.8936%,7:18.1712%,1:17.5248%,3:0.0032%,21:0.0008%,14:0.0008%,4:0.0008%,2:0.0008%]
+[INFO] ** dst:[21:43.2616%,10:21.0352%,8:18.172%,9:17.524%,16:0.0024%,17:0.0016%,22:0.0008%,18:0.0008%,15:0.0008%,6:0.0008%]
+[INFO] ** proto:[0:99.9976%,2:0.0016%,1:0.0008%]
+[INFO] ** appi_name:[21:99.9936%,7:0.0024%,31:0.0008%,30:0.0008%,28:0.0008%,26:0.0008%,17:0.0008%]
+[INFO] ** proxy_src_ip:[18:38.404%,20:25.8936%,13:18.1712%,6:17.5248%,1:0.0032%,21:0.0008%,17:0.0008%,14:0.0008%,7:0.0008%]
+[INFO] ** modbus_function_code:[0.02961:99.9936%,-33.760870000000004:0.0064%]
+[INFO] ** modbus_function_description:[7:49.9976%,11:49.996%,0:0.0064%]
+[INFO] ** modbus_transaction_id:44732 (35.7856%)
+[INFO] ** scada_tag:[3:25.8928%,1:21.0344%,5:18.1712%,4:17.5232%,2:17.3688%,0:0.0096%]
+[INFO] ** service:[0.0048200000000000005:99.9936%,-211.09762999999998:0.0024%,-185.9872:0.0008%,-211.08346:0.0008%,-211.73542999999998:0.0008%,-205.44247:0.0008%,-186.43601999999998:0.0008%]
+[INFO] ** s_port:[1.45442:25.8928%,-0.32151:21.0352%,-1.27613:18.1712%,-0.23351:17.524%,-0.33484:17.3688%,4.076980000000001:0.0008%,-5.08665:0.0008%,4.29964:0.0008%,-71.14798:0.0008%,-0.24151:0.0008%,-5.1466400000000005:0.0008%,1.46509:0.0008%,10.67005:0.0008%,-71.33197:0.0008%,-58.032509999999995:0.0008%]
+[INFO] ** classification:[normal:53.0712%,Single Stage Single Point:46.9288%]
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.25
+--------SHAPES--------
+x_train.shape (93750, 16)
+x_test.shape (31250, 16)
+y_train.shape (93750, 5)
+y_test.shape (31250, 5)
+[INFO] using LSTM layers
+--------RESHAPED--------
+x_train.shape (3, 31250, 16)
+x_test.shape (1, 31250, 16)
+y_train.shape (3, 31250, 5)
+y_test.shape (1, 31250, 5)
+[INFO] fitting model
+Train on 3 samples, validate on 1 samples
+Epoch 1/1
+ - 796s - loss: 1.5700 - tp: 0.0000e+00 - fp: 0.0000e+00 - tn: 375000.0000 - fn: 93750.0000 - accuracy: 0.8000 - precision: 0.0000e+00 - recall: 0.0000e+00 - auc: 0.8749 - val_loss: 1.5579 - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 125000.0000 - val_fn: 31250.0000 - val_accuracy: 0.8000 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00 - val_auc: 0.8827
+[INFO] saving weights to checkpoints/lstm-epoch-1-files-0-1-batch-375000-500000

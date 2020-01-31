@@ -1,0 +1,207 @@
+command: python3 ../../score.py -read "2015-12-28_113021_98.log.part13_sorted-labeled.csv" -dimensionality 16 -optimizer sgd -model checkpoints/lstm-epoch-1-files-0-1-batch-375000-500000 -drop modbus_value -lstm true -debug true
+
+[INFO] input_shape (31250, 16)
+[INFO] LSTM first and last layer neurons: 2
+2020-01-31 19:32:28.123487: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2020-01-31 19:32:28.166267: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7fed2fc00c40 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-01-31 19:32:28.166305: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+adding core layer 0
+[INFO] created DNN
+[INFO] reading file 2015-12-28_113021_98.log.part13_sorted-labeled.csv
+[INFO] process dataset, shape: (500000, 18)
+dropping column: modbus_value
+[INFO] columns: Index(['unixtime', 'orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst',
+       'proto', 'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] analyze dataset: (500000, 17)
+
+[INFO] analyzing data
+[INFO] 500000 rows
+[INFO] ** unixtime:1359 (0.2718%)
+[INFO] ** orig:[0:100.0%]
+[INFO] ** type:[0:100.0%]
+[INFO] ** i/f_name:[2:99.9996%,3:0.0004%]
+[INFO] ** i/f_dir:[1:99.9996%,0:0.0004%]
+[INFO] ** src:[22:38.3832%,9:25.9606%,7:18.1352%,1:17.52%,14:0.0004%,3:0.0004%,15:0.0002%]
+[INFO] ** dst:[21:43.3108%,10:21.0326%,8:18.135%,9:17.5198%,22:0.0008%,15:0.0004%,2:0.0004%,24:0.0002%]
+[INFO] ** proto:[0:99.9996%,1:0.0004%]
+[INFO] ** appi_name:[21:99.9992%,30:0.0004%,8:0.0002%,7:0.0002%]
+[INFO] ** proxy_src_ip:[18:38.3832%,20:25.9606%,13:18.1352%,6:17.52%,17:0.0004%,1:0.0004%,16:0.0002%]
+[INFO] ** modbus_function_code:[0.02961:99.9992%,-33.760870000000004:0.0008%]
+[INFO] ** modbus_function_description:[7:50.0%,11:49.9992%,0:0.0008%]
+[INFO] ** modbus_transaction_id:65536 (13.1072%)
+[INFO] ** scada_tag:[3:25.9596%,1:21.0326%,5:18.1348%,4:17.5194%,2:17.3504%,0:0.0032%]
+[INFO] ** service:[0.0048200000000000005:99.9992%,-211.73542999999998:0.0004%,-211.09762999999998:0.0002%,-211.35747999999998:0.0002%]
+[INFO] ** s_port:[1.45442:25.96%,-0.32151:21.0326%,-1.27613:18.1348%,-0.23351:17.5196%,-0.33484:17.3506%,1.45709:0.0004%,-71.33197:0.0004%,-1.27347:0.0002%,-0.24950999999999998:0.0002%,-3.3787199999999995:0.0002%,1.47576:0.0002%,12.60597:0.0002%,-0.24151:0.0002%,-1.02014:0.0002%,-1.2708:0.0002%]
+[INFO] ** classification:[normal:72.7902%,Single Stage Single Point:27.2098%]
+[INFO] encoding dataset: (500000, 17)
+[INFO] AFTER encoding dataset: (500000, 17)
+CHUNK ANALYZE
+
+[INFO] analyzing data
+[INFO] 500000 rows
+[INFO] ** unixtime:1359 (0.2718%)
+[INFO] ** orig:[0:100.0%]
+[INFO] ** type:[0:100.0%]
+[INFO] ** i/f_name:[2:99.9996%,3:0.0004%]
+[INFO] ** i/f_dir:[1:99.9996%,0:0.0004%]
+[INFO] ** src:[22:38.3832%,9:25.9606%,7:18.1352%,1:17.52%,14:0.0004%,3:0.0004%,15:0.0002%]
+[INFO] ** dst:[21:43.3108%,10:21.0326%,8:18.135%,9:17.5198%,22:0.0008%,15:0.0004%,2:0.0004%,24:0.0002%]
+[INFO] ** proto:[0:99.9996%,1:0.0004%]
+[INFO] ** appi_name:[21:99.9992%,30:0.0004%,8:0.0002%,7:0.0002%]
+[INFO] ** proxy_src_ip:[18:38.3832%,20:25.9606%,13:18.1352%,6:17.52%,17:0.0004%,1:0.0004%,16:0.0002%]
+[INFO] ** modbus_function_code:[0.02961:99.9992%,-33.760870000000004:0.0008%]
+[INFO] ** modbus_function_description:[7:50.0%,11:49.9992%,0:0.0008%]
+[INFO] ** modbus_transaction_id:65536 (13.1072%)
+[INFO] ** scada_tag:[3:25.9596%,1:21.0326%,5:18.1348%,4:17.5194%,2:17.3504%,0:0.0032%]
+[INFO] ** service:[0.0048200000000000005:99.9992%,-211.73542999999998:0.0004%,-211.09762999999998:0.0002%,-211.35747999999998:0.0002%]
+[INFO] ** s_port:[1.45442:25.96%,-0.32151:21.0326%,-1.27613:18.1348%,-0.23351:17.5196%,-0.33484:17.3506%,1.45709:0.0004%,-71.33197:0.0004%,-1.27347:0.0002%,-0.24950999999999998:0.0002%,-3.3787199999999995:0.0002%,1.47576:0.0002%,12.60597:0.0002%,-0.24151:0.0002%,-1.02014:0.0002%,-1.2708:0.0002%]
+[INFO] ** classification:[normal:72.7902%,Single Stage Single Point:27.2098%]
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+x_test [[ 1.4512992e+09  0.0000000e+00  0.0000000e+00 ...  3.0000000e+00
+   4.8199999e-03  1.4544200e+00]
+ [ 1.4512992e+09  0.0000000e+00  0.0000000e+00 ...  2.0000000e+00
+   4.8199999e-03 -3.3484000e-01]
+ [ 1.4512992e+09  0.0000000e+00  0.0000000e+00 ...  1.0000000e+00
+   4.8199999e-03 -3.2150999e-01]
+ ...
+ [ 1.4513005e+09  0.0000000e+00  0.0000000e+00 ...  1.0000000e+00
+   4.8199999e-03 -3.2150999e-01]
+ [ 1.4513005e+09  0.0000000e+00  0.0000000e+00 ...  3.0000000e+00
+   4.8199999e-03  1.4544200e+00]
+ [ 1.4513005e+09  0.0000000e+00  0.0000000e+00 ...  1.0000000e+00
+   4.8199999e-03 -3.2150999e-01]] shape (500000, 16)
+y_test [[0. 1. 0. 0. 0.]
+ [1. 0. 0. 0. 0.]
+ [0. 1. 0. 0. 0.]
+ ...
+ [1. 0. 0. 0. 0.]
+ [1. 0. 0. 0. 0.]
+ [1. 0. 0. 0. 0.]] shape (500000, 5)
+[INFO] measuring accuracy...
+x_test.shape: (500000, 16)
+[INFO] model summary:
+Model: "sequential_1"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #
+=================================================================
+lstm_1 (LSTM)                (None, 31250, 2)          152
+_________________________________________________________________
+lstm_2 (LSTM)                (None, 31250, 4)          112
+_________________________________________________________________
+lstm_3 (LSTM)                (None, 31250, 2)          56
+_________________________________________________________________
+dense_1 (Dense)              (None, 31250, 5)          15
+=================================================================
+Total params: 335
+Trainable params: 335
+Non-trainable params: 0
+_________________________________________________________________
+y_eval [1 0 1 ... 0 0 0] (500000,)
+--------SHAPES--------
+x_test.shape (500000, 16)
+y_test.shape (500000, 5)
+[INFO] reshape for using LSTM layers
+--------RESHAPED--------
+x_test.shape (16, 31250, 16)
+y_test.shape (16, 31250, 5)
+pred 1 [[[0.20651332 0.19967657 0.19943622 0.19657533 0.19779861]
+  [0.20828556 0.19965822 0.20059429 0.19409437 0.19736756]
+  [0.20985727 0.1998471  0.20166127 0.19151022 0.19712415]
+  ...
+  [0.21245037 0.20846346 0.20513242 0.17177665 0.20217714]
+  [0.21245037 0.20846346 0.20513242 0.17177665 0.20217714]
+  [0.21245037 0.20846346 0.20513242 0.17177665 0.20217714]]
+
+ [[0.20651332 0.19967657 0.19943622 0.19657533 0.19779861]
+  [0.20828556 0.19965822 0.20059429 0.19409437 0.19736756]
+  [0.20985727 0.1998471  0.20166127 0.19151022 0.19712415]
+  ...
+  [0.21245037 0.20846346 0.20513242 0.17177665 0.20217714]
+  [0.21245037 0.20846346 0.20513242 0.17177665 0.20217714]
+  [0.21245037 0.20846346 0.20513242 0.17177665 0.20217714]]
+
+ [[0.20651332 0.19967657 0.19943622 0.19657533 0.19779861]
+  [0.20828556 0.19965822 0.20059429 0.19409437 0.19736756]
+  [0.20985727 0.1998471  0.20166127 0.19151022 0.19712415]
+  ...
+  [0.21245037 0.20846346 0.20513242 0.17177665 0.20217714]
+  [0.21245037 0.20846346 0.20513242 0.17177665 0.20217714]
+  [0.21245037 0.20846346 0.20513242 0.17177665 0.20217714]]
+
+ ...
+
+ [[0.20651332 0.19967657 0.19943622 0.19657533 0.19779861]
+  [0.20828556 0.19965822 0.20059429 0.19409437 0.19736756]
+  [0.20985727 0.1998471  0.20166127 0.19151022 0.19712415]
+  ...
+  [0.21245037 0.20846346 0.20513242 0.17177665 0.20217714]
+  [0.21245037 0.20846346 0.20513242 0.17177665 0.20217714]
+  [0.21245037 0.20846346 0.20513242 0.17177665 0.20217714]]
+
+ [[0.20651332 0.19967657 0.19943622 0.19657533 0.19779861]
+  [0.20828556 0.19965822 0.20059429 0.19409437 0.19736756]
+  [0.20985727 0.1998471  0.20166127 0.19151022 0.19712415]
+  ...
+  [0.21245037 0.20846346 0.20513242 0.17177665 0.20217714]
+  [0.21245037 0.20846346 0.20513242 0.17177665 0.20217714]
+  [0.21245037 0.20846346 0.20513242 0.17177665 0.20217714]]
+
+ [[0.20651332 0.19967657 0.19943622 0.19657533 0.19779861]
+  [0.20828556 0.19965822 0.20059429 0.19409437 0.19736756]
+  [0.20985727 0.1998471  0.20166127 0.19151022 0.19712415]
+  ...
+  [0.21245037 0.20846346 0.20513242 0.17177665 0.20217714]
+  [0.21245037 0.20846346 0.20513242 0.17177665 0.20217714]
+  [0.21245037 0.20846346 0.20513242 0.17177665 0.20217714]]] (16, 31250, 5)
+pred 2 [[0.20651332 0.19967657 0.19943622 0.19657533 0.19779861]
+ [0.20828556 0.19965822 0.20059429 0.19409437 0.19736756]
+ [0.20985727 0.1998471  0.20166127 0.19151022 0.19712415]
+ ...
+ [0.21245037 0.20846346 0.20513242 0.17177665 0.20217714]
+ [0.21245037 0.20846346 0.20513242 0.17177665 0.20217714]
+ [0.21245037 0.20846346 0.20513242 0.17177665 0.20217714]] (500000, 5)
+pred 3 (argmax) [0 0 0 ... 0 0 0] (500000,)
+[INFO] metrics:
+2020-01-31 19:32:51.749919: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] remapper failed: Invalid argument: MutableGraphView::MutableGraphView error: node 'loss/dense_1_loss/categorical_crossentropy/weighted_loss/concat' has self cycle fanin 'loss/dense_1_loss/categorical_crossentropy/weighted_loss/concat'.
+2020-01-31 19:32:51.873236: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 0, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-01-31 19:32:51.924791: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 1, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-01-31 19:32:52.377531: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] arithmetic_optimizer failed: Invalid argument: The graph couldn't be sorted in topological order.
+2020-01-31 19:32:52.405239: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] remapper failed: Invalid argument: MutableGraphView::MutableGraphView error: node 'loss/dense_1_loss/categorical_crossentropy/weighted_loss/concat' has self cycle fanin 'loss/dense_1_loss/categorical_crossentropy/weighted_loss/concat'.
+2020-01-31 19:32:52.442907: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 0, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-01-31 19:32:52.487570: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 1, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-01-31 19:32:52.612512: W tensorflow/core/common_runtime/process_function_library_runtime.cc:697] Ignoring multi-device function optimization failure: Invalid argument: The graph couldn't be sorted in topological order.
+
+
+
+---- for loop ----
+loss :  1.5542138814926147
+tp :  0.0
+fp :  0.0
+tn :  2000000.0
+fn :  500000.0
+accuracy :  0.799993097782135
+precision :  0.0
+recall :  0.0
+auc :  0.9319203495979309
+
+y_eval {0: 363951, 1: 136049}
+pred {0: 500000}
+[INFO] confusion matrix for file
+[[363951      0      0      0      0]
+ [136049      0      0      0      0]
+ [     0      0      0      0      0]
+ [     0      0      0      0      0]
+ [     0      0      0      0      0]]
+[INFO] confusion matrix after adding it to total:
+[[363951      0      0      0      0]
+ [136049      0      0      0      0]
+ [     0      0      0      0      0]
+ [     0      0      0      0      0]
+ [     0      0      0      0      0]]
