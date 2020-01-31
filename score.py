@@ -35,22 +35,25 @@ monitor = EarlyStopping(
     mode='auto'
 )
 
+cf_total = None
+
 BATCH_SIZE = 2048
 
 # TODO hardcoded these are the labeltypes that can be found in the dataset
 labeltypes = ["normal", "Single Stage Single Point", "Single Stage Multi Point", "Multi Stage Single Point", "Multi Stage Multi Point"]
 #labeltypes = ["Normal", "Attack"]
 
+# cf_total is for summing up all of the confusion matrices from all of the seperate files
+labeltypes_length = len(labeltypes)
+cf_total = np.zeros((labeltypes_length, labeltypes_length),dtype=np.int)
 
 def readCSV(f):
     print("[INFO] reading file", f)
     return pd.read_csv(f, delimiter=',', engine='c', encoding="utf-8-sig")
 
 def run():
-    labeltypes_length = len(labeltypes)
+    leftover = None
 
-    # cf_total is for summing up all of the confusion matrices from all of the seperate files
-    cf_total = np.zeros((labeltypes_length, labeltypes_length),dtype=np.int)
     for file_name in files:
         df = readCSV(file_name)
 
@@ -76,56 +79,104 @@ def run():
 #        encode_columns(df, arguments.result_column, arguments.lstm, arguments.debug)
         print("[INFO] AFTER encoding dataset:", df.shape)
 
+        lstmBatchSize = int(arguments.lstmBatchSize/2)
         if arguments.lstm:
-            pass
+            for batch_index in range(0, df.shape[0], lstmBatchSize):
+                print("[INFO] processing batch {}-{}/{} for LSTM".format(batch_index, batch_index+lstmBatchSize, df.shape[0]))
+                dfCopy = df[batch_index:batch_index+lstmBatchSize]
+
+                # skip leftover that does not reach batch size
+                if len(dfCopy.index) != lstmBatchSize:
+                    leftover = dfCopy
+                    continue
+
+                eval_dnn(dfCopy)
+                leftover = None
         else:
-           
-            x_test, y_test = to_xy(df, arguments.result_column, labeltypes)
-            # Create a new model instance
+            eval_dnn(df)
 
-            # Load the previously saved weights
-            model.load_weights(arguments.model)
-            print(colored("[INFO] measuring accuracy...", 'yellow'))
+import sys
 
-            pred = model.predict(x_test)
-            pred = np.argmax(pred,axis=1)
-            y_eval = np.argmax(y_test,axis=1)
-            score = metrics.accuracy_score(y_eval, pred)
-            
-            print(colored("[INFO] model summary:", 'yellow'))
-            model.summary()
-            
-            print(colored("[INFO] metrics:", 'yellow'))
-            baseline_results = model.evaluate(
-                x_test,
-                y_test,
-                batch_size=BATCH_SIZE,
-                verbose=0
-            )
-            print("---- for loop ----") 
-            for name, value in zip(model.metrics_names, baseline_results):
-              print(name, ': ', value)
-            print()
-           
-            print("[INFO] Validation score: {}".format(colored(score, 'yellow')))
+def eval_dnn(df):
+    global cf_total
 
+    x_test, y_test = to_xy(df, arguments.result_column, labeltypes)
+    print("x_test", x_test, "shape", x_test.shape)
+    
+    #np.set_printoptions(threshold=sys.maxsize)
+    print("y_test", y_test, "shape", y_test.shape)
+    #np.set_printoptions(threshold=10)
 
-            unique, counts = np.unique(y_eval, return_counts=True)
-            print("y_eval",dict(zip(unique, counts)))
+    # Create a new model instance
+
+    # Load the previously saved weights
+    model.load_weights(arguments.model)
+    print(colored("[INFO] measuring accuracy...", 'yellow'))
+    print("x_test.shape:", x_test.shape)
+
+    print(colored("[INFO] model summary:", 'yellow'))
+    model.summary()
+
+    y_eval = np.argmax(y_test,axis=1)
+    print("y_eval", y_eval, y_eval.shape)
+
+    if arguments.debug:
+        print("--------SHAPES--------")
+        print("x_test.shape", x_test.shape)
+        print("y_test.shape", y_test.shape)
+
+    if arguments.lstm:
+
+        print("[INFO] reshape for using LSTM layers")
+        x_test = x_test.reshape(-1, x_test.shape[0], x_test.shape[1])
+        y_test = y_test.reshape(-1, y_test.shape[0], y_test.shape[1])
+
+        if arguments.debug:
+            print("--------RESHAPED--------")
+            print("x_test.shape", x_test.shape)
+            print("y_test.shape", y_test.shape)
+    
+    pred = model.predict(x_test)
+    print("pred 1", pred, pred.shape)
+
+    pred = pred.reshape(y_test.shape[1], y_test.shape[2])
+    print("pred 2", pred, pred.shape)
+
+    pred = np.argmax(pred,axis=1)
+    print("pred 3 (argmax)", pred, pred.shape)
+    
+    
+
+    if not arguments.lstm:
+        score = metrics.accuracy_score(y_eval, pred)
+        print("[INFO] Validation score: {}".format(colored(score, 'yellow')))
+    
+    print(colored("[INFO] metrics:", 'yellow'))
+    baseline_results = model.evaluate(
+        x_test,
+        y_test,
+        batch_size=BATCH_SIZE,
+        verbose=0
+    )
+    print("---- for loop ----") 
+    for name, value in zip(model.metrics_names, baseline_results):
+        print(name, ': ', value)
+    print()
+    
+    unique, counts = np.unique(y_eval, return_counts=True)
+    print("y_eval",dict(zip(unique, counts)))
 # 
-            unique, counts = np.unique(pred, return_counts=True)
-            print("pred",dict(zip(unique, counts)))
+    unique, counts = np.unique(pred, return_counts=True)
+    print("pred",dict(zip(unique, counts)))
 # 
 #             print("y_test", np.sum(y_test,axis=0), np.sum(y_test,axis=1))
 
-            cf = confusion_matrix(y_eval,pred,labels=np.arange(len(labeltypes)))
-            print("[INFO] confusion matrix for file ")
-            print(cf)
-            print("[INFO] confusion matrix after adding it to total:")
-            cf_total += cf
-            print(cf_total)
-
-
+    cf = confusion_matrix(y_eval,pred,labels=np.arange(len(labeltypes)))
+    print("[INFO] confusion matrix for file ")
+    print(cf)
+    print("[INFO] confusion matrix after adding it to total:")
+    cf_total += cf
+    print(cf_total)
 
 #             cf = np.zeros((5,5))
 #             for i,j in zip(y_eval, pred):

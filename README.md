@@ -185,28 +185,38 @@ commit version:
 run 6: 29-1 16:40 - prepared, but not ran
 screen -L python3 -u readcsv.py -read "/mnt/terradrive/labeled-SWaT-2015-network/*csv" -dimensionality 15 -epochs 10 -debug true -drop service,Modbus_Function_Code
 
-# Dataset analyzer
-tool name: datenwolf
-# analysis
+## Dataset analyzer
+
+### analysis
 - which files contain attacks
 - unique strings for each row
 - mean, stddev, min and max for numbers
-# preprocessing
+
+### preprocessing
+
 - drop columns that only contain a single value
 - fix typos: ip, log and loe, Responqe etc
 - merge num, date and time to UNIX timestamps
-# encoding
+
+### encoding
+
 - zscore numbers
 - encode strings to numbers
-# labeling
+
+### labeling
+
 - use attack types
-# split
+
+### split
+
 - dataset split: 50% train, 25% test, 25% validation, LSTM batch size: 125000
 
 - IMPORTANT: preserve order when using LSTM
 - add code to run evaluation and print results
 
 - DROP columns: Tag, date, num and time
+
+### TODO
 
 - add progress indicator
 - fix checkpoint naming for lstm: 'files' wrong
@@ -253,8 +263,40 @@ Push labeling tool:
 
 Start:
 
-    screen -L /home/***REMOVED***/datenwolf -attacks /home/***REMOVED***/Network/List_of_attacks_Final-fixed.csv -suffix _sorted.csv -colsums /home/***REMOVED***/Network/colSums-29Jan2020-221001.json -workers 25 -offset 0 -max 260 -out /home/***REMOVED***/Network/SWaT2015-Network-Labeled
+    cd Network
 
-    screen -L /home/***REMOVED***/datenwolf -attacks /home/***REMOVED***/Network/List_of_attacks_Final-fixed.csv -suffix _sorted.csv -colsums /home/***REMOVED***/Network/colSums-29Jan2020-221001.json -workers 25 -offset 260 -max 520 -out /home/***REMOVED***/Network/SWaT2015-Network-Labeled
+Brussels (1/4 Train)
 
-    screen -L /home/***REMOVED***/datenwolf -attacks /home/***REMOVED***/Network/List_of_attacks_Final-fixed.csv -suffix _sorted.csv -colsums /home/***REMOVED***/Network/colSums-29Jan2020-221001.json -workers 25 -offset 520 -out /home/***REMOVED***/Network/SWaT2015-Network-Labeled
+    ../datenwolf -attacks List_of_attacks_Final-fixed.csv -suffix _sorted.csv -colsums colSums-29Jan2020-221001.json -workers 25 -offset 0 -max 196 -out SWaT2015-Network-Labeled-Pt1
+
+Oslo (2/4 Train)
+
+    ../datenwolf -attacks List_of_attacks_Final-fixed.csv -suffix _sorted.csv -colsums colSums-29Jan2020-221001.json -workers 25 -offset 196 -max 392 -out SWaT2015-Network-Labeled-Pt2
+
+Mac (3/4 Test)
+
+    go run ../../datenwolf -attacks List_of_attacks_Final-fixed.csv -suffix _sorted.csv -colsums colSums-29Jan2020-221001.json -workers 25 -offset 392 -max 588 -out SWaT2015-Network-Labeled-Pt3
+
+    screen -L /home/***REMOVED***/datenwolf -attacks /home/***REMOVED***/Network/List_of_attacks_Final-fixed.csv -suffix _sorted.csv -colsums /home/***REMOVED***/Network/colSums-29Jan2020-221001.json -workers 25 -offset 392 -max 588 -out /home/***REMOVED***/Network/SWaT2015-Network-Labeled
+
+Bastia (4/4 Eval)
+
+    ../datenwolf -attacks List_of_attacks_Final-fixed.csv -suffix _sorted.csv -colsums colSums-29Jan2020-221001.json -workers 25 -offset 588 -out SWaT2015-Network-Labeled-Pt4
+
+    screen -L /home/***REMOVED***/datenwolf -attacks /home/***REMOVED***/Network/List_of_attacks_Final-fixed.csv -suffix _sorted.csv -colsums /home/***REMOVED***/Network/colSums-29Jan2020-221001.json -workers 25 -offset 392 -max 588 -out /home/***REMOVED***/Network/SWaT2015-Network-Labeled
+
+## LSTM Evaluation
+
+    cd data/SwaT2015-Attack-Files-v0.2
+
+Train
+
+    python3 ../../readcsv.py -read "*-labeled.csv" -dimensionality 17 -lstm true -optimizer sgd -drop modbus_value
+
+    python3 ../../readcsv.py -read "*-labeled.csv" -dimensionality 17 -lstm true -optimizer sgd
+
+Score
+
+    python3 ../../score_dataset.py -read "*-labeled.csv" -dimensionality 17 -optimizer sgd -model checkpoints/lstm-epoch-1-files-0-2-batch-500000-510000 -drop modbus_value -lstm true -debug true
+
+    python3 ../../score_dataset.py -read "*-labeled.csv" -dimensionality 17 -optimizer sgd -model checkpoints/lstm-epoch-1-files-0-2-batch-500000-510000 -lstm true -debug true

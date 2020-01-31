@@ -45,6 +45,7 @@ func (c columnType) String() string {
 }
 
 type columnSummary struct {
+	Version       string     `json:"version"`
 	Col           string     `json:"col"`
 	Typ           columnType `json:"typ"`
 	UniqueStrings []string   `json:"uniqueStrings"`
@@ -142,6 +143,7 @@ func merge(results map[string]*fileSummary) map[string]columnSummary {
 			}
 
 			colSums[col] = columnSummary{
+				Version:       version,
 				Col:           col,
 				Typ:           typeString,
 				UniqueStrings: unique,
@@ -172,10 +174,11 @@ func merge(results map[string]*fileSummary) map[string]columnSummary {
 			fmt.Println(col, "mean:", mean, "stddev:", std)
 
 			colSums[col] = columnSummary{
-				Col:  col,
-				Typ:  typeNumeric,
-				Mean: mean,
-				Std:  std,
+				Version: version,
+				Col:     col,
+				Typ:     typeNumeric,
+				Mean:    mean,
+				Std:     std,
 			}
 		}
 	}
