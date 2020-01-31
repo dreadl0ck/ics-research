@@ -306,3 +306,27 @@ Score
 
     python3 ../../train.py -read "2015-12-28_113021_98.log.part12_sorted-labeled.csv" -dimensionality 16 -lstm true -optimizer sgd -drop modbus_value
     python3 ../../score.py -read "2015-12-28_113021_98.log.part13_sorted-labeled.csv" -dimensionality 16 -optimizer sgd -model checkpoints/lstm-epoch-1-files-0-2-batch-490000-500000 -drop modbus_value -lstm true -debug true
+
+## Physical Data Evaluation
+
+Normal DNN
+
+    cd data
+    python3 ../train.py -read "SWaT_Dataset_Attack_v0-fixed-train-test.csv" -dimensionality 52 -optimizer sgd -result_column Normal/Attack
+
+    python3 ../score.py -read "SWaT_Dataset_Attack_v0-fixed-eval.csv" -dimensionality 52 -optimizer sgd -model checkpoints/dnn-epoch-1-files-0-1 -debug true -result_column Normal/Attack
+
+LSTM
+
+With test_size = 0.25 set lstmBatchSize to (numRows) * 0.25
+
+    cd data
+    python3 ../train.py -read "SWaT_Dataset_Attack_v0-fixed-train-test.csv" -dimensionality 52 -optimizer sgd -result_column Normal/Attack -lstm true -lstmBatchSize 87484
+
+    python3 ../score.py -read "SWaT_Dataset_Attack_v0-fixed-eval.csv" -dimensionality 52 -optimizer sgd -model checkpoints/lstm-epoch-1-files-0-1-batch-262452-349936 -debug true -result_column Normal/Attack -lstm true -lstmBatchSize 87484
+
+TODO
+
+- fix eval of physical data
+- normalize values for strings and rerun experiments
+- zscore timestamps
