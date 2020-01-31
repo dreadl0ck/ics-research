@@ -7,24 +7,21 @@
 # on server, 2015 SWaT dataset:
 # $ ./readcsv.py -read */*_labeled.csv -dimensionality XX -class_amount 2 -sample 0.5 -lstm true
 
+import argparse
+import pandas as pd
+import keras
+import traceback
+import sys
+
 from tfUtils import * 
 from glob import glob
-import argparse
-
-import pandas as pd
 from os import path
-
 from sklearn.model_selection import train_test_split
-
-import keras
 from sklearn.metrics import confusion_matrix
 from keras.models import Sequential
 from keras.layers.core import Dense, Activation
 from keras.callbacks import EarlyStopping
 from termcolor import colored
-import traceback
-
-import sys
 
 monitor = EarlyStopping(
     monitor='val_loss', 
@@ -34,15 +31,16 @@ monitor = EarlyStopping(
     mode='auto'
 )
 
-# TODO hardcoded these are the labeltypes that can be found in the dataset
-labeltypes = ["normal", "Single Stage Single Point", "Single Stage Multi Point", "Multi Stage Single Point", "Multi Stage Multi Point"]
-#labeltypes = ["Normal", "Attack"]
+# hardcoded these are the labeltypes that can be found in the dataset
+# can be overwritten via cmdline flags
+classes = ["normal", "Single Stage Single Point", "Single Stage Multi Point", "Multi Stage Single Point", "Multi Stage Multi Point"]
+#classes = ["Normal", "Attack"]
 
 def train_dnn(df, i, epoch, batch_index=None):
 
     print("[INFO] breaking into predictors and prediction...")
     # Break into X (predictors) & y (prediction)
-    x, y = to_xy(df, arguments.result_column, labeltypes)
+    x, y = to_xy(df, arguments.result_column, classes)
 
     print("[INFO] creating train/test split:", arguments.test_size)
 
@@ -111,10 +109,23 @@ def train_dnn(df, i, epoch, batch_index=None):
 #    print(cf)
 #    print('-----------------------------')
     
-    save_weights(i, epoch, batch_index=batch_index)
+    if arguments.saveModel:
+        save_model(i, epoch, batch_index=batch_index)
+    else:
+        save_weights(i, epoch, batch_index=batch_index)
+
+def save_model(i, epoch, batch_index=None):
+    if not path.exists("models"):
+        os.mkdir("models")
+
+    if arguments.lstm:
+        print("[INFO] saving model to models/lstm-epoch-{}-files-{}-{}-batch-{}-{}".format(epoch, i, i+batch_size, batch_index, batch_index+arguments.lstmBatchSize))
+        model.save('./models/lstm-epoch-{}-files-{}-{}-batch-{}-{}'.format(epoch, i, i+batch_size, batch_index, batch_index+arguments.lstmBatchSize))
+    else:
+        print("[INFO] saving model to models/dnn-epoch-{}-files-{}-{}".format(epoch, i, i+batch_size))
+        model.save('./models/dnn-epoch-{}-files-{}-{}'.format(epoch, i, i+batch_size))
 
 def save_weights(i, epoch, batch_index=None):
-
     if not path.exists("checkpoints"):
         os.mkdir("checkpoints")
 
@@ -186,9 +197,13 @@ def run():
             print("[INFO] analyze dataset:", df.shape)
             analyze(df)
 
-#           print("[INFO] encoding dataset:", df.shape)
-#           encode_columns(df, arguments.result_column, arguments.lstm, arguments.debug)
-#           print("[INFO] AFTER encoding dataset:", df.shape)
+            if arguments.zscoreUnixtime:
+               encode_numeric_zscore(df, "unixtime")
+
+            if arguments.encodeColumns:
+                print("[INFO] Shape when encoding dataset:", df.shape)
+                encode_columns(df, arguments.result_column, arguments.lstm, arguments.debug)
+                print("[INFO] Shape AFTER encoding dataset:", df.shape)
 
             if arguments.debug:
                 print("--------------AFTER DROPPING COLUMNS ----------------")
@@ -221,13 +236,13 @@ parser.add_argument('-read', required=True, type=str, help='Regex to find all la
 parser.add_argument('-drop', type=str, help='optionally drop specified columns, supply multiple with comma')
 parser.add_argument('-sample', type=float, default=1.0, help='optionally sample only a fraction of records')
 parser.add_argument('-dropna', default=False, action='store_true', help='drop rows with missing values')
-parser.add_argument('-test_size', type=float, default=0.25, help='specify size of the test data in percent (default: 0.25)')
+parser.add_argument('-testSize', type=float, default=0.25, help='specify size of the test data in percent (default: 0.25)')
 parser.add_argument('-loss', type=str, default='categorical_crossentropy', help='set function (default: categorical_crossentropy)')
 parser.add_argument('-optimizer', type=str, default='adam', help='set optimizer (default: adam)')
-parser.add_argument('-result_column', type=str, default='classification', help='set name of the column with the prediction')
-parser.add_argument('-dimensionality', type=int, required=True, help='The amount of columns in the csv')
+parser.add_argument('-resultColumn', type=str, default='classification', help='set name of the column with the prediction')
+parser.add_argument('-features', type=int, required=True, help='The amount of columns in the csv (dimensionality)')
 #parser.add_argument('-class_amount', type=int, default=2, help='The amount of classes e.g. normal, attack1, attack3 is 3')
-parser.add_argument('-batch_size', type=int, default=1, help='The amount of files to be read in. (default: 1)')
+parser.add_argument('-batchSize', type=int, default=1, help='The amount of files to be read in. (default: 1)')
 parser.add_argument('-epochs', type=int, default=1, help='The amount of epochs. (default: 1)')
 parser.add_argument('-numCoreLayers', type=int, default=1, help='set number of core layers to use')
 parser.add_argument('-shuffle', default=False, help='shuffle data before feeding it to the DNN')
@@ -237,12 +252,18 @@ parser.add_argument('-wrapLayerSize', type=int, default=2, help='size of the fir
 parser.add_argument('-lstm', default=False, help='use a LSTM network')
 parser.add_argument('-lstmBatchSize', type=int, default=125000, help='LSTM network input number of rows')
 parser.add_argument('-debug', default=False, help='debug mode on off')
+parser.add_argument('-zscoreColumns', default=False, help='apply zscore to unixtime column')
+parser.add_argument('-encodeColumns', default=False, help='switch between auto encoding or using a fully encoded dataset')
+parser.add_argument('-classes', type=str, help='supply one or multiple comma separated class identifiers')
+parser.add_argument('-saveModel', default=True, help='save model (if false, only the weights will be saved)')
 
 # parse commandline arguments
 arguments = parser.parse_args()
 if arguments.read is None:
     print("[INFO] need an input file / multi file regex. use the -read flag")
     exit(1)
+
+classes = arguments.classes.split(',')
 
 # get all files
 files = glob(arguments.read)
@@ -254,7 +275,7 @@ batch_size = arguments.batch_size
 # create models
 model = create_dnn(
     arguments.dimensionality, 
-    len(labeltypes), 
+    len(classes), 
     arguments.loss, 
     arguments.optimizer, 
     arguments.lstm, 

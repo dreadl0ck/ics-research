@@ -327,6 +327,17 @@ With test_size = 0.25 set lstmBatchSize to (numRows) * 0.25
 
 TODO
 
+- create experiment scripts and save logs
+- tensorflow version
 - fix eval of physical data
 - normalize values for strings and rerun experiments
 - zscore timestamps
+- amount of neurons / layers?
+- vary lstm batch size
+- sgd / non-sgd
+- lstm / normal
+
+- layer configuration !! single layers VS multiple
+- save and load entire model configuration:
+
+Call model.save to save the a model's architecture, weights, and training configuration in a single file/folder. This allows you to export a model so it can be used without access to the original Python code*. Since the optimizer-state is recovered, you can resume training from exactly where you left off.

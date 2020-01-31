@@ -39,9 +39,10 @@ cf_total = None
 
 BATCH_SIZE = 2048
 
-# TODO hardcoded these are the labeltypes that can be found in the dataset
-labeltypes = ["normal", "Single Stage Single Point", "Single Stage Multi Point", "Multi Stage Single Point", "Multi Stage Multi Point"]
-#labeltypes = ["Normal", "Attack"]
+# TODO make configurable via argument
+# hardcoded these are the labeltypes that can be found in the dataset
+#labeltypes = ["normal", "Single Stage Single Point", "Single Stage Multi Point", "Multi Stage Single Point", "Multi Stage Multi Point"]
+labeltypes = ["Normal", "Attack"]
 
 # cf_total is for summing up all of the confusion matrices from all of the seperate files
 labeltypes_length = len(labeltypes)
