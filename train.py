@@ -67,10 +67,11 @@ def train_dnn(df, i, epoch, batch_index=None):
     if arguments.lstm:
 
         print("[INFO] using LSTM layers")
-        x_train = x_train.reshape(-1, x_train.shape[0], x.shape[1])
-        x_test = x_test.reshape(-1, x_test.shape[0], x.shape[1])
-        y_train = y_train.reshape(-1, y_train.shape[0], y.shape[1])
-        y_test = y_test.reshape(-1, y_test.shape[0], y.shape[1])
+        x_train = x_train.reshape(3, int(x_train.shape[0]/3), x.shape[1])
+        y_train = y_train.reshape(3, int(y_train.shape[0]/3), y.shape[1])
+
+        x_test = x_test.reshape(1, x_test.shape[0], x.shape[1])
+        y_test = y_test.reshape(1, y_test.shape[0], y.shape[1])
 
         if arguments.debug:
             print("--------RESHAPED--------")
@@ -94,7 +95,6 @@ def train_dnn(df, i, epoch, batch_index=None):
         batch_size=32
     )
 
-    # TODO: mkdir checkpoints
 #    print('---------intermediate testing--------------')
 #    
 #    pred = model.predict(x_test)
@@ -221,13 +221,13 @@ parser.add_argument('-read', required=True, type=str, help='Regex to find all la
 parser.add_argument('-drop', type=str, help='optionally drop specified columns, supply multiple with comma')
 parser.add_argument('-sample', type=float, default=1.0, help='optionally sample only a fraction of records')
 parser.add_argument('-dropna', default=False, action='store_true', help='drop rows with missing values')
-parser.add_argument('-test_size', type=float, default=0.5, help='specify size of the test data in percent (default: 0.25)')
+parser.add_argument('-test_size', type=float, default=0.25, help='specify size of the test data in percent (default: 0.25)')
 parser.add_argument('-loss', type=str, default='categorical_crossentropy', help='set function (default: categorical_crossentropy)')
 parser.add_argument('-optimizer', type=str, default='adam', help='set optimizer (default: adam)')
 parser.add_argument('-result_column', type=str, default='classification', help='set name of the column with the prediction')
 parser.add_argument('-dimensionality', type=int, required=True, help='The amount of columns in the csv')
 #parser.add_argument('-class_amount', type=int, default=2, help='The amount of classes e.g. normal, attack1, attack3 is 3')
-parser.add_argument('-batch_size', type=int, default=2, help='The amount of files to be read in. (default: 1)')
+parser.add_argument('-batch_size', type=int, default=1, help='The amount of files to be read in. (default: 1)')
 parser.add_argument('-epochs', type=int, default=1, help='The amount of epochs. (default: 1)')
 parser.add_argument('-numCoreLayers', type=int, default=1, help='set number of core layers to use')
 parser.add_argument('-shuffle', default=False, help='shuffle data before feeding it to the DNN')
@@ -235,7 +235,7 @@ parser.add_argument('-dropoutLayer', default=False, help='insert a dropout layer
 parser.add_argument('-coreLayerSize', type=int, default=4, help='size of an DNN core layer')
 parser.add_argument('-wrapLayerSize', type=int, default=2, help='size of the first and last DNN layer')
 parser.add_argument('-lstm', default=False, help='use a LSTM network')
-parser.add_argument('-lstmBatchSize', type=int, default=10000, help='LSTM network input number of rows')
+parser.add_argument('-lstmBatchSize', type=int, default=125000, help='LSTM network input number of rows')
 parser.add_argument('-debug', default=False, help='debug mode on off')
 
 # parse commandline arguments

@@ -79,21 +79,21 @@ def run():
 #        encode_columns(df, arguments.result_column, arguments.lstm, arguments.debug)
         print("[INFO] AFTER encoding dataset:", df.shape)
 
-        lstmBatchSize = int(arguments.lstmBatchSize/2)
-        if arguments.lstm:
-            for batch_index in range(0, df.shape[0], lstmBatchSize):
-                print("[INFO] processing batch {}-{}/{} for LSTM".format(batch_index, batch_index+lstmBatchSize, df.shape[0]))
-                dfCopy = df[batch_index:batch_index+lstmBatchSize]
+        # lstmBatchSize = arguments.lstmBatchSize
+        # if arguments.lstm:
+        #     #for batch_index in range(0, df.shape[0], lstmBatchSize):
+        #         print("[INFO] processing batch {}-{}/{} for LSTM".format(batch_index, batch_index+lstmBatchSize, df.shape[0]))
+        #         dfCopy = df[batch_index:batch_index+lstmBatchSize]
 
-                # skip leftover that does not reach batch size
-                if len(dfCopy.index) != lstmBatchSize:
-                    leftover = dfCopy
-                    continue
+        #         # skip leftover that does not reach batch size
+        #         if len(dfCopy.index) != lstmBatchSize:
+        #             leftover = dfCopy
+        #             continue
 
-                eval_dnn(dfCopy)
-                leftover = None
-        else:
-            eval_dnn(df)
+        #         eval_dnn(dfCopy)
+        #         leftover = None
+        # else:
+        eval_dnn(df)
 
 import sys
 
@@ -128,8 +128,8 @@ def eval_dnn(df):
     if arguments.lstm:
 
         print("[INFO] reshape for using LSTM layers")
-        x_test = x_test.reshape(-1, x_test.shape[0], x_test.shape[1])
-        y_test = y_test.reshape(-1, y_test.shape[0], y_test.shape[1])
+        x_test = x_test.reshape(16, int(x_test.shape[0]/16), x_test.shape[1])
+        y_test = y_test.reshape(16, int(y_test.shape[0]/16), y_test.shape[1])
 
         if arguments.debug:
             print("--------RESHAPED--------")
@@ -139,13 +139,12 @@ def eval_dnn(df):
     pred = model.predict(x_test)
     print("pred 1", pred, pred.shape)
 
-    pred = pred.reshape(y_test.shape[1], y_test.shape[2])
-    print("pred 2", pred, pred.shape)
+    if arguments.lstm:         
+        pred = pred.reshape(16*y_test.shape[1], y_test.shape[2])
+        print("pred 2", pred, pred.shape)
 
     pred = np.argmax(pred,axis=1)
     print("pred 3 (argmax)", pred, pred.shape)
-    
-    
 
     if not arguments.lstm:
         score = metrics.accuracy_score(y_eval, pred)
@@ -206,7 +205,7 @@ parser.add_argument('-dropoutLayer', default=False, help='insert a dropout layer
 parser.add_argument('-coreLayerSize', type=int, default=4, help='size of an DNN core layer')
 parser.add_argument('-wrapLayerSize', type=int, default=2, help='size of the first and last DNN layer')
 parser.add_argument('-lstm', default=False, help='use a LSTM network')
-parser.add_argument('-lstmBatchSize', type=int, default=10000, help='LSTM network input number of rows')
+parser.add_argument('-lstmBatchSize', type=int, default=125000, help='LSTM network input number of rows')
 parser.add_argument('-debug', default=False, help='debug mode on off')
 
 # parse commandline arguments

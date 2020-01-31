@@ -291,7 +291,7 @@ Bastia (4/4 Eval)
 
 Train
 
-    python3 ../../readcsv.py -read "*-labeled.csv" -dimensionality 17 -lstm true -optimizer sgd -drop modbus_value
+    python3 ../../train.py -read "*-labeled.csv" -dimensionality 16 -lstm true -optimizer sgd -drop modbus_value
 
     python3 ../../readcsv.py -read "*-labeled.csv" -dimensionality 17 -lstm true -optimizer sgd
 
@@ -300,3 +300,9 @@ Score
     python3 ../../score_dataset.py -read "*-labeled.csv" -dimensionality 17 -optimizer sgd -model checkpoints/lstm-epoch-1-files-0-2-batch-500000-510000 -drop modbus_value -lstm true -debug true
 
     python3 ../../score_dataset.py -read "*-labeled.csv" -dimensionality 17 -optimizer sgd -model checkpoints/lstm-epoch-1-files-0-2-batch-500000-510000 -lstm true -debug true
+
+    2015-12-28_113021_98.log.part12_sorted-labeled.csv : 103513 [Single Stage Single Point]
+    2015-12-28_113021_98.log.part13_sorted-labeled.csv : 136049 [Single Stage Single Point]
+
+    python3 ../../train.py -read "2015-12-28_113021_98.log.part12_sorted-labeled.csv" -dimensionality 16 -lstm true -optimizer sgd -drop modbus_value
+    python3 ../../score.py -read "2015-12-28_113021_98.log.part13_sorted-labeled.csv" -dimensionality 16 -optimizer sgd -model checkpoints/lstm-epoch-1-files-0-2-batch-490000-500000 -drop modbus_value -lstm true -debug true
