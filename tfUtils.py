@@ -219,6 +219,7 @@ encoders = {
     "Tag"                          : encode_numeric_zscore,
 }
 
+import sys
 
 def to_xy(df, target, labeltypes):
     """
@@ -231,7 +232,9 @@ def to_xy(df, target, labeltypes):
     # find out the type of the target column.  Is it really this hard? :(
     target_type = df[target].dtypes
     target_type = target_type[0] if hasattr(target_type, '__iter__') else target_type
- 
+    
+    print("CHUNK ANALYZE")
+    analyze(df)
     
     values = df[target].values
     y_vector = np.zeros((values.shape[0],len(labeltypes)))
@@ -241,7 +244,15 @@ def to_xy(df, target, labeltypes):
     for i,j in enumerate(labeltypes):
         print("[INFO] to_xy labeltype:", j)
         indices = np.where(values == j)
+
+        #np.set_printoptions(threshold=sys.maxsize)
+        #print("indices", indices)
+        #np.set_printoptions(threshold=10)
+
         y_vector[indices,i] = 1
+        #np.set_printoptions(threshold=sys.maxsize)
+        #print("y_vector", y_vector)
+        #np.set_printoptions(threshold=10)
 #    for i,j in enumerate(labeltypes):
 #        indices = np.where(values == j)
 #        print("[INFO] to_xy labeltype:", j, indices)
