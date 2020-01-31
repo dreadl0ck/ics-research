@@ -253,8 +253,25 @@ Push labeling tool:
 
 Start:
 
-    screen -L /home/***REMOVED***/datenwolf -attacks /home/***REMOVED***/Network/List_of_attacks_Final-fixed.csv -suffix _sorted.csv -colsums /home/***REMOVED***/Network/colSums-29Jan2020-221001.json -workers 25 -offset 0 -max 260 -out /home/***REMOVED***/Network/SWaT2015-Network-Labeled
+    cd Network
 
-    screen -L /home/***REMOVED***/datenwolf -attacks /home/***REMOVED***/Network/List_of_attacks_Final-fixed.csv -suffix _sorted.csv -colsums /home/***REMOVED***/Network/colSums-29Jan2020-221001.json -workers 25 -offset 260 -max 520 -out /home/***REMOVED***/Network/SWaT2015-Network-Labeled
+Brussels (1/4 Train)
 
-    screen -L /home/***REMOVED***/datenwolf -attacks /home/***REMOVED***/Network/List_of_attacks_Final-fixed.csv -suffix _sorted.csv -colsums /home/***REMOVED***/Network/colSums-29Jan2020-221001.json -workers 25 -offset 520 -out /home/***REMOVED***/Network/SWaT2015-Network-Labeled
+    ../datenwolf -attacks List_of_attacks_Final-fixed.csv -suffix _sorted.csv -colsums colSums-29Jan2020-221001.json -workers 25 -offset 0 -max 196 -out SWaT2015-Network-Labeled-Pt1
+
+Oslo (2/4 Train)
+
+    ../datenwolf -attacks List_of_attacks_Final-fixed.csv -suffix _sorted.csv -colsums colSums-29Jan2020-221001.json -workers 25 -offset 196 -max 392 -out SWaT2015-Network-Labeled-Pt2
+
+Mac (3/4 Test)
+
+    go run ../../datenwolf -attacks List_of_attacks_Final-fixed.csv -suffix _sorted.csv -colsums colSums-29Jan2020-221001.json -workers 25 -offset 392 -max 588 -out SWaT2015-Network-Labeled-Pt3
+
+    screen -L /home/***REMOVED***/datenwolf -attacks /home/***REMOVED***/Network/List_of_attacks_Final-fixed.csv -suffix _sorted.csv -colsums /home/***REMOVED***/Network/colSums-29Jan2020-221001.json -workers 25 -offset 392 -max 588 -out /home/***REMOVED***/Network/SWaT2015-Network-Labeled
+
+Bastia (4/4 Eval)
+
+    ../datenwolf -attacks List_of_attacks_Final-fixed.csv -suffix _sorted.csv -colsums colSums-29Jan2020-221001.json -workers 25 -offset 588 -out SWaT2015-Network-Labeled-Pt4
+
+    screen -L /home/***REMOVED***/datenwolf -attacks /home/***REMOVED***/Network/List_of_attacks_Final-fixed.csv -suffix _sorted.csv -colsums /home/***REMOVED***/Network/colSums-29Jan2020-221001.json -workers 25 -offset 392 -max 588 -out /home/***REMOVED***/Network/SWaT2015-Network-Labeled
+
