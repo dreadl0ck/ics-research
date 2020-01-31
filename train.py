@@ -98,10 +98,10 @@ def train_dnn(df, i, epoch, batch_index=None):
 #    pred = model.predict(x_test)
 #    pred = np.argmax(pred,axis=1)
 #    y_eval = np.argmax(y_test,axis=1)
-#    unique, counts = np.unique(y_eval, return_counts=true)
+#    unique, counts = np.unique(y_eval, return_counts=True)
 #    print("y_eval",dict(zip(unique, counts)))
 # 
-#    unique, counts = np.unique(pred, return_counts=true)
+#    unique, counts = np.unique(pred, return_counts=True)
 #    print("pred",dict(zip(unique, counts)))
 #
 #    cf = confusion_matrix(y_eval,pred,labels=np.arange(len(labeltypes)))

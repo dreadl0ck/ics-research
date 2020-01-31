@@ -1,0 +1,1405 @@
+Using TensorFlow backend.
+2020-01-30 18:00:12.774653: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer.so.6'; dlerror: libnvinfer.so.6: cannot open shared object file: No such file or directory
+2020-01-30 18:00:12.774881: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer_plugin.so.6'; dlerror: libnvinfer_plugin.so.6: cannot open shared object file: No such file or directory
+2020-01-30 18:00:12.774911: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:30] Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+[33m[INFO] using Sequential Dense layers[0m
+2020-01-30 18:00:13.833198: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
+2020-01-30 18:00:13.833242: E tensorflow/stream_executor/cuda/cuda_driver.cc:351] failed call to cuInit: UNKNOWN ERROR (303)
+2020-01-30 18:00:13.833315: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (***REMOVED***): /proc/driver/nvidia/version does not exist
+2020-01-30 18:00:13.833595: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2020-01-30 18:00:13.843361: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2112095000 Hz
+2020-01-30 18:00:13.844762: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x5565230 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-01-30 18:00:13.844785: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+[INFO] adding core layer 0
+[INFO] created DNN
+[33m[INFO] epoch 1/3[0m
+[33m[INFO] loading file 1-2/1 on epoch 1/3[0m
+[INFO] reading file ../2015-12-28_113021_98.log.part12_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (500000, 18)
+[INFO] sampling 1.0
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst', 'proto',
+       'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'modbus_value', 'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] analyze dataset: (500000, 17)
+
+[INFO] analyzing data
+[INFO] 500000 rows
+[INFO] ** orig:[0:100.0%]
+[INFO] ** type:[0:99.9998%,2:0.0002%]
+[INFO] ** i/f_name:[2:99.9988%,3:0.0012%]
+[INFO] ** i/f_dir:[1:99.9988%,0:0.0012%]
+[INFO] ** src:[22:38.4088%,9:25.8982%,7:18.1636%,1:17.5218%,11:0.0014%,10:0.0014%,14:0.0012%,3:0.001%,2:0.001%,21:0.0006%,15:0.0004%,4:0.0004%,8:0.0002%]
+[INFO] ** dst:[21:43.266%,10:21.0416%,8:18.1634%,9:17.5214%,6:0.0016%,16:0.0012%,15:0.0012%,22:0.001%,18:0.0006%,26:0.0004%,25:0.0004%,19:0.0004%,17:0.0004%,24:0.0002%,7:0.0002%]
+[INFO] ** proto:[0:99.996%,2:0.0028%,1:0.0012%]
+[INFO] ** appi_name:[21:99.9928%,30:0.0012%,22:0.001%,17:0.0008%,31:0.0006%,26:0.0006%,7:0.0006%,23:0.0004%,18:0.0004%,0:0.0004%,28:0.0002%,27:0.0002%,24:0.0002%,16:0.0002%,15:0.0002%,5:0.0002%]
+[INFO] ** proxy_src_ip:[18:38.4088%,20:25.8982%,13:18.1636%,6:17.5218%,11:0.0014%,10:0.0014%,17:0.0012%,14:0.001%,1:0.001%,7:0.0006%,21:0.0004%,16:0.0004%,0:0.0002%]
+[INFO] ** modbus_function_code:[0.02961:99.9928%,-33.760870000000004:0.007%,0.9188299999999999:0.0002%]
+[INFO] ** modbus_function_description:[7:49.9974%,11:49.9954%,0:0.007%,15:0.0002%]
+[INFO] ** modbus_transaction_id:65536 (13.1072%)
+[INFO] ** scada_tag:[3:25.8976%,1:21.0406%,5:18.163%,4:17.521%,2:17.3678%,0:0.01%]
+[INFO] ** modbus_value:8608 (1.7216%)
+[INFO] ** service:[0.0048200000000000005:99.9936%,-211.73542999999998:0.0012%,-211.08818:0.001%,-205.44247:0.0008%,-211.07873999999998:0.0008%,-211.09762999999998:0.0006%,-211.08346:0.0006%,-186.43601999999998:0.0006%,-186.44547:0.0004%,-185.9872:0.0002%,-202.75898:0.0002%]
+[INFO] ** s_port:[1.45442:25.8978%,-0.32151:21.0408%,-1.27613:18.1632%,-0.23351:17.5212%,-0.33484:17.368%,-71.33197:0.0012%,-71.14931:0.001%,-2.1481:0.0008%,-0.24151:0.0006%,-71.14798:0.0006%,-2.42942:0.0004%,4.44364:0.0004%,-1.02014:0.0004%,-64.19493:0.0004%,-5.1466400000000005:0.0002%,-1.2708:0.0002%,-58.035180000000004:0.0002%,4.076980000000001:0.0002%,-5.08665:0.0002%,1.47576:0.0002%,1.46509:0.0002%,4.29964:0.0002%,14.253910000000001:0.0002%,-68.79874000000001:0.0002%,6.1115699999999995:0.0002%,2.05573:0.0002%,-43.76509:0.0002%,10.67005:0.0002%,-1.27347:0.0002%,-58.032509999999995:0.0002%]
+[INFO] ** classification:[normal:79.2972%,Single Stage Single Point:20.7028%]
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.5
+[INFO] fitting model
+Train on 250000 samples, validate on 250000 samples
+Epoch 1/1
+ - 19s - loss: 39192.4744 - tp: 249904.0000 - fp: 93.0000 - tn: 999907.0000 - fn: 96.0000 - accuracy: 0.9998 - precision: 0.9996 - recall: 0.9996 - auc: 0.9998 - val_loss: 48452747734.2863 - val_tp: 146486.0000 - val_fp: 103514.0000 - val_tn: 896486.0000 - val_fn: 103514.0000 - val_accuracy: 0.8344 - val_precision: 0.5859 - val_recall: 0.5859 - val_auc: 0.7412
+[INFO] saving weights to checkpoints/epoch-1-files-0-2
+[33m[INFO] epoch 2/3[0m
+[33m[INFO] loading file 1-2/1 on epoch 2/3[0m
+[INFO] reading file ../2015-12-28_113021_98.log.part12_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (500000, 18)
+[INFO] sampling 1.0
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst', 'proto',
+       'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'modbus_value', 'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] analyze dataset: (500000, 17)
+
+[INFO] analyzing data
+[INFO] 500000 rows
+[INFO] ** orig:[0:100.0%]
+[INFO] ** type:[0:99.9998%,2:0.0002%]
+[INFO] ** i/f_name:[2:99.9988%,3:0.0012%]
+[INFO] ** i/f_dir:[1:99.9988%,0:0.0012%]
+[INFO] ** src:[22:38.4088%,9:25.8982%,7:18.1636%,1:17.5218%,11:0.0014%,10:0.0014%,14:0.0012%,3:0.001%,2:0.001%,21:0.0006%,15:0.0004%,4:0.0004%,8:0.0002%]
+[INFO] ** dst:[21:43.266%,10:21.0416%,8:18.1634%,9:17.5214%,6:0.0016%,16:0.0012%,15:0.0012%,22:0.001%,18:0.0006%,26:0.0004%,25:0.0004%,19:0.0004%,17:0.0004%,24:0.0002%,7:0.0002%]
+[INFO] ** proto:[0:99.996%,2:0.0028%,1:0.0012%]
+[INFO] ** appi_name:[21:99.9928%,30:0.0012%,22:0.001%,17:0.0008%,31:0.0006%,26:0.0006%,7:0.0006%,23:0.0004%,18:0.0004%,0:0.0004%,28:0.0002%,27:0.0002%,24:0.0002%,16:0.0002%,15:0.0002%,5:0.0002%]
+[INFO] ** proxy_src_ip:[18:38.4088%,20:25.8982%,13:18.1636%,6:17.5218%,11:0.0014%,10:0.0014%,17:0.0012%,14:0.001%,1:0.001%,7:0.0006%,21:0.0004%,16:0.0004%,0:0.0002%]
+[INFO] ** modbus_function_code:[0.02961:99.9928%,-33.760870000000004:0.007%,0.9188299999999999:0.0002%]
+[INFO] ** modbus_function_description:[7:49.9974%,11:49.9954%,0:0.007%,15:0.0002%]
+[INFO] ** modbus_transaction_id:65536 (13.1072%)
+[INFO] ** scada_tag:[3:25.8976%,1:21.0406%,5:18.163%,4:17.521%,2:17.3678%,0:0.01%]
+[INFO] ** modbus_value:8608 (1.7216%)
+[INFO] ** service:[0.0048200000000000005:99.9936%,-211.73542999999998:0.0012%,-211.08818:0.001%,-205.44247:0.0008%,-211.07873999999998:0.0008%,-211.09762999999998:0.0006%,-211.08346:0.0006%,-186.43601999999998:0.0006%,-186.44547:0.0004%,-185.9872:0.0002%,-202.75898:0.0002%]
+[INFO] ** s_port:[1.45442:25.8978%,-0.32151:21.0408%,-1.27613:18.1632%,-0.23351:17.5212%,-0.33484:17.368%,-71.33197:0.0012%,-71.14931:0.001%,-2.1481:0.0008%,-0.24151:0.0006%,-71.14798:0.0006%,-2.42942:0.0004%,4.44364:0.0004%,-1.02014:0.0004%,-64.19493:0.0004%,-5.1466400000000005:0.0002%,-1.2708:0.0002%,-58.035180000000004:0.0002%,4.076980000000001:0.0002%,-5.08665:0.0002%,1.47576:0.0002%,1.46509:0.0002%,4.29964:0.0002%,14.253910000000001:0.0002%,-68.79874000000001:0.0002%,6.1115699999999995:0.0002%,2.05573:0.0002%,-43.76509:0.0002%,10.67005:0.0002%,-1.27347:0.0002%,-58.032509999999995:0.0002%]
+[INFO] ** classification:[normal:79.2972%,Single Stage Single Point:20.7028%]
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.5
+[INFO] fitting model
+Train on 250000 samples, validate on 250000 samples
+Epoch 1/1
+ - 19s - loss: 0.0000e+00 - tp: 250000.0000 - fp: 0.0000e+00 - tn: 1000000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 48452747734.2863 - val_tp: 146486.0000 - val_fp: 103514.0000 - val_tn: 896486.0000 - val_fn: 103514.0000 - val_accuracy: 0.8344 - val_precision: 0.5859 - val_recall: 0.5859 - val_auc: 0.7412
+[INFO] saving weights to checkpoints/epoch-2-files-0-2
+[33m[INFO] epoch 3/3[0m
+[33m[INFO] loading file 1-2/1 on epoch 3/3[0m
+[INFO] reading file ../2015-12-28_113021_98.log.part12_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (500000, 18)
+[INFO] sampling 1.0
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst', 'proto',
+       'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'modbus_value', 'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] analyze dataset: (500000, 17)
+
+[INFO] analyzing data
+[INFO] 500000 rows
+[INFO] ** orig:[0:100.0%]
+[INFO] ** type:[0:99.9998%,2:0.0002%]
+[INFO] ** i/f_name:[2:99.9988%,3:0.0012%]
+[INFO] ** i/f_dir:[1:99.9988%,0:0.0012%]
+[INFO] ** src:[22:38.4088%,9:25.8982%,7:18.1636%,1:17.5218%,11:0.0014%,10:0.0014%,14:0.0012%,3:0.001%,2:0.001%,21:0.0006%,15:0.0004%,4:0.0004%,8:0.0002%]
+[INFO] ** dst:[21:43.266%,10:21.0416%,8:18.1634%,9:17.5214%,6:0.0016%,16:0.0012%,15:0.0012%,22:0.001%,18:0.0006%,26:0.0004%,25:0.0004%,19:0.0004%,17:0.0004%,24:0.0002%,7:0.0002%]
+[INFO] ** proto:[0:99.996%,2:0.0028%,1:0.0012%]
+[INFO] ** appi_name:[21:99.9928%,30:0.0012%,22:0.001%,17:0.0008%,31:0.0006%,26:0.0006%,7:0.0006%,23:0.0004%,18:0.0004%,0:0.0004%,28:0.0002%,27:0.0002%,24:0.0002%,16:0.0002%,15:0.0002%,5:0.0002%]
+[INFO] ** proxy_src_ip:[18:38.4088%,20:25.8982%,13:18.1636%,6:17.5218%,11:0.0014%,10:0.0014%,17:0.0012%,14:0.001%,1:0.001%,7:0.0006%,21:0.0004%,16:0.0004%,0:0.0002%]
+[INFO] ** modbus_function_code:[0.02961:99.9928%,-33.760870000000004:0.007%,0.9188299999999999:0.0002%]
+[INFO] ** modbus_function_description:[7:49.9974%,11:49.9954%,0:0.007%,15:0.0002%]
+[INFO] ** modbus_transaction_id:65536 (13.1072%)
+[INFO] ** scada_tag:[3:25.8976%,1:21.0406%,5:18.163%,4:17.521%,2:17.3678%,0:0.01%]
+[INFO] ** modbus_value:8608 (1.7216%)
+[INFO] ** service:[0.0048200000000000005:99.9936%,-211.73542999999998:0.0012%,-211.08818:0.001%,-205.44247:0.0008%,-211.07873999999998:0.0008%,-211.09762999999998:0.0006%,-211.08346:0.0006%,-186.43601999999998:0.0006%,-186.44547:0.0004%,-185.9872:0.0002%,-202.75898:0.0002%]
+[INFO] ** s_port:[1.45442:25.8978%,-0.32151:21.0408%,-1.27613:18.1632%,-0.23351:17.5212%,-0.33484:17.368%,-71.33197:0.0012%,-71.14931:0.001%,-2.1481:0.0008%,-0.24151:0.0006%,-71.14798:0.0006%,-2.42942:0.0004%,4.44364:0.0004%,-1.02014:0.0004%,-64.19493:0.0004%,-5.1466400000000005:0.0002%,-1.2708:0.0002%,-58.035180000000004:0.0002%,4.076980000000001:0.0002%,-5.08665:0.0002%,1.47576:0.0002%,1.46509:0.0002%,4.29964:0.0002%,14.253910000000001:0.0002%,-68.79874000000001:0.0002%,6.1115699999999995:0.0002%,2.05573:0.0002%,-43.76509:0.0002%,10.67005:0.0002%,-1.27347:0.0002%,-58.032509999999995:0.0002%]
+[INFO] ** classification:[normal:79.2972%,Single Stage Single Point:20.7028%]
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.5
+[INFO] fitting model
+Train on 250000 samples, validate on 250000 samples
+Epoch 1/1
+ - 20s - loss: 0.0000e+00 - tp: 250000.0000 - fp: 0.0000e+00 - tn: 1000000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 48452747734.2863 - val_tp: 146486.0000 - val_fp: 103514.0000 - val_tn: 896486.0000 - val_fn: 103514.0000 - val_accuracy: 0.8344 - val_precision: 0.5859 - val_recall: 0.5859 - val_auc: 0.7412
+[INFO] saving weights to checkpoints/epoch-3-files-0-2
+^CTraceback (most recent call last):
+  File "readcsv.py", line 10, in <module>
+    from tfUtils import * 
+  File "/home/***REMOVED***/ics-research/tfUtils.py", line 1, in <module>
+    from keras.models import Sequential
+  File "/home/***REMOVED***/.local/lib/python3.6/site-packages/keras/__init__.py", line 3, in <module>
+    from . import utils
+  File "/home/***REMOVED***/.local/lib/python3.6/site-packages/keras/utils/__init__.py", line 2, in <module>
+    from . import np_utils
+  File "/home/***REMOVED***/.local/lib/python3.6/site-packages/keras/utils/np_utils.py", line 6, in <module>
+    import numpy as np
+  File "/home/***REMOVED***/.local/lib/python3.6/site-packages/numpy/__init__.py", line 142, in <module>
+    from . import core
+  File "/home/***REMOVED***/.local/lib/python3.6/site-packages/numpy/core/__init__.py", line 107, in <module>
+    from . import _internal
+  File "/home/***REMOVED***/.local/lib/python3.6/site-packages/numpy/core/_internal.py", line 11, in <module>
+    import platform
+  File "/usr/lib/python3.6/platform.py", line 116, in <module>
+    import sys, os, re, subprocess
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 674, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 779, in get_code
+  File "<frozen importlib._bootstrap_external>", line 487, in _compile_bytecode
+KeyboardInterrupt
+Using TensorFlow backend.
+2020-01-31 12:05:16.255472: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer.so.6'; dlerror: libnvinfer.so.6: cannot open shared object file: No such file or directory
+2020-01-31 12:05:16.255759: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer_plugin.so.6'; dlerror: libnvinfer_plugin.so.6: cannot open shared object file: No such file or directory
+2020-01-31 12:05:16.255788: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:30] Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+[33m[INFO] using Sequential Dense layers[0m
+2020-01-31 12:05:18.377181: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
+2020-01-31 12:05:18.377276: E tensorflow/stream_executor/cuda/cuda_driver.cc:351] failed call to cuInit: UNKNOWN ERROR (303)
+2020-01-31 12:05:18.377369: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (***REMOVED***): /proc/driver/nvidia/version does not exist
+2020-01-31 12:05:18.377711: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2020-01-31 12:05:18.397778: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2112050000 Hz
+2020-01-31 12:05:18.399868: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x51c4ee0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-01-31 12:05:18.399904: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+[INFO] adding core layer 0
+[INFO] created DNN
+[33m[INFO] epoch 1/3[0m
+[33m[INFO] loading file 1-2/66 on epoch 1/3[0m
+[INFO] reading file /tmp/terradrive/SWaT2015-Attack-Files-v0.2/2015-12-28_113021_98.log.part12_sorted-labeled.csv
+[INFO] reading file /tmp/terradrive/SWaT2015-Attack-Files-v0.2/2015-12-28_113021_98.log.part13_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1000000, 18)
+[INFO] sampling 1.0
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst', 'proto',
+       'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'modbus_value', 'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] analyze dataset: (1000000, 17)
+
+[INFO] analyzing data
+[INFO] 1000000 rows
+[INFO] ** orig:[0:100.0%]
+[INFO] ** type:[0:99.9999%,2:0.0001%]
+[INFO] ** i/f_name:[2:99.9992%,3:0.0008%]
+[INFO] ** i/f_dir:[1:99.9992%,0:0.0008%]
+[INFO] ** src:[22:38.396%,9:25.9294%,7:18.1494%,1:17.5209%,14:0.0008%,11:0.0007%,10:0.0007%,3:0.0007%,2:0.0005%,21:0.0003%,15:0.0003%,4:0.0002%,8:0.0001%]
+[INFO] ** dst:[21:43.2884%,10:21.0371%,8:18.1492%,9:17.5206%,22:0.0009%,15:0.0008%,6:0.0008%,16:0.0006%,18:0.0003%,26:0.0002%,25:0.0002%,24:0.0002%,19:0.0002%,17:0.0002%,2:0.0002%,7:0.0001%]
+[INFO] ** proto:[0:99.9978%,2:0.0014%,1:0.0008%]
+[INFO] ** appi_name:[21:99.996%,30:0.0008%,22:0.0005%,7:0.0004%,17:0.0004%,31:0.0003%,26:0.0003%,23:0.0002%,18:0.0002%,0:0.0002%,24:0.0001%,27:0.0001%,16:0.0001%,15:0.0001%,8:0.0001%,28:0.0001%,5:0.0001%]
+[INFO] ** proxy_src_ip:[18:38.396%,20:25.9294%,13:18.1494%,6:17.5209%,17:0.0008%,11:0.0007%,10:0.0007%,1:0.0007%,14:0.0005%,16:0.0003%,7:0.0003%,21:0.0002%,0:0.0001%]
+[INFO] ** modbus_function_code:[0.02961:99.996%,-33.760870000000004:0.0039%,0.9188299999999999:0.0001%]
+[INFO] ** modbus_function_description:[7:49.9987%,11:49.9973%,0:0.0039%,15:0.0001%]
+[INFO] ** modbus_transaction_id:65536 (6.5536%)
+[INFO] ** scada_tag:[3:25.9286%,1:21.0366%,5:18.1489%,4:17.5202%,2:17.3591%,0:0.0066%]
+[INFO] ** modbus_value:18035 (1.8035%)
+[INFO] ** service:[0.0048200000000000005:99.9964%,-211.73542999999998:0.0008%,-211.08818:0.0005%,-211.09762999999998:0.0004%,-205.44247:0.0004%,-211.07873999999998:0.0004%,-211.08346:0.0003%,-186.43601999999998:0.0003%,-186.44547:0.0002%,-185.9872:0.0001%,-211.35747999999998:0.0001%,-202.75898:0.0001%]
+[INFO] ** s_port:[1.45442:25.9289%,-0.32151:21.0367%,-1.27613:18.149%,-0.23351:17.5204%,-0.33484:17.3593%,-71.33197:0.0008%,-71.14931:0.0005%,-2.1481:0.0004%,-0.24151:0.0004%,-71.14798:0.0003%,-1.02014:0.0003%,-1.27347:0.0002%,-64.19493:0.0002%,-2.42942:0.0002%,4.44364:0.0002%,1.47576:0.0002%,-1.2708:0.0002%,1.45709:0.0002%,-5.1466400000000005:0.0001%,-58.035180000000004:0.0001%,-58.032509999999995:0.0001%,4.076980000000001:0.0001%,-0.24950999999999998:0.0001%,-43.76509:0.0001%,2.05573:0.0001%,6.1115699999999995:0.0001%,-68.79874000000001:0.0001%,14.253910000000001:0.0001%,-3.3787199999999995:0.0001%,-5.08665:0.0001%,4.29964:0.0001%,10.67005:0.0001%,12.60597:0.0001%,1.46509:0.0001%]
+[INFO] ** classification:[normal:76.0437%,Single Stage Single Point:23.9563%]
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.5
+[INFO] fitting model
+Train on 500000 samples, validate on 500000 samples
+Epoch 1/1
+ - 39s - loss: 0.5293 - tp: 393122.0000 - fp: 102623.0000 - tn: 1897377.0000 - fn: 106878.0000 - accuracy: 0.9162 - precision: 0.7930 - recall: 0.7862 - auc: 0.9480 - val_loss: 0.5932 - val_tp: 363951.0000 - val_fp: 136049.0000 - val_tn: 1863951.0000 - val_fn: 136049.0000 - val_accuracy: 0.8912 - val_precision: 0.7279 - val_recall: 0.7279 - val_auc: 0.9320
+[INFO] saving weights to checkpoints/epoch-1-files-0-2
+[33m[INFO] loading file 3-4/66 on epoch 1/3[0m
+[INFO] reading file /tmp/terradrive/SWaT2015-Attack-Files-v0.2/2015-12-28_164554_99.log.part01_sorted-labeled.csv
+[INFO] reading file /tmp/terradrive/SWaT2015-Attack-Files-v0.2/2015-12-28_164554_99.log.part02_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1000000, 18)
+[INFO] sampling 1.0
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst', 'proto',
+       'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'modbus_value', 'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] analyze dataset: (1000000, 17)
+
+[INFO] analyzing data
+[INFO] 1000000 rows
+[INFO] ** orig:[0:99.9988%,2:0.0012%]
+[INFO] ** type:[0:99.9998%,2:0.0001%,1:0.0001%]
+[INFO] ** i/f_name:[2:99.9985%,3:0.0015%]
+[INFO] ** i/f_dir:[1:99.9986%,0:0.0014%]
+[INFO] ** src:[22:38.3327%,9:26.0078%,7:18.1638%,1:17.4897%,21:0.0017%,3:0.001%,2:0.0007%,4:0.0006%,11:0.0004%,10:0.0004%,15:0.0003%,14:0.0003%,8:0.0003%,17:0.0002%,13:0.0001%]
+[INFO] ** dst:[21:43.3295%,10:21.0106%,8:18.1637%,9:17.4893%,15:0.0015%,6:0.0013%,22:0.0011%,18:0.0009%,16:0.0007%,2:0.0002%,7:0.0002%,25:0.0002%,24:0.0002%,17:0.0002%,0:0.0002%,12:0.0001%,19:0.0001%]
+[INFO] ** proto:[0:99.9958%,2:0.0027%,1:0.0015%]
+[INFO] ** appi_name:[21:99.9942%,30:0.0019%,31:0.0007%,26:0.0006%,22:0.0006%,17:0.0005%,7:0.0004%,27:0.0002%,0:0.0002%,33:0.0001%,28:0.0001%,23:0.0001%,15:0.0001%,9:0.0001%,8:0.0001%,5:0.0001%]
+[INFO] ** proxy_src_ip:[18:38.3327%,20:26.0078%,13:18.1638%,6:17.4897%,17:0.0019%,1:0.0009%,14:0.0007%,21:0.0005%,7:0.0005%,11:0.0004%,10:0.0004%,16:0.0003%,0:0.0002%,15:0.0001%,2:0.0001%]
+[INFO] ** modbus_function_code:[0.02961:99.9942%,-33.760870000000004:0.0057%,0.9188299999999999:0.0001%]
+[INFO] ** modbus_function_description:[7:49.998%,11:49.9962%,0:0.0057%,15:0.0001%]
+[INFO] ** modbus_transaction_id:65536 (6.5536%)
+[INFO] ** scada_tag:[3:26.0067%,1:21.0102%,5:18.1632%,4:17.4888%,2:17.3221%,0:0.009%]
+[INFO] ** modbus_value:14224 (1.4224%)
+[INFO] ** service:[0.0048200000000000005:99.9944%,-211.73542999999998:0.0015%,-186.43601999999998:0.0009%,-211.08346:0.0007%,-211.08818:0.0006%,-205.44247:0.0005%,-211.09762999999998:0.0004%,-183.8612:0.0002%,-202.75898:0.0002%,-186.44547:0.0002%,-185.9872:0.0001%,-201.23771000000002:0.0001%,-211.35747999999998:0.0001%,-211.07873999999998:0.0001%]
+[INFO] ** s_port:[1.45442:26.007%,-0.32151:21.0104%,-1.27613:18.1633%,-0.23351:17.4891%,-0.33484:17.3223%,-71.33197:0.0015%,-71.14798:0.0007%,-71.14931:0.0006%,1.45709:0.0004%,-0.08551:0.0004%,-0.24151:0.0004%,-1.02014:0.0003%,-64.19493:0.0002%,14.4699:0.0002%,-1.27347:0.0002%,-1.2708:0.0002%,1.47576:0.0002%,-0.24950999999999998:0.0002%,1.46509:0.0002%,-49.275529999999996:0.0001%,13.86459:0.0001%,10.67005:0.0001%,-2.1481:0.0001%,-68.79874000000001:0.0001%,14.253910000000001:0.0001%,4.29964:0.0001%,-5.08665:0.0001%,10.192739999999999:0.0001%,-3.3787199999999995:0.0001%,6.1115699999999995:0.0001%,4.44364:0.0001%,13.431270000000001:0.0001%,2.05573:0.0001%,-43.76509:0.0001%,4.90362:0.0001%,4.076980000000001:0.0001%,-58.032509999999995:0.0001%,-58.035180000000004:0.0001%,12.60597:0.0001%,-5.1466400000000005:0.0001%,-68.36943000000001:0.0001%]
+[INFO] ** classification:[normal:88.9778%,Single Stage Single Point:11.0222%]
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.5
+[INFO] fitting model
+Train on 500000 samples, validate on 500000 samples
+Epoch 1/1
+ - 39s - loss: 0.3925 - tp: 433558.0000 - fp: 66442.0000 - tn: 1933558.0000 - fn: 66442.0000 - accuracy: 0.9469 - precision: 0.8671 - recall: 0.8671 - auc: 0.9668 - val_loss: 0.3082 - val_tp: 456220.0000 - val_fp: 43780.0000 - val_tn: 1956220.0000 - val_fn: 43780.0000 - val_accuracy: 0.9650 - val_precision: 0.9124 - val_recall: 0.9124 - val_auc: 0.9781
+[INFO] saving weights to checkpoints/epoch-1-files-2-4
+[33m[INFO] loading file 5-6/66 on epoch 1/3[0m
+[INFO] reading file /tmp/terradrive/SWaT2015-Attack-Files-v0.2/2015-12-28_164554_99.log.part03_sorted-labeled.csv
+[INFO] reading file /tmp/terradrive/SWaT2015-Attack-Files-v0.2/2015-12-28_164554_99.log.part05_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1000000, 18)
+[INFO] sampling 1.0
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst', 'proto',
+       'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'modbus_value', 'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] analyze dataset: (1000000, 17)
+
+[INFO] analyzing data
+[INFO] 1000000 rows
+[INFO] ** orig:[0:99.9989%,2:0.0009%,1:0.0002%]
+[INFO] ** type:[0:99.9994%,1:0.0006%]
+[INFO] ** i/f_name:[2:99.9971%,3:0.0029%]
+[INFO] ** i/f_dir:[1:99.9973%,0:0.0027%]
+[INFO] ** src:[22:37.9687%,9:26.1502%,7:18.2685%,1:17.6086%,14:0.002%,21:0.001%,2:0.0003%,15:0.0002%,16:0.0001%,10:0.0001%,8:0.0001%,4:0.0001%,3:0.0001%]
+[INFO] ** dst:[21:43.3719%,10:20.747%,8:18.2683%,9:17.6083%,15:0.0029%,22:0.0006%,25:0.0002%,24:0.0002%,6:0.0002%,18:0.0001%,12:0.0001%,7:0.0001%,2:0.0001%]
+[INFO] ** proto:[0:99.9964%,1:0.0029%,2:0.0007%]
+[INFO] ** appi_name:[21:99.9961%,30:0.0029%,26:0.0002%,0:0.0002%,37:0.0001%,31:0.0001%,27:0.0001%,12:0.0001%,6:0.0001%,5:0.0001%]
+[INFO] ** proxy_src_ip:[18:37.9687%,20:26.1502%,13:18.2685%,6:17.6086%,17:0.0029%,14:0.0003%,16:0.0002%,21:0.0001%,11:0.0001%,7:0.0001%,5:0.0001%,1:0.0001%,0:0.0001%]
+[INFO] ** modbus_function_code:[0.02961:99.9961%,-33.760870000000004:0.0039%]
+[INFO] ** modbus_function_description:[7:49.9987%,11:49.9974%,0:0.0039%]
+[INFO] ** modbus_transaction_id:65536 (6.5536%)
+[INFO] ** scada_tag:[3:26.1496%,1:20.7466%,5:18.2679%,4:17.608%,2:17.2218%,0:0.0061%]
+[INFO] ** modbus_value:20514 (2.0514%)
+[INFO] ** service:[0.0048200000000000005:99.9963%,-211.73542999999998:0.0029%,-211.08346:0.0002%,-186.44547:0.0002%,-201.23771000000002:0.0001%,-211.35747999999998:0.0001%,-202.75898:0.0001%,-186.43601999999998:0.0001%]
+[INFO] ** s_port:[1.45442:26.1499%,-0.32151:20.7468%,-1.27613:18.2681%,-0.23351:17.6082%,-0.33484:17.2219%,-71.33197:0.0029%,-0.24151:0.0003%,-71.14798:0.0002%,-1.02014:0.0002%,-64.19493:0.0002%,-1.27347:0.0002%,2.22906:0.0001%,4.90362:0.0001%,-1.2708:0.0001%,-61.95768:0.0001%,13.431270000000001:0.0001%,-49.275529999999996:0.0001%,1.47576:0.0001%,1.46509:0.0001%,-0.24950999999999998:0.0001%,1.45709:0.0001%,-68.36943000000001:0.0001%]
+[INFO] ** classification:[normal:90.325%,Single Stage Single Point:9.675%]
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.5
+[INFO] fitting model
+Train on 500000 samples, validate on 500000 samples
+Epoch 1/1
+^C[EXCEPTION] (<class 'KeyboardInterrupt'>, KeyboardInterrupt(), <traceback object at 0x7fbd581af588>)
+  File "readcsv.py", line 243, in <module>
+    run()
+  File "readcsv.py", line 186, in run
+    train_dnn(df, i, epoch+1)
+  File "readcsv.py", line 92, in train_dnn
+    batch_size=32
+  File "/home/***REMOVED***/.local/lib/python3.6/site-packages/keras/engine/training.py", line 1239, in fit
+    validation_freq=validation_freq)
+  File "/home/***REMOVED***/.local/lib/python3.6/site-packages/keras/engine/training_arrays.py", line 196, in fit_loop
+    outs = fit_function(ins_batch)
+  File "/home/***REMOVED***/.local/lib/python3.6/site-packages/tensorflow_core/python/keras/backend.py", line 3727, in __call__
+    outputs = self._graph_fn(*converted_inputs)
+  File "/home/***REMOVED***/.local/lib/python3.6/site-packages/tensorflow_core/python/eager/function.py", line 1551, in __call__
+    return self._call_impl(args, kwargs)
+  File "/home/***REMOVED***/.local/lib/python3.6/site-packages/tensorflow_core/python/eager/function.py", line 1591, in _call_impl
+    return self._call_flat(args, self.captured_inputs, cancellation_manager)
+  File "/home/***REMOVED***/.local/lib/python3.6/site-packages/tensorflow_core/python/eager/function.py", line 1692, in _call_flat
+    ctx, args, cancellation_manager=cancellation_manager))
+  File "/home/***REMOVED***/.local/lib/python3.6/site-packages/tensorflow_core/python/eager/function.py", line 545, in call
+    ctx=ctx)
+  File "/home/***REMOVED***/.local/lib/python3.6/site-packages/tensorflow_core/python/eager/execute.py", line 61, in quick_execute
+    num_outputs)
+Using TensorFlow backend.
+2020-01-31 12:07:16.655123: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer.so.6'; dlerror: libnvinfer.so.6: cannot open shared object file: No such file or directory
+2020-01-31 12:07:16.655390: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer_plugin.so.6'; dlerror: libnvinfer_plugin.so.6: cannot open shared object file: No such file or directory
+2020-01-31 12:07:16.655425: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:30] Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+[33m[INFO] using Sequential Dense layers[0m
+2020-01-31 12:07:17.717415: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
+2020-01-31 12:07:17.717460: E tensorflow/stream_executor/cuda/cuda_driver.cc:351] failed call to cuInit: UNKNOWN ERROR (303)
+2020-01-31 12:07:17.717549: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (***REMOVED***): /proc/driver/nvidia/version does not exist
+2020-01-31 12:07:17.717898: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2020-01-31 12:07:17.727387: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2112050000 Hz
+2020-01-31 12:07:17.728595: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x55fb630 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-01-31 12:07:17.728652: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+[INFO] adding core layer 0
+[INFO] created DNN
+[33m[INFO] epoch 1/3[0m
+[33m[INFO] loading file 1-2/66 on epoch 1/3[0m
+[INFO] reading file /tmp/terradrive/SWaT2015-Attack-Files-v0.2/2015-12-28_113021_98.log.part12_sorted-labeled.csv
+[INFO] reading file /tmp/terradrive/SWaT2015-Attack-Files-v0.2/2015-12-28_113021_98.log.part13_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1000000, 18)
+[INFO] sampling 1.0
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst', 'proto',
+       'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'modbus_value', 'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] analyze dataset: (1000000, 17)
+
+[INFO] analyzing data
+[INFO] 1000000 rows
+[INFO] ** orig:[0:100.0%]
+[INFO] ** type:[0:99.9999%,2:0.0001%]
+[INFO] ** i/f_name:[2:99.9992%,3:0.0008%]
+[INFO] ** i/f_dir:[1:99.9992%,0:0.0008%]
+[INFO] ** src:[22:38.396%,9:25.9294%,7:18.1494%,1:17.5209%,14:0.0008%,11:0.0007%,10:0.0007%,3:0.0007%,2:0.0005%,21:0.0003%,15:0.0003%,4:0.0002%,8:0.0001%]
+[INFO] ** dst:[21:43.2884%,10:21.0371%,8:18.1492%,9:17.5206%,22:0.0009%,15:0.0008%,6:0.0008%,16:0.0006%,18:0.0003%,26:0.0002%,25:0.0002%,24:0.0002%,19:0.0002%,17:0.0002%,2:0.0002%,7:0.0001%]
+[INFO] ** proto:[0:99.9978%,2:0.0014%,1:0.0008%]
+[INFO] ** appi_name:[21:99.996%,30:0.0008%,22:0.0005%,7:0.0004%,17:0.0004%,31:0.0003%,26:0.0003%,23:0.0002%,18:0.0002%,0:0.0002%,24:0.0001%,27:0.0001%,16:0.0001%,15:0.0001%,8:0.0001%,28:0.0001%,5:0.0001%]
+[INFO] ** proxy_src_ip:[18:38.396%,20:25.9294%,13:18.1494%,6:17.5209%,17:0.0008%,11:0.0007%,10:0.0007%,1:0.0007%,14:0.0005%,16:0.0003%,7:0.0003%,21:0.0002%,0:0.0001%]
+[INFO] ** modbus_function_code:[0.02961:99.996%,-33.760870000000004:0.0039%,0.9188299999999999:0.0001%]
+[INFO] ** modbus_function_description:[7:49.9987%,11:49.9973%,0:0.0039%,15:0.0001%]
+[INFO] ** modbus_transaction_id:65536 (6.5536%)
+[INFO] ** scada_tag:[3:25.9286%,1:21.0366%,5:18.1489%,4:17.5202%,2:17.3591%,0:0.0066%]
+[INFO] ** modbus_value:18035 (1.8035%)
+[INFO] ** service:[0.0048200000000000005:99.9964%,-211.73542999999998:0.0008%,-211.08818:0.0005%,-211.09762999999998:0.0004%,-205.44247:0.0004%,-211.07873999999998:0.0004%,-211.08346:0.0003%,-186.43601999999998:0.0003%,-186.44547:0.0002%,-185.9872:0.0001%,-211.35747999999998:0.0001%,-202.75898:0.0001%]
+[INFO] ** s_port:[1.45442:25.9289%,-0.32151:21.0367%,-1.27613:18.149%,-0.23351:17.5204%,-0.33484:17.3593%,-71.33197:0.0008%,-71.14931:0.0005%,-2.1481:0.0004%,-0.24151:0.0004%,-71.14798:0.0003%,-1.02014:0.0003%,-1.27347:0.0002%,-64.19493:0.0002%,-2.42942:0.0002%,4.44364:0.0002%,1.47576:0.0002%,-1.2708:0.0002%,1.45709:0.0002%,-5.1466400000000005:0.0001%,-58.035180000000004:0.0001%,-58.032509999999995:0.0001%,4.076980000000001:0.0001%,-0.24950999999999998:0.0001%,-43.76509:0.0001%,2.05573:0.0001%,6.1115699999999995:0.0001%,-68.79874000000001:0.0001%,14.253910000000001:0.0001%,-3.3787199999999995:0.0001%,-5.08665:0.0001%,4.29964:0.0001%,10.67005:0.0001%,12.60597:0.0001%,1.46509:0.0001%]
+[INFO] ** classification:[normal:76.0437%,Single Stage Single Point:23.9563%]
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.5
+[INFO] fitting model
+Train on 500000 samples, validate on 500000 samples
+Epoch 1/1
+ - 38s - loss: nan - tp: 81246.0000 - fp: 29122.0000 - tn: 1970878.0000 - fn: 418754.0000 - accuracy: 0.1974 - precision: 0.7361 - recall: 0.1625 - auc: 0.0407 - val_loss: nan - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 2000000.0000 - val_fn: 500000.0000 - val_accuracy: 0.0000e+00 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00 - val_auc: 0.0000e+00
+[INFO] saving weights to checkpoints/epoch-1-files-0-2
+[33m[INFO] loading file 3-4/66 on epoch 1/3[0m
+[INFO] reading file /tmp/terradrive/SWaT2015-Attack-Files-v0.2/2015-12-28_164554_99.log.part01_sorted-labeled.csv
+[INFO] reading file /tmp/terradrive/SWaT2015-Attack-Files-v0.2/2015-12-28_164554_99.log.part02_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1000000, 18)
+[INFO] sampling 1.0
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst', 'proto',
+       'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'modbus_value', 'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] analyze dataset: (1000000, 17)
+
+[INFO] analyzing data
+[INFO] 1000000 rows
+[INFO] ** orig:[0:99.9988%,2:0.0012%]
+[INFO] ** type:[0:99.9998%,2:0.0001%,1:0.0001%]
+[INFO] ** i/f_name:[2:99.9985%,3:0.0015%]
+[INFO] ** i/f_dir:[1:99.9986%,0:0.0014%]
+[INFO] ** src:[22:38.3327%,9:26.0078%,7:18.1638%,1:17.4897%,21:0.0017%,3:0.001%,2:0.0007%,4:0.0006%,11:0.0004%,10:0.0004%,15:0.0003%,14:0.0003%,8:0.0003%,17:0.0002%,13:0.0001%]
+[INFO] ** dst:[21:43.3295%,10:21.0106%,8:18.1637%,9:17.4893%,15:0.0015%,6:0.0013%,22:0.0011%,18:0.0009%,16:0.0007%,2:0.0002%,7:0.0002%,25:0.0002%,24:0.0002%,17:0.0002%,0:0.0002%,12:0.0001%,19:0.0001%]
+[INFO] ** proto:[0:99.9958%,2:0.0027%,1:0.0015%]
+[INFO] ** appi_name:[21:99.9942%,30:0.0019%,31:0.0007%,26:0.0006%,22:0.0006%,17:0.0005%,7:0.0004%,27:0.0002%,0:0.0002%,33:0.0001%,28:0.0001%,23:0.0001%,15:0.0001%,9:0.0001%,8:0.0001%,5:0.0001%]
+[INFO] ** proxy_src_ip:[18:38.3327%,20:26.0078%,13:18.1638%,6:17.4897%,17:0.0019%,1:0.0009%,14:0.0007%,21:0.0005%,7:0.0005%,11:0.0004%,10:0.0004%,16:0.0003%,0:0.0002%,15:0.0001%,2:0.0001%]
+[INFO] ** modbus_function_code:[0.02961:99.9942%,-33.760870000000004:0.0057%,0.9188299999999999:0.0001%]
+[INFO] ** modbus_function_description:[7:49.998%,11:49.9962%,0:0.0057%,15:0.0001%]
+[INFO] ** modbus_transaction_id:65536 (6.5536%)
+[INFO] ** scada_tag:[3:26.0067%,1:21.0102%,5:18.1632%,4:17.4888%,2:17.3221%,0:0.009%]
+[INFO] ** modbus_value:14224 (1.4224%)
+[INFO] ** service:[0.0048200000000000005:99.9944%,-211.73542999999998:0.0015%,-186.43601999999998:0.0009%,-211.08346:0.0007%,-211.08818:0.0006%,-205.44247:0.0005%,-211.09762999999998:0.0004%,-183.8612:0.0002%,-202.75898:0.0002%,-186.44547:0.0002%,-185.9872:0.0001%,-201.23771000000002:0.0001%,-211.35747999999998:0.0001%,-211.07873999999998:0.0001%]
+[INFO] ** s_port:[1.45442:26.007%,-0.32151:21.0104%,-1.27613:18.1633%,-0.23351:17.4891%,-0.33484:17.3223%,-71.33197:0.0015%,-71.14798:0.0007%,-71.14931:0.0006%,1.45709:0.0004%,-0.08551:0.0004%,-0.24151:0.0004%,-1.02014:0.0003%,-64.19493:0.0002%,14.4699:0.0002%,-1.27347:0.0002%,-1.2708:0.0002%,1.47576:0.0002%,-0.24950999999999998:0.0002%,1.46509:0.0002%,-49.275529999999996:0.0001%,13.86459:0.0001%,10.67005:0.0001%,-2.1481:0.0001%,-68.79874000000001:0.0001%,14.253910000000001:0.0001%,4.29964:0.0001%,-5.08665:0.0001%,10.192739999999999:0.0001%,-3.3787199999999995:0.0001%,6.1115699999999995:0.0001%,4.44364:0.0001%,13.431270000000001:0.0001%,2.05573:0.0001%,-43.76509:0.0001%,4.90362:0.0001%,4.076980000000001:0.0001%,-58.032509999999995:0.0001%,-58.035180000000004:0.0001%,12.60597:0.0001%,-5.1466400000000005:0.0001%,-68.36943000000001:0.0001%]
+[INFO] ** classification:[normal:88.9778%,Single Stage Single Point:11.0222%]
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.5
+[INFO] fitting model
+Train on 500000 samples, validate on 500000 samples
+Epoch 1/1
+ - 38s - loss: nan - tp: 0.0000e+00 - fp: 0.0000e+00 - tn: 2000000.0000 - fn: 500000.0000 - accuracy: 0.0000e+00 - precision: 0.0000e+00 - recall: 0.0000e+00 - auc: 0.0000e+00 - val_loss: nan - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 2000000.0000 - val_fn: 500000.0000 - val_accuracy: 0.0000e+00 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00 - val_auc: 0.0000e+00
+[INFO] saving weights to checkpoints/epoch-1-files-2-4
+[33m[INFO] loading file 5-6/66 on epoch 1/3[0m
+[INFO] reading file /tmp/terradrive/SWaT2015-Attack-Files-v0.2/2015-12-28_164554_99.log.part03_sorted-labeled.csv
+[INFO] reading file /tmp/terradrive/SWaT2015-Attack-Files-v0.2/2015-12-28_164554_99.log.part05_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1000000, 18)
+[INFO] sampling 1.0
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst', 'proto',
+       'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'modbus_value', 'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] analyze dataset: (1000000, 17)
+
+[INFO] analyzing data
+[INFO] 1000000 rows
+[INFO] ** orig:[0:99.9989%,2:0.0009%,1:0.0002%]
+[INFO] ** type:[0:99.9994%,1:0.0006%]
+[INFO] ** i/f_name:[2:99.9971%,3:0.0029%]
+[INFO] ** i/f_dir:[1:99.9973%,0:0.0027%]
+[INFO] ** src:[22:37.9687%,9:26.1502%,7:18.2685%,1:17.6086%,14:0.002%,21:0.001%,2:0.0003%,15:0.0002%,16:0.0001%,10:0.0001%,8:0.0001%,4:0.0001%,3:0.0001%]
+[INFO] ** dst:[21:43.3719%,10:20.747%,8:18.2683%,9:17.6083%,15:0.0029%,22:0.0006%,25:0.0002%,24:0.0002%,6:0.0002%,18:0.0001%,12:0.0001%,7:0.0001%,2:0.0001%]
+[INFO] ** proto:[0:99.9964%,1:0.0029%,2:0.0007%]
+[INFO] ** appi_name:[21:99.9961%,30:0.0029%,26:0.0002%,0:0.0002%,37:0.0001%,31:0.0001%,27:0.0001%,12:0.0001%,6:0.0001%,5:0.0001%]
+[INFO] ** proxy_src_ip:[18:37.9687%,20:26.1502%,13:18.2685%,6:17.6086%,17:0.0029%,14:0.0003%,16:0.0002%,21:0.0001%,11:0.0001%,7:0.0001%,5:0.0001%,1:0.0001%,0:0.0001%]
+[INFO] ** modbus_function_code:[0.02961:99.9961%,-33.760870000000004:0.0039%]
+[INFO] ** modbus_function_description:[7:49.9987%,11:49.9974%,0:0.0039%]
+[INFO] ** modbus_transaction_id:65536 (6.5536%)
+[INFO] ** scada_tag:[3:26.1496%,1:20.7466%,5:18.2679%,4:17.608%,2:17.2218%,0:0.0061%]
+[INFO] ** modbus_value:20514 (2.0514%)
+[INFO] ** service:[0.0048200000000000005:99.9963%,-211.73542999999998:0.0029%,-211.08346:0.0002%,-186.44547:0.0002%,-201.23771000000002:0.0001%,-211.35747999999998:0.0001%,-202.75898:0.0001%,-186.43601999999998:0.0001%]
+[INFO] ** s_port:[1.45442:26.1499%,-0.32151:20.7468%,-1.27613:18.2681%,-0.23351:17.6082%,-0.33484:17.2219%,-71.33197:0.0029%,-0.24151:0.0003%,-71.14798:0.0002%,-1.02014:0.0002%,-64.19493:0.0002%,-1.27347:0.0002%,2.22906:0.0001%,4.90362:0.0001%,-1.2708:0.0001%,-61.95768:0.0001%,13.431270000000001:0.0001%,-49.275529999999996:0.0001%,1.47576:0.0001%,1.46509:0.0001%,-0.24950999999999998:0.0001%,1.45709:0.0001%,-68.36943000000001:0.0001%]
+[INFO] ** classification:[normal:90.325%,Single Stage Single Point:9.675%]
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.5
+[INFO] fitting model
+Train on 500000 samples, validate on 500000 samples
+Epoch 1/1
+ - 37s - loss: nan - tp: 0.0000e+00 - fp: 0.0000e+00 - tn: 2000000.0000 - fn: 500000.0000 - accuracy: 0.0000e+00 - precision: 0.0000e+00 - recall: 0.0000e+00 - auc: 0.0000e+00 - val_loss: nan - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 2000000.0000 - val_fn: 500000.0000 - val_accuracy: 0.0000e+00 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00 - val_auc: 0.0000e+00
+[INFO] saving weights to checkpoints/epoch-1-files-4-6
+[33m[INFO] loading file 7-8/66 on epoch 1/3[0m
+[INFO] reading file /tmp/terradrive/SWaT2015-Attack-Files-v0.2/2015-12-28_164554_99.log.part06_sorted-labeled.csv
+[INFO] reading file /tmp/terradrive/SWaT2015-Attack-Files-v0.2/2015-12-28_164554_99.log.part08_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1000000, 18)
+[INFO] sampling 1.0
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst', 'proto',
+       'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'modbus_value', 'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] analyze dataset: (1000000, 17)
+
+[INFO] analyzing data
+[INFO] 1000000 rows
+[INFO] ** orig:[0:99.9998%,2:0.0002%]
+[INFO] ** type:[0:99.9997%,1:0.0002%,2:0.0001%]
+[INFO] ** i/f_name:[2:99.9988%,3:0.0012%]
+[INFO] ** i/f_dir:[1:99.999%,0:0.001%]
+[INFO] ** src:[22:38.0447%,9:26.14%,7:18.2018%,1:17.6091%,14:0.001%,11:0.0007%,15:0.0005%,10:0.0005%,21:0.0004%,3:0.0004%,2:0.0004%,4:0.0003%,16:0.0001%,8:0.0001%]
+[INFO] ** dst:[21:43.3957%,10:20.7883%,8:18.202%,9:17.6088%,22:0.0014%,15:0.0012%,6:0.0008%,16:0.0004%,25:0.0003%,24:0.0003%,19:0.0002%,18:0.0002%,17:0.0002%,26:0.0001%,7:0.0001%]
+[INFO] ** proto:[0:99.9973%,2:0.0015%,1:0.0012%]
+[INFO] ** appi_name:[21:99.9961%,30:0.0012%,22:0.0006%,17:0.0004%,26:0.0003%,0:0.0003%,31:0.0002%,28:0.0001%,27:0.0001%,24:0.0001%,23:0.0001%,18:0.0001%,16:0.0001%,15:0.0001%,7:0.0001%,5:0.0001%]
+[INFO] ** proxy_src_ip:[18:38.0447%,20:26.14%,13:18.2018%,6:17.6091%,17:0.0012%,10:0.0007%,16:0.0005%,11:0.0005%,14:0.0004%,1:0.0004%,21:0.0003%,7:0.0002%,5:0.0001%,0:0.0001%]
+[INFO] ** modbus_function_code:[0.02961:99.9961%,-33.760870000000004:0.0038%,0.9188299999999999:0.0001%]
+[INFO] ** modbus_function_description:[7:49.9991%,11:49.997%,0:0.0038%,15:0.0001%]
+[INFO] ** modbus_transaction_id:65536 (6.5536%)
+[INFO] ** scada_tag:[3:26.1388%,1:20.7882%,5:18.2014%,4:17.6084%,2:17.2563%,0:0.0069%]
+[INFO] ** modbus_value:19209 (1.9209%)
+[INFO] ** service:[0.0048200000000000005:99.9965%,-211.73542999999998:0.0012%,-211.08818:0.0006%,-205.44247:0.0004%,-211.08346:0.0003%,-186.44547:0.0003%,-211.07873999999998:0.0002%,-186.43601999999998:0.0002%,-211.09762999999998:0.0001%,-185.9872:0.0001%,-202.75898:0.0001%]
+[INFO] ** s_port:[1.45442:26.1392%,-0.32151:20.7883%,-1.27613:18.2014%,-0.23351:17.6086%,-0.33484:17.2564%,-71.33197:0.0012%,-71.14931:0.0006%,1.45709:0.0005%,-1.02014:0.0005%,-0.24151:0.0004%,-15.039579999999999:0.0004%,-64.19493:0.0003%,-1.27347:0.0003%,-71.14798:0.0003%,1.47576:0.0002%,4.66896:0.0002%,1.46509:0.0001%,-1.2708:0.0001%,-58.035180000000004:0.0001%,-58.032509999999995:0.0001%,14.253910000000001:0.0001%,-43.76509:0.0001%,2.05573:0.0001%,6.1115699999999995:0.0001%,-5.08665:0.0001%,-68.79874000000001:0.0001%,-0.24950999999999998:0.0001%,-5.1466400000000005:0.0001%]
+[INFO] ** classification:[normal:88.5003%,Single Stage Single Point:11.4997%]
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.5
+[INFO] fitting model
+Train on 500000 samples, validate on 500000 samples
+Epoch 1/1
+ - 38s - loss: nan - tp: 0.0000e+00 - fp: 0.0000e+00 - tn: 2000000.0000 - fn: 500000.0000 - accuracy: 0.0000e+00 - precision: 0.0000e+00 - recall: 0.0000e+00 - auc: 0.0000e+00 - val_loss: nan - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 2000000.0000 - val_fn: 500000.0000 - val_accuracy: 0.0000e+00 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00 - val_auc: 0.0000e+00
+[INFO] saving weights to checkpoints/epoch-1-files-6-8
+[33m[INFO] loading file 9-10/66 on epoch 1/3[0m
+[INFO] reading file /tmp/terradrive/SWaT2015-Attack-Files-v0.2/2015-12-28_164554_99.log.part09_sorted-labeled.csv
+[INFO] reading file /tmp/terradrive/SWaT2015-Attack-Files-v0.2/2015-12-29_134830_103.log.part08_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1000000, 18)
+[INFO] sampling 1.0
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst', 'proto',
+       'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'modbus_value', 'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] analyze dataset: (1000000, 17)
+
+[INFO] analyzing data
+[INFO] 1000000 rows
+[INFO] ** orig:[0:99.9996%,1:0.0004%]
+[INFO] ** type:[0:99.9992%,1:0.0007%,2:0.0001%]
+[INFO] ** i/f_name:[2:99.9986%,3:0.0014%]
+[INFO] ** i/f_dir:[1:99.9987%,0:0.0013%]
+[INFO] ** src:[22:38.0485%,9:26.1323%,7:18.2586%,1:17.5579%,14:0.0014%,11:0.0005%,2:0.0002%,17:0.0001%,16:0.0001%,15:0.0001%,8:0.0001%,4:0.0001%,3:0.0001%]
+[INFO] ** dst:[21:43.3893%,10:20.791%,8:18.2584%,9:17.5581%,15:0.0014%,22:0.0007%,24:0.0003%,25:0.0002%,19:0.0002%,18:0.0002%,26:0.0001%,6:0.0001%]
+[INFO] ** proto:[0:99.998%,1:0.0014%,2:0.0006%]
+[INFO] ** appi_name:[21:99.9974%,30:0.0014%,31:0.0002%,0:0.0002%,26:0.0001%,24:0.0001%,23:0.0001%,22:0.0001%,18:0.0001%,16:0.0001%,15:0.0001%,5:0.0001%]
+[INFO] ** proxy_src_ip:[18:38.0485%,20:26.1323%,13:18.2586%,6:17.5579%,17:0.0014%,10:0.0005%,14:0.0002%,21:0.0001%,16:0.0001%,5:0.0001%,2:0.0001%,1:0.0001%,0:0.0001%]
+[INFO] ** modbus_function_code:[0.02961:99.9974%,-33.760870000000004:0.0025%,0.9188299999999999:0.0001%]
+[INFO] ** modbus_function_description:[7:49.9993%,11:49.9981%,0:0.0025%,15:0.0001%]
+[INFO] ** modbus_transaction_id:65536 (6.5536%)
+[INFO] ** scada_tag:[3:26.1312%,1:20.7909%,5:18.2581%,4:17.5573%,2:17.2574%,0:0.0051%]
+[INFO] ** modbus_value:17822 (1.7822%)
+[INFO] ** service:[0.0048200000000000005:99.9978%,-211.73542999999998:0.0014%,-211.07873999999998:0.0002%,-186.44547:0.0002%,-186.43601999999998:0.0002%,-211.08346:0.0001%,-211.08818:0.0001%]
+[INFO] ** s_port:[1.45442:26.1316%,-0.32151:20.791%,-1.27613:18.2581%,-0.23351:17.5575%,-0.33484:17.2575%,-71.33197:0.0014%,-10.51843:0.0004%,1.45709:0.0003%,-1.27347:0.0003%,-0.24151:0.0003%,-1.2708:0.0002%,-0.08551:0.0002%,-64.19493:0.0002%,5.71692:0.0002%,1.47576:0.0002%,1.46509:0.0002%,-1.02014:0.0001%,-71.14931:0.0001%,-0.24950999999999998:0.0001%,-71.14798:0.0001%]
+[INFO] ** classification:[normal:94.997%,Single Stage Single Point:5.003%]
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.5
+[INFO] fitting model
+Train on 500000 samples, validate on 500000 samples
+Epoch 1/1
+ - 38s - loss: nan - tp: 0.0000e+00 - fp: 0.0000e+00 - tn: 2000000.0000 - fn: 500000.0000 - accuracy: 0.0000e+00 - precision: 0.0000e+00 - recall: 0.0000e+00 - auc: 0.0000e+00 - val_loss: nan - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 2000000.0000 - val_fn: 500000.0000 - val_accuracy: 0.0000e+00 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00 - val_auc: 0.0000e+00
+[INFO] saving weights to checkpoints/epoch-1-files-8-10
+[33m[INFO] loading file 11-12/66 on epoch 1/3[0m
+[INFO] reading file /tmp/terradrive/SWaT2015-Attack-Files-v0.2/2015-12-29_134830_103.log.part09_sorted-labeled.csv
+[INFO] reading file /tmp/terradrive/SWaT2015-Attack-Files-v0.2/2015-12-29_134830_103.log.part10_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1000000, 18)
+[INFO] sampling 1.0
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst', 'proto',
+       'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'modbus_value', 'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] analyze dataset: (1000000, 17)
+
+[INFO] analyzing data
+[INFO] 1000000 rows
+[INFO] ** orig:[0:99.9991%,2:0.0009%]
+[INFO] ** type:[0:99.9998%,1:0.0002%]
+[INFO] ** i/f_name:[2:99.9987%,3:0.0013%]
+[INFO] ** i/f_dir:[1:99.9989%,0:0.0011%]
+[INFO] ** src:[22:38.1425%,9:26.1185%,7:18.1995%,1:17.5373%,21:0.0009%,15:0.0004%,14:0.0004%,3:0.0002%,17:0.0001%,8:0.0001%,4:0.0001%]
+[INFO] ** dst:[21:43.3833%,10:20.8774%,8:18.1994%,9:17.5369%,15:0.0013%,22:0.001%,24:0.0002%,18:0.0002%,25:0.0001%,6:0.0001%,0:0.0001%]
+[INFO] ** proto:[0:99.9983%,1:0.0013%,2:0.0004%]
+[INFO] ** appi_name:[21:99.9982%,30:0.0013%,31:0.0002%,26:0.0001%,9:0.0001%,0:0.0001%]
+[INFO] ** proxy_src_ip:[18:38.1425%,20:26.1185%,13:18.1995%,6:17.5373%,17:0.0013%,16:0.0004%,1:0.0002%,21:0.0001%,2:0.0001%,0:0.0001%]
+[INFO] ** modbus_function_code:[0.02961:99.9982%,-33.760870000000004:0.0018%]
+[INFO] ** modbus_function_description:[7:49.9999%,11:49.9983%,0:0.0018%]
+[INFO] ** modbus_transaction_id:65536 (6.5536%)
+[INFO] ** scada_tag:[3:26.1177%,1:20.8774%,5:18.1991%,4:17.5365%,2:17.265%,0:0.0043%]
+[INFO] ** modbus_value:18072 (1.8072%)
+[INFO] ** service:[0.0048200000000000005:99.9982%,-211.73542999999998:0.0013%,-186.43601999999998:0.0002%,-183.8612:0.0001%,-211.08346:0.0001%,-186.44547:0.0001%]
+[INFO] ** s_port:[1.45442:26.1181%,-0.32151:20.8774%,-1.27613:18.1992%,-0.23351:17.5368%,-0.33484:17.2651%,-71.33197:0.0013%,-0.24151:0.0004%,-1.02014:0.0004%,-1.27347:0.0002%,1.45709:0.0002%,-0.08551:0.0002%,1.46509:0.0001%,1.47576:0.0001%,-0.24950999999999998:0.0001%,-1.2708:0.0001%,14.4699:0.0001%,-64.19493:0.0001%,-71.14798:0.0001%]
+[INFO] ** classification:[normal:96.3809%,Single Stage Single Point:3.6191%]
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.5
+[INFO] fitting model
+Train on 500000 samples, validate on 500000 samples
+Epoch 1/1
+ - 37s - loss: nan - tp: 0.0000e+00 - fp: 0.0000e+00 - tn: 2000000.0000 - fn: 500000.0000 - accuracy: 0.0000e+00 - precision: 0.0000e+00 - recall: 0.0000e+00 - auc: 0.0000e+00 - val_loss: nan - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 2000000.0000 - val_fn: 500000.0000 - val_accuracy: 0.0000e+00 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00 - val_auc: 0.0000e+00
+[INFO] saving weights to checkpoints/epoch-1-files-10-12
+[33m[INFO] loading file 13-14/66 on epoch 1/3[0m
+[INFO] reading file /tmp/terradrive/SWaT2015-Attack-Files-v0.2/2015-12-29_190411_104.log.part03_sorted-labeled.csv
+[INFO] reading file /tmp/terradrive/SWaT2015-Attack-Files-v0.2/2015-12-29_190411_104.log.part04_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1000000, 18)
+[INFO] sampling 1.0
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst', 'proto',
+       'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'modbus_value', 'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] analyze dataset: (1000000, 17)
+
+[INFO] analyzing data
+[INFO] 1000000 rows
+[INFO] ** orig:[0:100.0%]
+[INFO] ** type:[0:99.9998%,2:0.0001%,1:0.0001%]
+[INFO] ** i/f_name:[2:99.9997%,3:0.0003%]
+[INFO] ** i/f_dir:[1:99.9998%,0:0.0002%]
+[INFO] ** src:[22:38.0431%,9:26.1113%,7:18.2776%,1:17.5655%,11:0.0006%,10:0.0005%,15:0.0004%,14:0.0003%,21:0.0002%,3:0.0002%,17:0.0001%,8:0.0001%,4:0.0001%]
+[INFO] ** dst:[21:43.3529%,10:20.801%,8:18.2774%,9:17.5657%,22:0.001%,6:0.0005%,18:0.0004%,25:0.0003%,24:0.0003%,15:0.0003%,7:0.0001%,0:0.0001%]
+[INFO] ** proto:[0:99.9984%,2:0.0013%,1:0.0003%]
+[INFO] ** appi_name:[21:99.9979%,31:0.0004%,30:0.0003%,26:0.0003%,0:0.0003%,22:0.0002%,27:0.0001%,24:0.0001%,16:0.0001%,15:0.0001%,9:0.0001%,5:0.0001%]
+[INFO] ** proxy_src_ip:[18:38.0431%,20:26.1113%,13:18.2776%,6:17.5655%,10:0.0006%,11:0.0005%,16:0.0004%,17:0.0003%,7:0.0002%,1:0.0002%,21:0.0001%,2:0.0001%,0:0.0001%]
+[INFO] ** modbus_function_code:[0.02961:99.9979%,-33.760870000000004:0.002%,0.9188299999999999:0.0001%]
+[INFO] ** modbus_function_description:[7:49.9998%,11:49.9981%,0:0.002%,15:0.0001%]
+[INFO] ** modbus_transaction_id:65536 (6.5536%)
+[INFO] ** scada_tag:[3:26.1102%,1:20.8009%,5:18.277%,4:17.5649%,2:17.2419%,0:0.0051%]
+[INFO] ** modbus_value:19116 (1.9116%)
+[INFO] ** service:[0.0048200000000000005:99.9983%,-186.43601999999998:0.0004%,-211.08346:0.0003%,-186.44547:0.0003%,-211.73542999999998:0.0003%,-211.08818:0.0002%,-183.8612:0.0001%,-202.75898:0.0001%]
+[INFO] ** s_port:[1.45442:26.1106%,-0.32151:20.801%,-1.27613:18.2771%,-0.23351:17.5651%,-0.33484:17.2421%,-9.78512:0.0004%,-1.02014:0.0004%,-64.19493:0.0003%,-0.24151:0.0003%,-1.27347:0.0003%,-71.14798:0.0003%,1.45709:0.0003%,-71.33197:0.0003%,1.47576:0.0002%,1.46509:0.0002%,-1.2708:0.0002%,-71.14931:0.0002%,-0.08551:0.0002%,-68.79874000000001:0.0001%,-0.24950999999999998:0.0001%,6.1115699999999995:0.0001%,14.4699:0.0001%,14.540560000000001:0.0001%]
+[INFO] ** classification:[normal:90.603%,Single Stage Single Point:9.397%]
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.5
+[INFO] fitting model
+Train on 500000 samples, validate on 500000 samples
+Epoch 1/1
+ - 37s - loss: nan - tp: 0.0000e+00 - fp: 0.0000e+00 - tn: 2000000.0000 - fn: 500000.0000 - accuracy: 0.0000e+00 - precision: 0.0000e+00 - recall: 0.0000e+00 - auc: 0.0000e+00 - val_loss: nan - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 2000000.0000 - val_fn: 500000.0000 - val_accuracy: 0.0000e+00 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00 - val_auc: 0.0000e+00
+[INFO] saving weights to checkpoints/epoch-1-files-12-14
+[33m[INFO] loading file 15-16/66 on epoch 1/3[0m
+[INFO] reading file /tmp/terradrive/SWaT2015-Attack-Files-v0.2/2015-12-29_190411_104.log.part13_sorted-labeled.csv
+[INFO] reading file /tmp/terradrive/SWaT2015-Attack-Files-v0.2/2015-12-29_190411_104.log.part14_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (939690, 18)
+[INFO] sampling 1.0
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst', 'proto',
+       'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'modbus_value', 'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] analyze dataset: (939690, 17)
+
+[INFO] analyzing data
+[INFO] 939690 rows
+[INFO] ** orig:[0:99.99787%,2:0.00213%]
+[INFO] ** type:[0:100.0%]
+[INFO] ** i/f_name:[2:99.99777%,3:0.00223%]
+[INFO] ** i/f_dir:[1:99.99777%,0:0.00223%]
+[INFO] ** src:[22:38.02775%,9:26.08264%,7:18.28497%,1:17.60144%,21:0.00234%,15:0.00043%,16:0.00011%,14:0.00011%,8:0.00011%,4:0.00011%]
+[INFO] ** dst:[21:43.32663%,10:20.78334%,8:18.28486%,9:17.60112%,15:0.00223%,22:0.00128%,24:0.00021%,25:0.00011%,16:0.00011%,6:0.00011%]
+[INFO] ** proto:[0:99.99755%,1:0.00223%,2:0.00021%]
+[INFO] ** appi_name:[21:99.99723%,30:0.00223%,33:0.00011%,26:0.00011%,17:0.00011%,12:0.00011%,0:0.00011%]
+[INFO] ** proxy_src_ip:[18:38.02775%,20:26.08264%,13:18.28497%,6:17.60144%,17:0.00223%,16:0.00043%,7:0.00021%,21:0.00011%,5:0.00011%,0:0.00011%]
+[INFO] ** modbus_function_code:[0.02961:99.99723%,-33.760870000000004:0.00277%]
+[INFO] ** modbus_function_description:[7:49.99968%,11:49.99755%,0:0.00277%]
+[INFO] ** modbus_transaction_id:65536 (6.97421%)
+[INFO] ** scada_tag:[3:26.08147%,1:20.78302%,5:18.28454%,4:17.60049%,2:17.24452%,0:0.00596%]
+[INFO] ** modbus_value:16660 (1.77293%)
+[INFO] ** service:[0.0048200000000000005:99.99745%,-211.73542999999998:0.00223%,-211.08346:0.00011%,-205.44247:0.00011%,-186.44547:0.00011%]
+[INFO] ** s_port:[1.45442:26.0819%,-0.32151:20.78313%,-1.27613:18.28465%,-0.23351:17.60091%,-0.33484:17.24462%,-71.33197:0.00223%,1.45709:0.00043%,-0.24151:0.00043%,-1.02014:0.00043%,1.47576:0.00021%,-1.27347:0.00021%,-1.2708:0.00011%,-64.19493:0.00011%,10.192739999999999:0.00011%,-71.14798:0.00011%,-61.95768:0.00011%,1.46509:0.00011%,-0.24950999999999998:0.00011%,-49.275529999999996:0.00011%]
+[INFO] ** classification:[normal:86.83193%,Single Stage Multi Point:13.16764%,Single Stage Single Point:0.00043%]
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.5
+[INFO] fitting model
+Train on 469845 samples, validate on 469845 samples
+Epoch 1/1
+ - 36s - loss: nan - tp: 0.0000e+00 - fp: 0.0000e+00 - tn: 1879380.0000 - fn: 469845.0000 - accuracy: 0.0000e+00 - precision: 0.0000e+00 - recall: 0.0000e+00 - auc: 0.0000e+00 - val_loss: nan - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 1879380.0000 - val_fn: 469845.0000 - val_accuracy: 0.0000e+00 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00 - val_auc: 0.0000e+00
+[INFO] saving weights to checkpoints/epoch-1-files-14-16
+[33m[INFO] loading file 17-18/66 on epoch 1/3[0m
+[INFO] reading file /tmp/terradrive/SWaT2015-Attack-Files-v0.2/2015-12-30_001940_105.log.part11_sorted-labeled.csv
+[INFO] reading file /tmp/terradrive/SWaT2015-Attack-Files-v0.2/2015-12-30_053515_106.log.part05_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1000000, 18)
+[INFO] sampling 1.0
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst', 'proto',
+       'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'modbus_value', 'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] analyze dataset: (1000000, 17)
+
+[INFO] analyzing data
+[INFO] 1000000 rows
+[INFO] ** orig:[0:100.0%]
+[INFO] ** type:[0:99.9999%,2:0.0001%]
+[INFO] ** i/f_name:[2:99.9997%,3:0.0003%]
+[INFO] ** i/f_dir:[1:99.9997%,0:0.0003%]
+[INFO] ** src:[22:38.0802%,9:26.1091%,7:18.2311%,1:17.577%,10:0.0008%,11:0.0006%,3:0.0004%,14:0.0003%,21:0.0002%,2:0.0002%,15:0.0001%]
+[INFO] ** dst:[21:43.3489%,10:20.8398%,8:18.2312%,9:17.577%,22:0.0007%,16:0.0004%,6:0.0004%,2:0.0004%,24:0.0003%,15:0.0003%,25:0.0002%,18:0.0002%,7:0.0002%]
+[INFO] ** proto:[0:99.9987%,2:0.001%,1:0.0003%]
+[INFO] ** appi_name:[21:99.9975%,7:0.0006%,30:0.0003%,31:0.0002%,27:0.0002%,26:0.0002%,22:0.0002%,8:0.0002%,0:0.0002%,24:0.0001%,16:0.0001%,15:0.0001%,5:0.0001%]
+[INFO] ** proxy_src_ip:[18:38.0802%,20:26.1091%,13:18.2311%,6:17.577%,11:0.0008%,10:0.0006%,1:0.0004%,17:0.0003%,14:0.0002%,7:0.0002%,16:0.0001%]
+[INFO] ** modbus_function_code:[0.02961:99.9975%,-33.760870000000004:0.0024%,0.9188299999999999:0.0001%]
+[INFO] ** modbus_function_description:[7:49.9996%,11:49.9979%,0:0.0024%,15:0.0001%]
+[INFO] ** modbus_transaction_id:65536 (6.5536%)
+[INFO] ** scada_tag:[3:26.108%,1:20.8396%,5:18.2304%,4:17.5765%,2:17.2403%,0:0.0052%]
+[INFO] ** modbus_value:19395 (1.9395%)
+[INFO] ** service:[0.0048200000000000005:99.9979%,-211.09762999999998:0.0006%,-211.73542999999998:0.0003%,-211.08346:0.0002%,-211.35747999999998:0.0002%,-202.75898:0.0002%,-186.44547:0.0002%,-186.43601999999998:0.0002%,-211.08818:0.0002%]
+[INFO] ** s_port:[1.45442:26.1083%,-0.32151:20.8398%,-1.27613:18.2306%,-0.23351:17.5768%,-0.33484:17.2404%,1.45709:0.0004%,6.0369:0.0004%,-71.33197:0.0003%,-1.27347:0.0003%,-1.2708:0.0002%,-64.19493:0.0002%,-71.14931:0.0002%,-3.3787199999999995:0.0002%,6.06224:0.0002%,-71.14798:0.0002%,-0.24151:0.0002%,1.47576:0.0002%,1.46509:0.0002%,-2.48275:0.0001%,6.15557:0.0001%,-68.79874000000001:0.0001%,8.10082:0.0001%,6.45955:0.0001%,-4.3880099999999995:0.0001%,3.6236699999999997:0.0001%,8.55414:0.0001%,-1.02014:0.0001%]
+[INFO] ** classification:[normal:87.2152%,Multi Stage Multi Point:12.7848%]
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.5
+[INFO] fitting model
+Train on 500000 samples, validate on 500000 samples
+Epoch 1/1
+ - 38s - loss: nan - tp: 0.0000e+00 - fp: 0.0000e+00 - tn: 2000000.0000 - fn: 500000.0000 - accuracy: 0.0000e+00 - precision: 0.0000e+00 - recall: 0.0000e+00 - auc: 0.0000e+00 - val_loss: nan - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 2000000.0000 - val_fn: 500000.0000 - val_accuracy: 0.0000e+00 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00 - val_auc: 0.0000e+00
+[INFO] saving weights to checkpoints/epoch-1-files-16-18
+[33m[INFO] loading file 19-20/66 on epoch 1/3[0m
+[INFO] reading file /tmp/terradrive/SWaT2015-Attack-Files-v0.2/2015-12-30_105053_107.log.part12_sorted-labeled.csv
+[INFO] reading file /tmp/terradrive/SWaT2015-Attack-Files-v0.2/2015-12-30_105053_107.log.part13_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1000000, 18)
+[INFO] sampling 1.0
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst', 'proto',
+       'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'modbus_value', 'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] analyze dataset: (1000000, 17)
+
+[INFO] analyzing data
+[INFO] 1000000 rows
+[INFO] ** orig:[0:100.0%]
+[INFO] ** type:[0:99.9997%,1:0.0002%,2:0.0001%]
+[INFO] ** i/f_name:[2:99.9984%,3:0.0016%]
+[INFO] ** i/f_dir:[1:99.9986%,0:0.0014%]
+[INFO] ** src:[22:38.1169%,9:26.1187%,7:18.1901%,1:17.5709%,14:0.0016%,11:0.0006%,10:0.0005%,15:0.0004%,2:0.0003%]
+[INFO] ** dst:[21:43.4029%,10:20.8325%,8:18.1899%,9:17.5706%,15:0.0016%,22:0.0012%,6:0.0004%,24:0.0003%,25:0.0002%,18:0.0002%,7:0.0002%]
+[INFO] ** proto:[0:99.9974%,1:0.0016%,2:0.001%]
+[INFO] ** appi_name:[21:99.997%,30:0.0016%,26:0.0003%,31:0.0002%,27:0.0002%,0:0.0002%,24:0.0001%,22:0.0001%,16:0.0001%,15:0.0001%,5:0.0001%]
+[INFO] ** proxy_src_ip:[18:38.1169%,20:26.1187%,13:18.1901%,6:17.5709%,17:0.0016%,10:0.0006%,11:0.0005%,16:0.0004%,14:0.0003%]
+[INFO] ** modbus_function_code:[0.02961:99.997%,-33.760870000000004:0.0029%,0.9188299999999999:0.0001%]
+[INFO] ** modbus_function_description:[7:49.9997%,11:49.9973%,0:0.0029%,15:0.0001%]
+[INFO] ** modbus_transaction_id:65536 (6.5536%)
+[INFO] ** scada_tag:[3:26.1175%,1:20.8323%,5:18.1895%,4:17.5701%,2:17.2843%,0:0.0063%]
+[INFO] ** modbus_value:16678 (1.6678%)
+[INFO] ** service:[0.0048200000000000005:99.9974%,-211.73542999999998:0.0016%,-211.08346:0.0003%,-202.75898:0.0002%,-186.44547:0.0002%,-186.43601999999998:0.0002%,-211.08818:0.0001%]
+[INFO] ** s_port:[1.45442:26.1179%,-0.32151:20.8325%,-1.27613:18.1896%,-0.23351:17.5704%,-0.33484:17.2844%,-71.33197:0.0016%,-5.20264:0.0004%,1.45709:0.0004%,-0.24151:0.0004%,-1.02014:0.0004%,-1.27347:0.0003%,-71.14798:0.0003%,1.46509:0.0002%,1.47576:0.0002%,-1.2708:0.0002%,-64.19493:0.0002%,-68.79874000000001:0.0001%,-0.24950999999999998:0.0001%,13.431270000000001:0.0001%,11.862:0.0001%,-71.14931:0.0001%,0.75578:0.0001%]
+[INFO] ** classification:[normal:88.7461%,Single Stage Multi Point:11.2539%]
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.5
+[INFO] fitting model
+Train on 500000 samples, validate on 500000 samples
+Epoch 1/1
+ - 38s - loss: nan - tp: 0.0000e+00 - fp: 0.0000e+00 - tn: 2000000.0000 - fn: 500000.0000 - accuracy: 0.0000e+00 - precision: 0.0000e+00 - recall: 0.0000e+00 - auc: 0.0000e+00 - val_loss: nan - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 2000000.0000 - val_fn: 500000.0000 - val_accuracy: 0.0000e+00 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00 - val_auc: 0.0000e+00
+[INFO] saving weights to checkpoints/epoch-1-files-18-20
+[33m[INFO] loading file 21-22/66 on epoch 1/3[0m
+[INFO] reading file /tmp/terradrive/SWaT2015-Attack-Files-v0.2/2015-12-30_212042_109.log.part03_sorted-labeled.csv
+[INFO] reading file /tmp/terradrive/SWaT2015-Attack-Files-v0.2/2015-12-30_212042_109.log.part04_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (769039, 18)
+[INFO] sampling 1.0
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst', 'proto',
+       'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'modbus_value', 'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] analyze dataset: (769039, 17)
+
+[INFO] analyzing data
+[INFO] 769039 rows
+[INFO] ** orig:[0:99.99766%,2:0.00208%,1:0.00026%]
+[INFO] ** type:[0:99.99909%,1:0.00078%,2:0.00013%]
+[INFO] ** i/f_name:[2:99.99701%,3:0.00286%,0:0.00013%]
+[INFO] ** i/f_dir:[1:99.99714%,0:0.00286%]
+[INFO] ** src:[22:38.33746%,9:25.97658%,7:18.14082%,1:17.53929%,21:0.00221%,14:0.00091%,11:0.00091%,10:0.00065%,15:0.00039%,2:0.00039%,3:0.00026%,4:0.00013%]
+[INFO] ** dst:[21:43.30665%,10:21.00713%,8:18.14095%,9:17.5389%,15:0.00299%,22:0.00117%,6:0.00052%,25:0.00026%,24:0.00026%,19:0.00026%,16:0.00026%,2:0.00026%,26:0.00013%,18:0.00013%,7:0.00013%]
+[INFO] ** proto:[0:99.99584%,1:0.00299%,2:0.00117%]
+[INFO] ** appi_name:[21:99.99454%,30:0.00299%,22:0.00039%,7:0.00039%,26:0.00026%,0:0.00026%,31:0.00013%,27:0.00013%,24:0.00013%,23:0.00013%,18:0.00013%,16:0.00013%,15:0.00013%,8:0.00013%,5:0.00013%]
+[INFO] ** proxy_src_ip:[18:38.33746%,20:25.97658%,13:18.14082%,6:17.53929%,17:0.00299%,10:0.00091%,11:0.00065%,16:0.00039%,14:0.00039%,1:0.00026%,21:0.00013%,7:0.00013%]
+[INFO] ** modbus_function_code:[0.02961:99.99454%,-33.760870000000004:0.00533%,0.9188299999999999:0.00013%]
+[INFO] ** modbus_function_description:[7:49.99811%,11:49.99642%,0:0.00533%,15:0.00013%]
+[INFO] ** modbus_transaction_id:65536 (8.5218%)
+[INFO] ** scada_tag:[3:25.97541%,1:21.00648%,5:18.14043%,4:17.53851%,2:17.33085%,0:0.00832%]
+[INFO] ** modbus_value:16330 (2.12343%)
+[INFO] ** service:[0.0048200000000000005:99.99506%,-211.73542999999998:0.00299%,-211.09762999999998:0.00039%,-211.08818:0.00039%,-211.08346:0.00026%,-211.07873999999998:0.00026%,-186.44547:0.00026%,-211.35747999999998:0.00013%,-202.75898:0.00013%,-186.43601999999998:0.00013%]
+[INFO] ** s_port:[1.45442:25.9758%,-0.32151:21.00661%,-1.27613:18.14056%,-0.23351:17.53877%,-0.33484:17.33085%,-71.33197:0.00299%,-6.64392:0.00052%,-71.14931:0.00039%,-1.02014:0.00039%,-0.24151:0.00039%,1.45709:0.00039%,1.46509:0.00026%,-1.27347:0.00026%,7.228860000000001:0.00026%,-64.19493:0.00026%,-71.14798:0.00026%,1.47576:0.00013%,-68.79874000000001:0.00013%,-0.24950999999999998:0.00013%,6.62488:0.00013%,10.15141:0.00013%,-2.2440900000000004:0.00013%,7.060860000000001:0.00013%,-3.3787199999999995:0.00013%]
+[INFO] ** classification:[normal:82.76394%,Multi Stage Single Point:17.23606%]
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.5
+[INFO] fitting model
+Train on 384519 samples, validate on 384520 samples
+Epoch 1/1
+ - 29s - loss: nan - tp: 0.0000e+00 - fp: 0.0000e+00 - tn: 1538076.0000 - fn: 384519.0000 - accuracy: 0.0000e+00 - precision: 0.0000e+00 - recall: 0.0000e+00 - auc: 0.0000e+00 - val_loss: nan - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 1538080.0000 - val_fn: 384520.0000 - val_accuracy: 0.0000e+00 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00 - val_auc: 0.0000e+00
+[INFO] saving weights to checkpoints/epoch-1-files-20-22
+[33m[INFO] loading file 23-24/66 on epoch 1/3[0m
+[INFO] reading file /tmp/terradrive/SWaT2015-Attack-Files-v0.2/2015-12-30_212042_109.log.part05_sorted-labeled.csv
+[INFO] reading file /tmp/terradrive/SWaT2015-Attack-Files-v0.2/2015-12-31_023431_110.log.part11_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1000000, 18)
+[INFO] sampling 1.0
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst', 'proto',
+       'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'modbus_value', 'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] analyze dataset: (1000000, 17)
+
+[INFO] analyzing data
+[INFO] 1000000 rows
+[INFO] ** orig:[0:99.9998%,1:0.0002%]
+[INFO] ** type:[0:99.9993%,1:0.0005%,2:0.0002%]
+[INFO] ** i/f_name:[2:99.9981%,3:0.0019%]
+[INFO] ** i/f_dir:[1:99.9982%,0:0.0018%]
+[INFO] ** src:[22:38.3877%,9:25.984%,7:18.1114%,1:17.5122%,14:0.0019%,11:0.0007%,15:0.0005%,10:0.0005%,2:0.0005%,4:0.0003%,17:0.0001%,8:0.0001%,3:0.0001%]
+[INFO] ** dst:[21:43.3515%,10:21.0197%,8:18.1114%,9:17.5125%,15:0.0019%,22:0.0011%,18:0.0004%,6:0.0004%,25:0.0003%,24:0.0003%,19:0.0002%,7:0.0002%,26:0.0001%]
+[INFO] ** proto:[0:99.9967%,1:0.0019%,2:0.0014%]
+[INFO] ** appi_name:[21:99.9958%,30:0.0019%,31:0.0004%,26:0.0003%,0:0.0003%,27:0.0002%,22:0.0002%,33:0.0001%,24:0.0001%,23:0.0001%,19:0.0001%,18:0.0001%,16:0.0001%,15:0.0001%,11:0.0001%,5:0.0001%]
+[INFO] ** proxy_src_ip:[18:38.3877%,20:25.984%,13:18.1114%,6:17.5122%,17:0.0019%,10:0.0007%,16:0.0005%,14:0.0005%,11:0.0005%,21:0.0003%,2:0.0001%,1:0.0001%,0:0.0001%]
+[INFO] ** modbus_function_code:[0.02961:99.9958%,-33.760870000000004:0.0039%,-0.415:0.0001%,0.9188299999999999:0.0001%,0.47422:0.0001%]
+[INFO] ** modbus_function_description:[7:49.9989%,11:49.9969%,0:0.0039%,15:0.0001%,10:0.0001%,2:0.0001%]
+[INFO] ** modbus_transaction_id:65536 (6.5536%)
+[INFO] ** scada_tag:[3:25.983%,1:21.0196%,5:18.1108%,4:17.5114%,2:17.3679%,0:0.0073%]
+[INFO] ** modbus_value:16162 (1.6162%)
+[INFO] ** service:[0.0048200000000000005:99.9965%,-211.73542999999998:0.0019%,-186.43601999999998:0.0004%,-211.08346:0.0003%,-186.44547:0.0003%,-211.07873999999998:0.0002%,-202.75898:0.0002%,-211.08818:0.0002%]
+[INFO] ** s_port:[1.45442:25.9833%,-0.32151:21.0196%,-1.27613:18.111%,-0.23351:17.5117%,-0.33484:17.3681%,-71.33197:0.0019%,-1.02014:0.0005%,-9.58113:0.0004%,-64.19493:0.0003%,-0.24151:0.0003%,-1.27347:0.0003%,-71.14798:0.0003%,1.45709:0.0003%,1.47576:0.0002%,1.46509:0.0002%,-0.24950999999999998:0.0002%,-31.55091:0.0002%,7.6315100000000005:0.0002%,-71.14931:0.0002%,-0.08551:0.0002%,-68.79874000000001:0.0001%,13.431270000000001:0.0001%,7.4901800000000005:0.0001%,-1.2708:0.0001%,11.862:0.0001%,-49.275529999999996:0.0001%]
+[INFO] ** classification:[normal:96.5485%,Multi Stage Single Point:3.4515%]
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.5
+[INFO] fitting model
+Train on 500000 samples, validate on 500000 samples
+Epoch 1/1
+ - 38s - loss: nan - tp: 0.0000e+00 - fp: 0.0000e+00 - tn: 2000000.0000 - fn: 500000.0000 - accuracy: 0.0000e+00 - precision: 0.0000e+00 - recall: 0.0000e+00 - auc: 0.0000e+00 - val_loss: nan - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 2000000.0000 - val_fn: 500000.0000 - val_accuracy: 0.0000e+00 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00 - val_auc: 0.0000e+00
+[INFO] saving weights to checkpoints/epoch-1-files-22-24
+[33m[INFO] loading file 25-26/66 on epoch 1/3[0m
+[INFO] reading file /tmp/terradrive/SWaT2015-Attack-Files-v0.2/2015-12-31_023431_110.log.part12_sorted-labeled.csv
+[INFO] reading file /tmp/terradrive/SWaT2015-Attack-Files-v0.2/2015-12-31_023431_110.log.part13_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1000000, 18)
+[INFO] sampling 1.0
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst', 'proto',
+       'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'modbus_value', 'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] analyze dataset: (1000000, 17)
+
+[INFO] analyzing data
+[INFO] 1000000 rows
+[INFO] ** orig:[0:100.0%]
+[INFO] ** type:[0:100.0%]
+[INFO] ** i/f_name:[2:99.9994%,3:0.0006%]
+[INFO] ** i/f_dir:[1:99.9994%,0:0.0006%]
+[INFO] ** src:[22:38.4272%,9:25.9376%,7:18.1362%,1:17.4961%,3:0.0007%,14:0.0006%,4:0.0005%,15:0.0004%,21:0.0003%,2:0.0003%,8:0.0001%]
+[INFO] ** dst:[21:43.3092%,10:21.0556%,8:18.1359%,9:17.4958%,22:0.0009%,16:0.0006%,15:0.0006%,6:0.0005%,24:0.0003%,18:0.0002%,17:0.0002%,2:0.0002%]
+[INFO] ** proto:[0:99.9987%,2:0.0007%,1:0.0006%]
+[INFO] ** appi_name:[21:99.9975%,30:0.0006%,22:0.0004%,17:0.0004%,7:0.0004%,31:0.0002%,28:0.0001%,26:0.0001%,12:0.0001%,8:0.0001%,6:0.0001%]
+[INFO] ** proxy_src_ip:[18:38.4272%,20:25.9376%,13:18.1362%,6:17.4961%,1:0.0007%,17:0.0006%,21:0.0005%,16:0.0004%,14:0.0003%,7:0.0003%,0:0.0001%]
+[INFO] ** modbus_function_code:[0.02961:99.9975%,-33.760870000000004:0.0025%]
+[INFO] ** modbus_function_description:[7:49.9995%,11:49.998%,0:0.0025%]
+[INFO] ** modbus_transaction_id:65536 (6.5536%)
+[INFO] ** scada_tag:[3:25.9368%,1:21.0553%,5:18.1356%,4:17.4956%,2:17.3717%,0:0.005%]
+[INFO] ** modbus_value:19569 (1.9569%)
+[INFO] ** service:[0.0048200000000000005:99.9977%,-211.73542999999998:0.0006%,-211.09762999999998:0.0004%,-205.44247:0.0004%,-211.08818:0.0004%,-186.43601999999998:0.0002%,-211.08346:0.0001%,-185.9872:0.0001%,-211.35747999999998:0.0001%]
+[INFO] ** s_port:[1.45442:25.9372%,-0.32151:21.0554%,-1.27613:18.1357%,-0.23351:17.4957%,-0.33484:17.3718%,-71.33197:0.0006%,-71.14931:0.0004%,-1.02014:0.0004%,-0.24151:0.0003%,-1.27347:0.0003%,-49.275529999999996:0.0002%,1.45709:0.0002%,-1.2708:0.0002%,1.47576:0.0001%,2.05573:0.0001%,7.66617:0.0001%,11.57001:0.0001%,-5.08665:0.0001%,-3.3787199999999995:0.0001%,6.1115699999999995:0.0001%,-0.24950999999999998:0.0001%,-43.76509:0.0001%,2.52505:0.0001%,1.46509:0.0001%,-58.032509999999995:0.0001%,-58.035180000000004:0.0001%,-5.1466400000000005:0.0001%,14.191239999999999:0.0001%,-71.14798:0.0001%]
+[INFO] ** classification:[normal:64.368%,Multi Stage Single Point:19.6608%,Single Stage Single Point:15.9712%]
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.5
+[INFO] fitting model
+Train on 500000 samples, validate on 500000 samples
+Epoch 1/1
+ - 38s - loss: nan - tp: 0.0000e+00 - fp: 0.0000e+00 - tn: 2000000.0000 - fn: 500000.0000 - accuracy: 0.0000e+00 - precision: 0.0000e+00 - recall: 0.0000e+00 - auc: 0.0000e+00 - val_loss: nan - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 2000000.0000 - val_fn: 500000.0000 - val_accuracy: 0.0000e+00 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00 - val_auc: 0.0000e+00
+[INFO] saving weights to checkpoints/epoch-1-files-24-26
+[33m[INFO] loading file 27-28/66 on epoch 1/3[0m
+[INFO] reading file /tmp/terradrive/SWaT2015-Attack-Files-v0.2/2015-12-31_023431_110.log.part14_sorted-labeled.csv
+[INFO] reading file /tmp/terradrive/SWaT2015-Attack-Files-v0.2/2015-12-31_074818_111.log.part01_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (774046, 18)
+[INFO] sampling 1.0
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst', 'proto',
+       'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'modbus_value', 'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] analyze dataset: (774046, 17)
+
+[INFO] analyzing data
+[INFO] 774046 rows
+[INFO] ** orig:[0:100.0%]
+[INFO] ** type:[0:99.99974%,1:0.00026%]
+[INFO] ** i/f_name:[2:99.99935%,3:0.00065%]
+[INFO] ** i/f_dir:[1:99.99961%,0:0.00039%]
+[INFO] ** src:[22:38.38209%,9:25.94691%,7:18.19091%,1:17.47571%,3:0.00116%,2:0.00078%,21:0.00065%,14:0.00065%,4:0.00052%,15:0.00026%,8:0.00026%,17:0.00013%]
+[INFO] ** dst:[21:43.28192%,10:21.04668%,8:18.19091%,9:17.47558%,6:0.00103%,16:0.0009%,22:0.00065%,18:0.00065%,15:0.00065%,17:0.00026%,2:0.00026%,25:0.00013%,24:0.00013%,7:0.00013%,0:0.00013%]
+[INFO] ** proto:[0:99.99742%,2:0.00194%,1:0.00065%]
+[INFO] ** appi_name:[21:99.99587%,30:0.00116%,17:0.00065%,22:0.00052%,7:0.00052%,31:0.00039%,26:0.00039%,28:0.00013%,27:0.00013%,8:0.00013%,0:0.00013%]
+[INFO] ** proxy_src_ip:[18:38.38209%,20:25.94691%,13:18.19091%,6:17.47571%,17:0.00116%,1:0.00103%,14:0.00078%,7:0.00065%,21:0.00039%,16:0.00026%,0:0.00013%]
+[INFO] ** modbus_function_code:[0.02961:99.99587%,-33.760870000000004:0.00413%]
+[INFO] ** modbus_function_description:[7:49.99845%,11:49.99742%,0:0.00413%]
+[INFO] ** modbus_transaction_id:65536 (8.46668%)
+[INFO] ** scada_tag:[3:25.94613%,1:21.04655%,5:18.19052%,4:17.47506%,2:17.33527%,0:0.00646%]
+[INFO] ** modbus_value:3769 (0.48692%)
+[INFO] ** service:[0.0048200000000000005:99.99587%,-205.44247:0.00065%,-211.73542999999998:0.00065%,-186.43601999999998:0.00065%,-211.09762999999998:0.00052%,-211.08346:0.00052%,-211.08818:0.00052%,-183.8612:0.00013%,-185.9872:0.00013%,-211.35747999999998:0.00013%,-202.75898:0.00013%,-186.44547:0.00013%]
+[INFO] ** s_port:[1.45442:25.94639%,-0.32151:21.04668%,-1.27613:18.19065%,-0.23351:17.47532%,-0.33484:17.3354%,-71.33197:0.00065%,-71.14931:0.00052%,-71.14798:0.00052%,-0.08551:0.00026%,-0.24151:0.00026%,-1.02014:0.00026%,1.47576:0.00026%,1.46509:0.00013%,6.1115699999999995:0.00013%,7.66617:0.00013%,-64.19493:0.00013%,11.862:0.00013%,14.4699:0.00013%,11.57001:0.00013%,-5.08665:0.00013%,10.192739999999999:0.00013%,-3.3787199999999995:0.00013%,-43.76509:0.00013%,2.05573:0.00013%,2.52505:0.00013%,1.45709:0.00013%,-58.032509999999995:0.00013%,-1.27347:0.00013%,-1.2708:0.00013%,-5.1466400000000005:0.00013%,13.431270000000001:0.00013%,-0.24950999999999998:0.00013%,14.191239999999999:0.00013%,-58.035180000000004:0.00013%]
+[INFO] ** classification:[normal:64.33352%,Single Stage Single Point:35.66648%]
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.5
+[INFO] fitting model
+Train on 387023 samples, validate on 387023 samples
+Epoch 1/1
+ - 29s - loss: nan - tp: 0.0000e+00 - fp: 0.0000e+00 - tn: 1548092.0000 - fn: 387023.0000 - accuracy: 0.0000e+00 - precision: 0.0000e+00 - recall: 0.0000e+00 - auc: 0.0000e+00 - val_loss: nan - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 1548092.0000 - val_fn: 387023.0000 - val_accuracy: 0.0000e+00 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00 - val_auc: 0.0000e+00
+[INFO] saving weights to checkpoints/epoch-1-files-26-28
+[33m[INFO] loading file 29-30/66 on epoch 1/3[0m
+[INFO] reading file /tmp/terradrive/SWaT2015-Attack-Files-v0.2/2015-12-31_074818_111.log.part02_sorted-labeled.csv
+[INFO] reading file /tmp/terradrive/SWaT2015-Attack-Files-v0.2/2015-12-31_074818_111.log.part03_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1000000, 18)
+[INFO] sampling 1.0
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst', 'proto',
+       'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'modbus_value', 'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] analyze dataset: (1000000, 17)
+
+[INFO] analyzing data
+[INFO] 1000000 rows
+[INFO] ** orig:[0:99.9995%,2:0.0003%,1:0.0002%]
+[INFO] ** type:[0:99.9995%,1:0.0005%]
+[INFO] ** i/f_name:[2:99.9988%,3:0.0012%]
+[INFO] ** i/f_dir:[1:99.9989%,0:0.0011%]
+[INFO] ** src:[22:38.4033%,9:25.9726%,7:18.1454%,1:17.4766%,14:0.0009%,21:0.0005%,15:0.0002%,8:0.0002%,16:0.0001%,4:0.0001%,3:0.0001%]
+[INFO] ** dst:[21:43.3344%,10:21.0415%,8:18.145%,9:17.4764%,15:0.0012%,22:0.0007%,24:0.0003%,6:0.0002%,25:0.0001%,16:0.0001%,0:0.0001%]
+[INFO] ** proto:[0:99.9985%,1:0.0012%,2:0.0003%]
+[INFO] ** appi_name:[21:99.9981%,30:0.0012%,26:0.0002%,17:0.0001%,12:0.0001%,9:0.0001%,3:0.0001%,0:0.0001%]
+[INFO] ** proxy_src_ip:[18:38.4033%,20:25.9726%,13:18.1454%,6:17.4766%,17:0.0012%,16:0.0002%,7:0.0002%,0:0.0002%,21:0.0001%,5:0.0001%,1:0.0001%]
+[INFO] ** modbus_function_code:[0.02961:99.9981%,-33.760870000000004:0.0019%]
+[INFO] ** modbus_function_description:[7:49.9999%,11:49.9982%,0:0.0019%]
+[INFO] ** modbus_transaction_id:65536 (6.5536%)
+[INFO] ** scada_tag:[3:25.9718%,1:21.0412%,5:18.1448%,4:17.4759%,2:17.3619%,0:0.0044%]
+[INFO] ** modbus_value:325 (0.0325%)
+[INFO] ** service:[0.0048200000000000005:99.9983%,-211.73542999999998:0.0012%,-211.08346:0.0002%,-183.8612:0.0001%,-205.44247:0.0001%,-186.44547:0.0001%]
+[INFO] ** s_port:[1.45442:25.9722%,-0.32151:21.0413%,-1.27613:18.1449%,-0.23351:17.4762%,-0.33484:17.362%,-71.33197:0.0012%,-0.24151:0.0003%,-1.27347:0.0003%,-1.2708:0.0002%,-1.02014:0.0002%,-71.14798:0.0002%,1.47576:0.0002%,1.45709:0.0002%,-61.95768:0.0002%,-0.24950999999999998:0.0001%,10.192739999999999:0.0001%,14.4699:0.0001%,-64.19493:0.0001%]
+[INFO] ** classification:[normal:64.3782%,Single Stage Single Point:35.6218%]
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.5
+[INFO] fitting model
+Train on 500000 samples, validate on 500000 samples
+Epoch 1/1
+ - 38s - loss: nan - tp: 0.0000e+00 - fp: 0.0000e+00 - tn: 2000000.0000 - fn: 500000.0000 - accuracy: 0.0000e+00 - precision: 0.0000e+00 - recall: 0.0000e+00 - auc: 0.0000e+00 - val_loss: nan - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 2000000.0000 - val_fn: 500000.0000 - val_accuracy: 0.0000e+00 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00 - val_auc: 0.0000e+00
+[INFO] saving weights to checkpoints/epoch-1-files-28-30
+[33m[INFO] loading file 31-32/66 on epoch 1/3[0m
+[INFO] reading file /tmp/terradrive/SWaT2015-Attack-Files-v0.2/2015-12-31_074818_111.log.part04_sorted-labeled.csv
+[INFO] reading file /tmp/terradrive/SWaT2015-Attack-Files-v0.2/2015-12-31_074818_111.log.part05_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1000000, 18)
+[INFO] sampling 1.0
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst', 'proto',
+       'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'modbus_value', 'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] analyze dataset: (1000000, 17)
+
+[INFO] analyzing data
+[INFO] 1000000 rows
+[INFO] ** orig:[0:100.0%]
+[INFO] ** type:[0:99.9998%,1:0.0002%]
+[INFO] ** i/f_name:[2:99.9983%,3:0.0017%]
+[INFO] ** i/f_dir:[1:99.9985%,0:0.0015%]
+[INFO] ** src:[22:38.4122%,9:25.9686%,7:18.1369%,1:17.48%,14:0.0017%,15:0.0003%,2:0.0003%]
+[INFO] ** dst:[21:43.3251%,10:21.0552%,8:18.1369%,9:17.4797%,15:0.0017%,22:0.0009%,24:0.0002%,18:0.0001%,7:0.0001%,6:0.0001%]
+[INFO] ** proto:[0:99.998%,1:0.0017%,2:0.0003%]
+[INFO] ** appi_name:[21:99.998%,30:0.0017%,31:0.0001%,27:0.0001%,26:0.0001%]
+[INFO] ** proxy_src_ip:[18:38.4122%,20:25.9686%,13:18.1369%,6:17.48%,17:0.0017%,16:0.0003%,14:0.0003%]
+[INFO] ** modbus_function_code:[0.02961:99.998%,-33.760870000000004:0.002%]
+[INFO] ** modbus_function_description:[7:49.9994%,11:49.9986%,0:0.002%]
+[INFO] ** modbus_transaction_id:65536 (6.5536%)
+[INFO] ** scada_tag:[3:25.9676%,1:21.055%,5:18.1365%,4:17.4793%,2:17.3569%,0:0.0047%]
+[INFO] ** modbus_value:297 (0.0297%)
+[INFO] ** service:[0.0048200000000000005:99.998%,-211.73542999999998:0.0017%,-211.08346:0.0001%,-202.75898:0.0001%,-186.43601999999998:0.0001%]
+[INFO] ** s_port:[1.45442:25.968%,-0.32151:21.0552%,-1.27613:18.1366%,-0.23351:17.4796%,-0.33484:17.357%,-71.33197:0.0017%,-1.02014:0.0003%,1.45709:0.0003%,-0.24151:0.0003%,1.46509:0.0002%,-1.27347:0.0002%,-1.2708:0.0001%,-71.14798:0.0001%,13.431270000000001:0.0001%,-0.24950999999999998:0.0001%,11.862:0.0001%,1.47576:0.0001%]
+[INFO] ** classification:[normal:64.3834%,Single Stage Single Point:35.6166%]
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.5
+[INFO] fitting model
+Train on 500000 samples, validate on 500000 samples
+Epoch 1/1
+ - 38s - loss: nan - tp: 0.0000e+00 - fp: 0.0000e+00 - tn: 2000000.0000 - fn: 500000.0000 - accuracy: 0.0000e+00 - precision: 0.0000e+00 - recall: 0.0000e+00 - auc: 0.0000e+00 - val_loss: nan - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 2000000.0000 - val_fn: 500000.0000 - val_accuracy: 0.0000e+00 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00 - val_auc: 0.0000e+00
+[INFO] saving weights to checkpoints/epoch-1-files-30-32
+[33m[INFO] loading file 33-34/66 on epoch 1/3[0m
+[INFO] reading file /tmp/terradrive/SWaT2015-Attack-Files-v0.2/2015-12-31_074818_111.log.part06_sorted-labeled.csv
+[INFO] reading file /tmp/terradrive/SWaT2015-Attack-Files-v0.2/2015-12-31_074818_111.log.part07_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (841433, 18)
+[INFO] sampling 1.0
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst', 'proto',
+       'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'modbus_value', 'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] analyze dataset: (841433, 17)
+
+[INFO] analyzing data
+[INFO] 841433 rows
+[INFO] ** orig:[0:100.0%]
+[INFO] ** type:[0:100.0%]
+[INFO] ** i/f_name:[2:99.99917%,3:0.00083%]
+[INFO] ** i/f_dir:[1:99.99917%,0:0.00083%]
+[INFO] ** src:[22:38.40401%,9:25.96368%,7:18.1526%,1:17.47638%,14:0.00083%,3:0.00083%,4:0.00048%,21:0.00036%,15:0.00036%,2:0.00036%,8:0.00012%]
+[INFO] ** dst:[21:43.31088%,10:21.05634%,8:18.1526%,9:17.47602%,22:0.00107%,15:0.00083%,16:0.00071%,6:0.00059%,24:0.00024%,18:0.00024%,17:0.00024%,2:0.00024%]
+[INFO] ** proto:[0:99.99834%,2:0.00083%,1:0.00083%]
+[INFO] ** appi_name:[21:99.99703%,30:0.00083%,22:0.00048%,17:0.00048%,7:0.00048%,31:0.00024%,28:0.00012%,26:0.00012%,8:0.00012%,6:0.00012%]
+[INFO] ** proxy_src_ip:[18:38.40401%,20:25.96368%,13:18.1526%,6:17.47638%,17:0.00083%,1:0.00083%,21:0.00048%,16:0.00036%,14:0.00036%,7:0.00036%,0:0.00012%]
+[INFO] ** modbus_function_code:[0.02961:99.99703%,-33.760870000000004:0.00297%]
+[INFO] ** modbus_function_description:[7:49.99935%,11:49.99768%,0:0.00297%]
+[INFO] ** modbus_transaction_id:65536 (7.78862%)
+[INFO] ** scada_tag:[3:25.96285%,1:21.0561%,5:18.15213%,4:17.47554%,2:17.34779%,0:0.00559%]
+[INFO] ** modbus_value:297 (0.0353%)
+[INFO] ** service:[0.0048200000000000005:99.99715%,-211.73542999999998:0.00083%,-211.09762999999998:0.00048%,-205.44247:0.00048%,-211.08818:0.00048%,-186.43601999999998:0.00024%,-211.08346:0.00012%,-185.9872:0.00012%,-211.35747999999998:0.00012%]
+[INFO] ** s_port:[1.45442:25.96309%,-0.32151:21.05622%,-1.27613:18.15237%,-0.23351:17.47578%,-0.33484:17.34779%,-71.33197:0.00083%,-71.14931:0.00048%,-0.24151:0.00048%,-1.02014:0.00036%,1.45709:0.00024%,-1.27347:0.00024%,1.47576:0.00024%,11.57001:0.00012%,-5.08665:0.00012%,-43.76509:0.00012%,7.66617:0.00012%,-3.3787199999999995:0.00012%,6.1115699999999995:0.00012%,2.05573:0.00012%,-71.14798:0.00012%,-58.032509999999995:0.00012%,-58.035180000000004:0.00012%,-49.275529999999996:0.00012%,1.46509:0.00012%,14.191239999999999:0.00012%,-0.24950999999999998:0.00012%,-3.0613900000000003:0.00012%,-5.1466400000000005:0.00012%]
+[INFO] ** classification:[normal:64.37138%,Single Stage Single Point:35.62862%]
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.5
+[INFO] fitting model
+Train on 420716 samples, validate on 420717 samples
+Epoch 1/1
+ - 32s - loss: nan - tp: 0.0000e+00 - fp: 0.0000e+00 - tn: 1682864.0000 - fn: 420716.0000 - accuracy: 0.0000e+00 - precision: 0.0000e+00 - recall: 0.0000e+00 - auc: 0.0000e+00 - val_loss: nan - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 1682868.0000 - val_fn: 420717.0000 - val_accuracy: 0.0000e+00 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00 - val_auc: 0.0000e+00
+[INFO] saving weights to checkpoints/epoch-1-files-32-34
+[33m[INFO] loading file 35-36/66 on epoch 1/3[0m
+[INFO] reading file /tmp/terradrive/SWaT2015-Attack-Files-v0.2/2015-12-31_074818_111.log.part08_sorted-labeled.csv
+[INFO] reading file /tmp/terradrive/SWaT2015-Attack-Files-v0.2/2015-12-31_074818_111.log.part09_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1000000, 18)
+[INFO] sampling 1.0
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst', 'proto',
+       'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'modbus_value', 'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] analyze dataset: (1000000, 17)
+
+[INFO] analyzing data
+[INFO] 1000000 rows
+[INFO] ** orig:[0:99.9998%,1:0.0002%]
+[INFO] ** type:[0:99.9995%,1:0.0005%]
+[INFO] ** i/f_name:[2:99.9991%,3:0.0009%]
+[INFO] ** i/f_dir:[1:99.9992%,0:0.0008%]
+[INFO] ** src:[22:38.3938%,9:25.9775%,7:18.15%,1:17.477%,14:0.0009%,15:0.0004%,17:0.0001%,8:0.0001%,4:0.0001%,3:0.0001%]
+[INFO] ** dst:[21:43.3383%,10:21.0326%,8:18.1501%,9:17.4766%,22:0.001%,15:0.0009%,24:0.0002%,18:0.0002%,25:0.0001%]
+[INFO] ** proto:[0:99.9988%,1:0.0009%,2:0.0003%]
+[INFO] ** appi_name:[21:99.9987%,30:0.0009%,31:0.0002%,33:0.0001%,0:0.0001%]
+[INFO] ** proxy_src_ip:[18:38.3938%,20:25.9775%,13:18.15%,6:17.477%,17:0.0009%,16:0.0004%,21:0.0001%,2:0.0001%,1:0.0001%,0:0.0001%]
+[INFO] ** modbus_function_code:[0.02961:99.9987%,-33.760870000000004:0.0013%]
+[INFO] ** modbus_function_description:[7:50.0003%,11:49.9984%,0:0.0013%]
+[INFO] ** modbus_transaction_id:65536 (6.5536%)
+[INFO] ** scada_tag:[3:25.9765%,1:21.0324%,5:18.1496%,4:17.4761%,2:17.3612%,0:0.0042%]
+[INFO] ** modbus_value:318 (0.0318%)
+[INFO] ** service:[0.0048200000000000005:99.9988%,-211.73542999999998:0.0009%,-186.43601999999998:0.0002%,-186.44547:0.0001%]
+[INFO] ** s_port:[1.45442:25.9769%,-0.32151:21.0325%,-1.27613:18.1497%,-0.23351:17.4764%,-0.33484:17.3613%,-71.33197:0.0009%,-1.02014:0.0004%,-0.24151:0.0004%,-0.08551:0.0002%,-1.27347:0.0002%,1.45709:0.0002%,1.47576:0.0002%,1.46509:0.0002%,-0.24950999999999998:0.0002%,-1.2708:0.0001%,-64.19493:0.0001%,-49.275529999999996:0.0001%]
+[INFO] ** classification:[normal:64.3734%,Single Stage Single Point:35.6266%]
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.5
+[INFO] fitting model
+Train on 500000 samples, validate on 500000 samples
+Epoch 1/1
+ - 38s - loss: nan - tp: 0.0000e+00 - fp: 0.0000e+00 - tn: 2000000.0000 - fn: 500000.0000 - accuracy: 0.0000e+00 - precision: 0.0000e+00 - recall: 0.0000e+00 - auc: 0.0000e+00 - val_loss: nan - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 2000000.0000 - val_fn: 500000.0000 - val_accuracy: 0.0000e+00 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00 - val_auc: 0.0000e+00
+[INFO] saving weights to checkpoints/epoch-1-files-34-36
+[33m[INFO] loading file 37-38/66 on epoch 1/3[0m
+[INFO] reading file /tmp/terradrive/SWaT2015-Attack-Files-v0.2/2015-12-31_074818_111.log.part10_sorted-labeled.csv
+[INFO] reading file /tmp/terradrive/SWaT2015-Attack-Files-v0.2/2015-12-31_074818_111.log.part11_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1000000, 18)
+[INFO] sampling 1.0
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst', 'proto',
+       'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'modbus_value', 'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] analyze dataset: (1000000, 17)
+
+[INFO] analyzing data
+[INFO] 1000000 rows
+[INFO] ** orig:[0:100.0%]
+[INFO] ** type:[0:99.9998%,1:0.0002%]
+[INFO] ** i/f_name:[2:99.9995%,3:0.0005%]
+[INFO] ** i/f_dir:[1:99.9997%,0:0.0003%]
+[INFO] ** src:[22:38.4277%,9:25.9737%,7:18.1113%,1:17.4859%,14:0.0005%,15:0.0003%,21:0.0002%,16:0.0001%,8:0.0001%,4:0.0001%,3:0.0001%]
+[INFO] ** dst:[21:43.3308%,10:21.0701%,8:18.1113%,9:17.4857%,22:0.0009%,15:0.0005%,24:0.0002%,6:0.0002%,25:0.0001%,16:0.0001%,0:0.0001%]
+[INFO] ** proto:[0:99.9992%,1:0.0005%,2:0.0003%]
+[INFO] ** appi_name:[21:99.9989%,30:0.0005%,26:0.0002%,17:0.0001%,12:0.0001%,9:0.0001%,0:0.0001%]
+[INFO] ** proxy_src_ip:[18:38.4277%,20:25.9737%,13:18.1113%,6:17.4859%,17:0.0005%,16:0.0003%,7:0.0002%,21:0.0001%,5:0.0001%,1:0.0001%,0:0.0001%]
+[INFO] ** modbus_function_code:[0.02961:99.9989%,-33.760870000000004:0.0011%]
+[INFO] ** modbus_function_description:[7:49.9999%,11:49.999%,0:0.0011%]
+[INFO] ** modbus_transaction_id:65536 (6.5536%)
+[INFO] ** scada_tag:[3:25.9727%,1:21.07%,5:18.1109%,4:17.4854%,2:17.3576%,0:0.0034%]
+[INFO] ** modbus_value:300 (0.03%)
+[INFO] ** service:[0.0048200000000000005:99.999%,-211.73542999999998:0.0005%,-211.08346:0.0002%,-183.8612:0.0001%,-205.44247:0.0001%,-186.44547:0.0001%]
+[INFO] ** s_port:[1.45442:25.973%,-0.32151:21.07%,-1.27613:18.111%,-0.23351:17.4855%,-0.33484:17.3577%,-71.33197:0.0005%,-0.24151:0.0003%,-1.02014:0.0003%,1.45709:0.0003%,1.46509:0.0002%,1.47576:0.0002%,-1.27347:0.0002%,-71.14798:0.0002%,-0.24950999999999998:0.0001%,-61.95768:0.0001%,-1.2708:0.0001%,10.192739999999999:0.0001%,14.4699:0.0001%,-64.19493:0.0001%]
+[INFO] ** classification:[normal:64.403%,Single Stage Single Point:35.597%]
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.5
+[INFO] fitting model
+Train on 500000 samples, validate on 500000 samples
+Epoch 1/1
+ - 38s - loss: nan - tp: 0.0000e+00 - fp: 0.0000e+00 - tn: 2000000.0000 - fn: 500000.0000 - accuracy: 0.0000e+00 - precision: 0.0000e+00 - recall: 0.0000e+00 - auc: 0.0000e+00 - val_loss: nan - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 2000000.0000 - val_fn: 500000.0000 - val_accuracy: 0.0000e+00 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00 - val_auc: 0.0000e+00
+[INFO] saving weights to checkpoints/epoch-1-files-36-38
+[33m[INFO] loading file 39-40/66 on epoch 1/3[0m
+[INFO] reading file /tmp/terradrive/SWaT2015-Attack-Files-v0.2/2015-12-31_074818_111.log.part12_sorted-labeled.csv
+[INFO] reading file /tmp/terradrive/SWaT2015-Attack-Files-v0.2/2015-12-31_074818_111.log.part13_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1000000, 18)
+[INFO] sampling 1.0
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst', 'proto',
+       'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'modbus_value', 'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] analyze dataset: (1000000, 17)
+
+[INFO] analyzing data
+[INFO] 1000000 rows
+[INFO] ** orig:[0:99.9998%,1:0.0002%]
+[INFO] ** type:[0:99.9995%,1:0.0005%]
+[INFO] ** i/f_name:[2:99.9983%,3:0.0017%]
+[INFO] ** i/f_dir:[1:99.9984%,0:0.0016%]
+[INFO] ** src:[22:38.4065%,9:25.9658%,7:18.1629%,1:17.4625%,14:0.0017%,15:0.0003%,2:0.0003%]
+[INFO] ** dst:[21:43.3138%,10:21.0581%,8:18.1628%,9:17.4622%,15:0.0017%,22:0.0009%,24:0.0002%,18:0.0001%,7:0.0001%,6:0.0001%]
+[INFO] ** proto:[0:99.998%,1:0.0017%,2:0.0003%]
+[INFO] ** appi_name:[21:99.998%,30:0.0017%,31:0.0001%,27:0.0001%,26:0.0001%]
+[INFO] ** proxy_src_ip:[18:38.4065%,20:25.9658%,13:18.1629%,6:17.4625%,17:0.0017%,16:0.0003%,14:0.0003%]
+[INFO] ** modbus_function_code:[0.02961:99.998%,-33.760870000000004:0.002%]
+[INFO] ** modbus_function_description:[7:49.9999%,11:49.9981%,0:0.002%]
+[INFO] ** modbus_transaction_id:65536 (6.5536%)
+[INFO] ** scada_tag:[3:25.9649%,1:21.0579%,5:18.1624%,4:17.4619%,2:17.3482%,0:0.0047%]
+[INFO] ** modbus_value:305 (0.0305%)
+[INFO] ** service:[0.0048200000000000005:99.998%,-211.73542999999998:0.0017%,-211.08346:0.0001%,-202.75898:0.0001%,-186.43601999999998:0.0001%]
+[INFO] ** s_port:[1.45442:25.9653%,-0.32151:21.0581%,-1.27613:18.1626%,-0.23351:17.4621%,-0.33484:17.3484%,-71.33197:0.0017%,1.45709:0.0003%,-1.02014:0.0003%,-0.24151:0.0003%,-1.27347:0.0002%,13.431270000000001:0.0001%,-1.2708:0.0001%,-71.14798:0.0001%,1.46509:0.0001%,-0.24950999999999998:0.0001%,11.862:0.0001%,1.47576:0.0001%]
+[INFO] ** classification:[normal:64.3749%,Single Stage Single Point:35.6251%]
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.5
+[INFO] fitting model
+Train on 500000 samples, validate on 500000 samples
+Epoch 1/1
+ - 38s - loss: nan - tp: 0.0000e+00 - fp: 0.0000e+00 - tn: 2000000.0000 - fn: 500000.0000 - accuracy: 0.0000e+00 - precision: 0.0000e+00 - recall: 0.0000e+00 - auc: 0.0000e+00 - val_loss: nan - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 2000000.0000 - val_fn: 500000.0000 - val_accuracy: 0.0000e+00 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00 - val_auc: 0.0000e+00
+[INFO] saving weights to checkpoints/epoch-1-files-38-40
+[33m[INFO] loading file 41-42/66 on epoch 1/3[0m
+[INFO] reading file /tmp/terradrive/SWaT2015-Attack-Files-v0.2/2015-12-31_074818_111.log.part14_sorted-labeled.csv
+[INFO] reading file /tmp/terradrive/SWaT2015-Attack-Files-v0.2/2015-12-31_130240_112.log.part01_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (783672, 18)
+[INFO] sampling 1.0
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst', 'proto',
+       'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'modbus_value', 'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] analyze dataset: (783672, 17)
+
+[INFO] analyzing data
+[INFO] 783672 rows
+[INFO] ** orig:[0:100.0%]
+[INFO] ** type:[0:100.0%]
+[INFO] ** i/f_name:[2:99.99898%,3:0.00102%]
+[INFO] ** i/f_dir:[1:99.99898%,0:0.00102%]
+[INFO] ** src:[22:38.42577%,9:25.94797%,7:18.16232%,1:17.45705%,3:0.00204%,2:0.00115%,14:0.00102%,4:0.00089%,21:0.00064%,8:0.00051%,15:0.00038%,17:0.00026%]
+[INFO] ** dst:[21:43.31557%,10:21.05779%,8:18.16219%,9:17.45692%,16:0.00179%,6:0.00166%,15:0.00102%,22:0.00077%,18:0.00064%,17:0.00051%,2:0.00051%,24:0.00026%,25:0.00013%,7:0.00013%,0:0.00013%]
+[INFO] ** proto:[0:99.9963%,2:0.00268%,1:0.00102%]
+[INFO] ** appi_name:[21:99.99349%,30:0.00179%,17:0.00115%,22:0.00089%,26:0.00064%,7:0.00064%,31:0.00051%,28:0.00026%,32:0.00013%,27:0.00013%,9:0.00013%,8:0.00013%,0:0.00013%]
+[INFO] ** proxy_src_ip:[18:38.42577%,20:25.94797%,13:18.16232%,6:17.45705%,17:0.00179%,1:0.00166%,14:0.00102%,21:0.00077%,7:0.00051%,0:0.00051%,16:0.00038%,2:0.00026%]
+[INFO] ** modbus_function_code:[0.02961:99.99349%,-33.760870000000004:0.00651%]
+[INFO] ** modbus_function_description:[7:49.99745%,11:49.99604%,0:0.00651%]
+[INFO] ** modbus_transaction_id:65536 (8.36268%)
+[INFO] ** scada_tag:[3:25.94721%,1:21.05779%,5:18.16181%,4:17.45654%,2:17.36785%,0:0.0088%]
+[INFO] ** modbus_value:356 (0.04543%)
+[INFO] ** service:[0.0048200000000000005:99.99349%,-205.44247:0.00115%,-211.09762999999998:0.00102%,-211.73542999999998:0.00102%,-211.08818:0.00102%,-211.08346:0.00064%,-186.43601999999998:0.00064%,-185.9872:0.00026%,-211.35747999999998:0.00026%,-183.8612:0.00013%,-202.75898:0.00013%,-186.44547:0.00013%,89.64175:0.00013%]
+[INFO] ** s_port:[1.45442:25.94746%,-0.32151:21.05779%,-1.27613:18.16194%,-0.23351:17.45667%,-0.33484:17.36798%,-71.14931:0.00102%,-71.33197:0.00102%,-71.14798:0.00064%,-1.02014:0.00038%,-5.1466400000000005:0.00026%,-0.08551:0.00026%,2.05573:0.00026%,-43.76509:0.00026%,-1.27347:0.00026%,-58.032509999999995:0.00026%,-58.035180000000004:0.00026%,-3.3787199999999995:0.00026%,-0.24151:0.00026%,-5.08665:0.00026%,1.47576:0.00026%,11.57001:0.00026%,-64.19226:0.00013%,7.66617:0.00013%,7.9608300000000005:0.00013%,14.4699:0.00013%,-64.19493:0.00013%,0.31847:0.00013%,10.192739999999999:0.00013%,15.912510000000001:0.00013%,13.431270000000001:0.00013%,1.46509:0.00013%,14.191239999999999:0.00013%,-0.24950999999999998:0.00013%,-3.0613900000000003:0.00013%,1.45709:0.00013%,11.862:0.00013%,-1.2708:0.00013%]
+[INFO] ** classification:[normal:64.38076%,Single Stage Single Point:35.61924%]
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.5
+[INFO] fitting model
+Train on 391836 samples, validate on 391836 samples
+Epoch 1/1
+ - 29s - loss: nan - tp: 0.0000e+00 - fp: 0.0000e+00 - tn: 1567344.0000 - fn: 391836.0000 - accuracy: 0.0000e+00 - precision: 0.0000e+00 - recall: 0.0000e+00 - auc: 0.0000e+00 - val_loss: nan - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 1567344.0000 - val_fn: 391836.0000 - val_accuracy: 0.0000e+00 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00 - val_auc: 0.0000e+00
+[INFO] saving weights to checkpoints/epoch-1-files-40-42
+[33m[INFO] loading file 43-44/66 on epoch 1/3[0m
+[INFO] reading file /tmp/terradrive/SWaT2015-Attack-Files-v0.2/2015-12-31_130240_112.log.part02_sorted-labeled.csv
+[INFO] reading file /tmp/terradrive/SWaT2015-Attack-Files-v0.2/2015-12-31_130240_112.log.part03_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1000000, 18)
+[INFO] sampling 1.0
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst', 'proto',
+       'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'modbus_value', 'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] analyze dataset: (1000000, 17)
+
+[INFO] analyzing data
+[INFO] 1000000 rows
+[INFO] ** orig:[0:100.0%]
+[INFO] ** type:[0:99.9998%,1:0.0002%]
+[INFO] ** i/f_name:[2:99.9994%,3:0.0006%]
+[INFO] ** i/f_dir:[1:99.9996%,0:0.0004%]
+[INFO] ** src:[22:38.413%,9:25.9664%,7:18.1496%,1:17.4695%,14:0.0006%,15:0.0003%,21:0.0002%,17:0.0001%,16:0.0001%,8:0.0001%,3:0.0001%]
+[INFO] ** dst:[21:43.3269%,10:21.0521%,8:18.1494%,9:17.4691%,22:0.001%,15:0.0006%,24:0.0003%,18:0.0003%,25:0.0002%,6:0.0001%]
+[INFO] ** proto:[0:99.9988%,2:0.0006%,1:0.0006%]
+[INFO] ** appi_name:[21:99.9988%,30:0.0006%,31:0.0003%,0:0.0002%,22:0.0001%]
+[INFO] ** proxy_src_ip:[18:38.413%,20:25.9664%,13:18.1496%,6:17.4695%,17:0.0006%,16:0.0003%,7:0.0002%,5:0.0001%,2:0.0001%,1:0.0001%,0:0.0001%]
+[INFO] ** modbus_function_code:[0.02961:99.9988%,-33.760870000000004:0.0012%]
+[INFO] ** modbus_function_description:[7:50.0002%,11:49.9986%,0:0.0012%]
+[INFO] ** modbus_transaction_id:65536 (6.5536%)
+[INFO] ** scada_tag:[3:25.9654%,1:21.0521%,5:18.149%,4:17.4685%,2:17.3608%,0:0.0042%]
+[INFO] ** modbus_value:323 (0.0323%)
+[INFO] ** service:[0.0048200000000000005:99.9988%,-211.73542999999998:0.0006%,-186.43601999999998:0.0003%,-186.44547:0.0002%,-211.08818:0.0001%]
+[INFO] ** s_port:[1.45442:25.9658%,-0.32151:21.0521%,-1.27613:18.1491%,-0.23351:17.4689%,-0.33484:17.3609%,-71.33197:0.0006%,-0.24151:0.0004%,1.45709:0.0003%,-1.02014:0.0003%,-1.27347:0.0003%,1.47576:0.0002%,-1.2708:0.0002%,-0.24950999999999998:0.0002%,-64.19493:0.0002%,-0.08551:0.0002%,1.46509:0.0001%,-71.14931:0.0001%,4.42897:0.0001%]
+[INFO] ** classification:[normal:64.3813%,Single Stage Single Point:35.6187%]
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.5
+[INFO] fitting model
+Train on 500000 samples, validate on 500000 samples
+Epoch 1/1
+ - 38s - loss: nan - tp: 0.0000e+00 - fp: 0.0000e+00 - tn: 2000000.0000 - fn: 500000.0000 - accuracy: 0.0000e+00 - precision: 0.0000e+00 - recall: 0.0000e+00 - auc: 0.0000e+00 - val_loss: nan - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 2000000.0000 - val_fn: 500000.0000 - val_accuracy: 0.0000e+00 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00 - val_auc: 0.0000e+00
+[INFO] saving weights to checkpoints/epoch-1-files-42-44
+Traceback (most recent call last):
+  File "h5py/_objects.pyx", line 193, in h5py._objects.ObjectID.__dealloc__
+RuntimeError: Can't decrement id ref count (file write failed: time = Fri Jan 31 12:21:36 2020
+, filename = './checkpoints/epoch-1-files-42-44', file descriptor = 3, errno = 28, error message = 'No space left on device', buf = 0x1122a348, total write size = 640, bytes this sub-write = 640, bytes actually written = 18446744073709551615, offset = 8192)
+Exception ignored in: 'h5py._objects.ObjectID.__dealloc__'
+Traceback (most recent call last):
+  File "h5py/_objects.pyx", line 193, in h5py._objects.ObjectID.__dealloc__
+RuntimeError: Can't decrement id ref count (file write failed: time = Fri Jan 31 12:21:36 2020
+, filename = './checkpoints/epoch-1-files-42-44', file descriptor = 3, errno = 28, error message = 'No space left on device', buf = 0x1122a348, total write size = 640, bytes this sub-write = 640, bytes actually written = 18446744073709551615, offset = 8192)
+Traceback (most recent call last):
+  File "h5py/_objects.pyx", line 193, in h5py._objects.ObjectID.__dealloc__
+RuntimeError: Can't decrement id ref count (file write failed: time = Fri Jan 31 12:21:36 2020
+, filename = './checkpoints/epoch-1-files-42-44', file descriptor = 3, errno = 28, error message = 'No space left on device', buf = 0x10df3298, total write size = 40, bytes this sub-write = 40, bytes actually written = 18446744073709551615, offset = 8832)
+Exception ignored in: 'h5py._objects.ObjectID.__dealloc__'
+Traceback (most recent call last):
+  File "h5py/_objects.pyx", line 193, in h5py._objects.ObjectID.__dealloc__
+RuntimeError: Can't decrement id ref count (file write failed: time = Fri Jan 31 12:21:36 2020
+, filename = './checkpoints/epoch-1-files-42-44', file descriptor = 3, errno = 28, error message = 'No space left on device', buf = 0x10df3298, total write size = 40, bytes this sub-write = 40, bytes actually written = 18446744073709551615, offset = 8832)
+Traceback (most recent call last):
+  File "h5py/_objects.pyx", line 193, in h5py._objects.ObjectID.__dealloc__
+RuntimeError: Can't decrement id ref count (file write failed: time = Fri Jan 31 12:21:36 2020
+, filename = './checkpoints/epoch-1-files-42-44', file descriptor = 3, errno = 28, error message = 'No space left on device', buf = 0x59c8248, total write size = 2000, bytes this sub-write = 2000, bytes actually written = 18446744073709551615, offset = 12832)
+Exception ignored in: 'h5py._objects.ObjectID.__dealloc__'
+Traceback (most recent call last):
+  File "h5py/_objects.pyx", line 193, in h5py._objects.ObjectID.__dealloc__
+Runtim
