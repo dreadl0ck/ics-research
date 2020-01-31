@@ -104,7 +104,7 @@ def save_weights(i, epoch, batch_index=None):
         print("[INFO] saving weights to checkpoints/lstm-epoch-{}-files-{}-{}-batch-{}-{}".format(epoch, i, i+batch_size, batch_index, batch_index+arguments.lstmBatchSize))
         model.save_weights('./checkpoints/lstm-epoch-{}-files-{}-{}-batch-{}-{}'.format(epoch, i, i+batch_size, batch_index, batch_index+arguments.lstmBatchSize))
     else:
-        print("[INFO] saving weights to checkpoints/epoch-{}-files-{}-{}".format(epoch, i, i+batch_size))
+        print("[INFO] saving weights to checkpoints/dnn-epoch-{}-files-{}-{}".format(epoch, i, i+batch_size))
         model.save_weights('./checkpoints/dnn-epoch-{}-files-{}-{}'.format(epoch, i, i+batch_size))
 
 def readCSV(f):
