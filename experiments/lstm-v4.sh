@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# corelayer: 10, wrap: 5, 100 epochs
+
 python3 train.py \
     -read "data/SWaT2015-Attack-Files-v0.2/train/*-labeled.csv" \
     -wrapLayerSize 5 \
@@ -10,8 +12,7 @@ python3 train.py \
     -lstm true \
     -features 16 \
     -drop modbus_value \
-    -lstmBatchSize 100000 \
-    -debug true
+    -lstmBatchSize 100000
 
 # EVAL
 python3 score.py \
@@ -24,5 +25,4 @@ python3 score.py \
     -drop modbus_value  \
     -lstm true  \
     -zscoreUnixtime true \
-    -lstmBatchSize 100000 \
-    -debug true
+    -lstmBatchSize 100000
