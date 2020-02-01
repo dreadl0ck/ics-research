@@ -41,7 +41,7 @@ def train_dnn(df, i, epoch, batch_index=None):
 
     print("[INFO] breaking into predictors and prediction...")
     # Break into X (predictors) & y (prediction)
-    x, y = to_xy(df, arguments.resultColumn, classes)
+    x, y = to_xy(df, arguments.resultColumn, classes, arguments.debug)
 
     print("[INFO] creating train/test split:", arguments.testSize)
 
@@ -66,11 +66,11 @@ def train_dnn(df, i, epoch, batch_index=None):
     if arguments.lstm:
 
         print("[INFO] using LSTM layers")
-        x_train = x_train.reshape(8, int(x_train.shape[0]/8), x.shape[1])
-        y_train = y_train.reshape(8, int(y_train.shape[0]/8), y.shape[1])
+        x_train = x_train.reshape(8000, int(x_train.shape[0]/8000), x.shape[1])
+        y_train = y_train.reshape(8000, int(y_train.shape[0]/8000), y.shape[1])
 
-        x_test = x_test.reshape(2, int(x_test.shape[0]/2), x.shape[1])
-        y_test = y_test.reshape(2, int(y_test.shape[0]/2), y.shape[1])
+        x_test = x_test.reshape(2000, int(x_test.shape[0]/2000), x.shape[1])
+        y_test = y_test.reshape(2000, int(y_test.shape[0]/2000), y.shape[1])
 
         if arguments.debug:
             print("--------RESHAPED--------")

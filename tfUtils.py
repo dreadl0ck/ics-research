@@ -221,7 +221,7 @@ encoders = {
 
 import sys
 
-def to_xy(df, target, labeltypes):
+def to_xy(df, target, labeltypes, debug):
     """
     Converts a pandas dataframe to the x,y inputs that TensorFlow needs.
     """
@@ -233,8 +233,9 @@ def to_xy(df, target, labeltypes):
     target_type = df[target].dtypes
     target_type = target_type[0] if hasattr(target_type, '__iter__') else target_type
     
-    print("CHUNK ANALYZE")
-    analyze(df)
+    if debug:
+        print("CHUNK ANALYZE")
+        analyze(df)
     
     values = df[target].values
     y_vector = np.zeros((values.shape[0],len(labeltypes)))
@@ -419,7 +420,7 @@ def create_dnn(input_dim, output_dim, loss, optimizer, lstm, numCoreLayers, core
     if lstm:
 
         # construct input shape
-        input_shape=(int(lstmBatchSize/10),input_dim,)
+        input_shape=(int(lstmBatchSize/10000),input_dim,)
         print("[INFO] input_shape", input_shape)
 
         print("[INFO] LSTM first and last layer neurons:", wrapLayerSize)

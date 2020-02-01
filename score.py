@@ -106,7 +106,7 @@ def eval_dnn(df):
     global cf_total
     global model
 
-    x_test, y_test = to_xy(df, arguments.resultColumn, classes)
+    x_test, y_test = to_xy(df, arguments.resultColumn, classes, arguments.debug)
     print("x_test", x_test, "shape", x_test.shape)
     
     #np.set_printoptions(threshold=sys.maxsize)

@@ -55,12 +55,12 @@ python3 train.py \
     -wrapLayerSize 5 \
     -dropoutLayer true \
     -coreLayerSize 10 \
-    -epoch 3 \
+    -epoch 5 \
     -zscoreUnixtime true \
     -lstm true \
     -features 16 \
     -drop modbus_value \
-    -lstmBatchSize 100 \
+    -lstmBatchSize 100000 \
     -debug true
     #-saveModel true
 
@@ -71,11 +71,11 @@ python3 score.py \
     -dropoutLayer true \
     -coreLayerSize 10 \
     -features 16 \
-    -weights checkpoints/lstm-epoch-3-files-0-1-batch-499900-500000 \
+    -weights checkpoints/lstm-epoch-5-files-0-1-batch-400000-500000 \
     -drop modbus_value  \
     -lstm true  \
     -zscoreUnixtime true \
-    -lstmBatchSize 100 \
+    -lstmBatchSize 100000 \
     -debug true
 
 #alternative: 1200
