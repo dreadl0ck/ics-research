@@ -212,22 +212,21 @@ def run():
                 with pd.option_context('display.max_rows', 10, 'display.max_columns', None):  # more options can be specified also
                     print(df)
 
-            if arguments.lstm:
-                for batch_index in range(0, df.shape[0], arguments.lstmBatchSize):
+            # we are batching the data also for the sequential dense layered dnn,
+            # as we observed that smaller batch size increases prediction performance
+            for batch_index in range(0, df.shape[0], arguments.lstmBatchSize):
 
-                    print("[INFO] processing batch {}-{}/{} for LSTM".format(batch_index, batch_index+arguments.lstmBatchSize, df.shape[0]))
+                print("[INFO] processing batch {}-{}/{}".format(batch_index, batch_index+arguments.lstmBatchSize, df.shape[0]))
 
-                    dfCopy = df[batch_index:batch_index+arguments.lstmBatchSize]
+                dfCopy = df[batch_index:batch_index+arguments.lstmBatchSize]
 
-                    # skip leftover that does not reach batch size
-                    if len(dfCopy.index) != arguments.lstmBatchSize:
-                        leftover = dfCopy
-                        continue
+                # skip leftover that does not reach batch size
+                if len(dfCopy.index) != arguments.lstmBatchSize:
+                    leftover = dfCopy
+                    continue
 
-                    train_dnn(dfCopy, i, epoch+1, batch_index)
-                    leftover = None
-            else:
-                train_dnn(df, i, epoch+1)
+                train_dnn(dfCopy, i, epoch+1, batch_index)
+                leftover = None
 
 # instantiate the parser
 parser = argparse.ArgumentParser(description='NETCAP compatible implementation of Network Anomaly Detection with a Deep Neural Network and TensorFlow')
