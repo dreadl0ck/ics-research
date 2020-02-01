@@ -12,6 +12,7 @@ import pandas as pd
 import keras
 import traceback
 import sys
+import datetime
 
 from tfUtils import * 
 from glob import glob
@@ -40,9 +41,9 @@ def train_dnn(df, i, epoch, batch_index=None):
 
     print("[INFO] breaking into predictors and prediction...")
     # Break into X (predictors) & y (prediction)
-    x, y = to_xy(df, arguments.result_column, classes)
+    x, y = to_xy(df, arguments.resultColumn, classes)
 
-    print("[INFO] creating train/test split:", arguments.test_size)
+    print("[INFO] creating train/test split:", arguments.testSize)
 
     # Create a test/train split.
     # by default, 25% of data is used for testing
@@ -50,7 +51,7 @@ def train_dnn(df, i, epoch, batch_index=None):
     x_train, x_test, y_train, y_test = train_test_split(
         x,
         y,
-        test_size=arguments.test_size,
+        test_size=arguments.testSize,
         random_state=42, # TODO
         shuffle=arguments.shuffle
     )
@@ -65,11 +66,11 @@ def train_dnn(df, i, epoch, batch_index=None):
     if arguments.lstm:
 
         print("[INFO] using LSTM layers")
-        x_train = x_train.reshape(3, int(x_train.shape[0]/3), x.shape[1])
-        y_train = y_train.reshape(3, int(y_train.shape[0]/3), y.shape[1])
+        x_train = x_train.reshape(8, int(x_train.shape[0]/8), x.shape[1])
+        y_train = y_train.reshape(8, int(y_train.shape[0]/8), y.shape[1])
 
-        x_test = x_test.reshape(1, x_test.shape[0], x.shape[1])
-        y_test = y_test.reshape(1, y_test.shape[0], y.shape[1])
+        x_test = x_test.reshape(2, int(x_test.shape[0]/2), x.shape[1])
+        y_test = y_test.reshape(2, int(y_test.shape[0]/2), y.shape[1])
 
         if arguments.debug:
             print("--------RESHAPED--------")
@@ -119,11 +120,11 @@ def save_model(i, epoch, batch_index=None):
         os.mkdir("models")
 
     if arguments.lstm:
-        print("[INFO] saving model to models/lstm-epoch-{}-files-{}-{}-batch-{}-{}".format(epoch, i, i+batch_size, batch_index, batch_index+arguments.lstmBatchSize))
-        model.save('./models/lstm-epoch-{}-files-{}-{}-batch-{}-{}'.format(epoch, i, i+batch_size, batch_index, batch_index+arguments.lstmBatchSize))
+        print("[INFO] saving model to models/lstm-epoch-{}-files-{}-{}-batch-{}-{}.h5".format(epoch, i, i+batch_size, batch_index, batch_index+arguments.lstmBatchSize))
+        model.save('./models/lstm-epoch-{}-files-{}-{}-batch-{}-{}.h5'.format(epoch, i, i+batch_size, batch_index, batch_index+arguments.lstmBatchSize))
     else:
-        print("[INFO] saving model to models/dnn-epoch-{}-files-{}-{}".format(epoch, i, i+batch_size))
-        model.save('./models/dnn-epoch-{}-files-{}-{}'.format(epoch, i, i+batch_size))
+        print("[INFO] saving model to models/dnn-epoch-{}-files-{}-{}.h5".format(epoch, i, i+batch_size))
+        model.save('./models/dnn-epoch-{}-files-{}-{}.h5'.format(epoch, i, i+batch_size))
 
 def save_weights(i, epoch, batch_index=None):
     if not path.exists("checkpoints"):
@@ -202,7 +203,7 @@ def run():
 
             if arguments.encodeColumns:
                 print("[INFO] Shape when encoding dataset:", df.shape)
-                encode_columns(df, arguments.result_column, arguments.lstm, arguments.debug)
+                encode_columns(df, arguments.resultColumn, arguments.lstm, arguments.debug)
                 print("[INFO] Shape AFTER encoding dataset:", df.shape)
 
             if arguments.debug:
@@ -236,7 +237,7 @@ parser.add_argument('-read', required=True, type=str, help='Regex to find all la
 parser.add_argument('-drop', type=str, help='optionally drop specified columns, supply multiple with comma')
 parser.add_argument('-sample', type=float, default=1.0, help='optionally sample only a fraction of records')
 parser.add_argument('-dropna', default=False, action='store_true', help='drop rows with missing values')
-parser.add_argument('-testSize', type=float, default=0.25, help='specify size of the test data in percent (default: 0.25)')
+parser.add_argument('-testSize', type=float, default=0.2, help='specify size of the test data in percent (default: 0.25)')
 parser.add_argument('-loss', type=str, default='categorical_crossentropy', help='set function (default: categorical_crossentropy)')
 parser.add_argument('-optimizer', type=str, default='adam', help='set optimizer (default: adam)')
 parser.add_argument('-resultColumn', type=str, default='classification', help='set name of the column with the prediction')
@@ -250,12 +251,12 @@ parser.add_argument('-dropoutLayer', default=False, help='insert a dropout layer
 parser.add_argument('-coreLayerSize', type=int, default=4, help='size of an DNN core layer')
 parser.add_argument('-wrapLayerSize', type=int, default=2, help='size of the first and last DNN layer')
 parser.add_argument('-lstm', default=False, help='use a LSTM network')
-parser.add_argument('-lstmBatchSize', type=int, default=125000, help='LSTM network input number of rows')
+parser.add_argument('-lstmBatchSize', type=int, default=10000, help='LSTM network input number of rows')
 parser.add_argument('-debug', default=False, help='debug mode on off')
-parser.add_argument('-zscoreColumns', default=False, help='apply zscore to unixtime column')
+parser.add_argument('-zscoreUnixtime', default=False, help='apply zscore to unixtime column')
 parser.add_argument('-encodeColumns', default=False, help='switch between auto encoding or using a fully encoded dataset')
 parser.add_argument('-classes', type=str, help='supply one or multiple comma separated class identifiers')
-parser.add_argument('-saveModel', default=True, help='save model (if false, only the weights will be saved)')
+parser.add_argument('-saveModel', default=False, help='save model (if false, only the weights will be saved)')
 
 # parse commandline arguments
 arguments = parser.parse_args()
@@ -263,18 +264,26 @@ if arguments.read is None:
     print("[INFO] need an input file / multi file regex. use the -read flag")
     exit(1)
 
-classes = arguments.classes.split(',')
+if not path.exists(arguments.read):
+    print("[INFO] path does not exist")
+    exit(1)
+
+if arguments.classes is not None:
+    classes = arguments.classes.split(',')
+    print("set classes to:", classes)
+
+print("Date:", datetime.datetime.now())
 
 # get all files
 files = glob(arguments.read)
 files.sort()
 
 # set batch size
-batch_size = arguments.batch_size
+batch_size = arguments.batchSize
 
 # create models
 model = create_dnn(
-    arguments.dimensionality, 
+    arguments.features, 
     len(classes), 
     arguments.loss, 
     arguments.optimizer, 

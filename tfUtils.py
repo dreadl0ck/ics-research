@@ -197,26 +197,26 @@ encoders = {
     'Ja3'                : encode_string, # string
 
     # SWaT 2015 Network CSVs
-    "num"                          : encode_numeric_zscore,
-    "date"                         : encode_string,
-    "time"                         : encode_string,
-    "orig"                         : encode_string,
-    "type"                         : encode_string,
-    "i/f_name"                     : encode_string,
-    "i/f_dir"                      : encode_string,
-    "src"                          : encode_string,
-    "dst"                          : encode_string,
-    "proto"                        : encode_string,
-    "appi_name"                    : encode_string,
-    "proxy_src_ip"                 : encode_string,
-    "Modbus_Function_Code"         : encode_numeric_zscore,
-    "Modbus_Function_Description"  : encode_string,
-    "Modbus_Transaction_ID"        : encode_numeric_zscore,
-    "SCADA_Tag"                    : encode_string,
-    "Modbus_Value"                 : encode_string,
-    "service"                      : encode_numeric_zscore,
-    "s_port"                       : encode_numeric_zscore,
-    "Tag"                          : encode_numeric_zscore,
+    #"num"                          : encode_numeric_zscore,
+    #"date"                         : encode_string,
+    #"time"                         : encode_string,
+    #"orig"                         : encode_string,
+    #"type"                         : encode_string,
+    #"i/f_name"                     : encode_string,
+    #"i/f_dir"                      : encode_string,
+    #"src"                          : encode_string,
+    #"dst"                          : encode_string,
+    #"proto"                        : encode_string,
+    #"appi_name"                    : encode_string,
+    #"proxy_src_ip"                 : encode_string,
+    #"Modbus_Function_Code"         : encode_numeric_zscore,
+    #"Modbus_Function_Description"  : encode_string,
+    #"Modbus_Transaction_ID"        : encode_numeric_zscore,
+    #"SCADA_Tag"                    : encode_string,
+    #"Modbus_Value"                 : encode_string,
+    #"service"                      : encode_numeric_zscore,
+    #"s_port"                       : encode_numeric_zscore,
+    #"Tag"                          : encode_numeric_zscore,
 }
 
 import sys
@@ -419,7 +419,7 @@ def create_dnn(input_dim, output_dim, loss, optimizer, lstm, numCoreLayers, core
     if lstm:
 
         # construct input shape
-        input_shape=(int(lstmBatchSize/4),input_dim,)
+        input_shape=(int(lstmBatchSize/10),input_dim,)
         print("[INFO] input_shape", input_shape)
 
         print("[INFO] LSTM first and last layer neurons:", wrapLayerSize)
@@ -464,6 +464,11 @@ def create_dnn(input_dim, output_dim, loss, optimizer, lstm, numCoreLayers, core
             model.add(Dense(coreLayerSize, input_dim=input_dim, kernel_initializer='normal', activation='relu'))
 
         model.add(Dense(wrapLayerSize, input_dim=input_dim, kernel_initializer='normal', activation='relu'))
+
+        # add dropout layer if requested
+        if dropoutLayer:
+            model.add(Dropout(rate=0.5))
+
         model.add(Dense(1, kernel_initializer='normal'))
         model.add(Dense(output_dim, activation='softmax'))
 

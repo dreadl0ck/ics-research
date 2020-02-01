@@ -1,0 +1,634 @@
+$ go run ../../datenwolf -attacks List_of_attacks_Final-fixed.csv -suffix _sorted.csv -colsums colSums-29Jan2020-221001.json -workers 25 -offset 392 -max 588 -out SWaT2015-Network-Labeled-Pt3
+parsing attacks in List_of_attacks_Final-fixed.csv
+started at 2020-01-31 01:50:04.017897 +0100 CET m=+0.004170102
+collected 588 CSV files for labeling, num workers: 25
+offset 392
+new CSV header: [unixtime orig type i/f_name i/f_dir src dst proto appi_name proxy_src_ip modbus_function_code modbus_function_description modbus_transaction_id scada_tag modbus_value service s_port classification]
+file_suffix _sorted.csv
+output directory: SWaT2015-Network-Labeled-Pt3
+initializing 25 workers
+loaded column summaries: 17
+[25/588] processing 2015-12-28_113021_98.log.part11_sorted.csv
+[12/588] processing 2015-12-28_061526_97.log.part12_sorted.csv
+[18/588] processing 2015-12-28_113021_98.log.part04_sorted.csv
+[6/588] processing 2015-12-28_061526_97.log.part06_sorted.csv
+[7/588] processing 2015-12-28_061526_97.log.part07_sorted.csv
+[21/588] processing 2015-12-28_113021_98.log.part07_sorted.csv
+[8/588] processing 2015-12-28_061526_97.log.part08_sorted.csv
+[9/588] processing 2015-12-28_061526_97.log.part09_sorted.csv
+[23/588] processing 2015-12-28_113021_98.log.part09_sorted.csv
+[24/588] processing 2015-12-28_113021_98.log.part10_sorted.csv
+[15/588] processing 2015-12-28_113021_98.log.part01_sorted.csv
+[22/588] processing 2015-12-28_113021_98.log.part08_sorted.csv
+[10/588] processing 2015-12-28_061526_97.log.part10_sorted.csv
+[13/588] processing 2015-12-28_061526_97.log.part13_sorted.csv
+[11/588] processing 2015-12-28_061526_97.log.part11_sorted.csv
+[14/588] processing 2015-12-28_061526_97.log.part14_sorted.csv
+[16/588] processing 2015-12-28_113021_98.log.part02_sorted.csv
+[19/588] processing 2015-12-28_113021_98.log.part05_sorted.csv
+[17/588] processing 2015-12-28_113021_98.log.part03_sorted.csv
+[1/588] processing 2015-12-28_061526_97.log.part01_sorted.csv
+[20/588] processing 2015-12-28_113021_98.log.part06_sorted.csv
+[2/588] processing 2015-12-28_061526_97.log.part02_sorted.csv
+[3/588] processing 2015-12-28_061526_97.log.part03_sorted.csv
+[4/588] processing 2015-12-28_061526_97.log.part04_sorted.csv
+[5/588] processing 2015-12-28_061526_97.log.part05_sorted.csv
+[3/588] 500000 records, 0 attacks written to 2015-12-28_061526_97.log.part03_sorted-labeled.csv
+[27/588] processing 2015-12-28_113021_98.log.part13_sorted.csv
+[16/588] 500000 records, 0 attacks written to 2015-12-28_113021_98.log.part02_sorted-labeled.csv
+[40/588] processing 2015-12-28_164554_99.log.part12_sorted.csv
+[19/588] 500000 records, 0 attacks written to 2015-12-28_113021_98.log.part05_sorted-labeled.csv
+[43/588] processing 2015-12-28_220136_100.log.part01_sorted.csv
+[13/588] 500000 records, 0 attacks written to 2015-12-28_061526_97.log.part13_sorted-labeled.csv
+[37/588] processing 2015-12-28_164554_99.log.part09_sorted.csv
+[22/588] 500000 records, 0 attacks written to 2015-12-28_113021_98.log.part08_sorted-labeled.csv
+[46/588] processing 2015-12-28_220136_100.log.part04_sorted.csv
+[6/588] 500000 records, 0 attacks written to 2015-12-28_061526_97.log.part06_sorted-labeled.csv
+[30/588] processing 2015-12-28_164554_99.log.part02_sorted.csv
+[25/588] 500000 records, 0 attacks written to 2015-12-28_113021_98.log.part11_sorted-labeled.csv
+[49/588] processing 2015-12-28_220136_100.log.part07_sorted.csv
+[10/588] 500000 records, 0 attacks written to 2015-12-28_061526_97.log.part10_sorted-labeled.csv
+[34/588] processing 2015-12-28_164554_99.log.part06_sorted.csv
+[14/588] 439865 records, 0 attacks written to 2015-12-28_061526_97.log.part14_sorted-labeled.csv
+[38/588] processing 2015-12-28_164554_99.log.part10_sorted.csv
+[9/588] 500000 records, 0 attacks written to 2015-12-28_061526_97.log.part09_sorted-labeled.csv
+[33/588] processing 2015-12-28_164554_99.log.part05_sorted.csv
+[7/588] 500000 records, 0 attacks written to 2015-12-28_061526_97.log.part07_sorted-labeled.csv
+[31/588] processing 2015-12-28_164554_99.log.part03_sorted.csv
+[12/588] 500000 records, 0 attacks written to 2015-12-28_061526_97.log.part12_sorted-labeled.csv
+[36/588] processing 2015-12-28_164554_99.log.part08_sorted.csv
+[4/588] 500000 records, 0 attacks written to 2015-12-28_061526_97.log.part04_sorted-labeled.csv
+[28/588] processing 2015-12-28_113021_98.log.part14_sorted.csv
+[23/588] 500000 records, 0 attacks written to 2015-12-28_113021_98.log.part09_sorted-labeled.csv
+[47/588] processing 2015-12-28_220136_100.log.part05_sorted.csv
+[8/588] 500000 records, 0 attacks written to 2015-12-28_061526_97.log.part08_sorted-labeled.csv
+[32/588] processing 2015-12-28_164554_99.log.part04_sorted.csv
+[2/588] 500000 records, 0 attacks written to 2015-12-28_061526_97.log.part02_sorted-labeled.csv
+[26/588] processing 2015-12-28_113021_98.log.part12_sorted.csv
+[1/588] 500000 records, 0 attacks written to 2015-12-28_061526_97.log.part01_sorted-labeled.csv
+[17/588] 500000 records, 0 attacks written to 2015-12-28_113021_98.log.part03_sorted-labeled.csv
+[41/588] processing 2015-12-28_164554_99.log.part13_sorted.csv
+[20/588] 500000 records, 0 attacks written to 2015-12-28_113021_98.log.part06_sorted-labeled.csv
+[44/588] processing 2015-12-28_220136_100.log.part02_sorted.csv
+[18/588] 500000 records, 0 attacks written to 2015-12-28_113021_98.log.part04_sorted-labeled.csv
+[42/588] processing 2015-12-28_164554_99.log.part14_sorted.csv
+[11/588] 500000 records, 0 attacks written to 2015-12-28_061526_97.log.part11_sorted-labeled.csv
+[35/588] processing 2015-12-28_164554_99.log.part07_sorted.csv
+[21/588] 500000 records, 0 attacks written to 2015-12-28_113021_98.log.part07_sorted-labeled.csv
+[45/588] processing 2015-12-28_220136_100.log.part03_sorted.csv
+[24/588] 500000 records, 0 attacks written to 2015-12-28_113021_98.log.part10_sorted-labeled.csv
+[48/588] processing 2015-12-28_220136_100.log.part06_sorted.csv
+[15/588] 500000 records, 0 attacks written to 2015-12-28_113021_98.log.part01_sorted-labeled.csv
+[39/588] processing 2015-12-28_164554_99.log.part11_sorted.csv
+[5/588] 500000 records, 0 attacks written to 2015-12-28_061526_97.log.part05_sorted-labeled.csv
+[29/588] processing 2015-12-28_164554_99.log.part01_sorted.csv
+[43/588] 500000 records, 0 attacks written to 2015-12-28_220136_100.log.part01_sorted-labeled.csv
+[67/588] processing 2015-12-29_031711_101.log.part11_sorted.csv
+[40/588] 500000 records, 0 attacks written to 2015-12-28_164554_99.log.part12_sorted-labeled.csv
+[64/588] processing 2015-12-29_031711_101.log.part08_sorted.csv
+[28/588] 439996 records, 0 attacks written to 2015-12-28_113021_98.log.part14_sorted-labeled.csv
+[52/588] processing 2015-12-28_220136_100.log.part10_sorted.csv
+[37/588] 500000 records, 19481 attacks written to 2015-12-28_164554_99.log.part09_sorted-labeled.csv
+[61/588] processing 2015-12-29_031711_101.log.part05_sorted.csv
+[34/588] 500000 records, 86419 attacks written to 2015-12-28_164554_99.log.part06_sorted-labeled.csv
+[58/588] processing 2015-12-29_031711_101.log.part02_sorted.csv
+[46/588] 500000 records, 0 attacks written to 2015-12-28_220136_100.log.part04_sorted-labeled.csv
+[70/588] processing 2015-12-29_031711_101.log.part14_sorted.csv
+[27/588] 500000 records, 136049 attacks written to 2015-12-28_113021_98.log.part13_sorted-labeled.csv
+[51/588] processing 2015-12-28_220136_100.log.part09_sorted.csv
+[30/588] 500000 records, 43780 attacks written to 2015-12-28_164554_99.log.part02_sorted-labeled.csv
+[54/588] processing 2015-12-28_220136_100.log.part12_sorted.csv
+[47/588] 500000 records, 0 attacks written to 2015-12-28_220136_100.log.part05_sorted-labeled.csv
+[71/588] processing 2015-12-29_083248_102.log.part01_sorted.csv
+[32/588] 500000 records, 0 attacks written to 2015-12-28_164554_99.log.part04_sorted-labeled.csv
+[56/588] processing 2015-12-28_220136_100.log.part14_sorted.csv
+[42/588] 439664 records, 0 attacks written to 2015-12-28_164554_99.log.part14_sorted-labeled.csv
+[66/588] processing 2015-12-29_031711_101.log.part10_sorted.csv
+[49/588] 500000 records, 0 attacks written to 2015-12-28_220136_100.log.part07_sorted-labeled.csv
+[73/588] processing 2015-12-29_083248_102.log.part03_sorted.csv
+[33/588] 500000 records, 40405 attacks written to 2015-12-28_164554_99.log.part05_sorted-labeled.csv
+[57/588] processing 2015-12-29_031711_101.log.part01_sorted.csv
+[39/588] 500000 records, 0 attacks written to 2015-12-28_164554_99.log.part11_sorted-labeled.csv
+[63/588] processing 2015-12-29_031711_101.log.part07_sorted.csv
+[29/588] 500000 records, 66442 attacks written to 2015-12-28_164554_99.log.part01_sorted-labeled.csv
+[53/588] processing 2015-12-28_220136_100.log.part11_sorted.csv
+[26/588] 500000 records, 103514 attacks written to 2015-12-28_113021_98.log.part12_sorted-labeled.csv
+[50/588] processing 2015-12-28_220136_100.log.part08_sorted.csv
+[31/588] 500000 records, 56345 attacks written to 2015-12-28_164554_99.log.part03_sorted-labeled.csv
+[55/588] processing 2015-12-28_220136_100.log.part13_sorted.csv
+[38/588] 500000 records, 0 attacks written to 2015-12-28_164554_99.log.part10_sorted-labeled.csv
+[62/588] processing 2015-12-29_031711_101.log.part06_sorted.csv
+[44/588] 500000 records, 0 attacks written to 2015-12-28_220136_100.log.part02_sorted-labeled.csv
+[68/588] processing 2015-12-29_031711_101.log.part12_sorted.csv
+[36/588] 500000 records, 28578 attacks written to 2015-12-28_164554_99.log.part08_sorted-labeled.csv
+[60/588] processing 2015-12-29_031711_101.log.part04_sorted.csv
+[48/588] 500000 records, 0 attacks written to 2015-12-28_220136_100.log.part06_sorted-labeled.csv
+[72/588] processing 2015-12-29_083248_102.log.part02_sorted.csv
+[41/588] 500000 records, 0 attacks written to 2015-12-28_164554_99.log.part13_sorted-labeled.csv
+[65/588] processing 2015-12-29_031711_101.log.part09_sorted.csv
+[45/588] 500000 records, 0 attacks written to 2015-12-28_220136_100.log.part03_sorted-labeled.csv
+[69/588] processing 2015-12-29_031711_101.log.part13_sorted.csv
+[35/588] 500000 records, 0 attacks written to 2015-12-28_164554_99.log.part07_sorted-labeled.csv
+[59/588] processing 2015-12-29_031711_101.log.part03_sorted.csv
+[58/588] 500000 records, 0 attacks written to 2015-12-29_031711_101.log.part02_sorted-labeled.csv
+[82/588] processing 2015-12-29_083248_102.log.part12_sorted.csv
+[71/588] 500000 records, 0 attacks written to 2015-12-29_083248_102.log.part01_sorted-labeled.csv
+[95/588] processing 2015-12-29_134830_103.log.part11_sorted.csv
+[61/588] 500000 records, 0 attacks written to 2015-12-29_031711_101.log.part05_sorted-labeled.csv
+[85/588] processing 2015-12-29_134830_103.log.part01_sorted.csv
+[51/588] 500000 records, 0 attacks written to 2015-12-28_220136_100.log.part09_sorted-labeled.csv
+[75/588] processing 2015-12-29_083248_102.log.part05_sorted.csv
+[67/588] 500000 records, 0 attacks written to 2015-12-29_031711_101.log.part11_sorted-labeled.csv
+[91/588] processing 2015-12-29_134830_103.log.part07_sorted.csv
+[64/588] 500000 records, 0 attacks written to 2015-12-29_031711_101.log.part08_sorted-labeled.csv
+[88/588] processing 2015-12-29_134830_103.log.part04_sorted.csv
+[70/588] 439762 records, 0 attacks written to 2015-12-29_031711_101.log.part14_sorted-labeled.csv
+[94/588] processing 2015-12-29_134830_103.log.part10_sorted.csv
+
+
+
+[54/588] 500000 records, 0 attacks written to 2015-12-28_220136_100.log.part12_sorted-labeled.csv
+[78/588] processing 2015-12-29_083248_102.log.part08_sorted.csv
+
+
+
+^A
+
+
+
+[68/588] 500000 records, 0 attacks written to 2015-12-29_031711_101.log.part12_sorted-labeled.csv
+[92/588] processing 2015-12-29_134830_103.log.part08_sorted.csv
+[52/588] 500000 records, 0 attacks written to 2015-12-28_220136_100.log.part10_sorted-labeled.csv
+[76/588] processing 2015-12-29_083248_102.log.part06_sorted.csv
+[56/588] 439755 records, 0 attacks written to 2015-12-28_220136_100.log.part14_sorted-labeled.csv
+[80/588] processing 2015-12-29_083248_102.log.part10_sorted.csv
+
+
+
+
+
+
+
+
+[55/588] 500000 records, 0 attacks written to 2015-12-28_220136_100.log.part13_sorted-labeled.csv
+[79/588] processing 2015-12-29_083248_102.log.part09_sorted.csv
+[50/588] 500000 records, 0 attacks written to 2015-12-28_220136_100.log.part08_sorted-labeled.csv
+[74/588] processing 2015-12-29_083248_102.log.part04_sorted.csv
+[62/588] 500000 records, 0 attacks written to 2015-12-29_031711_101.log.part06_sorted-labeled.csv
+[86/588] processing 2015-12-29_134830_103.log.part02_sorted.csv
+
+
+
+
+
+
+
+
+
+
+[66/588] 500000 records, 0 attacks written to 2015-12-29_031711_101.log.part10_sorted-labeled.csv
+[90/588] processing 2015-12-29_134830_103.log.part06_sorted.csv
+[65/588] 500000 records, 0 attacks written to 2015-12-29_031711_101.log.part09_sorted-labeled.csv
+[89/588] processing 2015-12-29_134830_103.log.part05_sorted.csv
+[73/588] 500000 records, 0 attacks written to 2015-12-29_083248_102.log.part03_sorted-labeled.csv
+[97/588] processing 2015-12-29_134830_103.log.part13_sorted.csv
+[63/588] 500000 records, 0 attacks written to 2015-12-29_031711_101.log.part07_sorted-labeled.csv
+[87/588] processing 2015-12-29_134830_103.log.part03_sorted.csv
+[57/588] 500000 records, 0 attacks written to 2015-12-29_031711_101.log.part01_sorted-labeled.csv
+[81/588] processing 2015-12-29_083248_102.log.part11_sorted.csv
+
+
+
+[53/588] 500000 records, 0 attacks written to 2015-12-28_220136_100.log.part11_sorted-labeled.csv
+[77/588] processing 2015-12-29_083248_102.log.part07_sorted.csv
+[72/588] 500000 records, 0 attacks written to 2015-12-29_083248_102.log.part02_sorted-labeled.csv
+[96/588] processing 2015-12-29_134830_103.log.part12_sorted.csv
+[60/588] 500000 records, 0 attacks written to 2015-12-29_031711_101.log.part04_sorted-labeled.csv
+[84/588] processing 2015-12-29_083248_102.log.part14_sorted.csv
+[59/588] 500000 records, 0 attacks written to 2015-12-29_031711_101.log.part03_sorted-labeled.csv
+[83/588] processing 2015-12-29_083248_102.log.part13_sorted.csv
+[69/588] 500000 records, 0 attacks written to 2015-12-29_031711_101.log.part13_sorted-labeled.csv
+[93/588] processing 2015-12-29_134830_103.log.part09_sorted.csv
+[78/588] 500000 records, 0 attacks written to 2015-12-29_083248_102.log.part08_sorted-labeled.csv
+[102/588] processing 2015-12-29_190411_104.log.part04_sorted.csv
+[82/588] 500000 records, 0 attacks written to 2015-12-29_083248_102.log.part12_sorted-labeled.csv
+[106/588] processing 2015-12-29_190411_104.log.part08_sorted.csv
+[75/588] 500000 records, 0 attacks written to 2015-12-29_083248_102.log.part05_sorted-labeled.csv
+[99/588] processing 2015-12-29_190411_104.log.part01_sorted.csv
+[85/588] 500000 records, 0 attacks written to 2015-12-29_134830_103.log.part01_sorted-labeled.csv
+[109/588] processing 2015-12-29_190411_104.log.part11_sorted.csv
+[95/588] 500000 records, 0 attacks written to 2015-12-29_134830_103.log.part11_sorted-labeled.csv
+[119/588] processing 2015-12-30_001940_105.log.part07_sorted.csv
+[74/588] 500000 records, 0 attacks written to 2015-12-29_083248_102.log.part04_sorted-labeled.csv
+[98/588] processing 2015-12-29_134830_103.log.part14_sorted.csv
+[90/588] 500000 records, 0 attacks written to 2015-12-29_134830_103.log.part06_sorted-labeled.csv
+[114/588] processing 2015-12-30_001940_105.log.part02_sorted.csv
+[94/588] 500000 records, 36191 attacks written to 2015-12-29_134830_103.log.part10_sorted-labeled.csv
+[118/588] processing 2015-12-30_001940_105.log.part06_sorted.csv
+[84/588] 439747 records, 0 attacks written to 2015-12-29_083248_102.log.part14_sorted-labeled.csv
+[108/588] processing 2015-12-29_190411_104.log.part10_sorted.csv
+[91/588] 500000 records, 0 attacks written to 2015-12-29_134830_103.log.part07_sorted-labeled.csv
+[115/588] processing 2015-12-30_001940_105.log.part03_sorted.csv
+[88/588] 500000 records, 0 attacks written to 2015-12-29_134830_103.log.part04_sorted-labeled.csv
+[112/588] processing 2015-12-29_190411_104.log.part14_sorted.csv
+[87/588] 500000 records, 0 attacks written to 2015-12-29_134830_103.log.part03_sorted-labeled.csv
+[111/588] processing 2015-12-29_190411_104.log.part13_sorted.csv
+
+
+
+[80/588] 500000 records, 0 attacks written to 2015-12-29_083248_102.log.part10_sorted-labeled.csv
+[104/588] processing 2015-12-29_190411_104.log.part06_sorted.csv
+[92/588] 500000 records, 30549 attacks written to 2015-12-29_134830_103.log.part08_sorted-labeled.csv
+[116/588] processing 2015-12-30_001940_105.log.part04_sorted.csv
+[96/588] 500000 records, 0 attacks written to 2015-12-29_134830_103.log.part12_sorted-labeled.csv
+[120/588] processing 2015-12-30_001940_105.log.part08_sorted.csv
+[76/588] 500000 records, 0 attacks written to 2015-12-29_083248_102.log.part06_sorted-labeled.csv
+[100/588] processing 2015-12-29_190411_104.log.part02_sorted.csv
+[81/588] 500000 records, 0 attacks written to 2015-12-29_083248_102.log.part11_sorted-labeled.csv
+[105/588] processing 2015-12-29_190411_104.log.part07_sorted.csv
+[77/588] 500000 records, 0 attacks written to 2015-12-29_083248_102.log.part07_sorted-labeled.csv
+[101/588] processing 2015-12-29_190411_104.log.part03_sorted.csv
+
+
+
+[79/588] 500000 records, 0 attacks written to 2015-12-29_083248_102.log.part09_sorted-labeled.csv
+[103/588] processing 2015-12-29_190411_104.log.part05_sorted.csv
+[86/588] 500000 records, 0 attacks written to 2015-12-29_134830_103.log.part02_sorted-labeled.csv
+[110/588] processing 2015-12-29_190411_104.log.part12_sorted.csv
+[93/588] 500000 records, 0 attacks written to 2015-12-29_134830_103.log.part09_sorted-labeled.csv
+[117/588] processing 2015-12-30_001940_105.log.part05_sorted.csv
+[97/588] 500000 records, 0 attacks written to 2015-12-29_134830_103.log.part13_sorted-labeled.csv
+[121/588] processing 2015-12-30_001940_105.log.part09_sorted.csv
+
+
+
+
+[89/588] 500000 records, 0 attacks written to 2015-12-29_134830_103.log.part05_sorted-labeled.csv
+[113/588] processing 2015-12-30_001940_105.log.part01_sorted.csv
+[83/588] 500000 records, 0 attacks written to 2015-12-29_083248_102.log.part13_sorted-labeled.csv
+[107/588] processing 2015-12-29_190411_104.log.part09_sorted.csv
+
+
+
+
+ [1245409 29Dec2015 19:51:59 0 0 2 1 3 2 0 8 1 -33.76087 0 -1.72895 0 177093 -211.35748 -3.37872 {568273DF-0002-0000-C0A8-0130000000C0}]
+[WARNING] failed to parse number:  {568273DF-0002-0000-C0A8-0130000000C0}  file:  2015-12-30_001940_105.log.part03_sorted.csv  line:  245410  column:  Tag setting it to zero by default!
+ [146059 29Dec2015 19:01:59 0 0 2 1 3 2 0 30 17 -33.76087 0 -1.72895 0 177093 -211.35748 -3.37872 {568249AF-0000-0000-C0A8-0130000000C0}]
+[WARNING] failed to parse number:  {568249AF-0000-0000-C0A8-0130000000C0}  file:  2015-12-30_001940_105.log.part01_sorted.csv  line:  146060  column:  Tag setting it to zero by default!
+[119/588] 500000 records, 0 attacks written to 2015-12-30_001940_105.log.part07_sorted-labeled.csv
+[143/588] processing 2015-12-30_105053_107.log.part03_sorted.csv
+[109/588] 500000 records, 0 attacks written to 2015-12-29_190411_104.log.part11_sorted-labeled.csv
+[133/588] processing 2015-12-30_053515_106.log.part07_sorted.csv
+[112/588] 439690 records, 68509 attacks written to 2015-12-29_190411_104.log.part14_sorted-labeled.csv
+[136/588] processing 2015-12-30_053515_106.log.part10_sorted.csv
+[106/588] 500000 records, 0 attacks written to 2015-12-29_190411_104.log.part08_sorted-labeled.csv
+[130/588] processing 2015-12-30_053515_106.log.part04_sorted.csv
+[116/588] 500000 records, 0 attacks written to 2015-12-30_001940_105.log.part04_sorted-labeled.csv
+[140/588] processing 2015-12-30_053515_106.log.part14_sorted.csv
+[99/588] 500000 records, 0 attacks written to 2015-12-29_190411_104.log.part01_sorted-labeled.csv
+[123/588] processing 2015-12-30_001940_105.log.part11_sorted.csv
+[102/588] 500000 records, 17457 attacks written to 2015-12-29_190411_104.log.part04_sorted-labeled.csv
+[126/588] processing 2015-12-30_001940_105.log.part14_sorted.csv
+[98/588] 439693 records, 0 attacks written to 2015-12-29_134830_103.log.part14_sorted-labeled.csv
+[122/588] processing 2015-12-30_001940_105.log.part10_sorted.csv
+[100/588] 500000 records, 0 attacks written to 2015-12-29_190411_104.log.part02_sorted-labeled.csv
+[124/588] processing 2015-12-30_001940_105.log.part12_sorted.csv
+[104/588] 500000 records, 0 attacks written to 2015-12-29_190411_104.log.part06_sorted-labeled.csv
+[128/588] processing 2015-12-30_053515_106.log.part02_sorted.csv
+[108/588] 500000 records, 0 attacks written to 2015-12-29_190411_104.log.part10_sorted-labeled.csv
+[132/588] processing 2015-12-30_053515_106.log.part06_sorted.csv
+[118/588] 500000 records, 0 attacks written to 2015-12-30_001940_105.log.part06_sorted-labeled.csv
+[142/588] processing 2015-12-30_105053_107.log.part02_sorted.csv
+[111/588] 500000 records, 55230 attacks written to 2015-12-29_190411_104.log.part13_sorted-labeled.csv
+[135/588] processing 2015-12-30_053515_106.log.part09_sorted.csv
+[115/588] 500000 records, 0 attacks written to 2015-12-30_001940_105.log.part03_sorted-labeled.csv
+[139/588] processing 2015-12-30_053515_106.log.part13_sorted.csv
+[114/588] 500000 records, 0 attacks written to 2015-12-30_001940_105.log.part02_sorted-labeled.csv
+[138/588] processing 2015-12-30_053515_106.log.part12_sorted.csv
+[101/588] 500000 records, 76513 attacks written to 2015-12-29_190411_104.log.part03_sorted-labeled.csv
+[125/588] processing 2015-12-30_001940_105.log.part13_sorted.csv
+[120/588] 500000 records, 0 attacks written to 2015-12-30_001940_105.log.part08_sorted-labeled.csv
+[144/588] processing 2015-12-30_105053_107.log.part04_sorted.csv
+[105/588] 500000 records, 0 attacks written to 2015-12-29_190411_104.log.part07_sorted-labeled.csv
+[129/588] processing 2015-12-30_053515_106.log.part03_sorted.csv
+[113/588] 500000 records, 0 attacks written to 2015-12-30_001940_105.log.part01_sorted-labeled.csv
+[137/588] processing 2015-12-30_053515_106.log.part11_sorted.csv
+[103/588] 500000 records, 0 attacks written to 2015-12-29_190411_104.log.part05_sorted-labeled.csv
+[127/588] processing 2015-12-30_053515_106.log.part01_sorted.csv
+[110/588] 500000 records, 0 attacks written to 2015-12-29_190411_104.log.part12_sorted-labeled.csv
+[134/588] processing 2015-12-30_053515_106.log.part08_sorted.csv
+[117/588] 500000 records, 0 attacks written to 2015-12-30_001940_105.log.part05_sorted-labeled.csv
+[141/588] processing 2015-12-30_105053_107.log.part01_sorted.csv
+[121/588] 500000 records, 0 attacks written to 2015-12-30_001940_105.log.part09_sorted-labeled.csv
+[145/588] processing 2015-12-30_105053_107.log.part05_sorted.csv
+[107/588] 500000 records, 0 attacks written to 2015-12-29_190411_104.log.part09_sorted-labeled.csv
+[131/588] processing 2015-12-30_053515_106.log.part05_sorted.csv
+[143/588] 500000 records, 0 attacks written to 2015-12-30_105053_107.log.part03_sorted-labeled.csv
+[167/588] processing 2015-12-30_160630_108.log.part13_sorted.csv
+[140/588] 439745 records, 0 attacks written to 2015-12-30_053515_106.log.part14_sorted-labeled.csv
+[164/588] processing 2015-12-30_160630_108.log.part10_sorted.csv
+[136/588] 500000 records, 0 attacks written to 2015-12-30_053515_106.log.part10_sorted-labeled.csv
+[160/588] processing 2015-12-30_160630_108.log.part06_sorted.csv
+python3 ../train.py -read "SWaT_Dataset_Attack_v0-fixed-train-test.csv" -dimensionality 52 -optimizer sgd -result_column Normal/Attack -lstm true -lstmBatchSize 87484
+
+
+
+
+
+
+[122/588] 500000 records, 0 attacks written to 2015-12-30_001940_105.log.part10_sorted-labeled.csv
+[146/588] processing 2015-12-30_105053_107.log.part06_sorted.csv
+[126/588] 439753 records, 0 attacks written to 2015-12-30_001940_105.log.part14_sorted-labeled.csv
+[150/588] processing 2015-12-30_105053_107.log.part10_sorted.csv
+
+
+
+
+
+
+[130/588] 500000 records, 0 attacks written to 2015-12-30_053515_106.log.part04_sorted-labeled.csv
+[154/588] processing 2015-12-30_105053_107.log.part14_sorted.csv
+[133/588] 500000 records, 0 attacks written to 2015-12-30_053515_106.log.part07_sorted-labeled.csv
+[157/588] processing 2015-12-30_160630_108.log.part03_sorted.csv
+[123/588] 500000 records, 30850 attacks written to 2015-12-30_001940_105.log.part11_sorted-labeled.csv
+[147/588] processing 2015-12-30_105053_107.log.part07_sorted.csv
+[125/588] 500000 records, 0 attacks written to 2015-12-30_001940_105.log.part13_sorted-labeled.csv
+[149/588] processing 2015-12-30_105053_107.log.part09_sorted.csv
+[128/588] 500000 records, 0 attacks written to 2015-12-30_053515_106.log.part02_sorted-labeled.csv
+[152/588] processing 2015-12-30_105053_107.log.part12_sorted.csv
+
+
+
+
+
+
+[139/588] 500000 records, 0 attacks written to 2015-12-30_053515_106.log.part13_sorted-labeled.csv
+[163/588] processing 2015-12-30_160630_108.log.part09_sorted.csv
+[137/588] 500000 records, 0 attacks written to 2015-12-30_053515_106.log.part11_sorted-labeled.csv
+[161/588] processing 2015-12-30_160630_108.log.part07_sorted.csv
+
+
+
+
+
+[124/588] 500000 records, 0 attacks written to 2015-12-30_001940_105.log.part12_sorted-labeled.csv
+[148/588] processing 2015-12-30_105053_107.log.part08_sorted.csv
+
+
+
+
+[132/588] 500000 records, 0 attacks written to 2015-12-30_053515_106.log.part06_sorted-labeled.csv
+[156/588] processing 2015-12-30_160630_108.log.part02_sorted.csv
+
+
+
+
+[142/588] 500000 records, 0 attacks written to 2015-12-30_105053_107.log.part02_sorted-labeled.csv
+[166/588] processing 2015-12-30_160630_108.log.part12_sorted.csv
+[135/588] 500000 records, 0 attacks written to 2015-12-30_053515_106.log.part09_sorted-labeled.csv
+[159/588] processing 2015-12-30_160630_108.log.part05_sorted.csv
+[129/588] 500000 records, 0 attacks written to 2015-12-30_053515_106.log.part03_sorted-labeled.csv
+[153/588] processing 2015-12-30_105053_107.log.part13_sorted.csv
+[138/588] 500000 records, 0 attacks written to 2015-12-30_053515_106.log.part12_sorted-labeled.csv
+[162/588] processing 2015-12-30_160630_108.log.part08_sorted.csv
+[134/588] 500000 records, 0 attacks written to 2015-12-30_053515_106.log.part08_sorted-labeled.csv
+[158/588] processing 2015-12-30_160630_108.log.part04_sorted.csv
+[144/588] 500000 records, 0 attacks written to 2015-12-30_105053_107.log.part04_sorted-labeled.csv
+[168/588] processing 2015-12-30_160630_108.log.part14_sorted.csv
+[131/588] 500000 records, 96998 attacks written to 2015-12-30_053515_106.log.part05_sorted-labeled.csv
+[155/588] processing 2015-12-30_160630_108.log.part01_sorted.csv
+
+
+
+
+[127/588] 500000 records, 0 attacks written to 2015-12-30_053515_106.log.part01_sorted-labeled.csv
+[151/588] processing 2015-12-30_105053_107.log.part11_sorted.csv
+
+
+
+
+[141/588] 500000 records, 0 attacks written to 2015-12-30_105053_107.log.part01_sorted-labeled.csv
+[165/588] processing 2015-12-30_160630_108.log.part11_sorted.csv
+[167/588] 500000 records, 0 attacks written to 2015-12-30_160630_108.log.part13_sorted-labeled.csv
+[191/588] processing 2015-12-31_023431_110.log.part09_sorted.csv
+[145/588] 500000 records, 0 attacks written to 2015-12-30_105053_107.log.part05_sorted-labeled.csv
+[169/588] processing 2015-12-30_212042_109.log.part01_sorted.csv
+[146/588] 500000 records, 0 attacks written to 2015-12-30_105053_107.log.part06_sorted-labeled.csv
+[170/588] processing 2015-12-30_212042_109.log.part02_sorted.csv
+
+
+
+ [517153 30Dec2015 16:21:02 0 0 3 0 14 15 1 30 17 -33.76087 0 -1.72895 0 177093 -211.73543 -71.33197 {7F92BEEF-9C32-43B9-8D7D-58CF2A7CC8E1}]
+[WARNING] failed to parse number:  {7F92BEEF-9C32-43B9-8D7D-58CF2A7CC8E1}  file:  2015-12-30_212042_109.log.part02_sorted.csv  line:  17154  column:  Tag setting it to zero by default!
+[164/588] 500000 records, 0 attacks written to 2015-12-30_160630_108.log.part10_sorted-labeled.csv
+[188/588] processing 2015-12-31_023431_110.log.part06_sorted.csv
+[149/588] 500000 records, 0 attacks written to 2015-12-30_105053_107.log.part09_sorted-labeled.csv
+[173/588] processing 2015-12-30_212042_109.log.part05_sorted.csv
+
+
+
+
+ [681297 30Dec2015 16:28:30 0 0 3 0 14 15 1 30 17 -33.76087 0 -1.72895 0 177093 -211.73543 -71.33197 {5A7C0178-14E9-4EFE-ADA5-AA0F5FCDB4B9}]
+[WARNING] failed to parse number:  {5A7C0178-14E9-4EFE-ADA5-AA0F5FCDB4B9}  file:  2015-12-30_212042_109.log.part02_sorted.csv  line:  181298  column:  Tag setting it to zero by default!
+[160/588] 500000 records, 0 attacks written to 2015-12-30_160630_108.log.part06_sorted-labeled.csv
+[184/588] processing 2015-12-31_023431_110.log.part02_sorted.csv
+[154/588] 439720 records, 0 attacks written to 2015-12-30_105053_107.log.part14_sorted-labeled.csv
+[178/588] processing 2015-12-30_212042_109.log.part10_sorted.csv
+[152/588] 500000 records, 71560 attacks written to 2015-12-30_105053_107.log.part12_sorted-labeled.csv
+[176/588] processing 2015-12-30_212042_109.log.part08_sorted.csv
+[150/588] 500000 records, 0 attacks written to 2015-12-30_105053_107.log.part10_sorted-labeled.csv
+[174/588] processing 2015-12-30_212042_109.log.part06_sorted.csv
+ [732283 30Dec2015 16:30:49 0 0 3 0 14 15 1 30 17 -33.76087 0 -1.72895 0 177093 -211.73543 -71.33197 {7F92BEEF-9C32-43B9-8D7D-58CF2A7CC8E1}]
+[WARNING] failed to parse number:  {7F92BEEF-9C32-43B9-8D7D-58CF2A7CC8E1}  file:  2015-12-30_212042_109.log.part02_sorted.csv  line:  232284  column:  Tag setting it to zero by default!
+ [2537997 30Dec2015 17:52:29 0 0 3 0 14 15 1 30 17 -33.76087 0 -1.72895 0 177093 -211.73543 -71.33197 {5A7C0178-14E9-4EFE-ADA5-AA0F5FCDB4B9}]
+[WARNING] failed to parse number:  {5A7C0178-14E9-4EFE-ADA5-AA0F5FCDB4B9}  file:  2015-12-30_212042_109.log.part06_sorted.csv  line:  37998  column:  Tag setting it to zero by default!
+[157/588] 500000 records, 0 attacks written to 2015-12-30_160630_108.log.part03_sorted-labeled.csv
+[181/588] processing 2015-12-30_212042_109.log.part13_sorted.csv
+
+
+
+
+
+
+[159/588] 500000 records, 0 attacks written to 2015-12-30_160630_108.log.part05_sorted-labeled.csv
+[183/588] processing 2015-12-31_023431_110.log.part01_sorted.csv
+[147/588] 500000 records, 0 attacks written to 2015-12-30_105053_107.log.part07_sorted-labeled.csv
+[171/588] processing 2015-12-30_212042_109.log.part03_sorted.csv
+[163/588] 500000 records, 0 attacks written to 2015-12-30_160630_108.log.part09_sorted-labeled.csv
+[187/588] processing 2015-12-31_023431_110.log.part05_sorted.csv
+ [260511 30Dec2015 16:09:22 0 0 3 0 14 15 1 30 17 -33.76087 0 -1.72895 0 177093 -211.73543 -71.33197 {E87142D2-06C6-416B-ACD2-76340C4D1FAE}]
+[WARNING] failed to parse number:  {E87142D2-06C6-416B-ACD2-76340C4D1FAE}  file:  2015-12-30_212042_109.log.part01_sorted.csv  line:  260512  column:  Tag setting it to zero by default!
+ [260512 30Dec2015 16:09:22 0 0 3 0 14 15 1 30 17 -33.76087 0 -1.72895 0 177093 -211.73543 -71.33197 {685A89E1-5FD9-4412-A99F-813C0B20C773}]
+[WARNING] failed to parse number:  {685A89E1-5FD9-4412-A99F-813C0B20C773}  file:  2015-12-30_212042_109.log.part01_sorted.csv  line:  260513  column:  Tag setting it to zero by default!
+ [260513 30Dec2015 16:09:22 0 0 3 0 14 15 1 30 17 -33.76087 0 -1.72895 0 177093 -211.73543 -71.33197 {3145F33E-8C92-4BEB-9CE8-1BF6B9359CB3}]
+[WARNING] failed to parse number:  {3145F33E-8C92-4BEB-9CE8-1BF6B9359CB3}  file:  2015-12-30_212042_109.log.part01_sorted.csv  line:  260514  column:  Tag setting it to zero by default!
+ [260514 30Dec2015 16:09:22 0 0 3 0 14 15 1 30 17 -33.76087 0 -1.72895 0 177093 -211.73543 -71.33197 {A86FEF57-F64D-4737-9B9C-F712D9CDB997}]
+[WARNING] failed to parse number:  {A86FEF57-F64D-4737-9B9C-F712D9CDB997}  file:  2015-12-30_212042_109.log.part01_sorted.csv  line:  260515  column:  Tag setting it to zero by default!
+ [260517 30Dec2015 16:09:22 0 0 3 0 14 15 1 30 17 -33.76087 0 -1.72895 0 177093 -211.73543 -71.33197 {685A89E1-5FD9-4412-A99F-813C0B20C773}]
+[WARNING] failed to parse number:  {685A89E1-5FD9-4412-A99F-813C0B20C773}  file:  2015-12-30_212042_109.log.part01_sorted.csv  line:  260518  column:  Tag setting it to zero by default!
+ [260518 30Dec2015 16:09:22 0 0 3 0 14 15 1 30 17 -33.76087 0 -1.72895 0 177093 -211.73543 -71.33197 {E87142D2-06C6-416B-ACD2-76340C4D1FAE}]
+[WARNING] failed to parse number:  {E87142D2-06C6-416B-ACD2-76340C4D1FAE}  file:  2015-12-30_212042_109.log.part01_sorted.csv  line:  260519  column:  Tag setting it to zero by default!
+ [260519 30Dec2015 16:09:22 0 0 3 0 14 15 1 30 17 -33.76087 0 -1.72895 0 177093 -211.73543 -71.33197 {3145F33E-8C92-4BEB-9CE8-1BF6B9359CB3}]
+[WARNING] failed to parse number:  {3145F33E-8C92-4BEB-9CE8-1BF6B9359CB3}  file:  2015-12-30_212042_109.log.part01_sorted.csv  line:  260520  column:  Tag setting it to zero by default!
+ [260520 30Dec2015 16:09:22 0 0 3 0 14 15 1 30 17 -33.76087 0 -1.72895 0 177093 -211.73543 -71.33197 {A86FEF57-F64D-4737-9B9C-F712D9CDB997}]
+[WARNING] failed to parse number:  {A86FEF57-F64D-4737-9B9C-F712D9CDB997}  file:  2015-12-30_212042_109.log.part01_sorted.csv  line:  260521  column:  Tag setting it to zero by default!
+ [260544 30Dec2015 16:09:22 0 0 3 0 14 15 1 30 17 -33.76087 0 -1.72895 0 177093 -211.73543 -71.33197 {685A89E1-5FD9-4412-A99F-813C0B20C773}]
+[WARNING] failed to parse number:  {685A89E1-5FD9-4412-A99F-813C0B20C773}  file:  2015-12-30_212042_109.log.part01_sorted.csv  line:  260545  column:  Tag setting it to zero by default!
+ [260545 30Dec2015 16:09:22 0 0 3 0 14 15 1 30 17 -33.76087 0 -1.72895 0 177093 -211.73543 -71.33197 {E87142D2-06C6-416B-ACD2-76340C4D1FAE}]
+[WARNING] failed to parse number:  {E87142D2-06C6-416B-ACD2-76340C4D1FAE}  file:  2015-12-30_212042_109.log.part01_sorted.csv  line:  260546  column:  Tag setting it to zero by default!
+ [260546 30Dec2015 16:09:22 0 0 3 0 14 15 1 30 17 -33.76087 0 -1.72895 0 177093 -211.73543 -71.33197 {3145F33E-8C92-4BEB-9CE8-1BF6B9359CB3}]
+[WARNING] failed to parse number:  {3145F33E-8C92-4BEB-9CE8-1BF6B9359CB3}  file:  2015-12-30_212042_109.log.part01_sorted.csv  line:  260547  column:  Tag setting it to zero by default!
+ [260547 30Dec2015 16:09:22 0 0 3 0 14 15 1 30 17 -33.76087 0 -1.72895 0 177093 -211.73543 -71.33197 {A86FEF57-F64D-4737-9B9C-F712D9CDB997}]
+[WARNING] failed to parse number:  {A86FEF57-F64D-4737-9B9C-F712D9CDB997}  file:  2015-12-30_212042_109.log.part01_sorted.csv  line:  260548  column:  Tag setting it to zero by default!
+[153/588] 500000 records, 40979 attacks written to 2015-12-30_105053_107.log.part13_sorted-labeled.csv
+[177/588] processing 2015-12-30_212042_109.log.part09_sorted.csv
+[156/588] 500000 records, 0 attacks written to 2015-12-30_160630_108.log.part02_sorted-labeled.csv
+[180/588] processing 2015-12-30_212042_109.log.part12_sorted.csv
+ [4660315 30Dec2015 19:28:35 0 0 3 0 14 15 1 30 17 -33.76087 0 -1.72895 0 177093 -211.73543 -71.33197 {5A7C0178-14E9-4EFE-ADA5-AA0F5FCDB4B9}]
+[WARNING] failed to parse number:  {5A7C0178-14E9-4EFE-ADA5-AA0F5FCDB4B9}  file:  2015-12-30_212042_109.log.part10_sorted.csv  line:  160316  column:  Tag setting it to zero by default!
+[166/588] 500000 records, 0 attacks written to 2015-12-30_160630_108.log.part12_sorted-labeled.csv
+[190/588] processing 2015-12-31_023431_110.log.part08_sorted.csv
+[162/588] 500000 records, 0 attacks written to 2015-12-30_160630_108.log.part08_sorted-labeled.csv
+[186/588] processing 2015-12-31_023431_110.log.part04_sorted.csv
+[161/588] 500000 records, 0 attacks written to 2015-12-30_160630_108.log.part07_sorted-labeled.csv
+[185/588] processing 2015-12-31_023431_110.log.part03_sorted.csv
+[148/588] 500000 records, 0 attacks written to 2015-12-30_105053_107.log.part08_sorted-labeled.csv
+[172/588] processing 2015-12-30_212042_109.log.part04_sorted.csv
+started all labeling jobs, waiting...
+ [4718593 30Dec2015 19:31:13 0 0 3 0 14 15 1 30 17 -33.76087 0 -1.72895 0 177093 -211.73543 -71.33197 {7F92BEEF-9C32-43B9-8D7D-58CF2A7CC8E1}]
+[WARNING] failed to parse number:  {7F92BEEF-9C32-43B9-8D7D-58CF2A7CC8E1}  file:  2015-12-30_212042_109.log.part10_sorted.csv  line:  218594  column:  Tag setting it to zero by default!
+[168/588] 439768 records, 0 attacks written to 2015-12-30_160630_108.log.part14_sorted-labeled.csv
+[192/588] processing 2015-12-31_023431_110.log.part10_sorted.csv
+ [899383 30Dec2015 16:38:24 0 0 3 0 14 15 1 30 17 -33.76087 0 -1.72895 0 177093 -211.73543 -71.33197 {E9259E90-9AE9-4D98-B372-1FD958188312}]
+[WARNING] failed to parse number:  {E9259E90-9AE9-4D98-B372-1FD958188312}  file:  2015-12-30_212042_109.log.part02_sorted.csv  line:  399384  column:  Tag setting it to zero by default!
+
+
+
+[158/588] 500000 records, 0 attacks written to 2015-12-30_160630_108.log.part04_sorted-labeled.csv
+[182/588] processing 2015-12-30_212042_109.log.part14_sorted.csv
+ [926019 30Dec2015 16:39:36 0 0 3 0 14 15 1 30 17 -33.76087 0 -1.72895 0 177093 -211.73543 -71.33197 {7F92BEEF-9C32-43B9-8D7D-58CF2A7CC8E1}]
+[WARNING] failed to parse number:  {7F92BEEF-9C32-43B9-8D7D-58CF2A7CC8E1}  file:  2015-12-30_212042_109.log.part02_sorted.csv  line:  426020  column:  Tag setting it to zero by default!
+ [2301897 30-Dec-15 17:41:48 0 0 3 0 14 15 1 30 17 -33.76087 0 -1.72895 0 177093 -211.73543 -71.33197 {E9259E90-9AE9-4D98-B372-1FD958188312}]
+[WARNING] failed to parse number:  {E9259E90-9AE9-4D98-B372-1FD958188312}  file:  2015-12-30_212042_109.log.part05_sorted.csv  line:  301898  column:  Tag setting it to zero by default!
+[155/588] 500000 records, 0 attacks written to 2015-12-30_160630_108.log.part01_sorted-labeled.csv
+[179/588] processing 2015-12-30_212042_109.log.part11_sorted.csv
+[151/588] 500000 records, 0 attacks written to 2015-12-30_105053_107.log.part11_sorted-labeled.csv
+[175/588] processing 2015-12-30_212042_109.log.part07_sorted.csv
+[170/588] 500000 records, 0 attacks written to 2015-12-30_212042_109.log.part02_sorted-labeled.csv
+[194/588] processing 2015-12-31_023431_110.log.part12_sorted.csv
+[165/588] 500000 records, 0 attacks written to 2015-12-30_160630_108.log.part11_sorted-labeled.csv
+[189/588] processing 2015-12-31_023431_110.log.part07_sorted.csv
+ [3023002 30Dec2015 18:14:26 0 0 3 0 14 15 1 30 17 -33.76087 0 -1.72895 0 177093 -211.73543 -71.33197 {53D35A62-3573-47F0-9392-893EF84936B2}]
+[WARNING] failed to parse number:  {53D35A62-3573-47F0-9392-893EF84936B2}  file:  2015-12-30_212042_109.log.part07_sorted.csv  line:  23003  column:  Tag setting it to zero by default!
+ [489252 30Dec2015 16:19:46 0 0 3 0 14 15 1 30 17 -33.76087 0 -1.72895 0 177093 -211.73543 -71.33197 {E9259E90-9AE9-4D98-B372-1FD958188312}]
+[WARNING] failed to parse number:  {E9259E90-9AE9-4D98-B372-1FD958188312}  file:  2015-12-30_212042_109.log.part01_sorted.csv  line:  489253  column:  Tag setting it to zero by default!
+[169/588] 500000 records, 0 attacks written to 2015-12-30_212042_109.log.part01_sorted-labeled.csv
+[193/588] processing 2015-12-31_023431_110.log.part11_sorted.csv
+[191/588] 500000 records, 0 attacks written to 2015-12-31_023431_110.log.part09_sorted-labeled.csv
+ [4236565 30Dec2015 19:09:22 0 0 3 0 14 15 1 30 17 -33.76087 0 -1.72895 0 177093 -211.73543 -71.33197 {E87142D2-06C6-416B-ACD2-76340C4D1FAE}]
+[WARNING] failed to parse number:  {E87142D2-06C6-416B-ACD2-76340C4D1FAE}  file:  2015-12-30_212042_109.log.part09_sorted.csv  line:  236566  column:  Tag setting it to zero by default!
+ [4236566 30Dec2015 19:09:22 0 0 3 0 14 15 1 30 17 -33.76087 0 -1.72895 0 177093 -211.73543 -71.33197 {3145F33E-8C92-4BEB-9CE8-1BF6B9359CB3}]
+[WARNING] failed to parse number:  {3145F33E-8C92-4BEB-9CE8-1BF6B9359CB3}  file:  2015-12-30_212042_109.log.part09_sorted.csv  line:  236567  column:  Tag setting it to zero by default!
+ [4236567 30Dec2015 19:09:22 0 0 3 0 14 15 1 30 17 -33.76087 0 -1.72895 0 177093 -211.73543 -71.33197 {685A89E1-5FD9-4412-A99F-813C0B20C773}]
+[WARNING] failed to parse number:  {685A89E1-5FD9-4412-A99F-813C0B20C773}  file:  2015-12-30_212042_109.log.part09_sorted.csv  line:  236568  column:  Tag setting it to zero by default!
+ [4236568 30Dec2015 19:09:22 0 0 3 0 14 15 1 30 17 -33.76087 0 -1.72895 0 177093 -211.73543 -71.33197 {A86FEF57-F64D-4737-9B9C-F712D9CDB997}]
+[WARNING] failed to parse number:  {A86FEF57-F64D-4737-9B9C-F712D9CDB997}  file:  2015-12-30_212042_109.log.part09_sorted.csv  line:  236569  column:  Tag setting it to zero by default!
+ [4236589 30Dec2015 19:09:22 0 0 3 0 14 15 1 30 17 -33.76087 0 -1.72895 0 177093 -211.73543 -71.33197 {685A89E1-5FD9-4412-A99F-813C0B20C773}]
+[WARNING] failed to parse number:  {685A89E1-5FD9-4412-A99F-813C0B20C773}  file:  2015-12-30_212042_109.log.part09_sorted.csv  line:  236590  column:  Tag setting it to zero by default!
+ [4236590 30Dec2015 19:09:22 0 0 3 0 14 15 1 30 17 -33.76087 0 -1.72895 0 177093 -211.73543 -71.33197 {E87142D2-06C6-416B-ACD2-76340C4D1FAE}]
+[WARNING] failed to parse number:  {E87142D2-06C6-416B-ACD2-76340C4D1FAE}  file:  2015-12-30_212042_109.log.part09_sorted.csv  line:  236591  column:  Tag setting it to zero by default!
+ [4236591 30Dec2015 19:09:22 0 0 3 0 14 15 1 30 17 -33.76087 0 -1.72895 0 177093 -211.73543 -71.33197 {A86FEF57-F64D-4737-9B9C-F712D9CDB997}]
+[WARNING] failed to parse number:  {A86FEF57-F64D-4737-9B9C-F712D9CDB997}  file:  2015-12-30_212042_109.log.part09_sorted.csv  line:  236592  column:  Tag setting it to zero by default!
+ [4236592 30Dec2015 19:09:22 0 0 3 0 14 15 1 30 17 -33.76087 0 -1.72895 0 177093 -211.73543 -71.33197 {3145F33E-8C92-4BEB-9CE8-1BF6B9359CB3}]
+[WARNING] failed to parse number:  {3145F33E-8C92-4BEB-9CE8-1BF6B9359CB3}  file:  2015-12-30_212042_109.log.part09_sorted.csv  line:  236593  column:  Tag setting it to zero by default!
+ [4236599 30Dec2015 19:09:22 0 0 3 0 14 15 1 30 17 -33.76087 0 -1.72895 0 177093 -211.73543 -71.33197 {A86FEF57-F64D-4737-9B9C-F712D9CDB997}]
+[WARNING] failed to parse number:  {A86FEF57-F64D-4737-9B9C-F712D9CDB997}  file:  2015-12-30_212042_109.log.part09_sorted.csv  line:  236600  column:  Tag setting it to zero by default!
+ [4236600 30Dec2015 19:09:22 0 0 3 0 14 15 1 30 17 -33.76087 0 -1.72895 0 177093 -211.73543 -71.33197 {685A89E1-5FD9-4412-A99F-813C0B20C773}]
+[WARNING] failed to parse number:  {685A89E1-5FD9-4412-A99F-813C0B20C773}  file:  2015-12-30_212042_109.log.part09_sorted.csv  line:  236601  column:  Tag setting it to zero by default!
+ [4236601 30Dec2015 19:09:22 0 0 3 0 14 15 1 30 17 -33.76087 0 -1.72895 0 177093 -211.73543 -71.33197 {E87142D2-06C6-416B-ACD2-76340C4D1FAE}]
+[WARNING] failed to parse number:  {E87142D2-06C6-416B-ACD2-76340C4D1FAE}  file:  2015-12-30_212042_109.log.part09_sorted.csv  line:  236602  column:  Tag setting it to zero by default!
+ [4236602 30Dec2015 19:09:22 0 0 3 0 14 15 1 30 17 -33.76087 0 -1.72895 0 177093 -211.73543 -71.33197 {3145F33E-8C92-4BEB-9CE8-1BF6B9359CB3}]
+[WARNING] failed to parse number:  {3145F33E-8C92-4BEB-9CE8-1BF6B9359CB3}  file:  2015-12-30_212042_109.log.part09_sorted.csv  line:  236603  column:  Tag setting it to zero by default!
+ [4893672 30Dec2015 19:39:08 0 0 3 0 14 15 1 30 17 -33.76087 0 -1.72895 0 177093 -211.73543 -71.33197 {E9259E90-9AE9-4D98-B372-1FD958188312}]
+[WARNING] failed to parse number:  {E9259E90-9AE9-4D98-B372-1FD958188312}  file:  2015-12-30_212042_109.log.part10_sorted.csv  line:  393673  column:  Tag setting it to zero by default!
+ [4904292 30Dec2015 19:39:37 0 0 3 0 14 15 1 30 17 -33.76087 0 -1.72895 0 177093 -211.73543 -71.33197 {7F92BEEF-9C32-43B9-8D7D-58CF2A7CC8E1}]
+[WARNING] failed to parse number:  {7F92BEEF-9C32-43B9-8D7D-58CF2A7CC8E1}  file:  2015-12-30_212042_109.log.part10_sorted.csv  line:  404293  column:  Tag setting it to zero by default!
+[188/588] 500000 records, 0 attacks written to 2015-12-31_023431_110.log.part06_sorted-labeled.csv
+[178/588] 500000 records, 0 attacks written to 2015-12-30_212042_109.log.part10_sorted-labeled.csv
+[173/588] 500000 records, 9035 attacks written to 2015-12-30_212042_109.log.part05_sorted-labeled.csv
+[174/588] 500000 records, 0 attacks written to 2015-12-30_212042_109.log.part06_sorted-labeled.csv
+[171/588] 499998 records, 6103 attacks written to 2015-12-30_212042_109.log.part03_sorted-labeled.csv
+[195/588] processing 2015-12-31_023431_110.log.part13_sorted.csv
+[183/588] 500000 records, 0 attacks written to 2015-12-31_023431_110.log.part01_sorted-labeled.csv
+[181/588] 500000 records, 0 attacks written to 2015-12-30_212042_109.log.part13_sorted-labeled.csv
+[184/588] 500000 records, 0 attacks written to 2015-12-31_023431_110.log.part02_sorted-labeled.csv
+[176/588] 500000 records, 0 attacks written to 2015-12-30_212042_109.log.part08_sorted-labeled.csv
+ [1844082 30-Dec-15 17:21:05 0 0 3 0 14 15 1 30 17 -33.76087 0 -1.72895 0 177093 -211.73543 -71.33197 {5A7C0178-14E9-4EFE-ADA5-AA0F5FCDB4B9}]
+[WARNING] failed to parse number:  {5A7C0178-14E9-4EFE-ADA5-AA0F5FCDB4B9}  file:  2015-12-30_212042_109.log.part04_sorted.csv  line:  344082  column:  Tag setting it to zero by default!
+ [4465761 30Dec2015 19:19:46 0 0 3 0 14 15 1 30 17 -33.76087 0 -1.72895 0 177093 -211.73543 -71.33197 {E9259E90-9AE9-4D98-B372-1FD958188312}]
+[WARNING] failed to parse number:  {E9259E90-9AE9-4D98-B372-1FD958188312}  file:  2015-12-30_212042_109.log.part09_sorted.csv  line:  465762  column:  Tag setting it to zero by default!
+ [1864281 30-Dec-15 17:22:00 0 0 3 0 14 15 1 30 17 -33.76087 0 -1.72895 0 177093 -211.73543 -71.33197 {E954030D-1CD4-460C-BF35-E56AAFAAE40A}]
+[WARNING] failed to parse number:  {E954030D-1CD4-460C-BF35-E56AAFAAE40A}  file:  2015-12-30_212042_109.log.part04_sorted.csv  line:  364281  column:  Tag setting it to zero by default!
+ [1867584 30-Dec-15 17:22:09 0 0 3 0 14 15 1 30 17 -33.76087 0 -1.72895 0 177093 -211.73543 -71.33197 {E954030D-1CD4-460C-BF35-E56AAFAAE40A}]
+[WARNING] failed to parse number:  {E954030D-1CD4-460C-BF35-E56AAFAAE40A}  file:  2015-12-30_212042_109.log.part04_sorted.csv  line:  367584  column:  Tag setting it to zero by default!
+[192/588] 500000 records, 0 attacks written to 2015-12-31_023431_110.log.part10_sorted-labeled.csv
+[186/588] 500000 records, 0 attacks written to 2015-12-31_023431_110.log.part04_sorted-labeled.csv
+ [4494882 30Dec2015 19:21:05 0 0 3 0 14 15 1 30 17 -33.76087 0 -1.72895 0 177093 -211.73543 -71.33197 {7F92BEEF-9C32-43B9-8D7D-58CF2A7CC8E1}]
+[WARNING] failed to parse number:  {7F92BEEF-9C32-43B9-8D7D-58CF2A7CC8E1}  file:  2015-12-30_212042_109.log.part09_sorted.csv  line:  494883  column:  Tag setting it to zero by default!
+[177/588] 500000 records, 0 attacks written to 2015-12-30_212042_109.log.part09_sorted-labeled.csv
+[187/588] 500000 records, 0 attacks written to 2015-12-31_023431_110.log.part05_sorted-labeled.csv
+[182/588] 440041 records, 0 attacks written to 2015-12-30_212042_109.log.part14_sorted-labeled.csv
+[180/588] 500000 records, 0 attacks written to 2015-12-30_212042_109.log.part12_sorted-labeled.csv
+[185/588] 500000 records, 0 attacks written to 2015-12-31_023431_110.log.part03_sorted-labeled.csv
+[172/588] 499999 records, 235010 attacks written to 2015-12-30_212042_109.log.part04_sorted-labeled.csv
+[196/588] processing 2015-12-31_023431_110.log.part14_sorted.csv
+[190/588] 500000 records, 0 attacks written to 2015-12-31_023431_110.log.part08_sorted-labeled.csv
+[189/588] 500000 records, 0 attacks written to 2015-12-31_023431_110.log.part07_sorted-labeled.csv
+[179/588] 500000 records, 0 attacks written to 2015-12-30_212042_109.log.part11_sorted-labeled.csv
+[175/588] 500000 records, 0 attacks written to 2015-12-30_212042_109.log.part07_sorted-labeled.csv
+[195/588] 500000 records, 177991 attacks written to 2015-12-31_023431_110.log.part13_sorted-labeled.csv
+[194/588] 500000 records, 178329 attacks written to 2015-12-31_023431_110.log.part12_sorted-labeled.csv
+[193/588] 500000 records, 25480 attacks written to 2015-12-31_023431_110.log.part11_sorted-labeled.csv
+[196/588] 440130 records, 156918 attacks written to 2015-12-31_023431_110.log.part14_sorted-labeled.csv
+------- printLabelInfo
+
++---------+--------------------------------------------------------------------------+
+|  Hits   |                               AttackName                                 |
++---------+--------------------------------------------------------------------------+
+| 1       | Open MV-504                                                              |
+| 2       | Set value of AIT-504 to 16 uS/cm                                         |
+| 2       | Set value of AIT-504 to 255 uS/cm                                        |
+| 10690   | Set value of FIT-401 as <0.7                                             |
+| 30549   | Close MV-304                                                             |
+| 30850   | Stop UV-401; Value of AIT502 set as 150; Force P-501 to remain on        |
+| 36191   | Decrease water level by 1mm each second                                  |
+| 37369   | Set value of FIT-401 as 0                                                |
+| 40979   | Set value of LIT-401 as 1000; P402 is kept on                            |
+| 43779   | Set value of AIT-202  as 6                                               |
+| 56345   | Water level increased above HH                                           |
+| 66442   | Increase by 1 mm every second                                            |
+| 71560   | Turn of P-203 and P-205                                                  |
+| 76692   | Turn on P-102                                                            |
+| 93970   | Do not let MV-303 open                                                   |
+| 96998   | Value of DPIT-301 set to >0.4 bar; Keep MV-302 open; Keep P-602 closed   |
+| 123735  | Keep MV-101 on countinuosly; Value of LIT-101 set as 700 mm              |
+| 126824  | Set value of DPIT as >40kpa                                              |
+| 162871  | Open MV-101                                                              |
+| 222088  | Keep P-302 on contineoulsy; Value of  LIT401 set as 600 mm till 1:26:01  |
+| 250148  | P-101 is turned on continuosly; Set value of LIT-301 as 801 mm           |
+| 316630  | Close P-302                                                              |
++---------+--------------------------------------------------------------------------+
+could not map the following attacks:
+- Turn on P-201; Turn on P-203; Turn on P-205
+- Turn P-101 on continuously; Turn MV-101 on continuously; Set value of LIT-101 as 700 mm; P-102 started itself because LIT301 level became low
+- Set LIT-401 to less than L
+- Set LIT-301 to above HH
+- Set LIT-101 to above H
+- Turn P-101 off
+- Turn P-101 off; Keep P-102 off
+- Set LIT-101 to less than LL
+- Close P-501; Set value of FIT-502 to 1.29  at 11:18:36
+- Set value of AIT402 as 260; Set value of AIT502 to 260
+- Set value of FIT-401 as 0.5; Set value of AIT-502 as 140 mV
+- decrease value by 0.5 mm per second
+done in 25h31m38.762632233s
