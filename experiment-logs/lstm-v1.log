@@ -1,0 +1,1580 @@
+2020-02-01 17:47:24.381974: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2020-02-01 17:47:24.412105: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7fc737428ff0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-02-01 17:47:24.412139: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2020-02-01 17:47:27.865270: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] remapper failed: Invalid argument: MutableGraphView::MutableGraphView error: node 'loss/dense_1_loss/categorical_crossentropy/weighted_loss/concat' has self cycle fanin 'loss/dense_1_loss/categorical_crossentropy/weighted_loss/concat'.
+2020-02-01 17:47:27.883447: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 0, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-01 17:47:27.892282: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 1, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-01 17:47:27.974620: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] arithmetic_optimizer failed: Invalid argument: The graph couldn't be sorted in topological order.
+2020-02-01 17:47:27.980346: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] remapper failed: Invalid argument: MutableGraphView::MutableGraphView error: node 'loss/dense_1_loss/categorical_crossentropy/weighted_loss/concat' has self cycle fanin 'loss/dense_1_loss/categorical_crossentropy/weighted_loss/concat'.
+2020-02-01 17:47:27.988599: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 0, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-01 17:47:27.998251: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 1, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-01 17:47:28.036451: W tensorflow/core/common_runtime/process_function_library_runtime.cc:697] Ignoring multi-device function optimization failure: Invalid argument: The graph couldn't be sorted in topological order.
+2020-02-01 17:47:32.181392: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] remapper failed: Invalid argument: MutableGraphView::MutableGraphView error: node 'loss/dense_1_loss/categorical_crossentropy/weighted_loss/concat' has self cycle fanin 'loss/dense_1_loss/categorical_crossentropy/weighted_loss/concat'.
+2020-02-01 17:47:32.187187: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 0, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-01 17:47:32.189906: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 1, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-01 17:47:32.214109: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] arithmetic_optimizer failed: Invalid argument: The graph couldn't be sorted in topological order.
+2020-02-01 17:47:32.215811: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] remapper failed: Invalid argument: MutableGraphView::MutableGraphView error: node 'loss/dense_1_loss/categorical_crossentropy/weighted_loss/concat' has self cycle fanin 'loss/dense_1_loss/categorical_crossentropy/weighted_loss/concat'.
+2020-02-01 17:47:32.217472: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 0, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-01 17:47:32.219232: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 1, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-01 17:47:32.228577: W tensorflow/core/common_runtime/process_function_library_runtime.cc:697] Ignoring multi-device function optimization failure: Invalid argument: The graph couldn't be sorted in topological order.
+Date: 2020-02-01 17:47:24.370445
+[INFO] input_shape (10, 16)
+[INFO] LSTM first and last layer neurons: 5
+adding core layer 0
+[INFO] created DNN
+[33m[INFO] epoch 1/100[0m
+[33m[INFO] loading file 1-1/1 on epoch 1/100[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.2/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (500000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['unixtime', 'orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst',
+       'proto', 'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] analyze dataset: (500000, 17)
+
+[INFO] analyzing data
+[INFO] 500000 rows
+[INFO] ** unixtime:1356 (0.2712%)
+[INFO] ** orig:[0:100.0%]
+[INFO] ** type:[0:99.9998%,2:0.0002%]
+[INFO] ** i/f_name:[2:99.9988%,3:0.0012%]
+[INFO] ** i/f_dir:[1:99.9988%,0:0.0012%]
+[INFO] ** src:[22:38.4088%,9:25.8982%,7:18.1636%,1:17.5218%,11:0.0014%,10:0.0014%,14:0.0012%,3:0.001%,2:0.001%,21:0.0006%,15:0.0004%,4:0.0004%,8:0.0002%]
+[INFO] ** dst:[21:43.266%,10:21.0416%,8:18.1634%,9:17.5214%,6:0.0016%,16:0.0012%,15:0.0012%,22:0.001%,18:0.0006%,26:0.0004%,25:0.0004%,19:0.0004%,17:0.0004%,24:0.0002%,7:0.0002%]
+[INFO] ** proto:[0:99.996%,2:0.0028%,1:0.0012%]
+[INFO] ** appi_name:[21:99.9928%,30:0.0012%,22:0.001%,17:0.0008%,31:0.0006%,26:0.0006%,7:0.0006%,23:0.0004%,18:0.0004%,0:0.0004%,28:0.0002%,27:0.0002%,24:0.0002%,16:0.0002%,15:0.0002%,5:0.0002%]
+[INFO] ** proxy_src_ip:[18:38.4088%,20:25.8982%,13:18.1636%,6:17.5218%,11:0.0014%,10:0.0014%,17:0.0012%,14:0.001%,1:0.001%,7:0.0006%,21:0.0004%,16:0.0004%,0:0.0002%]
+[INFO] ** modbus_function_code:[0.02961:99.9928%,-33.760870000000004:0.007%,0.9188299999999999:0.0002%]
+[INFO] ** modbus_function_description:[7:49.9974%,11:49.9954%,0:0.007%,15:0.0002%]
+[INFO] ** modbus_transaction_id:65536 (13.1072%)
+[INFO] ** scada_tag:[3:25.8976%,1:21.0406%,5:18.163%,4:17.521%,2:17.3678%,0:0.01%]
+[INFO] ** service:[0.0048200000000000005:99.9936%,-211.73542999999998:0.0012%,-211.08818:0.001%,-205.44247:0.0008%,-211.07873999999998:0.0008%,-211.09762999999998:0.0006%,-211.08346:0.0006%,-186.43601999999998:0.0006%,-186.44547:0.0004%,-185.9872:0.0002%,-202.75898:0.0002%]
+[INFO] ** s_port:[1.45442:25.8978%,-0.32151:21.0408%,-1.27613:18.1632%,-0.23351:17.5212%,-0.33484:17.368%,-71.33197:0.0012%,-71.14931:0.001%,-2.1481:0.0008%,-0.24151:0.0006%,-71.14798:0.0006%,-2.42942:0.0004%,4.44364:0.0004%,-1.02014:0.0004%,-64.19493:0.0004%,-5.1466400000000005:0.0002%,-1.2708:0.0002%,-58.035180000000004:0.0002%,4.076980000000001:0.0002%,-5.08665:0.0002%,1.47576:0.0002%,1.46509:0.0002%,4.29964:0.0002%,14.253910000000001:0.0002%,-68.79874000000001:0.0002%,6.1115699999999995:0.0002%,2.05573:0.0002%,-43.76509:0.0002%,10.67005:0.0002%,-1.27347:0.0002%,-58.032509999999995:0.0002%]
+[INFO] ** classification:[normal:79.2972%,Single Stage Single Point:20.7028%]
+[33mencode_numeric_zscore unixtime[0m
+[INFO] processing batch 0-100000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 6s - loss: 0.7946 - tp: 38019.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 41981.0000 - accuracy: 0.8950 - precision: 1.0000 - recall: 0.4752 - auc: 0.9982 - val_loss: 0.3435 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-1-files-0-1-batch-0-100000
+[INFO] processing batch 100000-200000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 4s - loss: 0.2418 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.1434 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-1-files-0-1-batch-100000-200000
+[INFO] processing batch 200000-300000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 4s - loss: 0.1404 - tp: 79766.0000 - fp: 234.0000 - tn: 319766.0000 - fn: 234.0000 - accuracy: 0.9988 - precision: 0.9971 - recall: 0.9971 - auc: 0.9980 - val_loss: 2.0463 - val_tp: 10606.0000 - val_fp: 9394.0000 - val_tn: 70606.0000 - val_fn: 9394.0000 - val_accuracy: 0.8121 - val_precision: 0.5303 - val_recall: 0.5303 - val_auc: 0.6116
+[INFO] saving weights to checkpoints/lstm-epoch-1-files-0-1-batch-200000-300000
+[INFO] processing batch 300000-400000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 4s - loss: 1.3609 - tp: 41713.0000 - fp: 36921.0000 - tn: 283079.0000 - fn: 38287.0000 - accuracy: 0.8120 - precision: 0.5305 - recall: 0.5214 - auc: 0.7973 - val_loss: 0.9356 - val_tp: 10626.0000 - val_fp: 9374.0000 - val_tn: 70626.0000 - val_fn: 9374.0000 - val_accuracy: 0.8125 - val_precision: 0.5313 - val_recall: 0.5313 - val_auc: 0.8827
+[INFO] saving weights to checkpoints/lstm-epoch-1-files-0-1-batch-300000-400000
+[INFO] processing batch 400000-500000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 4s - loss: 0.8898 - tp: 32442.0000 - fp: 29014.0000 - tn: 290986.0000 - fn: 47558.0000 - accuracy: 0.8086 - precision: 0.5279 - recall: 0.4055 - auc: 0.8822 - val_loss: 0.8309 - val_tp: 6189.0000 - val_fp: 5401.0000 - val_tn: 74599.0000 - val_fn: 13811.0000 - val_accuracy: 0.8079 - val_precision: 0.5340 - val_recall: 0.3095 - val_auc: 0.8830
+[INFO] saving weights to checkpoints/lstm-epoch-1-files-0-1-batch-400000-500000
+[33m[INFO] epoch 2/100[0m
+[33m[INFO] loading file 1-1/1 on epoch 2/100[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.2/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (500000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['unixtime', 'orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst',
+       'proto', 'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] analyze dataset: (500000, 17)
+
+[INFO] analyzing data
+[INFO] 500000 rows
+[INFO] ** unixtime:1356 (0.2712%)
+[INFO] ** orig:[0:100.0%]
+[INFO] ** type:[0:99.9998%,2:0.0002%]
+[INFO] ** i/f_name:[2:99.9988%,3:0.0012%]
+[INFO] ** i/f_dir:[1:99.9988%,0:0.0012%]
+[INFO] ** src:[22:38.4088%,9:25.8982%,7:18.1636%,1:17.5218%,11:0.0014%,10:0.0014%,14:0.0012%,3:0.001%,2:0.001%,21:0.0006%,15:0.0004%,4:0.0004%,8:0.0002%]
+[INFO] ** dst:[21:43.266%,10:21.0416%,8:18.1634%,9:17.5214%,6:0.0016%,16:0.0012%,15:0.0012%,22:0.001%,18:0.0006%,26:0.0004%,25:0.0004%,19:0.0004%,17:0.0004%,24:0.0002%,7:0.0002%]
+[INFO] ** proto:[0:99.996%,2:0.0028%,1:0.0012%]
+[INFO] ** appi_name:[21:99.9928%,30:0.0012%,22:0.001%,17:0.0008%,31:0.0006%,26:0.0006%,7:0.0006%,23:0.0004%,18:0.0004%,0:0.0004%,28:0.0002%,27:0.0002%,24:0.0002%,16:0.0002%,15:0.0002%,5:0.0002%]
+[INFO] ** proxy_src_ip:[18:38.4088%,20:25.8982%,13:18.1636%,6:17.5218%,11:0.0014%,10:0.0014%,17:0.0012%,14:0.001%,1:0.001%,7:0.0006%,21:0.0004%,16:0.0004%,0:0.0002%]
+[INFO] ** modbus_function_code:[0.02961:99.9928%,-33.760870000000004:0.007%,0.9188299999999999:0.0002%]
+[INFO] ** modbus_function_description:[7:49.9974%,11:49.9954%,0:0.007%,15:0.0002%]
+[INFO] ** modbus_transaction_id:65536 (13.1072%)
+[INFO] ** scada_tag:[3:25.8976%,1:21.0406%,5:18.163%,4:17.521%,2:17.3678%,0:0.01%]
+[INFO] ** service:[0.0048200000000000005:99.9936%,-211.73542999999998:0.0012%,-211.08818:0.001%,-205.44247:0.0008%,-211.07873999999998:0.0008%,-211.09762999999998:0.0006%,-211.08346:0.0006%,-186.43601999999998:0.0006%,-186.44547:0.0004%,-185.9872:0.0002%,-202.75898:0.0002%]
+[INFO] ** s_port:[1.45442:25.8978%,-0.32151:21.0408%,-1.27613:18.1632%,-0.23351:17.5212%,-0.33484:17.368%,-71.33197:0.0012%,-71.14931:0.001%,-2.1481:0.0008%,-0.24151:0.0006%,-71.14798:0.0006%,-2.42942:0.0004%,4.44364:0.0004%,-1.02014:0.0004%,-64.19493:0.0004%,-5.1466400000000005:0.0002%,-1.2708:0.0002%,-58.035180000000004:0.0002%,4.076980000000001:0.0002%,-5.08665:0.0002%,1.47576:0.0002%,1.46509:0.0002%,4.29964:0.0002%,14.253910000000001:0.0002%,-68.79874000000001:0.0002%,6.1115699999999995:0.0002%,2.05573:0.0002%,-43.76509:0.0002%,10.67005:0.0002%,-1.27347:0.0002%,-58.032509999999995:0.0002%]
+[INFO] ** classification:[normal:79.2972%,Single Stage Single Point:20.7028%]
+[33mencode_numeric_zscore unixtime[0m
+[INFO] processing batch 0-100000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 4s - loss: 0.2842 - tp: 78231.0000 - fp: 339.0000 - tn: 319661.0000 - fn: 1769.0000 - accuracy: 0.9947 - precision: 0.9957 - recall: 0.9779 - auc: 0.9999 - val_loss: 0.1342 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-2-files-0-1-batch-0-100000
+[INFO] processing batch 100000-200000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 4s - loss: 0.1131 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0751 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-2-files-0-1-batch-100000-200000
+[INFO] processing batch 200000-300000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 5s - loss: 0.0851 - tp: 79766.0000 - fp: 234.0000 - tn: 319766.0000 - fn: 234.0000 - accuracy: 0.9988 - precision: 0.9971 - recall: 0.9971 - auc: 0.9989 - val_loss: 1.7897 - val_tp: 10606.0000 - val_fp: 9394.0000 - val_tn: 70606.0000 - val_fn: 9394.0000 - val_accuracy: 0.8121 - val_precision: 0.5303 - val_recall: 0.5303 - val_auc: 0.8733
+[INFO] saving weights to checkpoints/lstm-epoch-2-files-0-1-batch-200000-300000
+[INFO] processing batch 300000-400000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 4s - loss: 1.1167 - tp: 41514.0000 - fp: 36906.0000 - tn: 283094.0000 - fn: 38486.0000 - accuracy: 0.8115 - precision: 0.5294 - recall: 0.5189 - auc: 0.8678 - val_loss: 0.7983 - val_tp: 10626.0000 - val_fp: 9374.0000 - val_tn: 70626.0000 - val_fn: 9374.0000 - val_accuracy: 0.8125 - val_precision: 0.5313 - val_recall: 0.5313 - val_auc: 0.8826
+[INFO] saving weights to checkpoints/lstm-epoch-2-files-0-1-batch-300000-400000
+[INFO] processing batch 400000-500000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 5s - loss: 0.7945 - tp: 36788.0000 - fp: 33901.0000 - tn: 286099.0000 - fn: 43212.0000 - accuracy: 0.8072 - precision: 0.5204 - recall: 0.4599 - auc: 0.8814 - val_loss: 0.7603 - val_tp: 7697.0000 - val_fp: 6779.0000 - val_tn: 73221.0000 - val_fn: 12303.0000 - val_accuracy: 0.8092 - val_precision: 0.5317 - val_recall: 0.3848 - val_auc: 0.8829
+[INFO] saving weights to checkpoints/lstm-epoch-2-files-0-1-batch-400000-500000
+[33m[INFO] epoch 3/100[0m
+[33m[INFO] loading file 1-1/1 on epoch 3/100[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.2/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (500000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['unixtime', 'orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst',
+       'proto', 'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] analyze dataset: (500000, 17)
+
+[INFO] analyzing data
+[INFO] 500000 rows
+[INFO] ** unixtime:1356 (0.2712%)
+[INFO] ** orig:[0:100.0%]
+[INFO] ** type:[0:99.9998%,2:0.0002%]
+[INFO] ** i/f_name:[2:99.9988%,3:0.0012%]
+[INFO] ** i/f_dir:[1:99.9988%,0:0.0012%]
+[INFO] ** src:[22:38.4088%,9:25.8982%,7:18.1636%,1:17.5218%,11:0.0014%,10:0.0014%,14:0.0012%,3:0.001%,2:0.001%,21:0.0006%,15:0.0004%,4:0.0004%,8:0.0002%]
+[INFO] ** dst:[21:43.266%,10:21.0416%,8:18.1634%,9:17.5214%,6:0.0016%,16:0.0012%,15:0.0012%,22:0.001%,18:0.0006%,26:0.0004%,25:0.0004%,19:0.0004%,17:0.0004%,24:0.0002%,7:0.0002%]
+[INFO] ** proto:[0:99.996%,2:0.0028%,1:0.0012%]
+[INFO] ** appi_name:[21:99.9928%,30:0.0012%,22:0.001%,17:0.0008%,31:0.0006%,26:0.0006%,7:0.0006%,23:0.0004%,18:0.0004%,0:0.0004%,28:0.0002%,27:0.0002%,24:0.0002%,16:0.0002%,15:0.0002%,5:0.0002%]
+[INFO] ** proxy_src_ip:[18:38.4088%,20:25.8982%,13:18.1636%,6:17.5218%,11:0.0014%,10:0.0014%,17:0.0012%,14:0.001%,1:0.001%,7:0.0006%,21:0.0004%,16:0.0004%,0:0.0002%]
+[INFO] ** modbus_function_code:[0.02961:99.9928%,-33.760870000000004:0.007%,0.9188299999999999:0.0002%]
+[INFO] ** modbus_function_description:[7:49.9974%,11:49.9954%,0:0.007%,15:0.0002%]
+[INFO] ** modbus_transaction_id:65536 (13.1072%)
+[INFO] ** scada_tag:[3:25.8976%,1:21.0406%,5:18.163%,4:17.521%,2:17.3678%,0:0.01%]
+[INFO] ** service:[0.0048200000000000005:99.9936%,-211.73542999999998:0.0012%,-211.08818:0.001%,-205.44247:0.0008%,-211.07873999999998:0.0008%,-211.09762999999998:0.0006%,-211.08346:0.0006%,-186.43601999999998:0.0006%,-186.44547:0.0004%,-185.9872:0.0002%,-202.75898:0.0002%]
+[INFO] ** s_port:[1.45442:25.8978%,-0.32151:21.0408%,-1.27613:18.1632%,-0.23351:17.5212%,-0.33484:17.368%,-71.33197:0.0012%,-71.14931:0.001%,-2.1481:0.0008%,-0.24151:0.0006%,-71.14798:0.0006%,-2.42942:0.0004%,4.44364:0.0004%,-1.02014:0.0004%,-64.19493:0.0004%,-5.1466400000000005:0.0002%,-1.2708:0.0002%,-58.035180000000004:0.0002%,4.076980000000001:0.0002%,-5.08665:0.0002%,1.47576:0.0002%,1.46509:0.0002%,4.29964:0.0002%,14.253910000000001:0.0002%,-68.79874000000001:0.0002%,6.1115699999999995:0.0002%,2.05573:0.0002%,-43.76509:0.0002%,10.67005:0.0002%,-1.27347:0.0002%,-58.032509999999995:0.0002%]
+[INFO] ** classification:[normal:79.2972%,Single Stage Single Point:20.7028%]
+[33mencode_numeric_zscore unixtime[0m
+[INFO] processing batch 0-100000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 5s - loss: 0.2514 - tp: 78705.0000 - fp: 613.0000 - tn: 319387.0000 - fn: 1295.0000 - accuracy: 0.9952 - precision: 0.9923 - recall: 0.9838 - auc: 0.9999 - val_loss: 0.1147 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-3-files-0-1-batch-0-100000
+[INFO] processing batch 100000-200000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 5s - loss: 0.0958 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0639 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-3-files-0-1-batch-100000-200000
+[INFO] processing batch 200000-300000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 5s - loss: 0.0735 - tp: 79766.0000 - fp: 234.0000 - tn: 319766.0000 - fn: 234.0000 - accuracy: 0.9988 - precision: 0.9971 - recall: 0.9971 - auc: 0.9992 - val_loss: 1.7175 - val_tp: 10606.0000 - val_fp: 9394.0000 - val_tn: 70606.0000 - val_fn: 9394.0000 - val_accuracy: 0.8121 - val_precision: 0.5303 - val_recall: 0.5303 - val_auc: 0.8828
+[INFO] saving weights to checkpoints/lstm-epoch-3-files-0-1-batch-200000-300000
+[INFO] processing batch 300000-400000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 4s - loss: 1.0580 - tp: 42009.0000 - fp: 37213.0000 - tn: 282787.0000 - fn: 37991.0000 - accuracy: 0.8120 - precision: 0.5303 - recall: 0.5251 - auc: 0.8785 - val_loss: 0.7631 - val_tp: 10626.0000 - val_fp: 9374.0000 - val_tn: 70626.0000 - val_fn: 9374.0000 - val_accuracy: 0.8125 - val_precision: 0.5313 - val_recall: 0.5313 - val_auc: 0.8828
+[INFO] saving weights to checkpoints/lstm-epoch-3-files-0-1-batch-300000-400000
+[INFO] processing batch 400000-500000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 4s - loss: 0.7624 - tp: 38449.0000 - fp: 35325.0000 - tn: 284675.0000 - fn: 41551.0000 - accuracy: 0.8078 - precision: 0.5212 - recall: 0.4806 - auc: 0.8815 - val_loss: 0.7364 - val_tp: 9055.0000 - val_fp: 7904.0000 - val_tn: 72096.0000 - val_fn: 10945.0000 - val_accuracy: 0.8115 - val_precision: 0.5339 - val_recall: 0.4527 - val_auc: 0.8832
+[INFO] saving weights to checkpoints/lstm-epoch-3-files-0-1-batch-400000-500000
+[33m[INFO] epoch 4/100[0m
+[33m[INFO] loading file 1-1/1 on epoch 4/100[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.2/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (500000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['unixtime', 'orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst',
+       'proto', 'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] analyze dataset: (500000, 17)
+
+[INFO] analyzing data
+[INFO] 500000 rows
+[INFO] ** unixtime:1356 (0.2712%)
+[INFO] ** orig:[0:100.0%]
+[INFO] ** type:[0:99.9998%,2:0.0002%]
+[INFO] ** i/f_name:[2:99.9988%,3:0.0012%]
+[INFO] ** i/f_dir:[1:99.9988%,0:0.0012%]
+[INFO] ** src:[22:38.4088%,9:25.8982%,7:18.1636%,1:17.5218%,11:0.0014%,10:0.0014%,14:0.0012%,3:0.001%,2:0.001%,21:0.0006%,15:0.0004%,4:0.0004%,8:0.0002%]
+[INFO] ** dst:[21:43.266%,10:21.0416%,8:18.1634%,9:17.5214%,6:0.0016%,16:0.0012%,15:0.0012%,22:0.001%,18:0.0006%,26:0.0004%,25:0.0004%,19:0.0004%,17:0.0004%,24:0.0002%,7:0.0002%]
+[INFO] ** proto:[0:99.996%,2:0.0028%,1:0.0012%]
+[INFO] ** appi_name:[21:99.9928%,30:0.0012%,22:0.001%,17:0.0008%,31:0.0006%,26:0.0006%,7:0.0006%,23:0.0004%,18:0.0004%,0:0.0004%,28:0.0002%,27:0.0002%,24:0.0002%,16:0.0002%,15:0.0002%,5:0.0002%]
+[INFO] ** proxy_src_ip:[18:38.4088%,20:25.8982%,13:18.1636%,6:17.5218%,11:0.0014%,10:0.0014%,17:0.0012%,14:0.001%,1:0.001%,7:0.0006%,21:0.0004%,16:0.0004%,0:0.0002%]
+[INFO] ** modbus_function_code:[0.02961:99.9928%,-33.760870000000004:0.007%,0.9188299999999999:0.0002%]
+[INFO] ** modbus_function_description:[7:49.9974%,11:49.9954%,0:0.007%,15:0.0002%]
+[INFO] ** modbus_transaction_id:65536 (13.1072%)
+[INFO] ** scada_tag:[3:25.8976%,1:21.0406%,5:18.163%,4:17.521%,2:17.3678%,0:0.01%]
+[INFO] ** service:[0.0048200000000000005:99.9936%,-211.73542999999998:0.0012%,-211.08818:0.001%,-205.44247:0.0008%,-211.07873999999998:0.0008%,-211.09762999999998:0.0006%,-211.08346:0.0006%,-186.43601999999998:0.0006%,-186.44547:0.0004%,-185.9872:0.0002%,-202.75898:0.0002%]
+[INFO] ** s_port:[1.45442:25.8978%,-0.32151:21.0408%,-1.27613:18.1632%,-0.23351:17.5212%,-0.33484:17.368%,-71.33197:0.0012%,-71.14931:0.001%,-2.1481:0.0008%,-0.24151:0.0006%,-71.14798:0.0006%,-2.42942:0.0004%,4.44364:0.0004%,-1.02014:0.0004%,-64.19493:0.0004%,-5.1466400000000005:0.0002%,-1.2708:0.0002%,-58.035180000000004:0.0002%,4.076980000000001:0.0002%,-5.08665:0.0002%,1.47576:0.0002%,1.46509:0.0002%,4.29964:0.0002%,14.253910000000001:0.0002%,-68.79874000000001:0.0002%,6.1115699999999995:0.0002%,2.05573:0.0002%,-43.76509:0.0002%,10.67005:0.0002%,-1.27347:0.0002%,-58.032509999999995:0.0002%]
+[INFO] ** classification:[normal:79.2972%,Single Stage Single Point:20.7028%]
+[33mencode_numeric_zscore unixtime[0m
+[INFO] processing batch 0-100000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 4s - loss: 0.2420 - tp: 79053.0000 - fp: 597.0000 - tn: 319403.0000 - fn: 947.0000 - accuracy: 0.9961 - precision: 0.9925 - recall: 0.9882 - auc: 0.9999 - val_loss: 0.1092 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-4-files-0-1-batch-0-100000
+[INFO] processing batch 100000-200000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 5s - loss: 0.0898 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0599 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-4-files-0-1-batch-100000-200000
+[INFO] processing batch 200000-300000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 4s - loss: 0.0689 - tp: 79766.0000 - fp: 234.0000 - tn: 319766.0000 - fn: 234.0000 - accuracy: 0.9988 - precision: 0.9971 - recall: 0.9971 - auc: 0.9992 - val_loss: 1.6848 - val_tp: 10606.0000 - val_fp: 9394.0000 - val_tn: 70606.0000 - val_fn: 9394.0000 - val_accuracy: 0.8121 - val_precision: 0.5303 - val_recall: 0.5303 - val_auc: 0.8819
+[INFO] saving weights to checkpoints/lstm-epoch-4-files-0-1-batch-200000-300000
+[INFO] processing batch 300000-400000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 4s - loss: 1.0336 - tp: 42241.0000 - fp: 37379.0000 - tn: 282621.0000 - fn: 37759.0000 - accuracy: 0.8122 - precision: 0.5305 - recall: 0.5280 - auc: 0.8810 - val_loss: 0.7477 - val_tp: 10626.0000 - val_fp: 9374.0000 - val_tn: 70626.0000 - val_fn: 9374.0000 - val_accuracy: 0.8125 - val_precision: 0.5313 - val_recall: 0.5313 - val_auc: 0.8829
+[INFO] saving weights to checkpoints/lstm-epoch-4-files-0-1-batch-300000-400000
+[INFO] processing batch 400000-500000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 4s - loss: 0.7477 - tp: 39083.0000 - fp: 36349.0000 - tn: 283651.0000 - fn: 40917.0000 - accuracy: 0.8068 - precision: 0.5181 - recall: 0.4885 - auc: 0.8809 - val_loss: 0.7246 - val_tp: 10452.0000 - val_fp: 9196.0000 - val_tn: 70804.0000 - val_fn: 9548.0000 - val_accuracy: 0.8126 - val_precision: 0.5320 - val_recall: 0.5226 - val_auc: 0.8832
+[INFO] saving weights to checkpoints/lstm-epoch-4-files-0-1-batch-400000-500000
+[33m[INFO] epoch 5/100[0m
+[33m[INFO] loading file 1-1/1 on epoch 5/100[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.2/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (500000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['unixtime', 'orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst',
+       'proto', 'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] analyze dataset: (500000, 17)
+
+[INFO] analyzing data
+[INFO] 500000 rows
+[INFO] ** unixtime:1356 (0.2712%)
+[INFO] ** orig:[0:100.0%]
+[INFO] ** type:[0:99.9998%,2:0.0002%]
+[INFO] ** i/f_name:[2:99.9988%,3:0.0012%]
+[INFO] ** i/f_dir:[1:99.9988%,0:0.0012%]
+[INFO] ** src:[22:38.4088%,9:25.8982%,7:18.1636%,1:17.5218%,11:0.0014%,10:0.0014%,14:0.0012%,3:0.001%,2:0.001%,21:0.0006%,15:0.0004%,4:0.0004%,8:0.0002%]
+[INFO] ** dst:[21:43.266%,10:21.0416%,8:18.1634%,9:17.5214%,6:0.0016%,16:0.0012%,15:0.0012%,22:0.001%,18:0.0006%,26:0.0004%,25:0.0004%,19:0.0004%,17:0.0004%,24:0.0002%,7:0.0002%]
+[INFO] ** proto:[0:99.996%,2:0.0028%,1:0.0012%]
+[INFO] ** appi_name:[21:99.9928%,30:0.0012%,22:0.001%,17:0.0008%,31:0.0006%,26:0.0006%,7:0.0006%,23:0.0004%,18:0.0004%,0:0.0004%,28:0.0002%,27:0.0002%,24:0.0002%,16:0.0002%,15:0.0002%,5:0.0002%]
+[INFO] ** proxy_src_ip:[18:38.4088%,20:25.8982%,13:18.1636%,6:17.5218%,11:0.0014%,10:0.0014%,17:0.0012%,14:0.001%,1:0.001%,7:0.0006%,21:0.0004%,16:0.0004%,0:0.0002%]
+[INFO] ** modbus_function_code:[0.02961:99.9928%,-33.760870000000004:0.007%,0.9188299999999999:0.0002%]
+[INFO] ** modbus_function_description:[7:49.9974%,11:49.9954%,0:0.007%,15:0.0002%]
+[INFO] ** modbus_transaction_id:65536 (13.1072%)
+[INFO] ** scada_tag:[3:25.8976%,1:21.0406%,5:18.163%,4:17.521%,2:17.3678%,0:0.01%]
+[INFO] ** service:[0.0048200000000000005:99.9936%,-211.73542999999998:0.0012%,-211.08818:0.001%,-205.44247:0.0008%,-211.07873999999998:0.0008%,-211.09762999999998:0.0006%,-211.08346:0.0006%,-186.43601999999998:0.0006%,-186.44547:0.0004%,-185.9872:0.0002%,-202.75898:0.0002%]
+[INFO] ** s_port:[1.45442:25.8978%,-0.32151:21.0408%,-1.27613:18.1632%,-0.23351:17.5212%,-0.33484:17.368%,-71.33197:0.0012%,-71.14931:0.001%,-2.1481:0.0008%,-0.24151:0.0006%,-71.14798:0.0006%,-2.42942:0.0004%,4.44364:0.0004%,-1.02014:0.0004%,-64.19493:0.0004%,-5.1466400000000005:0.0002%,-1.2708:0.0002%,-58.035180000000004:0.0002%,4.076980000000001:0.0002%,-5.08665:0.0002%,1.47576:0.0002%,1.46509:0.0002%,4.29964:0.0002%,14.253910000000001:0.0002%,-68.79874000000001:0.0002%,6.1115699999999995:0.0002%,2.05573:0.0002%,-43.76509:0.0002%,10.67005:0.0002%,-1.27347:0.0002%,-58.032509999999995:0.0002%]
+[INFO] ** classification:[normal:79.2972%,Single Stage Single Point:20.7028%]
+[33mencode_numeric_zscore unixtime[0m
+[INFO] processing batch 0-100000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 4s - loss: 0.2384 - tp: 79213.0000 - fp: 543.0000 - tn: 319457.0000 - fn: 787.0000 - accuracy: 0.9967 - precision: 0.9932 - recall: 0.9902 - auc: 0.9999 - val_loss: 0.1071 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-5-files-0-1-batch-0-100000
+[INFO] processing batch 100000-200000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 5s - loss: 0.0870 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0581 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-5-files-0-1-batch-100000-200000
+[INFO] processing batch 200000-300000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 5s - loss: 0.0665 - tp: 79766.0000 - fp: 234.0000 - tn: 319766.0000 - fn: 234.0000 - accuracy: 0.9988 - precision: 0.9971 - recall: 0.9971 - auc: 0.9993 - val_loss: 1.6660 - val_tp: 10606.0000 - val_fp: 9394.0000 - val_tn: 70606.0000 - val_fn: 9394.0000 - val_accuracy: 0.8121 - val_precision: 0.5303 - val_recall: 0.5303 - val_auc: 0.8821
+[INFO] saving weights to checkpoints/lstm-epoch-5-files-0-1-batch-200000-300000
+[INFO] processing batch 300000-400000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 5s - loss: 1.0209 - tp: 42335.0000 - fp: 37498.0000 - tn: 282502.0000 - fn: 37665.0000 - accuracy: 0.8121 - precision: 0.5303 - recall: 0.5292 - auc: 0.8820 - val_loss: 0.7392 - val_tp: 10626.0000 - val_fp: 9374.0000 - val_tn: 70626.0000 - val_fn: 9374.0000 - val_accuracy: 0.8125 - val_precision: 0.5313 - val_recall: 0.5313 - val_auc: 0.8829
+[INFO] saving weights to checkpoints/lstm-epoch-5-files-0-1-batch-300000-400000
+[INFO] processing batch 400000-500000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 4s - loss: 0.7366 - tp: 39789.0000 - fp: 36680.0000 - tn: 283320.0000 - fn: 40211.0000 - accuracy: 0.8078 - precision: 0.5203 - recall: 0.4974 - auc: 0.8816 - val_loss: 0.7175 - val_tp: 10603.0000 - val_fp: 9397.0000 - val_tn: 70603.0000 - val_fn: 9397.0000 - val_accuracy: 0.8121 - val_precision: 0.5301 - val_recall: 0.5301 - val_auc: 0.8832
+[INFO] saving weights to checkpoints/lstm-epoch-5-files-0-1-batch-400000-500000
+[33m[INFO] epoch 6/100[0m
+[33m[INFO] loading file 1-1/1 on epoch 6/100[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.2/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (500000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['unixtime', 'orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst',
+       'proto', 'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] analyze dataset: (500000, 17)
+
+[INFO] analyzing data
+[INFO] 500000 rows
+[INFO] ** unixtime:1356 (0.2712%)
+[INFO] ** orig:[0:100.0%]
+[INFO] ** type:[0:99.9998%,2:0.0002%]
+[INFO] ** i/f_name:[2:99.9988%,3:0.0012%]
+[INFO] ** i/f_dir:[1:99.9988%,0:0.0012%]
+[INFO] ** src:[22:38.4088%,9:25.8982%,7:18.1636%,1:17.5218%,11:0.0014%,10:0.0014%,14:0.0012%,3:0.001%,2:0.001%,21:0.0006%,15:0.0004%,4:0.0004%,8:0.0002%]
+[INFO] ** dst:[21:43.266%,10:21.0416%,8:18.1634%,9:17.5214%,6:0.0016%,16:0.0012%,15:0.0012%,22:0.001%,18:0.0006%,26:0.0004%,25:0.0004%,19:0.0004%,17:0.0004%,24:0.0002%,7:0.0002%]
+[INFO] ** proto:[0:99.996%,2:0.0028%,1:0.0012%]
+[INFO] ** appi_name:[21:99.9928%,30:0.0012%,22:0.001%,17:0.0008%,31:0.0006%,26:0.0006%,7:0.0006%,23:0.0004%,18:0.0004%,0:0.0004%,28:0.0002%,27:0.0002%,24:0.0002%,16:0.0002%,15:0.0002%,5:0.0002%]
+[INFO] ** proxy_src_ip:[18:38.4088%,20:25.8982%,13:18.1636%,6:17.5218%,11:0.0014%,10:0.0014%,17:0.0012%,14:0.001%,1:0.001%,7:0.0006%,21:0.0004%,16:0.0004%,0:0.0002%]
+[INFO] ** modbus_function_code:[0.02961:99.9928%,-33.760870000000004:0.007%,0.9188299999999999:0.0002%]
+[INFO] ** modbus_function_description:[7:49.9974%,11:49.9954%,0:0.007%,15:0.0002%]
+[INFO] ** modbus_transaction_id:65536 (13.1072%)
+[INFO] ** scada_tag:[3:25.8976%,1:21.0406%,5:18.163%,4:17.521%,2:17.3678%,0:0.01%]
+[INFO] ** service:[0.0048200000000000005:99.9936%,-211.73542999999998:0.0012%,-211.08818:0.001%,-205.44247:0.0008%,-211.07873999999998:0.0008%,-211.09762999999998:0.0006%,-211.08346:0.0006%,-186.43601999999998:0.0006%,-186.44547:0.0004%,-185.9872:0.0002%,-202.75898:0.0002%]
+[INFO] ** s_port:[1.45442:25.8978%,-0.32151:21.0408%,-1.27613:18.1632%,-0.23351:17.5212%,-0.33484:17.368%,-71.33197:0.0012%,-71.14931:0.001%,-2.1481:0.0008%,-0.24151:0.0006%,-71.14798:0.0006%,-2.42942:0.0004%,4.44364:0.0004%,-1.02014:0.0004%,-64.19493:0.0004%,-5.1466400000000005:0.0002%,-1.2708:0.0002%,-58.035180000000004:0.0002%,4.076980000000001:0.0002%,-5.08665:0.0002%,1.47576:0.0002%,1.46509:0.0002%,4.29964:0.0002%,14.253910000000001:0.0002%,-68.79874000000001:0.0002%,6.1115699999999995:0.0002%,2.05573:0.0002%,-43.76509:0.0002%,10.67005:0.0002%,-1.27347:0.0002%,-58.032509999999995:0.0002%]
+[INFO] ** classification:[normal:79.2972%,Single Stage Single Point:20.7028%]
+[33mencode_numeric_zscore unixtime[0m
+[INFO] processing batch 0-100000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 4s - loss: 0.2373 - tp: 79319.0000 - fp: 509.0000 - tn: 319491.0000 - fn: 681.0000 - accuracy: 0.9970 - precision: 0.9936 - recall: 0.9915 - auc: 0.9999 - val_loss: 0.1062 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-6-files-0-1-batch-0-100000
+[INFO] processing batch 100000-200000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 4s - loss: 0.0853 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0571 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-6-files-0-1-batch-100000-200000
+[INFO] processing batch 200000-300000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 4s - loss: 0.0653 - tp: 79766.0000 - fp: 234.0000 - tn: 319766.0000 - fn: 234.0000 - accuracy: 0.9988 - precision: 0.9971 - recall: 0.9971 - auc: 0.9993 - val_loss: 1.6537 - val_tp: 10606.0000 - val_fp: 9394.0000 - val_tn: 70606.0000 - val_fn: 9394.0000 - val_accuracy: 0.8121 - val_precision: 0.5303 - val_recall: 0.5303 - val_auc: 0.8813
+[INFO] saving weights to checkpoints/lstm-epoch-6-files-0-1-batch-200000-300000
+[INFO] processing batch 300000-400000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 4s - loss: 1.0118 - tp: 42402.0000 - fp: 37498.0000 - tn: 282502.0000 - fn: 37598.0000 - accuracy: 0.8123 - precision: 0.5307 - recall: 0.5300 - auc: 0.8827 - val_loss: 0.7331 - val_tp: 10626.0000 - val_fp: 9374.0000 - val_tn: 70626.0000 - val_fn: 9374.0000 - val_accuracy: 0.8125 - val_precision: 0.5313 - val_recall: 0.5313 - val_auc: 0.8830
+[INFO] saving weights to checkpoints/lstm-epoch-6-files-0-1-batch-300000-400000
+[INFO] processing batch 400000-500000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 4s - loss: 0.7298 - tp: 40169.0000 - fp: 36906.0000 - tn: 283094.0000 - fn: 39831.0000 - accuracy: 0.8082 - precision: 0.5212 - recall: 0.5021 - auc: 0.8818 - val_loss: 0.7128 - val_tp: 10603.0000 - val_fp: 9397.0000 - val_tn: 70603.0000 - val_fn: 9397.0000 - val_accuracy: 0.8121 - val_precision: 0.5301 - val_recall: 0.5301 - val_auc: 0.8834
+[INFO] saving weights to checkpoints/lstm-epoch-6-files-0-1-batch-400000-500000
+[33m[INFO] epoch 7/100[0m
+[33m[INFO] loading file 1-1/1 on epoch 7/100[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.2/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (500000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['unixtime', 'orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst',
+       'proto', 'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] analyze dataset: (500000, 17)
+
+[INFO] analyzing data
+[INFO] 500000 rows
+[INFO] ** unixtime:1356 (0.2712%)
+[INFO] ** orig:[0:100.0%]
+[INFO] ** type:[0:99.9998%,2:0.0002%]
+[INFO] ** i/f_name:[2:99.9988%,3:0.0012%]
+[INFO] ** i/f_dir:[1:99.9988%,0:0.0012%]
+[INFO] ** src:[22:38.4088%,9:25.8982%,7:18.1636%,1:17.5218%,11:0.0014%,10:0.0014%,14:0.0012%,3:0.001%,2:0.001%,21:0.0006%,15:0.0004%,4:0.0004%,8:0.0002%]
+[INFO] ** dst:[21:43.266%,10:21.0416%,8:18.1634%,9:17.5214%,6:0.0016%,16:0.0012%,15:0.0012%,22:0.001%,18:0.0006%,26:0.0004%,25:0.0004%,19:0.0004%,17:0.0004%,24:0.0002%,7:0.0002%]
+[INFO] ** proto:[0:99.996%,2:0.0028%,1:0.0012%]
+[INFO] ** appi_name:[21:99.9928%,30:0.0012%,22:0.001%,17:0.0008%,31:0.0006%,26:0.0006%,7:0.0006%,23:0.0004%,18:0.0004%,0:0.0004%,28:0.0002%,27:0.0002%,24:0.0002%,16:0.0002%,15:0.0002%,5:0.0002%]
+[INFO] ** proxy_src_ip:[18:38.4088%,20:25.8982%,13:18.1636%,6:17.5218%,11:0.0014%,10:0.0014%,17:0.0012%,14:0.001%,1:0.001%,7:0.0006%,21:0.0004%,16:0.0004%,0:0.0002%]
+[INFO] ** modbus_function_code:[0.02961:99.9928%,-33.760870000000004:0.007%,0.9188299999999999:0.0002%]
+[INFO] ** modbus_function_description:[7:49.9974%,11:49.9954%,0:0.007%,15:0.0002%]
+[INFO] ** modbus_transaction_id:65536 (13.1072%)
+[INFO] ** scada_tag:[3:25.8976%,1:21.0406%,5:18.163%,4:17.521%,2:17.3678%,0:0.01%]
+[INFO] ** service:[0.0048200000000000005:99.9936%,-211.73542999999998:0.0012%,-211.08818:0.001%,-205.44247:0.0008%,-211.07873999999998:0.0008%,-211.09762999999998:0.0006%,-211.08346:0.0006%,-186.43601999999998:0.0006%,-186.44547:0.0004%,-185.9872:0.0002%,-202.75898:0.0002%]
+[INFO] ** s_port:[1.45442:25.8978%,-0.32151:21.0408%,-1.27613:18.1632%,-0.23351:17.5212%,-0.33484:17.368%,-71.33197:0.0012%,-71.14931:0.001%,-2.1481:0.0008%,-0.24151:0.0006%,-71.14798:0.0006%,-2.42942:0.0004%,4.44364:0.0004%,-1.02014:0.0004%,-64.19493:0.0004%,-5.1466400000000005:0.0002%,-1.2708:0.0002%,-58.035180000000004:0.0002%,4.076980000000001:0.0002%,-5.08665:0.0002%,1.47576:0.0002%,1.46509:0.0002%,4.29964:0.0002%,14.253910000000001:0.0002%,-68.79874000000001:0.0002%,6.1115699999999995:0.0002%,2.05573:0.0002%,-43.76509:0.0002%,10.67005:0.0002%,-1.27347:0.0002%,-58.032509999999995:0.0002%]
+[INFO] ** classification:[normal:79.2972%,Single Stage Single Point:20.7028%]
+[33mencode_numeric_zscore unixtime[0m
+[INFO] processing batch 0-100000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 4s - loss: 0.2370 - tp: 79386.0000 - fp: 480.0000 - tn: 319520.0000 - fn: 614.0000 - accuracy: 0.9973 - precision: 0.9940 - recall: 0.9923 - auc: 1.0000 - val_loss: 0.1058 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-7-files-0-1-batch-0-100000
+[INFO] processing batch 100000-200000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 4s - loss: 0.0844 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0565 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-7-files-0-1-batch-100000-200000
+[INFO] processing batch 200000-300000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 4s - loss: 0.0641 - tp: 79766.0000 - fp: 234.0000 - tn: 319766.0000 - fn: 234.0000 - accuracy: 0.9988 - precision: 0.9971 - recall: 0.9971 - auc: 0.9993 - val_loss: 1.6442 - val_tp: 10606.0000 - val_fp: 9394.0000 - val_tn: 70606.0000 - val_fn: 9394.0000 - val_accuracy: 0.8121 - val_precision: 0.5303 - val_recall: 0.5303 - val_auc: 0.8821
+[INFO] saving weights to checkpoints/lstm-epoch-7-files-0-1-batch-200000-300000
+[INFO] processing batch 300000-400000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 4s - loss: 1.0071 - tp: 42414.0000 - fp: 37552.0000 - tn: 282448.0000 - fn: 37586.0000 - accuracy: 0.8122 - precision: 0.5304 - recall: 0.5302 - auc: 0.8826 - val_loss: 0.7297 - val_tp: 10626.0000 - val_fp: 9374.0000 - val_tn: 70626.0000 - val_fn: 9374.0000 - val_accuracy: 0.8125 - val_precision: 0.5313 - val_recall: 0.5313 - val_auc: 0.8832
+[INFO] saving weights to checkpoints/lstm-epoch-7-files-0-1-batch-300000-400000
+[INFO] processing batch 400000-500000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 4s - loss: 0.7250 - tp: 40584.0000 - fp: 37088.0000 - tn: 282912.0000 - fn: 39416.0000 - accuracy: 0.8087 - precision: 0.5225 - recall: 0.5073 - auc: 0.8820 - val_loss: 0.7097 - val_tp: 10603.0000 - val_fp: 9397.0000 - val_tn: 70603.0000 - val_fn: 9397.0000 - val_accuracy: 0.8121 - val_precision: 0.5301 - val_recall: 0.5301 - val_auc: 0.8837
+[INFO] saving weights to checkpoints/lstm-epoch-7-files-0-1-batch-400000-500000
+[33m[INFO] epoch 8/100[0m
+[33m[INFO] loading file 1-1/1 on epoch 8/100[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.2/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (500000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['unixtime', 'orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst',
+       'proto', 'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] analyze dataset: (500000, 17)
+
+[INFO] analyzing data
+[INFO] 500000 rows
+[INFO] ** unixtime:1356 (0.2712%)
+[INFO] ** orig:[0:100.0%]
+[INFO] ** type:[0:99.9998%,2:0.0002%]
+[INFO] ** i/f_name:[2:99.9988%,3:0.0012%]
+[INFO] ** i/f_dir:[1:99.9988%,0:0.0012%]
+[INFO] ** src:[22:38.4088%,9:25.8982%,7:18.1636%,1:17.5218%,11:0.0014%,10:0.0014%,14:0.0012%,3:0.001%,2:0.001%,21:0.0006%,15:0.0004%,4:0.0004%,8:0.0002%]
+[INFO] ** dst:[21:43.266%,10:21.0416%,8:18.1634%,9:17.5214%,6:0.0016%,16:0.0012%,15:0.0012%,22:0.001%,18:0.0006%,26:0.0004%,25:0.0004%,19:0.0004%,17:0.0004%,24:0.0002%,7:0.0002%]
+[INFO] ** proto:[0:99.996%,2:0.0028%,1:0.0012%]
+[INFO] ** appi_name:[21:99.9928%,30:0.0012%,22:0.001%,17:0.0008%,31:0.0006%,26:0.0006%,7:0.0006%,23:0.0004%,18:0.0004%,0:0.0004%,28:0.0002%,27:0.0002%,24:0.0002%,16:0.0002%,15:0.0002%,5:0.0002%]
+[INFO] ** proxy_src_ip:[18:38.4088%,20:25.8982%,13:18.1636%,6:17.5218%,11:0.0014%,10:0.0014%,17:0.0012%,14:0.001%,1:0.001%,7:0.0006%,21:0.0004%,16:0.0004%,0:0.0002%]
+[INFO] ** modbus_function_code:[0.02961:99.9928%,-33.760870000000004:0.007%,0.9188299999999999:0.0002%]
+[INFO] ** modbus_function_description:[7:49.9974%,11:49.9954%,0:0.007%,15:0.0002%]
+[INFO] ** modbus_transaction_id:65536 (13.1072%)
+[INFO] ** scada_tag:[3:25.8976%,1:21.0406%,5:18.163%,4:17.521%,2:17.3678%,0:0.01%]
+[INFO] ** service:[0.0048200000000000005:99.9936%,-211.73542999999998:0.0012%,-211.08818:0.001%,-205.44247:0.0008%,-211.07873999999998:0.0008%,-211.09762999999998:0.0006%,-211.08346:0.0006%,-186.43601999999998:0.0006%,-186.44547:0.0004%,-185.9872:0.0002%,-202.75898:0.0002%]
+[INFO] ** s_port:[1.45442:25.8978%,-0.32151:21.0408%,-1.27613:18.1632%,-0.23351:17.5212%,-0.33484:17.368%,-71.33197:0.0012%,-71.14931:0.001%,-2.1481:0.0008%,-0.24151:0.0006%,-71.14798:0.0006%,-2.42942:0.0004%,4.44364:0.0004%,-1.02014:0.0004%,-64.19493:0.0004%,-5.1466400000000005:0.0002%,-1.2708:0.0002%,-58.035180000000004:0.0002%,4.076980000000001:0.0002%,-5.08665:0.0002%,1.47576:0.0002%,1.46509:0.0002%,4.29964:0.0002%,14.253910000000001:0.0002%,-68.79874000000001:0.0002%,6.1115699999999995:0.0002%,2.05573:0.0002%,-43.76509:0.0002%,10.67005:0.0002%,-1.27347:0.0002%,-58.032509999999995:0.0002%]
+[INFO] ** classification:[normal:79.2972%,Single Stage Single Point:20.7028%]
+[33mencode_numeric_zscore unixtime[0m
+[INFO] processing batch 0-100000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 4s - loss: 0.2365 - tp: 79444.0000 - fp: 436.0000 - tn: 319564.0000 - fn: 556.0000 - accuracy: 0.9975 - precision: 0.9945 - recall: 0.9930 - auc: 1.0000 - val_loss: 0.1056 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-8-files-0-1-batch-0-100000
+[INFO] processing batch 100000-200000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 4s - loss: 0.0836 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0561 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-8-files-0-1-batch-100000-200000
+[INFO] processing batch 200000-300000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 5s - loss: 0.0634 - tp: 79766.0000 - fp: 234.0000 - tn: 319766.0000 - fn: 234.0000 - accuracy: 0.9988 - precision: 0.9971 - recall: 0.9971 - auc: 0.9992 - val_loss: 1.6369 - val_tp: 10606.0000 - val_fp: 9394.0000 - val_tn: 70606.0000 - val_fn: 9394.0000 - val_accuracy: 0.8121 - val_precision: 0.5303 - val_recall: 0.5303 - val_auc: 0.8827
+[INFO] saving weights to checkpoints/lstm-epoch-8-files-0-1-batch-200000-300000
+[INFO] processing batch 300000-400000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 5s - loss: 1.0034 - tp: 42434.0000 - fp: 37540.0000 - tn: 282460.0000 - fn: 37566.0000 - accuracy: 0.8122 - precision: 0.5306 - recall: 0.5304 - auc: 0.8824 - val_loss: 0.7278 - val_tp: 10626.0000 - val_fp: 9374.0000 - val_tn: 70626.0000 - val_fn: 9374.0000 - val_accuracy: 0.8125 - val_precision: 0.5313 - val_recall: 0.5313 - val_auc: 0.8833
+[INFO] saving weights to checkpoints/lstm-epoch-8-files-0-1-batch-300000-400000
+[INFO] processing batch 400000-500000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 5s - loss: 0.7222 - tp: 40883.0000 - fp: 37196.0000 - tn: 282804.0000 - fn: 39117.0000 - accuracy: 0.8092 - precision: 0.5236 - recall: 0.5110 - auc: 0.8820 - val_loss: 0.7073 - val_tp: 10603.0000 - val_fp: 9397.0000 - val_tn: 70603.0000 - val_fn: 9397.0000 - val_accuracy: 0.8121 - val_precision: 0.5301 - val_recall: 0.5301 - val_auc: 0.8837
+[INFO] saving weights to checkpoints/lstm-epoch-8-files-0-1-batch-400000-500000
+[33m[INFO] epoch 9/100[0m
+[33m[INFO] loading file 1-1/1 on epoch 9/100[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.2/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (500000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['unixtime', 'orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst',
+       'proto', 'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] analyze dataset: (500000, 17)
+
+[INFO] analyzing data
+[INFO] 500000 rows
+[INFO] ** unixtime:1356 (0.2712%)
+[INFO] ** orig:[0:100.0%]
+[INFO] ** type:[0:99.9998%,2:0.0002%]
+[INFO] ** i/f_name:[2:99.9988%,3:0.0012%]
+[INFO] ** i/f_dir:[1:99.9988%,0:0.0012%]
+[INFO] ** src:[22:38.4088%,9:25.8982%,7:18.1636%,1:17.5218%,11:0.0014%,10:0.0014%,14:0.0012%,3:0.001%,2:0.001%,21:0.0006%,15:0.0004%,4:0.0004%,8:0.0002%]
+[INFO] ** dst:[21:43.266%,10:21.0416%,8:18.1634%,9:17.5214%,6:0.0016%,16:0.0012%,15:0.0012%,22:0.001%,18:0.0006%,26:0.0004%,25:0.0004%,19:0.0004%,17:0.0004%,24:0.0002%,7:0.0002%]
+[INFO] ** proto:[0:99.996%,2:0.0028%,1:0.0012%]
+[INFO] ** appi_name:[21:99.9928%,30:0.0012%,22:0.001%,17:0.0008%,31:0.0006%,26:0.0006%,7:0.0006%,23:0.0004%,18:0.0004%,0:0.0004%,28:0.0002%,27:0.0002%,24:0.0002%,16:0.0002%,15:0.0002%,5:0.0002%]
+[INFO] ** proxy_src_ip:[18:38.4088%,20:25.8982%,13:18.1636%,6:17.5218%,11:0.0014%,10:0.0014%,17:0.0012%,14:0.001%,1:0.001%,7:0.0006%,21:0.0004%,16:0.0004%,0:0.0002%]
+[INFO] ** modbus_function_code:[0.02961:99.9928%,-33.760870000000004:0.007%,0.9188299999999999:0.0002%]
+[INFO] ** modbus_function_description:[7:49.9974%,11:49.9954%,0:0.007%,15:0.0002%]
+[INFO] ** modbus_transaction_id:65536 (13.1072%)
+[INFO] ** scada_tag:[3:25.8976%,1:21.0406%,5:18.163%,4:17.521%,2:17.3678%,0:0.01%]
+[INFO] ** service:[0.0048200000000000005:99.9936%,-211.73542999999998:0.0012%,-211.08818:0.001%,-205.44247:0.0008%,-211.07873999999998:0.0008%,-211.09762999999998:0.0006%,-211.08346:0.0006%,-186.43601999999998:0.0006%,-186.44547:0.0004%,-185.9872:0.0002%,-202.75898:0.0002%]
+[INFO] ** s_port:[1.45442:25.8978%,-0.32151:21.0408%,-1.27613:18.1632%,-0.23351:17.5212%,-0.33484:17.368%,-71.33197:0.0012%,-71.14931:0.001%,-2.1481:0.0008%,-0.24151:0.0006%,-71.14798:0.0006%,-2.42942:0.0004%,4.44364:0.0004%,-1.02014:0.0004%,-64.19493:0.0004%,-5.1466400000000005:0.0002%,-1.2708:0.0002%,-58.035180000000004:0.0002%,4.076980000000001:0.0002%,-5.08665:0.0002%,1.47576:0.0002%,1.46509:0.0002%,4.29964:0.0002%,14.253910000000001:0.0002%,-68.79874000000001:0.0002%,6.1115699999999995:0.0002%,2.05573:0.0002%,-43.76509:0.0002%,10.67005:0.0002%,-1.27347:0.0002%,-58.032509999999995:0.0002%]
+[INFO] ** classification:[normal:79.2972%,Single Stage Single Point:20.7028%]
+[33mencode_numeric_zscore unixtime[0m
+[INFO] processing batch 0-100000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 5s - loss: 0.2357 - tp: 79497.0000 - fp: 435.0000 - tn: 319565.0000 - fn: 503.0000 - accuracy: 0.9977 - precision: 0.9946 - recall: 0.9937 - auc: 1.0000 - val_loss: 0.1052 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-9-files-0-1-batch-0-100000
+[INFO] processing batch 100000-200000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 5s - loss: 0.0830 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0557 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-9-files-0-1-batch-100000-200000
+[INFO] processing batch 200000-300000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 4s - loss: 0.0625 - tp: 79766.0000 - fp: 234.0000 - tn: 319766.0000 - fn: 234.0000 - accuracy: 0.9988 - precision: 0.9971 - recall: 0.9971 - auc: 0.9993 - val_loss: 1.6320 - val_tp: 10606.0000 - val_fp: 9394.0000 - val_tn: 70606.0000 - val_fn: 9394.0000 - val_accuracy: 0.8121 - val_precision: 0.5303 - val_recall: 0.5303 - val_auc: 0.8825
+[INFO] saving weights to checkpoints/lstm-epoch-9-files-0-1-batch-200000-300000
+[INFO] processing batch 300000-400000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 4s - loss: 1.0009 - tp: 42431.0000 - fp: 37555.0000 - tn: 282445.0000 - fn: 37569.0000 - accuracy: 0.8122 - precision: 0.5305 - recall: 0.5304 - auc: 0.8824 - val_loss: 0.7260 - val_tp: 10626.0000 - val_fp: 9374.0000 - val_tn: 70626.0000 - val_fn: 9374.0000 - val_accuracy: 0.8125 - val_precision: 0.5313 - val_recall: 0.5313 - val_auc: 0.8835
+[INFO] saving weights to checkpoints/lstm-epoch-9-files-0-1-batch-300000-400000
+[INFO] processing batch 400000-500000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 5s - loss: 0.7189 - tp: 41093.0000 - fp: 37302.0000 - tn: 282698.0000 - fn: 38907.0000 - accuracy: 0.8095 - precision: 0.5242 - recall: 0.5137 - auc: 0.8826 - val_loss: 0.7054 - val_tp: 10603.0000 - val_fp: 9397.0000 - val_tn: 70603.0000 - val_fn: 9397.0000 - val_accuracy: 0.8121 - val_precision: 0.5301 - val_recall: 0.5301 - val_auc: 0.8841
+[INFO] saving weights to checkpoints/lstm-epoch-9-files-0-1-batch-400000-500000
+[33m[INFO] epoch 10/100[0m
+[33m[INFO] loading file 1-1/1 on epoch 10/100[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.2/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (500000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['unixtime', 'orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst',
+       'proto', 'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] analyze dataset: (500000, 17)
+
+[INFO] analyzing data
+[INFO] 500000 rows
+[INFO] ** unixtime:1356 (0.2712%)
+[INFO] ** orig:[0:100.0%]
+[INFO] ** type:[0:99.9998%,2:0.0002%]
+[INFO] ** i/f_name:[2:99.9988%,3:0.0012%]
+[INFO] ** i/f_dir:[1:99.9988%,0:0.0012%]
+[INFO] ** src:[22:38.4088%,9:25.8982%,7:18.1636%,1:17.5218%,11:0.0014%,10:0.0014%,14:0.0012%,3:0.001%,2:0.001%,21:0.0006%,15:0.0004%,4:0.0004%,8:0.0002%]
+[INFO] ** dst:[21:43.266%,10:21.0416%,8:18.1634%,9:17.5214%,6:0.0016%,16:0.0012%,15:0.0012%,22:0.001%,18:0.0006%,26:0.0004%,25:0.0004%,19:0.0004%,17:0.0004%,24:0.0002%,7:0.0002%]
+[INFO] ** proto:[0:99.996%,2:0.0028%,1:0.0012%]
+[INFO] ** appi_name:[21:99.9928%,30:0.0012%,22:0.001%,17:0.0008%,31:0.0006%,26:0.0006%,7:0.0006%,23:0.0004%,18:0.0004%,0:0.0004%,28:0.0002%,27:0.0002%,24:0.0002%,16:0.0002%,15:0.0002%,5:0.0002%]
+[INFO] ** proxy_src_ip:[18:38.4088%,20:25.8982%,13:18.1636%,6:17.5218%,11:0.0014%,10:0.0014%,17:0.0012%,14:0.001%,1:0.001%,7:0.0006%,21:0.0004%,16:0.0004%,0:0.0002%]
+[INFO] ** modbus_function_code:[0.02961:99.9928%,-33.760870000000004:0.007%,0.9188299999999999:0.0002%]
+[INFO] ** modbus_function_description:[7:49.9974%,11:49.9954%,0:0.007%,15:0.0002%]
+[INFO] ** modbus_transaction_id:65536 (13.1072%)
+[INFO] ** scada_tag:[3:25.8976%,1:21.0406%,5:18.163%,4:17.521%,2:17.3678%,0:0.01%]
+[INFO] ** service:[0.0048200000000000005:99.9936%,-211.73542999999998:0.0012%,-211.08818:0.001%,-205.44247:0.0008%,-211.07873999999998:0.0008%,-211.09762999999998:0.0006%,-211.08346:0.0006%,-186.43601999999998:0.0006%,-186.44547:0.0004%,-185.9872:0.0002%,-202.75898:0.0002%]
+[INFO] ** s_port:[1.45442:25.8978%,-0.32151:21.0408%,-1.27613:18.1632%,-0.23351:17.5212%,-0.33484:17.368%,-71.33197:0.0012%,-71.14931:0.001%,-2.1481:0.0008%,-0.24151:0.0006%,-71.14798:0.0006%,-2.42942:0.0004%,4.44364:0.0004%,-1.02014:0.0004%,-64.19493:0.0004%,-5.1466400000000005:0.0002%,-1.2708:0.0002%,-58.035180000000004:0.0002%,4.076980000000001:0.0002%,-5.08665:0.0002%,1.47576:0.0002%,1.46509:0.0002%,4.29964:0.0002%,14.253910000000001:0.0002%,-68.79874000000001:0.0002%,6.1115699999999995:0.0002%,2.05573:0.0002%,-43.76509:0.0002%,10.67005:0.0002%,-1.27347:0.0002%,-58.032509999999995:0.0002%]
+[INFO] ** classification:[normal:79.2972%,Single Stage Single Point:20.7028%]
+[33mencode_numeric_zscore unixtime[0m
+[INFO] processing batch 0-100000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 4s - loss: 0.2354 - tp: 79526.0000 - fp: 403.0000 - tn: 319597.0000 - fn: 474.0000 - accuracy: 0.9978 - precision: 0.9950 - recall: 0.9941 - auc: 1.0000 - val_loss: 0.1051 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-10-files-0-1-batch-0-100000
+[INFO] processing batch 100000-200000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 4s - loss: 0.0824 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0555 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-10-files-0-1-batch-100000-200000
+[INFO] processing batch 200000-300000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 4s - loss: 0.0621 - tp: 79766.0000 - fp: 234.0000 - tn: 319766.0000 - fn: 234.0000 - accuracy: 0.9988 - precision: 0.9971 - recall: 0.9971 - auc: 0.9993 - val_loss: 1.6280 - val_tp: 10606.0000 - val_fp: 9394.0000 - val_tn: 70606.0000 - val_fn: 9394.0000 - val_accuracy: 0.8121 - val_precision: 0.5303 - val_recall: 0.5303 - val_auc: 0.8822
+[INFO] saving weights to checkpoints/lstm-epoch-10-files-0-1-batch-200000-300000
+[INFO] processing batch 300000-400000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 5s - loss: 0.9976 - tp: 42439.0000 - fp: 37547.0000 - tn: 282453.0000 - fn: 37561.0000 - accuracy: 0.8122 - precision: 0.5306 - recall: 0.5305 - auc: 0.8828 - val_loss: 0.7236 - val_tp: 10626.0000 - val_fp: 9374.0000 - val_tn: 70626.0000 - val_fn: 9374.0000 - val_accuracy: 0.8125 - val_precision: 0.5313 - val_recall: 0.5313 - val_auc: 0.8837
+[INFO] saving weights to checkpoints/lstm-epoch-10-files-0-1-batch-300000-400000
+[INFO] processing batch 400000-500000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 5s - loss: 0.7171 - tp: 41346.0000 - fp: 37578.0000 - tn: 282422.0000 - fn: 38654.0000 - accuracy: 0.8094 - precision: 0.5239 - recall: 0.5168 - auc: 0.8825 - val_loss: 0.7037 - val_tp: 10603.0000 - val_fp: 9397.0000 - val_tn: 70603.0000 - val_fn: 9397.0000 - val_accuracy: 0.8121 - val_precision: 0.5301 - val_recall: 0.5301 - val_auc: 0.8844
+[INFO] saving weights to checkpoints/lstm-epoch-10-files-0-1-batch-400000-500000
+[33m[INFO] epoch 11/100[0m
+[33m[INFO] loading file 1-1/1 on epoch 11/100[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.2/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (500000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['unixtime', 'orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst',
+       'proto', 'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] analyze dataset: (500000, 17)
+
+[INFO] analyzing data
+[INFO] 500000 rows
+[INFO] ** unixtime:1356 (0.2712%)
+[INFO] ** orig:[0:100.0%]
+[INFO] ** type:[0:99.9998%,2:0.0002%]
+[INFO] ** i/f_name:[2:99.9988%,3:0.0012%]
+[INFO] ** i/f_dir:[1:99.9988%,0:0.0012%]
+[INFO] ** src:[22:38.4088%,9:25.8982%,7:18.1636%,1:17.5218%,11:0.0014%,10:0.0014%,14:0.0012%,3:0.001%,2:0.001%,21:0.0006%,15:0.0004%,4:0.0004%,8:0.0002%]
+[INFO] ** dst:[21:43.266%,10:21.0416%,8:18.1634%,9:17.5214%,6:0.0016%,16:0.0012%,15:0.0012%,22:0.001%,18:0.0006%,26:0.0004%,25:0.0004%,19:0.0004%,17:0.0004%,24:0.0002%,7:0.0002%]
+[INFO] ** proto:[0:99.996%,2:0.0028%,1:0.0012%]
+[INFO] ** appi_name:[21:99.9928%,30:0.0012%,22:0.001%,17:0.0008%,31:0.0006%,26:0.0006%,7:0.0006%,23:0.0004%,18:0.0004%,0:0.0004%,28:0.0002%,27:0.0002%,24:0.0002%,16:0.0002%,15:0.0002%,5:0.0002%]
+[INFO] ** proxy_src_ip:[18:38.4088%,20:25.8982%,13:18.1636%,6:17.5218%,11:0.0014%,10:0.0014%,17:0.0012%,14:0.001%,1:0.001%,7:0.0006%,21:0.0004%,16:0.0004%,0:0.0002%]
+[INFO] ** modbus_function_code:[0.02961:99.9928%,-33.760870000000004:0.007%,0.9188299999999999:0.0002%]
+[INFO] ** modbus_function_description:[7:49.9974%,11:49.9954%,0:0.007%,15:0.0002%]
+[INFO] ** modbus_transaction_id:65536 (13.1072%)
+[INFO] ** scada_tag:[3:25.8976%,1:21.0406%,5:18.163%,4:17.521%,2:17.3678%,0:0.01%]
+[INFO] ** service:[0.0048200000000000005:99.9936%,-211.73542999999998:0.0012%,-211.08818:0.001%,-205.44247:0.0008%,-211.07873999999998:0.0008%,-211.09762999999998:0.0006%,-211.08346:0.0006%,-186.43601999999998:0.0006%,-186.44547:0.0004%,-185.9872:0.0002%,-202.75898:0.0002%]
+[INFO] ** s_port:[1.45442:25.8978%,-0.32151:21.0408%,-1.27613:18.1632%,-0.23351:17.5212%,-0.33484:17.368%,-71.33197:0.0012%,-71.14931:0.001%,-2.1481:0.0008%,-0.24151:0.0006%,-71.14798:0.0006%,-2.42942:0.0004%,4.44364:0.0004%,-1.02014:0.0004%,-64.19493:0.0004%,-5.1466400000000005:0.0002%,-1.2708:0.0002%,-58.035180000000004:0.0002%,4.076980000000001:0.0002%,-5.08665:0.0002%,1.47576:0.0002%,1.46509:0.0002%,4.29964:0.0002%,14.253910000000001:0.0002%,-68.79874000000001:0.0002%,6.1115699999999995:0.0002%,2.05573:0.0002%,-43.76509:0.0002%,10.67005:0.0002%,-1.27347:0.0002%,-58.032509999999995:0.0002%]
+[INFO] ** classification:[normal:79.2972%,Single Stage Single Point:20.7028%]
+[33mencode_numeric_zscore unixtime[0m
+[INFO] processing batch 0-100000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 5s - loss: 0.2355 - tp: 79498.0000 - fp: 442.0000 - tn: 319558.0000 - fn: 502.0000 - accuracy: 0.9976 - precision: 0.9945 - recall: 0.9937 - auc: 1.0000 - val_loss: 0.1050 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-11-files-0-1-batch-0-100000
+[INFO] processing batch 100000-200000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 5s - loss: 0.0821 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0553 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-11-files-0-1-batch-100000-200000
+[INFO] processing batch 200000-300000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 5s - loss: 0.0619 - tp: 79766.0000 - fp: 234.0000 - tn: 319766.0000 - fn: 234.0000 - accuracy: 0.9988 - precision: 0.9971 - recall: 0.9971 - auc: 0.9992 - val_loss: 1.6242 - val_tp: 10606.0000 - val_fp: 9394.0000 - val_tn: 70606.0000 - val_fn: 9394.0000 - val_accuracy: 0.8121 - val_precision: 0.5303 - val_recall: 0.5303 - val_auc: 0.8823
+[INFO] saving weights to checkpoints/lstm-epoch-11-files-0-1-batch-200000-300000
+[INFO] processing batch 300000-400000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 5s - loss: 0.9960 - tp: 42442.0000 - fp: 37552.0000 - tn: 282448.0000 - fn: 37558.0000 - accuracy: 0.8122 - precision: 0.5306 - recall: 0.5305 - auc: 0.8828 - val_loss: 0.7228 - val_tp: 10626.0000 - val_fp: 9374.0000 - val_tn: 70626.0000 - val_fn: 9374.0000 - val_accuracy: 0.8125 - val_precision: 0.5313 - val_recall: 0.5313 - val_auc: 0.8840
+[INFO] saving weights to checkpoints/lstm-epoch-11-files-0-1-batch-300000-400000
+[INFO] processing batch 400000-500000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 5s - loss: 0.7151 - tp: 41430.0000 - fp: 37670.0000 - tn: 282330.0000 - fn: 38570.0000 - accuracy: 0.8094 - precision: 0.5238 - recall: 0.5179 - auc: 0.8829 - val_loss: 0.7024 - val_tp: 10603.0000 - val_fp: 9397.0000 - val_tn: 70603.0000 - val_fn: 9397.0000 - val_accuracy: 0.8121 - val_precision: 0.5301 - val_recall: 0.5301 - val_auc: 0.8850
+[INFO] saving weights to checkpoints/lstm-epoch-11-files-0-1-batch-400000-500000
+[33m[INFO] epoch 12/100[0m
+[33m[INFO] loading file 1-1/1 on epoch 12/100[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.2/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (500000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['unixtime', 'orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst',
+       'proto', 'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] analyze dataset: (500000, 17)
+
+[INFO] analyzing data
+[INFO] 500000 rows
+[INFO] ** unixtime:1356 (0.2712%)
+[INFO] ** orig:[0:100.0%]
+[INFO] ** type:[0:99.9998%,2:0.0002%]
+[INFO] ** i/f_name:[2:99.9988%,3:0.0012%]
+[INFO] ** i/f_dir:[1:99.9988%,0:0.0012%]
+[INFO] ** src:[22:38.4088%,9:25.8982%,7:18.1636%,1:17.5218%,11:0.0014%,10:0.0014%,14:0.0012%,3:0.001%,2:0.001%,21:0.0006%,15:0.0004%,4:0.0004%,8:0.0002%]
+[INFO] ** dst:[21:43.266%,10:21.0416%,8:18.1634%,9:17.5214%,6:0.0016%,16:0.0012%,15:0.0012%,22:0.001%,18:0.0006%,26:0.0004%,25:0.0004%,19:0.0004%,17:0.0004%,24:0.0002%,7:0.0002%]
+[INFO] ** proto:[0:99.996%,2:0.0028%,1:0.0012%]
+[INFO] ** appi_name:[21:99.9928%,30:0.0012%,22:0.001%,17:0.0008%,31:0.0006%,26:0.0006%,7:0.0006%,23:0.0004%,18:0.0004%,0:0.0004%,28:0.0002%,27:0.0002%,24:0.0002%,16:0.0002%,15:0.0002%,5:0.0002%]
+[INFO] ** proxy_src_ip:[18:38.4088%,20:25.8982%,13:18.1636%,6:17.5218%,11:0.0014%,10:0.0014%,17:0.0012%,14:0.001%,1:0.001%,7:0.0006%,21:0.0004%,16:0.0004%,0:0.0002%]
+[INFO] ** modbus_function_code:[0.02961:99.9928%,-33.760870000000004:0.007%,0.9188299999999999:0.0002%]
+[INFO] ** modbus_function_description:[7:49.9974%,11:49.9954%,0:0.007%,15:0.0002%]
+[INFO] ** modbus_transaction_id:65536 (13.1072%)
+[INFO] ** scada_tag:[3:25.8976%,1:21.0406%,5:18.163%,4:17.521%,2:17.3678%,0:0.01%]
+[INFO] ** service:[0.0048200000000000005:99.9936%,-211.73542999999998:0.0012%,-211.08818:0.001%,-205.44247:0.0008%,-211.07873999999998:0.0008%,-211.09762999999998:0.0006%,-211.08346:0.0006%,-186.43601999999998:0.0006%,-186.44547:0.0004%,-185.9872:0.0002%,-202.75898:0.0002%]
+[INFO] ** s_port:[1.45442:25.8978%,-0.32151:21.0408%,-1.27613:18.1632%,-0.23351:17.5212%,-0.33484:17.368%,-71.33197:0.0012%,-71.14931:0.001%,-2.1481:0.0008%,-0.24151:0.0006%,-71.14798:0.0006%,-2.42942:0.0004%,4.44364:0.0004%,-1.02014:0.0004%,-64.19493:0.0004%,-5.1466400000000005:0.0002%,-1.2708:0.0002%,-58.035180000000004:0.0002%,4.076980000000001:0.0002%,-5.08665:0.0002%,1.47576:0.0002%,1.46509:0.0002%,4.29964:0.0002%,14.253910000000001:0.0002%,-68.79874000000001:0.0002%,6.1115699999999995:0.0002%,2.05573:0.0002%,-43.76509:0.0002%,10.67005:0.0002%,-1.27347:0.0002%,-58.032509999999995:0.0002%]
+[INFO] ** classification:[normal:79.2972%,Single Stage Single Point:20.7028%]
+[33mencode_numeric_zscore unixtime[0m
+[INFO] processing batch 0-100000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 4s - loss: 0.2355 - tp: 79523.0000 - fp: 434.0000 - tn: 319566.0000 - fn: 477.0000 - accuracy: 0.9977 - precision: 0.9946 - recall: 0.9940 - auc: 1.0000 - val_loss: 0.1050 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-12-files-0-1-batch-0-100000
+[INFO] processing batch 100000-200000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 5s - loss: 0.0816 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0552 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-12-files-0-1-batch-100000-200000
+[INFO] processing batch 200000-300000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 4s - loss: 0.0613 - tp: 79766.0000 - fp: 234.0000 - tn: 319766.0000 - fn: 234.0000 - accuracy: 0.9988 - precision: 0.9971 - recall: 0.9971 - auc: 0.9993 - val_loss: 1.6219 - val_tp: 10606.0000 - val_fp: 9394.0000 - val_tn: 70606.0000 - val_fn: 9394.0000 - val_accuracy: 0.8121 - val_precision: 0.5303 - val_recall: 0.5303 - val_auc: 0.8820
+[INFO] saving weights to checkpoints/lstm-epoch-12-files-0-1-batch-200000-300000
+[INFO] processing batch 300000-400000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 4s - loss: 0.9938 - tp: 42449.0000 - fp: 37547.0000 - tn: 282453.0000 - fn: 37551.0000 - accuracy: 0.8123 - precision: 0.5306 - recall: 0.5306 - auc: 0.8828 - val_loss: 0.7210 - val_tp: 10626.0000 - val_fp: 9374.0000 - val_tn: 70626.0000 - val_fn: 9374.0000 - val_accuracy: 0.8125 - val_precision: 0.5313 - val_recall: 0.5313 - val_auc: 0.8847
+[INFO] saving weights to checkpoints/lstm-epoch-12-files-0-1-batch-300000-400000
+[INFO] processing batch 400000-500000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 4s - loss: 0.7138 - tp: 41425.0000 - fp: 37724.0000 - tn: 282276.0000 - fn: 38575.0000 - accuracy: 0.8093 - precision: 0.5234 - recall: 0.5178 - auc: 0.8829 - val_loss: 0.7014 - val_tp: 10603.0000 - val_fp: 9397.0000 - val_tn: 70603.0000 - val_fn: 9397.0000 - val_accuracy: 0.8121 - val_precision: 0.5301 - val_recall: 0.5301 - val_auc: 0.8850
+[INFO] saving weights to checkpoints/lstm-epoch-12-files-0-1-batch-400000-500000
+[33m[INFO] epoch 13/100[0m
+[33m[INFO] loading file 1-1/1 on epoch 13/100[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.2/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (500000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['unixtime', 'orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst',
+       'proto', 'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] analyze dataset: (500000, 17)
+
+[INFO] analyzing data
+[INFO] 500000 rows
+[INFO] ** unixtime:1356 (0.2712%)
+[INFO] ** orig:[0:100.0%]
+[INFO] ** type:[0:99.9998%,2:0.0002%]
+[INFO] ** i/f_name:[2:99.9988%,3:0.0012%]
+[INFO] ** i/f_dir:[1:99.9988%,0:0.0012%]
+[INFO] ** src:[22:38.4088%,9:25.8982%,7:18.1636%,1:17.5218%,11:0.0014%,10:0.0014%,14:0.0012%,3:0.001%,2:0.001%,21:0.0006%,15:0.0004%,4:0.0004%,8:0.0002%]
+[INFO] ** dst:[21:43.266%,10:21.0416%,8:18.1634%,9:17.5214%,6:0.0016%,16:0.0012%,15:0.0012%,22:0.001%,18:0.0006%,26:0.0004%,25:0.0004%,19:0.0004%,17:0.0004%,24:0.0002%,7:0.0002%]
+[INFO] ** proto:[0:99.996%,2:0.0028%,1:0.0012%]
+[INFO] ** appi_name:[21:99.9928%,30:0.0012%,22:0.001%,17:0.0008%,31:0.0006%,26:0.0006%,7:0.0006%,23:0.0004%,18:0.0004%,0:0.0004%,28:0.0002%,27:0.0002%,24:0.0002%,16:0.0002%,15:0.0002%,5:0.0002%]
+[INFO] ** proxy_src_ip:[18:38.4088%,20:25.8982%,13:18.1636%,6:17.5218%,11:0.0014%,10:0.0014%,17:0.0012%,14:0.001%,1:0.001%,7:0.0006%,21:0.0004%,16:0.0004%,0:0.0002%]
+[INFO] ** modbus_function_code:[0.02961:99.9928%,-33.760870000000004:0.007%,0.9188299999999999:0.0002%]
+[INFO] ** modbus_function_description:[7:49.9974%,11:49.9954%,0:0.007%,15:0.0002%]
+[INFO] ** modbus_transaction_id:65536 (13.1072%)
+[INFO] ** scada_tag:[3:25.8976%,1:21.0406%,5:18.163%,4:17.521%,2:17.3678%,0:0.01%]
+[INFO] ** service:[0.0048200000000000005:99.9936%,-211.73542999999998:0.0012%,-211.08818:0.001%,-205.44247:0.0008%,-211.07873999999998:0.0008%,-211.09762999999998:0.0006%,-211.08346:0.0006%,-186.43601999999998:0.0006%,-186.44547:0.0004%,-185.9872:0.0002%,-202.75898:0.0002%]
+[INFO] ** s_port:[1.45442:25.8978%,-0.32151:21.0408%,-1.27613:18.1632%,-0.23351:17.5212%,-0.33484:17.368%,-71.33197:0.0012%,-71.14931:0.001%,-2.1481:0.0008%,-0.24151:0.0006%,-71.14798:0.0006%,-2.42942:0.0004%,4.44364:0.0004%,-1.02014:0.0004%,-64.19493:0.0004%,-5.1466400000000005:0.0002%,-1.2708:0.0002%,-58.035180000000004:0.0002%,4.076980000000001:0.0002%,-5.08665:0.0002%,1.47576:0.0002%,1.46509:0.0002%,4.29964:0.0002%,14.253910000000001:0.0002%,-68.79874000000001:0.0002%,6.1115699999999995:0.0002%,2.05573:0.0002%,-43.76509:0.0002%,10.67005:0.0002%,-1.27347:0.0002%,-58.032509999999995:0.0002%]
+[INFO] ** classification:[normal:79.2972%,Single Stage Single Point:20.7028%]
+[33mencode_numeric_zscore unixtime[0m
+[INFO] processing batch 0-100000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 5s - loss: 0.2347 - tp: 79570.0000 - fp: 409.0000 - tn: 319591.0000 - fn: 430.0000 - accuracy: 0.9979 - precision: 0.9949 - recall: 0.9946 - auc: 1.0000 - val_loss: 0.1047 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-13-files-0-1-batch-0-100000
+[INFO] processing batch 100000-200000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 5s - loss: 0.0811 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0550 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-13-files-0-1-batch-100000-200000
+[INFO] processing batch 200000-300000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 5s - loss: 0.0611 - tp: 79766.0000 - fp: 234.0000 - tn: 319766.0000 - fn: 234.0000 - accuracy: 0.9988 - precision: 0.9971 - recall: 0.9971 - auc: 0.9993 - val_loss: 1.6201 - val_tp: 10606.0000 - val_fp: 9394.0000 - val_tn: 70606.0000 - val_fn: 9394.0000 - val_accuracy: 0.8121 - val_precision: 0.5303 - val_recall: 0.5303 - val_auc: 0.8822
+[INFO] saving weights to checkpoints/lstm-epoch-13-files-0-1-batch-200000-300000
+[INFO] processing batch 300000-400000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 5s - loss: 0.9919 - tp: 42447.0000 - fp: 37549.0000 - tn: 282451.0000 - fn: 37553.0000 - accuracy: 0.8122 - precision: 0.5306 - recall: 0.5306 - auc: 0.8830 - val_loss: 0.7200 - val_tp: 10626.0000 - val_fp: 9374.0000 - val_tn: 70626.0000 - val_fn: 9374.0000 - val_accuracy: 0.8125 - val_precision: 0.5313 - val_recall: 0.5313 - val_auc: 0.8850
+[INFO] saving weights to checkpoints/lstm-epoch-13-files-0-1-batch-300000-400000
+[INFO] processing batch 400000-500000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 4s - loss: 0.7126 - tp: 41657.0000 - fp: 37674.0000 - tn: 282326.0000 - fn: 38343.0000 - accuracy: 0.8100 - precision: 0.5251 - recall: 0.5207 - auc: 0.8831 - val_loss: 0.7005 - val_tp: 10603.0000 - val_fp: 9397.0000 - val_tn: 70603.0000 - val_fn: 9397.0000 - val_accuracy: 0.8121 - val_precision: 0.5301 - val_recall: 0.5301 - val_auc: 0.8853
+[INFO] saving weights to checkpoints/lstm-epoch-13-files-0-1-batch-400000-500000
+[33m[INFO] epoch 14/100[0m
+[33m[INFO] loading file 1-1/1 on epoch 14/100[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.2/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (500000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['unixtime', 'orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst',
+       'proto', 'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] analyze dataset: (500000, 17)
+
+[INFO] analyzing data
+[INFO] 500000 rows
+[INFO] ** unixtime:1356 (0.2712%)
+[INFO] ** orig:[0:100.0%]
+[INFO] ** type:[0:99.9998%,2:0.0002%]
+[INFO] ** i/f_name:[2:99.9988%,3:0.0012%]
+[INFO] ** i/f_dir:[1:99.9988%,0:0.0012%]
+[INFO] ** src:[22:38.4088%,9:25.8982%,7:18.1636%,1:17.5218%,11:0.0014%,10:0.0014%,14:0.0012%,3:0.001%,2:0.001%,21:0.0006%,15:0.0004%,4:0.0004%,8:0.0002%]
+[INFO] ** dst:[21:43.266%,10:21.0416%,8:18.1634%,9:17.5214%,6:0.0016%,16:0.0012%,15:0.0012%,22:0.001%,18:0.0006%,26:0.0004%,25:0.0004%,19:0.0004%,17:0.0004%,24:0.0002%,7:0.0002%]
+[INFO] ** proto:[0:99.996%,2:0.0028%,1:0.0012%]
+[INFO] ** appi_name:[21:99.9928%,30:0.0012%,22:0.001%,17:0.0008%,31:0.0006%,26:0.0006%,7:0.0006%,23:0.0004%,18:0.0004%,0:0.0004%,28:0.0002%,27:0.0002%,24:0.0002%,16:0.0002%,15:0.0002%,5:0.0002%]
+[INFO] ** proxy_src_ip:[18:38.4088%,20:25.8982%,13:18.1636%,6:17.5218%,11:0.0014%,10:0.0014%,17:0.0012%,14:0.001%,1:0.001%,7:0.0006%,21:0.0004%,16:0.0004%,0:0.0002%]
+[INFO] ** modbus_function_code:[0.02961:99.9928%,-33.760870000000004:0.007%,0.9188299999999999:0.0002%]
+[INFO] ** modbus_function_description:[7:49.9974%,11:49.9954%,0:0.007%,15:0.0002%]
+[INFO] ** modbus_transaction_id:65536 (13.1072%)
+[INFO] ** scada_tag:[3:25.8976%,1:21.0406%,5:18.163%,4:17.521%,2:17.3678%,0:0.01%]
+[INFO] ** service:[0.0048200000000000005:99.9936%,-211.73542999999998:0.0012%,-211.08818:0.001%,-205.44247:0.0008%,-211.07873999999998:0.0008%,-211.09762999999998:0.0006%,-211.08346:0.0006%,-186.43601999999998:0.0006%,-186.44547:0.0004%,-185.9872:0.0002%,-202.75898:0.0002%]
+[INFO] ** s_port:[1.45442:25.8978%,-0.32151:21.0408%,-1.27613:18.1632%,-0.23351:17.5212%,-0.33484:17.368%,-71.33197:0.0012%,-71.14931:0.001%,-2.1481:0.0008%,-0.24151:0.0006%,-71.14798:0.0006%,-2.42942:0.0004%,4.44364:0.0004%,-1.02014:0.0004%,-64.19493:0.0004%,-5.1466400000000005:0.0002%,-1.2708:0.0002%,-58.035180000000004:0.0002%,4.076980000000001:0.0002%,-5.08665:0.0002%,1.47576:0.0002%,1.46509:0.0002%,4.29964:0.0002%,14.253910000000001:0.0002%,-68.79874000000001:0.0002%,6.1115699999999995:0.0002%,2.05573:0.0002%,-43.76509:0.0002%,10.67005:0.0002%,-1.27347:0.0002%,-58.032509999999995:0.0002%]
+[INFO] ** classification:[normal:79.2972%,Single Stage Single Point:20.7028%]
+[33mencode_numeric_zscore unixtime[0m
+[INFO] processing batch 0-100000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 5s - loss: 0.2337 - tp: 79567.0000 - fp: 410.0000 - tn: 319590.0000 - fn: 433.0000 - accuracy: 0.9979 - precision: 0.9949 - recall: 0.9946 - auc: 1.0000 - val_loss: 0.1042 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-14-files-0-1-batch-0-100000
+[INFO] processing batch 100000-200000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 4s - loss: 0.0809 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0546 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-14-files-0-1-batch-100000-200000
+[INFO] processing batch 200000-300000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 4s - loss: 0.0606 - tp: 79766.0000 - fp: 234.0000 - tn: 319766.0000 - fn: 234.0000 - accuracy: 0.9988 - precision: 0.9971 - recall: 0.9971 - auc: 0.9993 - val_loss: 1.6193 - val_tp: 10606.0000 - val_fp: 9394.0000 - val_tn: 70606.0000 - val_fn: 9394.0000 - val_accuracy: 0.8121 - val_precision: 0.5303 - val_recall: 0.5303 - val_auc: 0.8824
+[INFO] saving weights to checkpoints/lstm-epoch-14-files-0-1-batch-200000-300000
+[INFO] processing batch 300000-400000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 4s - loss: 0.9909 - tp: 42453.0000 - fp: 37545.0000 - tn: 282455.0000 - fn: 37547.0000 - accuracy: 0.8123 - precision: 0.5307 - recall: 0.5307 - auc: 0.8829 - val_loss: 0.7192 - val_tp: 10626.0000 - val_fp: 9374.0000 - val_tn: 70626.0000 - val_fn: 9374.0000 - val_accuracy: 0.8125 - val_precision: 0.5313 - val_recall: 0.5313 - val_auc: 0.8853
+[INFO] saving weights to checkpoints/lstm-epoch-14-files-0-1-batch-300000-400000
+[INFO] processing batch 400000-500000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 4s - loss: 0.7120 - tp: 41757.0000 - fp: 37664.0000 - tn: 282336.0000 - fn: 38243.0000 - accuracy: 0.8102 - precision: 0.5258 - recall: 0.5220 - auc: 0.8830 - val_loss: 0.6996 - val_tp: 10603.0000 - val_fp: 9397.0000 - val_tn: 70603.0000 - val_fn: 9397.0000 - val_accuracy: 0.8121 - val_precision: 0.5301 - val_recall: 0.5301 - val_auc: 0.8857
+Using TensorFlow backend.
+  File "train.py", line 301, in <module>
+    run()
+  File "train.py", line 227, in run
+    train_dnn(dfCopy, i, epoch+1, batch_index)
+  File "train.py", line 94, in train_dnn
+    batch_size=32
+  File "/usr/local/lib/python3.7/site-packages/keras/engine/training.py", line 1239, in fit
+    validation_freq=validation_freq)
+  File "/usr/local/lib/python3.7/site-packages/keras/engine/training_arrays.py", line 196, in fit_loop
+    outs = fit_function(ins_batch)
+  File "/usr/local/lib/python3.7/site-packages/tensorflow_core/python/keras/backend.py", line 3727, in __call__
+    outputs = self._graph_fn(*converted_inputs)
+  File "/usr/local/lib/python3.7/site-packages/tensorflow_core/python/eager/function.py", line 1551, in __call__
+    return self._call_impl(args, kwargs)
+  File "/usr/local/lib/python3.7/site-packages/tensorflow_core/python/eager/function.py", line 1591, in _call_impl
+    return self._call_flat(args, self.captured_inputs, cancellation_manager)
+  File "/usr/local/lib/python3.7/site-packages/tensorflow_core/python/eager/function.py", line 1692, in _call_flat
+    ctx, args, cancellation_manager=cancellation_manager))
+  File "/usr/local/lib/python3.7/site-packages/tensorflow_core/python/eager/function.py", line 545, in call
+    ctx=ctx)
+  File "/usr/local/lib/python3.7/site-packages/tensorflow_core/python/eager/execute.py", line 61, in quick_execute
+    num_outputs)
+[INFO] saving weights to checkpoints/lstm-epoch-14-files-0-1-batch-400000-500000
+[33m[INFO] epoch 15/100[0m
+[33m[INFO] loading file 1-1/1 on epoch 15/100[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.2/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (500000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['unixtime', 'orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst',
+       'proto', 'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] analyze dataset: (500000, 17)
+
+[INFO] analyzing data
+[INFO] 500000 rows
+[INFO] ** unixtime:1356 (0.2712%)
+[INFO] ** orig:[0:100.0%]
+[INFO] ** type:[0:99.9998%,2:0.0002%]
+[INFO] ** i/f_name:[2:99.9988%,3:0.0012%]
+[INFO] ** i/f_dir:[1:99.9988%,0:0.0012%]
+[INFO] ** src:[22:38.4088%,9:25.8982%,7:18.1636%,1:17.5218%,11:0.0014%,10:0.0014%,14:0.0012%,3:0.001%,2:0.001%,21:0.0006%,15:0.0004%,4:0.0004%,8:0.0002%]
+[INFO] ** dst:[21:43.266%,10:21.0416%,8:18.1634%,9:17.5214%,6:0.0016%,16:0.0012%,15:0.0012%,22:0.001%,18:0.0006%,26:0.0004%,25:0.0004%,19:0.0004%,17:0.0004%,24:0.0002%,7:0.0002%]
+[INFO] ** proto:[0:99.996%,2:0.0028%,1:0.0012%]
+[INFO] ** appi_name:[21:99.9928%,30:0.0012%,22:0.001%,17:0.0008%,31:0.0006%,26:0.0006%,7:0.0006%,23:0.0004%,18:0.0004%,0:0.0004%,28:0.0002%,27:0.0002%,24:0.0002%,16:0.0002%,15:0.0002%,5:0.0002%]
+[INFO] ** proxy_src_ip:[18:38.4088%,20:25.8982%,13:18.1636%,6:17.5218%,11:0.0014%,10:0.0014%,17:0.0012%,14:0.001%,1:0.001%,7:0.0006%,21:0.0004%,16:0.0004%,0:0.0002%]
+[INFO] ** modbus_function_code:[0.02961:99.9928%,-33.760870000000004:0.007%,0.9188299999999999:0.0002%]
+[INFO] ** modbus_function_description:[7:49.9974%,11:49.9954%,0:0.007%,15:0.0002%]
+[INFO] ** modbus_transaction_id:65536 (13.1072%)
+[INFO] ** scada_tag:[3:25.8976%,1:21.0406%,5:18.163%,4:17.521%,2:17.3678%,0:0.01%]
+[INFO] ** service:[0.0048200000000000005:99.9936%,-211.73542999999998:0.0012%,-211.08818:0.001%,-205.44247:0.0008%,-211.07873999999998:0.0008%,-211.09762999999998:0.0006%,-211.08346:0.0006%,-186.43601999999998:0.0006%,-186.44547:0.0004%,-185.9872:0.0002%,-202.75898:0.0002%]
+[INFO] ** s_port:[1.45442:25.8978%,-0.32151:21.0408%,-1.27613:18.1632%,-0.23351:17.5212%,-0.33484:17.368%,-71.33197:0.0012%,-71.14931:0.001%,-2.1481:0.0008%,-0.24151:0.0006%,-71.14798:0.0006%,-2.42942:0.0004%,4.44364:0.0004%,-1.02014:0.0004%,-64.19493:0.0004%,-5.1466400000000005:0.0002%,-1.2708:0.0002%,-58.035180000000004:0.0002%,4.076980000000001:0.0002%,-5.08665:0.0002%,1.47576:0.0002%,1.46509:0.0002%,4.29964:0.0002%,14.253910000000001:0.0002%,-68.79874000000001:0.0002%,6.1115699999999995:0.0002%,2.05573:0.0002%,-43.76509:0.0002%,10.67005:0.0002%,-1.27347:0.0002%,-58.032509999999995:0.0002%]
+[INFO] ** classification:[normal:79.2972%,Single Stage Single Point:20.7028%]
+[33mencode_numeric_zscore unixtime[0m
+[INFO] processing batch 0-100000/500000 for LSTM
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+[EXCEPTION] (<class 'KeyboardInterrupt'>, KeyboardInterrupt(), <traceback object at 0x152cb20a0>)
+Traceback (most recent call last):
+  File "score.py", line 11, in <module>
+    import pandas as pd
+  File "/usr/local/lib/python3.7/site-packages/pandas/__init__.py", line 42, in <module>
+    from pandas.core.api import *
+  File "/usr/local/lib/python3.7/site-packages/pandas/core/api.py", line 10, in <module>
+    from pandas.core.groupby.groupby import Grouper
+  File "/usr/local/lib/python3.7/site-packages/pandas/core/groupby/__init__.py", line 2, in <module>
+    from pandas.core.groupby.groupby import (
+  File "/usr/local/lib/python3.7/site-packages/pandas/core/groupby/groupby.py", line 49, in <module>
+    from pandas.core.frame import DataFrame
+  File "/usr/local/lib/python3.7/site-packages/pandas/core/frame.py", line 74, in <module>
+    from pandas.core.series import Series
+  File "/usr/local/lib/python3.7/site-packages/pandas/core/series.py", line 81, in <module>
+    import pandas.plotting._core as gfx
+  File "/usr/local/lib/python3.7/site-packages/pandas/plotting/__init__.py", line 11, in <module>
+    from pandas.plotting._core import boxplot
+  File "/usr/local/lib/python3.7/site-packages/pandas/plotting/_core.py", line 45, in <module>
+    from pandas.plotting import _converter
+  File "/usr/local/lib/python3.7/site-packages/pandas/plotting/_converter.py", line 8, in <module>
+    import matplotlib.units as units
+  File "/usr/local/lib/python3.7/site-packages/matplotlib/__init__.py", line 130, in <module>
+    from matplotlib.rcsetup import defaultParams, validate_backend, cycler
+  File "/usr/local/lib/python3.7/site-packages/matplotlib/rcsetup.py", line 29, in <module>
+    from matplotlib.fontconfig_pattern import parse_fontconfig_pattern
+  File "/usr/local/lib/python3.7/site-packages/matplotlib/fontconfig_pattern.py", line 22, in <module>
+    from pyparsing import (Literal, ZeroOrMore, Optional, Regex, StringEnd,
+  File "/usr/local/lib/python3.7/site-packages/pyparsing.py", line 5369, in <module>
+    _commasepitem = Combine(OneOrMore(Word(printables, excludeChars=',') +
+KeyboardInterrupt

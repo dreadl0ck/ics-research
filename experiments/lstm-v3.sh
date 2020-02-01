@@ -1,3 +1,5 @@
+#!/bin/bash
+
 python3 train.py \
     -read "data/SWaT2015-Attack-Files-v0.2/train/*-labeled.csv" \
     -wrapLayerSize 5 \
@@ -10,7 +12,6 @@ python3 train.py \
     -drop modbus_value \
     -lstmBatchSize 100000 \
     -debug true
-    #-saveModel true
 
 # EVAL
 python3 score.py \

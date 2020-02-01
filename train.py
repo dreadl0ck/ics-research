@@ -251,7 +251,7 @@ parser.add_argument('-dropoutLayer', default=False, help='insert a dropout layer
 parser.add_argument('-coreLayerSize', type=int, default=4, help='size of an DNN core layer')
 parser.add_argument('-wrapLayerSize', type=int, default=2, help='size of the first and last DNN layer')
 parser.add_argument('-lstm', default=False, help='use a LSTM network')
-parser.add_argument('-lstmBatchSize', type=int, default=10000, help='LSTM network input number of rows')
+parser.add_argument('-lstmBatchSize', type=int, default=100000, help='LSTM network input number of rows')
 parser.add_argument('-debug', default=False, help='debug mode on off')
 parser.add_argument('-zscoreUnixtime', default=False, help='apply zscore to unixtime column')
 parser.add_argument('-encodeColumns', default=False, help='switch between auto encoding or using a fully encoded dataset')
