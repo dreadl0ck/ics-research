@@ -341,3 +341,10 @@ TODO
 - save and load entire model configuration:
 
 Call model.save to save the a model's architecture, weights, and training configuration in a single file/folder. This allows you to export a model so it can be used without access to the original Python code*. Since the optimizer-state is recovered, you can resume training from exactly where you left off.
+
+- possible problems:
+    - early stopping does not work because 1 epoch
+    - batch size too big
+    - dying relu: try tanh
+
+pred {1: 7, 2: 1, 3: 499854, 4: 138}
