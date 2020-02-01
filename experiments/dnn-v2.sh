@@ -18,5 +18,5 @@ python3 score.py \
     -dropoutLayer true \
     -coreLayerSize 50 \
     -features 15 \
-    -weights checkpoints/dn-epoch-20-files-49-50 \
+    -weights checkpoints/dnn-epoch-20-files-49-50 \
     -drop modbus_value
