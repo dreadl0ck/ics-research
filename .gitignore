@@ -3,5 +3,6 @@ data
 .idea
 ROADMAP.md
 checkpoints/*
+models/*
 __pycache__
 venv
