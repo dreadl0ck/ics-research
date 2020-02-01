@@ -84,21 +84,21 @@ def run():
             encode_columns(df, arguments.resultColumn, arguments.lstm, arguments.debug)
             print("[INFO] Shape AFTER encoding dataset:", df.shape)
 
-        # lstmBatchSize = arguments.lstmBatchSize
-        # if arguments.lstm:
-        #     #for batch_index in range(0, df.shape[0], lstmBatchSize):
-        #         print("[INFO] processing batch {}-{}/{} for LSTM".format(batch_index, batch_index+lstmBatchSize, df.shape[0]))
-        #         dfCopy = df[batch_index:batch_index+lstmBatchSize]
+        lstmBatchSize = arguments.lstmBatchSize
+        if arguments.lstm:
+            for batch_index in range(0, df.shape[0], lstmBatchSize):
+                print("[INFO] processing batch {}-{}/{} for LSTM".format(batch_index, batch_index+lstmBatchSize, df.shape[0]))
+                dfCopy = df[batch_index:batch_index+lstmBatchSize]
 
-        #         # skip leftover that does not reach batch size
-        #         if len(dfCopy.index) != lstmBatchSize:
-        #             leftover = dfCopy
-        #             continue
+                # skip leftover that does not reach batch size
+                if len(dfCopy.index) != lstmBatchSize:
+                    leftover = dfCopy
+                    continue
 
-        #         eval_dnn(dfCopy)
-        #         leftover = None
-        # else:
-        eval_dnn(df)
+                eval_dnn(dfCopy)
+                leftover = None
+        else:
+            eval_dnn(df)
 
 import sys
 
@@ -152,8 +152,8 @@ def eval_dnn(df):
     if arguments.lstm:
 
         print("[INFO] reshape for using LSTM layers")
-        x_test = x_test.reshape(50000, int(x_test.shape[0]/50000), x_test.shape[1])
-        y_test = y_test.reshape(50000, int(y_test.shape[0]/50000), y_test.shape[1])
+        x_test = x_test.reshape(10000, int(x_test.shape[0]/10000), x_test.shape[1])
+        y_test = y_test.reshape(10000, int(y_test.shape[0]/10000), y_test.shape[1])
 
         if arguments.debug:
             print("--------RESHAPED--------")
@@ -165,7 +165,7 @@ def eval_dnn(df):
 
     if arguments.lstm:         
         print("y_test shape", y_test.shape)
-        pred = pred.reshape(50000*y_test.shape[1], y_test.shape[2])
+        pred = pred.reshape(10000*y_test.shape[1], y_test.shape[2])
         print("pred 2", pred, pred.shape)
 
     pred = np.argmax(pred,axis=1)
@@ -246,10 +246,6 @@ if arguments.read is None:
     print("[INFO] need an input file / multi file regex. use the -read flag")
     exit(1)
 
-if not path.exists(arguments.read):
-    print("[INFO] path does not exist")
-    exit(1)
-
 if arguments.classes is not None:
     classes = arguments.classes.split(',')
     print("set classes to:", classes)
@@ -257,6 +253,10 @@ if arguments.classes is not None:
 # get all files
 files = glob(arguments.read)
 files.sort()
+
+if len(files) == 0:
+    print("[INFO] no files matched")
+    exit(1)
 
 print("Date:", datetime.datetime.now())
 
@@ -274,7 +274,6 @@ model = create_dnn(
     arguments.wrapLayerSize
 )
 print("[INFO] created DNN")
-
 
 # MAIN
 try:

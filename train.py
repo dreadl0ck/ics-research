@@ -264,10 +264,6 @@ if arguments.read is None:
     print("[INFO] need an input file / multi file regex. use the -read flag")
     exit(1)
 
-if not path.exists(arguments.read):
-    print("[INFO] path does not exist")
-    exit(1)
-
 if arguments.classes is not None:
     classes = arguments.classes.split(',')
     print("set classes to:", classes)
@@ -277,6 +273,10 @@ print("Date:", datetime.datetime.now())
 # get all files
 files = glob(arguments.read)
 files.sort()
+
+if len(files) == 0:
+    print("[INFO] no files matched")
+    exit(1)
 
 # set batch size
 batch_size = arguments.batchSize
