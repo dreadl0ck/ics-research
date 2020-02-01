@@ -1,0 +1,204 @@
+ ./run-experiments.sh
+Using TensorFlow backend.
+Date: 2020-02-01 01:49:17.336647
+[INFO] using Sequential Dense layers
+2020-02-01 01:49:17.355053: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2020-02-01 01:49:17.403544: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7f8929cd60d0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-02-01 01:49:17.403582: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+[INFO] adding core layer 0
+[INFO] created DNN
+[INFO] epoch 1/1
+[INFO] loading file 1-1/1 on epoch 1/1
+[INFO] reading file data/SWaT2015-Attack-Files-v0.2/2015-12-28_113021_98.log.part12_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (500000, 18)
+[INFO] sampling 1.0
+dropping column: modbus_value
+dropping all time related columns...
+dropping column: unixtime
+[INFO] columns: Index(['orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst', 'proto',
+       'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] analyze dataset: (500000, 16)
+
+[INFO] analyzing data
+[INFO] 500000 rows
+[INFO] ** orig:[0:100.0%]
+[INFO] ** type:[0:99.9998%,2:0.0002%]
+[INFO] ** i/f_name:[2:99.9988%,3:0.0012%]
+[INFO] ** i/f_dir:[1:99.9988%,0:0.0012%]
+[INFO] ** src:[22:38.4088%,9:25.8982%,7:18.1636%,1:17.5218%,11:0.0014%,10:0.0014%,14:0.0012%,3:0.001%,2:0.001%,21:0.0006%,15:0.0004%,4:0.0004%,8:0.0002%]
+[INFO] ** dst:[21:43.266%,10:21.0416%,8:18.1634%,9:17.5214%,6:0.0016%,16:0.0012%,15:0.0012%,22:0.001%,18:0.0006%,26:0.0004%,25:0.0004%,19:0.0004%,17:0.0004%,24:0.0002%,7:0.0002%]
+[INFO] ** proto:[0:99.996%,2:0.0028%,1:0.0012%]
+[INFO] ** appi_name:[21:99.9928%,30:0.0012%,22:0.001%,17:0.0008%,31:0.0006%,26:0.0006%,7:0.0006%,23:0.0004%,18:0.0004%,0:0.0004%,28:0.0002%,27:0.0002%,24:0.0002%,16:0.0002%,15:0.0002%,5:0.0002%]
+[INFO] ** proxy_src_ip:[18:38.4088%,20:25.8982%,13:18.1636%,6:17.5218%,11:0.0014%,10:0.0014%,17:0.0012%,14:0.001%,1:0.001%,7:0.0006%,21:0.0004%,16:0.0004%,0:0.0002%]
+[INFO] ** modbus_function_code:[0.02961:99.9928%,-33.760870000000004:0.007%,0.9188299999999999:0.0002%]
+[INFO] ** modbus_function_description:[7:49.9974%,11:49.9954%,0:0.007%,15:0.0002%]
+[INFO] ** modbus_transaction_id:65536 (13.1072%)
+[INFO] ** scada_tag:[3:25.8976%,1:21.0406%,5:18.163%,4:17.521%,2:17.3678%,0:0.01%]
+[INFO] ** service:[0.0048200000000000005:99.9936%,-211.73542999999998:0.0012%,-211.08818:0.001%,-205.44247:0.0008%,-211.07873999999998:0.0008%,-211.09762999999998:0.0006%,-211.08346:0.0006%,-186.43601999999998:0.0006%,-186.44547:0.0004%,-185.9872:0.0002%,-202.75898:0.0002%]
+[INFO] ** s_port:[1.45442:25.8978%,-0.32151:21.0408%,-1.27613:18.1632%,-0.23351:17.5212%,-0.33484:17.368%,-71.33197:0.0012%,-71.14931:0.001%,-2.1481:0.0008%,-0.24151:0.0006%,-71.14798:0.0006%,-2.42942:0.0004%,4.44364:0.0004%,-1.02014:0.0004%,-64.19493:0.0004%,-5.1466400000000005:0.0002%,-1.2708:0.0002%,-58.035180000000004:0.0002%,4.076980000000001:0.0002%,-5.08665:0.0002%,1.47576:0.0002%,1.46509:0.0002%,4.29964:0.0002%,14.253910000000001:0.0002%,-68.79874000000001:0.0002%,6.1115699999999995:0.0002%,2.05573:0.0002%,-43.76509:0.0002%,10.67005:0.0002%,-1.27347:0.0002%,-58.032509999999995:0.0002%]
+[INFO] ** classification:[normal:79.2972%,Single Stage Single Point:20.7028%]
+[INFO] breaking into predictors and prediction...
+CHUNK ANALYZE
+
+[INFO] analyzing data
+[INFO] 500000 rows
+[INFO] ** orig:[0:100.0%]
+[INFO] ** type:[0:99.9998%,2:0.0002%]
+[INFO] ** i/f_name:[2:99.9988%,3:0.0012%]
+[INFO] ** i/f_dir:[1:99.9988%,0:0.0012%]
+[INFO] ** src:[22:38.4088%,9:25.8982%,7:18.1636%,1:17.5218%,11:0.0014%,10:0.0014%,14:0.0012%,3:0.001%,2:0.001%,21:0.0006%,15:0.0004%,4:0.0004%,8:0.0002%]
+[INFO] ** dst:[21:43.266%,10:21.0416%,8:18.1634%,9:17.5214%,6:0.0016%,16:0.0012%,15:0.0012%,22:0.001%,18:0.0006%,26:0.0004%,25:0.0004%,19:0.0004%,17:0.0004%,24:0.0002%,7:0.0002%]
+[INFO] ** proto:[0:99.996%,2:0.0028%,1:0.0012%]
+[INFO] ** appi_name:[21:99.9928%,30:0.0012%,22:0.001%,17:0.0008%,31:0.0006%,26:0.0006%,7:0.0006%,23:0.0004%,18:0.0004%,0:0.0004%,28:0.0002%,27:0.0002%,24:0.0002%,16:0.0002%,15:0.0002%,5:0.0002%]
+[INFO] ** proxy_src_ip:[18:38.4088%,20:25.8982%,13:18.1636%,6:17.5218%,11:0.0014%,10:0.0014%,17:0.0012%,14:0.001%,1:0.001%,7:0.0006%,21:0.0004%,16:0.0004%,0:0.0002%]
+[INFO] ** modbus_function_code:[0.02961:99.9928%,-33.760870000000004:0.007%,0.9188299999999999:0.0002%]
+[INFO] ** modbus_function_description:[7:49.9974%,11:49.9954%,0:0.007%,15:0.0002%]
+[INFO] ** modbus_transaction_id:65536 (13.1072%)
+[INFO] ** scada_tag:[3:25.8976%,1:21.0406%,5:18.163%,4:17.521%,2:17.3678%,0:0.01%]
+[INFO] ** service:[0.0048200000000000005:99.9936%,-211.73542999999998:0.0012%,-211.08818:0.001%,-205.44247:0.0008%,-211.07873999999998:0.0008%,-211.09762999999998:0.0006%,-211.08346:0.0006%,-186.43601999999998:0.0006%,-186.44547:0.0004%,-185.9872:0.0002%,-202.75898:0.0002%]
+[INFO] ** s_port:[1.45442:25.8978%,-0.32151:21.0408%,-1.27613:18.1632%,-0.23351:17.5212%,-0.33484:17.368%,-71.33197:0.0012%,-71.14931:0.001%,-2.1481:0.0008%,-0.24151:0.0006%,-71.14798:0.0006%,-2.42942:0.0004%,4.44364:0.0004%,-1.02014:0.0004%,-64.19493:0.0004%,-5.1466400000000005:0.0002%,-1.2708:0.0002%,-58.035180000000004:0.0002%,4.076980000000001:0.0002%,-5.08665:0.0002%,1.47576:0.0002%,1.46509:0.0002%,4.29964:0.0002%,14.253910000000001:0.0002%,-68.79874000000001:0.0002%,6.1115699999999995:0.0002%,2.05573:0.0002%,-43.76509:0.0002%,10.67005:0.0002%,-1.27347:0.0002%,-58.032509999999995:0.0002%]
+[INFO] ** classification:[normal:79.2972%,Single Stage Single Point:20.7028%]
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.25
+[INFO] fitting model
+Train on 375000 samples, validate on 125000 samples
+Epoch 1/1
+ - 29s - loss: 0.3063 - val_loss: 0.6751
+[INFO] saving model to models/dnn-epoch-1-files-0-1.h5
+Using TensorFlow backend.
+Date: 2020-02-01 01:50:02.582651
+[INFO] using Sequential Dense layers
+2020-02-01 01:50:02.591945: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2020-02-01 01:50:02.642406: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7fe150cf0530 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-02-01 01:50:02.642473: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+[INFO] adding core layer 0
+[INFO] created DNN
+[INFO] reading file data/SWaT2015-Attack-Files-v0.2/2015-12-28_113021_98.log.part13_sorted-labeled.csv
+[INFO] process dataset, shape: (500000, 18)
+dropping column: modbus_value
+dropping all time related columns...
+dropping column: unixtime
+[INFO] columns: Index(['orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst', 'proto',
+       'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] analyze dataset: (500000, 16)
+
+[INFO] analyzing data
+[INFO] 500000 rows
+[INFO] ** orig:[0:100.0%]
+[INFO] ** type:[0:100.0%]
+[INFO] ** i/f_name:[2:99.9996%,3:0.0004%]
+[INFO] ** i/f_dir:[1:99.9996%,0:0.0004%]
+[INFO] ** src:[22:38.3832%,9:25.9606%,7:18.1352%,1:17.52%,14:0.0004%,3:0.0004%,15:0.0002%]
+[INFO] ** dst:[21:43.3108%,10:21.0326%,8:18.135%,9:17.5198%,22:0.0008%,15:0.0004%,2:0.0004%,24:0.0002%]
+[INFO] ** proto:[0:99.9996%,1:0.0004%]
+[INFO] ** appi_name:[21:99.9992%,30:0.0004%,8:0.0002%,7:0.0002%]
+[INFO] ** proxy_src_ip:[18:38.3832%,20:25.9606%,13:18.1352%,6:17.52%,17:0.0004%,1:0.0004%,16:0.0002%]
+[INFO] ** modbus_function_code:[0.02961:99.9992%,-33.760870000000004:0.0008%]
+[INFO] ** modbus_function_description:[7:50.0%,11:49.9992%,0:0.0008%]
+[INFO] ** modbus_transaction_id:65536 (13.1072%)
+[INFO] ** scada_tag:[3:25.9596%,1:21.0326%,5:18.1348%,4:17.5194%,2:17.3504%,0:0.0032%]
+[INFO] ** service:[0.0048200000000000005:99.9992%,-211.73542999999998:0.0004%,-211.09762999999998:0.0002%,-211.35747999999998:0.0002%]
+[INFO] ** s_port:[1.45442:25.96%,-0.32151:21.0326%,-1.27613:18.1348%,-0.23351:17.5196%,-0.33484:17.3506%,1.45709:0.0004%,-71.33197:0.0004%,-1.27347:0.0002%,-0.24950999999999998:0.0002%,-3.3787199999999995:0.0002%,1.47576:0.0002%,12.60597:0.0002%,-0.24151:0.0002%,-1.02014:0.0002%,-1.2708:0.0002%]
+[INFO] ** classification:[normal:72.7902%,Single Stage Single Point:27.2098%]
+[INFO] encoding dataset: (500000, 16)
+[INFO] AFTER encoding dataset: (500000, 16)
+CHUNK ANALYZE
+
+[INFO] analyzing data
+[INFO] 500000 rows
+[INFO] ** orig:[0:100.0%]
+[INFO] ** type:[0:100.0%]
+[INFO] ** i/f_name:[2:99.9996%,3:0.0004%]
+[INFO] ** i/f_dir:[1:99.9996%,0:0.0004%]
+[INFO] ** src:[22:38.3832%,9:25.9606%,7:18.1352%,1:17.52%,14:0.0004%,3:0.0004%,15:0.0002%]
+[INFO] ** dst:[21:43.3108%,10:21.0326%,8:18.135%,9:17.5198%,22:0.0008%,15:0.0004%,2:0.0004%,24:0.0002%]
+[INFO] ** proto:[0:99.9996%,1:0.0004%]
+[INFO] ** appi_name:[21:99.9992%,30:0.0004%,8:0.0002%,7:0.0002%]
+[INFO] ** proxy_src_ip:[18:38.3832%,20:25.9606%,13:18.1352%,6:17.52%,17:0.0004%,1:0.0004%,16:0.0002%]
+[INFO] ** modbus_function_code:[0.02961:99.9992%,-33.760870000000004:0.0008%]
+[INFO] ** modbus_function_description:[7:50.0%,11:49.9992%,0:0.0008%]
+[INFO] ** modbus_transaction_id:65536 (13.1072%)
+[INFO] ** scada_tag:[3:25.9596%,1:21.0326%,5:18.1348%,4:17.5194%,2:17.3504%,0:0.0032%]
+[INFO] ** service:[0.0048200000000000005:99.9992%,-211.73542999999998:0.0004%,-211.09762999999998:0.0002%,-211.35747999999998:0.0002%]
+[INFO] ** s_port:[1.45442:25.96%,-0.32151:21.0326%,-1.27613:18.1348%,-0.23351:17.5196%,-0.33484:17.3506%,1.45709:0.0004%,-71.33197:0.0004%,-1.27347:0.0002%,-0.24950999999999998:0.0002%,-3.3787199999999995:0.0002%,1.47576:0.0002%,12.60597:0.0002%,-0.24151:0.0002%,-1.02014:0.0002%,-1.2708:0.0002%]
+[INFO] ** classification:[normal:72.7902%,Single Stage Single Point:27.2098%]
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+x_test [[ 0.       0.       2.      ...  3.       0.00482  1.45442]
+ [ 0.       0.       2.      ...  2.       0.00482 -0.33484]
+ [ 0.       0.       2.      ...  1.       0.00482 -0.32151]
+ ...
+ [ 0.       0.       2.      ...  1.       0.00482 -0.32151]
+ [ 0.       0.       2.      ...  3.       0.00482  1.45442]
+ [ 0.       0.       2.      ...  1.       0.00482 -0.32151]] shape (500000, 15)
+y_test [[0. 1. 0. 0. 0.]
+ [1. 0. 0. 0. 0.]
+ [0. 1. 0. 0. 0.]
+ ...
+ [1. 0. 0. 0. 0.]
+ [1. 0. 0. 0. 0.]
+ [1. 0. 0. 0. 0.]] shape (500000, 5)
+loading model
+[INFO] measuring accuracy...
+x_test.shape: (500000, 15)
+[INFO] model summary:
+Model: "sequential_1"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #
+=================================================================
+dense_1 (Dense)              (None, 2)                 32
+_________________________________________________________________
+dense_2 (Dense)              (None, 4)                 12
+_________________________________________________________________
+dense_3 (Dense)              (None, 2)                 10
+_________________________________________________________________
+dense_4 (Dense)              (None, 1)                 3
+_________________________________________________________________
+dense_5 (Dense)              (None, 5)                 10
+=================================================================
+Total params: 67
+Trainable params: 67
+Non-trainable params: 0
+_________________________________________________________________
+y_eval [1 0 1 ... 0 0 0] (500000,)
+--------SHAPES--------
+x_test.shape (500000, 15)
+y_test.shape (500000, 5)
+pred 1 [[7.6160598e-01 2.3836492e-01 6.1877827e-06 8.2834622e-06 1.4630491e-05]
+ [9.9943024e-01 5.6969305e-04 1.4444883e-21 6.6046042e-21 1.5078299e-19]
+ [7.5552022e-01 2.4444526e-01 7.4296777e-06 9.8818509e-06 1.7220025e-05]
+ ...
+ [7.5397700e-01 2.4598689e-01 7.7782870e-06 1.0328739e-05 1.7938040e-05]
+ [7.6592535e-01 2.3404904e-01 5.4231359e-06 7.2937514e-06 1.3008099e-05]
+ [7.5181121e-01 2.4815041e-01 8.2923862e-06 1.0986497e-05 1.8990533e-05]] (500000, 5)
+pred 3 (argmax) [0 0 0 ... 0 0 0] (500000,)
+[INFO] Validation score: 0.7279
+[INFO] metrics:
+y_eval {0: 363951, 1: 136049}
+pred {0: 499993, 1: 7}
+[INFO] confusion matrix for file
+[[363947      4      0      0      0]
+ [136046      3      0      0      0]
+ [     0      0      0      0      0]
+ [     0      0      0      0      0]
+ [     0      0      0      0      0]]
+[INFO] confusion matrix after adding it to total:
+[[363947      4      0      0      0]
+ [136046      3      0      0      0]
+ [     0      0      0      0      0]
+ [     0      0      0      0      0]
+ [     0      0      0      0      0]]
