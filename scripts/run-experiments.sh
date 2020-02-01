@@ -1,4 +1,4 @@
-#!/bin/bash -e
+#!/bin/bash
 
 chmod +x experiments/*.sh
 
