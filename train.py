@@ -305,9 +305,9 @@ if arguments.classes is not None:
     classes = arguments.classes.split(',')
     print("set classes to:", classes)
 
-print("=========================")
-print("        TRAINING")
-print("=========================")
+print("=============================")
+print("        TRAINING v0.3")
+print("=============================")
 print("Date:", datetime.datetime.now())
 start_time = time.time()
 

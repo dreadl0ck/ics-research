@@ -248,9 +248,9 @@ if len(files) == 0:
     print("[INFO] no files matched")
     exit(1)
 
-print("=========================")
-print("        SCORING")
-print("=========================")
+print("=============================")
+print("        SCORING v0.3")
+print("=============================")
 print("Date:", datetime.datetime.now())
 start_time = time.time()
 
