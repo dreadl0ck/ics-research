@@ -327,9 +327,6 @@ With test_size = 0.25 set lstmBatchSize to (numRows) * 0.25
 
 TODO
 
-- create experiment scripts and save logs
-- tensorflow version
-- fix eval of physical data
 - normalize values for strings and rerun experiments
 - zscore timestamps
 - amount of neurons / layers?
@@ -342,13 +339,11 @@ TODO
 
 Call model.save to save the a model's architecture, weights, and training configuration in a single file/folder. This allows you to export a model so it can be used without access to the original Python code*. Since the optimizer-state is recovered, you can resume training from exactly where you left off.
 
-- possible problems:
-    - early stopping does not work because 1 epoch
-    - batch size too big
-    - dying relu: try tanh
+## TODO
 
-pred {1: 7, 2: 1, 3: 499854, 4: 138}
-
+- fix eval of physical data
 - read multiple files and increase amount of samples passed to tensorflow
-- implement early stopping: update score to check for the last saved wights
-
+- try smaller batchSizes
+- make leakyrelu alpha configurable and try different settings
+- make dropout rate configurable and try different settings
+- test with and without final Dense(1) layer
