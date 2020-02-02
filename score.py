@@ -133,7 +133,7 @@ def eval_dnn(df):
         )
     else:
         print("loading weights")
-        weight_files = glob(arguments.read)
+        weight_files = glob(arguments.weights)
         weight_files.sort()
 
         model.load_weights(weight_files[-1])
