@@ -1,0 +1,163 @@
+2020-02-02 01:26:37.152162: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2020-02-02 01:26:37.162114: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7fadf55b3ed0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-02-02 01:26:37.162167: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2020-02-02 01:26:40.207806: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] remapper failed: Invalid argument: MutableGraphView::MutableGraphView error: node 'loss/dense_1_loss/categorical_crossentropy/weighted_loss/concat' has self cycle fanin 'loss/dense_1_loss/categorical_crossentropy/weighted_loss/concat'.
+2020-02-02 01:26:40.228607: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 0, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-02 01:26:40.237290: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 1, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-02 01:26:40.312329: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] arithmetic_optimizer failed: Invalid argument: The graph couldn't be sorted in topological order.
+2020-02-02 01:26:40.318186: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] remapper failed: Invalid argument: MutableGraphView::MutableGraphView error: node 'loss/dense_1_loss/categorical_crossentropy/weighted_loss/concat' has self cycle fanin 'loss/dense_1_loss/categorical_crossentropy/weighted_loss/concat'.
+2020-02-02 01:26:40.324747: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 0, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-02 01:26:40.330404: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 1, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-02 01:26:40.355687: W tensorflow/core/common_runtime/process_function_library_runtime.cc:697] Ignoring multi-device function optimization failure: Invalid argument: The graph couldn't be sorted in topological order.
+2020-02-02 01:26:44.439956: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] remapper failed: Invalid argument: MutableGraphView::MutableGraphView error: node 'loss/dense_1_loss/categorical_crossentropy/weighted_loss/concat' has self cycle fanin 'loss/dense_1_loss/categorical_crossentropy/weighted_loss/concat'.
+2020-02-02 01:26:44.444939: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 0, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-02 01:26:44.447181: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 1, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-02 01:26:44.467644: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] arithmetic_optimizer failed: Invalid argument: The graph couldn't be sorted in topological order.
+2020-02-02 01:26:44.468956: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] remapper failed: Invalid argument: MutableGraphView::MutableGraphView error: node 'loss/dense_1_loss/categorical_crossentropy/weighted_loss/concat' has self cycle fanin 'loss/dense_1_loss/categorical_crossentropy/weighted_loss/concat'.
+2020-02-02 01:26:44.470403: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 0, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-02 01:26:44.471918: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 1, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-02 01:26:44.480616: W tensorflow/core/common_runtime/process_function_library_runtime.cc:697] Ignoring multi-device function optimization failure: Invalid argument: The graph couldn't be sorted in topological order.
+Date: 2020-02-02 01:26:37.148525
+[INFO] input_shape (10, 16)
+[INFO] LSTM first and last layer neurons: 15
+adding core layer 0
+[INFO] created DNN
+[33m[INFO] epoch 1/10[0m
+[33m[INFO] loading file 1-1/50 on epoch 1/10[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.2/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (500000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['unixtime', 'orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst',
+       'proto', 'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] analyze dataset: (500000, 17)
+
+[INFO] analyzing data
+[INFO] 500000 rows
+[INFO] ** unixtime:1356 (0.2712%)
+[INFO] ** orig:[0:100.0%]
+[INFO] ** type:[0:99.9998%,2:0.0002%]
+[INFO] ** i/f_name:[2:99.9988%,3:0.0012%]
+[INFO] ** i/f_dir:[1:99.9988%,0:0.0012%]
+[INFO] ** src:[22:38.4088%,9:25.8982%,7:18.1636%,1:17.5218%,11:0.0014%,10:0.0014%,14:0.0012%,3:0.001%,2:0.001%,21:0.0006%,15:0.0004%,4:0.0004%,8:0.0002%]
+[INFO] ** dst:[21:43.266%,10:21.0416%,8:18.1634%,9:17.5214%,6:0.0016%,16:0.0012%,15:0.0012%,22:0.001%,18:0.0006%,26:0.0004%,25:0.0004%,19:0.0004%,17:0.0004%,24:0.0002%,7:0.0002%]
+[INFO] ** proto:[0:99.996%,2:0.0028%,1:0.0012%]
+[INFO] ** appi_name:[21:99.9928%,30:0.0012%,22:0.001%,17:0.0008%,31:0.0006%,26:0.0006%,7:0.0006%,23:0.0004%,18:0.0004%,0:0.0004%,28:0.0002%,27:0.0002%,24:0.0002%,16:0.0002%,15:0.0002%,5:0.0002%]
+[INFO] ** proxy_src_ip:[18:38.4088%,20:25.8982%,13:18.1636%,6:17.5218%,11:0.0014%,10:0.0014%,17:0.0012%,14:0.001%,1:0.001%,7:0.0006%,21:0.0004%,16:0.0004%,0:0.0002%]
+[INFO] ** modbus_function_code:[0.02961:99.9928%,-33.760870000000004:0.007%,0.9188299999999999:0.0002%]
+[INFO] ** modbus_function_description:[7:49.9974%,11:49.9954%,0:0.007%,15:0.0002%]
+[INFO] ** modbus_transaction_id:65536 (13.1072%)
+[INFO] ** scada_tag:[3:25.8976%,1:21.0406%,5:18.163%,4:17.521%,2:17.3678%,0:0.01%]
+[INFO] ** service:[0.0048200000000000005:99.9936%,-211.73542999999998:0.0012%,-211.08818:0.001%,-205.44247:0.0008%,-211.07873999999998:0.0008%,-211.09762999999998:0.0006%,-211.08346:0.0006%,-186.43601999999998:0.0006%,-186.44547:0.0004%,-185.9872:0.0002%,-202.75898:0.0002%]
+[INFO] ** s_port:[1.45442:25.8978%,-0.32151:21.0408%,-1.27613:18.1632%,-0.23351:17.5212%,-0.33484:17.368%,-71.33197:0.0012%,-71.14931:0.001%,-2.1481:0.0008%,-0.24151:0.0006%,-71.14798:0.0006%,-2.42942:0.0004%,4.44364:0.0004%,-1.02014:0.0004%,-64.19493:0.0004%,-5.1466400000000005:0.0002%,-1.2708:0.0002%,-58.035180000000004:0.0002%,4.076980000000001:0.0002%,-5.08665:0.0002%,1.47576:0.0002%,1.46509:0.0002%,4.29964:0.0002%,14.253910000000001:0.0002%,-68.79874000000001:0.0002%,6.1115699999999995:0.0002%,2.05573:0.0002%,-43.76509:0.0002%,10.67005:0.0002%,-1.27347:0.0002%,-58.032509999999995:0.0002%]
+[INFO] ** classification:[normal:79.2972%,Single Stage Single Point:20.7028%]
+[33mencode_numeric_zscore unixtime[0m
+[INFO] processing batch 0-100000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 5s - loss: 0.5198 - tp: 56903.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 23097.0000 - accuracy: 0.9423 - precision: 1.0000 - recall: 0.7113 - auc: 0.9999 - val_loss: 0.1713 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-1-files-0-1-batch-0-100000
+[INFO] processing batch 100000-200000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 4s - loss: 0.1145 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0796 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+Using TensorFlow backend.
+  File "train.py", line 300, in <module>
+    run()
+  File "train.py", line 228, in run
+    train_dnn(dfCopy, i, epoch+1, batch_index)
+  File "train.py", line 94, in train_dnn
+    batch_size=32
+  File "/usr/local/lib/python3.7/site-packages/keras/engine/training.py", line 1239, in fit
+    validation_freq=validation_freq)
+  File "/usr/local/lib/python3.7/site-packages/keras/engine/training_arrays.py", line 196, in fit_loop
+    outs = fit_function(ins_batch)
+  File "/usr/local/lib/python3.7/site-packages/tensorflow_core/python/keras/backend.py", line 3727, in __call__
+    outputs = self._graph_fn(*converted_inputs)
+  File "/usr/local/lib/python3.7/site-packages/tensorflow_core/python/eager/function.py", line 1551, in __call__
+    return self._call_impl(args, kwargs)
+  File "/usr/local/lib/python3.7/site-packages/tensorflow_core/python/eager/function.py", line 1591, in _call_impl
+    return self._call_flat(args, self.captured_inputs, cancellation_manager)
+  File "/usr/local/lib/python3.7/site-packages/tensorflow_core/python/eager/function.py", line 1692, in _call_flat
+    ctx, args, cancellation_manager=cancellation_manager))
+  File "/usr/local/lib/python3.7/site-packages/tensorflow_core/python/eager/function.py", line 545, in call
+    ctx=ctx)
+  File "/usr/local/lib/python3.7/site-packages/tensorflow_core/python/eager/execute.py", line 61, in quick_execute
+    num_outputs)
+[INFO] saving weights to checkpoints/lstm-epoch-1-files-0-1-batch-100000-200000
+[INFO] processing batch 200000-300000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] to_xy labeltype: normal
+[INFO] to_xy labeltype: Single Stage Single Point
+[INFO] to_xy labeltype: Single Stage Multi Point
+[INFO] to_xy labeltype: Multi Stage Single Point
+[INFO] to_xy labeltype: Multi Stage Multi Point
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+[EXCEPTION] (<class 'KeyboardInterrupt'>, KeyboardInterrupt(), <traceback object at 0x1519af050>)
+Using TensorFlow backend.
+Traceback (most recent call last):
+  File "score.py", line 12, in <module>
+    import keras
+  File "/usr/local/lib/python3.7/site-packages/keras/__init__.py", line 3, in <module>
+    from . import utils
+  File "/usr/local/lib/python3.7/site-packages/keras/utils/__init__.py", line 6, in <module>
+    from . import conv_utils
+  File "/usr/local/lib/python3.7/site-packages/keras/utils/conv_utils.py", line 9, in <module>
+    from .. import backend as K
+  File "/usr/local/lib/python3.7/site-packages/keras/backend/__init__.py", line 1, in <module>
+    from .load_backend import epsilon
+  File "/usr/local/lib/python3.7/site-packages/keras/backend/load_backend.py", line 90, in <module>
+    from .tensorflow_backend import *
+  File "/usr/local/lib/python3.7/site-packages/keras/backend/tensorflow_backend.py", line 5, in <module>
+    import tensorflow as tf
+  File "/usr/local/lib/python3.7/site-packages/tensorflow/__init__.py", line 101, in <module>
+    from tensorflow_core import *
+  File "/usr/local/lib/python3.7/site-packages/tensorflow_core/__init__.py", line 40, in <module>
+    from tensorflow.python.tools import module_util as _module_util
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 959, in _find_and_load_unlocked
+  File "/usr/local/lib/python3.7/site-packages/tensorflow/__init__.py", line 50, in __getattr__
+    module = self._load()
+  File "/usr/local/lib/python3.7/site-packages/tensorflow/__init__.py", line 44, in _load
+    module = _importlib.import_module(self.__name__)
+  File "/usr/local/Cellar/python/3.7.6_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "/usr/local/lib/python3.7/site-packages/tensorflow_core/python/__init__.py", line 75, in <module>
+    from tensorflow.python.framework.framework_lib import *  # pylint: disable=redefined-builtin
+  File "/usr/local/lib/python3.7/site-packages/tensorflow_core/python/framework/framework_lib.py", line 25, in <module>
+    from tensorflow.python.framework.ops import Graph
+  File "/usr/local/lib/python3.7/site-packages/tensorflow_core/python/framework/ops.py", line 41, in <module>
+    from tensorflow.python.eager import context
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 967, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 677, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 724, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 857, in get_code
+  File "<frozen importlib._bootstrap_external>", line 525, in _compile_bytecode
+KeyboardInterrupt
