@@ -133,7 +133,10 @@ def eval_dnn(df):
         )
     else:
         print("loading weights")
-        model.load_weights(arguments.weights)
+        weight_files = glob(arguments.read)
+        weight_files.sort()
+
+        model.load_weights(weight_files[-1])
 
     print(colored("[INFO] measuring accuracy...", 'yellow'))
     print("x_test.shape:", x_test.shape)
