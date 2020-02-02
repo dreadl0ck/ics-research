@@ -348,3 +348,6 @@ Call model.save to save the a model's architecture, weights, and training config
     - dying relu: try tanh
 
 pred {1: 7, 2: 1, 3: 499854, 4: 138}
+
+- read multiple files and increase amount of samples passed to tensorflow
+- implement early stopping

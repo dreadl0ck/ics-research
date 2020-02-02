@@ -24,13 +24,17 @@ from keras.layers.core import Dense, Activation
 from keras.callbacks import EarlyStopping
 from termcolor import colored
 
-monitor = EarlyStopping(
-    monitor='val_loss', 
-    min_delta=1e-3, 
-    patience=5, 
-    verbose=1, 
-    mode='auto'
-)
+# because the data is split over multiple files
+# we need to implement early stopping ourselves
+# monitor = EarlyStopping(
+#     monitor='val_loss', 
+#     min_delta=1e-3, 
+#     patience=5, 
+#     verbose=1, 
+#     mode='auto'
+# )
+min_delta=1e-3
+patience = 5
 
 # hardcoded these are the labeltypes that can be found in the dataset
 # can be overwritten via cmdline flags
@@ -84,7 +88,7 @@ def train_dnn(df, i, epoch, batch_index=None):
     #x_test = np.reshape(x_test, (x_test.shape[0], 1, x_test.shape[1]))
 
     print("[INFO] fitting model")
-    model.fit(
+    history = model.fit(
         x_train,
         y_train,
         validation_data=(x_test, y_test),
@@ -115,6 +119,8 @@ def train_dnn(df, i, epoch, batch_index=None):
     else:
         save_weights(i, epoch, batch_index=batch_index)
 
+    return history
+
 def save_model(i, epoch, batch_index=None):
     if not path.exists("models"):
         os.mkdir("models")
@@ -143,7 +149,11 @@ def readCSV(f):
 
 def run():
     leftover = None
+    global patience
+    global min_delta
+
     for epoch in range(arguments.epochs):
+        history = None
 
         print(colored("[INFO] epoch {}/{}".format(epoch+1, arguments.epochs), 'yellow'))
         for i in range(0, len(files), batch_size):
@@ -225,8 +235,19 @@ def run():
                     leftover = dfCopy
                     continue
 
-                train_dnn(dfCopy, i, epoch+1, batch_index)
+                history = train_dnn(dfCopy, i, epoch+1, batch_index)
                 leftover = None
+        
+        # implement early stopping to avoid overfitting
+        # start checking the val_loss against the threshold after patience epochs
+        if epoch > patience:
+            # get current loss
+            lossValues = history['val_loss']
+            currentLoss = lossValues[-1]
+            print("currentLoss", currentLoss)
+            if currentLoss < min_delta:
+                print("STOPPING EARLY: currentLoss < min_delta", currentLoss, " < ", min_delta)
+                break
 
 # instantiate the parser
 parser = argparse.ArgumentParser(description='NETCAP compatible implementation of Network Anomaly Detection with a Deep Neural Network and TensorFlow')
