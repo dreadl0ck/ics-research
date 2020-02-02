@@ -2,6 +2,7 @@ first file: _69
 first file: _124
 each file has 14 parts
 
+TRAIN:
 2015-12-28_113021_98.log.part12_sorted-labeled.csv : 103513 [Single Stage Single Point]
 2015-12-28_113021_98.log.part13_sorted-labeled.csv : 136049 [Single Stage Single Point]
 2015-12-28_164554_99.log.part01_sorted-labeled.csv : 66442 [Single Stage Single Point]
@@ -52,6 +53,8 @@ each file has 14 parts
 2015-12-31_130240_112.log.part07_sorted-labeled.csv : 177903 [Single Stage Single Point]
 2015-12-31_130240_112.log.part08_sorted-labeled.csv : 178141 [Single Stage Single Point]
 2015-12-31_130240_112.log.part09_sorted-labeled.csv : 178444 [Single Stage Single Point]
+
+EVAL:
 2015-12-31_130240_112.log.part10_sorted-labeled.csv : 101102 [Single Stage Single Point]
 2015-12-31_181648_113.log.part08_sorted-labeled.csv : 99402 [Single Stage Multi Point Multi Stage Multi Point]
 2015-12-31_181648_113.log.part09_sorted-labeled.csv : 130452 [Multi Stage Multi Point]
