@@ -6,8 +6,10 @@ import pandas as pd
 import os
 from termcolor import colored
 from sklearn import preprocessing
+
 from keras import layers
 from keras.layers import Dropout
+from keras.layers import LeakyReLU
 
 def encode_string(df, name):
     """
@@ -243,7 +245,8 @@ def to_xy(df, target, labeltypes, debug):
 
     # loop through all of the labeltypes and flag the columns that contain the label type
     for i,j in enumerate(labeltypes):
-        print("[INFO] to_xy labeltype:", j)
+        if debug:
+            print("[INFO] to_xy labeltype:", j)
         indices = np.where(values == j)
 
         #np.set_printoptions(threshold=sys.maxsize)
@@ -431,14 +434,17 @@ def create_dnn(input_dim, output_dim, loss, optimizer, lstm, numCoreLayers, core
         # - If return_sequence is True, the output is a 3D array. (batch_size, time_steps, units)
 
         model.add(layers.LSTM(wrapLayerSize, input_shape=input_shape, return_sequences=True))
+        model.add(LeakyReLU(alpha=0.05))
 
         # add requested number of core layers
         for i in range(0, numCoreLayers):
             print("adding core layer", i)
             model.add(layers.LSTM(coreLayerSize, input_shape=input_shape, return_sequences=True))
+            model.add(LeakyReLU(alpha=0.05))
 
         # add final LSTM layer
         model.add(layers.LSTM(wrapLayerSize, input_shape=input_shape, return_sequences=True))
+        model.add(LeakyReLU(alpha=0.05))
 
         # add dropout layer if requested
         if dropoutLayer:
@@ -447,6 +453,11 @@ def create_dnn(input_dim, output_dim, loss, optimizer, lstm, numCoreLayers, core
         # flatten if requested
         # TODO: currently this breaks the shape
         #model.add(Flatten())
+
+        # TODO: do we need this final Dense Layer with shape 1?
+        model.add(Dense(1, kernel_initializer='normal'))
+        # Does it need an activation func?
+        model.add(LeakyReLU(alpha=0.05))
 
         # final layer
         model.add(layers.Dense(output_dim, activation='softmax'))
@@ -457,20 +468,27 @@ def create_dnn(input_dim, output_dim, loss, optimizer, lstm, numCoreLayers, core
         # DNN
         # add layers
         # first layer has to specify the input dimension
-        model.add(Dense(wrapLayerSize, input_dim=input_dim, kernel_initializer='normal', activation='relu'))
+        model.add(Dense(wrapLayerSize, input_dim=input_dim, kernel_initializer='normal'))
+        model.add(LeakyReLU(alpha=0.05))
 
         # add requested number of core layers
         for i in range(0, numCoreLayers):
             print("[INFO] adding core layer", i)
-            model.add(Dense(coreLayerSize, input_dim=input_dim, kernel_initializer='normal', activation='relu'))
+            model.add(Dense(coreLayerSize, input_dim=input_dim, kernel_initializer='normal'))
+            model.add(LeakyReLU(alpha=0.05))
 
-        model.add(Dense(wrapLayerSize, input_dim=input_dim, kernel_initializer='normal', activation='relu'))
+        model.add(Dense(wrapLayerSize, input_dim=input_dim, kernel_initializer='normal'))
+        model.add(LeakyReLU(alpha=0.05))
 
         # add dropout layer if requested
         if dropoutLayer:
             model.add(Dropout(rate=0.5))
 
+        # TODO: do we need this final Dense Layer with shape 1?
         model.add(Dense(1, kernel_initializer='normal'))
+        # Does it need an activation func?
+        model.add(LeakyReLU(alpha=0.05))
+
         model.add(Dense(output_dim, activation='softmax'))
 
     # metrics for model

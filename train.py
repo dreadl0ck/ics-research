@@ -9,7 +9,7 @@
 
 import argparse
 import pandas as pd
-import keras
+import time
 import traceback
 import sys
 import datetime
@@ -19,9 +19,18 @@ from glob import glob
 from os import path
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import confusion_matrix
+
+# Official Keras version
+import keras
 from keras.models import Sequential
 from keras.layers.core import Dense, Activation
 from keras.callbacks import EarlyStopping
+
+# TF keras version - IMPORTANT: don't mix imports of TF and Keras!
+#import tensorflow.python.keras as keras
+#from tensorflow.python.keras.layers import Input, Dense, Activation
+#from tensorflow.python.keras.models import Sequential
+
 from termcolor import colored
 
 # because the data is split over multiple files
@@ -33,15 +42,15 @@ from termcolor import colored
 #     verbose=1, 
 #     mode='auto'
 # )
-min_delta=1e-3
-patience = 5
+min_delta = 1e-3
+patience = 3
 
 # hardcoded these are the labeltypes that can be found in the dataset
 # can be overwritten via cmdline flags
 classes = ["normal", "Single Stage Single Point", "Single Stage Multi Point", "Multi Stage Single Point", "Multi Stage Multi Point"]
 #classes = ["Normal", "Attack"]
 
-def train_dnn(df, i, epoch, batch_index=None):
+def train_dnn(df, i, epoch, batch=0):
 
     print("[INFO] breaking into predictors and prediction...")
     # Break into X (predictors) & y (prediction)
@@ -92,10 +101,13 @@ def train_dnn(df, i, epoch, batch_index=None):
         x_train,
         y_train,
         validation_data=(x_test, y_test),
-        callbacks=[monitor],
+        #callbacks=[monitor],
         verbose=2,
         epochs=1,
-        batch_size=32
+        # The batch size defines the number of samples that will be propagated through the network.
+        # The smaller the batch the less accurate the estimate of the gradient will be.
+        # let tensorflow set this value for us
+        #batch_size=1000
     )
 
 #    print('---------intermediate testing--------------')
@@ -113,35 +125,39 @@ def train_dnn(df, i, epoch, batch_index=None):
 #    print("[info] confusion matrix for file ")
 #    print(cf)
 #    print('-----------------------------')
-    
+
     if arguments.saveModel:
-        save_model(i, epoch, batch_index=batch_index)
+        save_model(i, str(epoch), batch=batch)
     else:
-        save_weights(i, epoch, batch_index=batch_index)
+        save_weights(i, str(epoch), batch=batch)
 
     return history
 
-def save_model(i, epoch, batch_index=None):
+# epoch.zfill(3) is used to pad the epoch num with zeros
+# so the alphanumeric sorting preserves the correct file order: 01, 02, ..., 09, 10
+def save_model(i, epoch, batch=0):
     if not path.exists("models"):
         os.mkdir("models")
 
     if arguments.lstm:
-        print("[INFO] saving model to models/lstm-epoch-{}-files-{}-{}-batch-{}-{}.h5".format(epoch, i, i+batch_size, batch_index, batch_index+arguments.lstmBatchSize))
-        model.save('./models/lstm-epoch-{}-files-{}-{}-batch-{}-{}.h5'.format(epoch, i, i+batch_size, batch_index, batch_index+arguments.lstmBatchSize))
+        print("[INFO] saving model to models/lstm-epoch-{}-files-{}-{}-batch-{}-{}.h5".format(epoch.zfill(3), i, i+fileBatchSize, batch, batch+arguments.batchSize))
+        model.save('./models/lstm-epoch-{}-files-{}-{}-batch-{}-{}.h5'.format(epoch.zfill(3), i, i+fileBatchSize, batch, batch+arguments.batchSize))        
     else:
-        print("[INFO] saving model to models/dnn-epoch-{}-files-{}-{}.h5".format(epoch, i, i+batch_size))
-        model.save('./models/dnn-epoch-{}-files-{}-{}.h5'.format(epoch, i, i+batch_size))
+        print("[INFO] saving model to models/dnn-epoch-{}-files-{}-{}.h5".format(epoch.zfill(3), i, i+fileBatchSize))
+        model.save('./models/dnn-epoch-{}-files-{}-{}.h5'.format(epoch.zfill(3), i, i+fileBatchSize))        
 
-def save_weights(i, epoch, batch_index=None):
+# epoch.zfill(3) is used to pad the epoch num with zeros
+# so the alphanumeric sorting preserves the correct file order: 01, 02, ..., 09, 10
+def save_weights(i, epoch, batch=0):
     if not path.exists("checkpoints"):
         os.mkdir("checkpoints")
 
     if arguments.lstm:
-        print("[INFO] saving weights to checkpoints/lstm-epoch-{}-files-{}-{}-batch-{}-{}".format(epoch, i, i+batch_size, batch_index, batch_index+arguments.lstmBatchSize))
-        model.save_weights('./checkpoints/lstm-epoch-{}-files-{}-{}-batch-{}-{}'.format(epoch, i, i+batch_size, batch_index, batch_index+arguments.lstmBatchSize))
+        print("[INFO] saving weights to checkpoints/lstm-epoch-{}-files-{}-{}-batch-{}-{}".format(epoch.zfill(3), i, i+fileBatchSize, batch, batch+arguments.batchSize))
+        model.save_weights('./checkpoints/lstm-epoch-{}-files-{}-{}-batch-{}-{}'.format(epoch.zfill(3), i, i+fileBatchSize, batch, batch+arguments.batchSize))
     else:
-        print("[INFO] saving weights to checkpoints/dnn-epoch-{}-files-{}-{}".format(epoch, i, i+batch_size))
-        model.save_weights('./checkpoints/dnn-epoch-{}-files-{}-{}'.format(epoch, i, i+batch_size))
+        print("[INFO] saving weights to checkpoints/dnn-epoch-{}-files-{}-{}".format(epoch.zfill(3), i, i+fileBatchSize))
+        model.save_weights('./checkpoints/dnn-epoch-{}-files-{}-{}'.format(epoch.zfill(3), i, i+fileBatchSize))
 
 def readCSV(f):
     print("[INFO] reading file", f)
@@ -156,10 +172,10 @@ def run():
         history = None
 
         print(colored("[INFO] epoch {}/{}".format(epoch+1, arguments.epochs), 'yellow'))
-        for i in range(0, len(files), batch_size):
+        for i in range(0, len(files), fileBatchSize):
 
-            print(colored("[INFO] loading file {}-{}/{} on epoch {}/{}".format(i+1, i+batch_size, len(files), epoch+1, arguments.epochs), 'yellow'))
-            df_from_each_file = [readCSV(f) for f in files[i:(i+batch_size)]]
+            print(colored("[INFO] loading file {}-{}/{} on epoch {}/{}".format(i+1, i+fileBatchSize, len(files), epoch+1, arguments.epochs), 'yellow'))
+            df_from_each_file = [readCSV(f) for f in files[i:(i+fileBatchSize)]]
 
             # ValueError: The truth value of a DataFrame is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
             if leftover is not None:
@@ -205,8 +221,9 @@ def run():
 
             print("[INFO] columns:", df.columns)
 
-            print("[INFO] analyze dataset:", df.shape)
-            analyze(df)
+            if arguments.debug:
+                print("[INFO] analyze dataset:", df.shape)
+                analyze(df)
 
             if arguments.zscoreUnixtime:
                encode_numeric_zscore(df, "unixtime")
@@ -222,31 +239,31 @@ def run():
                 with pd.option_context('display.max_rows', 10, 'display.max_columns', None):  # more options can be specified also
                     print(df)
 
-            # we are batching the data also for the sequential dense layered dnn,
-            # as we observed that smaller batch size increases prediction performance
-            for batch_index in range(0, df.shape[0], arguments.lstmBatchSize):
+            for batch_size in range(0, df.shape[0], arguments.batchSize):
 
-                print("[INFO] processing batch {}-{}/{}".format(batch_index, batch_index+arguments.lstmBatchSize, df.shape[0]))
+                print("[INFO] processing batch {}-{}/{}".format(batch_size, batch_size+arguments.batchSize, df.shape[0]))
 
-                dfCopy = df[batch_index:batch_index+arguments.lstmBatchSize]
+                dfCopy = df[batch_size:batch_size+arguments.batchSize]
 
                 # skip leftover that does not reach batch size
-                if len(dfCopy.index) != arguments.lstmBatchSize:
+                if len(dfCopy.index) != arguments.batchSize:
                     leftover = dfCopy
                     continue
 
-                history = train_dnn(dfCopy, i, epoch+1, batch_index)
+                history = train_dnn(dfCopy, i, epoch+1, batch=batch_size)
                 leftover = None
         
+        # get current loss
+        lossValues = history.history['val_loss']
+        currentLoss = lossValues[-1]
+        print(colored("[LOSS] " + str(currentLoss),'yellow'))
+
         # implement early stopping to avoid overfitting
         # start checking the val_loss against the threshold after patience epochs
-        if epoch > patience:
-            # get current loss
-            lossValues = history['val_loss']
-            currentLoss = lossValues[-1]
-            print("currentLoss", currentLoss)
+        if epoch+1 >= patience:
+            print("[CHECKING EARLY STOP]: currentLoss < min_delta ? =>", currentLoss, " < ", min_delta)
             if currentLoss < min_delta:
-                print("STOPPING EARLY: currentLoss < min_delta", currentLoss, " < ", min_delta)
+                print("[STOPPING EARLY]: currentLoss < min_delta =>", currentLoss, " < ", min_delta)
                 break
 
 # instantiate the parser
@@ -263,7 +280,7 @@ parser.add_argument('-optimizer', type=str, default='adam', help='set optimizer 
 parser.add_argument('-resultColumn', type=str, default='classification', help='set name of the column with the prediction')
 parser.add_argument('-features', type=int, required=True, help='The amount of columns in the csv (dimensionality)')
 #parser.add_argument('-class_amount', type=int, default=2, help='The amount of classes e.g. normal, attack1, attack3 is 3')
-parser.add_argument('-batchSize', type=int, default=1, help='The amount of files to be read in. (default: 1)')
+parser.add_argument('-fileBatchSize', type=int, default=1, help='The amount of files to be read in. (default: 1)')
 parser.add_argument('-epochs', type=int, default=1, help='The amount of epochs. (default: 1)')
 parser.add_argument('-numCoreLayers', type=int, default=1, help='set number of core layers to use')
 parser.add_argument('-shuffle', default=False, help='shuffle data before feeding it to the DNN')
@@ -271,7 +288,7 @@ parser.add_argument('-dropoutLayer', default=False, help='insert a dropout layer
 parser.add_argument('-coreLayerSize', type=int, default=4, help='size of an DNN core layer')
 parser.add_argument('-wrapLayerSize', type=int, default=2, help='size of the first and last DNN layer')
 parser.add_argument('-lstm', default=False, help='use a LSTM network')
-parser.add_argument('-lstmBatchSize', type=int, default=100000, help='LSTM network input number of rows')
+parser.add_argument('-batchSize', type=int, default=100000, help='chunks of records read from CSV and being passed to DNN')
 parser.add_argument('-debug', default=False, help='debug mode on off')
 parser.add_argument('-zscoreUnixtime', default=False, help='apply zscore to unixtime column')
 parser.add_argument('-encodeColumns', default=False, help='switch between auto encoding or using a fully encoded dataset')
@@ -288,7 +305,11 @@ if arguments.classes is not None:
     classes = arguments.classes.split(',')
     print("set classes to:", classes)
 
+print("=========================")
+print("        TRAINING")
+print("=========================")
 print("Date:", datetime.datetime.now())
+start_time = time.time()
 
 # get all files
 files = glob(arguments.read)
@@ -299,7 +320,7 @@ if len(files) == 0:
     exit(1)
 
 # set batch size
-batch_size = arguments.batchSize
+fileBatchSize = arguments.fileBatchSize
 
 # create models
 model = create_dnn(
@@ -311,7 +332,7 @@ model = create_dnn(
     arguments.numCoreLayers,
     arguments.coreLayerSize,
     arguments.dropoutLayer,
-    arguments.lstmBatchSize,
+    arguments.batchSize,
     arguments.wrapLayerSize
 )
 print("[INFO] created DNN")
@@ -324,3 +345,4 @@ except: # catch *all* exceptions
     print("[EXCEPTION]", e)
     traceback.print_tb(e[2], None, None)
 
+print("--- %s seconds ---" % (time.time() - start_time))

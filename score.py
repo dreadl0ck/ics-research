@@ -27,17 +27,7 @@ from termcolor import colored
 from os import path
 from keras.models import load_model
 
-monitor = EarlyStopping(
-    monitor='val_loss', 
-    min_delta=1e-3, 
-    patience=5, 
-    verbose=1, 
-    mode='auto'
-)
-
 cf_total = None
-
-BATCH_SIZE = 2048
 
 # configurable via argument
 # hardcoded these are the labeltypes that can be found in the dataset
@@ -53,7 +43,37 @@ def readCSV(f):
     return pd.read_csv(f, delimiter=',', engine='c', encoding="utf-8-sig")
 
 def run():
+    global model
     leftover = None
+
+    # Create a new model instance
+    if arguments.model is not None:
+        print("loading model")
+        model = load_model(
+            arguments.model,
+            custom_objects={
+                #"tp": keras.metrics.TruePositives,
+                # "TruePositives": keras.metrics.TruePositives(name='tp'),
+                # "fp": keras.metrics.FalsePositives(name='fp'),
+                # "tn": keras.metrics.TrueNegatives(name='tn'),
+                # "fn": keras.metrics.FalseNegatives(name='fn'),
+                # "accuracy": keras.metrics.BinaryAccuracy(name='accuracy'),
+                # "precision": keras.metrics.Precision(name='precision'),
+                # "recall": keras.metrics.Recall(name='recall'),
+                # "auc": keras.metrics.AUC(name='auc'),
+            }
+        )
+    else:
+        print("loading weights:", arguments.weights)
+        weight_files = glob(arguments.weights)
+        weight_files.sort()
+
+        #print("FILES:", weight_files)
+        print("loading file", weight_files[-1])
+        model.load_weights(weight_files[-1])
+
+    print(colored("[INFO] model summary:", 'yellow'))
+    model.summary()
 
     for file_name in files:
         df = readCSV(file_name)
@@ -84,21 +104,18 @@ def run():
             encode_columns(df, arguments.resultColumn, arguments.lstm, arguments.debug)
             print("[INFO] Shape AFTER encoding dataset:", df.shape)
 
-        lstmBatchSize = arguments.lstmBatchSize
-        if arguments.lstm:
-            for batch_index in range(0, df.shape[0], lstmBatchSize):
-                print("[INFO] processing batch {}-{}/{} for LSTM".format(batch_index, batch_index+lstmBatchSize, df.shape[0]))
-                dfCopy = df[batch_index:batch_index+lstmBatchSize]
+        batchSize = arguments.batchSize
+        for batch_index in range(0, df.shape[0], batchSize):
+            print("[INFO] processing batch {}-{}/{}".format(batch_index, batch_index+batchSize, df.shape[0]))
+            dfCopy = df[batch_index:batch_index+batchSize]
 
-                # skip leftover that does not reach batch size
-                if len(dfCopy.index) != lstmBatchSize:
-                    leftover = dfCopy
-                    continue
+            # skip leftover that does not reach batch size
+            if len(dfCopy.index) != batchSize:
+                leftover = dfCopy
+                continue
 
-                eval_dnn(dfCopy)
-                leftover = None
-        else:
-            eval_dnn(df)
+            eval_dnn(dfCopy)
+            leftover = None
 
 import sys
 
@@ -107,42 +124,14 @@ def eval_dnn(df):
     global model
 
     x_test, y_test = to_xy(df, arguments.resultColumn, classes, arguments.debug)
-    print("x_test", x_test, "shape", x_test.shape)
+    #print("x_test", x_test, "shape", x_test.shape)
     
     #np.set_printoptions(threshold=sys.maxsize)
-    print("y_test", y_test, "shape", y_test.shape)
+    #print("y_test", y_test, "shape", y_test.shape)
     #np.set_printoptions(threshold=10)
-
-    # Create a new model instance
-
-    if arguments.model is not None:
-        print("loading model")
-        model = load_model(
-            arguments.model,
-            custom_objects={
-                #"tp": keras.metrics.TruePositives,
-                # "TruePositives": keras.metrics.TruePositives(name='tp'),
-                # "fp": keras.metrics.FalsePositives(name='fp'),
-                # "tn": keras.metrics.TrueNegatives(name='tn'),
-                # "fn": keras.metrics.FalseNegatives(name='fn'),
-                # "accuracy": keras.metrics.BinaryAccuracy(name='accuracy'),
-                # "precision": keras.metrics.Precision(name='precision'),
-                # "recall": keras.metrics.Recall(name='recall'),
-                # "auc": keras.metrics.AUC(name='auc'),
-            }
-        )
-    else:
-        print("loading weights")
-        weight_files = glob(arguments.weights)
-        weight_files.sort()
-
-        model.load_weights(weight_files[-1])
 
     print(colored("[INFO] measuring accuracy...", 'yellow'))
     print("x_test.shape:", x_test.shape)
-
-    print(colored("[INFO] model summary:", 'yellow'))
-    model.summary()
 
     y_eval = np.argmax(y_test,axis=1)
     print("y_eval", y_eval, y_eval.shape)
@@ -164,15 +153,15 @@ def eval_dnn(df):
             print("y_test.shape", y_test.shape)
     
     pred = model.predict(x_test)
-    print("pred 1", pred, pred.shape)
+    #print("pred 1", pred, pred.shape)
 
     if arguments.lstm:         
-        print("y_test shape", y_test.shape)
+        #print("y_test shape", y_test.shape)
         pred = pred.reshape(10000*y_test.shape[1], y_test.shape[2])
-        print("pred 2", pred, pred.shape)
+        #print("pred 2", pred, pred.shape)
 
     pred = np.argmax(pred,axis=1)
-    print("pred 3 (argmax)", pred, pred.shape)
+    #print("pred 3 (argmax)", pred, pred.shape)
 
     if not arguments.lstm:
         score = metrics.accuracy_score(y_eval, pred)
@@ -182,7 +171,6 @@ def eval_dnn(df):
     baseline_results = model.evaluate(
         x_test,
         y_test,
-        batch_size=BATCH_SIZE,
         verbose=0
     )
 
@@ -219,7 +207,7 @@ parser = argparse.ArgumentParser(description='NETCAP compatible implementation o
 # add commandline flags
 parser.add_argument('-read', required=True, type=str, help='Regex to find all labeled input CSV file to read from (required)')
 parser.add_argument('-model', type=str, help='the path to the model to be loaded')
-parser.add_argument('-weights', type=str, help='the path to the checkpoint to be loaded')
+parser.add_argument('-weights', type=str, default='checkpoints/*', help='the path to the checkpoint to be loaded')
 parser.add_argument('-drop', type=str, help='optionally drop specified columns, supply multiple with comma')
 #parser.add_argument('-sample', type=float, default=1.0, help='optionally sample only a fraction of records')
 #parser.add_argument('-dropna', default=False, action='store_true', help='drop rows with missing values')
@@ -229,7 +217,6 @@ parser.add_argument('-optimizer', type=str, default='adam', help='set optimizer 
 parser.add_argument('-resultColumn', type=str, default='classification', help='set name of the column with the prediction')
 parser.add_argument('-features', type=int, required=True, help='The amount of columns in the csv')
 #parser.add_argument('-class_amount', type=int, default=2, help='The amount of classes e.g. normal, attack1, attack3 is 3')
-#parser.add_argument('-batch_size', type=int, default=2, help='The amount of files to be read in. (default: 1)')
 #parser.add_argument('-epochs', type=int, default=1, help='The amount of epochs. (default: 1)')
 parser.add_argument('-numCoreLayers', type=int, default=1, help='set number of core layers to use')
 #parser.add_argument('-shuffle', default=False, help='shuffle data before feeding it to the DNN')
@@ -237,7 +224,7 @@ parser.add_argument('-dropoutLayer', default=False, help='insert a dropout layer
 parser.add_argument('-coreLayerSize', type=int, default=4, help='size of an DNN core layer')
 parser.add_argument('-wrapLayerSize', type=int, default=2, help='size of the first and last DNN layer')
 parser.add_argument('-lstm', default=False, help='use a LSTM network')
-parser.add_argument('-lstmBatchSize', type=int, default=100000, help='LSTM network input number of rows')
+parser.add_argument('-batchSize', type=int, default=100000, help='LSTM network input number of rows')
 parser.add_argument('-debug', default=False, help='debug mode on off')
 parser.add_argument('-classes', type=str, help='supply one or multiple comma separated class identifiers')
 parser.add_argument('-zscoreUnixtime', default=False, help='apply zscore to unixtime column')
@@ -261,7 +248,11 @@ if len(files) == 0:
     print("[INFO] no files matched")
     exit(1)
 
+print("=========================")
+print("        SCORING")
+print("=========================")
 print("Date:", datetime.datetime.now())
+start_time = time.time()
 
 # create models
 model = create_dnn(
@@ -273,7 +264,7 @@ model = create_dnn(
     arguments.numCoreLayers,
     arguments.coreLayerSize,
     arguments.dropoutLayer,
-    arguments.lstmBatchSize,
+    arguments.batchSize,
     arguments.wrapLayerSize
 )
 print("[INFO] created DNN")
@@ -285,4 +276,6 @@ except: # catch *all* exceptions
     e = sys.exc_info()
     print("[EXCEPTION]", e)
     traceback.print_tb(e[2], None, None)
+
+print("--- %s seconds ---" % (time.time() - start_time))
 

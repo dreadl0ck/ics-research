@@ -11,7 +11,7 @@ python3 train.py \
     -lstm true \
     -features 16 \
     -drop modbus_value \
-    -lstmBatchSize 100000
+    -batchSize 100000
 
 # EVAL
 python3 score.py \
@@ -20,7 +20,6 @@ python3 score.py \
     -coreLayerSize 30 \
     -optimizer sgd \
     -features 16 \
-    -weights checkpoints/lstm-epoch-10-files-49-50-batch-200000-300000 \
     -drop modbus_value  \
     -lstm true  \
-    -lstmBatchSize 100000
+    -batchSize 100000

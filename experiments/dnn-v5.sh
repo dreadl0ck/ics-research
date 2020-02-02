@@ -18,5 +18,4 @@ python3 score.py \
     -optimizer sgd \
     -coreLayerSize 50 \
     -features 15 \
-    -weights checkpoints/dnn-epoch-50-files-49-50 \
     -drop modbus_value
