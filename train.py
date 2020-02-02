@@ -153,11 +153,11 @@ def save_weights(i, epoch, batch=0):
         os.mkdir("checkpoints")
 
     if arguments.lstm:
-        print("[INFO] saving weights to checkpoints/lstm-epoch-{}-files-{}-{}-batch-{}-{}".format(epoch.zfill(3), i, i+fileBatchSize, batch, batch+arguments.batchSize))
-        model.save_weights('./checkpoints/lstm-epoch-{}-files-{}-{}-batch-{}-{}'.format(epoch.zfill(3), i, i+fileBatchSize, batch, batch+arguments.batchSize))
+        print("[INFO] saving weights to checkpoints/lstm-epoch-{}-files-{}-{}-batch-{}-{}".format(epoch.zfill(3), i, i+arguments.fileBatchSize, batch, batch+arguments.batchSize))
+        model.save_weights('./checkpoints/lstm-epoch-{}-files-{}-{}-batch-{}-{}'.format(epoch.zfill(3), i, i+arguments.fileBatchSize, batch, batch+arguments.batchSize))
     else:
-        print("[INFO] saving weights to checkpoints/dnn-epoch-{}-files-{}-{}".format(epoch.zfill(3), i, i+fileBatchSize))
-        model.save_weights('./checkpoints/dnn-epoch-{}-files-{}-{}'.format(epoch.zfill(3), i, i+fileBatchSize))
+        print("[INFO] saving weights to checkpoints/dnn-epoch-{}-files-{}-{}".format(epoch.zfill(3), i, i+arguments.fileBatchSize))
+        model.save_weights('./checkpoints/dnn-epoch-{}-files-{}-{}'.format(epoch.zfill(3), i, i+arguments.fileBatchSize))
 
 def readCSV(f):
     print("[INFO] reading file", f)
@@ -172,10 +172,10 @@ def run():
         history = None
 
         print(colored("[INFO] epoch {}/{}".format(epoch+1, arguments.epochs), 'yellow'))
-        for i in range(0, len(files), fileBatchSize):
+        for i in range(0, len(files), arguments.fileBatchSize):
 
-            print(colored("[INFO] loading file {}-{}/{} on epoch {}/{}".format(i+1, i+fileBatchSize, len(files), epoch+1, arguments.epochs), 'yellow'))
-            df_from_each_file = [readCSV(f) for f in files[i:(i+fileBatchSize)]]
+            print(colored("[INFO] loading file {}-{}/{} on epoch {}/{}".format(i+1, i+arguments.fileBatchSize, len(files), epoch+1, arguments.epochs), 'yellow'))
+            df_from_each_file = [readCSV(f) for f in files[i:(i+arguments.fileBatchSize)]]
 
             # ValueError: The truth value of a DataFrame is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
             if leftover is not None:
@@ -318,9 +318,6 @@ files.sort()
 if len(files) == 0:
     print("[INFO] no files matched")
     exit(1)
-
-# set batch size
-fileBatchSize = arguments.fileBatchSize
 
 # create models
 model = create_dnn(
