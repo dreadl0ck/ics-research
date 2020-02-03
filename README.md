@@ -347,3 +347,4 @@ Call model.save to save the a model's architecture, weights, and training config
 - make leakyrelu alpha configurable and try different settings
 - make dropout rate configurable and try different settings
 - test with and without final Dense(1) layer
+- try leaky relu alpha of 0.2
