@@ -16,3 +16,4 @@ running experiments/dnn-v5.sh
 running experiments/lstm-v0.sh
 running experiments/lstm-v1.sh
 running experiments/lstm-v10.sh
+^C^C
