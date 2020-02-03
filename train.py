@@ -265,6 +265,7 @@ def run():
             print("[CHECKING EARLY STOP]: currentLoss < min_delta ? =>", currentLoss, " < ", min_delta)
             if currentLoss < min_delta:
                 print("[STOPPING EARLY]: currentLoss < min_delta =>", currentLoss, " < ", min_delta)
+                print("EPOCH", epoch+1)
                 break
 
 # instantiate the parser
