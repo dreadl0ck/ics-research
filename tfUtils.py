@@ -423,7 +423,7 @@ def create_dnn(input_dim, output_dim, loss, optimizer, lstm, numCoreLayers, core
     if lstm:
 
         # construct input shape
-        input_shape=(int(lstmBatchSize/10000),input_dim,)
+        input_shape=(32,input_dim,)
         print("[INFO] input_shape", input_shape)
 
         print("[INFO] LSTM first and last layer neurons:", wrapLayerSize)

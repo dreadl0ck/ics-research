@@ -142,8 +142,10 @@ def eval_dnn(df):
     if arguments.lstm:
 
         print("[INFO] reshape for using LSTM layers")
-        x_test = x_test.reshape(10000, int(x_test.shape[0]/10000), x_test.shape[1])
-        y_test = y_test.reshape(10000, int(y_test.shape[0]/10000), y_test.shape[1])
+        # x_test = x_test.reshape(12500, 8, x_test.shape[1])
+        # y_test = y_test.reshape(12500, 8, y_test.shape[1])
+        x_test = x_test.reshape(3125, 32, x_test.shape[1])
+        y_test = y_test.reshape(3125, 32, y_test.shape[1])
 
         if arguments.debug:
             print("--------RESHAPED--------")
@@ -155,7 +157,7 @@ def eval_dnn(df):
 
     if arguments.lstm:         
         #print("y_test shape", y_test.shape)
-        pred = pred.reshape(10000*y_test.shape[1], y_test.shape[2])
+        pred = pred.reshape(3125*y_test.shape[1], y_test.shape[2])
         #print("pred 2", pred, pred.shape)
 
     pred = np.argmax(pred,axis=1)

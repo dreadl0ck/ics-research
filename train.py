@@ -79,11 +79,17 @@ def train_dnn(df, i, epoch, batch=0):
     if arguments.lstm:
 
         print("[INFO] using LSTM layers")
-        x_train = x_train.reshape(8000, int(x_train.shape[0]/8000), x.shape[1])
-        y_train = y_train.reshape(8000, int(y_train.shape[0]/8000), y.shape[1])
+        # x_train = x_train.reshape(10000, int(x_train.shape[0]/10000), x.shape[1])
+        # y_train = y_train.reshape(10000, int(y_train.shape[0]/10000), y.shape[1])
 
-        x_test = x_test.reshape(2000, int(x_test.shape[0]/2000), x.shape[1])
-        y_test = y_test.reshape(2000, int(y_test.shape[0]/2000), y.shape[1])
+        # x_test = x_test.reshape(2500, 8, x.shape[1])
+        # y_test = y_test.reshape(2500, 8, y.shape[1])
+
+        x_train = x_train.reshape(2500, 32, x.shape[1])
+        y_train = y_train.reshape(2500, 32, y.shape[1])
+
+        x_test = x_test.reshape(625, 32, x.shape[1])
+        y_test = y_test.reshape(625, 32, y.shape[1])
 
         if arguments.debug:
             print("--------RESHAPED--------")
