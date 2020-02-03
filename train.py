@@ -170,6 +170,7 @@ def run():
 
     for epoch in range(arguments.epochs):
         history = None
+        leftover = None
 
         print(colored("[INFO] epoch {}/{}".format(epoch+1, arguments.epochs), 'yellow'))
         for i in range(0, len(files), arguments.fileBatchSize):

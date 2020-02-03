@@ -35,8 +35,6 @@ classes = ["normal", "Single Stage Single Point", "Single Stage Multi Point", "M
 #classes = ["Normal", "Attack"]
 
 # cf_total is for summing up all of the confusion matrices from all of the seperate files
-classes_length = len(classes)
-cf_total = np.zeros((classes_length, classes_length),dtype=np.int)
 
 def readCSV(f):
     print("[INFO] reading file", f)
@@ -239,6 +237,9 @@ if arguments.read is None:
 if arguments.classes is not None:
     classes = arguments.classes.split(',')
     print("set classes to:", classes)
+
+classes_length = len(classes)
+cf_total = np.zeros((classes_length, classes_length),dtype=np.int)
 
 # get all files
 files = glob(arguments.read)
