@@ -434,19 +434,31 @@ def create_dnn(input_dim, output_dim, loss, optimizer, lstm, numCoreLayers, core
         # - If return_sequence is True, the output is a 3D array. (batch_size, time_steps, units)
 
         model.add(layers.LSTM(wrapLayerSize, input_shape=input_shape, return_sequences=True))
-        model.add(LeakyReLU(alpha=0.05))
+        model.add(LeakyReLU(alpha=0.3))
+        
+        # add dropout layer if requested
+        # The default interpretation of the dropout hyperparameter is the probability of training a given node in a layer, where 1.0 means no dropout, and 0.0 means no outputs from the layer.
+        # A good value for dropout in a hidden layer is between 0.5 and 0.8. Input layers use a larger dropout rate, such as of 0.8.
+        if dropoutLayer:
+            model.add(Dropout(rate=0.8))
 
         # add requested number of core layers
         for i in range(0, numCoreLayers):
             print("adding core layer", i)
             model.add(layers.LSTM(coreLayerSize, input_shape=input_shape, return_sequences=True))
-            model.add(LeakyReLU(alpha=0.05))
+            model.add(LeakyReLU(alpha=0.3))
+            # add dropout layer if requested
+            # The default interpretation of the dropout hyperparameter is the probability of training a given node in a layer, where 1.0 means no dropout, and 0.0 means no outputs from the layer.
+            # A good value for dropout in a hidden layer is between 0.5 and 0.8. Input layers use a larger dropout rate, such as of 0.8.
+            if dropoutLayer:
+                model.add(Dropout(rate=0.5))
 
         # add final LSTM layer
         model.add(layers.LSTM(wrapLayerSize, input_shape=input_shape, return_sequences=True))
-        model.add(LeakyReLU(alpha=0.05))
-
+        model.add(LeakyReLU(alpha=0.3))
         # add dropout layer if requested
+        # The default interpretation of the dropout hyperparameter is the probability of training a given node in a layer, where 1.0 means no dropout, and 0.0 means no outputs from the layer.
+        # A good value for dropout in a hidden layer is between 0.5 and 0.8. Input layers use a larger dropout rate, such as of 0.8.
         if dropoutLayer:
             model.add(Dropout(rate=0.5))
 
@@ -456,10 +468,17 @@ def create_dnn(input_dim, output_dim, loss, optimizer, lstm, numCoreLayers, core
 
         # TODO: do we need this final Dense Layer with shape 1?
         model.add(Dense(1, kernel_initializer='normal'))
-        # Does it need an activation func?
-        model.add(LeakyReLU(alpha=0.05))
 
-        # final layer
+        # Does it need an activation func?
+        model.add(LeakyReLU(alpha=0.3))
+        
+        # add dropout layer if requested
+        # The default interpretation of the dropout hyperparameter is the probability of training a given node in a layer, where 1.0 means no dropout, and 0.0 means no outputs from the layer.
+        # A good value for dropout in a hidden layer is between 0.5 and 0.8. Input layers use a larger dropout rate, such as of 0.8.
+        if dropoutLayer:
+            model.add(Dropout(rate=0.5))
+
+        # FINAL LAYER
         model.add(layers.Dense(output_dim, activation='softmax'))
     else:
 
@@ -469,26 +488,45 @@ def create_dnn(input_dim, output_dim, loss, optimizer, lstm, numCoreLayers, core
         # add layers
         # first layer has to specify the input dimension
         model.add(Dense(wrapLayerSize, input_dim=input_dim, kernel_initializer='normal'))
-        model.add(LeakyReLU(alpha=0.05))
+        model.add(LeakyReLU(alpha=0.3))
+        # add dropout layer if requested
+        # The default interpretation of the dropout hyperparameter is the probability of training a given node in a layer, where 1.0 means no dropout, and 0.0 means no outputs from the layer.
+        # A good value for dropout in a hidden layer is between 0.5 and 0.8. Input layers use a larger dropout rate, such as of 0.8.
+        if dropoutLayer:
+            model.add(Dropout(rate=0.8))
 
         # add requested number of core layers
         for i in range(0, numCoreLayers):
             print("[INFO] adding core layer", i)
             model.add(Dense(coreLayerSize, input_dim=input_dim, kernel_initializer='normal'))
-            model.add(LeakyReLU(alpha=0.05))
+            model.add(LeakyReLU(alpha=0.3))
+            # add dropout layer if requested
+            # The default interpretation of the dropout hyperparameter is the probability of training a given node in a layer, where 1.0 means no dropout, and 0.0 means no outputs from the layer.
+            # A good value for dropout in a hidden layer is between 0.5 and 0.8. Input layers use a larger dropout rate, such as of 0.8.
+            if dropoutLayer:
+                model.add(Dropout(rate=0.5))
 
         model.add(Dense(wrapLayerSize, input_dim=input_dim, kernel_initializer='normal'))
-        model.add(LeakyReLU(alpha=0.05))
-
+        model.add(LeakyReLU(alpha=0.3))
         # add dropout layer if requested
+        # The default interpretation of the dropout hyperparameter is the probability of training a given node in a layer, where 1.0 means no dropout, and 0.0 means no outputs from the layer.
+        # A good value for dropout in a hidden layer is between 0.5 and 0.8. Input layers use a larger dropout rate, such as of 0.8.
         if dropoutLayer:
             model.add(Dropout(rate=0.5))
 
         # TODO: do we need this final Dense Layer with shape 1?
         model.add(Dense(1, kernel_initializer='normal'))
-        # Does it need an activation func?
-        model.add(LeakyReLU(alpha=0.05))
 
+        # Does it need an activation func?
+        model.add(LeakyReLU(alpha=0.3))
+        
+        # add dropout layer if requested
+        # The default interpretation of the dropout hyperparameter is the probability of training a given node in a layer, where 1.0 means no dropout, and 0.0 means no outputs from the layer.
+        # A good value for dropout in a hidden layer is between 0.5 and 0.8. Input layers use a larger dropout rate, such as of 0.8.
+        if dropoutLayer:
+            model.add(Dropout(rate=0.5))
+
+        # FINAL LAYER
         model.add(Dense(output_dim, activation='softmax'))
 
     # metrics for model
