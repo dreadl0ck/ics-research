@@ -153,7 +153,7 @@ def eval_dnn(df):
     pred = model.predict(x_test)
     #print("pred 1", pred, pred.shape)
 
-    if arguments.lstm:         
+    if arguments.lstm:
         #print("y_test shape", y_test.shape)
         pred = pred.reshape(10000*y_test.shape[1], y_test.shape[2])
         #print("pred 2", pred, pred.shape)
