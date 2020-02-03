@@ -22,7 +22,7 @@ for file_name in files:
     fp = open(file_name,"r")
     lines = fp.readlines()
     fp.close()
-    array = "".join(lines[-5:])
+    array = "".join(lines[-6:-1])
     array = re.sub('\[\s+', '[', array)
     array = re.sub('\s+', ',', array)
     array = re.sub('\]\],', ']]', array)
