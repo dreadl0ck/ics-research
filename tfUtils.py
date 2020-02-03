@@ -354,16 +354,22 @@ def analyze(df):
     print("[INFO] analyzing data")
     cols = df.columns.values
     total = float(len(df))
+    good_for_dummies = {}
     
     print("[INFO] {} rows".format(int(total)))
     for col in cols:
         uniques = df[col].unique()
         unique_count = len(uniques)
+        if 1 < unique_count and unique_count < 10:
+            good_for_dummies[col] = unique_count
+
+
         if unique_count>100:
             print("[INFO] ** {}:{} ({}%)".format(col,unique_count,round((unique_count/total)*100,5)))
         else:
             print("[INFO] ** {}:{}".format(col,expand_categories(df[col])))
             expand_categories(df[col])
+    print("[INFO] columns with count within 2-10", good_for_dummies)
 
 def encode_columns(df, result_column, lstm, debug):
 

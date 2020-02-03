@@ -11,6 +11,7 @@ import sys
 
 # The attack classes as found in score.py and train.py
 classes = ["normal", "Single Stage Single Point", "Single Stage Multi Point", "Multi Stage Single Point", "Multi Stage Multi Point"]
+#classes = ["Normal", "Attack"]
 
 files = glob(sys.argv[1])
 
@@ -23,6 +24,7 @@ for file_name in files:
     lines = fp.readlines()
     fp.close()
     array = "".join(lines[-6:-1])
+    #array = "".join(lines[-4:-2])
     array = re.sub('\[\s+', '[', array)
     array = re.sub('\s+', ',', array)
     array = re.sub('\]\],', ']]', array)

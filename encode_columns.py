@@ -56,7 +56,7 @@ def run():
     print("[INFO] process dataset, shape:", df.shape)
 
     print("[INFO] columns:", df.columns)
-
+    columns_before = set(df.columns)
     print("[INFO] analyze dataset:", df.shape)
     analyze(df)
 
@@ -65,11 +65,14 @@ def run():
     encode_columns(df, arguments.resultColumn, arguments.lstm, arguments.debug)
     print("[INFO] Shape AFTER encoding dataset:", df.shape)
 
+    print("[INFO] dropped columns:", columns_before - set(df.columns))
+   
     if arguments.debug:
         print("--------------AFTER DROPPING COLUMNS ----------------")
         print("df.columns", df.columns, len(df.columns))
         with pd.option_context('display.max_rows', 10, 'display.max_columns', None):  # more options can be specified also
             print(df)
+    exit()
     df.to_csv('out.csv', index=False)
 
 # instantiate the parser
