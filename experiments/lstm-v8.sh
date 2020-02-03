@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# no dropout layer, 100 epochs
+# no dropout layer, 10 epochs
 
 python3 train.py \
     -read "data/SWaT2015-Attack-Files-v0.2/train/*-labeled.csv" \
