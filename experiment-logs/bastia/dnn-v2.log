@@ -1,0 +1,2105 @@
+2020-02-03 18:04:48.745810: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer.so.6'; dlerror: libnvinfer.so.6: cannot open shared object file: No such file or directory
+2020-02-03 18:04:48.745990: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer_plugin.so.6'; dlerror: libnvinfer_plugin.so.6: cannot open shared object file: No such file or directory
+2020-02-03 18:04:48.746005: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:30] Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+2020-02-03 18:04:49.546865: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
+2020-02-03 18:04:49.546898: E tensorflow/stream_executor/cuda/cuda_driver.cc:351] failed call to cuInit: UNKNOWN ERROR (303)
+2020-02-03 18:04:49.546928: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (***REMOVED***): /proc/driver/nvidia/version does not exist
+2020-02-03 18:04:49.547075: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2020-02-03 18:04:49.556077: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2112050000 Hz
+2020-02-03 18:04:49.557498: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x5e3c980 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-02-03 18:04:49.557522: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+=============================
+        TRAINING v0.3
+=============================
+Date: 2020-02-03 18:04:49.541480
+[33m[INFO] using Sequential Dense layers[0m
+[INFO] adding core layer 0
+[INFO] created DNN
+[33m[INFO] epoch 1/20[0m
+[33m[INFO] loading file 1-1/50 on epoch 1/20[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.2/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (500000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst', 'proto',
+       'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] processing batch 0-100000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 5s - loss: 0.0577 - tp: 76773.0000 - fp: 42.0000 - tn: 319958.0000 - fn: 3227.0000 - accuracy: 0.9918 - precision: 0.9995 - recall: 0.9597 - auc: 0.9997 - val_loss: 0.0000e+00 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-0-1
+[INFO] processing batch 100000-200000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 5s - loss: 0.0015 - tp: 79910.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 90.0000 - accuracy: 0.9998 - precision: 1.0000 - recall: 0.9989 - auc: 1.0000 - val_loss: 0.0000e+00 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-0-1
+[INFO] processing batch 200000-300000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0287 - tp: 79706.0000 - fp: 234.0000 - tn: 319766.0000 - fn: 294.0000 - accuracy: 0.9987 - precision: 0.9971 - recall: 0.9963 - auc: 0.9984 - val_loss: 2.6181 - val_tp: 10606.0000 - val_fp: 9394.0000 - val_tn: 70606.0000 - val_fn: 9394.0000 - val_accuracy: 0.8121 - val_precision: 0.5303 - val_recall: 0.5303 - val_auc: 0.7599
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-0-1
+[INFO] processing batch 300000-400000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.1821 - tp: 74226.0000 - fp: 5772.0000 - tn: 314228.0000 - fn: 5774.0000 - accuracy: 0.9711 - precision: 0.9278 - recall: 0.9278 - auc: 0.9963 - val_loss: 0.0213 - val_tp: 19997.0000 - val_fp: 3.0000 - val_tn: 79997.0000 - val_fn: 3.0000 - val_accuracy: 0.9999 - val_precision: 0.9998 - val_recall: 0.9998 - val_auc: 0.9999
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-0-1
+[INFO] processing batch 400000-500000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0189 - tp: 79753.0000 - fp: 247.0000 - tn: 319753.0000 - fn: 247.0000 - accuracy: 0.9988 - precision: 0.9969 - recall: 0.9969 - auc: 0.9999 - val_loss: 0.0119 - val_tp: 19997.0000 - val_fp: 3.0000 - val_tn: 79997.0000 - val_fn: 3.0000 - val_accuracy: 0.9999 - val_precision: 0.9998 - val_recall: 0.9998 - val_auc: 0.9999
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-0-1
+[33m[INFO] loading file 2-2/50 on epoch 1/20[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.2/train/2015-12-28_113021_98.log.part13_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (500000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst', 'proto',
+       'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] processing batch 0-100000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0084 - tp: 79905.0000 - fp: 95.0000 - tn: 319905.0000 - fn: 95.0000 - accuracy: 0.9995 - precision: 0.9988 - recall: 0.9988 - auc: 0.9999 - val_loss: 0.0018 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-1-2
+[INFO] processing batch 100000-200000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.4405 - tp: 65412.0000 - fp: 14521.0000 - tn: 305479.0000 - fn: 14588.0000 - accuracy: 0.9272 - precision: 0.8183 - recall: 0.8177 - auc: 0.9767 - val_loss: 0.1741 - val_tp: 19999.0000 - val_fp: 1.0000 - val_tn: 79999.0000 - val_fn: 1.0000 - val_accuracy: 1.0000 - val_precision: 0.9999 - val_recall: 0.9999 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-1-2
+[INFO] processing batch 200000-300000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.2648 - tp: 72240.0000 - fp: 7760.0000 - tn: 312240.0000 - fn: 7760.0000 - accuracy: 0.9612 - precision: 0.9030 - recall: 0.9030 - auc: 0.9888 - val_loss: 0.8535 - val_tp: 10594.0000 - val_fp: 9406.0000 - val_tn: 70594.0000 - val_fn: 9406.0000 - val_accuracy: 0.8119 - val_precision: 0.5297 - val_recall: 0.5297 - val_auc: 0.9447
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-1-2
+[INFO] processing batch 300000-400000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0160 - tp: 79768.0000 - fp: 232.0000 - tn: 319768.0000 - fn: 232.0000 - accuracy: 0.9988 - precision: 0.9971 - recall: 0.9971 - auc: 1.0000 - val_loss: 0.0039 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-1-2
+[INFO] processing batch 400000-500000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.3457 - tp: 66658.0000 - fp: 13308.0000 - tn: 306692.0000 - fn: 13342.0000 - accuracy: 0.9334 - precision: 0.8336 - recall: 0.8332 - auc: 0.9801 - val_loss: 0.1964 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-1-2
+[33m[INFO] loading file 3-3/50 on epoch 1/20[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.2/train/2015-12-28_164554_99.log.part01_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (500000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst', 'proto',
+       'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] processing batch 0-100000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.1753 - tp: 76674.0000 - fp: 3326.0000 - tn: 316674.0000 - fn: 3326.0000 - accuracy: 0.9834 - precision: 0.9584 - recall: 0.9584 - auc: 0.9938 - val_loss: 0.1068 - val_tp: 19999.0000 - val_fp: 1.0000 - val_tn: 79999.0000 - val_fn: 1.0000 - val_accuracy: 1.0000 - val_precision: 0.9999 - val_recall: 0.9999 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-2-3
+[INFO] processing batch 100000-200000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.3371 - tp: 63465.0000 - fp: 16534.0000 - tn: 303466.0000 - fn: 16535.0000 - accuracy: 0.9173 - precision: 0.7933 - recall: 0.7933 - auc: 0.9759 - val_loss: 0.4439 - val_tp: 10611.0000 - val_fp: 9389.0000 - val_tn: 70611.0000 - val_fn: 9389.0000 - val_accuracy: 0.8122 - val_precision: 0.5306 - val_recall: 0.5306 - val_auc: 0.9449
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-2-3
+[INFO] processing batch 200000-300000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0053 - tp: 79918.0000 - fp: 82.0000 - tn: 319918.0000 - fn: 82.0000 - accuracy: 0.9996 - precision: 0.9990 - recall: 0.9990 - auc: 1.0000 - val_loss: 1.7061e-04 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-2-3
+[INFO] processing batch 300000-400000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 5s - loss: 9.1176e-04 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 7.1573e-06 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-2-3
+[INFO] processing batch 400000-500000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 3.4040e-04 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 5.0864e-07 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-2-3
+[33m[INFO] loading file 4-4/50 on epoch 1/20[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.2/train/2015-12-28_164554_99.log.part02_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (500000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst', 'proto',
+       'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] processing batch 0-100000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 5s - loss: 1.0437e-04 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0000e+00 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-3-4
+[INFO] processing batch 100000-200000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 2.7805e-04 - tp: 79999.0000 - fp: 1.0000 - tn: 319999.0000 - fn: 1.0000 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0000e+00 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-3-4
+[INFO] processing batch 200000-300000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 2.0407e-05 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0000e+00 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-3-4
+[INFO] processing batch 300000-400000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.3681 - tp: 71218.0000 - fp: 8782.0000 - tn: 311218.0000 - fn: 8782.0000 - accuracy: 0.9561 - precision: 0.8902 - recall: 0.8902 - auc: 0.9776 - val_loss: 1.0891 - val_tp: 7806.0000 - val_fp: 12194.0000 - val_tn: 67806.0000 - val_fn: 12194.0000 - val_accuracy: 0.7561 - val_precision: 0.3903 - val_recall: 0.3903 - val_auc: 0.9071
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-3-4
+[INFO] processing batch 400000-500000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.4663 - tp: 56063.0000 - fp: 23936.0000 - tn: 296064.0000 - fn: 23937.0000 - accuracy: 0.8803 - precision: 0.7008 - recall: 0.7008 - auc: 0.9543 - val_loss: 0.3366 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-3-4
+[33m[INFO] loading file 5-5/50 on epoch 1/20[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.2/train/2015-12-28_164554_99.log.part03_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (500000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst', 'proto',
+       'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] processing batch 0-100000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.3271 - tp: 66517.0000 - fp: 13483.0000 - tn: 306517.0000 - fn: 13483.0000 - accuracy: 0.9326 - precision: 0.8315 - recall: 0.8315 - auc: 0.9821 - val_loss: 0.1896 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-4-5
+[INFO] processing batch 100000-200000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0071 - tp: 79838.0000 - fp: 162.0000 - tn: 319838.0000 - fn: 162.0000 - accuracy: 0.9992 - precision: 0.9980 - recall: 0.9980 - auc: 1.0000 - val_loss: 7.7646 - val_tp: 15796.0000 - val_fp: 4204.0000 - val_tn: 75796.0000 - val_fn: 4204.0000 - val_accuracy: 0.9159 - val_precision: 0.7898 - val_recall: 0.7898 - val_auc: 0.8686
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-4-5
+[INFO] processing batch 200000-300000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0197 - tp: 79937.0000 - fp: 63.0000 - tn: 319937.0000 - fn: 63.0000 - accuracy: 0.9997 - precision: 0.9992 - recall: 0.9992 - auc: 0.9996 - val_loss: 1.3846e-04 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-4-5
+[INFO] processing batch 300000-400000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 8.3775e-04 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 2.0071e-05 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-4-5
+[INFO] processing batch 400000-500000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 2.9398e-04 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 2.8397e-06 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-4-5
+[33m[INFO] loading file 6-6/50 on epoch 1/20[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.2/train/2015-12-28_164554_99.log.part05_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (500000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst', 'proto',
+       'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] processing batch 0-100000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 1.0365e-04 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 3.8913e-07 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-5-6
+[INFO] processing batch 100000-200000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 3.5869e-05 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 5.2184e-08 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-5-6
+[INFO] processing batch 200000-300000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 1.1216e-05 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0000e+00 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-5-6
+[INFO] processing batch 300000-400000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 3.6375e-06 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 4.5753 - val_tp: 15632.0000 - val_fp: 4368.0000 - val_tn: 75632.0000 - val_fn: 4368.0000 - val_accuracy: 0.9126 - val_precision: 0.7816 - val_recall: 0.7816 - val_auc: 0.8635
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-5-6
+[INFO] processing batch 400000-500000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0421 - tp: 79637.0000 - fp: 363.0000 - tn: 319637.0000 - fn: 363.0000 - accuracy: 0.9982 - precision: 0.9955 - recall: 0.9955 - auc: 0.9980 - val_loss: 8.2698e-06 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-5-6
+[33m[INFO] loading file 7-7/50 on epoch 1/20[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.2/train/2015-12-28_164554_99.log.part06_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (500000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst', 'proto',
+       'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] processing batch 0-100000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0019 - tp: 79968.0000 - fp: 32.0000 - tn: 319968.0000 - fn: 32.0000 - accuracy: 0.9998 - precision: 0.9996 - recall: 0.9996 - auc: 0.9999 - val_loss: 1.0665e-06 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-6-7
+[INFO] processing batch 100000-200000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0017 - tp: 79960.0000 - fp: 40.0000 - tn: 319960.0000 - fn: 40.0000 - accuracy: 0.9998 - precision: 0.9995 - recall: 0.9995 - auc: 1.0000 - val_loss: 4.6556e-04 - val_tp: 19999.0000 - val_fp: 1.0000 - val_tn: 79999.0000 - val_fn: 1.0000 - val_accuracy: 1.0000 - val_precision: 0.9999 - val_recall: 0.9999 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-6-7
+[INFO] processing batch 200000-300000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.4471 - tp: 65646.0000 - fp: 14354.0000 - tn: 305646.0000 - fn: 14354.0000 - accuracy: 0.9282 - precision: 0.8206 - recall: 0.8206 - auc: 0.9795 - val_loss: 0.2666 - val_tp: 12833.0000 - val_fp: 7167.0000 - val_tn: 72833.0000 - val_fn: 7167.0000 - val_accuracy: 0.8567 - val_precision: 0.6417 - val_recall: 0.6417 - val_auc: 0.9679
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-6-7
+[INFO] processing batch 300000-400000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0039 - tp: 79952.0000 - fp: 48.0000 - tn: 319952.0000 - fn: 48.0000 - accuracy: 0.9998 - precision: 0.9994 - recall: 0.9994 - auc: 1.0000 - val_loss: 8.9872e-05 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-6-7
+[INFO] processing batch 400000-500000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 3.9226e-04 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 4.1916e-05 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-6-7
+[33m[INFO] loading file 8-8/50 on epoch 1/20[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.2/train/2015-12-28_164554_99.log.part08_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (500000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst', 'proto',
+       'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] processing batch 0-100000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 1.5650e-04 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 1.3850e-05 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-7-8
+[INFO] processing batch 100000-200000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 6.9579e-05 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0013 - val_tp: 19997.0000 - val_fp: 3.0000 - val_tn: 79997.0000 - val_fn: 3.0000 - val_accuracy: 0.9999 - val_precision: 0.9998 - val_recall: 0.9998 - val_auc: 0.9999
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-7-8
+[INFO] processing batch 200000-300000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 2.6838e-05 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 6.4230e-07 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-7-8
+[INFO] processing batch 300000-400000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.1668 - tp: 72982.0000 - fp: 7018.0000 - tn: 312982.0000 - fn: 7018.0000 - accuracy: 0.9649 - precision: 0.9123 - recall: 0.9123 - auc: 0.9952 - val_loss: 0.1382 - val_tp: 16368.0000 - val_fp: 3632.0000 - val_tn: 76368.0000 - val_fn: 3632.0000 - val_accuracy: 0.9274 - val_precision: 0.8184 - val_recall: 0.8184 - val_auc: 0.9918
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-7-8
+[INFO] processing batch 400000-500000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0035 - tp: 79943.0000 - fp: 57.0000 - tn: 319943.0000 - fn: 57.0000 - accuracy: 0.9997 - precision: 0.9993 - recall: 0.9993 - auc: 1.0000 - val_loss: 3.3881e-05 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-7-8
+[33m[INFO] loading file 9-9/50 on epoch 1/20[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.2/train/2015-12-28_164554_99.log.part09_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (500000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst', 'proto',
+       'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] processing batch 0-100000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0013 - tp: 79982.0000 - fp: 18.0000 - tn: 319982.0000 - fn: 18.0000 - accuracy: 0.9999 - precision: 0.9998 - recall: 0.9998 - auc: 1.0000 - val_loss: 9.8546e-06 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-8-9
+[INFO] processing batch 100000-200000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0640 - tp: 78920.0000 - fp: 1080.0000 - tn: 318920.0000 - fn: 1080.0000 - accuracy: 0.9946 - precision: 0.9865 - recall: 0.9865 - auc: 0.9978 - val_loss: 0.0118 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-8-9
+[INFO] processing batch 200000-300000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 7.8016e-04 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 9.2793e-05 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-8-9
+[INFO] processing batch 300000-400000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 1.4116e-04 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 2.7493e-05 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-8-9
+[INFO] processing batch 400000-500000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 5.6593e-05 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 3.0976e-06 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-8-9
+[33m[INFO] loading file 10-10/50 on epoch 1/20[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.2/train/2015-12-29_134830_103.log.part08_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (500000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst', 'proto',
+       'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] processing batch 0-100000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 5s - loss: 2.3652e-05 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 2.3856e-07 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-9-10
+[INFO] processing batch 100000-200000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0064 - tp: 79936.0000 - fp: 64.0000 - tn: 319936.0000 - fn: 64.0000 - accuracy: 0.9997 - precision: 0.9992 - recall: 0.9992 - auc: 0.9995 - val_loss: 2.1152 - val_tp: 12843.0000 - val_fp: 7157.0000 - val_tn: 72843.0000 - val_fn: 7157.0000 - val_accuracy: 0.8569 - val_precision: 0.6421 - val_recall: 0.6421 - val_auc: 0.7763
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-9-10
+[INFO] processing batch 200000-300000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.2128 - tp: 73364.0000 - fp: 6636.0000 - tn: 313364.0000 - fn: 6636.0000 - accuracy: 0.9668 - precision: 0.9171 - recall: 0.9171 - auc: 0.9923 - val_loss: 0.6526 - val_tp: 12813.0000 - val_fp: 7187.0000 - val_tn: 72813.0000 - val_fn: 7187.0000 - val_accuracy: 0.8563 - val_precision: 0.6406 - val_recall: 0.6406 - val_auc: 0.9677
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-9-10
+[INFO] processing batch 300000-400000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0038 - tp: 79847.0000 - fp: 153.0000 - tn: 319847.0000 - fn: 153.0000 - accuracy: 0.9992 - precision: 0.9981 - recall: 0.9981 - auc: 1.0000 - val_loss: 2.6380e-05 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-9-10
+[INFO] processing batch 400000-500000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 4.1877e-04 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 8.7376e-06 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-9-10
+[33m[INFO] loading file 11-11/50 on epoch 1/20[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.2/train/2015-12-29_134830_103.log.part09_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (500000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst', 'proto',
+       'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] processing batch 0-100000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 1.4723e-04 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 2.5105e-06 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-10-11
+[INFO] processing batch 100000-200000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 5.0389e-05 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 3.8433e-07 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-10-11
+[INFO] processing batch 200000-300000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 5s - loss: 1.7551e-05 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 3.1447e-08 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-10-11
+[INFO] processing batch 300000-400000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 6.3421e-06 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0000e+00 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-10-11
+[INFO] processing batch 400000-500000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 2.1729e-06 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0000e+00 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-10-11
+[33m[INFO] loading file 12-12/50 on epoch 1/20[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.2/train/2015-12-29_134830_103.log.part10_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (500000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst', 'proto',
+       'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] processing batch 0-100000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 9.8137e-07 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 1.1921e-11 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-11-12
+[INFO] processing batch 100000-200000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 3.8840e-07 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 4.4465 - val_tp: 16689.0000 - val_fp: 3311.0000 - val_tn: 76689.0000 - val_fn: 3311.0000 - val_accuracy: 0.9338 - val_precision: 0.8345 - val_recall: 0.8345 - val_auc: 0.8965
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-11-12
+[INFO] processing batch 200000-300000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.3179 - tp: 73745.0000 - fp: 6255.0000 - tn: 313745.0000 - fn: 6255.0000 - accuracy: 0.9687 - precision: 0.9218 - recall: 0.9218 - auc: 0.9860 - val_loss: 5.1619 - val_tp: 17100.0000 - val_fp: 2900.0000 - val_tn: 77100.0000 - val_fn: 2900.0000 - val_accuracy: 0.9420 - val_precision: 0.8550 - val_recall: 0.8550 - val_auc: 0.9094
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-11-12
+[INFO] processing batch 300000-400000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0457 - tp: 79753.0000 - fp: 247.0000 - tn: 319753.0000 - fn: 247.0000 - accuracy: 0.9988 - precision: 0.9969 - recall: 0.9969 - auc: 0.9988 - val_loss: 6.7436e-05 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-11-12
+[INFO] processing batch 400000-500000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 2.1106e-04 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 2.0601e-05 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-11-12
+[33m[INFO] loading file 13-13/50 on epoch 1/20[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.2/train/2015-12-29_190411_104.log.part03_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (500000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst', 'proto',
+       'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] processing batch 0-100000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 5.8788e-05 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0000e+00 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-12-13
+[INFO] processing batch 100000-200000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 2.3821e-05 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0000e+00 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-12-13
+[INFO] processing batch 200000-300000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 5s - loss: 8.8154e-06 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 47.4677 - val_tp: 15075.0000 - val_fp: 4925.0000 - val_tn: 75075.0000 - val_fn: 4925.0000 - val_accuracy: 0.9015 - val_precision: 0.7538 - val_recall: 0.7538 - val_auc: 0.8461
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-12-13
+[INFO] processing batch 300000-400000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.3695 - tp: 76298.0000 - fp: 3702.0000 - tn: 316298.0000 - fn: 3702.0000 - accuracy: 0.9815 - precision: 0.9537 - recall: 0.9537 - auc: 0.9864 - val_loss: 4.4207e-05 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-12-13
+[INFO] processing batch 400000-500000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0077 - tp: 79780.0000 - fp: 220.0000 - tn: 319780.0000 - fn: 220.0000 - accuracy: 0.9989 - precision: 0.9973 - recall: 0.9973 - auc: 0.9998 - val_loss: 0.0000e+00 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-12-13
+[33m[INFO] loading file 14-14/50 on epoch 1/20[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.2/train/2015-12-29_190411_104.log.part04_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (500000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst', 'proto',
+       'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] processing batch 0-100000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.3906 - tp: 65626.0000 - fp: 14374.0000 - tn: 305626.0000 - fn: 14374.0000 - accuracy: 0.9281 - precision: 0.8203 - recall: 0.8203 - auc: 0.9830 - val_loss: 0.3944 - val_tp: 12809.0000 - val_fp: 7191.0000 - val_tn: 72809.0000 - val_fn: 7191.0000 - val_accuracy: 0.8562 - val_precision: 0.6405 - val_recall: 0.6405 - val_auc: 0.9677
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-13-14
+[INFO] processing batch 100000-200000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0112 - tp: 79935.0000 - fp: 65.0000 - tn: 319935.0000 - fn: 65.0000 - accuracy: 0.9997 - precision: 0.9992 - recall: 0.9992 - auc: 1.0000 - val_loss: 0.0050 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-13-14
+[INFO] processing batch 200000-300000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0025 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 9.7862e-07 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-13-14
+[INFO] processing batch 300000-400000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 2.8389e-04 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 2.6890e-07 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-13-14
+[INFO] processing batch 400000-500000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 1.4882e-04 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 4.3696e-08 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-13-14
+[33m[INFO] loading file 15-15/50 on epoch 1/20[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.2/train/2015-12-29_190411_104.log.part13_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (500000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst', 'proto',
+       'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] processing batch 0-100000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0012 - tp: 79990.0000 - fp: 10.0000 - tn: 319990.0000 - fn: 10.0000 - accuracy: 1.0000 - precision: 0.9999 - recall: 0.9999 - auc: 1.0000 - val_loss: 1.4418e-05 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-14-15
+[INFO] processing batch 100000-200000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 5s - loss: 3.0592e-04 - tp: 79998.0000 - fp: 2.0000 - tn: 319998.0000 - fn: 2.0000 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 8.6451e-08 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-14-15
+[INFO] processing batch 200000-300000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 5s - loss: 4.7454e-05 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 3.5763e-11 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-14-15
+[INFO] processing batch 300000-400000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 3.0790e-05 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 13.2781 - val_tp: 11586.0000 - val_fp: 8414.0000 - val_tn: 71586.0000 - val_fn: 8414.0000 - val_accuracy: 0.8317 - val_precision: 0.5793 - val_recall: 0.5793 - val_auc: 0.7371
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-14-15
+[INFO] processing batch 400000-500000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 1.7199 - tp: 57515.0000 - fp: 22424.0000 - tn: 297576.0000 - fn: 22485.0000 - accuracy: 0.8877 - precision: 0.7195 - recall: 0.7189 - auc: 0.8965 - val_loss: 0.0016 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-14-15
+[33m[INFO] loading file 16-16/50 on epoch 1/20[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.2/train/2015-12-29_190411_104.log.part14_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (439690, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst', 'proto',
+       'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] processing batch 0-100000/439690
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0341 - tp: 79507.0000 - fp: 488.0000 - tn: 319512.0000 - fn: 493.0000 - accuracy: 0.9975 - precision: 0.9939 - recall: 0.9938 - auc: 0.9985 - val_loss: 2.8836e-04 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-15-16
+[INFO] processing batch 100000-200000/439690
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.9578 - tp: 60880.0000 - fp: 19118.0000 - tn: 300882.0000 - fn: 19120.0000 - accuracy: 0.9044 - precision: 0.7610 - recall: 0.7610 - auc: 0.9403 - val_loss: 0.4143 - val_tp: 10572.0000 - val_fp: 9428.0000 - val_tn: 70572.0000 - val_fn: 9428.0000 - val_accuracy: 0.8114 - val_precision: 0.5286 - val_recall: 0.5286 - val_auc: 0.9444
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-15-16
+[INFO] processing batch 200000-300000/439690
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0022 - tp: 79951.0000 - fp: 49.0000 - tn: 319951.0000 - fn: 49.0000 - accuracy: 0.9998 - precision: 0.9994 - recall: 0.9994 - auc: 1.0000 - val_loss: 1.1473e-04 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-15-16
+[INFO] processing batch 300000-400000/439690
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 9.1679e-05 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 4.5812e-05 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-15-16
+[INFO] processing batch 400000-500000/439690
+[33m[INFO] loading file 17-17/50 on epoch 1/20[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.2/train/2015-12-30_001940_105.log.part11_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (539690, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['appi_name', 'classification', 'dst', 'i/f_dir', 'i/f_name',
+       'modbus_function_code', 'modbus_function_description',
+       'modbus_transaction_id', 'orig', 'proto', 'proxy_src_ip', 's_port',
+       'scada_tag', 'service', 'src', 'type'],
+      dtype='object')
+[INFO] processing batch 0-100000/539690
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 6.3955e-04 - tp: 79999.0000 - fp: 1.0000 - tn: 319999.0000 - fn: 1.0000 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 5.5338e-04 - val_tp: 19999.0000 - val_fp: 1.0000 - val_tn: 79999.0000 - val_fn: 1.0000 - val_accuracy: 1.0000 - val_precision: 0.9999 - val_recall: 0.9999 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-16-17
+[INFO] processing batch 100000-200000/539690
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 1.2545e-04 - tp: 79999.0000 - fp: 1.0000 - tn: 319999.0000 - fn: 1.0000 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0000e+00 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-16-17
+[INFO] processing batch 200000-300000/539690
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 5s - loss: 1.9618e-06 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0000e+00 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-16-17
+[INFO] processing batch 300000-400000/539690
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.6298 - tp: 72719.0000 - fp: 7281.0000 - tn: 312719.0000 - fn: 7281.0000 - accuracy: 0.9636 - precision: 0.9090 - recall: 0.9090 - auc: 0.9703 - val_loss: 0.0055 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-16-17
+[INFO] processing batch 400000-500000/539690
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0217 - tp: 79602.0000 - fp: 398.0000 - tn: 319602.0000 - fn: 398.0000 - accuracy: 0.9980 - precision: 0.9950 - recall: 0.9950 - auc: 0.9991 - val_loss: 5.2823 - val_tp: 17741.0000 - val_fp: 2259.0000 - val_tn: 77741.0000 - val_fn: 2259.0000 - val_accuracy: 0.9548 - val_precision: 0.8870 - val_recall: 0.8870 - val_auc: 0.9294
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-16-17
+[INFO] processing batch 500000-600000/539690
+[33m[INFO] loading file 18-18/50 on epoch 1/20[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.2/train/2015-12-30_053515_106.log.part05_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (539690, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['appi_name', 'classification', 'dst', 'i/f_dir', 'i/f_name',
+       'modbus_function_code', 'modbus_function_description',
+       'modbus_transaction_id', 'orig', 'proto', 'proxy_src_ip', 's_port',
+       'scada_tag', 'service', 'src', 'type'],
+      dtype='object')
+[INFO] processing batch 0-100000/539690
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.5486 - tp: 69876.0000 - fp: 10124.0000 - tn: 309876.0000 - fn: 10124.0000 - accuracy: 0.9494 - precision: 0.8734 - recall: 0.8734 - auc: 0.9695 - val_loss: 1.4999 - val_tp: 12369.0000 - val_fp: 7631.0000 - val_tn: 72369.0000 - val_fn: 7631.0000 - val_accuracy: 0.8474 - val_precision: 0.6184 - val_recall: 0.6184 - val_auc: 0.9636
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-17-18
+[INFO] processing batch 100000-200000/539690
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0218 - tp: 79526.0000 - fp: 474.0000 - tn: 319526.0000 - fn: 474.0000 - accuracy: 0.9976 - precision: 0.9941 - recall: 0.9941 - auc: 0.9993 - val_loss: 3.0129e-05 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-17-18
+[INFO] processing batch 200000-300000/539690
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0043 - tp: 79969.0000 - fp: 31.0000 - tn: 319969.0000 - fn: 31.0000 - accuracy: 0.9998 - precision: 0.9996 - recall: 0.9996 - auc: 0.9998 - val_loss: 5.6997e-06 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-17-18
+[INFO] processing batch 300000-400000/539690
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.3972 - tp: 73102.0000 - fp: 6898.0000 - tn: 313102.0000 - fn: 6898.0000 - accuracy: 0.9655 - precision: 0.9138 - recall: 0.9138 - auc: 0.9774 - val_loss: 0.0184 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-17-18
+[INFO] processing batch 400000-500000/539690
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 5s - loss: 3.4535e-04 - tp: 79994.0000 - fp: 6.0000 - tn: 319994.0000 - fn: 6.0000 - accuracy: 1.0000 - precision: 0.9999 - recall: 0.9999 - auc: 1.0000 - val_loss: 4.2172e-05 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-17-18
+[INFO] processing batch 500000-600000/539690
+[33m[INFO] loading file 19-19/50 on epoch 1/20[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.2/train/2015-12-30_105053_107.log.part12_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (539690, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['appi_name', 'classification', 'dst', 'i/f_dir', 'i/f_name',
+       'modbus_function_code', 'modbus_function_description',
+       'modbus_transaction_id', 'orig', 'proto', 'proxy_src_ip', 's_port',
+       'scada_tag', 'service', 'src', 'type'],
+      dtype='object')
+[INFO] processing batch 0-100000/539690
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 5s - loss: 2.8518e-05 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 1.3549e-05 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-18-19
+[INFO] processing batch 100000-200000/539690
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 1.1861e-05 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 4.2618e-06 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-18-19
+[INFO] processing batch 200000-300000/539690
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 1.0130e-05 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 1.3472e-06 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-18-19
+[INFO] processing batch 300000-400000/539690
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.5347 - tp: 66748.0000 - fp: 13251.0000 - tn: 306749.0000 - fn: 13252.0000 - accuracy: 0.9337 - precision: 0.8344 - recall: 0.8343 - auc: 0.9672 - val_loss: 1.1520 - val_tp: 7882.0000 - val_fp: 12118.0000 - val_tn: 67882.0000 - val_fn: 12118.0000 - val_accuracy: 0.7576 - val_precision: 0.3941 - val_recall: 0.3941 - val_auc: 0.9082
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-18-19
+[INFO] processing batch 400000-500000/539690
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0667 - tp: 78798.0000 - fp: 1202.0000 - tn: 318798.0000 - fn: 1202.0000 - accuracy: 0.9940 - precision: 0.9850 - recall: 0.9850 - auc: 0.9985 - val_loss: 11.3402 - val_tp: 7773.0000 - val_fp: 12227.0000 - val_tn: 67773.0000 - val_fn: 12227.0000 - val_accuracy: 0.7555 - val_precision: 0.3887 - val_recall: 0.3887 - val_auc: 0.6168
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-18-19
+[INFO] processing batch 500000-600000/539690
+[33m[INFO] loading file 20-20/50 on epoch 1/20[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.2/train/2015-12-30_105053_107.log.part13_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (539690, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['appi_name', 'classification', 'dst', 'i/f_dir', 'i/f_name',
+       'modbus_function_code', 'modbus_function_description',
+       'modbus_transaction_id', 'orig', 'proto', 'proxy_src_ip', 's_port',
+       'scada_tag', 'service', 'src', 'type'],
+      dtype='object')
+[INFO] processing batch 0-100000/539690
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0152 - tp: 79899.0000 - fp: 101.0000 - tn: 319899.0000 - fn: 101.0000 - accuracy: 0.9995 - precision: 0.9987 - recall: 0.9987 - auc: 0.9994 - val_loss: 44.5145 - val_tp: 19491.0000 - val_fp: 509.0000 - val_tn: 79491.0000 - val_fn: 509.0000 - val_accuracy: 0.9898 - val_precision: 0.9746 - val_recall: 0.9746 - val_auc: 0.9841
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-19-20
+[INFO] processing batch 100000-200000/539690
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 1.3155 - tp: 64897.0000 - fp: 15103.0000 - tn: 304897.0000 - fn: 15103.0000 - accuracy: 0.9245 - precision: 0.8112 - recall: 0.8112 - auc: 0.9449 - val_loss: 0.3821 - val_tp: 16356.0000 - val_fp: 3644.0000 - val_tn: 76356.0000 - val_fn: 3644.0000 - val_accuracy: 0.9271 - val_precision: 0.8178 - val_recall: 0.8178 - val_auc: 0.9793
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-19-20
+[INFO] processing batch 200000-300000/539690
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 5s - loss: 0.1567 - tp: 74574.0000 - fp: 5426.0000 - tn: 314574.0000 - fn: 5426.0000 - accuracy: 0.9729 - precision: 0.9322 - recall: 0.9322 - auc: 0.9968 - val_loss: 0.0077 - val_tp: 19999.0000 - val_fp: 1.0000 - val_tn: 79999.0000 - val_fn: 1.0000 - val_accuracy: 1.0000 - val_precision: 0.9999 - val_recall: 0.9999 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-19-20
+[INFO] processing batch 300000-400000/539690
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.1291 - tp: 75637.0000 - fp: 4362.0000 - tn: 315638.0000 - fn: 4363.0000 - accuracy: 0.9782 - precision: 0.9455 - recall: 0.9455 - auc: 0.9974 - val_loss: 0.0381 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-19-20
+[INFO] processing batch 400000-500000/539690
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0060 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0027 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-19-20
+[INFO] processing batch 500000-600000/539690
+[33m[INFO] loading file 21-21/50 on epoch 1/20[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.2/train/2015-12-30_212042_109.log.part03_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (539688, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['appi_name', 'classification', 'dst', 'i/f_dir', 'i/f_name',
+       'modbus_function_code', 'modbus_function_description',
+       'modbus_transaction_id', 'orig', 'proto', 'proxy_src_ip', 's_port',
+       'scada_tag', 'service', 'src', 'type'],
+      dtype='object')
+[INFO] processing batch 0-100000/539688
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0016 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 8.4855e-04 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-20-21
+[INFO] processing batch 100000-200000/539688
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 5s - loss: 3.3790e-04 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 1.8723e-04 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-20-21
+[INFO] processing batch 200000-300000/539688
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 3.3999e-05 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0000e+00 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-20-21
+[INFO] processing batch 300000-400000/539688
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 7.7514e-06 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0000e+00 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-20-21
+[INFO] processing batch 400000-500000/539688
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0041 - tp: 79978.0000 - fp: 22.0000 - tn: 319978.0000 - fn: 22.0000 - accuracy: 0.9999 - precision: 0.9997 - recall: 0.9997 - auc: 0.9999 - val_loss: 7.2844e-07 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-20-21
+[INFO] processing batch 500000-600000/539688
+[33m[INFO] loading file 22-22/50 on epoch 1/20[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.2/train/2015-12-30_212042_109.log.part04_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (308729, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['appi_name', 'classification', 'dst', 'i/f_dir', 'i/f_name',
+       'modbus_function_code', 'modbus_function_description',
+       'modbus_transaction_id', 'orig', 'proto', 'proxy_src_ip', 's_port',
+       'scada_tag', 'service', 'src', 'type'],
+      dtype='object')
+[INFO] processing batch 0-100000/308729
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 2.0425 - tp: 57172.0000 - fp: 22616.0000 - tn: 297384.0000 - fn: 22828.0000 - accuracy: 0.8864 - precision: 0.7165 - recall: 0.7146 - auc: 0.8894 - val_loss: 0.2853 - val_tp: 17908.0000 - val_fp: 2092.0000 - val_tn: 77908.0000 - val_fn: 2092.0000 - val_accuracy: 0.9582 - val_precision: 0.8954 - val_recall: 0.8954 - val_auc: 0.9867
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-21-22
+[INFO] processing batch 100000-200000/308729
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0926 - tp: 78079.0000 - fp: 1906.0000 - tn: 318094.0000 - fn: 1921.0000 - accuracy: 0.9904 - precision: 0.9762 - recall: 0.9760 - auc: 0.9963 - val_loss: 0.0014 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-21-22
+[INFO] processing batch 200000-300000/308729
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0203 - tp: 79737.0000 - fp: 263.0000 - tn: 319737.0000 - fn: 263.0000 - accuracy: 0.9987 - precision: 0.9967 - recall: 0.9967 - auc: 0.9989 - val_loss: 9.5113e-04 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-21-22
+[INFO] processing batch 300000-400000/308729
+[33m[INFO] loading file 23-23/50 on epoch 1/20[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.2/train/2015-12-30_212042_109.log.part05_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (508729, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['appi_name', 'classification', 'dst', 'i/f_dir', 'i/f_name',
+       'modbus_function_code', 'modbus_function_description',
+       'modbus_transaction_id', 'orig', 'proto', 'proxy_src_ip', 's_port',
+       'scada_tag', 'service', 'src', 'type'],
+      dtype='object')
+[INFO] processing batch 0-100000/508729
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.5672 - tp: 64468.0000 - fp: 15470.0000 - tn: 304530.0000 - fn: 15532.0000 - accuracy: 0.9225 - precision: 0.8065 - recall: 0.8059 - auc: 0.9712 - val_loss: 0.1192 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-22-23
+[INFO] processing batch 100000-200000/508729
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0015 - tp: 79990.0000 - fp: 9.0000 - tn: 319991.0000 - fn: 10.0000 - accuracy: 1.0000 - precision: 0.9999 - recall: 0.9999 - auc: 1.0000 - val_loss: 5.2908e-04 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-22-23
+[INFO] processing batch 200000-300000/508729
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 4.2534e-04 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 2.3254e-04 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-22-23
+[INFO] processing batch 300000-400000/508729
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0102 - tp: 79999.0000 - fp: 1.0000 - tn: 319999.0000 - fn: 1.0000 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0865 - val_tp: 19999.0000 - val_fp: 1.0000 - val_tn: 79999.0000 - val_fn: 1.0000 - val_accuracy: 1.0000 - val_precision: 0.9999 - val_recall: 0.9999 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-22-23
+[INFO] processing batch 400000-500000/508729
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 5s - loss: 7.8684e-05 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 2.6704e-05 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-22-23
+[INFO] processing batch 500000-600000/508729
+[33m[INFO] loading file 24-24/50 on epoch 1/20[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.2/train/2015-12-31_023431_110.log.part11_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (508729, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['appi_name', 'classification', 'dst', 'i/f_dir', 'i/f_name',
+       'modbus_function_code', 'modbus_function_description',
+       'modbus_transaction_id', 'orig', 'proto', 'proxy_src_ip', 's_port',
+       'scada_tag', 'service', 'src', 'type'],
+      dtype='object')
+[INFO] processing batch 0-100000/508729
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 2.0387e-05 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 5.9412e-06 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-23-24
+[INFO] processing batch 100000-200000/508729
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 5.3759e-06 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 1.3819e-06 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-23-24
+[INFO] processing batch 200000-300000/508729
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0074 - tp: 79997.0000 - fp: 3.0000 - tn: 319997.0000 - fn: 3.0000 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 2.5033e-09 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-23-24
+[INFO] processing batch 300000-400000/508729
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 9.9050e-06 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0000e+00 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-23-24
+[INFO] processing batch 400000-500000/508729
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.5604 - tp: 65023.0000 - fp: 14976.0000 - tn: 305024.0000 - fn: 14977.0000 - accuracy: 0.9251 - precision: 0.8128 - recall: 0.8128 - auc: 0.9679 - val_loss: 0.2531 - val_tp: 16269.0000 - val_fp: 3731.0000 - val_tn: 76269.0000 - val_fn: 3731.0000 - val_accuracy: 0.9254 - val_precision: 0.8134 - val_recall: 0.8134 - val_auc: 0.9816
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-23-24
+[INFO] processing batch 500000-600000/508729
+[33m[INFO] loading file 25-25/50 on epoch 1/20[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.2/train/2015-12-31_023431_110.log.part12_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (508729, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['appi_name', 'classification', 'dst', 'i/f_dir', 'i/f_name',
+       'modbus_function_code', 'modbus_function_description',
+       'modbus_transaction_id', 'orig', 'proto', 'proxy_src_ip', 's_port',
+       'scada_tag', 'service', 'src', 'type'],
+      dtype='object')
+[INFO] processing batch 0-100000/508729
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0135 - tp: 79668.0000 - fp: 332.0000 - tn: 319668.0000 - fn: 332.0000 - accuracy: 0.9983 - precision: 0.9959 - recall: 0.9959 - auc: 0.9997 - val_loss: 3.8820e-08 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-24-25
+[INFO] processing batch 100000-200000/508729
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0318 - tp: 79859.0000 - fp: 141.0000 - tn: 319859.0000 - fn: 141.0000 - accuracy: 0.9993 - precision: 0.9982 - recall: 0.9982 - auc: 0.9998 - val_loss: 0.0028 - val_tp: 19998.0000 - val_fp: 2.0000 - val_tn: 79998.0000 - val_fn: 2.0000 - val_accuracy: 1.0000 - val_precision: 0.9999 - val_recall: 0.9999 - val_auc: 0.9999
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-24-25
+[INFO] processing batch 200000-300000/508729
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 5s - loss: 0.0039 - tp: 79900.0000 - fp: 100.0000 - tn: 319900.0000 - fn: 100.0000 - accuracy: 0.9995 - precision: 0.9987 - recall: 0.9987 - auc: 1.0000 - val_loss: 1.9725e-06 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-24-25
+[INFO] processing batch 300000-400000/508729
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0028 - tp: 79965.0000 - fp: 35.0000 - tn: 319965.0000 - fn: 35.0000 - accuracy: 0.9998 - precision: 0.9996 - recall: 0.9996 - auc: 1.0000 - val_loss: 1.1921e-10 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-24-25
+[INFO] processing batch 400000-500000/508729
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0011 - tp: 79979.0000 - fp: 21.0000 - tn: 319979.0000 - fn: 21.0000 - accuracy: 0.9999 - precision: 0.9997 - recall: 0.9997 - auc: 1.0000 - val_loss: 0.0012 - val_tp: 19999.0000 - val_fp: 1.0000 - val_tn: 79999.0000 - val_fn: 1.0000 - val_accuracy: 1.0000 - val_precision: 0.9999 - val_recall: 0.9999 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-24-25
+[INFO] processing batch 500000-600000/508729
+[33m[INFO] loading file 26-26/50 on epoch 1/20[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.2/train/2015-12-31_023431_110.log.part13_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (508729, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['appi_name', 'classification', 'dst', 'i/f_dir', 'i/f_name',
+       'modbus_function_code', 'modbus_function_description',
+       'modbus_transaction_id', 'orig', 'proto', 'proxy_src_ip', 's_port',
+       'scada_tag', 'service', 'src', 'type'],
+      dtype='object')
+[INFO] processing batch 0-100000/508729
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.3528 - tp: 71038.0000 - fp: 8962.0000 - tn: 311038.0000 - fn: 8962.0000 - accuracy: 0.9552 - precision: 0.8880 - recall: 0.8880 - auc: 0.9848 - val_loss: 0.8097 - val_tp: 12898.0000 - val_fp: 7102.0000 - val_tn: 72898.0000 - val_fn: 7102.0000 - val_accuracy: 0.8580 - val_precision: 0.6449 - val_recall: 0.6449 - val_auc: 0.9685
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-25-26
+[INFO] processing batch 100000-200000/508729
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.1117 - tp: 79749.0000 - fp: 247.0000 - tn: 319753.0000 - fn: 251.0000 - accuracy: 0.9988 - precision: 0.9969 - recall: 0.9969 - auc: 0.9997 - val_loss: 0.0025 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-25-26
+[INFO] processing batch 200000-300000/508729
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0056 - tp: 79963.0000 - fp: 28.0000 - tn: 319972.0000 - fn: 37.0000 - accuracy: 0.9998 - precision: 0.9996 - recall: 0.9995 - auc: 0.9998 - val_loss: 0.0678 - val_tp: 19999.0000 - val_fp: 1.0000 - val_tn: 79999.0000 - val_fn: 1.0000 - val_accuracy: 1.0000 - val_precision: 0.9999 - val_recall: 0.9999 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-25-26
+[INFO] processing batch 300000-400000/508729
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0040 - tp: 79976.0000 - fp: 24.0000 - tn: 319976.0000 - fn: 24.0000 - accuracy: 0.9999 - precision: 0.9997 - recall: 0.9997 - auc: 0.9998 - val_loss: 0.1552 - val_tp: 19999.0000 - val_fp: 1.0000 - val_tn: 79999.0000 - val_fn: 1.0000 - val_accuracy: 1.0000 - val_precision: 0.9999 - val_recall: 0.9999 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-25-26
+[INFO] processing batch 400000-500000/508729
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0037 - tp: 79976.0000 - fp: 24.0000 - tn: 319976.0000 - fn: 24.0000 - accuracy: 0.9999 - precision: 0.9997 - recall: 0.9997 - auc: 0.9998 - val_loss: 0.0000e+00 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-25-26
+[INFO] processing batch 500000-600000/508729
+[33m[INFO] loading file 27-27/50 on epoch 1/20[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.2/train/2015-12-31_023431_110.log.part14_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (448859, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['appi_name', 'classification', 'dst', 'i/f_dir', 'i/f_name',
+       'modbus_function_code', 'modbus_function_description',
+       'modbus_transaction_id', 'orig', 'proto', 'proxy_src_ip', 's_port',
+       'scada_tag', 'service', 'src', 'type'],
+      dtype='object')
+[INFO] processing batch 0-100000/448859
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0039 - tp: 79973.0000 - fp: 27.0000 - tn: 319973.0000 - fn: 27.0000 - accuracy: 0.9999 - precision: 0.9997 - recall: 0.9997 - auc: 0.9998 - val_loss: 0.0000e+00 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-26-27
+[INFO] processing batch 100000-200000/448859
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0047 - tp: 79972.0000 - fp: 28.0000 - tn: 319972.0000 - fn: 28.0000 - accuracy: 0.9999 - precision: 0.9997 - recall: 0.9997 - auc: 0.9998 - val_loss: 0.0000e+00 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-26-27
+[INFO] processing batch 200000-300000/448859
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 5s - loss: 0.0042 - tp: 79969.0000 - fp: 31.0000 - tn: 319969.0000 - fn: 31.0000 - accuracy: 0.9998 - precision: 0.9996 - recall: 0.9996 - auc: 0.9998 - val_loss: 0.0000e+00 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-26-27
+[INFO] processing batch 300000-400000/448859
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.1310 - tp: 79970.0000 - fp: 30.0000 - tn: 319970.0000 - fn: 30.0000 - accuracy: 0.9999 - precision: 0.9996 - recall: 0.9996 - auc: 0.9998 - val_loss: 0.0000e+00 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-26-27
+[INFO] processing batch 400000-500000/448859
+[33m[INFO] loading file 28-28/50 on epoch 1/20[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.2/train/2015-12-31_074818_111.log.part01_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (382775, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['appi_name', 'classification', 'dst', 'i/f_dir', 'i/f_name',
+       'modbus_function_code', 'modbus_function_description',
+       'modbus_transaction_id', 'orig', 'proto', 'proxy_src_ip', 's_port',
+       'scada_tag', 'service', 'src', 'type'],
+      dtype='object')
+[INFO] processing batch 0-100000/382775
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 5s - loss: 0.0025 - tp: 79979.0000 - fp: 21.0000 - tn: 319979.0000 - fn: 21.0000 - accuracy: 0.9999 - precision: 0.9997 - recall: 0.9997 - auc: 0.9998 - val_loss: 0.0721 - val_tp: 19999.0000 - val_fp: 1.0000 - val_tn: 79999.0000 - val_fn: 1.0000 - val_accuracy: 1.0000 - val_precision: 0.9999 - val_recall: 0.9999 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-27-28
+[INFO] processing batch 100000-200000/382775
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0031 - tp: 79973.0000 - fp: 27.0000 - tn: 319973.0000 - fn: 27.0000 - accuracy: 0.9999 - precision: 0.9997 - recall: 0.9997 - auc: 0.9998 - val_loss: 8.3446e-11 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-27-28
+[INFO] processing batch 200000-300000/382775
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0030 - tp: 79972.0000 - fp: 28.0000 - tn: 319972.0000 - fn: 28.0000 - accuracy: 0.9999 - precision: 0.9997 - recall: 0.9997 - auc: 0.9998 - val_loss: 1.1332e-07 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-27-28
+[INFO] processing batch 300000-400000/382775
+[33m[INFO] loading file 29-29/50 on epoch 1/20[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.2/train/2015-12-31_074818_111.log.part02_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (582775, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['appi_name', 'classification', 'dst', 'i/f_dir', 'i/f_name',
+       'modbus_function_code', 'modbus_function_description',
+       'modbus_transaction_id', 'orig', 'proto', 'proxy_src_ip', 's_port',
+       'scada_tag', 'service', 'src', 'type'],
+      dtype='object')
+[INFO] processing batch 0-100000/582775
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0031 - tp: 79969.0000 - fp: 31.0000 - tn: 319969.0000 - fn: 31.0000 - accuracy: 0.9998 - precision: 0.9996 - recall: 0.9996 - auc: 0.9998 - val_loss: 0.0000e+00 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-28-29
+[INFO] processing batch 100000-200000/582775
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0043 - tp: 79974.0000 - fp: 26.0000 - tn: 319974.0000 - fn: 26.0000 - accuracy: 0.9999 - precision: 0.9997 - recall: 0.9997 - auc: 0.9998 - val_loss: 0.0000e+00 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-28-29
+[INFO] processing batch 200000-300000/582775
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0019 - tp: 79979.0000 - fp: 21.0000 - tn: 319979.0000 - fn: 21.0000 - accuracy: 0.9999 - precision: 0.9997 - recall: 0.9997 - auc: 0.9998 - val_loss: 0.0000e+00 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-28-29
+[INFO] processing batch 300000-400000/582775
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0300 - tp: 79929.0000 - fp: 71.0000 - tn: 319929.0000 - fn: 71.0000 - accuracy: 0.9996 - precision: 0.9991 - recall: 0.9991 - auc: 0.9998 - val_loss: 5.8735e-06 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-28-29
+[INFO] processing batch 400000-500000/582775
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0024 - tp: 79975.0000 - fp: 25.0000 - tn: 319975.0000 - fn: 25.0000 - accuracy: 0.9999 - precision: 0.9997 - recall: 0.9997 - auc: 0.9998 - val_loss: 0.0000e+00 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-28-29
+[INFO] processing batch 500000-600000/582775
+[33m[INFO] loading file 30-30/50 on epoch 1/20[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.2/train/2015-12-31_074818_111.log.part03_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (582775, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['appi_name', 'classification', 'dst', 'i/f_dir', 'i/f_name',
+       'modbus_function_code', 'modbus_function_description',
+       'modbus_transaction_id', 'orig', 'proto', 'proxy_src_ip', 's_port',
+       'scada_tag', 'service', 'src', 'type'],
+      dtype='object')
+[INFO] processing batch 0-100000/582775
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0024 - tp: 79972.0000 - fp: 28.0000 - tn: 319972.0000 - fn: 28.0000 - accuracy: 0.9999 - precision: 0.9997 - recall: 0.9997 - auc: 0.9998 - val_loss: 0.0000e+00 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-29-30
+[INFO] processing batch 100000-200000/582775
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0162 - tp: 79944.0000 - fp: 56.0000 - tn: 319944.0000 - fn: 56.0000 - accuracy: 0.9997 - precision: 0.9993 - recall: 0.9993 - auc: 0.9998 - val_loss: 8.0932e-07 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-29-30
+[INFO] processing batch 200000-300000/582775
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0034 - tp: 79954.0000 - fp: 46.0000 - tn: 319954.0000 - fn: 46.0000 - accuracy: 0.9998 - precision: 0.9994 - recall: 0.9994 - auc: 0.9997 - val_loss: 2.7430e-05 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-29-30
+[INFO] processing batch 300000-400000/582775
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0061 - tp: 79973.0000 - fp: 27.0000 - tn: 319973.0000 - fn: 27.0000 - accuracy: 0.9999 - precision: 0.9997 - recall: 0.9997 - auc: 0.9998 - val_loss: 5.6727e-05 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-29-30
+[INFO] processing batch 400000-500000/582775
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0028 - tp: 79955.0000 - fp: 45.0000 - tn: 319955.0000 - fn: 45.0000 - accuracy: 0.9998 - precision: 0.9994 - recall: 0.9994 - auc: 0.9999 - val_loss: 0.0018 - val_tp: 19999.0000 - val_fp: 1.0000 - val_tn: 79999.0000 - val_fn: 1.0000 - val_accuracy: 1.0000 - val_precision: 0.9999 - val_recall: 0.9999 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-29-30
+[INFO] processing batch 500000-600000/582775
+[33m[INFO] loading file 31-31/50 on epoch 1/20[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.2/train/2015-12-31_074818_111.log.part04_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (582775, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['appi_name', 'classification', 'dst', 'i/f_dir', 'i/f_name',
+       'modbus_function_code', 'modbus_function_description',
+       'modbus_transaction_id', 'orig', 'proto', 'proxy_src_ip', 's_port',
+       'scada_tag', 'service', 'src', 'type'],
+      dtype='object')
+[INFO] processing batch 0-100000/582775
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0014 - tp: 79977.0000 - fp: 23.0000 - tn: 319977.0000 - fn: 23.0000 - accuracy: 0.9999 - precision: 0.9997 - recall: 0.9997 - auc: 1.0000 - val_loss: 0.0000e+00 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-30-31
+[INFO] processing batch 100000-200000/582775
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0015 - tp: 79972.0000 - fp: 28.0000 - tn: 319972.0000 - fn: 28.0000 - accuracy: 0.9999 - precision: 0.9997 - recall: 0.9997 - auc: 1.0000 - val_loss: 0.0000e+00 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-30-31
+[INFO] processing batch 200000-300000/582775
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0013 - tp: 79973.0000 - fp: 27.0000 - tn: 319973.0000 - fn: 27.0000 - accuracy: 0.9999 - precision: 0.9997 - recall: 0.9997 - auc: 1.0000 - val_loss: 0.0000e+00 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-30-31
+[INFO] processing batch 300000-400000/582775
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0014 - tp: 79966.0000 - fp: 34.0000 - tn: 319966.0000 - fn: 34.0000 - accuracy: 0.9998 - precision: 0.9996 - recall: 0.9996 - auc: 1.0000 - val_loss: 0.0000e+00 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-30-31
+[INFO] processing batch 400000-500000/582775
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0052 - tp: 79959.0000 - fp: 41.0000 - tn: 319959.0000 - fn: 41.0000 - accuracy: 0.9998 - precision: 0.9995 - recall: 0.9995 - auc: 1.0000 - val_loss: 0.0000e+00 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-30-31
+[INFO] processing batch 500000-600000/582775
+[33m[INFO] loading file 32-32/50 on epoch 1/20[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.2/train/2015-12-31_074818_111.log.part05_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (582775, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['appi_name', 'classification', 'dst', 'i/f_dir', 'i/f_name',
+       'modbus_function_code', 'modbus_function_description',
+       'modbus_transaction_id', 'orig', 'proto', 'proxy_src_ip', 's_port',
+       'scada_tag', 'service', 'src', 'type'],
+      dtype='object')
+[INFO] processing batch 0-100000/582775
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0032 - tp: 79971.0000 - fp: 29.0000 - tn: 319971.0000 - fn: 29.0000 - accuracy: 0.9999 - precision: 0.9996 - recall: 0.9996 - auc: 1.0000 - val_loss: 0.0000e+00 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-31-32
+[INFO] processing batch 100000-200000/582775
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0023 - tp: 79981.0000 - fp: 19.0000 - tn: 319981.0000 - fn: 19.0000 - accuracy: 0.9999 - precision: 0.9998 - recall: 0.9998 - auc: 1.0000 - val_loss: 0.0020 - val_tp: 19998.0000 - val_fp: 2.0000 - val_tn: 79998.0000 - val_fn: 2.0000 - val_accuracy: 1.0000 - val_precision: 0.9999 - val_recall: 0.9999 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-31-32
+[INFO] processing batch 200000-300000/582775
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 8.3010e-04 - tp: 79973.0000 - fp: 27.0000 - tn: 319973.0000 - fn: 27.0000 - accuracy: 0.9999 - precision: 0.9997 - recall: 0.9997 - auc: 1.0000 - val_loss: 0.0000e+00 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-31-32
+[INFO] processing batch 300000-400000/582775
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 7.0823e-04 - tp: 79975.0000 - fp: 25.0000 - tn: 319975.0000 - fn: 25.0000 - accuracy: 0.9999 - precision: 0.9997 - recall: 0.9997 - auc: 1.0000 - val_loss: 0.0000e+00 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-31-32
+[INFO] processing batch 400000-500000/582775
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 7.0742e-04 - tp: 79980.0000 - fp: 20.0000 - tn: 319980.0000 - fn: 20.0000 - accuracy: 0.9999 - precision: 0.9998 - recall: 0.9998 - auc: 1.0000 - val_loss: 0.0000e+00 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-31-32
+[INFO] processing batch 500000-600000/582775
+[33m[INFO] loading file 33-33/50 on epoch 1/20[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.2/train/2015-12-31_074818_111.log.part06_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (582775, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['appi_name', 'classification', 'dst', 'i/f_dir', 'i/f_name',
+       'modbus_function_code', 'modbus_function_description',
+       'modbus_transaction_id', 'orig', 'proto', 'proxy_src_ip', 's_port',
+       'scada_tag', 'service', 'src', 'type'],
+      dtype='object')
+[INFO] processing batch 0-100000/582775
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 6.1522e-04 - tp: 79976.0000 - fp: 24.0000 - tn: 319976.0000 - fn: 24.0000 - accuracy: 0.9999 - precision: 0.9997 - recall: 0.9997 - auc: 1.0000 - val_loss: 1.5278e-04 - val_tp: 19999.0000 - val_fp: 1.0000 - val_tn: 79999.0000 - val_fn: 1.0000 - val_accuracy: 1.0000 - val_precision: 0.9999 - val_recall: 0.9999 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-32-33
+[INFO] processing batch 100000-200000/582775
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0016 - tp: 79976.0000 - fp: 24.0000 - tn: 319976.0000 - fn: 24.0000 - accuracy: 0.9999 - precision: 0.9997 - recall: 0.9997 - auc: 1.0000 - val_loss: 0.0000e+00 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-32-33
+[INFO] processing batch 200000-300000/582775
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0013 - tp: 79967.0000 - fp: 33.0000 - tn: 319967.0000 - fn: 33.0000 - accuracy: 0.9998 - precision: 0.9996 - recall: 0.9996 - auc: 1.0000 - val_loss: 0.0000e+00 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-32-33
+[INFO] processing batch 300000-400000/582775
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 5s - loss: 6.7179e-04 - tp: 79971.0000 - fp: 29.0000 - tn: 319971.0000 - fn: 29.0000 - accuracy: 0.9999 - precision: 0.9996 - recall: 0.9996 - auc: 1.0000 - val_loss: 0.0000e+00 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-32-33
+[INFO] processing batch 400000-500000/582775
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 5s - loss: 0.0020 - tp: 79975.0000 - fp: 25.0000 - tn: 319975.0000 - fn: 25.0000 - accuracy: 0.9999 - precision: 0.9997 - recall: 0.9997 - auc: 1.0000 - val_loss: 0.0000e+00 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-32-33
+[INFO] processing batch 500000-600000/582775
+[33m[INFO] loading file 34-34/50 on epoch 1/20[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.2/train/2015-12-31_074818_111.log.part07_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (424208, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['appi_name', 'classification', 'dst', 'i/f_dir', 'i/f_name',
+       'modbus_function_code', 'modbus_function_description',
+       'modbus_transaction_id', 'orig', 'proto', 'proxy_src_ip', 's_port',
+       'scada_tag', 'service', 'src', 'type'],
+      dtype='object')
+[INFO] processing batch 0-100000/424208
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 8.8633e-04 - tp: 79974.0000 - fp: 26.0000 - tn: 319974.0000 - fn: 26.0000 - accuracy: 0.9999 - precision: 0.9997 - recall: 0.9997 - auc: 1.0000 - val_loss: 0.0000e+00 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-33-34
+[INFO] processing batch 100000-200000/424208
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 6.5720e-04 - tp: 79974.0000 - fp: 26.0000 - tn: 319974.0000 - fn: 26.0000 - accuracy: 0.9999 - precision: 0.9997 - recall: 0.9997 - auc: 1.0000 - val_loss: 0.0000e+00 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-33-34
+[INFO] processing batch 200000-300000/424208
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 7.9443e-04 - tp: 79971.0000 - fp: 29.0000 - tn: 319971.0000 - fn: 29.0000 - accuracy: 0.9999 - precision: 0.9996 - recall: 0.9996 - auc: 1.0000 - val_loss: 0.0000e+00 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-33-34
+[INFO] processing batch 300000-400000/424208
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 6.3280e-04 - tp: 79976.0000 - fp: 24.0000 - tn: 319976.0000 - fn: 24.0000 - accuracy: 0.9999 - precision: 0.9997 - recall: 0.9997 - auc: 1.0000 - val_loss: 0.0000e+00 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-33-34
+[INFO] processing batch 400000-500000/424208
+[33m[INFO] loading file 35-35/50 on epoch 1/20[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.2/train/2015-12-31_074818_111.log.part08_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (524208, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['appi_name', 'classification', 'dst', 'i/f_dir', 'i/f_name',
+       'modbus_function_code', 'modbus_function_description',
+       'modbus_transaction_id', 'orig', 'proto', 'proxy_src_ip', 's_port',
+       'scada_tag', 'service', 'src', 'type'],
+      dtype='object')
+[INFO] processing batch 0-100000/524208
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 6.3424e-04 - tp: 79973.0000 - fp: 27.0000 - tn: 319973.0000 - fn: 27.0000 - accuracy: 0.9999 - precision: 0.9997 - recall: 0.9997 - auc: 1.0000 - val_loss: 0.0000e+00 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-34-35
+[INFO] processing batch 100000-200000/524208
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 6.0866e-04 - tp: 79970.0000 - fp: 30.0000 - tn: 319970.0000 - fn: 30.0000 - accuracy: 0.9999 - precision: 0.9996 - recall: 0.9996 - auc: 1.0000 - val_loss: 0.0033 - val_tp: 19999.0000 - val_fp: 1.0000 - val_tn: 79999.0000 - val_fn: 1.0000 - val_accuracy: 1.0000 - val_precision: 0.9999 - val_recall: 0.9999 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-34-35
+[INFO] processing batch 200000-300000/524208
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0044 - tp: 79975.0000 - fp: 25.0000 - tn: 319975.0000 - fn: 25.0000 - accuracy: 0.9999 - precision: 0.9997 - recall: 0.9997 - auc: 1.0000 - val_loss: 0.0000e+00 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-34-35
+[INFO] processing batch 300000-400000/524208
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 7.3234e-04 - tp: 79966.0000 - fp: 34.0000 - tn: 319966.0000 - fn: 34.0000 - accuracy: 0.9998 - precision: 0.9996 - recall: 0.9996 - auc: 1.0000 - val_loss: 0.0000e+00 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-34-35
+[INFO] processing batch 400000-500000/524208
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 5s - loss: 6.4411e-04 - tp: 79973.0000 - fp: 27.0000 - tn: 319973.0000 - fn: 27.0000 - accuracy: 0.9999 - precision: 0.9997 - recall: 0.9997 - auc: 1.0000 - val_loss: 0.0000e+00 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-34-35
+[INFO] processing batch 500000-600000/524208
+[33m[INFO] loading file 36-36/50 on epoch 1/20[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.2/train/2015-12-31_074818_111.log.part09_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (524208, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['appi_name', 'classification', 'dst', 'i/f_dir', 'i/f_name',
+       'modbus_function_code', 'modbus_function_description',
+       'modbus_transaction_id', 'orig', 'proto', 'proxy_src_ip', 's_port',
+       'scada_tag', 'service', 'src', 'type'],
+      dtype='object')
+[INFO] processing batch 0-100000/524208
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 6.2102e-04 - tp: 79970.0000 - fp: 30.0000 - tn: 319970.0000 - fn: 30.0000 - accuracy: 0.9999 - precision: 0.9996 - recall: 0.9996 - auc: 1.0000 - val_loss: 0.0000e+00 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-35-36
+[INFO] processing batch 100000-200000/524208
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0020 - tp: 79966.0000 - fp: 34.0000 - tn: 319966.0000 - fn: 34.0000 - accuracy: 0.9998 - precision: 0.9996 - recall: 0.9996 - auc: 1.0000 - val_loss: 4.7827e-04 - val_tp: 19999.0000 - val_fp: 1.0000 - val_tn: 79999.0000 - val_fn: 1.0000 - val_accuracy: 1.0000 - val_precision: 0.9999 - val_recall: 0.9999 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-35-36
+[INFO] processing batch 200000-300000/524208
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0027 - tp: 79959.0000 - fp: 41.0000 - tn: 319959.0000 - fn: 41.0000 - accuracy: 0.9998 - precision: 0.9995 - recall: 0.9995 - auc: 1.0000 - val_loss: 0.0000e+00 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-35-36
+[INFO] processing batch 300000-400000/524208
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 8.0849e-04 - tp: 79973.0000 - fp: 27.0000 - tn: 319973.0000 - fn: 27.0000 - accuracy: 0.9999 - precision: 0.9997 - recall: 0.9997 - auc: 1.0000 - val_loss: 0.0000e+00 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-35-36
+[INFO] processing batch 400000-500000/524208
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 9.6193e-04 - tp: 79973.0000 - fp: 27.0000 - tn: 319973.0000 - fn: 27.0000 - accuracy: 0.9999 - precision: 0.9997 - recall: 0.9997 - auc: 1.0000 - val_loss: 0.0000e+00 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-35-36
+[INFO] processing batch 500000-600000/524208
+[33m[INFO] loading file 37-37/50 on epoch 1/20[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.2/train/2015-12-31_074818_111.log.part10_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (524208, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['appi_name', 'classification', 'dst', 'i/f_dir', 'i/f_name',
+       'modbus_function_code', 'modbus_function_description',
+       'modbus_transaction_id', 'orig', 'proto', 'proxy_src_ip', 's_port',
+       'scada_tag', 'service', 'src', 'type'],
+      dtype='object')
+[INFO] processing batch 0-100000/524208
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 6.0302e-04 - tp: 79974.0000 - fp: 26.0000 - tn: 319974.0000 - fn: 26.0000 - accuracy: 0.9999 - precision: 0.9997 - recall: 0.9997 - auc: 1.0000 - val_loss: 0.0000e+00 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-36-37
+[INFO] processing batch 100000-200000/524208
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 5.0785e-04 - tp: 79978.0000 - fp: 22.0000 - tn: 319978.0000 - fn: 22.0000 - accuracy: 0.9999 - precision: 0.9997 - recall: 0.9997 - auc: 1.0000 - val_loss: 2.3500e-05 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-36-37
+[INFO] processing batch 200000-300000/524208
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 6.6584e-04 - tp: 79969.0000 - fp: 31.0000 - tn: 319969.0000 - fn: 31.0000 - accuracy: 0.9998 - precision: 0.9996 - recall: 0.9996 - auc: 1.0000 - val_loss: 0.0000e+00 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-36-37
+[INFO] processing batch 300000-400000/524208
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0279 - tp: 79974.0000 - fp: 26.0000 - tn: 319974.0000 - fn: 26.0000 - accuracy: 0.9999 - precision: 0.9997 - recall: 0.9997 - auc: 1.0000 - val_loss: 2.3807e-05 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-36-37
+[INFO] processing batch 400000-500000/524208
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 5s - loss: 8.1633e-04 - tp: 79961.0000 - fp: 39.0000 - tn: 319961.0000 - fn: 39.0000 - accuracy: 0.9998 - precision: 0.9995 - recall: 0.9995 - auc: 1.0000 - val_loss: 0.0000e+00 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-36-37
+[INFO] processing batch 500000-600000/524208
+[33m[INFO] loading file 38-38/50 on epoch 1/20[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.2/train/2015-12-31_074818_111.log.part11_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (524208, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['appi_name', 'classification', 'dst', 'i/f_dir', 'i/f_name',
+       'modbus_function_code', 'modbus_function_description',
+       'modbus_transaction_id', 'orig', 'proto', 'proxy_src_ip', 's_port',
+       'scada_tag', 'service', 'src', 'type'],
+      dtype='object')
+[INFO] processing batch 0-100000/524208
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 9.2393e-04 - tp: 79961.0000 - fp: 39.0000 - tn: 319961.0000 - fn: 39.0000 - accuracy: 0.9998 - precision: 0.9995 - recall: 0.9995 - auc: 1.0000 - val_loss: 0.0000e+00 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-37-38
+[INFO] processing batch 100000-200000/524208
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 7.0920e-04 - tp: 79968.0000 - fp: 32.0000 - tn: 319968.0000 - fn: 32.0000 - accuracy: 0.9998 - precision: 0.9996 - recall: 0.9996 - auc: 1.0000 - val_loss: 4.3403e-04 - val_tp: 19999.0000 - val_fp: 1.0000 - val_tn: 79999.0000 - val_fn: 1.0000 - val_accuracy: 1.0000 - val_precision: 0.9999 - val_recall: 0.9999 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-37-38
+[INFO] processing batch 200000-300000/524208
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0018 - tp: 79978.0000 - fp: 22.0000 - tn: 319978.0000 - fn: 22.0000 - accuracy: 0.9999 - precision: 0.9997 - recall: 0.9997 - auc: 1.0000 - val_loss: 0.0000e+00 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-37-38
+[INFO] processing batch 300000-400000/524208
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 6.3342e-04 - tp: 79971.0000 - fp: 29.0000 - tn: 319971.0000 - fn: 29.0000 - accuracy: 0.9999 - precision: 0.9996 - recall: 0.9996 - auc: 1.0000 - val_loss: 0.0000e+00 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-37-38
+[INFO] processing batch 400000-500000/524208
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 5.8968e-04 - tp: 79973.0000 - fp: 27.0000 - tn: 319973.0000 - fn: 27.0000 - accuracy: 0.9999 - precision: 0.9997 - recall: 0.9997 - auc: 1.0000 - val_loss: 5.6199e-05 - val_tp: 19999.0000 - val_fp: 1.0000 - val_tn: 79999.0000 - val_fn: 1.0000 - val_accuracy: 1.0000 - val_precision: 0.9999 - val_recall: 0.9999 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-37-38
+[INFO] processing batch 500000-600000/524208
+[33m[INFO] loading file 39-39/50 on epoch 1/20[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.2/train/2015-12-31_074818_111.log.part12_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (524208, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['appi_name', 'classification', 'dst', 'i/f_dir', 'i/f_name',
+       'modbus_function_code', 'modbus_function_description',
+       'modbus_transaction_id', 'orig', 'proto', 'proxy_src_ip', 's_port',
+       'scada_tag', 'service', 'src', 'type'],
+      dtype='object')
+[INFO] processing batch 0-100000/524208
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0015 - tp: 79970.0000 - fp: 30.0000 - tn: 319970.0000 - fn: 30.0000 - accuracy: 0.9999 - precision: 0.9996 - recall: 0.9996 - auc: 1.0000 - val_loss: 0.0000e+00 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-38-39
+[INFO] processing batch 100000-200000/524208
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 5s - loss: 5.4868e-04 - tp: 79978.0000 - fp: 22.0000 - tn: 319978.0000 - fn: 22.0000 - accuracy: 0.9999 - precision: 0.9997 - recall: 0.9997 - auc: 1.0000 - val_loss: 0.0000e+00 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-38-39
+[INFO] processing batch 200000-300000/524208
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 7.4080e-04 - tp: 79960.0000 - fp: 40.0000 - tn: 319960.0000 - fn: 40.0000 - accuracy: 0.9998 - precision: 0.9995 - recall: 0.9995 - auc: 1.0000 - val_loss: 0.0000e+00 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-38-39
+[INFO] processing batch 300000-400000/524208
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 5s - loss: 0.0011 - tp: 79967.0000 - fp: 33.0000 - tn: 319967.0000 - fn: 33.0000 - accuracy: 0.9998 - precision: 0.9996 - recall: 0.9996 - auc: 1.0000 - val_loss: 0.0000e+00 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-38-39
+[INFO] processing batch 400000-500000/524208
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 7.0207e-04 - tp: 79970.0000 - fp: 30.0000 - tn: 319970.0000 - fn: 30.0000 - accuracy: 0.9999 - precision: 0.9996 - recall: 0.9996 - auc: 1.0000 - val_loss: 0.0000e+00 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-38-39
+[INFO] processing batch 500000-600000/524208
+[33m[INFO] loading file 40-40/50 on epoch 1/20[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.2/train/2015-12-31_074818_111.log.part13_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (524208, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['appi_name', 'classification', 'dst', 'i/f_dir', 'i/f_name',
+       'modbus_function_code', 'modbus_function_description',
+       'modbus_transaction_id', 'orig', 'proto', 'proxy_src_ip', 's_port',
+       'scada_tag', 'service', 'src', 'type'],
+      dtype='object')
+[INFO] processing batch 0-100000/524208
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0012 - tp: 79972.0000 - fp: 28.0000 - tn: 319972.0000 - fn: 28.0000 - accuracy: 0.9999 - precision: 0.9997 - recall: 0.9997 - auc: 1.0000 - val_loss: 0.0000e+00 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-39-40
+[INFO] processing batch 100000-200000/524208
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 8.0331e-04 - tp: 79963.0000 - fp: 37.0000 - tn: 319963.0000 - fn: 37.0000 - accuracy: 0.9998 - precision: 0.9995 - recall: 0.9995 - auc: 1.0000 - val_loss: 0.0000e+00 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-39-40
+[INFO] processing batch 200000-300000/524208
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 0.0058 - tp: 79973.0000 - fp: 27.0000 - tn: 319973.0000 - fn: 27.0000 - accuracy: 0.9999 - precision: 0.9997 - recall: 0.9997 - auc: 1.0000 - val_loss: 0.0000e+00 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-39-40
+[INFO] processing batch 300000-400000/524208
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 8.2780e-04 - tp: 79970.0000 - fp: 30.0000 - tn: 319970.0000 - fn: 30.0000 - accuracy: 0.9999 - precision: 0.9996 - recall: 0.9996 - auc: 1.0000 - val_loss: 0.0000e+00 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-39-40
+[INFO] processing batch 400000-500000/524208
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] fitting model
+Train on 80000 samples, validate on 20000 samples
+Epoch 1/1
+ - 4s - loss: 7.0666e-04 - tp: 79968.0000 - fp: 32.0000 - tn: 319968.0000 - fn: 32.0000 - accuracy: 0.9998 - precision: 0.9996 - recall: 0.9996 - auc: 1.0000 - val_loss: 0.0000e+00 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000

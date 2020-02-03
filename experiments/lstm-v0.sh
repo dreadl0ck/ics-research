@@ -4,9 +4,10 @@
 
 python3 train.py \
     -read "data/SWaT2015-Attack-Files-v0.2/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv" \
-    -wrapLayerSize 5 \
+    -wrapLayerSize 32 \
     -dropoutLayer true \
-    -coreLayerSize 10 \
+    -coreLayerSize 128 \
+    -numCoreLayers 3 \
     -epoch 10 \
     -zscoreUnixtime true \
     -lstm true \
@@ -17,9 +18,10 @@ python3 train.py \
 # EVAL
 python3 score.py \
     -read "data/SWaT2015-Attack-Files-v0.2/train/2015-12-28_113021_98.log.part13_sorted-labeled.csv" \
-    -wrapLayerSize 5 \
+    -wrapLayerSize 32 \
     -dropoutLayer true \
-    -coreLayerSize 10 \
+    -coreLayerSize 128 \
+    -numCoreLayers 3 \
     -features 16 \
     -drop modbus_value  \
     -lstm true  \
