@@ -3,7 +3,7 @@
 # SGD optimizer, corelayer: 10, wrap: 5, 10 epochs
 
 python3 train.py \
-    -read "data/SWaT2015-Attack-Files-v0.2/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv" \
+    -read "data/SWaT2015-Attack-Files-v0.4/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv" \
     -wrapLayerSize 32 \
     -dropoutLayer true \
     -coreLayerSize 128 \
@@ -17,7 +17,7 @@ python3 train.py \
 
 # EVAL
 python3 score.py \
-    -read "data/SWaT2015-Attack-Files-v0.2/train/2015-12-28_113021_98.log.part13_sorted-labeled.csv" \
+    -read "data/SWaT2015-Attack-Files-v0.4/train/2015-12-28_113021_98.log.part13_sorted-labeled.csv" \
     -wrapLayerSize 32 \
     -dropoutLayer true \
     -coreLayerSize 128 \

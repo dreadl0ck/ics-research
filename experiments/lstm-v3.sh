@@ -3,7 +3,7 @@
 # corelayer: 10, wrap: 5, 10 epochs
 
 python3 train.py \
-    -read "data/SWaT2015-Attack-Files-v0.2/train/*-labeled.csv" \
+    -read "data/SWaT2015-Attack-Files-v0.4/train/*-labeled.csv" \
     -wrapLayerSize 5 \
     -dropoutLayer true \
     -coreLayerSize 10 \
@@ -16,7 +16,7 @@ python3 train.py \
 
 # EVAL
 python3 score.py \
-    -read "data/SWaT2015-Attack-Files-v0.2/eval/*-labeled.csv" \
+    -read "data/SWaT2015-Attack-Files-v0.4/eval/*-labeled.csv" \
     -wrapLayerSize 5 \
     -dropoutLayer true \
     -coreLayerSize 10 \
