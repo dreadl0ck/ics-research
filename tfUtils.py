@@ -223,7 +223,7 @@ encoders = {
 
 import sys
 
-def to_xy(df, target, labeltypes, debug):
+def to_xy(df, target, labeltypes, debug, binaryClasses):
     """
     Converts a pandas dataframe to the x,y inputs that TensorFlow needs.
     """
@@ -240,42 +240,62 @@ def to_xy(df, target, labeltypes, debug):
         analyze(df)
     
     values = df[target].values
+
+    if binaryClasses:
+        y_vector = single_class_expansion(values, labeltypes, debug)
+    else:
+        y_vector = multi_class_expansion(values, labeltypes, debug)
+
+    return df[result].values.astype(np.float32), y_vector
+
+    
+def multi_class_expansion(values, labeltypes, debug):    
     y_vector = np.zeros((values.shape[0],len(labeltypes)))
 #     y_vector = np.zeros(values.shape[0])
 
     # loop through all of the labeltypes and flag the columns that contain the label type
     for i,j in enumerate(labeltypes):
+
+        indices = np.where(values == j)
+        
         if debug:
             print("[INFO] to_xy labeltype:", j)
-        indices = np.where(values == j)
-
-        #np.set_printoptions(threshold=sys.maxsize)
-        #print("indices", indices)
-        #np.set_printoptions(threshold=10)
+            #np.set_printoptions(threshold=sys.maxsize)
+            print("indices", indices)
+            #np.set_printoptions(threshold=10)
 
         y_vector[indices,i] = 1
-        #np.set_printoptions(threshold=sys.maxsize)
-        #print("y_vector", y_vector)
-        #np.set_printoptions(threshold=10)
-#    for i,j in enumerate(labeltypes):
-#        indices = np.where(values == j)
-#        print("[INFO] to_xy labeltype:", j, indices)
-#        y_vector[indices] = i
-    return df[result].values.astype(np.float32), y_vector
+        
+        if debug:
+            #np.set_printoptions(threshold=sys.maxsize)
+            print("y_vector", y_vector)
+            print("z vector sum", np.sum(y_vector,axis=0))
+            #np.set_printoptions(threshold=10)
+    return y_vector
 
-    # Encode to int for classification, float otherwise. TensorFlow likes 32 bits.
-    # if target_type in (np.int64, np.int32):
-    #     # Classification
-    #     dummies = pd.get_dummies(df[target])
-    #     print("dummies.values.shape",df[target].shape)
-    #     # as_matrix is deprecated
-    #     #return df.as_matrix(result).astype(np.float32), dummies.as_matrix().astype(np.float32)
-    #     return df[result].values.astype(np.float32), dummies.values.astype(np.float32)
-    # else:
-    #     # Regression
-    #     # as_matrix is deprecated
-    #     #return df.as_matrix(result).astype(np.float32), df.as_matrix([target]).astype(np.float32)
-    #     return df[result].values.astype(np.float32), df[target].values.astype(np.float32)
+def single_class_expansion(values, labeltypes, debug):    
+    y_vector = np.zeros((values.shape[0],2))
+    y_vector[:,1] = 1
+#     y_vector = np.zeros(values.shape[0])
+
+    # loop through all of the labeltypes and flag the columns that contain the label type
+    indices = np.where(values == labeltypes[0])
+        
+    if debug:
+        print("[INFO] to_xy labeltype:", labeltypes[0])
+        #np.set_printoptions(threshold=sys.maxsize)
+        print("indices", indices)
+        #np.set_printoptions(threshold=10)
+    y_vector[indices,0] = 1
+    y_vector[indices,1] = 0
+    if debug:
+        #np.set_printoptions(threshold=sys.maxsize)
+        print("y_vector", y_vector)
+        print("z vector sum", np.sum(y_vector,axis=0))
+        #np.set_printoptions(threshold=10)
+
+    return y_vector
+    
 
 ## TODO: add flags for these
 

@@ -54,7 +54,7 @@ def train_dnn(df, i, epoch, batch=0):
 
     print("[INFO] breaking into predictors and prediction...")
     # Break into X (predictors) & y (prediction)
-    x, y = to_xy(df, arguments.resultColumn, classes, arguments.debug)
+    x, y = to_xy(df, arguments.resultColumn, classes, arguments.debug, arguments.binaryClasses)
 
     print("[INFO] creating train/test split:", arguments.testSize)
 
@@ -296,12 +296,16 @@ parser.add_argument('-zscoreUnixtime', default=False, help='apply zscore to unix
 parser.add_argument('-encodeColumns', default=False, help='switch between auto encoding or using a fully encoded dataset')
 parser.add_argument('-classes', type=str, help='supply one or multiple comma separated class identifiers')
 parser.add_argument('-saveModel', default=False, help='save model (if false, only the weights will be saved)')
+parser.add_argument('-binaryClasses', default=False, help='use binary classses')
 
 # parse commandline arguments
 arguments = parser.parse_args()
 if arguments.read is None:
     print("[INFO] need an input file / multi file regex. use the -read flag")
     exit(1)
+
+if arguments.binaryClasses:
+    classes = ["normal", "attack"]
 
 if arguments.classes is not None:
     classes = arguments.classes.split(',')

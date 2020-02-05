@@ -121,7 +121,7 @@ def eval_dnn(df):
     global cf_total
     global model
 
-    x_test, y_test = to_xy(df, arguments.resultColumn, classes, arguments.debug)
+    x_test, y_test = to_xy(df, arguments.resultColumn, classes, arguments.debug, arguments.binaryClasses)
     #print("x_test", x_test, "shape", x_test.shape)
     
     #np.set_printoptions(threshold=sys.maxsize)
@@ -227,12 +227,16 @@ parser.add_argument('-debug', default=False, help='debug mode on off')
 parser.add_argument('-classes', type=str, help='supply one or multiple comma separated class identifiers')
 parser.add_argument('-zscoreUnixtime', default=False, help='apply zscore to unixtime column')
 parser.add_argument('-encodeColumns', default=False, help='switch between auto encoding or using a fully encoded dataset')
+parser.add_argument('-binaryClasses', default=False, help='use binary classses')
 
 # parse commandline arguments
 arguments = parser.parse_args()
 if arguments.read is None:
     print("[INFO] need an input file / multi file regex. use the -read flag")
     exit(1)
+
+if arguments.binaryClasses:
+    classes = ["normal", "attack"]
 
 if arguments.classes is not None:
     classes = arguments.classes.split(',')
