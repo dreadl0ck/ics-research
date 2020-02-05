@@ -84,6 +84,17 @@ Download:
 
 	scp ***REMOVED***@***REMOVED***:/home/***REMOVED***/labeled-SWaT-2015-network.zip .
 
+## Label 2015 dataset attack files
+
+Generate colsums:
+
+    datenwolf -attacks data/List_of_attacks_Final-fixed.csv -file-filter data/Network/attack-files.txt -out data/SWaT2015-Attack-Files-v0.4
+
+Use colSums to label:
+
+    $ mkdir data/SWaT2015-Attack-Files-v0.4
+    $ go run ./datenwolf -attacks data/List_of_attacks_Final-fixed.csv -file-filter data/Network/attack-files.txt -out data/SWaT2015-Attack-Files-v0.4 -in data/Network -colsums colSums-5Feb2020-194133.json
+
 ## Label 2019 dataset
 
 On server, test by moving into a directory that contains audit records:
