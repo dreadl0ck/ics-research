@@ -20,4 +20,5 @@ var (
 	flagOffset                = flag.Int("offset", 0, "index offset from which file to start")
 	flagFileFilter            = flag.String("file-filter", "", "supply a text file with newline separated filenames to process")
 	flagVersion               = flag.Bool("version", false, "print version")
+	flagZScore                = flag.Bool("zscore", false, "use zscore for normalization")
 )

@@ -51,6 +51,8 @@ type columnSummary struct {
 	UniqueStrings []string   `json:"uniqueStrings"`
 	Std           float64    `json:"std"`
 	Mean          float64    `json:"mean"`
+	Min           float64    `json:"min"`
+	Max           float64    `json:"max"`
 }
 
 func merge(results map[string]*fileSummary) map[string]columnSummary {
@@ -135,6 +137,7 @@ func merge(results map[string]*fileSummary) map[string]columnSummary {
 			for value := range data {
 				unique = append(unique, value)
 			}
+			length := len(unique)
 
 			if col != "Modbus_Value" && col != "time" {
 				for _, v := range unique {
@@ -142,11 +145,19 @@ func merge(results map[string]*fileSummary) map[string]columnSummary {
 				}
 			}
 
+			values := makeIntSlice(length)
+			mean, std := stat.MeanStdDev(values, nil)
+			fmt.Println(col, "mean:", mean, "stddev:", std)
+
 			colSums[col] = columnSummary{
 				Version:       version,
 				Col:           col,
 				Typ:           typeString,
 				UniqueStrings: unique,
+				Mean:          mean,
+				Std:           std,
+				Min:           0,
+				Max:           float64(length),
 			}
 		} else {
 
@@ -173,12 +184,16 @@ func merge(results map[string]*fileSummary) map[string]columnSummary {
 			mean, std := stat.MeanStdDev(values, nil)
 			fmt.Println(col, "mean:", mean, "stddev:", std)
 
+			min, max := minMaxIntArr(values)
+
 			colSums[col] = columnSummary{
 				Version: version,
 				Col:     col,
 				Typ:     typeNumeric,
 				Mean:    mean,
 				Std:     std,
+				Min:     min,
+				Max:     max,
 			}
 		}
 	}

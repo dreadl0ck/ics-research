@@ -18,6 +18,40 @@ import (
 /*
  * Utils
  */
+func makeIntSlice(max int) []float64 {
+	var arr = make([]float64, max)
+	for i := 0; i < max; i++ {
+		arr[i] = float64(i)
+	}
+	return arr
+}
+
+func minMaxIntArr(array []float64) (float64, float64) {
+	var (
+		max float64 = array[0]
+		min float64 = array[0]
+	)
+	for _, value := range array {
+		if max < value {
+			max = value
+		}
+		if min > value {
+			min = value
+		}
+	}
+	return min, max
+}
+
+// TODO: check if sorting is faster
+// func MinIntSlice(v []int) int {
+// 	sort.Ints(v)
+// 	return v[0]
+// }
+
+// func MaxIntSlice(v []int) int {
+// 	sort.Ints(v)
+// 	return v[len(v)-1]
+// }
 
 var excludedCols = []string{"num", "date", "time", "Referrer_self_uid"}
 
@@ -42,17 +76,6 @@ func contains(arr []string, val string) bool {
 // ClearLine clears the current line of the terminal
 func clearLine() {
 	print("\033[2K\r")
-}
-
-func getIndex(arr []string, val string) string {
-
-	for index, v := range arr {
-		if v == val {
-			return strconv.Itoa(index)
-		}
-	}
-
-	return "not-found"
 }
 
 func runLabeling(files []string, wg *sync.WaitGroup, totalFiles int) {

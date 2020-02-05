@@ -233,8 +233,17 @@ func (t task) label() {
 				switch sum.Typ {
 				case typeString:
 
-					// set index number for strings
-					r[index] = getIndex(sum.UniqueStrings, v)
+					// get index num
+					i := getIndex(sum.UniqueStrings, v)
+
+					// TODO: make normalization a second stage?
+					// normalize
+					if *flagZScore {
+						r[index] = zScore(i, sum)
+					} else {
+						r[index] = minMax(i, sum)
+					}
+
 				case typeNumeric:
 
 					// parse numbers as float
@@ -253,9 +262,13 @@ func (t task) label() {
 						i = float64(ii)
 					}
 
-					// TODO: make float precision configurable
-					// normalize with zscore method: zscore = (x-mean)/std
-					r[index] = strconv.FormatFloat((i-sum.Mean)/sum.Std, 'f', 5, 64)
+					// TODO: make normalization a second stage?
+					// normalize
+					if *flagZScore {
+						r[index] = zScore(i, sum)
+					} else {
+						r[index] = minMax(i, sum)
+					}
 				}
 			}
 		}
