@@ -250,7 +250,7 @@ if len(files) == 0:
     exit(1)
 
 print("=============================")
-print("        SCORING v0.3")
+print("        SCORING v0.4")
 print("=============================")
 print("Date:", datetime.datetime.now())
 start_time = time.time()
