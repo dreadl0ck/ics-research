@@ -28,7 +28,7 @@ func (t task) label() {
 	}
 	defer inputFile.Close()
 
-	var outFileName = strings.TrimSuffix(t.file, ".csv") + "-labeled.csv"
+	var outFileName = strings.TrimSuffix(filepath.Base(t.file), ".csv") + "-labeled.csv"
 	if *flagOut != "." {
 		outFileName = filepath.Join(*flagOut, outFileName)
 	}
@@ -215,59 +215,61 @@ func (t task) label() {
 			}
 		}
 
-		// encode values
-		for index, v := range r {
+		if *flagEncode {
+			// encode values
+			for index, v := range r {
 
-			// get column name
-			colName := inputHeader[index]
+				// get column name
+				colName := inputHeader[index]
 
-			// skip over values for excluded columns
-			if excluded(colName) {
-				continue
-			}
+				// skip over values for excluded columns
+				if excluded(colName) {
+					continue
+				}
 
-			// lookup summary for column
-			if sum, ok := colSums[colName]; ok {
+				// lookup summary for column
+				if sum, ok := colSums[colName]; ok {
 
-				// handle data type
-				switch sum.Typ {
-				case typeString:
+					// handle data type
+					switch sum.Typ {
+					case typeString:
 
-					// get index num
-					i := getIndex(sum.UniqueStrings, v)
+						// get index num
+						i := getIndex(sum.UniqueStrings, v)
 
-					// TODO: make normalization a second stage?
-					// normalize
-					if *flagZScore {
-						r[index] = zScore(i, sum)
-					} else {
-						r[index] = minMax(i, sum)
-					}
-
-				case typeNumeric:
-
-					// parse numbers as float
-					i, err := strconv.ParseFloat(v, 64)
-					if err != nil {
-						ii, err := strconv.Atoi(v)
-						if err != nil {
-							fmt.Println(ansi.Red, r, ansi.Reset)
-							fmt.Println("[WARNING] failed to parse number: ", v, " file: ", t.file, " line: ", count, " column: ", colName, "setting it to zero by default!")
-
-							// we use zero to mark places with missing values
-							r[index] = "0"
-
-							continue
+						// TODO: make normalization a second stage?
+						// normalize
+						if *flagZScore {
+							r[index] = zScore(i, sum)
+						} else {
+							r[index] = minMax(i, sum)
 						}
-						i = float64(ii)
-					}
 
-					// TODO: make normalization a second stage?
-					// normalize
-					if *flagZScore {
-						r[index] = zScore(i, sum)
-					} else {
-						r[index] = minMax(i, sum)
+					case typeNumeric:
+
+						// parse numbers as float
+						i, err := strconv.ParseFloat(v, 64)
+						if err != nil {
+							ii, err := strconv.Atoi(v)
+							if err != nil {
+								fmt.Println(ansi.Red, r, ansi.Reset)
+								fmt.Println("[WARNING] failed to parse number: ", v, " file: ", t.file, " line: ", count, " column: ", colName, "setting it to zero by default!")
+
+								// we use zero to mark places with missing values
+								r[index] = "0"
+
+								continue
+							}
+							i = float64(ii)
+						}
+
+						// TODO: make normalization a second stage?
+						// normalize
+						if *flagZScore {
+							r[index] = zScore(i, sum)
+						} else {
+							r[index] = minMax(i, sum)
+						}
 					}
 				}
 			}
@@ -276,8 +278,12 @@ func (t task) label() {
 		// remove leading num and date columns
 		r = r[2:]
 
-		// insert UNIX timestamp
-		r[0] = strconv.FormatInt(ti.Unix(), 10)
+		// insert UNIX timestamp, normalized using minMax
+		// TODO: hardcoded min max due to time constraints, calculate it during analyze run
+		// ts min 1451297796
+		// ts max 1451743308
+		// delta: 1451743308-1451297796 = 445512
+		r[0] = strconv.FormatFloat(float64(ti.Unix()-1451297796)/(445512), 'f', prec, 64)
 
 		// replace values in 'Tag' column with classification
 		r[len(r)-1] = classification

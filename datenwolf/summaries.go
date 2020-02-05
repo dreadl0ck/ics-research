@@ -157,7 +157,7 @@ func merge(results map[string]*fileSummary) map[string]columnSummary {
 				Mean:          mean,
 				Std:           std,
 				Min:           0,
-				Max:           float64(length),
+				Max:           float64(length) - 1,
 			}
 		} else {
 

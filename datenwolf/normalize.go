@@ -2,7 +2,7 @@ package main
 
 import "strconv"
 
-const prec = 5
+const prec = 10
 
 func minMax(value float64, sum columnSummary) string {
 	return strconv.FormatFloat((value-sum.Min)/(sum.Max-sum.Min), 'f', prec, 64)
