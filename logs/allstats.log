@@ -1,4 +1,4 @@
-experiment-logs/dnn-v2.log experiment-logs/dnn-v0-physical.log experiment-logs/dnn-v3.log experiment-logs/dnn-v1.log experiment-logs/dnn-v0.log experiment-logs/dnn-v4.log experiment-logs/dnn-v5.log experiment-logs/lstm-v10.log experiment-logs/mac2/lstm-v5.log experiment-logs/mac2/lstm-v7.log experiment-logs/mac2/lstm-v6.log experiment-logs/mac2/lstm-v8.log experiment-logs/mac2/lstm-v9.log experiment-logs/lstm-v7.log experiment-logs/lstm-v6.log experiment-logs/lstm-v1.log experiment-logs/lstm-v0.log experiment-logs/lstm-v8.log experiment-logs/lstm-v9.log experiment-logs/***REMOVED***/dnn-v2.log experiment-logs/***REMOVED***/dnn-v3.log experiment-logs/***REMOVED***/dnn-v4.log experiment-logs/***REMOVED***/dnn-v5.log experiment-logs/***REMOVED***/lstm-v10.log experiment-logs/***REMOVED***/lstm-v4.log experiment-logs/***REMOVED***/lstm-v5.log experiment-logs/***REMOVED***/lstm-v7.log experiment-logs/***REMOVED***/lstm-v6.log experiment-logs/***REMOVED***/lstm-v2.log experiment-logs/***REMOVED***/lstm-v3.log experiment-logs/***REMOVED***/lstm-v1.log experiment-logs/***REMOVED***/lstm-v0.log experiment-logs/***REMOVED***/lstm-v8.log experiment-logs/***REMOVED***/lstm-v9.log experiment-logs/brussels/dnn-v2.log experiment-logs/brussels/dnn-v3.log experiment-logs/brussels/dnn-v1.log experiment-logs/brussels/dnn-v0.log experiment-logs/brussels/dnn-v4.log experiment-logs/brussels/dnn-v5.log experiment-logs/brussels/lstm-v10.log experiment-logs/brussels/lstm-v4.log experiment-logs/brussels/lstm-v5.log experiment-logs/brussels/lstm-v7.log experiment-logs/brussels/lstm-v6.log experiment-logs/brussels/lstm-v2.log experiment-logs/brussels/lstm-v3.log experiment-logs/brussels/lstm-v1.log experiment-logs/brussels/lstm-v0.log experiment-logs/brussels/lstm-v8.log experiment-logs/brussels/lstm-v9.log
+experiment-logs/dnn-v2.log experiment-logs/dnn-v0-physical.log experiment-logs/dnn-v3.log experiment-logs/dnn-v1.log experiment-logs/dnn-v0.log experiment-logs/dnn-v4.log experiment-logs/dnn-v5.log experiment-logs/lstm-v10.log experiment-logs/mac2/lstm-v5.log experiment-logs/mac2/lstm-v7.log experiment-logs/mac2/lstm-v6.log experiment-logs/mac2/lstm-v8.log experiment-logs/mac2/lstm-v9.log experiment-logs/lstm-v7.log experiment-logs/lstm-v6.log experiment-logs/lstm-v1.log experiment-logs/lstm-v0.log experiment-logs/lstm-v8.log experiment-logs/lstm-v9.log experiment-logs/***REMOVED***/dnn-v2.log experiment-logs/***REMOVED***/dnn-v3.log experiment-logs/***REMOVED***/dnn-v1.log experiment-logs/***REMOVED***/dnn-v0.log experiment-logs/***REMOVED***/dnn-v4.log experiment-logs/***REMOVED***/dnn-v5.log experiment-logs/***REMOVED***/lstm-v10.log experiment-logs/***REMOVED***/lstm-v4.log experiment-logs/***REMOVED***/lstm-v5.log experiment-logs/***REMOVED***/lstm-v7.log experiment-logs/***REMOVED***/lstm-v6.log experiment-logs/***REMOVED***/lstm-v2.log experiment-logs/***REMOVED***/lstm-v3.log experiment-logs/***REMOVED***/lstm-v1.log experiment-logs/***REMOVED***/lstm-v0.log experiment-logs/***REMOVED***/lstm-v8.log experiment-logs/***REMOVED***/lstm-v9.log experiment-logs/brussels/dnn-v2.log experiment-logs/brussels/dnn-v3.log experiment-logs/brussels/dnn-v1.log experiment-logs/brussels/dnn-v0.log experiment-logs/brussels/dnn-v4.log experiment-logs/brussels/dnn-v5.log experiment-logs/brussels/lstm-v10.log experiment-logs/brussels/lstm-v4.log experiment-logs/brussels/lstm-v5.log experiment-logs/brussels/lstm-v7.log experiment-logs/brussels/lstm-v6.log experiment-logs/brussels/lstm-v2.log experiment-logs/brussels/lstm-v3.log experiment-logs/brussels/lstm-v1.log experiment-logs/brussels/lstm-v0.log experiment-logs/brussels/lstm-v8.log experiment-logs/brussels/lstm-v9.log
 --- experiment-logs/dnn-v2.log ---
 [[5795944       0 1116594       0       0]
  [ 415919       0  213689       0       0]
@@ -159,6 +159,20 @@ accuracy: 0.802
 --- experiment-logs/lstm-v8.log ---
 --- experiment-logs/lstm-v9.log ---
 --- experiment-logs/***REMOVED***/dnn-v2.log ---
+[[ 428499 4728704 1755335       0       0]
+ [  24760  285483  319365       0       0]
+ [  11029   90904    7764       0       0]
+ [      0   22678   22677       0       0]
+ [  27024  175778       0       0       0]]
+
+name                           precision   recall   f1-score
+normal                             0.872    0.062      0.116
+Single Stage Single Point          0.054    0.453      0.096
+Single Stage Multi Point           0.004    0.071      0.007
+Multi Stage Single Point           zero tp
+Multi Stage Multi Point            zero tp
+accuracy: 0.091
+
 --- experiment-logs/***REMOVED***/dnn-v3.log ---
 [[2591652 4320886       0       0       0]
  [ 405788  223820       0       0       0]
@@ -174,6 +188,8 @@ Multi Stage Single Point           zero tp
 Multi Stage Multi Point            zero tp
 accuracy: 0.356
 
+--- experiment-logs/***REMOVED***/dnn-v1.log ---
+--- experiment-logs/***REMOVED***/dnn-v0.log ---
 --- experiment-logs/***REMOVED***/dnn-v4.log ---
 [[4071875 2840654       0       9       0]
  [ 375177  254431       0       0       0]
