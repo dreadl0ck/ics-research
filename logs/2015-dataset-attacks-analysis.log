@@ -1,0 +1,227 @@
+$ go run ./datenwolf -attacks data/List_of_attacks_Final-fixed.csv -file-filter data/Network/attack-files.txt -out data/SWaT2015-Attack-Files-v0.4 -in data/Network -analyze
+parsing attacks in data/List_of_attacks_Final-fixed.csv
+started at 2020-02-05 18:17:26.234675 +0100 CET m=+0.005887396
+collected 66 CSV files for labeling, num workers: 100
+offset 0
+new CSV header: [unixtime orig type i/f_name i/f_dir src dst proto appi_name proxy_src_ip modbus_function_code modbus_function_description modbus_transaction_id scada_tag modbus_value service s_port classification]
+file_suffix _sorted.csv
+output directory: data/SWaT2015-Attack-Files-v0.4
+initializing 100 workers
+started all analysis jobs, waiting...
+[66/66] processing data/Network/2016-01-02_172943_122.log.part05_sorted.csv
+[2/66] processing data/Network/2015-12-28_113021_98.log.part13_sorted.csv
+[5/66] processing data/Network/2015-12-28_164554_99.log.part03_sorted.csv
+[35/66] processing data/Network/2015-12-31_074818_111.log.part08_sorted.csv
+[3/66] processing data/Network/2015-12-28_164554_99.log.part01_sorted.csv
+[1/66] processing data/Network/2015-12-28_113021_98.log.part12_sorted.csv
+[50/66] processing data/Network/2015-12-31_130240_112.log.part09_sorted.csv
+[20/66] processing data/Network/2015-12-30_105053_107.log.part13_sorted.csv
+[58/66] processing data/Network/2016-01-01_203011_118.log.part06_sorted.csv
+[27/66] processing data/Network/2015-12-31_023431_110.log.part14_sorted.csv
+[29/66] processing data/Network/2015-12-31_074818_111.log.part02_sorted.csv
+[30/66] processing data/Network/2015-12-31_074818_111.log.part03_sorted.csv
+[12/66] processing data/Network/2015-12-29_134830_103.log.part10_sorted.csv
+[21/66] processing data/Network/2015-12-30_212042_109.log.part03_sorted.csv
+[32/66] processing data/Network/2015-12-31_074818_111.log.part05_sorted.csv
+[59/66] processing data/Network/2016-01-01_203011_118.log.part07_sorted.csv
+[13/66] processing data/Network/2015-12-29_190411_104.log.part03_sorted.csv
+[36/66] processing data/Network/2015-12-31_074818_111.log.part09_sorted.csv
+[63/66] processing data/Network/2016-01-02_121729_121.log.part14_sorted.csv
+[60/66] processing data/Network/2016-01-02_014558_119.log.part06_sorted.csv
+[43/66] processing data/Network/2015-12-31_130240_112.log.part02_sorted.csv
+[54/66] processing data/Network/2015-12-31_233049_114.log.part11_sorted.csv
+[55/66] processing data/Network/2016-01-01_151435_117.log.part03_sorted.csv
+[31/66] processing data/Network/2015-12-31_074818_111.log.part04_sorted.csv
+[33/66] processing data/Network/2015-12-31_074818_111.log.part06_sorted.csv
+[6/66] processing data/Network/2015-12-28_164554_99.log.part05_sorted.csv
+[15/66] processing data/Network/2015-12-29_190411_104.log.part13_sorted.csv
+[37/66] processing data/Network/2015-12-31_074818_111.log.part10_sorted.csv
+[4/66] processing data/Network/2015-12-28_164554_99.log.part02_sorted.csv
+[14/66] processing data/Network/2015-12-29_190411_104.log.part04_sorted.csv
+[22/66] processing data/Network/2015-12-30_212042_109.log.part04_sorted.csv
+[34/66] processing data/Network/2015-12-31_074818_111.log.part07_sorted.csv
+[24/66] processing data/Network/2015-12-31_023431_110.log.part11_sorted.csv
+[51/66] processing data/Network/2015-12-31_130240_112.log.part10_sorted.csv
+[56/66] processing data/Network/2016-01-01_151435_117.log.part12_sorted.csv
+[61/66] processing data/Network/2016-01-02_121729_121.log.part12_sorted.csv
+[16/66] processing data/Network/2015-12-29_190411_104.log.part14_sorted.csv
+[39/66] processing data/Network/2015-12-31_074818_111.log.part12_sorted.csv
+[23/66] processing data/Network/2015-12-30_212042_109.log.part05_sorted.csv
+[44/66] processing data/Network/2015-12-31_130240_112.log.part03_sorted.csv
+[46/66] processing data/Network/2015-12-31_130240_112.log.part05_sorted.csv
+[9/66] processing data/Network/2015-12-28_164554_99.log.part09_sorted.csv
+[53/66] processing data/Network/2015-12-31_181648_113.log.part09_sorted.csv
+[64/66] processing data/Network/2016-01-02_172943_122.log.part03_sorted.csv
+[7/66] processing data/Network/2015-12-28_164554_99.log.part06_sorted.csv
+[26/66] processing data/Network/2015-12-31_023431_110.log.part13_sorted.csv
+[62/66] processing data/Network/2016-01-02_121729_121.log.part13_sorted.csv
+[28/66] processing data/Network/2015-12-31_074818_111.log.part01_sorted.csv
+[48/66] processing data/Network/2015-12-31_130240_112.log.part07_sorted.csv
+[49/66] processing data/Network/2015-12-31_130240_112.log.part08_sorted.csv
+[57/66] processing data/Network/2016-01-01_151435_117.log.part13_sorted.csv
+[41/66] processing data/Network/2015-12-31_074818_111.log.part14_sorted.csv
+[18/66] processing data/Network/2015-12-30_053515_106.log.part05_sorted.csv
+[10/66] processing data/Network/2015-12-29_134830_103.log.part08_sorted.csv
+[11/66] processing data/Network/2015-12-29_134830_103.log.part09_sorted.csv
+[40/66] processing data/Network/2015-12-31_074818_111.log.part13_sorted.csv
+[19/66] processing data/Network/2015-12-30_105053_107.log.part12_sorted.csv
+[65/66] processing data/Network/2016-01-02_172943_122.log.part04_sorted.csv
+[8/66] processing data/Network/2015-12-28_164554_99.log.part08_sorted.csv
+[42/66] processing data/Network/2015-12-31_130240_112.log.part01_sorted.csv
+[45/66] processing data/Network/2015-12-31_130240_112.log.part04_sorted.csv
+[38/66] processing data/Network/2015-12-31_074818_111.log.part11_sorted.csv
+[25/66] processing data/Network/2015-12-31_023431_110.log.part12_sorted.csv
+[52/66] processing data/Network/2015-12-31_181648_113.log.part08_sorted.csv
+[17/66] processing data/Network/2015-12-30_001940_105.log.part11_sorted.csv
+[47/66] processing data/Network/2015-12-31_130240_112.log.part06_sorted.csv
+
+
+
+------- printAnalysisInfo
+analyzing data...
+DONE
+files: 66
+lines: 32759799
+columns [num date time orig type i/f_name i/f_dir src dst proto appi_name proxy_src_ip Modbus_Function_Code Modbus_Function_Description Modbus_Transaction_ID SCADA_Tag Modbus_Value service s_port Referrer_self_uid Tag]
+ > column: proto unique_values: 3
+   - tcp
+   - 0
+   - udp
+proto mean: 1 stddev: 1
+ > column: type unique_values: 3
+   - log
+   - control
+   - alert
+type mean: 1 stddev: 1
+ > column: SCADA_Tag unique_values: 6
+   - HMI_LIT101
+   - HMI_LIT301
+   - HMI_FIT201
+   - HMI_AIT202
+   - 0
+   - HMI_LIT401
+SCADA_Tag mean: 2.5 stddev: 1.8708286933869707
+ > column: i/f_dir unique_values: 2
+   - outbound
+   - inbound
+i/f_dir mean: 0.5 stddev: 0.7071067811865476
+ > column: src unique_values: 16
+   - 192.168.1.201
+   - 192.168.1.19
+   - 192.168.1.60
+   - 192.168.1.199
+   - 192.168.1.49
+   - 192.168.1.200
+   - 192.168.1.88
+   - 0
+   - 192.168.1.202
+   - 10.15.51.65
+   - 192.168.1.20
+   - 192.168.1.10
+   - 192.168.1.40
+   - 192.168.1.30
+   - 192.168.1.136
+   - 192.168.1.134
+src mean: 7.5 stddev: 4.760952285695233
+ > column: s_port unique_values: 105
+s_port mean: 53485.19203606835 stddev: 756.4517040290086
+ > column: Modbus_Transaction_ID unique_values: 65536
+Modbus_Transaction_ID mean: 32765.306021474673 stddev: 18919.585784616822
+ > column: Modbus_Value unique_values: 127520
+Modbus_Value mean: 63759.5 stddev: 36811.99750081487
+ > column: proxy_src_ip unique_values: 16
+   - 192.168.1.202
+   - 192.168.1.19
+   - 192.168.1.40
+   - 192.168.1.88
+   - 192.168.1.200
+   - 192.168.1.136
+   - 192.168.1.134
+   - 10.15.51.65
+   - 192.168.1.30
+   - 192.168.1.20
+   - 192.168.1.10
+   - 0
+   - 192.168.1.199
+   - 192.168.1.49
+   - 192.168.1.60
+   - 192.168.1.201
+proxy_src_ip mean: 7.5 stddev: 4.760952285695233
+ > column: Modbus_Function_Description unique_values: 6
+   - Unknown Function Code
+   - Write Tag Service
+   - Read Tag Service
+   - Read Tag Service - Response
+   - 0
+   - Forward Close - Response
+Modbus_Function_Description mean: 2.5 stddev: 1.8708286933869707
+ > column: service unique_values: 16
+service mean: 44816.670796209706 stddev: 241.88931056648374
+ > column: Tag unique_values: 2
+map[0:12980747 1:19779052]
+Tag mean: 0.6037598704436495 stddev: 0.4891154226177868
+ > column: dst unique_values: 18
+   - 0
+   - 224.0.0.251
+   - 192.168.1.88
+   - 192.168.1.19
+   - 192.168.1.30
+   - 224.0.0.252
+   - 192.168.1.255
+   - 192.168.1.201
+   - 192.168.1.49
+   - 192.168.1.10
+   - 192.168.1.20
+   - 192.168.1.50
+   - 192.168.1.60
+   - 239.255.255.250
+   - 239.192.4.191
+   - 192.168.1.100
+   - 192.168.1.40
+   - 192.168.1.200
+dst mean: 8.5 stddev: 5.338539126015656
+ > column: appi_name unique_values: 27
+   - Multicast DNS Protocol (mDNS)
+   - Unknown Traffic
+   - EtherNet/IP
+   - SSDP
+   - DCE-RPC Protocol
+   - Google Chrome
+   - Common Industrial Protocol - multiple service packet
+   - CIP_write_tag_service
+   - Simple Object Access Protocol
+   - NetBIOS Datagram Service
+   - OSIsoft PI
+   - CIP_gen
+   - Web Browsing
+   - NetBIOS Session Service
+   - LLMNR Protocol
+   - Common Industrial Protocol - get attribute all
+   - CIP_func75
+   - NetBIOS Name Service
+   - Common Industrial Protocol
+   - VNC
+   - Common Industrial Protocol - success
+   - Common Industrial Protocol - get attribute single
+   - Common Industrial Protocol - RMW (Read/Modify/Write)
+   - DNP3 Protocol - initialize data to defaults
+   - Server Message Block (SMB)
+   - CIP_read_tag_service
+   - 0
+appi_name mean: 13 stddev: 7.937253933193772
+ > column: Modbus_Function_Code unique_values: 5
+Modbus_Function_Code mean: 75.99756970425857 stddev: 0.42985209973439614
+ > column: orig unique_values: 3
+   - 192.168.1.48
+   - 192.168.1.88
+   - 192.168.1.87
+orig mean: 1 stddev: 1
+ > column: i/f_name unique_values: 3
+   - eth1
+   - 0
+   - geod daemon
+i/f_name mean: 1 stddev: 1
+skipped lines with missing values: 0
+saving column summaries...
+saved column summaries to colSums-5Feb2020-181743.json
+done in 17.730456848s
