@@ -1,0 +1,849 @@
+2020-02-06 02:49:40.749665: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2020-02-06 02:49:40.761948: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7fccb1125680 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-02-06 02:49:40.761984: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+Using TensorFlow backend.
+WARNING:tensorflow:Large dropout rate: 0.8 (>0.5). In TensorFlow 2.x, dropout() uses dropout rate instead of keep_prob. Please ensure that this is intended.
+2020-02-06 02:49:45.362834: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] remapper failed: Invalid argument: MutableGraphView::MutableGraphView error: node 'loss/dense_2_loss/categorical_crossentropy/weighted_loss/concat' has self cycle fanin 'loss/dense_2_loss/categorical_crossentropy/weighted_loss/concat'.
+2020-02-06 02:49:45.391242: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 0, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-06 02:49:45.403832: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 1, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-06 02:49:45.520470: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] arithmetic_optimizer failed: Invalid argument: The graph couldn't be sorted in topological order.
+2020-02-06 02:49:45.528857: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] remapper failed: Invalid argument: MutableGraphView::MutableGraphView error: node 'loss/dense_2_loss/categorical_crossentropy/weighted_loss/concat' has self cycle fanin 'loss/dense_2_loss/categorical_crossentropy/weighted_loss/concat'.
+2020-02-06 02:49:45.538086: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 0, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-06 02:49:45.546732: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 1, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-06 02:49:45.588681: W tensorflow/core/common_runtime/process_function_library_runtime.cc:697] Ignoring multi-device function optimization failure: Invalid argument: The graph couldn't be sorted in topological order.
+2020-02-06 02:49:50.913646: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] remapper failed: Invalid argument: MutableGraphView::MutableGraphView error: node 'loss/dense_2_loss/categorical_crossentropy/weighted_loss/concat' has self cycle fanin 'loss/dense_2_loss/categorical_crossentropy/weighted_loss/concat'.
+2020-02-06 02:49:50.921039: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 0, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-06 02:49:50.924538: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 1, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-06 02:49:50.955129: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] arithmetic_optimizer failed: Invalid argument: The graph couldn't be sorted in topological order.
+2020-02-06 02:49:50.957476: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] remapper failed: Invalid argument: MutableGraphView::MutableGraphView error: node 'loss/dense_2_loss/categorical_crossentropy/weighted_loss/concat' has self cycle fanin 'loss/dense_2_loss/categorical_crossentropy/weighted_loss/concat'.
+2020-02-06 02:49:50.960067: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 0, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-06 02:49:50.962613: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 1, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-06 02:49:50.976159: W tensorflow/core/common_runtime/process_function_library_runtime.cc:697] Ignoring multi-device function optimization failure: Invalid argument: The graph couldn't be sorted in topological order.
+=============================
+        TRAINING v0.4
+=============================
+Date: 2020-02-06 02:49:40.745767
+[INFO] input_shape (10, 16)
+[INFO] LSTM first and last layer neurons: 8
+[INFO] adding core layer 0
+[INFO] created DNN
+[33m[INFO] epoch 1/10[0m
+[33m[INFO] loading file 1-1/1 on epoch 1/10[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (500000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['unixtime', 'orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst',
+       'proto', 'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] processing batch 0-100000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 7s - loss: 1.0514 - tp: 21001.0000 - fp: 935.0000 - tn: 319065.0000 - fn: 58999.0000 - accuracy: 0.8502 - precision: 0.9574 - recall: 0.2625 - auc: 0.9732 - val_loss: 0.0513 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-001-files-0-1-batch-0-100000
+[INFO] processing batch 100000-200000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 5s - loss: 0.6123 - tp: 38807.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 41193.0000 - accuracy: 0.8970 - precision: 1.0000 - recall: 0.4851 - auc: 1.0000 - val_loss: 0.0035 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-001-files-0-1-batch-100000-200000
+[INFO] processing batch 200000-300000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 5s - loss: 0.5062 - tp: 39535.0000 - fp: 118.0000 - tn: 319882.0000 - fn: 40465.0000 - accuracy: 0.8985 - precision: 0.9970 - recall: 0.4942 - auc: 0.9981 - val_loss: 7.5709 - val_tp: 10606.0000 - val_fp: 9394.0000 - val_tn: 70606.0000 - val_fn: 9394.0000 - val_accuracy: 0.8121 - val_precision: 0.5303 - val_recall: 0.5303 - val_auc: 0.7048
+[INFO] saving weights to checkpoints/lstm-epoch-001-files-0-1-batch-200000-300000
+[INFO] processing batch 300000-400000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 5s - loss: 3.0459 - tp: 13408.0000 - fp: 11947.0000 - tn: 308053.0000 - fn: 66592.0000 - accuracy: 0.8037 - precision: 0.5288 - recall: 0.1676 - auc: 0.7880 - val_loss: 1.1485 - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 20000.0000 - val_accuracy: 0.8000 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00 - val_auc: 0.8828
+[INFO] saving weights to checkpoints/lstm-epoch-001-files-0-1-batch-300000-400000
+[INFO] processing batch 400000-500000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 6s - loss: 1.0559 - tp: 17442.0000 - fp: 15344.0000 - tn: 304656.0000 - fn: 62558.0000 - accuracy: 0.8052 - precision: 0.5320 - recall: 0.2180 - auc: 0.8826 - val_loss: 0.9645 - val_tp: 7445.0000 - val_fp: 6555.0000 - val_tn: 73445.0000 - val_fn: 12555.0000 - val_accuracy: 0.8089 - val_precision: 0.5318 - val_recall: 0.3722 - val_auc: 0.8828
+[INFO] saving weights to checkpoints/lstm-epoch-001-files-0-1-batch-400000-500000
+[33m[LOSS] 0.9645006499290466[0m
+[33m[INFO] epoch 2/10[0m
+[33m[INFO] loading file 1-1/1 on epoch 2/10[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (500000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['unixtime', 'orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst',
+       'proto', 'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] processing batch 0-100000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 5s - loss: 0.4330 - tp: 65542.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 14458.0000 - accuracy: 0.9639 - precision: 1.0000 - recall: 0.8193 - auc: 1.0000 - val_loss: 0.0390 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-002-files-0-1-batch-0-100000
+[INFO] processing batch 100000-200000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 5s - loss: 0.2641 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0136 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-002-files-0-1-batch-100000-200000
+[INFO] processing batch 200000-300000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 5s - loss: 0.2307 - tp: 79766.0000 - fp: 234.0000 - tn: 319766.0000 - fn: 234.0000 - accuracy: 0.9988 - precision: 0.9971 - recall: 0.9971 - auc: 0.9984 - val_loss: 6.5773 - val_tp: 10606.0000 - val_fp: 9394.0000 - val_tn: 70606.0000 - val_fn: 9394.0000 - val_accuracy: 0.8121 - val_precision: 0.5303 - val_recall: 0.5303 - val_auc: 0.7126
+[INFO] saving weights to checkpoints/lstm-epoch-002-files-0-1-batch-200000-300000
+[INFO] processing batch 300000-400000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 5s - loss: 1.4565 - tp: 42447.0000 - fp: 37553.0000 - tn: 282447.0000 - fn: 37553.0000 - accuracy: 0.8122 - precision: 0.5306 - recall: 0.5306 - auc: 0.8539 - val_loss: 0.8605 - val_tp: 10626.0000 - val_fp: 9374.0000 - val_tn: 70626.0000 - val_fn: 9374.0000 - val_accuracy: 0.8125 - val_precision: 0.5313 - val_recall: 0.5313 - val_auc: 0.8828
+[INFO] saving weights to checkpoints/lstm-epoch-002-files-0-1-batch-300000-400000
+[INFO] processing batch 400000-500000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 5s - loss: 0.8251 - tp: 41478.0000 - fp: 37075.0000 - tn: 282925.0000 - fn: 38522.0000 - accuracy: 0.8110 - precision: 0.5280 - recall: 0.5185 - auc: 0.8825 - val_loss: 0.7580 - val_tp: 10603.0000 - val_fp: 9397.0000 - val_tn: 70603.0000 - val_fn: 9397.0000 - val_accuracy: 0.8121 - val_precision: 0.5301 - val_recall: 0.5301 - val_auc: 0.8825
+[INFO] saving weights to checkpoints/lstm-epoch-002-files-0-1-batch-400000-500000
+[33m[LOSS] 0.758019257068634[0m
+[33m[INFO] epoch 3/10[0m
+[33m[INFO] loading file 1-1/1 on epoch 3/10[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (500000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['unixtime', 'orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst',
+       'proto', 'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] processing batch 0-100000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 5s - loss: 0.3174 - tp: 79694.0000 - fp: 236.0000 - tn: 319764.0000 - fn: 306.0000 - accuracy: 0.9986 - precision: 0.9970 - recall: 0.9962 - auc: 1.0000 - val_loss: 0.0838 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-003-files-0-1-batch-0-100000
+[INFO] processing batch 100000-200000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 5s - loss: 0.1658 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0095 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-003-files-0-1-batch-100000-200000
+[INFO] processing batch 200000-300000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 5s - loss: 0.1494 - tp: 79766.0000 - fp: 234.0000 - tn: 319766.0000 - fn: 234.0000 - accuracy: 0.9988 - precision: 0.9971 - recall: 0.9971 - auc: 0.9986 - val_loss: 5.8763 - val_tp: 10606.0000 - val_fp: 9394.0000 - val_tn: 70606.0000 - val_fn: 9394.0000 - val_accuracy: 0.8121 - val_precision: 0.5303 - val_recall: 0.5303 - val_auc: 0.7362
+[INFO] saving weights to checkpoints/lstm-epoch-003-files-0-1-batch-200000-300000
+[INFO] processing batch 300000-400000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 5s - loss: 1.0862 - tp: 42431.0000 - fp: 37567.0000 - tn: 282433.0000 - fn: 37569.0000 - accuracy: 0.8122 - precision: 0.5304 - recall: 0.5304 - auc: 0.8744 - val_loss: 0.8015 - val_tp: 10626.0000 - val_fp: 9374.0000 - val_tn: 70626.0000 - val_fn: 9374.0000 - val_accuracy: 0.8125 - val_precision: 0.5313 - val_recall: 0.5313 - val_auc: 0.8823
+[INFO] saving weights to checkpoints/lstm-epoch-003-files-0-1-batch-300000-400000
+[INFO] processing batch 400000-500000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 5s - loss: 0.7895 - tp: 41993.0000 - fp: 37501.0000 - tn: 282499.0000 - fn: 38007.0000 - accuracy: 0.8112 - precision: 0.5283 - recall: 0.5249 - auc: 0.8825 - val_loss: 0.7309 - val_tp: 10603.0000 - val_fp: 9397.0000 - val_tn: 70603.0000 - val_fn: 9397.0000 - val_accuracy: 0.8121 - val_precision: 0.5301 - val_recall: 0.5301 - val_auc: 0.8823
+[INFO] saving weights to checkpoints/lstm-epoch-003-files-0-1-batch-400000-500000
+[33m[LOSS] 0.7309024925231934[0m
+[CHECKING EARLY STOP]: currentLoss < min_delta ? => 0.7309024925231934  <  0.001
+[33m[INFO] epoch 4/10[0m
+[33m[INFO] loading file 1-1/1 on epoch 4/10[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (500000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['unixtime', 'orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst',
+       'proto', 'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] processing batch 0-100000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 5s - loss: 0.3031 - tp: 79873.0000 - fp: 100.0000 - tn: 319900.0000 - fn: 127.0000 - accuracy: 0.9994 - precision: 0.9987 - recall: 0.9984 - auc: 1.0000 - val_loss: 0.1629 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-004-files-0-1-batch-0-100000
+[INFO] processing batch 100000-200000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 5s - loss: 0.1413 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0299 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-004-files-0-1-batch-100000-200000
+[INFO] processing batch 200000-300000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 5s - loss: 0.1130 - tp: 79766.0000 - fp: 234.0000 - tn: 319766.0000 - fn: 234.0000 - accuracy: 0.9988 - precision: 0.9971 - recall: 0.9971 - auc: 0.9989 - val_loss: 1.6956 - val_tp: 10606.0000 - val_fp: 9394.0000 - val_tn: 70606.0000 - val_fn: 9394.0000 - val_accuracy: 0.8121 - val_precision: 0.5303 - val_recall: 0.5303 - val_auc: 0.8830
+[INFO] saving weights to checkpoints/lstm-epoch-004-files-0-1-batch-200000-300000
+[INFO] processing batch 300000-400000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 5s - loss: 1.0217 - tp: 42447.0000 - fp: 37553.0000 - tn: 282447.0000 - fn: 37553.0000 - accuracy: 0.8122 - precision: 0.5306 - recall: 0.5306 - auc: 0.8799 - val_loss: 0.8384 - val_tp: 10626.0000 - val_fp: 9374.0000 - val_tn: 70626.0000 - val_fn: 9374.0000 - val_accuracy: 0.8125 - val_precision: 0.5313 - val_recall: 0.5313 - val_auc: 0.8836
+[INFO] saving weights to checkpoints/lstm-epoch-004-files-0-1-batch-300000-400000
+[INFO] processing batch 400000-500000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 5s - loss: 0.7783 - tp: 42346.0000 - fp: 37519.0000 - tn: 282481.0000 - fn: 37654.0000 - accuracy: 0.8121 - precision: 0.5302 - recall: 0.5293 - auc: 0.8826 - val_loss: 0.7191 - val_tp: 10603.0000 - val_fp: 9397.0000 - val_tn: 70603.0000 - val_fn: 9397.0000 - val_accuracy: 0.8121 - val_precision: 0.5301 - val_recall: 0.5301 - val_auc: 0.8822
+[INFO] saving weights to checkpoints/lstm-epoch-004-files-0-1-batch-400000-500000
+[33m[LOSS] 0.7190852870941162[0m
+[CHECKING EARLY STOP]: currentLoss < min_delta ? => 0.7190852870941162  <  0.001
+[33m[INFO] epoch 5/10[0m
+[33m[INFO] loading file 1-1/1 on epoch 5/10[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (500000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['unixtime', 'orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst',
+       'proto', 'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] processing batch 0-100000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 5s - loss: 0.2887 - tp: 79911.0000 - fp: 67.0000 - tn: 319933.0000 - fn: 89.0000 - accuracy: 0.9996 - precision: 0.9992 - recall: 0.9989 - auc: 1.0000 - val_loss: 0.1598 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-005-files-0-1-batch-0-100000
+[INFO] processing batch 100000-200000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 5s - loss: 0.1355 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0494 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-005-files-0-1-batch-100000-200000
+[INFO] processing batch 200000-300000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 6s - loss: 0.1041 - tp: 79766.0000 - fp: 234.0000 - tn: 319766.0000 - fn: 234.0000 - accuracy: 0.9988 - precision: 0.9971 - recall: 0.9971 - auc: 0.9990 - val_loss: 1.6430 - val_tp: 10606.0000 - val_fp: 9394.0000 - val_tn: 70606.0000 - val_fn: 9394.0000 - val_accuracy: 0.8121 - val_precision: 0.5303 - val_recall: 0.5303 - val_auc: 0.8828
+[INFO] saving weights to checkpoints/lstm-epoch-005-files-0-1-batch-200000-300000
+[INFO] processing batch 300000-400000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 5s - loss: 1.0156 - tp: 42447.0000 - fp: 37553.0000 - tn: 282447.0000 - fn: 37553.0000 - accuracy: 0.8122 - precision: 0.5306 - recall: 0.5306 - auc: 0.8808 - val_loss: 0.8424 - val_tp: 10626.0000 - val_fp: 9374.0000 - val_tn: 70626.0000 - val_fn: 9374.0000 - val_accuracy: 0.8125 - val_precision: 0.5313 - val_recall: 0.5313 - val_auc: 0.8833
+[INFO] saving weights to checkpoints/lstm-epoch-005-files-0-1-batch-300000-400000
+[INFO] processing batch 400000-500000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 6s - loss: 0.7701 - tp: 42438.0000 - fp: 37562.0000 - tn: 282438.0000 - fn: 37562.0000 - accuracy: 0.8122 - precision: 0.5305 - recall: 0.5305 - auc: 0.8828 - val_loss: 0.7144 - val_tp: 10603.0000 - val_fp: 9397.0000 - val_tn: 70603.0000 - val_fn: 9397.0000 - val_accuracy: 0.8121 - val_precision: 0.5301 - val_recall: 0.5301 - val_auc: 0.8826
+[INFO] saving weights to checkpoints/lstm-epoch-005-files-0-1-batch-400000-500000
+[33m[LOSS] 0.7143746190071106[0m
+[CHECKING EARLY STOP]: currentLoss < min_delta ? => 0.7143746190071106  <  0.001
+[33m[INFO] epoch 6/10[0m
+[33m[INFO] loading file 1-1/1 on epoch 6/10[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (500000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['unixtime', 'orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst',
+       'proto', 'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] processing batch 0-100000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 5s - loss: 0.2867 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.1620 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-006-files-0-1-batch-0-100000
+[INFO] processing batch 100000-200000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 5s - loss: 0.1358 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0722 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-006-files-0-1-batch-100000-200000
+[INFO] processing batch 200000-300000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 6s - loss: 0.1008 - tp: 79766.0000 - fp: 234.0000 - tn: 319766.0000 - fn: 234.0000 - accuracy: 0.9988 - precision: 0.9971 - recall: 0.9971 - auc: 0.9993 - val_loss: 1.5739 - val_tp: 10606.0000 - val_fp: 9394.0000 - val_tn: 70606.0000 - val_fn: 9394.0000 - val_accuracy: 0.8121 - val_precision: 0.5303 - val_recall: 0.5303 - val_auc: 0.8828
+[INFO] saving weights to checkpoints/lstm-epoch-006-files-0-1-batch-200000-300000
+[INFO] processing batch 300000-400000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 5s - loss: 1.0070 - tp: 42447.0000 - fp: 37553.0000 - tn: 282447.0000 - fn: 37553.0000 - accuracy: 0.8122 - precision: 0.5306 - recall: 0.5306 - auc: 0.8819 - val_loss: 0.8362 - val_tp: 10626.0000 - val_fp: 9374.0000 - val_tn: 70626.0000 - val_fn: 9374.0000 - val_accuracy: 0.8125 - val_precision: 0.5313 - val_recall: 0.5313 - val_auc: 0.8828
+[INFO] saving weights to checkpoints/lstm-epoch-006-files-0-1-batch-300000-400000
+[INFO] processing batch 400000-500000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 5s - loss: 0.7778 - tp: 42438.0000 - fp: 37562.0000 - tn: 282438.0000 - fn: 37562.0000 - accuracy: 0.8122 - precision: 0.5305 - recall: 0.5305 - auc: 0.8824 - val_loss: 0.7201 - val_tp: 10603.0000 - val_fp: 9397.0000 - val_tn: 70603.0000 - val_fn: 9397.0000 - val_accuracy: 0.8121 - val_precision: 0.5301 - val_recall: 0.5301 - val_auc: 0.8829
+[INFO] saving weights to checkpoints/lstm-epoch-006-files-0-1-batch-400000-500000
+[33m[LOSS] 0.7201209897994996[0m
+[CHECKING EARLY STOP]: currentLoss < min_delta ? => 0.7201209897994996  <  0.001
+[33m[INFO] epoch 7/10[0m
+[33m[INFO] loading file 1-1/1 on epoch 7/10[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (500000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['unixtime', 'orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst',
+       'proto', 'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] processing batch 0-100000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 5s - loss: 0.2940 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.1682 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-007-files-0-1-batch-0-100000
+[INFO] processing batch 100000-200000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 5s - loss: 0.1395 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0763 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-007-files-0-1-batch-100000-200000
+[INFO] processing batch 200000-300000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 5s - loss: 0.1033 - tp: 79766.0000 - fp: 234.0000 - tn: 319766.0000 - fn: 234.0000 - accuracy: 0.9988 - precision: 0.9971 - recall: 0.9971 - auc: 0.9993 - val_loss: 1.5376 - val_tp: 10606.0000 - val_fp: 9394.0000 - val_tn: 70606.0000 - val_fn: 9394.0000 - val_accuracy: 0.8121 - val_precision: 0.5303 - val_recall: 0.5303 - val_auc: 0.8826
+[INFO] saving weights to checkpoints/lstm-epoch-007-files-0-1-batch-200000-300000
+[INFO] processing batch 300000-400000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 5s - loss: 0.9904 - tp: 42447.0000 - fp: 37553.0000 - tn: 282447.0000 - fn: 37553.0000 - accuracy: 0.8122 - precision: 0.5306 - recall: 0.5306 - auc: 0.8827 - val_loss: 0.8196 - val_tp: 10626.0000 - val_fp: 9374.0000 - val_tn: 70626.0000 - val_fn: 9374.0000 - val_accuracy: 0.8125 - val_precision: 0.5313 - val_recall: 0.5313 - val_auc: 0.8825
+[INFO] saving weights to checkpoints/lstm-epoch-007-files-0-1-batch-300000-400000
+[INFO] processing batch 400000-500000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 5s - loss: 0.7701 - tp: 42438.0000 - fp: 37562.0000 - tn: 282438.0000 - fn: 37562.0000 - accuracy: 0.8122 - precision: 0.5305 - recall: 0.5305 - auc: 0.8827 - val_loss: 0.7335 - val_tp: 10603.0000 - val_fp: 9397.0000 - val_tn: 70603.0000 - val_fn: 9397.0000 - val_accuracy: 0.8121 - val_precision: 0.5301 - val_recall: 0.5301 - val_auc: 0.8829
+[INFO] saving weights to checkpoints/lstm-epoch-007-files-0-1-batch-400000-500000
+[33m[LOSS] 0.733517592906952[0m
+[CHECKING EARLY STOP]: currentLoss < min_delta ? => 0.733517592906952  <  0.001
+[33m[INFO] epoch 8/10[0m
+[33m[INFO] loading file 1-1/1 on epoch 8/10[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (500000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['unixtime', 'orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst',
+       'proto', 'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] processing batch 0-100000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 5s - loss: 0.3110 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.1962 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-008-files-0-1-batch-0-100000
+[INFO] processing batch 100000-200000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 6s - loss: 0.1470 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0860 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-008-files-0-1-batch-100000-200000
+[INFO] processing batch 200000-300000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 5s - loss: 0.1049 - tp: 79766.0000 - fp: 234.0000 - tn: 319766.0000 - fn: 234.0000 - accuracy: 0.9988 - precision: 0.9971 - recall: 0.9971 - auc: 0.9992 - val_loss: 1.4609 - val_tp: 10606.0000 - val_fp: 9394.0000 - val_tn: 70606.0000 - val_fn: 9394.0000 - val_accuracy: 0.8121 - val_precision: 0.5303 - val_recall: 0.5303 - val_auc: 0.8822
+[INFO] saving weights to checkpoints/lstm-epoch-008-files-0-1-batch-200000-300000
+[INFO] processing batch 300000-400000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 6s - loss: 0.9843 - tp: 42447.0000 - fp: 37553.0000 - tn: 282447.0000 - fn: 37553.0000 - accuracy: 0.8122 - precision: 0.5306 - recall: 0.5306 - auc: 0.8825 - val_loss: 0.8174 - val_tp: 10626.0000 - val_fp: 9374.0000 - val_tn: 70626.0000 - val_fn: 9374.0000 - val_accuracy: 0.8125 - val_precision: 0.5313 - val_recall: 0.5313 - val_auc: 0.8832
+[INFO] saving weights to checkpoints/lstm-epoch-008-files-0-1-batch-300000-400000
+[INFO] processing batch 400000-500000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 6s - loss: 0.7660 - tp: 42420.0000 - fp: 37580.0000 - tn: 282420.0000 - fn: 37580.0000 - accuracy: 0.8121 - precision: 0.5303 - recall: 0.5303 - auc: 0.8825 - val_loss: 0.7132 - val_tp: 10603.0000 - val_fp: 9397.0000 - val_tn: 70603.0000 - val_fn: 9397.0000 - val_accuracy: 0.8121 - val_precision: 0.5301 - val_recall: 0.5301 - val_auc: 0.8823
+[INFO] saving weights to checkpoints/lstm-epoch-008-files-0-1-batch-400000-500000
+[33m[LOSS] 0.7131870126724243[0m
+[CHECKING EARLY STOP]: currentLoss < min_delta ? => 0.7131870126724243  <  0.001
+[33m[INFO] epoch 9/10[0m
+[33m[INFO] loading file 1-1/1 on epoch 9/10[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (500000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['unixtime', 'orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst',
+       'proto', 'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] processing batch 0-100000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 6s - loss: 0.2985 - tp: 79998.0000 - fp: 2.0000 - tn: 319998.0000 - fn: 2.0000 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.1703 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-009-files-0-1-batch-0-100000
+[INFO] processing batch 100000-200000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 5s - loss: 0.1270 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0091 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-009-files-0-1-batch-100000-200000
+[INFO] processing batch 200000-300000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 5s - loss: 0.1122 - tp: 79766.0000 - fp: 234.0000 - tn: 319766.0000 - fn: 234.0000 - accuracy: 0.9988 - precision: 0.9971 - recall: 0.9971 - auc: 0.9988 - val_loss: 6.1447 - val_tp: 10606.0000 - val_fp: 9394.0000 - val_tn: 70606.0000 - val_fn: 9394.0000 - val_accuracy: 0.8121 - val_precision: 0.5303 - val_recall: 0.5303 - val_auc: 0.7404
+[INFO] saving weights to checkpoints/lstm-epoch-009-files-0-1-batch-200000-300000
+[INFO] processing batch 300000-400000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 5s - loss: 1.0641 - tp: 42447.0000 - fp: 37553.0000 - tn: 282447.0000 - fn: 37553.0000 - accuracy: 0.8122 - precision: 0.5306 - recall: 0.5306 - auc: 0.8783 - val_loss: 0.8057 - val_tp: 10626.0000 - val_fp: 9374.0000 - val_tn: 70626.0000 - val_fn: 9374.0000 - val_accuracy: 0.8125 - val_precision: 0.5313 - val_recall: 0.5313 - val_auc: 0.8837
+[INFO] saving weights to checkpoints/lstm-epoch-009-files-0-1-batch-300000-400000
+[INFO] processing batch 400000-500000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 5s - loss: 0.7581 - tp: 42438.0000 - fp: 37562.0000 - tn: 282438.0000 - fn: 37562.0000 - accuracy: 0.8122 - precision: 0.5305 - recall: 0.5305 - auc: 0.8825 - val_loss: 0.7116 - val_tp: 10603.0000 - val_fp: 9397.0000 - val_tn: 70603.0000 - val_fn: 9397.0000 - val_accuracy: 0.8121 - val_precision: 0.5301 - val_recall: 0.5301 - val_auc: 0.8832
+[INFO] saving weights to checkpoints/lstm-epoch-009-files-0-1-batch-400000-500000
+[33m[LOSS] 0.7116336603164672[0m
+[CHECKING EARLY STOP]: currentLoss < min_delta ? => 0.7116336603164672  <  0.001
+[33m[INFO] epoch 10/10[0m
+[33m[INFO] loading file 1-1/1 on epoch 10/10[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (500000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['unixtime', 'orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst',
+       'proto', 'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] processing batch 0-100000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 5s - loss: 0.3104 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.1900 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-010-files-0-1-batch-0-100000
+[INFO] processing batch 100000-200000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 6s - loss: 0.1414 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0375 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-010-files-0-1-batch-100000-200000
+[INFO] processing batch 200000-300000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 5s - loss: 0.1026 - tp: 79766.0000 - fp: 234.0000 - tn: 319766.0000 - fn: 234.0000 - accuracy: 0.9988 - precision: 0.9971 - recall: 0.9971 - auc: 0.9991 - val_loss: 1.7770 - val_tp: 10606.0000 - val_fp: 9394.0000 - val_tn: 70606.0000 - val_fn: 9394.0000 - val_accuracy: 0.8121 - val_precision: 0.5303 - val_recall: 0.5303 - val_auc: 0.8644
+[INFO] saving weights to checkpoints/lstm-epoch-010-files-0-1-batch-200000-300000
+[INFO] processing batch 300000-400000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 6s - loss: 0.9661 - tp: 42447.0000 - fp: 37553.0000 - tn: 282447.0000 - fn: 37553.0000 - accuracy: 0.8122 - precision: 0.5306 - recall: 0.5306 - auc: 0.8824 - val_loss: 0.8061 - val_tp: 10626.0000 - val_fp: 9374.0000 - val_tn: 70626.0000 - val_fn: 9374.0000 - val_accuracy: 0.8125 - val_precision: 0.5313 - val_recall: 0.5313 - val_auc: 0.8838
+[INFO] saving weights to checkpoints/lstm-epoch-010-files-0-1-batch-300000-400000
+[INFO] processing batch 400000-500000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 5s - loss: 0.7504 - tp: 42439.0000 - fp: 37561.0000 - tn: 282439.0000 - fn: 37561.0000 - accuracy: 0.8122 - precision: 0.5305 - recall: 0.5305 - auc: 0.8827 - val_loss: 0.7164 - val_tp: 10603.0000 - val_fp: 9397.0000 - val_tn: 70603.0000 - val_fn: 9397.0000 - val_accuracy: 0.8121 - val_precision: 0.5301 - val_recall: 0.5301 - val_auc: 0.8826
+[INFO] saving weights to checkpoints/lstm-epoch-010-files-0-1-batch-400000-500000
+[33m[LOSS] 0.7164051327705383[0m
+[CHECKING EARLY STOP]: currentLoss < min_delta ? => 0.7164051327705383  <  0.001
+--- 296.16060495376587 seconds ---
+2020-02-06 02:54:39.372298: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2020-02-06 02:54:39.384937: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7fc38aaa5350 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-02-06 02:54:39.384968: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+Using TensorFlow backend.
+WARNING:tensorflow:Large dropout rate: 0.8 (>0.5). In TensorFlow 2.x, dropout() uses dropout rate instead of keep_prob. Please ensure that this is intended.
+2020-02-06 02:54:43.373175: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] remapper failed: Invalid argument: MutableGraphView::MutableGraphView error: node 'loss/dense_2_loss/categorical_crossentropy/weighted_loss/concat' has self cycle fanin 'loss/dense_2_loss/categorical_crossentropy/weighted_loss/concat'.
+2020-02-06 02:54:43.379453: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 0, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-06 02:54:43.382521: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 1, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-06 02:54:43.408060: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] arithmetic_optimizer failed: Invalid argument: The graph couldn't be sorted in topological order.
+2020-02-06 02:54:43.409959: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] remapper failed: Invalid argument: MutableGraphView::MutableGraphView error: node 'loss/dense_2_loss/categorical_crossentropy/weighted_loss/concat' has self cycle fanin 'loss/dense_2_loss/categorical_crossentropy/weighted_loss/concat'.
+2020-02-06 02:54:43.412100: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 0, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-06 02:54:43.414319: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 1, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-06 02:54:43.424336: W tensorflow/core/common_runtime/process_function_library_runtime.cc:697] Ignoring multi-device function optimization failure: Invalid argument: The graph couldn't be sorted in topological order.
+=============================
+        SCORING v0.4
+=============================
+Date: 2020-02-06 02:54:39.367765
+[INFO] input_shape (10, 16)
+[INFO] LSTM first and last layer neurons: 8
+[INFO] adding core layer 0
+[INFO] created DNN
+loading weights: checkpoints/*
+loading file checkpoints/lstm-epoch-010-files-0-1-batch-400000-500000
+[33m[INFO] model summary:[0m
+Model: "sequential_1"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+lstm_1 (LSTM)                (None, 10, 8)             800       
+_________________________________________________________________
+dropout_1 (Dropout)          (None, 10, 8)             0         
+_________________________________________________________________
+lstm_2 (LSTM)                (None, 10, 32)            5248      
+_________________________________________________________________
+dropout_2 (Dropout)          (None, 10, 32)            0         
+_________________________________________________________________
+lstm_3 (LSTM)                (None, 10, 8)             1312      
+_________________________________________________________________
+dropout_3 (Dropout)          (None, 10, 8)             0         
+_________________________________________________________________
+dense_1 (Dense)              (None, 10, 1)             9         
+_________________________________________________________________
+dropout_4 (Dropout)          (None, 10, 1)             0         
+_________________________________________________________________
+dense_2 (Dense)              (None, 10, 5)             10        
+=================================================================
+Total params: 7,379
+Trainable params: 7,379
+Non-trainable params: 0
+_________________________________________________________________
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-28_113021_98.log.part13_sorted-labeled.csv
+[INFO] process dataset, shape: (500000, 18)
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['unixtime', 'orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst',
+       'proto', 'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] analyze dataset: (500000, 17)
+
+[INFO] analyzing data
+[INFO] 500000 rows
+[INFO] ** unixtime:1359 (0.2718%)
+[INFO] ** orig:[0.5:100.0%]
+[INFO] ** type:[1.0:100.0%]
+[INFO] ** i/f_name:[0.0:99.9996%,0.5:0.0004%]
+[INFO] ** i/f_dir:[0.0:99.9996%,1.0:0.0004%]
+[INFO] ** src:[0.0666666667:38.3832%,0.9333333333:25.9606%,0.6666666667:18.1352%,0.3333333333:17.52%,0.1333333333:0.0004%,1.0:0.0004%,0.5333333333:0.0002%]
+[INFO] ** dst:[0.1764705882:43.3108%,0.9411764706:21.0326%,0.8823529412000001:18.135%,0.5294117647:17.5198%,0.0:0.0008%,0.2941176471:0.0004%,0.4117647059:0.0004%,0.23529411760000002:0.0002%]
+[INFO] ** proto:[0.5:99.9996%,0.0:0.0004%]
+[INFO] ** appi_name:[0.0:99.9992%,0.0384615385:0.0004%,0.5384615385:0.0002%,0.7307692308:0.0002%]
+[INFO] ** proxy_src_ip:[0.6666666667:38.3832%,0.0:25.9606%,0.9333333333:18.1352%,0.4:17.52%,0.5333333333:0.0004%,0.7333333333:0.0004%,0.6:0.0002%]
+[INFO] ** modbus_function_code:[0.9743589744:99.9992%,0.0:0.0008%]
+[INFO] ** modbus_function_description:[0.2:50.0%,0.0:49.9992%,0.4:0.0008%]
+[INFO] ** modbus_transaction_id:65536 (13.1072%)
+[INFO] ** scada_tag:[1.0:25.9596%,0.6:21.0326%,0.8:18.1348%,0.0:17.5194%,0.4:17.3504%,0.2:0.0032%]
+[INFO] ** service:[0.7025755984000001:99.9992%,0.0:0.0004%,0.0012540954:0.0002%,0.002116286:0.0002%]
+[INFO] ** s_port:[0.834280824:25.96%,0.8139250565:21.0326%,0.8029830673999999:18.1348%,0.8149336757:17.5196%,0.8137722355:17.3506%,0.8343113882:0.0004%,0.0:0.0004%,0.8059172320999999:0.0002%,0.8030136315999999:0.0002%,0.8147502904:0.0002%,0.8030441959000001:0.0002%,0.814841983:0.0002%,0.9621003729000001:0.0002%,0.8345253376999999:0.0002%,0.7788831836:0.0002%]
+[INFO] ** classification:[normal:72.7902%,Single Stage Single Point:27.2098%]
+[INFO] columns with count within 2-10 {'i/f_name': 2, 'i/f_dir': 2, 'src': 7, 'dst': 8, 'proto': 2, 'appi_name': 4, 'proxy_src_ip': 7, 'modbus_function_code': 2, 'modbus_function_description': 3, 'scada_tag': 6, 'service': 4, 'classification': 2}
+[INFO] processing batch 0-100000/500000
+[33m[INFO] measuring accuracy...[0m
+x_test.shape: (100000, 16)
+y_eval [1 0 1 ... 0 1 0] (100000,)
+[INFO] reshape for using LSTM layers
+[33m[INFO] metrics:[0m
+loss :  0.7160978177070617
+tp :  53024.0
+fp :  46976.0
+tn :  353024.0
+fn :  46976.0
+accuracy :  0.8120962381362915
+precision :  0.530239999294281
+recall :  0.530239999294281
+auc :  0.8827124834060669
+
+y_eval {0: 53024, 1: 46976}
+pred {0: 100000}
+[INFO] confusion matrix for file 
+[[53024     0     0     0     0]
+ [46976     0     0     0     0]
+ [    0     0     0     0     0]
+ [    0     0     0     0     0]
+ [    0     0     0     0     0]]
+[INFO] confusion matrix after adding it to total:
+[[53024     0     0     0     0]
+ [46976     0     0     0     0]
+ [    0     0     0     0     0]
+ [    0     0     0     0     0]
+ [    0     0     0     0     0]]
+[INFO] processing batch 100000-200000/500000
+[33m[INFO] measuring accuracy...[0m
+x_test.shape: (100000, 16)
+y_eval [0 1 0 ... 0 0 0] (100000,)
+[INFO] reshape for using LSTM layers
+[33m[INFO] metrics:[0m
+loss :  0.525392113828659
+tp :  87619.0
+fp :  12381.0
+tn :  387619.0
+fn :  12381.0
+accuracy :  0.9504759907722473
+precision :  0.8761900067329407
+recall :  0.8761900067329407
+auc :  0.969028890132904
+
+y_eval {0: 87619, 1: 12381}
+pred {0: 100000}
+[INFO] confusion matrix for file 
+[[87619     0     0     0     0]
+ [12381     0     0     0     0]
+ [    0     0     0     0     0]
+ [    0     0     0     0     0]
+ [    0     0     0     0     0]]
+[INFO] confusion matrix after adding it to total:
+[[140643      0      0      0      0]
+ [ 59357      0      0      0      0]
+ [     0      0      0      0      0]
+ [     0      0      0      0      0]
+ [     0      0      0      0      0]]
+[INFO] processing batch 200000-300000/500000
+[33m[INFO] measuring accuracy...[0m
+x_test.shape: (100000, 16)
+y_eval [0 0 0 ... 1 0 1] (100000,)
+[INFO] reshape for using LSTM layers
+[33m[INFO] metrics:[0m
+loss :  0.5508402725219727
+tp :  83025.0
+fp :  16975.0
+tn :  383025.0
+fn :  16975.0
+accuracy :  0.9320994019508362
+precision :  0.8302500247955322
+recall :  0.8302500247955322
+auc :  0.9575208425521851
+
+y_eval {0: 83025, 1: 16975}
+pred {0: 100000}
+[INFO] confusion matrix for file 
+[[83025     0     0     0     0]
+ [16975     0     0     0     0]
+ [    0     0     0     0     0]
+ [    0     0     0     0     0]
+ [    0     0     0     0     0]]
+[INFO] confusion matrix after adding it to total:
+[[223668      0      0      0      0]
+ [ 76332      0      0      0      0]
+ [     0      0      0      0      0]
+ [     0      0      0      0      0]
+ [     0      0      0      0      0]]
+[INFO] processing batch 300000-400000/500000
+[33m[INFO] measuring accuracy...[0m
+x_test.shape: (100000, 16)
+y_eval [1 0 0 ... 1 1 0] (100000,)
+[INFO] reshape for using LSTM layers
+[33m[INFO] metrics:[0m
+loss :  0.7171131799697876
+tp :  52923.0
+fp :  47077.0
+tn :  352923.0
+fn :  47077.0
+accuracy :  0.8116917014122009
+precision :  0.529229998588562
+recall :  0.529229998588562
+auc :  0.8821462988853455
+
+y_eval {0: 52923, 1: 47077}
+pred {0: 100000}
+[INFO] confusion matrix for file 
+[[52923     0     0     0     0]
+ [47077     0     0     0     0]
+ [    0     0     0     0     0]
+ [    0     0     0     0     0]
+ [    0     0     0     0     0]]
+[INFO] confusion matrix after adding it to total:
+[[276591      0      0      0      0]
+ [123409      0      0      0      0]
+ [     0      0      0      0      0]
+ [     0      0      0      0      0]
+ [     0      0      0      0      0]]
+[INFO] processing batch 400000-500000/500000
+[33m[INFO] measuring accuracy...[0m
+x_test.shape: (100000, 16)
+y_eval [0 0 1 ... 0 0 0] (100000,)
+[INFO] reshape for using LSTM layers
+[33m[INFO] metrics:[0m
+loss :  0.5269217154502869
+tp :  87360.0
+fp :  12640.0
+tn :  387360.0
+fn :  12640.0
+accuracy :  0.9494400024414062
+precision :  0.8736000061035156
+recall :  0.8736000061035156
+auc :  0.968222975730896
+
+y_eval {0: 87360, 1: 12640}
+pred {0: 100000}
+[INFO] confusion matrix for file 
+[[87360     0     0     0     0]
+ [12640     0     0     0     0]
+ [    0     0     0     0     0]
+ [    0     0     0     0     0]
+ [    0     0     0     0     0]]
+[INFO] confusion matrix after adding it to total:
+[[363951      0      0      0      0]
+ [136049      0      0      0      0]
+ [     0      0      0      0      0]
+ [     0      0      0      0      0]
+ [     0      0      0      0      0]]
+--- 18.212099075317383 seconds ---
