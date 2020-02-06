@@ -296,7 +296,7 @@ parser.add_argument('-zscoreUnixtime', default=False, help='apply zscore to unix
 parser.add_argument('-encodeColumns', default=False, help='switch between auto encoding or using a fully encoded dataset')
 parser.add_argument('-classes', type=str, help='supply one or multiple comma separated class identifiers')
 parser.add_argument('-saveModel', default=False, help='save model (if false, only the weights will be saved)')
-parser.add_argument('-binaryClasses', default=False, help='use binary classses')
+parser.add_argument('-binaryClasses', default=True, help='use binary classses')
 parser.add_argument('-relu', default=False, help='use ReLU activation function (default: LeakyReLU)')
 
 # parse commandline arguments
@@ -312,9 +312,9 @@ if arguments.classes is not None:
     classes = arguments.classes.split(',')
     print("set classes to:", classes)
 
-print("=============================")
-print("        TRAINING v0.4")
-print("=============================")
+print("=================================================")
+print("        TRAINING v0.4.1 (binaryClasses)")
+print("=================================================")
 print("Date:", datetime.datetime.now())
 start_time = time.time()
 

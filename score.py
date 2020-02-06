@@ -227,7 +227,7 @@ parser.add_argument('-debug', default=False, help='debug mode on off')
 parser.add_argument('-classes', type=str, help='supply one or multiple comma separated class identifiers')
 parser.add_argument('-zscoreUnixtime', default=False, help='apply zscore to unixtime column')
 parser.add_argument('-encodeColumns', default=False, help='switch between auto encoding or using a fully encoded dataset')
-parser.add_argument('-binaryClasses', default=False, help='use binary classses')
+parser.add_argument('-binaryClasses', default=True, help='use binary classses')
 parser.add_argument('-relu', default=False, help='use ReLU activation function (default: LeakyReLU)')
 
 # parse commandline arguments
@@ -254,9 +254,9 @@ if len(files) == 0:
     print("[INFO] no files matched")
     exit(1)
 
-print("=============================")
-print("        SCORING v0.4")
-print("=============================")
+print("=================================================")
+print("        SCORING v0.4.1 (binaryClasses)")
+print("=================================================")
 print("Date:", datetime.datetime.now())
 start_time = time.time()
 
