@@ -1,14 +1,16 @@
-2020-02-06 01:49:24.209783: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
-2020-02-06 01:49:24.222768: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7fc49ffa0bc0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
-2020-02-06 01:49:24.222794: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2020-02-06 02:13:02.356290: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2020-02-06 02:13:02.369234: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7fbcd6ff64c0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-02-06 02:13:02.369268: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
 Using TensorFlow backend.
 WARNING:tensorflow:Large dropout rate: 0.8 (>0.5). In TensorFlow 2.x, dropout() uses dropout rate instead of keep_prob. Please ensure that this is intended.
 =============================
         TRAINING v0.4
 =============================
-Date: 2020-02-06 01:49:24.206109
+Date: 2020-02-06 02:13:02.352694
 [33m[INFO] using Sequential Dense layers[0m
 [INFO] adding core layer 0
+[INFO] adding core layer 1
+[INFO] adding core layer 2
 [INFO] created DNN
 [33m[INFO] epoch 1/10[0m
 [33m[INFO] loading file 1-1/1 on epoch 1/10[0m
@@ -30,7 +32,7 @@ dropping all time related columns...
 [INFO] fitting model
 Train on 80000 samples, validate on 20000 samples
 Epoch 1/1
- - 5s - loss: 0.5595 - tp: 55456.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 24544.0000 - accuracy: 0.9386 - precision: 1.0000 - recall: 0.6932 - auc: 1.0000 - val_loss: 0.1325 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+ - 5s - loss: 0.1926 - tp: 74528.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 5472.0000 - accuracy: 0.9863 - precision: 1.0000 - recall: 0.9316 - auc: 1.0000 - val_loss: 0.0366 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
 [INFO] saving weights to checkpoints/dnn-epoch-001-files-0-1
 [INFO] processing batch 100000-200000/500000
 [INFO] breaking into predictors and prediction...
@@ -38,7 +40,7 @@ Epoch 1/1
 [INFO] fitting model
 Train on 80000 samples, validate on 20000 samples
 Epoch 1/1
- - 4s - loss: 0.0636 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0271 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+ - 5s - loss: 0.0246 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0173 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
 [INFO] saving weights to checkpoints/dnn-epoch-001-files-0-1
 [INFO] processing batch 200000-300000/500000
 [INFO] breaking into predictors and prediction...
@@ -46,7 +48,7 @@ Epoch 1/1
 [INFO] fitting model
 Train on 80000 samples, validate on 20000 samples
 Epoch 1/1
- - 5s - loss: 0.0319 - tp: 79766.0000 - fp: 234.0000 - tn: 319766.0000 - fn: 234.0000 - accuracy: 0.9988 - precision: 0.9971 - recall: 0.9971 - auc: 0.9983 - val_loss: 2.7276 - val_tp: 10606.0000 - val_fp: 9394.0000 - val_tn: 70606.0000 - val_fn: 9394.0000 - val_accuracy: 0.8121 - val_precision: 0.5303 - val_recall: 0.5303 - val_auc: 0.7064
+ - 5s - loss: 0.0308 - tp: 79766.0000 - fp: 234.0000 - tn: 319766.0000 - fn: 234.0000 - accuracy: 0.9988 - precision: 0.9971 - recall: 0.9971 - auc: 0.9982 - val_loss: 2.7074 - val_tp: 10606.0000 - val_fp: 9394.0000 - val_tn: 70606.0000 - val_fn: 9394.0000 - val_accuracy: 0.8121 - val_precision: 0.5303 - val_recall: 0.5303 - val_auc: 0.7064
 [INFO] saving weights to checkpoints/dnn-epoch-001-files-0-1
 [INFO] processing batch 300000-400000/500000
 [INFO] breaking into predictors and prediction...
@@ -54,7 +56,7 @@ Epoch 1/1
 [INFO] fitting model
 Train on 80000 samples, validate on 20000 samples
 Epoch 1/1
- - 5s - loss: 1.1702 - tp: 42447.0000 - fp: 37553.0000 - tn: 282447.0000 - fn: 37553.0000 - accuracy: 0.8122 - precision: 0.5306 - recall: 0.5306 - auc: 0.8754 - val_loss: 0.7034 - val_tp: 10626.0000 - val_fp: 9374.0000 - val_tn: 70626.0000 - val_fn: 9374.0000 - val_accuracy: 0.8125 - val_precision: 0.5313 - val_recall: 0.5313 - val_auc: 0.8828
+ - 5s - loss: 0.9519 - tp: 42447.0000 - fp: 37553.0000 - tn: 282447.0000 - fn: 37553.0000 - accuracy: 0.8122 - precision: 0.5306 - recall: 0.5306 - auc: 0.8608 - val_loss: 0.7243 - val_tp: 10626.0000 - val_fp: 9374.0000 - val_tn: 70626.0000 - val_fn: 9374.0000 - val_accuracy: 0.8125 - val_precision: 0.5313 - val_recall: 0.5313 - val_auc: 0.8828
 [INFO] saving weights to checkpoints/dnn-epoch-001-files-0-1
 [INFO] processing batch 400000-500000/500000
 [INFO] breaking into predictors and prediction...
@@ -62,9 +64,9 @@ Epoch 1/1
 [INFO] fitting model
 Train on 80000 samples, validate on 20000 samples
 Epoch 1/1
- - 5s - loss: 0.6961 - tp: 42438.0000 - fp: 37562.0000 - tn: 282438.0000 - fn: 37562.0000 - accuracy: 0.8122 - precision: 0.5305 - recall: 0.5305 - auc: 0.8827 - val_loss: 0.6936 - val_tp: 10603.0000 - val_fp: 9397.0000 - val_tn: 70603.0000 - val_fn: 9397.0000 - val_accuracy: 0.8121 - val_precision: 0.5301 - val_recall: 0.5301 - val_auc: 0.8825
+ - 5s - loss: 0.7167 - tp: 42438.0000 - fp: 37562.0000 - tn: 282438.0000 - fn: 37562.0000 - accuracy: 0.8122 - precision: 0.5305 - recall: 0.5305 - auc: 0.8826 - val_loss: 0.7112 - val_tp: 10603.0000 - val_fp: 9397.0000 - val_tn: 70603.0000 - val_fn: 9397.0000 - val_accuracy: 0.8121 - val_precision: 0.5301 - val_recall: 0.5301 - val_auc: 0.8825
 [INFO] saving weights to checkpoints/dnn-epoch-001-files-0-1
-[33m[LOSS] 0.6936022264480591[0m
+[33m[LOSS] 0.7111580912590026[0m
 [33m[INFO] epoch 2/10[0m
 [33m[INFO] loading file 1-1/1 on epoch 2/10[0m
 [INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv
@@ -85,7 +87,7 @@ dropping all time related columns...
 [INFO] fitting model
 Train on 80000 samples, validate on 20000 samples
 Epoch 1/1
- - 5s - loss: 0.1196 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0286 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+ - 5s - loss: 0.0893 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0240 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
 [INFO] saving weights to checkpoints/dnn-epoch-002-files-0-1
 [INFO] processing batch 100000-200000/500000
 [INFO] breaking into predictors and prediction...
@@ -93,7 +95,7 @@ Epoch 1/1
 [INFO] fitting model
 Train on 80000 samples, validate on 20000 samples
 Epoch 1/1
- - 5s - loss: 0.0150 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0071 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+ - 5s - loss: 0.0168 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0123 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
 [INFO] saving weights to checkpoints/dnn-epoch-002-files-0-1
 [INFO] processing batch 200000-300000/500000
 [INFO] breaking into predictors and prediction...
@@ -101,7 +103,7 @@ Epoch 1/1
 [INFO] fitting model
 Train on 80000 samples, validate on 20000 samples
 Epoch 1/1
- - 5s - loss: 0.0206 - tp: 79766.0000 - fp: 234.0000 - tn: 319766.0000 - fn: 234.0000 - accuracy: 0.9988 - precision: 0.9971 - recall: 0.9971 - auc: 0.9987 - val_loss: 2.6154 - val_tp: 10606.0000 - val_fp: 9394.0000 - val_tn: 70606.0000 - val_fn: 9394.0000 - val_accuracy: 0.8121 - val_precision: 0.5303 - val_recall: 0.5303 - val_auc: 0.7064
+ - 5s - loss: 0.0247 - tp: 79766.0000 - fp: 234.0000 - tn: 319766.0000 - fn: 234.0000 - accuracy: 0.9988 - precision: 0.9971 - recall: 0.9971 - auc: 0.9993 - val_loss: 2.3518 - val_tp: 10606.0000 - val_fp: 9394.0000 - val_tn: 70606.0000 - val_fn: 9394.0000 - val_accuracy: 0.8121 - val_precision: 0.5303 - val_recall: 0.5303 - val_auc: 0.8826
 [INFO] saving weights to checkpoints/dnn-epoch-002-files-0-1
 [INFO] processing batch 300000-400000/500000
 [INFO] breaking into predictors and prediction...
@@ -109,7 +111,7 @@ Epoch 1/1
 [INFO] fitting model
 Train on 80000 samples, validate on 20000 samples
 Epoch 1/1
- - 5s - loss: 1.0893 - tp: 42447.0000 - fp: 37553.0000 - tn: 282447.0000 - fn: 37553.0000 - accuracy: 0.8122 - precision: 0.5306 - recall: 0.5306 - auc: 0.8812 - val_loss: 0.6932 - val_tp: 10626.0000 - val_fp: 9374.0000 - val_tn: 70626.0000 - val_fn: 9374.0000 - val_accuracy: 0.8125 - val_precision: 0.5313 - val_recall: 0.5313 - val_auc: 0.8828
+ - 5s - loss: 0.8576 - tp: 42447.0000 - fp: 37553.0000 - tn: 282447.0000 - fn: 37553.0000 - accuracy: 0.8122 - precision: 0.5306 - recall: 0.5306 - auc: 0.8827 - val_loss: 0.7027 - val_tp: 10626.0000 - val_fp: 9374.0000 - val_tn: 70626.0000 - val_fn: 9374.0000 - val_accuracy: 0.8125 - val_precision: 0.5313 - val_recall: 0.5313 - val_auc: 0.8828
 [INFO] saving weights to checkpoints/dnn-epoch-002-files-0-1
 [INFO] processing batch 400000-500000/500000
 [INFO] breaking into predictors and prediction...
@@ -117,9 +119,9 @@ Epoch 1/1
 [INFO] fitting model
 Train on 80000 samples, validate on 20000 samples
 Epoch 1/1
- - 5s - loss: 0.6916 - tp: 42438.0000 - fp: 37562.0000 - tn: 282438.0000 - fn: 37562.0000 - accuracy: 0.8122 - precision: 0.5305 - recall: 0.5305 - auc: 0.8821 - val_loss: 0.6914 - val_tp: 10603.0000 - val_fp: 9397.0000 - val_tn: 70603.0000 - val_fn: 9397.0000 - val_accuracy: 0.8121 - val_precision: 0.5301 - val_recall: 0.5301 - val_auc: 0.8825
+ - 5s - loss: 0.7017 - tp: 42438.0000 - fp: 37562.0000 - tn: 282438.0000 - fn: 37562.0000 - accuracy: 0.8122 - precision: 0.5305 - recall: 0.5305 - auc: 0.8826 - val_loss: 0.7007 - val_tp: 10603.0000 - val_fp: 9397.0000 - val_tn: 70603.0000 - val_fn: 9397.0000 - val_accuracy: 0.8121 - val_precision: 0.5301 - val_recall: 0.5301 - val_auc: 0.8825
 [INFO] saving weights to checkpoints/dnn-epoch-002-files-0-1
-[33m[LOSS] 0.6913645997047424[0m
+[33m[LOSS] 0.70066098279953[0m
 [33m[INFO] epoch 3/10[0m
 [33m[INFO] loading file 1-1/1 on epoch 3/10[0m
 [INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv
@@ -140,7 +142,7 @@ dropping all time related columns...
 [INFO] fitting model
 Train on 80000 samples, validate on 20000 samples
 Epoch 1/1
- - 5s - loss: 0.1165 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0278 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+ - 5s - loss: 0.0858 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0225 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
 [INFO] saving weights to checkpoints/dnn-epoch-003-files-0-1
 [INFO] processing batch 100000-200000/500000
 [INFO] breaking into predictors and prediction...
@@ -148,7 +150,7 @@ Epoch 1/1
 [INFO] fitting model
 Train on 80000 samples, validate on 20000 samples
 Epoch 1/1
- - 5s - loss: 0.0146 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0069 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+ - 5s - loss: 0.0157 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0114 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
 [INFO] saving weights to checkpoints/dnn-epoch-003-files-0-1
 [INFO] processing batch 200000-300000/500000
 [INFO] breaking into predictors and prediction...
@@ -156,7 +158,7 @@ Epoch 1/1
 [INFO] fitting model
 Train on 80000 samples, validate on 20000 samples
 Epoch 1/1
- - 5s - loss: 0.0205 - tp: 79766.0000 - fp: 234.0000 - tn: 319766.0000 - fn: 234.0000 - accuracy: 0.9988 - precision: 0.9971 - recall: 0.9971 - auc: 0.9988 - val_loss: 2.6344 - val_tp: 10606.0000 - val_fp: 9394.0000 - val_tn: 70606.0000 - val_fn: 9394.0000 - val_accuracy: 0.8121 - val_precision: 0.5303 - val_recall: 0.5303 - val_auc: 0.7064
+ - 5s - loss: 0.0238 - tp: 79766.0000 - fp: 234.0000 - tn: 319766.0000 - fn: 234.0000 - accuracy: 0.9988 - precision: 0.9971 - recall: 0.9971 - auc: 0.9993 - val_loss: 2.3231 - val_tp: 10606.0000 - val_fp: 9394.0000 - val_tn: 70606.0000 - val_fn: 9394.0000 - val_accuracy: 0.8121 - val_precision: 0.5303 - val_recall: 0.5303 - val_auc: 0.8826
 [INFO] saving weights to checkpoints/dnn-epoch-003-files-0-1
 [INFO] processing batch 300000-400000/500000
 [INFO] breaking into predictors and prediction...
@@ -164,7 +166,7 @@ Epoch 1/1
 [INFO] fitting model
 Train on 80000 samples, validate on 20000 samples
 Epoch 1/1
- - 5s - loss: 1.0979 - tp: 42447.0000 - fp: 37553.0000 - tn: 282447.0000 - fn: 37553.0000 - accuracy: 0.8122 - precision: 0.5306 - recall: 0.5306 - auc: 0.8806 - val_loss: 0.6936 - val_tp: 10626.0000 - val_fp: 9374.0000 - val_tn: 70626.0000 - val_fn: 9374.0000 - val_accuracy: 0.8125 - val_precision: 0.5313 - val_recall: 0.5313 - val_auc: 0.8828
+ - 5s - loss: 0.8486 - tp: 42447.0000 - fp: 37553.0000 - tn: 282447.0000 - fn: 37553.0000 - accuracy: 0.8122 - precision: 0.5306 - recall: 0.5306 - auc: 0.8826 - val_loss: 0.6982 - val_tp: 10626.0000 - val_fp: 9374.0000 - val_tn: 70626.0000 - val_fn: 9374.0000 - val_accuracy: 0.8125 - val_precision: 0.5313 - val_recall: 0.5313 - val_auc: 0.8828
 [INFO] saving weights to checkpoints/dnn-epoch-003-files-0-1
 [INFO] processing batch 400000-500000/500000
 [INFO] breaking into predictors and prediction...
@@ -172,10 +174,10 @@ Epoch 1/1
 [INFO] fitting model
 Train on 80000 samples, validate on 20000 samples
 Epoch 1/1
- - 5s - loss: 0.6915 - tp: 42438.0000 - fp: 37562.0000 - tn: 282438.0000 - fn: 37562.0000 - accuracy: 0.8122 - precision: 0.5305 - recall: 0.5305 - auc: 0.8828 - val_loss: 0.6913 - val_tp: 10603.0000 - val_fp: 9397.0000 - val_tn: 70603.0000 - val_fn: 9397.0000 - val_accuracy: 0.8121 - val_precision: 0.5301 - val_recall: 0.5301 - val_auc: 0.8825
+ - 5s - loss: 0.6978 - tp: 42438.0000 - fp: 37562.0000 - tn: 282438.0000 - fn: 37562.0000 - accuracy: 0.8122 - precision: 0.5305 - recall: 0.5305 - auc: 0.8827 - val_loss: 0.6974 - val_tp: 10603.0000 - val_fp: 9397.0000 - val_tn: 70603.0000 - val_fn: 9397.0000 - val_accuracy: 0.8121 - val_precision: 0.5301 - val_recall: 0.5301 - val_auc: 0.8825
 [INFO] saving weights to checkpoints/dnn-epoch-003-files-0-1
-[33m[LOSS] 0.6913369596481324[0m
-[CHECKING EARLY STOP]: currentLoss < min_delta ? => 0.6913369596481324  <  0.001
+[33m[LOSS] 0.6974116766929627[0m
+[CHECKING EARLY STOP]: currentLoss < min_delta ? => 0.6974116766929627  <  0.001
 [33m[INFO] epoch 4/10[0m
 [33m[INFO] loading file 1-1/1 on epoch 4/10[0m
 [INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv
@@ -196,7 +198,7 @@ dropping all time related columns...
 [INFO] fitting model
 Train on 80000 samples, validate on 20000 samples
 Epoch 1/1
- - 5s - loss: 0.1185 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0282 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+ - 5s - loss: 0.0843 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0220 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
 [INFO] saving weights to checkpoints/dnn-epoch-004-files-0-1
 [INFO] processing batch 100000-200000/500000
 [INFO] breaking into predictors and prediction...
@@ -204,7 +206,7 @@ Epoch 1/1
 [INFO] fitting model
 Train on 80000 samples, validate on 20000 samples
 Epoch 1/1
- - 5s - loss: 0.0148 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0070 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+ - 5s - loss: 0.0153 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0110 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
 [INFO] saving weights to checkpoints/dnn-epoch-004-files-0-1
 [INFO] processing batch 200000-300000/500000
 [INFO] breaking into predictors and prediction...
@@ -212,7 +214,7 @@ Epoch 1/1
 [INFO] fitting model
 Train on 80000 samples, validate on 20000 samples
 Epoch 1/1
- - 5s - loss: 0.0206 - tp: 79766.0000 - fp: 234.0000 - tn: 319766.0000 - fn: 234.0000 - accuracy: 0.9988 - precision: 0.9971 - recall: 0.9971 - auc: 0.9987 - val_loss: 2.6180 - val_tp: 10606.0000 - val_fp: 9394.0000 - val_tn: 70606.0000 - val_fn: 9394.0000 - val_accuracy: 0.8121 - val_precision: 0.5303 - val_recall: 0.5303 - val_auc: 0.7064
+ - 5s - loss: 0.0235 - tp: 79766.0000 - fp: 234.0000 - tn: 319766.0000 - fn: 234.0000 - accuracy: 0.9988 - precision: 0.9971 - recall: 0.9971 - auc: 0.9993 - val_loss: 2.3135 - val_tp: 10606.0000 - val_fp: 9394.0000 - val_tn: 70606.0000 - val_fn: 9394.0000 - val_accuracy: 0.8121 - val_precision: 0.5303 - val_recall: 0.5303 - val_auc: 0.8826
 [INFO] saving weights to checkpoints/dnn-epoch-004-files-0-1
 [INFO] processing batch 300000-400000/500000
 [INFO] breaking into predictors and prediction...
@@ -220,7 +222,7 @@ Epoch 1/1
 [INFO] fitting model
 Train on 80000 samples, validate on 20000 samples
 Epoch 1/1
- - 5s - loss: 1.0960 - tp: 42447.0000 - fp: 37553.0000 - tn: 282447.0000 - fn: 37553.0000 - accuracy: 0.8122 - precision: 0.5306 - recall: 0.5306 - auc: 0.8809 - val_loss: 0.6934 - val_tp: 10626.0000 - val_fp: 9374.0000 - val_tn: 70626.0000 - val_fn: 9374.0000 - val_accuracy: 0.8125 - val_precision: 0.5313 - val_recall: 0.5313 - val_auc: 0.8828
+ - 5s - loss: 0.8441 - tp: 42447.0000 - fp: 37553.0000 - tn: 282447.0000 - fn: 37553.0000 - accuracy: 0.8122 - precision: 0.5306 - recall: 0.5306 - auc: 0.8826 - val_loss: 0.6962 - val_tp: 10626.0000 - val_fp: 9374.0000 - val_tn: 70626.0000 - val_fn: 9374.0000 - val_accuracy: 0.8125 - val_precision: 0.5313 - val_recall: 0.5313 - val_auc: 0.8828
 [INFO] saving weights to checkpoints/dnn-epoch-004-files-0-1
 [INFO] processing batch 400000-500000/500000
 [INFO] breaking into predictors and prediction...
@@ -228,10 +230,10 @@ Epoch 1/1
 [INFO] fitting model
 Train on 80000 samples, validate on 20000 samples
 Epoch 1/1
- - 5s - loss: 0.6915 - tp: 42438.0000 - fp: 37562.0000 - tn: 282438.0000 - fn: 37562.0000 - accuracy: 0.8122 - precision: 0.5305 - recall: 0.5305 - auc: 0.8821 - val_loss: 0.6913 - val_tp: 10603.0000 - val_fp: 9397.0000 - val_tn: 70603.0000 - val_fn: 9397.0000 - val_accuracy: 0.8121 - val_precision: 0.5301 - val_recall: 0.5301 - val_auc: 0.8825
+ - 5s - loss: 0.6961 - tp: 42438.0000 - fp: 37562.0000 - tn: 282438.0000 - fn: 37562.0000 - accuracy: 0.8122 - precision: 0.5305 - recall: 0.5305 - auc: 0.8827 - val_loss: 0.6959 - val_tp: 10603.0000 - val_fp: 9397.0000 - val_tn: 70603.0000 - val_fn: 9397.0000 - val_accuracy: 0.8121 - val_precision: 0.5301 - val_recall: 0.5301 - val_auc: 0.8825
 [INFO] saving weights to checkpoints/dnn-epoch-004-files-0-1
-[33m[LOSS] 0.6913425462722779[0m
-[CHECKING EARLY STOP]: currentLoss < min_delta ? => 0.6913425462722779  <  0.001
+[33m[LOSS] 0.6958750373840332[0m
+[CHECKING EARLY STOP]: currentLoss < min_delta ? => 0.6958750373840332  <  0.001
 [33m[INFO] epoch 5/10[0m
 [33m[INFO] loading file 1-1/1 on epoch 5/10[0m
 [INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv
@@ -252,7 +254,7 @@ dropping all time related columns...
 [INFO] fitting model
 Train on 80000 samples, validate on 20000 samples
 Epoch 1/1
- - 5s - loss: 0.1163 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0277 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+ - 5s - loss: 0.0845 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0217 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
 [INFO] saving weights to checkpoints/dnn-epoch-005-files-0-1
 [INFO] processing batch 100000-200000/500000
 [INFO] breaking into predictors and prediction...
@@ -260,7 +262,7 @@ Epoch 1/1
 [INFO] fitting model
 Train on 80000 samples, validate on 20000 samples
 Epoch 1/1
- - 5s - loss: 0.0146 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0069 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+ - 5s - loss: 0.0151 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0109 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
 [INFO] saving weights to checkpoints/dnn-epoch-005-files-0-1
 [INFO] processing batch 200000-300000/500000
 [INFO] breaking into predictors and prediction...
@@ -268,7 +270,7 @@ Epoch 1/1
 [INFO] fitting model
 Train on 80000 samples, validate on 20000 samples
 Epoch 1/1
- - 5s - loss: 0.0206 - tp: 79766.0000 - fp: 234.0000 - tn: 319766.0000 - fn: 234.0000 - accuracy: 0.9988 - precision: 0.9971 - recall: 0.9971 - auc: 0.9986 - val_loss: 2.6046 - val_tp: 10606.0000 - val_fp: 9394.0000 - val_tn: 70606.0000 - val_fn: 9394.0000 - val_accuracy: 0.8121 - val_precision: 0.5303 - val_recall: 0.5303 - val_auc: 0.7064
+ - 5s - loss: 0.0233 - tp: 79766.0000 - fp: 234.0000 - tn: 319766.0000 - fn: 234.0000 - accuracy: 0.9988 - precision: 0.9971 - recall: 0.9971 - auc: 0.9993 - val_loss: 2.3082 - val_tp: 10606.0000 - val_fp: 9394.0000 - val_tn: 70606.0000 - val_fn: 9394.0000 - val_accuracy: 0.8121 - val_precision: 0.5303 - val_recall: 0.5303 - val_auc: 0.8826
 [INFO] saving weights to checkpoints/dnn-epoch-005-files-0-1
 [INFO] processing batch 300000-400000/500000
 [INFO] breaking into predictors and prediction...
@@ -276,7 +278,7 @@ Epoch 1/1
 [INFO] fitting model
 Train on 80000 samples, validate on 20000 samples
 Epoch 1/1
- - 5s - loss: 1.0882 - tp: 42447.0000 - fp: 37553.0000 - tn: 282447.0000 - fn: 37553.0000 - accuracy: 0.8122 - precision: 0.5306 - recall: 0.5306 - auc: 0.8807 - val_loss: 0.6933 - val_tp: 10626.0000 - val_fp: 9374.0000 - val_tn: 70626.0000 - val_fn: 9374.0000 - val_accuracy: 0.8125 - val_precision: 0.5313 - val_recall: 0.5313 - val_auc: 0.8828
+ - 5s - loss: 0.8421 - tp: 42447.0000 - fp: 37553.0000 - tn: 282447.0000 - fn: 37553.0000 - accuracy: 0.8122 - precision: 0.5306 - recall: 0.5306 - auc: 0.8829 - val_loss: 0.6950 - val_tp: 10626.0000 - val_fp: 9374.0000 - val_tn: 70626.0000 - val_fn: 9374.0000 - val_accuracy: 0.8125 - val_precision: 0.5313 - val_recall: 0.5313 - val_auc: 0.8828
 [INFO] saving weights to checkpoints/dnn-epoch-005-files-0-1
 [INFO] processing batch 400000-500000/500000
 [INFO] breaking into predictors and prediction...
@@ -284,10 +286,10 @@ Epoch 1/1
 [INFO] fitting model
 Train on 80000 samples, validate on 20000 samples
 Epoch 1/1
- - 5s - loss: 0.6915 - tp: 42438.0000 - fp: 37562.0000 - tn: 282438.0000 - fn: 37562.0000 - accuracy: 0.8122 - precision: 0.5305 - recall: 0.5305 - auc: 0.8826 - val_loss: 0.6914 - val_tp: 10603.0000 - val_fp: 9397.0000 - val_tn: 70603.0000 - val_fn: 9397.0000 - val_accuracy: 0.8121 - val_precision: 0.5301 - val_recall: 0.5301 - val_auc: 0.8825
+ - 5s - loss: 0.6950 - tp: 42438.0000 - fp: 37562.0000 - tn: 282438.0000 - fn: 37562.0000 - accuracy: 0.8122 - precision: 0.5305 - recall: 0.5305 - auc: 0.8824 - val_loss: 0.6949 - val_tp: 10603.0000 - val_fp: 9397.0000 - val_tn: 70603.0000 - val_fn: 9397.0000 - val_accuracy: 0.8121 - val_precision: 0.5301 - val_recall: 0.5301 - val_auc: 0.8825
 [INFO] saving weights to checkpoints/dnn-epoch-005-files-0-1
-[33m[LOSS] 0.691396380519867[0m
-[CHECKING EARLY STOP]: currentLoss < min_delta ? => 0.691396380519867  <  0.001
+[33m[LOSS] 0.6949302778244019[0m
+[CHECKING EARLY STOP]: currentLoss < min_delta ? => 0.6949302778244019  <  0.001
 [33m[INFO] epoch 6/10[0m
 [33m[INFO] loading file 1-1/1 on epoch 6/10[0m
 [INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv
@@ -308,7 +310,7 @@ dropping all time related columns...
 [INFO] fitting model
 Train on 80000 samples, validate on 20000 samples
 Epoch 1/1
- - 5s - loss: 0.1195 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0284 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+ - 5s - loss: 0.0833 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0215 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
 [INFO] saving weights to checkpoints/dnn-epoch-006-files-0-1
 [INFO] processing batch 100000-200000/500000
 [INFO] breaking into predictors and prediction...
@@ -316,7 +318,7 @@ Epoch 1/1
 [INFO] fitting model
 Train on 80000 samples, validate on 20000 samples
 Epoch 1/1
- - 5s - loss: 0.0149 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0070 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+ - 5s - loss: 0.0149 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0107 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
 [INFO] saving weights to checkpoints/dnn-epoch-006-files-0-1
 [INFO] processing batch 200000-300000/500000
 [INFO] breaking into predictors and prediction...
@@ -324,7 +326,7 @@ Epoch 1/1
 [INFO] fitting model
 Train on 80000 samples, validate on 20000 samples
 Epoch 1/1
- - 5s - loss: 0.0206 - tp: 79766.0000 - fp: 234.0000 - tn: 319766.0000 - fn: 234.0000 - accuracy: 0.9988 - precision: 0.9971 - recall: 0.9971 - auc: 0.9988 - val_loss: 2.6219 - val_tp: 10606.0000 - val_fp: 9394.0000 - val_tn: 70606.0000 - val_fn: 9394.0000 - val_accuracy: 0.8121 - val_precision: 0.5303 - val_recall: 0.5303 - val_auc: 0.7064
+ - 5s - loss: 0.0232 - tp: 79766.0000 - fp: 234.0000 - tn: 319766.0000 - fn: 234.0000 - accuracy: 0.9988 - precision: 0.9971 - recall: 0.9971 - auc: 0.9993 - val_loss: 2.3050 - val_tp: 10606.0000 - val_fp: 9394.0000 - val_tn: 70606.0000 - val_fn: 9394.0000 - val_accuracy: 0.8121 - val_precision: 0.5303 - val_recall: 0.5303 - val_auc: 0.8826
 [INFO] saving weights to checkpoints/dnn-epoch-006-files-0-1
 [INFO] processing batch 300000-400000/500000
 [INFO] breaking into predictors and prediction...
@@ -332,7 +334,7 @@ Epoch 1/1
 [INFO] fitting model
 Train on 80000 samples, validate on 20000 samples
 Epoch 1/1
- - 5s - loss: 1.0875 - tp: 42447.0000 - fp: 37553.0000 - tn: 282447.0000 - fn: 37553.0000 - accuracy: 0.8122 - precision: 0.5306 - recall: 0.5306 - auc: 0.8809 - val_loss: 0.6934 - val_tp: 10626.0000 - val_fp: 9374.0000 - val_tn: 70626.0000 - val_fn: 9374.0000 - val_accuracy: 0.8125 - val_precision: 0.5313 - val_recall: 0.5313 - val_auc: 0.8828
+ - 5s - loss: 0.8416 - tp: 42447.0000 - fp: 37553.0000 - tn: 282447.0000 - fn: 37553.0000 - accuracy: 0.8122 - precision: 0.5306 - recall: 0.5306 - auc: 0.8828 - val_loss: 0.6944 - val_tp: 10626.0000 - val_fp: 9374.0000 - val_tn: 70626.0000 - val_fn: 9374.0000 - val_accuracy: 0.8125 - val_precision: 0.5313 - val_recall: 0.5313 - val_auc: 0.8828
 [INFO] saving weights to checkpoints/dnn-epoch-006-files-0-1
 [INFO] processing batch 400000-500000/500000
 [INFO] breaking into predictors and prediction...
@@ -340,10 +342,10 @@ Epoch 1/1
 [INFO] fitting model
 Train on 80000 samples, validate on 20000 samples
 Epoch 1/1
- - 5s - loss: 0.6915 - tp: 42438.0000 - fp: 37562.0000 - tn: 282438.0000 - fn: 37562.0000 - accuracy: 0.8122 - precision: 0.5305 - recall: 0.5305 - auc: 0.8825 - val_loss: 0.6914 - val_tp: 10603.0000 - val_fp: 9397.0000 - val_tn: 70603.0000 - val_fn: 9397.0000 - val_accuracy: 0.8121 - val_precision: 0.5301 - val_recall: 0.5301 - val_auc: 0.8825
+ - 5s - loss: 0.6944 - tp: 42438.0000 - fp: 37562.0000 - tn: 282438.0000 - fn: 37562.0000 - accuracy: 0.8122 - precision: 0.5305 - recall: 0.5305 - auc: 0.8825 - val_loss: 0.6944 - val_tp: 10603.0000 - val_fp: 9397.0000 - val_tn: 70603.0000 - val_fn: 9397.0000 - val_accuracy: 0.8121 - val_precision: 0.5301 - val_recall: 0.5301 - val_auc: 0.8825
 [INFO] saving weights to checkpoints/dnn-epoch-006-files-0-1
-[33m[LOSS] 0.6914229781150818[0m
-[CHECKING EARLY STOP]: currentLoss < min_delta ? => 0.6914229781150818  <  0.001
+[33m[LOSS] 0.6944000888824463[0m
+[CHECKING EARLY STOP]: currentLoss < min_delta ? => 0.6944000888824463  <  0.001
 [33m[INFO] epoch 7/10[0m
 [33m[INFO] loading file 1-1/1 on epoch 7/10[0m
 [INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv
@@ -364,7 +366,7 @@ dropping all time related columns...
 [INFO] fitting model
 Train on 80000 samples, validate on 20000 samples
 Epoch 1/1
- - 5s - loss: 0.1154 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0275 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+ - 5s - loss: 0.0827 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0214 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
 [INFO] saving weights to checkpoints/dnn-epoch-007-files-0-1
 [INFO] processing batch 100000-200000/500000
 [INFO] breaking into predictors and prediction...
@@ -372,7 +374,7 @@ Epoch 1/1
 [INFO] fitting model
 Train on 80000 samples, validate on 20000 samples
 Epoch 1/1
- - 5s - loss: 0.0145 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0068 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+ - 5s - loss: 0.0148 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0107 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
 [INFO] saving weights to checkpoints/dnn-epoch-007-files-0-1
 [INFO] processing batch 200000-300000/500000
 [INFO] breaking into predictors and prediction...
@@ -380,7 +382,7 @@ Epoch 1/1
 [INFO] fitting model
 Train on 80000 samples, validate on 20000 samples
 Epoch 1/1
- - 5s - loss: 0.0205 - tp: 79766.0000 - fp: 234.0000 - tn: 319766.0000 - fn: 234.0000 - accuracy: 0.9988 - precision: 0.9971 - recall: 0.9971 - auc: 0.9989 - val_loss: 2.6339 - val_tp: 10606.0000 - val_fp: 9394.0000 - val_tn: 70606.0000 - val_fn: 9394.0000 - val_accuracy: 0.8121 - val_precision: 0.5303 - val_recall: 0.5303 - val_auc: 0.7064
+ - 5s - loss: 0.0231 - tp: 79766.0000 - fp: 234.0000 - tn: 319766.0000 - fn: 234.0000 - accuracy: 0.9988 - precision: 0.9971 - recall: 0.9971 - auc: 0.9993 - val_loss: 2.3028 - val_tp: 10606.0000 - val_fp: 9394.0000 - val_tn: 70606.0000 - val_fn: 9394.0000 - val_accuracy: 0.8121 - val_precision: 0.5303 - val_recall: 0.5303 - val_auc: 0.8826
 [INFO] saving weights to checkpoints/dnn-epoch-007-files-0-1
 [INFO] processing batch 300000-400000/500000
 [INFO] breaking into predictors and prediction...
@@ -388,7 +390,7 @@ Epoch 1/1
 [INFO] fitting model
 Train on 80000 samples, validate on 20000 samples
 Epoch 1/1
- - 5s - loss: 1.0987 - tp: 42447.0000 - fp: 37553.0000 - tn: 282447.0000 - fn: 37553.0000 - accuracy: 0.8122 - precision: 0.5306 - recall: 0.5306 - auc: 0.8805 - val_loss: 0.6940 - val_tp: 10626.0000 - val_fp: 9374.0000 - val_tn: 70626.0000 - val_fn: 9374.0000 - val_accuracy: 0.8125 - val_precision: 0.5313 - val_recall: 0.5313 - val_auc: 0.8828
+ - 5s - loss: 0.8398 - tp: 42447.0000 - fp: 37553.0000 - tn: 282447.0000 - fn: 37553.0000 - accuracy: 0.8122 - precision: 0.5306 - recall: 0.5306 - auc: 0.8830 - val_loss: 0.6939 - val_tp: 10626.0000 - val_fp: 9374.0000 - val_tn: 70626.0000 - val_fn: 9374.0000 - val_accuracy: 0.8125 - val_precision: 0.5313 - val_recall: 0.5313 - val_auc: 0.8828
 [INFO] saving weights to checkpoints/dnn-epoch-007-files-0-1
 [INFO] processing batch 400000-500000/500000
 [INFO] breaking into predictors and prediction...
@@ -396,10 +398,10 @@ Epoch 1/1
 [INFO] fitting model
 Train on 80000 samples, validate on 20000 samples
 Epoch 1/1
- - 5s - loss: 0.6916 - tp: 42438.0000 - fp: 37562.0000 - tn: 282438.0000 - fn: 37562.0000 - accuracy: 0.8122 - precision: 0.5305 - recall: 0.5305 - auc: 0.8822 - val_loss: 0.6914 - val_tp: 10603.0000 - val_fp: 9397.0000 - val_tn: 70603.0000 - val_fn: 9397.0000 - val_accuracy: 0.8121 - val_precision: 0.5301 - val_recall: 0.5301 - val_auc: 0.8825
+ - 5s - loss: 0.6939 - tp: 42438.0000 - fp: 37562.0000 - tn: 282438.0000 - fn: 37562.0000 - accuracy: 0.8122 - precision: 0.5305 - recall: 0.5305 - auc: 0.8824 - val_loss: 0.6939 - val_tp: 10603.0000 - val_fp: 9397.0000 - val_tn: 70603.0000 - val_fn: 9397.0000 - val_accuracy: 0.8121 - val_precision: 0.5301 - val_recall: 0.5301 - val_auc: 0.8825
 [INFO] saving weights to checkpoints/dnn-epoch-007-files-0-1
-[33m[LOSS] 0.6913781694412231[0m
-[CHECKING EARLY STOP]: currentLoss < min_delta ? => 0.6913781694412231  <  0.001
+[33m[LOSS] 0.6938592900276184[0m
+[CHECKING EARLY STOP]: currentLoss < min_delta ? => 0.6938592900276184  <  0.001
 [33m[INFO] epoch 8/10[0m
 [33m[INFO] loading file 1-1/1 on epoch 8/10[0m
 [INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv
@@ -420,7 +422,7 @@ dropping all time related columns...
 [INFO] fitting model
 Train on 80000 samples, validate on 20000 samples
 Epoch 1/1
- - 5s - loss: 0.1152 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0275 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+ - 5s - loss: 0.0834 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0214 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
 [INFO] saving weights to checkpoints/dnn-epoch-008-files-0-1
 [INFO] processing batch 100000-200000/500000
 [INFO] breaking into predictors and prediction...
@@ -428,7 +430,7 @@ Epoch 1/1
 [INFO] fitting model
 Train on 80000 samples, validate on 20000 samples
 Epoch 1/1
- - 5s - loss: 0.0144 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0068 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+ - 4s - loss: 0.0148 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0106 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
 [INFO] saving weights to checkpoints/dnn-epoch-008-files-0-1
 [INFO] processing batch 200000-300000/500000
 [INFO] breaking into predictors and prediction...
@@ -436,7 +438,7 @@ Epoch 1/1
 [INFO] fitting model
 Train on 80000 samples, validate on 20000 samples
 Epoch 1/1
- - 5s - loss: 0.0206 - tp: 79766.0000 - fp: 234.0000 - tn: 319766.0000 - fn: 234.0000 - accuracy: 0.9988 - precision: 0.9971 - recall: 0.9971 - auc: 0.9986 - val_loss: 2.6158 - val_tp: 10606.0000 - val_fp: 9394.0000 - val_tn: 70606.0000 - val_fn: 9394.0000 - val_accuracy: 0.8121 - val_precision: 0.5303 - val_recall: 0.5303 - val_auc: 0.7064
+ - 5s - loss: 0.0230 - tp: 79766.0000 - fp: 234.0000 - tn: 319766.0000 - fn: 234.0000 - accuracy: 0.9988 - precision: 0.9971 - recall: 0.9971 - auc: 0.9993 - val_loss: 2.3018 - val_tp: 10606.0000 - val_fp: 9394.0000 - val_tn: 70606.0000 - val_fn: 9394.0000 - val_accuracy: 0.8121 - val_precision: 0.5303 - val_recall: 0.5303 - val_auc: 0.8826
 [INFO] saving weights to checkpoints/dnn-epoch-008-files-0-1
 [INFO] processing batch 300000-400000/500000
 [INFO] breaking into predictors and prediction...
@@ -444,7 +446,7 @@ Epoch 1/1
 [INFO] fitting model
 Train on 80000 samples, validate on 20000 samples
 Epoch 1/1
- - 5s - loss: 1.0917 - tp: 42447.0000 - fp: 37553.0000 - tn: 282447.0000 - fn: 37553.0000 - accuracy: 0.8122 - precision: 0.5306 - recall: 0.5306 - auc: 0.8809 - val_loss: 0.6933 - val_tp: 10626.0000 - val_fp: 9374.0000 - val_tn: 70626.0000 - val_fn: 9374.0000 - val_accuracy: 0.8125 - val_precision: 0.5313 - val_recall: 0.5313 - val_auc: 0.8828
+ - 5s - loss: 0.8414 - tp: 42447.0000 - fp: 37553.0000 - tn: 282447.0000 - fn: 37553.0000 - accuracy: 0.8122 - precision: 0.5306 - recall: 0.5306 - auc: 0.8821 - val_loss: 0.6935 - val_tp: 10626.0000 - val_fp: 9374.0000 - val_tn: 70626.0000 - val_fn: 9374.0000 - val_accuracy: 0.8125 - val_precision: 0.5313 - val_recall: 0.5313 - val_auc: 0.8828
 [INFO] saving weights to checkpoints/dnn-epoch-008-files-0-1
 [INFO] processing batch 400000-500000/500000
 [INFO] breaking into predictors and prediction...
@@ -452,10 +454,10 @@ Epoch 1/1
 [INFO] fitting model
 Train on 80000 samples, validate on 20000 samples
 Epoch 1/1
- - 5s - loss: 0.6914 - tp: 42438.0000 - fp: 37562.0000 - tn: 282438.0000 - fn: 37562.0000 - accuracy: 0.8122 - precision: 0.5305 - recall: 0.5305 - auc: 0.8830 - val_loss: 0.6914 - val_tp: 10603.0000 - val_fp: 9397.0000 - val_tn: 70603.0000 - val_fn: 9397.0000 - val_accuracy: 0.8121 - val_precision: 0.5301 - val_recall: 0.5301 - val_auc: 0.8825
+ - 5s - loss: 0.6936 - tp: 42438.0000 - fp: 37562.0000 - tn: 282438.0000 - fn: 37562.0000 - accuracy: 0.8122 - precision: 0.5305 - recall: 0.5305 - auc: 0.8824 - val_loss: 0.6935 - val_tp: 10603.0000 - val_fp: 9397.0000 - val_tn: 70603.0000 - val_fn: 9397.0000 - val_accuracy: 0.8121 - val_precision: 0.5301 - val_recall: 0.5301 - val_auc: 0.8825
 [INFO] saving weights to checkpoints/dnn-epoch-008-files-0-1
-[33m[LOSS] 0.6913605149269104[0m
-[CHECKING EARLY STOP]: currentLoss < min_delta ? => 0.6913605149269104  <  0.001
+[33m[LOSS] 0.6935368740081788[0m
+[CHECKING EARLY STOP]: currentLoss < min_delta ? => 0.6935368740081788  <  0.001
 [33m[INFO] epoch 9/10[0m
 [33m[INFO] loading file 1-1/1 on epoch 9/10[0m
 [INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv
@@ -476,7 +478,7 @@ dropping all time related columns...
 [INFO] fitting model
 Train on 80000 samples, validate on 20000 samples
 Epoch 1/1
- - 5s - loss: 0.1183 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0281 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+ - 5s - loss: 0.0831 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0213 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
 [INFO] saving weights to checkpoints/dnn-epoch-009-files-0-1
 [INFO] processing batch 100000-200000/500000
 [INFO] breaking into predictors and prediction...
@@ -484,7 +486,7 @@ Epoch 1/1
 [INFO] fitting model
 Train on 80000 samples, validate on 20000 samples
 Epoch 1/1
- - 5s - loss: 0.0148 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0070 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+ - 5s - loss: 0.0147 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0106 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
 [INFO] saving weights to checkpoints/dnn-epoch-009-files-0-1
 [INFO] processing batch 200000-300000/500000
 [INFO] breaking into predictors and prediction...
@@ -492,7 +494,7 @@ Epoch 1/1
 [INFO] fitting model
 Train on 80000 samples, validate on 20000 samples
 Epoch 1/1
- - 5s - loss: 0.0206 - tp: 79766.0000 - fp: 234.0000 - tn: 319766.0000 - fn: 234.0000 - accuracy: 0.9988 - precision: 0.9971 - recall: 0.9971 - auc: 0.9988 - val_loss: 2.6235 - val_tp: 10606.0000 - val_fp: 9394.0000 - val_tn: 70606.0000 - val_fn: 9394.0000 - val_accuracy: 0.8121 - val_precision: 0.5303 - val_recall: 0.5303 - val_auc: 0.7064
+ - 5s - loss: 0.0230 - tp: 79766.0000 - fp: 234.0000 - tn: 319766.0000 - fn: 234.0000 - accuracy: 0.9988 - precision: 0.9971 - recall: 0.9971 - auc: 0.9993 - val_loss: 2.3013 - val_tp: 10606.0000 - val_fp: 9394.0000 - val_tn: 70606.0000 - val_fn: 9394.0000 - val_accuracy: 0.8121 - val_precision: 0.5303 - val_recall: 0.5303 - val_auc: 0.8826
 [INFO] saving weights to checkpoints/dnn-epoch-009-files-0-1
 [INFO] processing batch 300000-400000/500000
 [INFO] breaking into predictors and prediction...
@@ -500,7 +502,7 @@ Epoch 1/1
 [INFO] fitting model
 Train on 80000 samples, validate on 20000 samples
 Epoch 1/1
- - 5s - loss: 1.0865 - tp: 42447.0000 - fp: 37553.0000 - tn: 282447.0000 - fn: 37553.0000 - accuracy: 0.8122 - precision: 0.5306 - recall: 0.5306 - auc: 0.8814 - val_loss: 0.6927 - val_tp: 10626.0000 - val_fp: 9374.0000 - val_tn: 70626.0000 - val_fn: 9374.0000 - val_accuracy: 0.8125 - val_precision: 0.5313 - val_recall: 0.5313 - val_auc: 0.8828
+ - 5s - loss: 0.8392 - tp: 42447.0000 - fp: 37553.0000 - tn: 282447.0000 - fn: 37553.0000 - accuracy: 0.8122 - precision: 0.5306 - recall: 0.5306 - auc: 0.8826 - val_loss: 0.6932 - val_tp: 10626.0000 - val_fp: 9374.0000 - val_tn: 70626.0000 - val_fn: 9374.0000 - val_accuracy: 0.8125 - val_precision: 0.5313 - val_recall: 0.5313 - val_auc: 0.8828
 [INFO] saving weights to checkpoints/dnn-epoch-009-files-0-1
 [INFO] processing batch 400000-500000/500000
 [INFO] breaking into predictors and prediction...
@@ -508,10 +510,10 @@ Epoch 1/1
 [INFO] fitting model
 Train on 80000 samples, validate on 20000 samples
 Epoch 1/1
- - 5s - loss: 0.6915 - tp: 42438.0000 - fp: 37562.0000 - tn: 282438.0000 - fn: 37562.0000 - accuracy: 0.8122 - precision: 0.5305 - recall: 0.5305 - auc: 0.8821 - val_loss: 0.6913 - val_tp: 10603.0000 - val_fp: 9397.0000 - val_tn: 70603.0000 - val_fn: 9397.0000 - val_accuracy: 0.8121 - val_precision: 0.5301 - val_recall: 0.5301 - val_auc: 0.8825
+ - 5s - loss: 0.6933 - tp: 42438.0000 - fp: 37562.0000 - tn: 282438.0000 - fn: 37562.0000 - accuracy: 0.8122 - precision: 0.5305 - recall: 0.5305 - auc: 0.8825 - val_loss: 0.6933 - val_tp: 10603.0000 - val_fp: 9397.0000 - val_tn: 70603.0000 - val_fn: 9397.0000 - val_accuracy: 0.8121 - val_precision: 0.5301 - val_recall: 0.5301 - val_auc: 0.8825
 [INFO] saving weights to checkpoints/dnn-epoch-009-files-0-1
-[33m[LOSS] 0.6913281664848328[0m
-[CHECKING EARLY STOP]: currentLoss < min_delta ? => 0.6913281664848328  <  0.001
+[33m[LOSS] 0.693299866771698[0m
+[CHECKING EARLY STOP]: currentLoss < min_delta ? => 0.693299866771698  <  0.001
 [33m[INFO] epoch 10/10[0m
 [33m[INFO] loading file 1-1/1 on epoch 10/10[0m
 [INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv
@@ -532,7 +534,7 @@ dropping all time related columns...
 [INFO] fitting model
 Train on 80000 samples, validate on 20000 samples
 Epoch 1/1
- - 5s - loss: 0.1167 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0278 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+ - 5s - loss: 0.0828 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0212 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
 [INFO] saving weights to checkpoints/dnn-epoch-010-files-0-1
 [INFO] processing batch 100000-200000/500000
 [INFO] breaking into predictors and prediction...
@@ -540,7 +542,7 @@ Epoch 1/1
 [INFO] fitting model
 Train on 80000 samples, validate on 20000 samples
 Epoch 1/1
- - 5s - loss: 0.0146 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0069 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+ - 5s - loss: 0.0147 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0105 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
 [INFO] saving weights to checkpoints/dnn-epoch-010-files-0-1
 [INFO] processing batch 200000-300000/500000
 [INFO] breaking into predictors and prediction...
@@ -548,7 +550,7 @@ Epoch 1/1
 [INFO] fitting model
 Train on 80000 samples, validate on 20000 samples
 Epoch 1/1
- - 5s - loss: 0.0206 - tp: 79766.0000 - fp: 234.0000 - tn: 319766.0000 - fn: 234.0000 - accuracy: 0.9988 - precision: 0.9971 - recall: 0.9971 - auc: 0.9986 - val_loss: 2.6069 - val_tp: 10606.0000 - val_fp: 9394.0000 - val_tn: 70606.0000 - val_fn: 9394.0000 - val_accuracy: 0.8121 - val_precision: 0.5303 - val_recall: 0.5303 - val_auc: 0.7064
+ - 5s - loss: 0.0229 - tp: 79766.0000 - fp: 234.0000 - tn: 319766.0000 - fn: 234.0000 - accuracy: 0.9988 - precision: 0.9971 - recall: 0.9971 - auc: 0.9993 - val_loss: 2.2997 - val_tp: 10606.0000 - val_fp: 9394.0000 - val_tn: 70606.0000 - val_fn: 9394.0000 - val_accuracy: 0.8121 - val_precision: 0.5303 - val_recall: 0.5303 - val_auc: 0.8826
 [INFO] saving weights to checkpoints/dnn-epoch-010-files-0-1
 [INFO] processing batch 300000-400000/500000
 [INFO] breaking into predictors and prediction...
@@ -556,7 +558,7 @@ Epoch 1/1
 [INFO] fitting model
 Train on 80000 samples, validate on 20000 samples
 Epoch 1/1
- - 5s - loss: 1.0853 - tp: 42447.0000 - fp: 37553.0000 - tn: 282447.0000 - fn: 37553.0000 - accuracy: 0.8122 - precision: 0.5306 - recall: 0.5306 - auc: 0.8810 - val_loss: 0.6934 - val_tp: 10626.0000 - val_fp: 9374.0000 - val_tn: 70626.0000 - val_fn: 9374.0000 - val_accuracy: 0.8125 - val_precision: 0.5313 - val_recall: 0.5313 - val_auc: 0.8828
+ - 5s - loss: 0.8397 - tp: 42447.0000 - fp: 37553.0000 - tn: 282447.0000 - fn: 37553.0000 - accuracy: 0.8122 - precision: 0.5306 - recall: 0.5306 - auc: 0.8826 - val_loss: 0.6930 - val_tp: 10626.0000 - val_fp: 9374.0000 - val_tn: 70626.0000 - val_fn: 9374.0000 - val_accuracy: 0.8125 - val_precision: 0.5313 - val_recall: 0.5313 - val_auc: 0.8828
 [INFO] saving weights to checkpoints/dnn-epoch-010-files-0-1
 [INFO] processing batch 400000-500000/500000
 [INFO] breaking into predictors and prediction...
@@ -564,22 +566,24 @@ Epoch 1/1
 [INFO] fitting model
 Train on 80000 samples, validate on 20000 samples
 Epoch 1/1
- - 5s - loss: 0.6914 - tp: 42438.0000 - fp: 37562.0000 - tn: 282438.0000 - fn: 37562.0000 - accuracy: 0.8122 - precision: 0.5305 - recall: 0.5305 - auc: 0.8829 - val_loss: 0.6914 - val_tp: 10603.0000 - val_fp: 9397.0000 - val_tn: 70603.0000 - val_fn: 9397.0000 - val_accuracy: 0.8121 - val_precision: 0.5301 - val_recall: 0.5301 - val_auc: 0.8825
+ - 5s - loss: 0.6931 - tp: 42438.0000 - fp: 37562.0000 - tn: 282438.0000 - fn: 37562.0000 - accuracy: 0.8122 - precision: 0.5305 - recall: 0.5305 - auc: 0.8829 - val_loss: 0.6932 - val_tp: 10603.0000 - val_fp: 9397.0000 - val_tn: 70603.0000 - val_fn: 9397.0000 - val_accuracy: 0.8121 - val_precision: 0.5301 - val_recall: 0.5301 - val_auc: 0.8825
 [INFO] saving weights to checkpoints/dnn-epoch-010-files-0-1
-[33m[LOSS] 0.69140807762146[0m
-[CHECKING EARLY STOP]: currentLoss < min_delta ? => 0.69140807762146  <  0.001
---- 258.8878381252289 seconds ---
-2020-02-06 01:53:46.488936: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
-2020-02-06 01:53:46.501887: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7febd74296e0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
-2020-02-06 01:53:46.501923: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+[33m[LOSS] 0.6931596707344055[0m
+[CHECKING EARLY STOP]: currentLoss < min_delta ? => 0.6931596707344055  <  0.001
+--- 262.5683057308197 seconds ---
+2020-02-06 02:17:28.133970: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2020-02-06 02:17:28.146860: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7f8d76426aa0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-02-06 02:17:28.146894: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
 Using TensorFlow backend.
 WARNING:tensorflow:Large dropout rate: 0.8 (>0.5). In TensorFlow 2.x, dropout() uses dropout rate instead of keep_prob. Please ensure that this is intended.
 =============================
         SCORING v0.4
 =============================
-Date: 2020-02-06 01:53:46.485459
+Date: 2020-02-06 02:17:28.130182
 [33m[INFO] using Sequential Dense layers[0m
 [INFO] adding core layer 0
+[INFO] adding core layer 1
+[INFO] adding core layer 2
 [INFO] created DNN
 loading weights: checkpoints/*
 loading file checkpoints/dnn-epoch-010-files-0-1
@@ -588,26 +592,34 @@ Model: "sequential_1"
 _________________________________________________________________
 Layer (type)                 Output Shape              Param #   
 =================================================================
-dense_1 (Dense)              (None, 2)                 32        
+dense_1 (Dense)              (None, 16)                256       
 _________________________________________________________________
-dropout_1 (Dropout)          (None, 2)                 0         
+dropout_1 (Dropout)          (None, 16)                0         
 _________________________________________________________________
-dense_2 (Dense)              (None, 4)                 12        
+dense_2 (Dense)              (None, 64)                1088      
 _________________________________________________________________
-dropout_2 (Dropout)          (None, 4)                 0         
+dropout_2 (Dropout)          (None, 64)                0         
 _________________________________________________________________
-dense_3 (Dense)              (None, 2)                 10        
+dense_3 (Dense)              (None, 64)                4160      
 _________________________________________________________________
-dropout_3 (Dropout)          (None, 2)                 0         
+dropout_3 (Dropout)          (None, 64)                0         
 _________________________________________________________________
-dense_4 (Dense)              (None, 1)                 3         
+dense_4 (Dense)              (None, 64)                4160      
 _________________________________________________________________
-dropout_4 (Dropout)          (None, 1)                 0         
+dropout_4 (Dropout)          (None, 64)                0         
 _________________________________________________________________
-dense_5 (Dense)              (None, 5)                 10        
+dense_5 (Dense)              (None, 16)                1040      
+_________________________________________________________________
+dropout_5 (Dropout)          (None, 16)                0         
+_________________________________________________________________
+dense_6 (Dense)              (None, 1)                 17        
+_________________________________________________________________
+dropout_6 (Dropout)          (None, 1)                 0         
+_________________________________________________________________
+dense_7 (Dense)              (None, 5)                 10        
 =================================================================
-Total params: 67
-Trainable params: 67
+Total params: 10,731
+Trainable params: 10,731
 Non-trainable params: 0
 _________________________________________________________________
 [INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-28_113021_98.log.part13_sorted-labeled.csv
@@ -647,7 +659,7 @@ x_test.shape: (100000, 15)
 y_eval [1 0 1 ... 0 1 0] (100000,)
 [INFO] Validation score: [33m0.53024[0m
 [33m[INFO] metrics:[0m
-loss :  0.6913994908714295
+loss :  0.6931509659004211
 tp :  53024.0
 fp :  46976.0
 tn :  353024.0
@@ -677,7 +689,7 @@ x_test.shape: (100000, 15)
 y_eval [0 1 0 ... 0 0 0] (100000,)
 [INFO] Validation score: [33m0.87619[0m
 [33m[INFO] metrics:[0m
-loss :  0.6583952060127258
+loss :  0.6596843374824524
 tp :  87619.0
 fp :  12381.0
 tn :  387619.0
@@ -707,7 +719,7 @@ x_test.shape: (100000, 15)
 y_eval [0 0 0 ... 1 0 1] (100000,)
 [INFO] Validation score: [33m0.83025[0m
 [33m[INFO] metrics:[0m
-loss :  0.6627779690551758
+loss :  0.6641284971046447
 tp :  83025.0
 fp :  16975.0
 tn :  383025.0
@@ -737,7 +749,7 @@ x_test.shape: (100000, 15)
 y_eval [1 0 0 ... 1 1 0] (100000,)
 [INFO] Validation score: [33m0.52923[0m
 [33m[INFO] metrics:[0m
-loss :  0.6914958469581604
+loss :  0.6932486709976197
 tp :  52923.0
 fp :  47077.0
 tn :  352923.0
@@ -767,7 +779,7 @@ x_test.shape: (100000, 15)
 y_eval [0 0 1 ... 0 0 0] (100000,)
 [INFO] Validation score: [33m0.8736[0m
 [33m[INFO] metrics:[0m
-loss :  0.6586422968673706
+loss :  0.6599348901367188
 tp :  87360.0
 fp :  12640.0
 tn :  387360.0
@@ -791,4 +803,4 @@ pred {0: 100000}
  [     0      0      0      0      0]
  [     0      0      0      0      0]
  [     0      0      0      0      0]]
---- 20.28888511657715 seconds ---
+--- 21.86647605895996 seconds ---

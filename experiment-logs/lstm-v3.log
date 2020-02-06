@@ -1,30 +1,30 @@
-2020-02-06 02:47:07.231029: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
-2020-02-06 02:47:07.243894: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7fd1d1c30b00 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
-2020-02-06 02:47:07.243923: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2020-02-06 03:17:59.610766: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2020-02-06 03:17:59.621107: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7fdd564b7a60 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-02-06 03:17:59.621136: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
 Using TensorFlow backend.
 WARNING:tensorflow:Large dropout rate: 0.8 (>0.5). In TensorFlow 2.x, dropout() uses dropout rate instead of keep_prob. Please ensure that this is intended.
-2020-02-06 02:47:11.505135: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] remapper failed: Invalid argument: MutableGraphView::MutableGraphView error: node 'loss/dense_2_loss/categorical_crossentropy/weighted_loss/concat' has self cycle fanin 'loss/dense_2_loss/categorical_crossentropy/weighted_loss/concat'.
-2020-02-06 02:47:11.529846: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 0, topological sort failed with message: The graph couldn't be sorted in topological order.
-2020-02-06 02:47:11.542116: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 1, topological sort failed with message: The graph couldn't be sorted in topological order.
-2020-02-06 02:47:11.640928: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] arithmetic_optimizer failed: Invalid argument: The graph couldn't be sorted in topological order.
-2020-02-06 02:47:11.648306: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] remapper failed: Invalid argument: MutableGraphView::MutableGraphView error: node 'loss/dense_2_loss/categorical_crossentropy/weighted_loss/concat' has self cycle fanin 'loss/dense_2_loss/categorical_crossentropy/weighted_loss/concat'.
-2020-02-06 02:47:11.656165: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 0, topological sort failed with message: The graph couldn't be sorted in topological order.
-2020-02-06 02:47:11.663693: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 1, topological sort failed with message: The graph couldn't be sorted in topological order.
-2020-02-06 02:47:11.697619: W tensorflow/core/common_runtime/process_function_library_runtime.cc:697] Ignoring multi-device function optimization failure: Invalid argument: The graph couldn't be sorted in topological order.
-2020-02-06 02:47:15.676367: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] remapper failed: Invalid argument: MutableGraphView::MutableGraphView error: node 'loss/dense_2_loss/categorical_crossentropy/weighted_loss/concat' has self cycle fanin 'loss/dense_2_loss/categorical_crossentropy/weighted_loss/concat'.
-2020-02-06 02:47:15.683361: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 0, topological sort failed with message: The graph couldn't be sorted in topological order.
-2020-02-06 02:47:15.686709: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 1, topological sort failed with message: The graph couldn't be sorted in topological order.
-2020-02-06 02:47:15.714575: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] arithmetic_optimizer failed: Invalid argument: The graph couldn't be sorted in topological order.
-2020-02-06 02:47:15.716592: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] remapper failed: Invalid argument: MutableGraphView::MutableGraphView error: node 'loss/dense_2_loss/categorical_crossentropy/weighted_loss/concat' has self cycle fanin 'loss/dense_2_loss/categorical_crossentropy/weighted_loss/concat'.
-2020-02-06 02:47:15.718931: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 0, topological sort failed with message: The graph couldn't be sorted in topological order.
-2020-02-06 02:47:15.721496: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 1, topological sort failed with message: The graph couldn't be sorted in topological order.
-2020-02-06 02:47:15.734046: W tensorflow/core/common_runtime/process_function_library_runtime.cc:697] Ignoring multi-device function optimization failure: Invalid argument: The graph couldn't be sorted in topological order.
+2020-02-06 03:18:03.191225: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] remapper failed: Invalid argument: MutableGraphView::MutableGraphView error: node 'loss/dense_2_loss/categorical_crossentropy/weighted_loss/concat' has self cycle fanin 'loss/dense_2_loss/categorical_crossentropy/weighted_loss/concat'.
+2020-02-06 03:18:03.212941: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 0, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-06 03:18:03.222334: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 1, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-06 03:18:03.308803: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] arithmetic_optimizer failed: Invalid argument: The graph couldn't be sorted in topological order.
+2020-02-06 03:18:03.315057: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] remapper failed: Invalid argument: MutableGraphView::MutableGraphView error: node 'loss/dense_2_loss/categorical_crossentropy/weighted_loss/concat' has self cycle fanin 'loss/dense_2_loss/categorical_crossentropy/weighted_loss/concat'.
+2020-02-06 03:18:03.321224: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 0, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-06 03:18:03.327526: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 1, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-06 03:18:03.356525: W tensorflow/core/common_runtime/process_function_library_runtime.cc:697] Ignoring multi-device function optimization failure: Invalid argument: The graph couldn't be sorted in topological order.
+2020-02-06 03:18:07.695224: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] remapper failed: Invalid argument: MutableGraphView::MutableGraphView error: node 'loss/dense_2_loss/categorical_crossentropy/weighted_loss/concat' has self cycle fanin 'loss/dense_2_loss/categorical_crossentropy/weighted_loss/concat'.
+2020-02-06 03:18:07.700859: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 0, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-06 03:18:07.703753: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 1, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-06 03:18:07.725201: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] arithmetic_optimizer failed: Invalid argument: The graph couldn't be sorted in topological order.
+2020-02-06 03:18:07.726782: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] remapper failed: Invalid argument: MutableGraphView::MutableGraphView error: node 'loss/dense_2_loss/categorical_crossentropy/weighted_loss/concat' has self cycle fanin 'loss/dense_2_loss/categorical_crossentropy/weighted_loss/concat'.
+2020-02-06 03:18:07.728587: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 0, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-06 03:18:07.730380: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 1, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-06 03:18:07.740524: W tensorflow/core/common_runtime/process_function_library_runtime.cc:697] Ignoring multi-device function optimization failure: Invalid argument: The graph couldn't be sorted in topological order.
 =============================
         TRAINING v0.4
 =============================
-Date: 2020-02-06 02:47:07.227291
+Date: 2020-02-06 03:17:59.607580
 [INFO] input_shape (10, 16)
-[INFO] LSTM first and last layer neurons: 2
+[INFO] LSTM first and last layer neurons: 8
 [INFO] adding core layer 0
 [INFO] created DNN
 [33m[INFO] epoch 1/10[0m
@@ -46,7 +46,7 @@ Date: 2020-02-06 02:47:07.227291
 [INFO] fitting model
 Train on 8000 samples, validate on 2000 samples
 Epoch 1/1
- - 5s - loss: 0.9247 - tp: 25443.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 54557.0000 - accuracy: 0.8636 - precision: 1.0000 - recall: 0.3180 - auc: 0.9999 - val_loss: 0.4936 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+ - 6s - loss: 0.8945 - tp: 28636.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 51364.0000 - accuracy: 0.8716 - precision: 1.0000 - recall: 0.3580 - auc: 0.9990 - val_loss: 0.4367 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
 [INFO] saving weights to checkpoints/lstm-epoch-001-files-0-1-batch-0-100000
 [INFO] processing batch 100000-200000/500000
 [INFO] breaking into predictors and prediction...
@@ -55,7 +55,7 @@ Epoch 1/1
 [INFO] fitting model
 Train on 8000 samples, validate on 2000 samples
 Epoch 1/1
- - 4s - loss: 0.3340 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.2273 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+ - 4s - loss: 0.2944 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.1726 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
 [INFO] saving weights to checkpoints/lstm-epoch-001-files-0-1-batch-100000-200000
 [INFO] processing batch 200000-300000/500000
 [INFO] breaking into predictors and prediction...
@@ -64,7 +64,7 @@ Epoch 1/1
 [INFO] fitting model
 Train on 8000 samples, validate on 2000 samples
 Epoch 1/1
- - 4s - loss: 0.1861 - tp: 79766.0000 - fp: 234.0000 - tn: 319766.0000 - fn: 234.0000 - accuracy: 0.9988 - precision: 0.9971 - recall: 0.9971 - auc: 0.9979 - val_loss: 1.7371 - val_tp: 10606.0000 - val_fp: 9394.0000 - val_tn: 70606.0000 - val_fn: 9394.0000 - val_accuracy: 0.8121 - val_precision: 0.5303 - val_recall: 0.5303 - val_auc: 0.5303
+ - 4s - loss: 0.1609 - tp: 79766.0000 - fp: 234.0000 - tn: 319766.0000 - fn: 234.0000 - accuracy: 0.9988 - precision: 0.9971 - recall: 0.9971 - auc: 0.9984 - val_loss: 1.6274 - val_tp: 10606.0000 - val_fp: 9394.0000 - val_tn: 70606.0000 - val_fn: 9394.0000 - val_accuracy: 0.8121 - val_precision: 0.5303 - val_recall: 0.5303 - val_auc: 0.8826
 [INFO] saving weights to checkpoints/lstm-epoch-001-files-0-1-batch-200000-300000
 [INFO] processing batch 300000-400000/500000
 [INFO] breaking into predictors and prediction...
@@ -73,7 +73,7 @@ Epoch 1/1
 [INFO] fitting model
 Train on 8000 samples, validate on 2000 samples
 Epoch 1/1
- - 5s - loss: 1.3442 - tp: 42447.0000 - fp: 37553.0000 - tn: 282447.0000 - fn: 37553.0000 - accuracy: 0.8122 - precision: 0.5306 - recall: 0.5306 - auc: 0.8287 - val_loss: 1.0807 - val_tp: 10626.0000 - val_fp: 9374.0000 - val_tn: 70626.0000 - val_fn: 9374.0000 - val_accuracy: 0.8125 - val_precision: 0.5313 - val_recall: 0.5313 - val_auc: 0.8828
+ - 4s - loss: 1.1939 - tp: 42447.0000 - fp: 37553.0000 - tn: 282447.0000 - fn: 37553.0000 - accuracy: 0.8122 - precision: 0.5306 - recall: 0.5306 - auc: 0.8504 - val_loss: 0.8545 - val_tp: 10626.0000 - val_fp: 9374.0000 - val_tn: 70626.0000 - val_fn: 9374.0000 - val_accuracy: 0.8125 - val_precision: 0.5313 - val_recall: 0.5313 - val_auc: 0.8828
 [INFO] saving weights to checkpoints/lstm-epoch-001-files-0-1-batch-300000-400000
 [INFO] processing batch 400000-500000/500000
 [INFO] breaking into predictors and prediction...
@@ -82,9 +82,9 @@ Epoch 1/1
 [INFO] fitting model
 Train on 8000 samples, validate on 2000 samples
 Epoch 1/1
- - 5s - loss: 0.9586 - tp: 42438.0000 - fp: 37562.0000 - tn: 282438.0000 - fn: 37562.0000 - accuracy: 0.8122 - precision: 0.5305 - recall: 0.5305 - auc: 0.8828 - val_loss: 0.8766 - val_tp: 10603.0000 - val_fp: 9397.0000 - val_tn: 70603.0000 - val_fn: 9397.0000 - val_accuracy: 0.8121 - val_precision: 0.5301 - val_recall: 0.5301 - val_auc: 0.8825
+ - 4s - loss: 0.9020 - tp: 27672.0000 - fp: 24933.0000 - tn: 295067.0000 - fn: 52328.0000 - accuracy: 0.8068 - precision: 0.5260 - recall: 0.3459 - auc: 0.8806 - val_loss: 0.7818 - val_tp: 10603.0000 - val_fp: 9397.0000 - val_tn: 70603.0000 - val_fn: 9397.0000 - val_accuracy: 0.8121 - val_precision: 0.5301 - val_recall: 0.5301 - val_auc: 0.8825
 [INFO] saving weights to checkpoints/lstm-epoch-001-files-0-1-batch-400000-500000
-[33m[LOSS] 0.876587703704834[0m
+[33m[LOSS] 0.781838604927063[0m
 [33m[INFO] epoch 2/10[0m
 [33m[INFO] loading file 1-1/1 on epoch 2/10[0m
 [INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv
@@ -104,7 +104,7 @@ Epoch 1/1
 [INFO] fitting model
 Train on 8000 samples, validate on 2000 samples
 Epoch 1/1
- - 5s - loss: 0.3516 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.2285 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+ - 4s - loss: 0.2662 - tp: 79523.0000 - fp: 41.0000 - tn: 319959.0000 - fn: 477.0000 - accuracy: 0.9987 - precision: 0.9995 - recall: 0.9940 - auc: 1.0000 - val_loss: 0.1215 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
 [INFO] saving weights to checkpoints/lstm-epoch-002-files-0-1-batch-0-100000
 [INFO] processing batch 100000-200000/500000
 [INFO] breaking into predictors and prediction...
@@ -113,7 +113,7 @@ Epoch 1/1
 [INFO] fitting model
 Train on 8000 samples, validate on 2000 samples
 Epoch 1/1
- - 5s - loss: 0.1757 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.1371 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+ - 4s - loss: 0.1222 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0662 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
 [INFO] saving weights to checkpoints/lstm-epoch-002-files-0-1-batch-100000-200000
 [INFO] processing batch 200000-300000/500000
 [INFO] breaking into predictors and prediction...
@@ -122,7 +122,7 @@ Epoch 1/1
 [INFO] fitting model
 Train on 8000 samples, validate on 2000 samples
 Epoch 1/1
- - 5s - loss: 0.1232 - tp: 79766.0000 - fp: 234.0000 - tn: 319766.0000 - fn: 234.0000 - accuracy: 0.9988 - precision: 0.9971 - recall: 0.9971 - auc: 0.9993 - val_loss: 1.4687 - val_tp: 10606.0000 - val_fp: 9394.0000 - val_tn: 70606.0000 - val_fn: 9394.0000 - val_accuracy: 0.8121 - val_precision: 0.5303 - val_recall: 0.5303 - val_auc: 0.8826
+ - 4s - loss: 0.0948 - tp: 79766.0000 - fp: 234.0000 - tn: 319766.0000 - fn: 234.0000 - accuracy: 0.9988 - precision: 0.9971 - recall: 0.9971 - auc: 0.9990 - val_loss: 1.6747 - val_tp: 10606.0000 - val_fp: 9394.0000 - val_tn: 70606.0000 - val_fn: 9394.0000 - val_accuracy: 0.8121 - val_precision: 0.5303 - val_recall: 0.5303 - val_auc: 0.8826
 [INFO] saving weights to checkpoints/lstm-epoch-002-files-0-1-batch-200000-300000
 [INFO] processing batch 300000-400000/500000
 [INFO] breaking into predictors and prediction...
@@ -131,7 +131,7 @@ Epoch 1/1
 [INFO] fitting model
 Train on 8000 samples, validate on 2000 samples
 Epoch 1/1
- - 5s - loss: 1.1529 - tp: 42447.0000 - fp: 37553.0000 - tn: 282447.0000 - fn: 37553.0000 - accuracy: 0.8122 - precision: 0.5306 - recall: 0.5306 - auc: 0.8826 - val_loss: 0.9230 - val_tp: 10626.0000 - val_fp: 9374.0000 - val_tn: 70626.0000 - val_fn: 9374.0000 - val_accuracy: 0.8125 - val_precision: 0.5313 - val_recall: 0.5313 - val_auc: 0.8828
+ - 4s - loss: 1.1025 - tp: 42447.0000 - fp: 37553.0000 - tn: 282447.0000 - fn: 37553.0000 - accuracy: 0.8122 - precision: 0.5306 - recall: 0.5306 - auc: 0.8748 - val_loss: 0.7817 - val_tp: 10626.0000 - val_fp: 9374.0000 - val_tn: 70626.0000 - val_fn: 9374.0000 - val_accuracy: 0.8125 - val_precision: 0.5313 - val_recall: 0.5313 - val_auc: 0.8827
 [INFO] saving weights to checkpoints/lstm-epoch-002-files-0-1-batch-300000-400000
 [INFO] processing batch 400000-500000/500000
 [INFO] breaking into predictors and prediction...
@@ -140,9 +140,9 @@ Epoch 1/1
 [INFO] fitting model
 Train on 8000 samples, validate on 2000 samples
 Epoch 1/1
- - 5s - loss: 0.8357 - tp: 42438.0000 - fp: 37562.0000 - tn: 282438.0000 - fn: 37562.0000 - accuracy: 0.8122 - precision: 0.5305 - recall: 0.5305 - auc: 0.8828 - val_loss: 0.7855 - val_tp: 10603.0000 - val_fp: 9397.0000 - val_tn: 70603.0000 - val_fn: 9397.0000 - val_accuracy: 0.8121 - val_precision: 0.5301 - val_recall: 0.5301 - val_auc: 0.8825
+ - 4s - loss: 0.8281 - tp: 30998.0000 - fp: 28280.0000 - tn: 291720.0000 - fn: 49002.0000 - accuracy: 0.8068 - precision: 0.5229 - recall: 0.3875 - auc: 0.8810 - val_loss: 0.7405 - val_tp: 10603.0000 - val_fp: 9397.0000 - val_tn: 70603.0000 - val_fn: 9397.0000 - val_accuracy: 0.8121 - val_precision: 0.5301 - val_recall: 0.5301 - val_auc: 0.8823
 [INFO] saving weights to checkpoints/lstm-epoch-002-files-0-1-batch-400000-500000
-[33m[LOSS] 0.7854787945747376[0m
+[33m[LOSS] 0.7404828290939331[0m
 [33m[INFO] epoch 3/10[0m
 [33m[INFO] loading file 1-1/1 on epoch 3/10[0m
 [INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv
@@ -162,7 +162,7 @@ Epoch 1/1
 [INFO] fitting model
 Train on 8000 samples, validate on 2000 samples
 Epoch 1/1
- - 5s - loss: 0.3280 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.2069 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+ - 4s - loss: 0.2406 - tp: 79827.0000 - fp: 12.0000 - tn: 319988.0000 - fn: 173.0000 - accuracy: 0.9995 - precision: 0.9998 - recall: 0.9978 - auc: 1.0000 - val_loss: 0.1056 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
 [INFO] saving weights to checkpoints/lstm-epoch-003-files-0-1-batch-0-100000
 [INFO] processing batch 100000-200000/500000
 [INFO] breaking into predictors and prediction...
@@ -171,7 +171,7 @@ Epoch 1/1
 [INFO] fitting model
 Train on 8000 samples, validate on 2000 samples
 Epoch 1/1
- - 5s - loss: 0.1580 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.1228 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+ - 4s - loss: 0.1094 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0569 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
 [INFO] saving weights to checkpoints/lstm-epoch-003-files-0-1-batch-100000-200000
 [INFO] processing batch 200000-300000/500000
 [INFO] breaking into predictors and prediction...
@@ -180,7 +180,7 @@ Epoch 1/1
 [INFO] fitting model
 Train on 8000 samples, validate on 2000 samples
 Epoch 1/1
- - 5s - loss: 0.1109 - tp: 79766.0000 - fp: 234.0000 - tn: 319766.0000 - fn: 234.0000 - accuracy: 0.9988 - precision: 0.9971 - recall: 0.9971 - auc: 0.9992 - val_loss: 1.3980 - val_tp: 10606.0000 - val_fp: 9394.0000 - val_tn: 70606.0000 - val_fn: 9394.0000 - val_accuracy: 0.8121 - val_precision: 0.5303 - val_recall: 0.5303 - val_auc: 0.8826
+ - 4s - loss: 0.0874 - tp: 79766.0000 - fp: 234.0000 - tn: 319766.0000 - fn: 234.0000 - accuracy: 0.9988 - precision: 0.9971 - recall: 0.9971 - auc: 0.9989 - val_loss: 1.6544 - val_tp: 10606.0000 - val_fp: 9394.0000 - val_tn: 70606.0000 - val_fn: 9394.0000 - val_accuracy: 0.8121 - val_precision: 0.5303 - val_recall: 0.5303 - val_auc: 0.8826
 [INFO] saving weights to checkpoints/lstm-epoch-003-files-0-1-batch-200000-300000
 [INFO] processing batch 300000-400000/500000
 [INFO] breaking into predictors and prediction...
@@ -189,7 +189,7 @@ Epoch 1/1
 [INFO] fitting model
 Train on 8000 samples, validate on 2000 samples
 Epoch 1/1
- - 5s - loss: 1.0883 - tp: 42447.0000 - fp: 37553.0000 - tn: 282447.0000 - fn: 37553.0000 - accuracy: 0.8122 - precision: 0.5306 - recall: 0.5306 - auc: 0.8828 - val_loss: 0.8702 - val_tp: 10626.0000 - val_fp: 9374.0000 - val_tn: 70626.0000 - val_fn: 9374.0000 - val_accuracy: 0.8125 - val_precision: 0.5313 - val_recall: 0.5313 - val_auc: 0.8828
+ - 4s - loss: 1.0473 - tp: 42447.0000 - fp: 37553.0000 - tn: 282447.0000 - fn: 37553.0000 - accuracy: 0.8122 - precision: 0.5306 - recall: 0.5306 - auc: 0.8780 - val_loss: 0.7547 - val_tp: 10626.0000 - val_fp: 9374.0000 - val_tn: 70626.0000 - val_fn: 9374.0000 - val_accuracy: 0.8125 - val_precision: 0.5313 - val_recall: 0.5313 - val_auc: 0.8828
 [INFO] saving weights to checkpoints/lstm-epoch-003-files-0-1-batch-300000-400000
 [INFO] processing batch 400000-500000/500000
 [INFO] breaking into predictors and prediction...
@@ -198,10 +198,10 @@ Epoch 1/1
 [INFO] fitting model
 Train on 8000 samples, validate on 2000 samples
 Epoch 1/1
- - 5s - loss: 0.7956 - tp: 42438.0000 - fp: 37562.0000 - tn: 282438.0000 - fn: 37562.0000 - accuracy: 0.8122 - precision: 0.5305 - recall: 0.5305 - auc: 0.8825 - val_loss: 0.7550 - val_tp: 10603.0000 - val_fp: 9397.0000 - val_tn: 70603.0000 - val_fn: 9397.0000 - val_accuracy: 0.8121 - val_precision: 0.5301 - val_recall: 0.5301 - val_auc: 0.8825
+ - 4s - loss: 0.7896 - tp: 34229.0000 - fp: 30715.0000 - tn: 289285.0000 - fn: 45771.0000 - accuracy: 0.8088 - precision: 0.5271 - recall: 0.4279 - auc: 0.8822 - val_loss: 0.7230 - val_tp: 10603.0000 - val_fp: 9397.0000 - val_tn: 70603.0000 - val_fn: 9397.0000 - val_accuracy: 0.8121 - val_precision: 0.5301 - val_recall: 0.5301 - val_auc: 0.8825
 [INFO] saving weights to checkpoints/lstm-epoch-003-files-0-1-batch-400000-500000
-[33m[LOSS] 0.7550130610466004[0m
-[CHECKING EARLY STOP]: currentLoss < min_delta ? => 0.7550130610466004  <  0.001
+[33m[LOSS] 0.723014473438263[0m
+[CHECKING EARLY STOP]: currentLoss < min_delta ? => 0.723014473438263  <  0.001
 [33m[INFO] epoch 4/10[0m
 [33m[INFO] loading file 1-1/1 on epoch 4/10[0m
 [INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv
@@ -221,7 +221,7 @@ Epoch 1/1
 [INFO] fitting model
 Train on 8000 samples, validate on 2000 samples
 Epoch 1/1
- - 5s - loss: 0.3180 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.1973 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+ - 4s - loss: 0.2349 - tp: 79884.0000 - fp: 19.0000 - tn: 319981.0000 - fn: 116.0000 - accuracy: 0.9997 - precision: 0.9998 - recall: 0.9985 - auc: 1.0000 - val_loss: 0.1013 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
 [INFO] saving weights to checkpoints/lstm-epoch-004-files-0-1-batch-0-100000
 [INFO] processing batch 100000-200000/500000
 [INFO] breaking into predictors and prediction...
@@ -230,7 +230,7 @@ Epoch 1/1
 [INFO] fitting model
 Train on 8000 samples, validate on 2000 samples
 Epoch 1/1
- - 5s - loss: 0.1499 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.1159 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+ - 4s - loss: 0.1053 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0537 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
 [INFO] saving weights to checkpoints/lstm-epoch-004-files-0-1-batch-100000-200000
 [INFO] processing batch 200000-300000/500000
 [INFO] breaking into predictors and prediction...
@@ -239,7 +239,7 @@ Epoch 1/1
 [INFO] fitting model
 Train on 8000 samples, validate on 2000 samples
 Epoch 1/1
- - 5s - loss: 0.1048 - tp: 79766.0000 - fp: 234.0000 - tn: 319766.0000 - fn: 234.0000 - accuracy: 0.9988 - precision: 0.9971 - recall: 0.9971 - auc: 0.9994 - val_loss: 1.3704 - val_tp: 10606.0000 - val_fp: 9394.0000 - val_tn: 70606.0000 - val_fn: 9394.0000 - val_accuracy: 0.8121 - val_precision: 0.5303 - val_recall: 0.5303 - val_auc: 0.8826
+ - 4s - loss: 0.0839 - tp: 79766.0000 - fp: 234.0000 - tn: 319766.0000 - fn: 234.0000 - accuracy: 0.9988 - precision: 0.9971 - recall: 0.9971 - auc: 0.9991 - val_loss: 1.6466 - val_tp: 10606.0000 - val_fp: 9394.0000 - val_tn: 70606.0000 - val_fn: 9394.0000 - val_accuracy: 0.8121 - val_precision: 0.5303 - val_recall: 0.5303 - val_auc: 0.8826
 [INFO] saving weights to checkpoints/lstm-epoch-004-files-0-1-batch-200000-300000
 [INFO] processing batch 300000-400000/500000
 [INFO] breaking into predictors and prediction...
@@ -248,7 +248,7 @@ Epoch 1/1
 [INFO] fitting model
 Train on 8000 samples, validate on 2000 samples
 Epoch 1/1
- - 5s - loss: 1.0622 - tp: 42447.0000 - fp: 37553.0000 - tn: 282447.0000 - fn: 37553.0000 - accuracy: 0.8122 - precision: 0.5306 - recall: 0.5306 - auc: 0.8826 - val_loss: 0.8481 - val_tp: 10626.0000 - val_fp: 9374.0000 - val_tn: 70626.0000 - val_fn: 9374.0000 - val_accuracy: 0.8125 - val_precision: 0.5313 - val_recall: 0.5313 - val_auc: 0.8828
+ - 4s - loss: 1.0176 - tp: 42447.0000 - fp: 37553.0000 - tn: 282447.0000 - fn: 37553.0000 - accuracy: 0.8122 - precision: 0.5306 - recall: 0.5306 - auc: 0.8803 - val_loss: 0.7416 - val_tp: 10626.0000 - val_fp: 9374.0000 - val_tn: 70626.0000 - val_fn: 9374.0000 - val_accuracy: 0.8125 - val_precision: 0.5313 - val_recall: 0.5313 - val_auc: 0.8824
 [INFO] saving weights to checkpoints/lstm-epoch-004-files-0-1-batch-300000-400000
 [INFO] processing batch 400000-500000/500000
 [INFO] breaking into predictors and prediction...
@@ -257,10 +257,10 @@ Epoch 1/1
 [INFO] fitting model
 Train on 8000 samples, validate on 2000 samples
 Epoch 1/1
- - 5s - loss: 0.7777 - tp: 42438.0000 - fp: 37562.0000 - tn: 282438.0000 - fn: 37562.0000 - accuracy: 0.8122 - precision: 0.5305 - recall: 0.5305 - auc: 0.8827 - val_loss: 0.7404 - val_tp: 10603.0000 - val_fp: 9397.0000 - val_tn: 70603.0000 - val_fn: 9397.0000 - val_accuracy: 0.8121 - val_precision: 0.5301 - val_recall: 0.5301 - val_auc: 0.8825
+ - 4s - loss: 0.7720 - tp: 40906.0000 - fp: 36328.0000 - tn: 283672.0000 - fn: 39094.0000 - accuracy: 0.8114 - precision: 0.5296 - recall: 0.5113 - auc: 0.8823 - val_loss: 0.7151 - val_tp: 10603.0000 - val_fp: 9397.0000 - val_tn: 70603.0000 - val_fn: 9397.0000 - val_accuracy: 0.8121 - val_precision: 0.5301 - val_recall: 0.5301 - val_auc: 0.8823
 [INFO] saving weights to checkpoints/lstm-epoch-004-files-0-1-batch-400000-500000
-[33m[LOSS] 0.74044300365448[0m
-[CHECKING EARLY STOP]: currentLoss < min_delta ? => 0.74044300365448  <  0.001
+[33m[LOSS] 0.715110372543335[0m
+[CHECKING EARLY STOP]: currentLoss < min_delta ? => 0.715110372543335  <  0.001
 [33m[INFO] epoch 5/10[0m
 [33m[INFO] loading file 1-1/1 on epoch 5/10[0m
 [INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv
@@ -280,7 +280,7 @@ Epoch 1/1
 [INFO] fitting model
 Train on 8000 samples, validate on 2000 samples
 Epoch 1/1
- - 5s - loss: 0.3124 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.1920 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+ - 4s - loss: 0.2309 - tp: 79984.0000 - fp: 4.0000 - tn: 319996.0000 - fn: 16.0000 - accuracy: 0.9999 - precision: 0.9999 - recall: 0.9998 - auc: 1.0000 - val_loss: 0.0988 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
 [INFO] saving weights to checkpoints/lstm-epoch-005-files-0-1-batch-0-100000
 [INFO] processing batch 100000-200000/500000
 [INFO] breaking into predictors and prediction...
@@ -289,7 +289,7 @@ Epoch 1/1
 [INFO] fitting model
 Train on 8000 samples, validate on 2000 samples
 Epoch 1/1
- - 5s - loss: 0.1453 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.1120 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+ - 4s - loss: 0.1022 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0520 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
 [INFO] saving weights to checkpoints/lstm-epoch-005-files-0-1-batch-100000-200000
 [INFO] processing batch 200000-300000/500000
 [INFO] breaking into predictors and prediction...
@@ -298,7 +298,7 @@ Epoch 1/1
 [INFO] fitting model
 Train on 8000 samples, validate on 2000 samples
 Epoch 1/1
- - 5s - loss: 0.1013 - tp: 79766.0000 - fp: 234.0000 - tn: 319766.0000 - fn: 234.0000 - accuracy: 0.9988 - precision: 0.9971 - recall: 0.9971 - auc: 0.9994 - val_loss: 1.3559 - val_tp: 10606.0000 - val_fp: 9394.0000 - val_tn: 70606.0000 - val_fn: 9394.0000 - val_accuracy: 0.8121 - val_precision: 0.5303 - val_recall: 0.5303 - val_auc: 0.8826
+ - 4s - loss: 0.0817 - tp: 79766.0000 - fp: 234.0000 - tn: 319766.0000 - fn: 234.0000 - accuracy: 0.9988 - precision: 0.9971 - recall: 0.9971 - auc: 0.9991 - val_loss: 1.6436 - val_tp: 10606.0000 - val_fp: 9394.0000 - val_tn: 70606.0000 - val_fn: 9394.0000 - val_accuracy: 0.8121 - val_precision: 0.5303 - val_recall: 0.5303 - val_auc: 0.8824
 [INFO] saving weights to checkpoints/lstm-epoch-005-files-0-1-batch-200000-300000
 [INFO] processing batch 300000-400000/500000
 [INFO] breaking into predictors and prediction...
@@ -307,7 +307,7 @@ Epoch 1/1
 [INFO] fitting model
 Train on 8000 samples, validate on 2000 samples
 Epoch 1/1
- - 5s - loss: 1.0482 - tp: 42447.0000 - fp: 37553.0000 - tn: 282447.0000 - fn: 37553.0000 - accuracy: 0.8122 - precision: 0.5306 - recall: 0.5306 - auc: 0.8827 - val_loss: 0.8360 - val_tp: 10626.0000 - val_fp: 9374.0000 - val_tn: 70626.0000 - val_fn: 9374.0000 - val_accuracy: 0.8125 - val_precision: 0.5313 - val_recall: 0.5313 - val_auc: 0.8828
+ - 4s - loss: 1.0013 - tp: 42447.0000 - fp: 37553.0000 - tn: 282447.0000 - fn: 37553.0000 - accuracy: 0.8122 - precision: 0.5306 - recall: 0.5306 - auc: 0.8811 - val_loss: 0.7346 - val_tp: 10626.0000 - val_fp: 9374.0000 - val_tn: 70626.0000 - val_fn: 9374.0000 - val_accuracy: 0.8125 - val_precision: 0.5313 - val_recall: 0.5313 - val_auc: 0.8828
 [INFO] saving weights to checkpoints/lstm-epoch-005-files-0-1-batch-300000-400000
 [INFO] processing batch 400000-500000/500000
 [INFO] breaking into predictors and prediction...
@@ -316,10 +316,10 @@ Epoch 1/1
 [INFO] fitting model
 Train on 8000 samples, validate on 2000 samples
 Epoch 1/1
- - 5s - loss: 0.7677 - tp: 42438.0000 - fp: 37562.0000 - tn: 282438.0000 - fn: 37562.0000 - accuracy: 0.8122 - precision: 0.5305 - recall: 0.5305 - auc: 0.8826 - val_loss: 0.7321 - val_tp: 10603.0000 - val_fp: 9397.0000 - val_tn: 70603.0000 - val_fn: 9397.0000 - val_accuracy: 0.8121 - val_precision: 0.5301 - val_recall: 0.5301 - val_auc: 0.8825
+ - 4s - loss: 0.7588 - tp: 41270.0000 - fp: 36749.0000 - tn: 283251.0000 - fn: 38730.0000 - accuracy: 0.8113 - precision: 0.5290 - recall: 0.5159 - auc: 0.8827 - val_loss: 0.7106 - val_tp: 10603.0000 - val_fp: 9397.0000 - val_tn: 70603.0000 - val_fn: 9397.0000 - val_accuracy: 0.8121 - val_precision: 0.5301 - val_recall: 0.5301 - val_auc: 0.8825
 [INFO] saving weights to checkpoints/lstm-epoch-005-files-0-1-batch-400000-500000
-[33m[LOSS] 0.7321250147819519[0m
-[CHECKING EARLY STOP]: currentLoss < min_delta ? => 0.7321250147819519  <  0.001
+[33m[LOSS] 0.7105580062866211[0m
+[CHECKING EARLY STOP]: currentLoss < min_delta ? => 0.7105580062866211  <  0.001
 [33m[INFO] epoch 6/10[0m
 [33m[INFO] loading file 1-1/1 on epoch 6/10[0m
 [INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv
@@ -339,7 +339,7 @@ Epoch 1/1
 [INFO] fitting model
 Train on 8000 samples, validate on 2000 samples
 Epoch 1/1
- - 5s - loss: 0.3085 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.1885 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+ - 4s - loss: 0.2272 - tp: 79947.0000 - fp: 14.0000 - tn: 319986.0000 - fn: 53.0000 - accuracy: 0.9998 - precision: 0.9998 - recall: 0.9993 - auc: 1.0000 - val_loss: 0.0970 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
 [INFO] saving weights to checkpoints/lstm-epoch-006-files-0-1-batch-0-100000
 [INFO] processing batch 100000-200000/500000
 [INFO] breaking into predictors and prediction...
@@ -348,7 +348,7 @@ Epoch 1/1
 [INFO] fitting model
 Train on 8000 samples, validate on 2000 samples
 Epoch 1/1
- - 5s - loss: 0.1423 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.1095 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+ - 4s - loss: 0.1001 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0509 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
 [INFO] saving weights to checkpoints/lstm-epoch-006-files-0-1-batch-100000-200000
 [INFO] processing batch 200000-300000/500000
 [INFO] breaking into predictors and prediction...
@@ -357,7 +357,7 @@ Epoch 1/1
 [INFO] fitting model
 Train on 8000 samples, validate on 2000 samples
 Epoch 1/1
- - 5s - loss: 0.0990 - tp: 79766.0000 - fp: 234.0000 - tn: 319766.0000 - fn: 234.0000 - accuracy: 0.9988 - precision: 0.9971 - recall: 0.9971 - auc: 0.9992 - val_loss: 1.3470 - val_tp: 10606.0000 - val_fp: 9394.0000 - val_tn: 70606.0000 - val_fn: 9394.0000 - val_accuracy: 0.8121 - val_precision: 0.5303 - val_recall: 0.5303 - val_auc: 0.8826
+ - 4s - loss: 0.0802 - tp: 79766.0000 - fp: 234.0000 - tn: 319766.0000 - fn: 234.0000 - accuracy: 0.9988 - precision: 0.9971 - recall: 0.9971 - auc: 0.9993 - val_loss: 1.6438 - val_tp: 10606.0000 - val_fp: 9394.0000 - val_tn: 70606.0000 - val_fn: 9394.0000 - val_accuracy: 0.8121 - val_precision: 0.5303 - val_recall: 0.5303 - val_auc: 0.8826
 [INFO] saving weights to checkpoints/lstm-epoch-006-files-0-1-batch-200000-300000
 [INFO] processing batch 300000-400000/500000
 [INFO] breaking into predictors and prediction...
@@ -366,7 +366,7 @@ Epoch 1/1
 [INFO] fitting model
 Train on 8000 samples, validate on 2000 samples
 Epoch 1/1
- - 5s - loss: 1.0396 - tp: 42447.0000 - fp: 37553.0000 - tn: 282447.0000 - fn: 37553.0000 - accuracy: 0.8122 - precision: 0.5306 - recall: 0.5306 - auc: 0.8825 - val_loss: 0.8285 - val_tp: 10626.0000 - val_fp: 9374.0000 - val_tn: 70626.0000 - val_fn: 9374.0000 - val_accuracy: 0.8125 - val_precision: 0.5313 - val_recall: 0.5313 - val_auc: 0.8828
+ - 5s - loss: 0.9903 - tp: 42447.0000 - fp: 37553.0000 - tn: 282447.0000 - fn: 37553.0000 - accuracy: 0.8122 - precision: 0.5306 - recall: 0.5306 - auc: 0.8815 - val_loss: 0.7312 - val_tp: 10626.0000 - val_fp: 9374.0000 - val_tn: 70626.0000 - val_fn: 9374.0000 - val_accuracy: 0.8125 - val_precision: 0.5313 - val_recall: 0.5313 - val_auc: 0.8828
 [INFO] saving weights to checkpoints/lstm-epoch-006-files-0-1-batch-300000-400000
 [INFO] processing batch 400000-500000/500000
 [INFO] breaking into predictors and prediction...
@@ -375,10 +375,10 @@ Epoch 1/1
 [INFO] fitting model
 Train on 8000 samples, validate on 2000 samples
 Epoch 1/1
- - 5s - loss: 0.7614 - tp: 42438.0000 - fp: 37562.0000 - tn: 282438.0000 - fn: 37562.0000 - accuracy: 0.8122 - precision: 0.5305 - recall: 0.5305 - auc: 0.8826 - val_loss: 0.7267 - val_tp: 10603.0000 - val_fp: 9397.0000 - val_tn: 70603.0000 - val_fn: 9397.0000 - val_accuracy: 0.8121 - val_precision: 0.5301 - val_recall: 0.5301 - val_auc: 0.8825
+ - 5s - loss: 0.7544 - tp: 41456.0000 - fp: 36939.0000 - tn: 283061.0000 - fn: 38544.0000 - accuracy: 0.8113 - precision: 0.5288 - recall: 0.5182 - auc: 0.8826 - val_loss: 0.7088 - val_tp: 10603.0000 - val_fp: 9397.0000 - val_tn: 70603.0000 - val_fn: 9397.0000 - val_accuracy: 0.8121 - val_precision: 0.5301 - val_recall: 0.5301 - val_auc: 0.8825
 [INFO] saving weights to checkpoints/lstm-epoch-006-files-0-1-batch-400000-500000
-[33m[LOSS] 0.7267256546020507[0m
-[CHECKING EARLY STOP]: currentLoss < min_delta ? => 0.7267256546020507  <  0.001
+[33m[LOSS] 0.7088312129974366[0m
+[CHECKING EARLY STOP]: currentLoss < min_delta ? => 0.7088312129974366  <  0.001
 [33m[INFO] epoch 7/10[0m
 [33m[INFO] loading file 1-1/1 on epoch 7/10[0m
 [INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv
@@ -398,7 +398,7 @@ Epoch 1/1
 [INFO] fitting model
 Train on 8000 samples, validate on 2000 samples
 Epoch 1/1
- - 5s - loss: 0.3058 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.1861 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+ - 4s - loss: 0.2234 - tp: 79999.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 1.0000 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0955 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
 [INFO] saving weights to checkpoints/lstm-epoch-007-files-0-1-batch-0-100000
 [INFO] processing batch 100000-200000/500000
 [INFO] breaking into predictors and prediction...
@@ -407,7 +407,7 @@ Epoch 1/1
 [INFO] fitting model
 Train on 8000 samples, validate on 2000 samples
 Epoch 1/1
- - 5s - loss: 0.1403 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.1077 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+ - 4s - loss: 0.0984 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0501 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
 [INFO] saving weights to checkpoints/lstm-epoch-007-files-0-1-batch-100000-200000
 [INFO] processing batch 200000-300000/500000
 [INFO] breaking into predictors and prediction...
@@ -416,7 +416,7 @@ Epoch 1/1
 [INFO] fitting model
 Train on 8000 samples, validate on 2000 samples
 Epoch 1/1
- - 5s - loss: 0.0974 - tp: 79766.0000 - fp: 234.0000 - tn: 319766.0000 - fn: 234.0000 - accuracy: 0.9988 - precision: 0.9971 - recall: 0.9971 - auc: 0.9993 - val_loss: 1.3412 - val_tp: 10606.0000 - val_fp: 9394.0000 - val_tn: 70606.0000 - val_fn: 9394.0000 - val_accuracy: 0.8121 - val_precision: 0.5303 - val_recall: 0.5303 - val_auc: 0.8826
+ - 4s - loss: 0.0783 - tp: 79766.0000 - fp: 234.0000 - tn: 319766.0000 - fn: 234.0000 - accuracy: 0.9988 - precision: 0.9971 - recall: 0.9971 - auc: 0.9994 - val_loss: 1.6436 - val_tp: 10606.0000 - val_fp: 9394.0000 - val_tn: 70606.0000 - val_fn: 9394.0000 - val_accuracy: 0.8121 - val_precision: 0.5303 - val_recall: 0.5303 - val_auc: 0.8826
 [INFO] saving weights to checkpoints/lstm-epoch-007-files-0-1-batch-200000-300000
 [INFO] processing batch 300000-400000/500000
 [INFO] breaking into predictors and prediction...
@@ -425,7 +425,7 @@ Epoch 1/1
 [INFO] fitting model
 Train on 8000 samples, validate on 2000 samples
 Epoch 1/1
- - 5s - loss: 1.0337 - tp: 42447.0000 - fp: 37553.0000 - tn: 282447.0000 - fn: 37553.0000 - accuracy: 0.8122 - precision: 0.5306 - recall: 0.5306 - auc: 0.8828 - val_loss: 0.8231 - val_tp: 10626.0000 - val_fp: 9374.0000 - val_tn: 70626.0000 - val_fn: 9374.0000 - val_accuracy: 0.8125 - val_precision: 0.5313 - val_recall: 0.5313 - val_auc: 0.8828
+ - 5s - loss: 0.9837 - tp: 42447.0000 - fp: 37553.0000 - tn: 282447.0000 - fn: 37553.0000 - accuracy: 0.8122 - precision: 0.5306 - recall: 0.5306 - auc: 0.8822 - val_loss: 0.7282 - val_tp: 10626.0000 - val_fp: 9374.0000 - val_tn: 70626.0000 - val_fn: 9374.0000 - val_accuracy: 0.8125 - val_precision: 0.5313 - val_recall: 0.5313 - val_auc: 0.8827
 [INFO] saving weights to checkpoints/lstm-epoch-007-files-0-1-batch-300000-400000
 [INFO] processing batch 400000-500000/500000
 [INFO] breaking into predictors and prediction...
@@ -434,10 +434,10 @@ Epoch 1/1
 [INFO] fitting model
 Train on 8000 samples, validate on 2000 samples
 Epoch 1/1
- - 5s - loss: 0.7569 - tp: 42438.0000 - fp: 37562.0000 - tn: 282438.0000 - fn: 37562.0000 - accuracy: 0.8122 - precision: 0.5305 - recall: 0.5305 - auc: 0.8826 - val_loss: 0.7229 - val_tp: 10603.0000 - val_fp: 9397.0000 - val_tn: 70603.0000 - val_fn: 9397.0000 - val_accuracy: 0.8121 - val_precision: 0.5301 - val_recall: 0.5301 - val_auc: 0.8825
+ - 4s - loss: 0.7496 - tp: 41933.0000 - fp: 37262.0000 - tn: 282738.0000 - fn: 38067.0000 - accuracy: 0.8117 - precision: 0.5295 - recall: 0.5242 - auc: 0.8827 - val_loss: 0.7068 - val_tp: 10603.0000 - val_fp: 9397.0000 - val_tn: 70603.0000 - val_fn: 9397.0000 - val_accuracy: 0.8121 - val_precision: 0.5301 - val_recall: 0.5301 - val_auc: 0.8825
 [INFO] saving weights to checkpoints/lstm-epoch-007-files-0-1-batch-400000-500000
-[33m[LOSS] 0.7228916912078858[0m
-[CHECKING EARLY STOP]: currentLoss < min_delta ? => 0.7228916912078858  <  0.001
+[33m[LOSS] 0.7068244905471802[0m
+[CHECKING EARLY STOP]: currentLoss < min_delta ? => 0.7068244905471802  <  0.001
 [33m[INFO] epoch 8/10[0m
 [33m[INFO] loading file 1-1/1 on epoch 8/10[0m
 [INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv
@@ -457,7 +457,7 @@ Epoch 1/1
 [INFO] fitting model
 Train on 8000 samples, validate on 2000 samples
 Epoch 1/1
- - 5s - loss: 0.3039 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.1844 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+ - 4s - loss: 0.2222 - tp: 79996.0000 - fp: 3.0000 - tn: 319997.0000 - fn: 4.0000 - accuracy: 1.0000 - precision: 1.0000 - recall: 0.9999 - auc: 1.0000 - val_loss: 0.0949 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
 [INFO] saving weights to checkpoints/lstm-epoch-008-files-0-1-batch-0-100000
 [INFO] processing batch 100000-200000/500000
 [INFO] breaking into predictors and prediction...
@@ -466,7 +466,7 @@ Epoch 1/1
 [INFO] fitting model
 Train on 8000 samples, validate on 2000 samples
 Epoch 1/1
- - 5s - loss: 0.1388 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.1064 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+ - 4s - loss: 0.0970 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0497 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
 [INFO] saving weights to checkpoints/lstm-epoch-008-files-0-1-batch-100000-200000
 [INFO] processing batch 200000-300000/500000
 [INFO] breaking into predictors and prediction...
@@ -475,7 +475,7 @@ Epoch 1/1
 [INFO] fitting model
 Train on 8000 samples, validate on 2000 samples
 Epoch 1/1
- - 5s - loss: 0.0963 - tp: 79766.0000 - fp: 234.0000 - tn: 319766.0000 - fn: 234.0000 - accuracy: 0.9988 - precision: 0.9971 - recall: 0.9971 - auc: 0.9993 - val_loss: 1.3369 - val_tp: 10606.0000 - val_fp: 9394.0000 - val_tn: 70606.0000 - val_fn: 9394.0000 - val_accuracy: 0.8121 - val_precision: 0.5303 - val_recall: 0.5303 - val_auc: 0.8826
+ - 4s - loss: 0.0773 - tp: 79766.0000 - fp: 234.0000 - tn: 319766.0000 - fn: 234.0000 - accuracy: 0.9988 - precision: 0.9971 - recall: 0.9971 - auc: 0.9993 - val_loss: 1.6426 - val_tp: 10606.0000 - val_fp: 9394.0000 - val_tn: 70606.0000 - val_fn: 9394.0000 - val_accuracy: 0.8121 - val_precision: 0.5303 - val_recall: 0.5303 - val_auc: 0.8826
 [INFO] saving weights to checkpoints/lstm-epoch-008-files-0-1-batch-200000-300000
 [INFO] processing batch 300000-400000/500000
 [INFO] breaking into predictors and prediction...
@@ -484,7 +484,7 @@ Epoch 1/1
 [INFO] fitting model
 Train on 8000 samples, validate on 2000 samples
 Epoch 1/1
- - 5s - loss: 1.0296 - tp: 42447.0000 - fp: 37553.0000 - tn: 282447.0000 - fn: 37553.0000 - accuracy: 0.8122 - precision: 0.5306 - recall: 0.5306 - auc: 0.8826 - val_loss: 0.8195 - val_tp: 10626.0000 - val_fp: 9374.0000 - val_tn: 70626.0000 - val_fn: 9374.0000 - val_accuracy: 0.8125 - val_precision: 0.5313 - val_recall: 0.5313 - val_auc: 0.8828
+ - 4s - loss: 0.9793 - tp: 42447.0000 - fp: 37553.0000 - tn: 282447.0000 - fn: 37553.0000 - accuracy: 0.8122 - precision: 0.5306 - recall: 0.5306 - auc: 0.8827 - val_loss: 0.7268 - val_tp: 10626.0000 - val_fp: 9374.0000 - val_tn: 70626.0000 - val_fn: 9374.0000 - val_accuracy: 0.8125 - val_precision: 0.5313 - val_recall: 0.5313 - val_auc: 0.8824
 [INFO] saving weights to checkpoints/lstm-epoch-008-files-0-1-batch-300000-400000
 [INFO] processing batch 400000-500000/500000
 [INFO] breaking into predictors and prediction...
@@ -493,10 +493,10 @@ Epoch 1/1
 [INFO] fitting model
 Train on 8000 samples, validate on 2000 samples
 Epoch 1/1
- - 5s - loss: 0.7536 - tp: 42438.0000 - fp: 37562.0000 - tn: 282438.0000 - fn: 37562.0000 - accuracy: 0.8122 - precision: 0.5305 - recall: 0.5305 - auc: 0.8828 - val_loss: 0.7200 - val_tp: 10603.0000 - val_fp: 9397.0000 - val_tn: 70603.0000 - val_fn: 9397.0000 - val_accuracy: 0.8121 - val_precision: 0.5301 - val_recall: 0.5301 - val_auc: 0.8825
+ - 4s - loss: 0.7466 - tp: 42072.0000 - fp: 37284.0000 - tn: 282716.0000 - fn: 37928.0000 - accuracy: 0.8120 - precision: 0.5302 - recall: 0.5259 - auc: 0.8827 - val_loss: 0.7049 - val_tp: 10603.0000 - val_fp: 9397.0000 - val_tn: 70603.0000 - val_fn: 9397.0000 - val_accuracy: 0.8121 - val_precision: 0.5301 - val_recall: 0.5301 - val_auc: 0.8825
 [INFO] saving weights to checkpoints/lstm-epoch-008-files-0-1-batch-400000-500000
-[33m[LOSS] 0.7200264706611633[0m
-[CHECKING EARLY STOP]: currentLoss < min_delta ? => 0.7200264706611633  <  0.001
+[33m[LOSS] 0.7048946857452393[0m
+[CHECKING EARLY STOP]: currentLoss < min_delta ? => 0.7048946857452393  <  0.001
 [33m[INFO] epoch 9/10[0m
 [33m[INFO] loading file 1-1/1 on epoch 9/10[0m
 [INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv
@@ -516,7 +516,7 @@ Epoch 1/1
 [INFO] fitting model
 Train on 8000 samples, validate on 2000 samples
 Epoch 1/1
- - 5s - loss: 0.3026 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.1831 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+ - 4s - loss: 0.2213 - tp: 79945.0000 - fp: 33.0000 - tn: 319967.0000 - fn: 55.0000 - accuracy: 0.9998 - precision: 0.9996 - recall: 0.9993 - auc: 1.0000 - val_loss: 0.0944 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
 [INFO] saving weights to checkpoints/lstm-epoch-009-files-0-1-batch-0-100000
 [INFO] processing batch 100000-200000/500000
 [INFO] breaking into predictors and prediction...
@@ -525,7 +525,7 @@ Epoch 1/1
 [INFO] fitting model
 Train on 8000 samples, validate on 2000 samples
 Epoch 1/1
- - 5s - loss: 0.1377 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.1055 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+ - 4s - loss: 0.0961 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0493 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
 [INFO] saving weights to checkpoints/lstm-epoch-009-files-0-1-batch-100000-200000
 [INFO] processing batch 200000-300000/500000
 [INFO] breaking into predictors and prediction...
@@ -534,7 +534,7 @@ Epoch 1/1
 [INFO] fitting model
 Train on 8000 samples, validate on 2000 samples
 Epoch 1/1
- - 5s - loss: 0.0954 - tp: 79766.0000 - fp: 234.0000 - tn: 319766.0000 - fn: 234.0000 - accuracy: 0.9988 - precision: 0.9971 - recall: 0.9971 - auc: 0.9993 - val_loss: 1.3337 - val_tp: 10606.0000 - val_fp: 9394.0000 - val_tn: 70606.0000 - val_fn: 9394.0000 - val_accuracy: 0.8121 - val_precision: 0.5303 - val_recall: 0.5303 - val_auc: 0.8826
+ - 4s - loss: 0.0769 - tp: 79766.0000 - fp: 234.0000 - tn: 319766.0000 - fn: 234.0000 - accuracy: 0.9988 - precision: 0.9971 - recall: 0.9971 - auc: 0.9993 - val_loss: 1.6413 - val_tp: 10606.0000 - val_fp: 9394.0000 - val_tn: 70606.0000 - val_fn: 9394.0000 - val_accuracy: 0.8121 - val_precision: 0.5303 - val_recall: 0.5303 - val_auc: 0.8826
 [INFO] saving weights to checkpoints/lstm-epoch-009-files-0-1-batch-200000-300000
 [INFO] processing batch 300000-400000/500000
 [INFO] breaking into predictors and prediction...
@@ -543,7 +543,7 @@ Epoch 1/1
 [INFO] fitting model
 Train on 8000 samples, validate on 2000 samples
 Epoch 1/1
- - 5s - loss: 1.0263 - tp: 42447.0000 - fp: 37553.0000 - tn: 282447.0000 - fn: 37553.0000 - accuracy: 0.8122 - precision: 0.5306 - recall: 0.5306 - auc: 0.8827 - val_loss: 0.8165 - val_tp: 10626.0000 - val_fp: 9374.0000 - val_tn: 70626.0000 - val_fn: 9374.0000 - val_accuracy: 0.8125 - val_precision: 0.5313 - val_recall: 0.5313 - val_auc: 0.8828
+ - 4s - loss: 0.9746 - tp: 42447.0000 - fp: 37553.0000 - tn: 282447.0000 - fn: 37553.0000 - accuracy: 0.8122 - precision: 0.5306 - recall: 0.5306 - auc: 0.8827 - val_loss: 0.7238 - val_tp: 10626.0000 - val_fp: 9374.0000 - val_tn: 70626.0000 - val_fn: 9374.0000 - val_accuracy: 0.8125 - val_precision: 0.5313 - val_recall: 0.5313 - val_auc: 0.8821
 [INFO] saving weights to checkpoints/lstm-epoch-009-files-0-1-batch-300000-400000
 [INFO] processing batch 400000-500000/500000
 [INFO] breaking into predictors and prediction...
@@ -552,10 +552,10 @@ Epoch 1/1
 [INFO] fitting model
 Train on 8000 samples, validate on 2000 samples
 Epoch 1/1
- - 5s - loss: 0.7513 - tp: 42438.0000 - fp: 37562.0000 - tn: 282438.0000 - fn: 37562.0000 - accuracy: 0.8122 - precision: 0.5305 - recall: 0.5305 - auc: 0.8824 - val_loss: 0.7180 - val_tp: 10603.0000 - val_fp: 9397.0000 - val_tn: 70603.0000 - val_fn: 9397.0000 - val_accuracy: 0.8121 - val_precision: 0.5301 - val_recall: 0.5301 - val_auc: 0.8825
+ - 4s - loss: 0.7441 - tp: 41873.0000 - fp: 37241.0000 - tn: 282759.0000 - fn: 38127.0000 - accuracy: 0.8116 - precision: 0.5293 - recall: 0.5234 - auc: 0.8826 - val_loss: 0.7046 - val_tp: 10603.0000 - val_fp: 9397.0000 - val_tn: 70603.0000 - val_fn: 9397.0000 - val_accuracy: 0.8121 - val_precision: 0.5301 - val_recall: 0.5301 - val_auc: 0.8825
 [INFO] saving weights to checkpoints/lstm-epoch-009-files-0-1-batch-400000-500000
-[33m[LOSS] 0.7179801268577576[0m
-[CHECKING EARLY STOP]: currentLoss < min_delta ? => 0.7179801268577576  <  0.001
+[33m[LOSS] 0.7045898208618164[0m
+[CHECKING EARLY STOP]: currentLoss < min_delta ? => 0.7045898208618164  <  0.001
 [33m[INFO] epoch 10/10[0m
 [33m[INFO] loading file 1-1/1 on epoch 10/10[0m
 [INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv
@@ -575,7 +575,7 @@ Epoch 1/1
 [INFO] fitting model
 Train on 8000 samples, validate on 2000 samples
 Epoch 1/1
- - 5s - loss: 0.3012 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.1820 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+ - 4s - loss: 0.2184 - tp: 79991.0000 - fp: 7.0000 - tn: 319993.0000 - fn: 9.0000 - accuracy: 1.0000 - precision: 0.9999 - recall: 0.9999 - auc: 1.0000 - val_loss: 0.0935 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
 [INFO] saving weights to checkpoints/lstm-epoch-010-files-0-1-batch-0-100000
 [INFO] processing batch 100000-200000/500000
 [INFO] breaking into predictors and prediction...
@@ -584,7 +584,7 @@ Epoch 1/1
 [INFO] fitting model
 Train on 8000 samples, validate on 2000 samples
 Epoch 1/1
- - 5s - loss: 0.1368 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.1047 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+ - 4s - loss: 0.0949 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 320000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0489 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 80000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
 [INFO] saving weights to checkpoints/lstm-epoch-010-files-0-1-batch-100000-200000
 [INFO] processing batch 200000-300000/500000
 [INFO] breaking into predictors and prediction...
@@ -593,7 +593,7 @@ Epoch 1/1
 [INFO] fitting model
 Train on 8000 samples, validate on 2000 samples
 Epoch 1/1
- - 5s - loss: 0.0947 - tp: 79766.0000 - fp: 234.0000 - tn: 319766.0000 - fn: 234.0000 - accuracy: 0.9988 - precision: 0.9971 - recall: 0.9971 - auc: 0.9993 - val_loss: 1.3313 - val_tp: 10606.0000 - val_fp: 9394.0000 - val_tn: 70606.0000 - val_fn: 9394.0000 - val_accuracy: 0.8121 - val_precision: 0.5303 - val_recall: 0.5303 - val_auc: 0.8826
+ - 5s - loss: 0.0761 - tp: 79766.0000 - fp: 234.0000 - tn: 319766.0000 - fn: 234.0000 - accuracy: 0.9988 - precision: 0.9971 - recall: 0.9971 - auc: 0.9993 - val_loss: 1.6413 - val_tp: 10606.0000 - val_fp: 9394.0000 - val_tn: 70606.0000 - val_fn: 9394.0000 - val_accuracy: 0.8121 - val_precision: 0.5303 - val_recall: 0.5303 - val_auc: 0.8826
 [INFO] saving weights to checkpoints/lstm-epoch-010-files-0-1-batch-200000-300000
 [INFO] processing batch 300000-400000/500000
 [INFO] breaking into predictors and prediction...
@@ -602,7 +602,7 @@ Epoch 1/1
 [INFO] fitting model
 Train on 8000 samples, validate on 2000 samples
 Epoch 1/1
- - 5s - loss: 1.0239 - tp: 42447.0000 - fp: 37553.0000 - tn: 282447.0000 - fn: 37553.0000 - accuracy: 0.8122 - precision: 0.5306 - recall: 0.5306 - auc: 0.8826 - val_loss: 0.8143 - val_tp: 10626.0000 - val_fp: 9374.0000 - val_tn: 70626.0000 - val_fn: 9374.0000 - val_accuracy: 0.8125 - val_precision: 0.5313 - val_recall: 0.5313 - val_auc: 0.8828
+ - 4s - loss: 0.9725 - tp: 42447.0000 - fp: 37553.0000 - tn: 282447.0000 - fn: 37553.0000 - accuracy: 0.8122 - precision: 0.5306 - recall: 0.5306 - auc: 0.8825 - val_loss: 0.7243 - val_tp: 10626.0000 - val_fp: 9374.0000 - val_tn: 70626.0000 - val_fn: 9374.0000 - val_accuracy: 0.8125 - val_precision: 0.5313 - val_recall: 0.5313 - val_auc: 0.8828
 [INFO] saving weights to checkpoints/lstm-epoch-010-files-0-1-batch-300000-400000
 [INFO] processing batch 400000-500000/500000
 [INFO] breaking into predictors and prediction...
@@ -611,30 +611,30 @@ Epoch 1/1
 [INFO] fitting model
 Train on 8000 samples, validate on 2000 samples
 Epoch 1/1
- - 5s - loss: 0.7493 - tp: 42438.0000 - fp: 37562.0000 - tn: 282438.0000 - fn: 37562.0000 - accuracy: 0.8122 - precision: 0.5305 - recall: 0.5305 - auc: 0.8827 - val_loss: 0.7161 - val_tp: 10603.0000 - val_fp: 9397.0000 - val_tn: 70603.0000 - val_fn: 9397.0000 - val_accuracy: 0.8121 - val_precision: 0.5301 - val_recall: 0.5301 - val_auc: 0.8825
+ - 4s - loss: 0.7423 - tp: 42327.0000 - fp: 37473.0000 - tn: 282527.0000 - fn: 37673.0000 - accuracy: 0.8121 - precision: 0.5304 - recall: 0.5291 - auc: 0.8828 - val_loss: 0.7035 - val_tp: 10603.0000 - val_fp: 9397.0000 - val_tn: 70603.0000 - val_fn: 9397.0000 - val_accuracy: 0.8121 - val_precision: 0.5301 - val_recall: 0.5301 - val_auc: 0.8825
 [INFO] saving weights to checkpoints/lstm-epoch-010-files-0-1-batch-400000-500000
-[33m[LOSS] 0.7161499948501587[0m
-[CHECKING EARLY STOP]: currentLoss < min_delta ? => 0.7161499948501587  <  0.001
---- 263.18663001060486 seconds ---
-2020-02-06 02:51:33.730337: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
-2020-02-06 02:51:33.744857: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7fc96b00f6c0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
-2020-02-06 02:51:33.744889: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+[33m[LOSS] 0.7034636368751526[0m
+[CHECKING EARLY STOP]: currentLoss < min_delta ? => 0.7034636368751526  <  0.001
+--- 231.34448194503784 seconds ---
+2020-02-06 03:21:54.026214: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2020-02-06 03:21:54.037687: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7fb096f2f150 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-02-06 03:21:54.037725: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
 Using TensorFlow backend.
 WARNING:tensorflow:Large dropout rate: 0.8 (>0.5). In TensorFlow 2.x, dropout() uses dropout rate instead of keep_prob. Please ensure that this is intended.
-2020-02-06 02:51:37.820845: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] remapper failed: Invalid argument: MutableGraphView::MutableGraphView error: node 'loss/dense_2_loss/categorical_crossentropy/weighted_loss/concat' has self cycle fanin 'loss/dense_2_loss/categorical_crossentropy/weighted_loss/concat'.
-2020-02-06 02:51:37.827852: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 0, topological sort failed with message: The graph couldn't be sorted in topological order.
-2020-02-06 02:51:37.831320: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 1, topological sort failed with message: The graph couldn't be sorted in topological order.
-2020-02-06 02:51:37.859166: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] arithmetic_optimizer failed: Invalid argument: The graph couldn't be sorted in topological order.
-2020-02-06 02:51:37.861248: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] remapper failed: Invalid argument: MutableGraphView::MutableGraphView error: node 'loss/dense_2_loss/categorical_crossentropy/weighted_loss/concat' has self cycle fanin 'loss/dense_2_loss/categorical_crossentropy/weighted_loss/concat'.
-2020-02-06 02:51:37.863546: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 0, topological sort failed with message: The graph couldn't be sorted in topological order.
-2020-02-06 02:51:37.865914: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 1, topological sort failed with message: The graph couldn't be sorted in topological order.
-2020-02-06 02:51:37.875573: W tensorflow/core/common_runtime/process_function_library_runtime.cc:697] Ignoring multi-device function optimization failure: Invalid argument: The graph couldn't be sorted in topological order.
+2020-02-06 03:21:57.584801: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] remapper failed: Invalid argument: MutableGraphView::MutableGraphView error: node 'loss/dense_2_loss/categorical_crossentropy/weighted_loss/concat' has self cycle fanin 'loss/dense_2_loss/categorical_crossentropy/weighted_loss/concat'.
+2020-02-06 03:21:57.590542: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 0, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-06 03:21:57.592935: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 1, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-06 03:21:57.614669: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] arithmetic_optimizer failed: Invalid argument: The graph couldn't be sorted in topological order.
+2020-02-06 03:21:57.616218: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] remapper failed: Invalid argument: MutableGraphView::MutableGraphView error: node 'loss/dense_2_loss/categorical_crossentropy/weighted_loss/concat' has self cycle fanin 'loss/dense_2_loss/categorical_crossentropy/weighted_loss/concat'.
+2020-02-06 03:21:57.617922: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 0, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-06 03:21:57.619675: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 1, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-06 03:21:57.627955: W tensorflow/core/common_runtime/process_function_library_runtime.cc:697] Ignoring multi-device function optimization failure: Invalid argument: The graph couldn't be sorted in topological order.
 =============================
         SCORING v0.4
 =============================
-Date: 2020-02-06 02:51:33.725687
+Date: 2020-02-06 03:21:54.022459
 [INFO] input_shape (10, 16)
-[INFO] LSTM first and last layer neurons: 2
+[INFO] LSTM first and last layer neurons: 8
 [INFO] adding core layer 0
 [INFO] created DNN
 loading weights: checkpoints/*
@@ -644,26 +644,26 @@ Model: "sequential_1"
 _________________________________________________________________
 Layer (type)                 Output Shape              Param #   
 =================================================================
-lstm_1 (LSTM)                (None, 10, 2)             152       
+lstm_1 (LSTM)                (None, 10, 8)             800       
 _________________________________________________________________
-dropout_1 (Dropout)          (None, 10, 2)             0         
+dropout_1 (Dropout)          (None, 10, 8)             0         
 _________________________________________________________________
-lstm_2 (LSTM)                (None, 10, 4)             112       
+lstm_2 (LSTM)                (None, 10, 32)            5248      
 _________________________________________________________________
-dropout_2 (Dropout)          (None, 10, 4)             0         
+dropout_2 (Dropout)          (None, 10, 32)            0         
 _________________________________________________________________
-lstm_3 (LSTM)                (None, 10, 2)             56        
+lstm_3 (LSTM)                (None, 10, 8)             1312      
 _________________________________________________________________
-dropout_3 (Dropout)          (None, 10, 2)             0         
+dropout_3 (Dropout)          (None, 10, 8)             0         
 _________________________________________________________________
-dense_1 (Dense)              (None, 10, 1)             3         
+dense_1 (Dense)              (None, 10, 1)             9         
 _________________________________________________________________
 dropout_4 (Dropout)          (None, 10, 1)             0         
 _________________________________________________________________
 dense_2 (Dense)              (None, 10, 5)             10        
 =================================================================
-Total params: 333
-Trainable params: 333
+Total params: 7,379
+Trainable params: 7,379
 Non-trainable params: 0
 _________________________________________________________________
 [INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-28_113021_98.log.part13_sorted-labeled.csv
@@ -702,7 +702,7 @@ x_test.shape: (100000, 16)
 y_eval [1 0 1 ... 0 1 0] (100000,)
 [INFO] reshape for using LSTM layers
 [33m[INFO] metrics:[0m
-loss :  0.7161119000434876
+loss :  0.7034287805557251
 tp :  53024.0
 fp :  46976.0
 tn :  353024.0
@@ -732,7 +732,7 @@ x_test.shape: (100000, 16)
 y_eval [0 1 0 ... 0 0 0] (100000,)
 [INFO] reshape for using LSTM layers
 [33m[INFO] metrics:[0m
-loss :  0.5696832665443421
+loss :  0.5748391443252564
 tp :  87619.0
 fp :  12381.0
 tn :  387619.0
@@ -762,7 +762,7 @@ x_test.shape: (100000, 16)
 y_eval [0 0 0 ... 1 0 1] (100000,)
 [INFO] reshape for using LSTM layers
 [33m[INFO] metrics:[0m
-loss :  0.589128076839447
+loss :  0.591915512084961
 tp :  83025.0
 fp :  16975.0
 tn :  383025.0
@@ -792,7 +792,7 @@ x_test.shape: (100000, 16)
 y_eval [1 0 0 ... 1 1 0] (100000,)
 [INFO] reshape for using LSTM layers
 [33m[INFO] metrics:[0m
-loss :  0.7165393931388855
+loss :  0.703802668762207
 tp :  52923.0
 fp :  47077.0
 tn :  352923.0
@@ -822,7 +822,7 @@ x_test.shape: (100000, 16)
 y_eval [0 0 1 ... 0 0 0] (100000,)
 [INFO] reshape for using LSTM layers
 [33m[INFO] metrics:[0m
-loss :  0.5707795245170594
+loss :  0.5758006595611572
 tp :  87360.0
 fp :  12640.0
 tn :  387360.0
@@ -846,4 +846,4 @@ pred {0: 100000}
  [     0      0      0      0      0]
  [     0      0      0      0      0]
  [     0      0      0      0      0]]
---- 15.603703737258911 seconds ---
+--- 14.898183107376099 seconds ---
