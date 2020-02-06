@@ -8,7 +8,7 @@ python3 train.py \
     -coreLayerSize 32 \
     -numCoreLayers 1 \
     -optimizer adam \
-    -epoch 10 \
+    -epoch 3 \
     -features 16 \
     -lstm true \
     -drop modbus_value

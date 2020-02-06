@@ -7,7 +7,7 @@ python3 -u train.py \
     -wrapLayerSize 10 \
     -dropoutLayer true \
     -coreLayerSize 50 \
-    -epoch 10\
+    -epoch 3\
     -features 45 \
     -drop modbus_value \
     -resultColumn "Normal/Attack" -classes Normal,Attack 
