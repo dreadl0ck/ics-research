@@ -1,0 +1,216 @@
+$ go run ./datenwolf -attacks data/List_of_attacks_Final-fixed.csv -file-filter data/Network/attack-files.txt -out data/SWaT2015-Attack-Files-v0.4-zscore -in data/Network -colsums colSums-5Feb2020-194133.json -zscore=true
+parsing attacks in data/List_of_attacks_Final-fixed.csv
+started at 2020-02-05 23:58:00.164294 +0100 CET m=+0.005155311
+collected 66 CSV files for labeling, num workers: 100
+offset 0
+new CSV header: [unixtime orig type i/f_name i/f_dir src dst proto appi_name proxy_src_ip modbus_function_code modbus_function_description modbus_transaction_id scada_tag modbus_value service s_port classification]
+file_suffix _sorted.csv
+output directory: data/SWaT2015-Attack-Files-v0.4-zscore
+initializing 100 workers
+loaded column summaries: 17
+started all labeling jobs, waiting...
+[66/66] processing data/Network/2016-01-02_172943_122.log.part05_sorted.csv
+[33/66] processing data/Network/2015-12-31_074818_111.log.part06_sorted.csv
+[49/66] processing data/Network/2015-12-31_130240_112.log.part08_sorted.csv
+[16/66] processing data/Network/2015-12-29_190411_104.log.part14_sorted.csv
+[41/66] processing data/Network/2015-12-31_074818_111.log.part14_sorted.csv
+[24/66] processing data/Network/2015-12-31_023431_110.log.part11_sorted.csv
+[20/66] processing data/Network/2015-12-30_105053_107.log.part13_sorted.csv
+[22/66] processing data/Network/2015-12-30_212042_109.log.part04_sorted.csv
+[39/66] processing data/Network/2015-12-31_074818_111.log.part12_sorted.csv
+[37/66] processing data/Network/2015-12-31_074818_111.log.part10_sorted.csv
+[21/66] processing data/Network/2015-12-30_212042_109.log.part03_sorted.csv
+[57/66] processing data/Network/2016-01-01_151435_117.log.part13_sorted.csv
+[58/66] processing data/Network/2016-01-01_203011_118.log.part06_sorted.csv
+[34/66] processing data/Network/2015-12-31_074818_111.log.part07_sorted.csv
+[42/66] processing data/Network/2015-12-31_130240_112.log.part01_sorted.csv
+[1/66] processing data/Network/2015-12-28_113021_98.log.part12_sorted.csv
+[25/66] processing data/Network/2015-12-31_023431_110.log.part12_sorted.csv
+[18/66] processing data/Network/2015-12-30_053515_106.log.part05_sorted.csv
+[50/66] processing data/Network/2015-12-31_130240_112.log.part09_sorted.csv
+[26/66] processing data/Network/2015-12-31_023431_110.log.part13_sorted.csv
+[19/66] processing data/Network/2015-12-30_105053_107.log.part12_sorted.csv
+[17/66] processing data/Network/2015-12-30_001940_105.log.part11_sorted.csv
+[23/66] processing data/Network/2015-12-30_212042_109.log.part05_sorted.csv
+[43/66] processing data/Network/2015-12-31_130240_112.log.part02_sorted.csv
+[38/66] processing data/Network/2015-12-31_074818_111.log.part11_sorted.csv
+[40/66] processing data/Network/2015-12-31_074818_111.log.part13_sorted.csv
+[2/66] processing data/Network/2015-12-28_113021_98.log.part13_sorted.csv
+[3/66] processing data/Network/2015-12-28_164554_99.log.part01_sorted.csv
+[4/66] processing data/Network/2015-12-28_164554_99.log.part02_sorted.csv
+[5/66] processing data/Network/2015-12-28_164554_99.log.part03_sorted.csv
+[6/66] processing data/Network/2015-12-28_164554_99.log.part05_sorted.csv
+[7/66] processing data/Network/2015-12-28_164554_99.log.part06_sorted.csv
+[8/66] processing data/Network/2015-12-28_164554_99.log.part08_sorted.csv
+[51/66] processing data/Network/2015-12-31_130240_112.log.part10_sorted.csv
+[9/66] processing data/Network/2015-12-28_164554_99.log.part09_sorted.csv
+[52/66] processing data/Network/2015-12-31_181648_113.log.part08_sorted.csv
+[10/66] processing data/Network/2015-12-29_134830_103.log.part08_sorted.csv
+[53/66] processing data/Network/2015-12-31_181648_113.log.part09_sorted.csv
+[11/66] processing data/Network/2015-12-29_134830_103.log.part09_sorted.csv
+[54/66] processing data/Network/2015-12-31_233049_114.log.part11_sorted.csv
+[12/66] processing data/Network/2015-12-29_134830_103.log.part10_sorted.csv
+[55/66] processing data/Network/2016-01-01_151435_117.log.part03_sorted.csv
+[13/66] processing data/Network/2015-12-29_190411_104.log.part03_sorted.csv
+[56/66] processing data/Network/2016-01-01_151435_117.log.part12_sorted.csv
+[14/66] processing data/Network/2015-12-29_190411_104.log.part04_sorted.csv
+[15/66] processing data/Network/2015-12-29_190411_104.log.part13_sorted.csv
+[44/66] processing data/Network/2015-12-31_130240_112.log.part03_sorted.csv
+[45/66] processing data/Network/2015-12-31_130240_112.log.part04_sorted.csv
+[46/66] processing data/Network/2015-12-31_130240_112.log.part05_sorted.csv
+[47/66] processing data/Network/2015-12-31_130240_112.log.part06_sorted.csv
+[48/66] processing data/Network/2015-12-31_130240_112.log.part07_sorted.csv
+[35/66] processing data/Network/2015-12-31_074818_111.log.part08_sorted.csv
+[36/66] processing data/Network/2015-12-31_074818_111.log.part09_sorted.csv
+[59/66] processing data/Network/2016-01-01_203011_118.log.part07_sorted.csv
+[60/66] processing data/Network/2016-01-02_014558_119.log.part06_sorted.csv
+[61/66] processing data/Network/2016-01-02_121729_121.log.part12_sorted.csv
+[62/66] processing data/Network/2016-01-02_121729_121.log.part13_sorted.csv
+[63/66] processing data/Network/2016-01-02_121729_121.log.part14_sorted.csv
+[64/66] processing data/Network/2016-01-02_172943_122.log.part03_sorted.csv
+[65/66] processing data/Network/2016-01-02_172943_122.log.part04_sorted.csv
+[27/66] processing data/Network/2015-12-31_023431_110.log.part14_sorted.csv
+[28/66] processing data/Network/2015-12-31_074818_111.log.part01_sorted.csv
+[29/66] processing data/Network/2015-12-31_074818_111.log.part02_sorted.csv
+[30/66] processing data/Network/2015-12-31_074818_111.log.part03_sorted.csv
+[31/66] processing data/Network/2015-12-31_074818_111.log.part04_sorted.csv
+[32/66] processing data/Network/2015-12-31_074818_111.log.part05_sorted.csv
+ [2301897 30-Dec-15 17:41:48 0.0000000000 1.0000000000 0.0000000000 0.7071067812 -1.1552310693 -0.6556100681 -1.0000000000 -1.5118578920 0.1050210063 -176.7993450566 -0.2672612419 -1.7318194169 -0.8017837257 0.4602168084 -185.2775993579 -70.7053626266 {E9259E90-9AE9-4D98-B372-1FD958188312}]
+[WARNING] failed to parse number:  {E9259E90-9AE9-4D98-B372-1FD958188312}  file:  data/Network/2015-12-30_212042_109.log.part05_sorted.csv  line:  301898  column:  Tag setting it to zero by default!
+ [4325995 31-Dec-15 16:09:22 0.0000000000 1.0000000000 0.0000000000 0.7071067812 -1.1552310693 -0.6556100681 -1.0000000000 -1.5118578920 0.1050210063 -176.7993450566 -0.2672612419 -1.7318194169 -0.8017837257 0.4602168084 -185.2775993579 -70.7053626266 {E87142D2-06C6-416B-ACD2-76340C4D1FAE}]
+[WARNING] failed to parse number:  {E87142D2-06C6-416B-ACD2-76340C4D1FAE}  file:  data/Network/2015-12-31_181648_113.log.part09_sorted.csv  line:  325996  column:  Tag setting it to zero by default!
+ [4325996 31-Dec-15 16:09:22 0.0000000000 1.0000000000 0.0000000000 0.7071067812 -1.1552310693 -0.6556100681 -1.0000000000 -1.5118578920 0.1050210063 -176.7993450566 -0.2672612419 -1.7318194169 -0.8017837257 0.4602168084 -185.2775993579 -70.7053626266 {685A89E1-5FD9-4412-A99F-813C0B20C773}]
+[WARNING] failed to parse number:  {685A89E1-5FD9-4412-A99F-813C0B20C773}  file:  data/Network/2015-12-31_181648_113.log.part09_sorted.csv  line:  325997  column:  Tag setting it to zero by default!
+ [4325997 31-Dec-15 16:09:22 0.0000000000 1.0000000000 0.0000000000 0.7071067812 -1.1552310693 -0.6556100681 -1.0000000000 -1.5118578920 0.1050210063 -176.7993450566 -0.2672612419 -1.7318194169 -0.8017837257 0.4602168084 -185.2775993579 -70.7053626266 {3145F33E-8C92-4BEB-9CE8-1BF6B9359CB3}]
+[WARNING] failed to parse number:  {3145F33E-8C92-4BEB-9CE8-1BF6B9359CB3}  file:  data/Network/2015-12-31_181648_113.log.part09_sorted.csv  line:  325998  column:  Tag setting it to zero by default!
+ [4325998 31-Dec-15 16:09:22 0.0000000000 1.0000000000 0.0000000000 0.7071067812 -1.1552310693 -0.6556100681 -1.0000000000 -1.5118578920 0.1050210063 -176.7993450566 -0.2672612419 -1.7318194169 -0.8017837257 0.4602168084 -185.2775993579 -70.7053626266 {A86FEF57-F64D-4737-9B9C-F712D9CDB997}]
+[WARNING] failed to parse number:  {A86FEF57-F64D-4737-9B9C-F712D9CDB997}  file:  data/Network/2015-12-31_181648_113.log.part09_sorted.csv  line:  325999  column:  Tag setting it to zero by default!
+ [4326005 31-Dec-15 16:09:22 0.0000000000 1.0000000000 0.0000000000 0.7071067812 -1.1552310693 -0.6556100681 -1.0000000000 -1.5118578920 0.1050210063 -176.7993450566 -0.2672612419 -1.7318194169 -0.8017837257 0.4602168084 -185.2775993579 -70.7053626266 {685A89E1-5FD9-4412-A99F-813C0B20C773}]
+[WARNING] failed to parse number:  {685A89E1-5FD9-4412-A99F-813C0B20C773}  file:  data/Network/2015-12-31_181648_113.log.part09_sorted.csv  line:  326006  column:  Tag setting it to zero by default!
+ [4326006 31-Dec-15 16:09:22 0.0000000000 1.0000000000 0.0000000000 0.7071067812 -1.1552310693 -0.6556100681 -1.0000000000 -1.5118578920 0.1050210063 -176.7993450566 -0.2672612419 -1.7318194169 -0.8017837257 0.4602168084 -185.2775993579 -70.7053626266 {E87142D2-06C6-416B-ACD2-76340C4D1FAE}]
+[WARNING] failed to parse number:  {E87142D2-06C6-416B-ACD2-76340C4D1FAE}  file:  data/Network/2015-12-31_181648_113.log.part09_sorted.csv  line:  326007  column:  Tag setting it to zero by default!
+ [4326007 31-Dec-15 16:09:22 0.0000000000 1.0000000000 0.0000000000 0.7071067812 -1.1552310693 -0.6556100681 -1.0000000000 -1.5118578920 0.1050210063 -176.7993450566 -0.2672612419 -1.7318194169 -0.8017837257 0.4602168084 -185.2775993579 -70.7053626266 {3145F33E-8C92-4BEB-9CE8-1BF6B9359CB3}]
+[WARNING] failed to parse number:  {3145F33E-8C92-4BEB-9CE8-1BF6B9359CB3}  file:  data/Network/2015-12-31_181648_113.log.part09_sorted.csv  line:  326008  column:  Tag setting it to zero by default!
+ [4326008 31-Dec-15 16:09:22 0.0000000000 1.0000000000 0.0000000000 0.7071067812 -1.1552310693 -0.6556100681 -1.0000000000 -1.5118578920 0.1050210063 -176.7993450566 -0.2672612419 -1.7318194169 -0.8017837257 0.4602168084 -185.2775993579 -70.7053626266 {A86FEF57-F64D-4737-9B9C-F712D9CDB997}]
+[WARNING] failed to parse number:  {A86FEF57-F64D-4737-9B9C-F712D9CDB997}  file:  data/Network/2015-12-31_181648_113.log.part09_sorted.csv  line:  326009  column:  Tag setting it to zero by default!
+ [4326011 31-Dec-15 16:09:22 0.0000000000 1.0000000000 0.0000000000 0.7071067812 -1.1552310693 -0.6556100681 -1.0000000000 -1.5118578920 0.1050210063 -176.7993450566 -0.2672612419 -1.7318194169 -0.8017837257 0.4602168084 -185.2775993579 -70.7053626266 {E87142D2-06C6-416B-ACD2-76340C4D1FAE}]
+[WARNING] failed to parse number:  {E87142D2-06C6-416B-ACD2-76340C4D1FAE}  file:  data/Network/2015-12-31_181648_113.log.part09_sorted.csv  line:  326012  column:  Tag setting it to zero by default!
+ [4326012 31-Dec-15 16:09:22 0.0000000000 1.0000000000 0.0000000000 0.7071067812 -1.1552310693 -0.6556100681 -1.0000000000 -1.5118578920 0.1050210063 -176.7993450566 -0.2672612419 -1.7318194169 -0.8017837257 0.4602168084 -185.2775993579 -70.7053626266 {685A89E1-5FD9-4412-A99F-813C0B20C773}]
+[WARNING] failed to parse number:  {685A89E1-5FD9-4412-A99F-813C0B20C773}  file:  data/Network/2015-12-31_181648_113.log.part09_sorted.csv  line:  326013  column:  Tag setting it to zero by default!
+ [4326013 31-Dec-15 16:09:22 0.0000000000 1.0000000000 0.0000000000 0.7071067812 -1.1552310693 -0.6556100681 -1.0000000000 -1.5118578920 0.1050210063 -176.7993450566 -0.2672612419 -1.7318194169 -0.8017837257 0.4602168084 -185.2775993579 -70.7053626266 {3145F33E-8C92-4BEB-9CE8-1BF6B9359CB3}]
+[WARNING] failed to parse number:  {3145F33E-8C92-4BEB-9CE8-1BF6B9359CB3}  file:  data/Network/2015-12-31_181648_113.log.part09_sorted.csv  line:  326014  column:  Tag setting it to zero by default!
+ [4326014 31-Dec-15 16:09:22 0.0000000000 1.0000000000 0.0000000000 0.7071067812 -1.1552310693 -0.6556100681 -1.0000000000 -1.5118578920 0.1050210063 -176.7993450566 -0.2672612419 -1.7318194169 -0.8017837257 0.4602168084 -185.2775993579 -70.7053626266 {A86FEF57-F64D-4737-9B9C-F712D9CDB997}]
+[WARNING] failed to parse number:  {A86FEF57-F64D-4737-9B9C-F712D9CDB997}  file:  data/Network/2015-12-31_181648_113.log.part09_sorted.csv  line:  326015  column:  Tag setting it to zero by default!
+[41/66] 440158 records, 156656 attacks written to 2015-12-31_074818_111.log.part14_sorted-labeled.csv
+[27/66] 440130 records, 156918 attacks written to 2015-12-31_023431_110.log.part14_sorted-labeled.csv
+ [1844082 30-Dec-15 17:21:05 0.0000000000 1.0000000000 0.0000000000 0.7071067812 -1.1552310693 -0.6556100681 -1.0000000000 -1.5118578920 0.1050210063 -176.7993450566 -0.2672612419 -1.7318194169 -0.8017837257 0.4602168084 -185.2775993579 -70.7053626266 {5A7C0178-14E9-4EFE-ADA5-AA0F5FCDB4B9}]
+[WARNING] failed to parse number:  {5A7C0178-14E9-4EFE-ADA5-AA0F5FCDB4B9}  file:  data/Network/2015-12-30_212042_109.log.part04_sorted.csv  line:  344082  column:  Tag setting it to zero by default!
+[39/66] 500000 records, 177974 attacks written to 2015-12-31_074818_111.log.part12_sorted-labeled.csv
+[34/66] 500000 records, 178299 attacks written to 2015-12-31_074818_111.log.part07_sorted-labeled.csv
+[40/66] 500000 records, 178277 attacks written to 2015-12-31_074818_111.log.part13_sorted-labeled.csv
+[44/66] 500000 records, 178197 attacks written to 2015-12-31_130240_112.log.part03_sorted-labeled.csv
+[33/66] 500000 records, 178012 attacks written to 2015-12-31_074818_111.log.part06_sorted-labeled.csv
+[26/66] 500000 records, 177991 attacks written to 2015-12-31_023431_110.log.part13_sorted-labeled.csv
+[31/66] 500000 records, 178105 attacks written to 2015-12-31_074818_111.log.part04_sorted-labeled.csv
+[49/66] 500000 records, 178141 attacks written to 2015-12-31_130240_112.log.part08_sorted-labeled.csv
+[32/66] 500000 records, 178061 attacks written to 2015-12-31_074818_111.log.part05_sorted-labeled.csv
+[30/66] 500000 records, 178167 attacks written to 2015-12-31_074818_111.log.part03_sorted-labeled.csv
+[46/66] 500000 records, 177872 attacks written to 2015-12-31_130240_112.log.part05_sorted-labeled.csv
+[29/66] 500000 records, 178051 attacks written to 2015-12-31_074818_111.log.part02_sorted-labeled.csv
+[48/66] 500000 records, 177903 attacks written to 2015-12-31_130240_112.log.part07_sorted-labeled.csv
+[35/66] 500000 records, 178075 attacks written to 2015-12-31_074818_111.log.part08_sorted-labeled.csv
+ [1864281 30-Dec-15 17:22:00 0.0000000000 1.0000000000 0.0000000000 0.7071067812 -1.1552310693 -0.6556100681 -1.0000000000 -1.5118578920 0.1050210063 -176.7993450566 -0.2672612419 -1.7318194169 -0.8017837257 0.4602168084 -185.2775993579 -70.7053626266 {E954030D-1CD4-460C-BF35-E56AAFAAE40A}]
+[WARNING] failed to parse number:  {E954030D-1CD4-460C-BF35-E56AAFAAE40A}  file:  data/Network/2015-12-30_212042_109.log.part04_sorted.csv  line:  364281  column:  Tag setting it to zero by default!
+[50/66] 500000 records, 178444 attacks written to 2015-12-31_130240_112.log.part09_sorted-labeled.csv
+[37/66] 500000 records, 178014 attacks written to 2015-12-31_074818_111.log.part10_sorted-labeled.csv
+ [1867584 30-Dec-15 17:22:09 0.0000000000 1.0000000000 0.0000000000 0.7071067812 -1.1552310693 -0.6556100681 -1.0000000000 -1.5118578920 0.1050210063 -176.7993450566 -0.2672612419 -1.7318194169 -0.8017837257 0.4602168084 -185.2775993579 -70.7053626266 {E954030D-1CD4-460C-BF35-E56AAFAAE40A}]
+[WARNING] failed to parse number:  {E954030D-1CD4-460C-BF35-E56AAFAAE40A}  file:  data/Network/2015-12-30_212042_109.log.part04_sorted.csv  line:  367584  column:  Tag setting it to zero by default!
+[43/66] 500000 records, 177990 attacks written to 2015-12-31_130240_112.log.part02_sorted-labeled.csv
+[36/66] 500000 records, 178191 attacks written to 2015-12-31_074818_111.log.part09_sorted-labeled.csv
+[42/66] 500000 records, 178081 attacks written to 2015-12-31_130240_112.log.part01_sorted-labeled.csv
+[45/66] 500000 records, 177937 attacks written to 2015-12-31_130240_112.log.part04_sorted-labeled.csv
+[16/66] 439690 records, 68509 attacks written to 2015-12-29_190411_104.log.part14_sorted-labeled.csv
+[38/66] 500000 records, 177956 attacks written to 2015-12-31_074818_111.log.part11_sorted-labeled.csv
+[28/66] 500000 records, 178339 attacks written to 2015-12-31_074818_111.log.part01_sorted-labeled.csv
+[47/66] 500000 records, 178081 attacks written to 2015-12-31_130240_112.log.part06_sorted-labeled.csv
+[20/66] 500000 records, 40979 attacks written to 2015-12-30_105053_107.log.part13_sorted-labeled.csv
+[11/66] 500000 records, 0 attacks written to 2015-12-29_134830_103.log.part09_sorted-labeled.csv
+[18/66] 500000 records, 96998 attacks written to 2015-12-30_053515_106.log.part05_sorted-labeled.csv
+[51/66] 500000 records, 101102 attacks written to 2015-12-31_130240_112.log.part10_sorted-labeled.csv
+[55/66] 500000 records, 78948 attacks written to 2016-01-01_151435_117.log.part03_sorted-labeled.csv
+[19/66] 500000 records, 71560 attacks written to 2015-12-30_105053_107.log.part12_sorted-labeled.csv
+[61/66] 500000 records, 2 attacks written to 2016-01-02_121729_121.log.part12_sorted-labeled.csv
+[54/66] 500000 records, 24563 attacks written to 2015-12-31_233049_114.log.part11_sorted-labeled.csv
+[66/66] 500000 records, 14888 attacks written to 2016-01-02_172943_122.log.part05_sorted-labeled.csv
+[60/66] 500000 records, 92950 attacks written to 2016-01-02_014558_119.log.part06_sorted-labeled.csv
+[21/66] 499998 records, 6103 attacks written to 2015-12-30_212042_109.log.part03_sorted-labeled.csv
+[52/66] 500000 records, 99402 attacks written to 2015-12-31_181648_113.log.part08_sorted-labeled.csv
+[63/66] 439824 records, 29266 attacks written to 2016-01-02_121729_121.log.part14_sorted-labeled.csv
+[1/66] 500000 records, 103514 attacks written to 2015-12-28_113021_98.log.part12_sorted-labeled.csv
+[3/66] 500000 records, 66442 attacks written to 2015-12-28_164554_99.log.part01_sorted-labeled.csv
+[7/66] 500000 records, 86419 attacks written to 2015-12-28_164554_99.log.part06_sorted-labeled.csv
+[65/66] 500000 records, 178259 attacks written to 2016-01-02_172943_122.log.part04_sorted-labeled.csv
+[58/66] 500000 records, 46048 attacks written to 2016-01-01_203011_118.log.part06_sorted-labeled.csv
+[9/66] 500000 records, 19481 attacks written to 2015-12-28_164554_99.log.part09_sorted-labeled.csv
+[14/66] 500000 records, 17457 attacks written to 2015-12-29_190411_104.log.part04_sorted-labeled.csv
+[13/66] 500000 records, 76513 attacks written to 2015-12-29_190411_104.log.part03_sorted-labeled.csv
+[62/66] 500000 records, 35831 attacks written to 2016-01-02_121729_121.log.part13_sorted-labeled.csv
+[22/66] 499999 records, 235010 attacks written to 2015-12-30_212042_109.log.part04_sorted-labeled.csv
+[17/66] 500000 records, 30850 attacks written to 2015-12-30_001940_105.log.part11_sorted-labeled.csv
+[24/66] 500000 records, 25480 attacks written to 2015-12-31_023431_110.log.part11_sorted-labeled.csv
+[4/66] 500000 records, 43780 attacks written to 2015-12-28_164554_99.log.part02_sorted-labeled.csv
+[12/66] 500000 records, 36191 attacks written to 2015-12-29_134830_103.log.part10_sorted-labeled.csv
+[59/66] 500000 records, 53954 attacks written to 2016-01-01_203011_118.log.part07_sorted-labeled.csv
+[56/66] 500000 records, 14142 attacks written to 2016-01-01_151435_117.log.part12_sorted-labeled.csv
+[15/66] 500000 records, 55230 attacks written to 2015-12-29_190411_104.log.part13_sorted-labeled.csv
+[53/66] 500000 records, 130452 attacks written to 2015-12-31_181648_113.log.part09_sorted-labeled.csv
+[5/66] 500000 records, 56345 attacks written to 2015-12-28_164554_99.log.part03_sorted-labeled.csv
+[8/66] 500000 records, 28578 attacks written to 2015-12-28_164554_99.log.part08_sorted-labeled.csv
+[6/66] 500000 records, 40405 attacks written to 2015-12-28_164554_99.log.part05_sorted-labeled.csv
+[23/66] 500000 records, 9035 attacks written to 2015-12-30_212042_109.log.part05_sorted-labeled.csv
+[57/66] 500000 records, 62303 attacks written to 2016-01-01_151435_117.log.part13_sorted-labeled.csv
+[25/66] 500000 records, 178329 attacks written to 2015-12-31_023431_110.log.part12_sorted-labeled.csv
+[10/66] 500000 records, 30549 attacks written to 2015-12-29_134830_103.log.part08_sorted-labeled.csv
+[2/66] 500000 records, 136049 attacks written to 2015-12-28_113021_98.log.part13_sorted-labeled.csv
+[64/66] 500000 records, 25352 attacks written to 2016-01-02_172943_122.log.part03_sorted-labeled.csv
+------- printLabelInfo
+
++----------+------------------------------------------------------------------------------------------------------------------------------------------------+
+|  Hits    |                                                                  AttackName                                                                    |
++----------+------------------------------------------------------------------------------------------------------------------------------------------------+
+| 1        | Open MV-504                                                                                                                                    |
+| 2        | Set value of AIT-504 to 255 uS/cm                                                                                                              |
+| 2        | Close P-501; Set value of FIT-502 to 1.29  at 11:18:36                                                                                         |
+| 2        | Set value of AIT-504 to 16 uS/cm                                                                                                               |
+| 10690    | Set value of FIT-401 as <0.7                                                                                                                   |
+| 17359    | Turn P-101 off                                                                                                                                 |
+| 18831    | Set value of AIT402 as 260; Set value of AIT502 to 260                                                                                         |
+| 24563    | Set LIT-401 to less than L                                                                                                                     |
+| 26524    | Set value of FIT-401 as 0.5; Set value of AIT-502 as 140 mV                                                                                    |
+| 27052    | Turn on P-201; Turn on P-203; Turn on P-205                                                                                                    |
+| 30549    | Close MV-304                                                                                                                                   |
+| 30850    | Stop UV-401; Value of AIT502 set as 150; Force P-501 to remain on                                                                              |
+| 36191    | Decrease water level by 1mm each second                                                                                                        |
+| 40979    | Set value of LIT-401 as 1000; P402 is kept on                                                                                                  |
+| 43779    | Set value of AIT-202  as 6                                                                                                                     |
+| 56345    | Water level increased above HH                                                                                                                 |
+| 57111    | Set value of FIT-401 as 0                                                                                                                      |
+| 66442    | Increase by 1 mm every second                                                                                                                  |
+| 71560    | Turn of P-203 and P-205                                                                                                                        |
+| 76445    | Set LIT-101 to above H                                                                                                                         |
+| 76692    | Turn on P-102                                                                                                                                  |
+| 78948    | Set LIT-301 to above HH                                                                                                                        |
+| 82643    | Turn P-101 off; Keep P-102 off                                                                                                                 |
+| 92950    | Set LIT-101 to less than LL                                                                                                                    |
+| 93970    | Do not let MV-303 open                                                                                                                         |
+| 96998    | Value of DPIT-301 set to >0.4 bar; Keep MV-302 open; Keep P-602 closed                                                                         |
+| 123735   | Keep MV-101 on countinuosly; Value of LIT-101 set as 700 mm                                                                                    |
+| 126824   | Set value of DPIT as >40kpa                                                                                                                    |
+| 162871   | Open MV-101                                                                                                                                    |
+| 202802   | Turn P-101 on continuously; Turn MV-101 on continuously; Set value of LIT-101 as 700 mm; P-102 started itself because LIT301 level became low  |
+| 218499   | decrease value by 0.5 mm per second                                                                                                            |
+| 222088   | Keep P-302 on contineoulsy; Value of  LIT401 set as 600 mm till 1:26:01                                                                        |
+| 250148   | P-101 is turned on continuosly; Set value of LIT-301 as 801 mm                                                                                 |
+| 4492555  | Close P-302                                                                                                                                    |
++----------+------------------------------------------------------------------------------------------------------------------------------------------------+
+done in 26m30.044759526s
