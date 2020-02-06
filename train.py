@@ -297,6 +297,7 @@ parser.add_argument('-encodeColumns', default=False, help='switch between auto e
 parser.add_argument('-classes', type=str, help='supply one or multiple comma separated class identifiers')
 parser.add_argument('-saveModel', default=False, help='save model (if false, only the weights will be saved)')
 parser.add_argument('-binaryClasses', default=False, help='use binary classses')
+parser.add_argument('-relu', default=False, help='use ReLU activation function (default: LeakyReLU)')
 
 # parse commandline arguments
 arguments = parser.parse_args()
@@ -336,7 +337,8 @@ model = create_dnn(
     arguments.coreLayerSize,
     arguments.dropoutLayer,
     arguments.batchSize,
-    arguments.wrapLayerSize
+    arguments.wrapLayerSize,
+    arguments.relu
 )
 print("[INFO] created DNN")
 
