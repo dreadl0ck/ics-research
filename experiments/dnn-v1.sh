@@ -1,23 +1,25 @@
 #!/bin/bash
 
-# SGD optimizer, dropout layer, corelayer: 10, wrap: 5, 20 epochs
-
 python3 train.py \
-    -read "data/SWaT2015-Attack-Files-v0.4/train/*-labeled.csv" \
-    -wrapLayerSize 5 \
-    -dropoutLayer true \
-    -coreLayerSize 10 \
-    -epoch 20 \
+    -read "data/SWaT2015-Attack-Files-v0.4/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv" \
+    -wrapLayerSize 2 \
+    -dropoutLayer false \
+    -relu true \
+    -coreLayerSize 4 \
+    -numCoreLayers 1 \
+    -optimizer sgd \
+    -epoch 10 \
     -features 15 \
-    -drop modbus_value \
-    -optimizer sgd
+    -drop modbus_value
 
 # EVAL
 python3 score.py \
-    -read "data/SWaT2015-Attack-Files-v0.4/eval/*-labeled.csv" \
-    -wrapLayerSize 5 \
-    -dropoutLayer true \
-    -coreLayerSize 10 \
+    -read "data/SWaT2015-Attack-Files-v0.4/train/2015-12-28_113021_98.log.part13_sorted-labeled.csv" \
+    -wrapLayerSize 2 \
+    -dropoutLayer false \
+    -relu true \
+    -coreLayerSize 4 \
+    -numCoreLayers 1 \
     -optimizer sgd \
     -features 15 \
     -drop modbus_value

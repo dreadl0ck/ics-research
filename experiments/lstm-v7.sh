@@ -1,25 +1,27 @@
 #!/bin/bash
 
-# no dropout layer, 10 epochs
-
 python3 train.py \
-    -read "data/SWaT2015-Attack-Files-v0.4/train/*-labeled.csv" \
-    -wrapLayerSize 15 \
-    -coreLayerSize 30 \
+    -read "data/SWaT2015-Attack-Files-v0.4/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv" \
+    -wrapLayerSize 16 \
+    -dropoutLayer false \
+    -relu true \
+    -coreLayerSize 64 \
+    -numCoreLayers 3 \
+    -optimizer sgd \
     -epoch 10 \
-    -zscoreUnixtime true \
+    -features 15 \
     -lstm true \
-    -features 16 \
-    -drop modbus_value \
-    -batchSize 100000
+    -drop modbus_value
 
 # EVAL
 python3 score.py \
-    -read "data/SWaT2015-Attack-Files-v0.4/eval/*-labeled.csv" \
-    -wrapLayerSize 15 \
-    -coreLayerSize 30 \
-    -features 16 \
-    -drop modbus_value  \
-    -lstm true  \
-    -zscoreUnixtime true \
-    -batchSize 100000
+    -read "data/SWaT2015-Attack-Files-v0.4/train/2015-12-28_113021_98.log.part13_sorted-labeled.csv" \
+    -wrapLayerSize 16 \
+    -dropoutLayer false \
+    -relu true \
+    -coreLayerSize 64 \
+    -numCoreLayers 3 \
+    -optimizer sgd \
+    -features 15 \
+    -lstm true \
+    -drop modbus_value

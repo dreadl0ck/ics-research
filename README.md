@@ -348,7 +348,7 @@ TODO
 - layer configuration !! single layers VS multiple
 - save and load entire model configuration:
 
-Call model.save to save the a model's architecture, weights, and training configuration in a single file/folder. This allows you to export a model so it can be used without access to the original Python code*. Since the optimizer-state is recovered, you can resume training from exactly where you left off.
+> Call model.save to save the a model's architecture, weights, and training configuration in a single file/folder. This allows you to export a model so it can be used without access to the original Python code*. Since the optimizer-state is recovered, you can resume training from exactly where you left off.
 
 ## TODO
 
@@ -359,3 +359,13 @@ Call model.save to save the a model's architecture, weights, and training config
 - make dropout rate configurable and try different settings
 - test with and without final Dense(1) layer
 - try leaky relu alpha of 0.2
+
+- SYNC new 0.4 version with servers
+- generate zscore versoin encoded data
+- update experiments: add runs with multi class VS binary classes and zscore VS minmax
+- bootstrap baseline experiments, run with increasing num of epochs, then replicate and update paths for zscore/minmax, replicate again and add flags for multi vs single class
+- define vXX experiment types in a document, and adjust experiments scripts
+    - <dnnType>-<classType>-<encodingType>-<experimentType>.sh
+    - dnn-binary-minmax-vXX.sh
+    - dnn-multi-zscore-vXX.sh
+- add flags to switch activation func to tfUtils
