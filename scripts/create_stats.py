@@ -45,7 +45,7 @@ for file_name in files:
     fp = open(file_name,"r")
     lines = fp.readlines()
     fp.close()
-    print("lines to cut",tuple(map(int, arguments.filelines.split(','))))
+    #print("lines to cut",tuple(map(int, arguments.filelines.split(','))))
     array_line_nr = slice(*tuple(map(int, arguments.filelines.split(','))) )
     array = "".join(lines[array_line_nr])
     #array = "".join(lines[-4:-2])
