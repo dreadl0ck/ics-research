@@ -369,3 +369,8 @@ TODO
     - dnn-binary-minmax-vXX.sh
     - dnn-multi-zscore-vXX.sh
 - add flags to switch activation func to tfUtils
+
+
+- use smaller batch for training? with equal distribution of attack types?
+- input_shape=(int(lstmBatchSize/10000),input_dim,) => adjust hspae, set to 128?
+- one hot encoding
