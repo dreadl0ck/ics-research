@@ -7,10 +7,13 @@ python3 -u train.py \
     -wrapLayerSize 10 \
     -dropoutLayer true \
     -coreLayerSize 50 \
-    -epoch 3\
+    -epoch 3 \
     -features 45 \
     -drop modbus_value \
-    -resultColumn "Normal/Attack" -classes Normal,Attack 
+    -fileBatchSize 1 \
+    -batchSize 500 \
+    -resultColumn "Normal/Attack" \
+    -classes Normal,Attack 
 
 # EVAL
 python3 -u score.py \
