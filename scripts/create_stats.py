@@ -1,7 +1,11 @@
 """
 As the first argument give a regex where the output files from the experiments is found with.
-"""
 
+example:
+python3 scripts/create_stats.py -read experiment-logs/multi-dnn-v0-physical-zscore.log -filelines="-4,-2" -classes="normal,attack"
+python3 scripts/create_stats.py -read experiment-logs/dnn-v3.log
+"""
+import argparse
 import re
 from ast import literal_eval
 
@@ -13,7 +17,25 @@ import sys
 classes = ["normal", "Single Stage Single Point", "Single Stage Multi Point", "Multi Stage Single Point", "Multi Stage Multi Point"]
 #classes = ["Normal", "Attack"]
 
-files = glob(sys.argv[1])
+
+# instantiate the parser
+parser = argparse.ArgumentParser(description='NETCAP compatible implementation of Network Anomaly Detection with a Deep Neural Network and TensorFlow')
+
+# add commandline flags
+parser.add_argument('-read', required=True, type=str, help='Regex to find all labeled input CSV file to read from (required)')
+parser.add_argument('-classes', type=str, help='supply one or multiple comma separated class identifiers')
+parser.add_argument('-filelines', type=str, default='-6,-1', help='The lines to grap from the files. default 6,1')
+
+# parse commandline arguments
+arguments = parser.parse_args()
+
+
+if arguments.classes is not None:
+    classes = arguments.classes.split(',')
+    print("set classes to:", classes)
+
+
+files = glob(arguments.read)
 
 # Loop through all of the files and calculate the statistics for all final confusion matrices
 for file_name in files:
@@ -23,7 +45,9 @@ for file_name in files:
     fp = open(file_name,"r")
     lines = fp.readlines()
     fp.close()
-    array = "".join(lines[-6:-1])
+    print("lines to cut",tuple(map(int, arguments.filelines.split(','))))
+    array_line_nr = slice(*tuple(map(int, arguments.filelines.split(','))) )
+    array = "".join(lines[array_line_nr])
     #array = "".join(lines[-4:-2])
     array = re.sub('\[\s+', '[', array)
     array = re.sub('\s+', ',', array)
