@@ -8,7 +8,7 @@ python3 train.py \
     -coreLayerSize 64 \
     -numCoreLayers 3 \
     -optimizer adam \
-    -epoch 20 \
+    -epoch 6 \
     -features 15 \
     -drop modbus_value
 
