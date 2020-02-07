@@ -1,0 +1,1363 @@
+2020-02-07 22:31:45.041249: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2020-02-07 22:31:45.051624: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7fee75407220 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-02-07 22:31:45.051650: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+Using TensorFlow backend.
+WARNING:tensorflow:Large dropout rate: 0.8 (>0.5). In TensorFlow 2.x, dropout() uses dropout rate instead of keep_prob. Please ensure that this is intended.
+2020-02-07 22:31:50.679091: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] remapper failed: Invalid argument: MutableGraphView::MutableGraphView error: node 'loss/dense_2_loss/categorical_crossentropy/weighted_loss/concat' has self cycle fanin 'loss/dense_2_loss/categorical_crossentropy/weighted_loss/concat'.
+2020-02-07 22:31:50.701755: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 0, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-07 22:31:50.713195: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 1, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-07 22:31:50.832810: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] arithmetic_optimizer failed: Invalid argument: The graph couldn't be sorted in topological order.
+2020-02-07 22:31:50.840232: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] remapper failed: Invalid argument: MutableGraphView::MutableGraphView error: node 'loss/dense_2_loss/categorical_crossentropy/weighted_loss/concat' has self cycle fanin 'loss/dense_2_loss/categorical_crossentropy/weighted_loss/concat'.
+2020-02-07 22:31:50.847904: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 0, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-07 22:31:50.855244: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 1, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-07 22:31:50.889234: W tensorflow/core/common_runtime/process_function_library_runtime.cc:697] Ignoring multi-device function optimization failure: Invalid argument: The graph couldn't be sorted in topological order.
+2020-02-07 22:32:20.804813: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] remapper failed: Invalid argument: MutableGraphView::MutableGraphView error: node 'loss/dense_2_loss/categorical_crossentropy/weighted_loss/concat' has self cycle fanin 'loss/dense_2_loss/categorical_crossentropy/weighted_loss/concat'.
+2020-02-07 22:32:20.811276: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 0, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-07 22:32:20.814210: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 1, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-07 22:32:20.840031: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] arithmetic_optimizer failed: Invalid argument: The graph couldn't be sorted in topological order.
+2020-02-07 22:32:20.842041: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] remapper failed: Invalid argument: MutableGraphView::MutableGraphView error: node 'loss/dense_2_loss/categorical_crossentropy/weighted_loss/concat' has self cycle fanin 'loss/dense_2_loss/categorical_crossentropy/weighted_loss/concat'.
+2020-02-07 22:32:20.844147: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 0, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-07 22:32:20.846296: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 1, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-07 22:32:20.857846: W tensorflow/core/common_runtime/process_function_library_runtime.cc:697] Ignoring multi-device function optimization failure: Invalid argument: The graph couldn't be sorted in topological order.
+=================================================
+        TRAINING v0.4.1 (binaryClasses)
+=================================================
+Date: 2020-02-07 22:31:45.036213
+[INFO] input_shape (100, 16)
+[INFO] LSTM first and last layer neurons: 8
+[INFO] adding core layer 0
+[INFO] created DNN
+[33m[INFO] epoch 1/3[0m
+[33m[INFO] loading file 1-2/50 on epoch 1/3[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-28_113021_98.log.part13_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1000000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['unixtime', 'orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst',
+       'proto', 'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] processing batch 0-1000000/1000000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 35s - loss: 0.6484 - tp: 618552.0000 - fp: 179601.0000 - tn: 620399.0000 - fn: 181448.0000 - accuracy: 0.7743 - precision: 0.7750 - recall: 0.7732 - auc: 0.7757 - val_loss: 0.6116 - val_tp: 140283.0000 - val_fp: 59717.0000 - val_tn: 140283.0000 - val_fn: 59717.0000 - val_accuracy: 0.7014 - val_precision: 0.7014 - val_recall: 0.7014 - val_auc: 0.7005
+[INFO] saving weights to checkpoints/lstm-epoch-001-files-0-2-batch-0-1000000
+[33m[INFO] loading file 3-4/50 on epoch 1/3[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-28_164554_99.log.part01_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-28_164554_99.log.part02_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1000000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['unixtime', 'orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst',
+       'proto', 'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] processing batch 0-1000000/1000000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 35s - loss: 0.4025 - tp: 733557.0000 - fp: 66443.0000 - tn: 733557.0000 - fn: 66443.0000 - accuracy: 0.9169 - precision: 0.9169 - recall: 0.9169 - auc: 0.9169 - val_loss: 0.5317 - val_tp: 156221.0000 - val_fp: 43779.0000 - val_tn: 156221.0000 - val_fn: 43779.0000 - val_accuracy: 0.7811 - val_precision: 0.7811 - val_recall: 0.7811 - val_auc: 0.7793
+[INFO] saving weights to checkpoints/lstm-epoch-001-files-2-4-batch-0-1000000
+[33m[INFO] loading file 5-6/50 on epoch 1/3[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-28_164554_99.log.part03_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-28_164554_99.log.part05_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1000000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['unixtime', 'orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst',
+       'proto', 'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] processing batch 0-1000000/1000000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 35s - loss: 0.3176 - tp: 743655.0000 - fp: 56345.0000 - tn: 743655.0000 - fn: 56345.0000 - accuracy: 0.9296 - precision: 0.9296 - recall: 0.9296 - auc: 0.9290 - val_loss: 0.5188 - val_tp: 159595.0000 - val_fp: 40405.0000 - val_tn: 159595.0000 - val_fn: 40405.0000 - val_accuracy: 0.7980 - val_precision: 0.7980 - val_recall: 0.7980 - val_auc: 0.7981
+[INFO] saving weights to checkpoints/lstm-epoch-001-files-4-6-batch-0-1000000
+[33m[INFO] loading file 7-8/50 on epoch 1/3[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-28_164554_99.log.part06_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-28_164554_99.log.part08_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1000000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['unixtime', 'orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst',
+       'proto', 'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] processing batch 0-1000000/1000000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 35s - loss: 0.3630 - tp: 713581.0000 - fp: 86419.0000 - tn: 713581.0000 - fn: 86419.0000 - accuracy: 0.8920 - precision: 0.8920 - recall: 0.8920 - auc: 0.8922 - val_loss: 0.4102 - val_tp: 171422.0000 - val_fp: 28578.0000 - val_tn: 171422.0000 - val_fn: 28578.0000 - val_accuracy: 0.8571 - val_precision: 0.8571 - val_recall: 0.8571 - val_auc: 0.8572
+[INFO] saving weights to checkpoints/lstm-epoch-001-files-6-8-batch-0-1000000
+[33m[INFO] loading file 9-10/50 on epoch 1/3[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-28_164554_99.log.part09_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-29_134830_103.log.part08_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1000000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['unixtime', 'orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst',
+       'proto', 'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] processing batch 0-1000000/1000000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 35s - loss: 0.2630 - tp: 749970.0000 - fp: 50030.0000 - tn: 749970.0000 - fn: 50030.0000 - accuracy: 0.9375 - precision: 0.9375 - recall: 0.9375 - auc: 0.9374 - val_loss: 0.1051 - val_tp: 200000.0000 - val_fp: 0.0000e+00 - val_tn: 200000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-001-files-8-10-batch-0-1000000
+[33m[INFO] loading file 11-12/50 on epoch 1/3[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-29_134830_103.log.part09_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-29_134830_103.log.part10_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1000000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['unixtime', 'orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst',
+       'proto', 'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] processing batch 0-1000000/1000000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 36s - loss: 0.2092 - tp: 763809.0000 - fp: 36191.0000 - tn: 763809.0000 - fn: 36191.0000 - accuracy: 0.9548 - precision: 0.9548 - recall: 0.9548 - auc: 0.9545 - val_loss: 0.0802 - val_tp: 200000.0000 - val_fp: 0.0000e+00 - val_tn: 200000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-001-files-10-12-batch-0-1000000
+[33m[INFO] loading file 13-14/50 on epoch 1/3[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-29_190411_104.log.part03_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-29_190411_104.log.part04_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1000000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['unixtime', 'orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst',
+       'proto', 'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] processing batch 0-1000000/1000000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 35s - loss: 0.3655 - tp: 706030.0000 - fp: 93970.0000 - tn: 706030.0000 - fn: 93970.0000 - accuracy: 0.8825 - precision: 0.8825 - recall: 0.8825 - auc: 0.8827 - val_loss: 0.1279 - val_tp: 200000.0000 - val_fp: 0.0000e+00 - val_tn: 200000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-001-files-12-14-batch-0-1000000
+[33m[INFO] loading file 15-16/50 on epoch 1/3[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-29_190411_104.log.part13_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-29_190411_104.log.part14_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (939690, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['unixtime', 'orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst',
+       'proto', 'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] processing batch 0-1000000/939690
+[33m[INFO] loading file 17-18/50 on epoch 1/3[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-30_001940_105.log.part11_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-30_053515_106.log.part05_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1939690, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['appi_name', 'classification', 'dst', 'i/f_dir', 'i/f_name',
+       'modbus_function_code', 'modbus_function_description',
+       'modbus_transaction_id', 'orig', 'proto', 'proxy_src_ip', 's_port',
+       'scada_tag', 'service', 'src', 'type', 'unixtime'],
+      dtype='object')
+[INFO] processing batch 0-1000000/1939690
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 37s - loss: 0.4332 - tp: 676261.0000 - fp: 123739.0000 - tn: 676261.0000 - fn: 123739.0000 - accuracy: 0.8453 - precision: 0.8453 - recall: 0.8453 - auc: 0.8452 - val_loss: 0.1565 - val_tp: 200000.0000 - val_fp: 0.0000e+00 - val_tn: 200000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-001-files-16-18-batch-0-1000000
+[INFO] processing batch 1000000-2000000/1939690
+[33m[INFO] loading file 19-20/50 on epoch 1/3[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-30_105053_107.log.part12_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-30_105053_107.log.part13_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1939690, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['appi_name', 'classification', 'dst', 'i/f_dir', 'i/f_name',
+       'modbus_function_code', 'modbus_function_description',
+       'modbus_transaction_id', 'orig', 'proto', 'proxy_src_ip', 's_port',
+       'scada_tag', 'service', 'src', 'type', 'unixtime'],
+      dtype='object')
+[INFO] processing batch 0-1000000/1939690
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 36s - loss: 0.4398 - tp: 672152.0000 - fp: 127848.0000 - tn: 672152.0000 - fn: 127848.0000 - accuracy: 0.8402 - precision: 0.8402 - recall: 0.8402 - auc: 0.8389 - val_loss: 0.1672 - val_tp: 200000.0000 - val_fp: 0.0000e+00 - val_tn: 200000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-001-files-18-20-batch-0-1000000
+[INFO] processing batch 1000000-2000000/1939690
+[33m[INFO] loading file 21-22/50 on epoch 1/3[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-30_212042_109.log.part03_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-30_212042_109.log.part04_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1939687, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['appi_name', 'classification', 'dst', 'i/f_dir', 'i/f_name',
+       'modbus_function_code', 'modbus_function_description',
+       'modbus_transaction_id', 'orig', 'proto', 'proxy_src_ip', 's_port',
+       'scada_tag', 'service', 'src', 'type', 'unixtime'],
+      dtype='object')
+[INFO] processing batch 0-1000000/1939687
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 35s - loss: 0.4065 - tp: 687461.0000 - fp: 112539.0000 - tn: 687461.0000 - fn: 112539.0000 - accuracy: 0.8593 - precision: 0.8593 - recall: 0.8593 - auc: 0.8614 - val_loss: 0.1558 - val_tp: 200000.0000 - val_fp: 0.0000e+00 - val_tn: 200000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-001-files-20-22-batch-0-1000000
+[INFO] processing batch 1000000-2000000/1939687
+[33m[INFO] loading file 23-24/50 on epoch 1/3[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-30_212042_109.log.part05_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-31_023431_110.log.part11_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1939687, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['appi_name', 'classification', 'dst', 'i/f_dir', 'i/f_name',
+       'modbus_function_code', 'modbus_function_description',
+       'modbus_transaction_id', 'orig', 'proto', 'proxy_src_ip', 's_port',
+       'scada_tag', 'service', 'src', 'type', 'unixtime'],
+      dtype='object')
+[INFO] processing batch 0-1000000/1939687
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 35s - loss: 0.5338 - tp: 624588.0000 - fp: 175412.0000 - tn: 624588.0000 - fn: 175412.0000 - accuracy: 0.7807 - precision: 0.7807 - recall: 0.7807 - auc: 0.7820 - val_loss: 0.7444 - val_tp: 125264.0000 - val_fp: 74736.0000 - val_tn: 125264.0000 - val_fn: 74736.0000 - val_accuracy: 0.6263 - val_precision: 0.6263 - val_recall: 0.6263 - val_auc: 0.6263
+[INFO] saving weights to checkpoints/lstm-epoch-001-files-22-24-batch-0-1000000
+[INFO] processing batch 1000000-2000000/1939687
+[33m[INFO] loading file 25-26/50 on epoch 1/3[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-31_023431_110.log.part12_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-31_023431_110.log.part13_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1939687, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['appi_name', 'classification', 'dst', 'i/f_dir', 'i/f_name',
+       'modbus_function_code', 'modbus_function_description',
+       'modbus_transaction_id', 'orig', 'proto', 'proxy_src_ip', 's_port',
+       'scada_tag', 'service', 'src', 'type', 'unixtime'],
+      dtype='object')
+[INFO] processing batch 0-1000000/1939687
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 36s - loss: 0.1455 - tp: 800000.0000 - fp: 0.0000e+00 - tn: 800000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.6307 - val_tp: 152954.0000 - val_fp: 47046.0000 - val_tn: 152954.0000 - val_fn: 47046.0000 - val_accuracy: 0.7648 - val_precision: 0.7648 - val_recall: 0.7648 - val_auc: 0.7648
+[INFO] saving weights to checkpoints/lstm-epoch-001-files-24-26-batch-0-1000000
+[INFO] processing batch 1000000-2000000/1939687
+[33m[INFO] loading file 27-28/50 on epoch 1/3[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-31_023431_110.log.part14_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-31_074818_111.log.part01_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1879817, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['appi_name', 'classification', 'dst', 'i/f_dir', 'i/f_name',
+       'modbus_function_code', 'modbus_function_description',
+       'modbus_transaction_id', 'orig', 'proto', 'proxy_src_ip', 's_port',
+       'scada_tag', 'service', 'src', 'type', 'unixtime'],
+      dtype='object')
+[INFO] processing batch 0-1000000/1879817
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 36s - loss: 0.7923 - tp: 515023.0000 - fp: 284977.0000 - tn: 515023.0000 - fn: 284977.0000 - accuracy: 0.6438 - precision: 0.6438 - recall: 0.6438 - auc: 0.6439 - val_loss: 0.7128 - val_tp: 128667.0000 - val_fp: 71333.0000 - val_tn: 128667.0000 - val_fn: 71333.0000 - val_accuracy: 0.6433 - val_precision: 0.6433 - val_recall: 0.6433 - val_auc: 0.6433
+[INFO] saving weights to checkpoints/lstm-epoch-001-files-26-28-batch-0-1000000
+[INFO] processing batch 1000000-2000000/1879817
+[33m[INFO] loading file 29-30/50 on epoch 1/3[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-31_074818_111.log.part02_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-31_074818_111.log.part03_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1879817, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['appi_name', 'classification', 'dst', 'i/f_dir', 'i/f_name',
+       'modbus_function_code', 'modbus_function_description',
+       'modbus_transaction_id', 'orig', 'proto', 'proxy_src_ip', 's_port',
+       'scada_tag', 'service', 'src', 'type', 'unixtime'],
+      dtype='object')
+[INFO] processing batch 0-1000000/1879817
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 38s - loss: 0.6818 - tp: 514771.0000 - fp: 285229.0000 - tn: 514771.0000 - fn: 285229.0000 - accuracy: 0.6435 - precision: 0.6435 - recall: 0.6435 - auc: 0.6435 - val_loss: 0.6628 - val_tp: 128693.0000 - val_fp: 71307.0000 - val_tn: 128693.0000 - val_fn: 71307.0000 - val_accuracy: 0.6435 - val_precision: 0.6435 - val_recall: 0.6435 - val_auc: 0.6435
+[INFO] saving weights to checkpoints/lstm-epoch-001-files-28-30-batch-0-1000000
+[INFO] processing batch 1000000-2000000/1879817
+[33m[INFO] loading file 31-32/50 on epoch 1/3[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-31_074818_111.log.part04_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-31_074818_111.log.part05_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1879817, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['appi_name', 'classification', 'dst', 'i/f_dir', 'i/f_name',
+       'modbus_function_code', 'modbus_function_description',
+       'modbus_transaction_id', 'orig', 'proto', 'proxy_src_ip', 's_port',
+       'scada_tag', 'service', 'src', 'type', 'unixtime'],
+      dtype='object')
+[INFO] processing batch 0-1000000/1879817
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 36s - loss: 0.6562 - tp: 515055.0000 - fp: 284945.0000 - tn: 515055.0000 - fn: 284945.0000 - accuracy: 0.6438 - precision: 0.6438 - recall: 0.6438 - auc: 0.6438 - val_loss: 0.6525 - val_tp: 128841.0000 - val_fp: 71159.0000 - val_tn: 128841.0000 - val_fn: 71159.0000 - val_accuracy: 0.6442 - val_precision: 0.6442 - val_recall: 0.6442 - val_auc: 0.6442
+[INFO] saving weights to checkpoints/lstm-epoch-001-files-30-32-batch-0-1000000
+[INFO] processing batch 1000000-2000000/1879817
+[33m[INFO] loading file 33-34/50 on epoch 1/3[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-31_074818_111.log.part06_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-31_074818_111.log.part07_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1879817, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['appi_name', 'classification', 'dst', 'i/f_dir', 'i/f_name',
+       'modbus_function_code', 'modbus_function_description',
+       'modbus_transaction_id', 'orig', 'proto', 'proxy_src_ip', 's_port',
+       'scada_tag', 'service', 'src', 'type', 'unixtime'],
+      dtype='object')
+[INFO] processing batch 0-1000000/1879817
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 37s - loss: 0.6519 - tp: 514982.0000 - fp: 285018.0000 - tn: 514982.0000 - fn: 285018.0000 - accuracy: 0.6437 - precision: 0.6437 - recall: 0.6437 - auc: 0.6439 - val_loss: 0.6513 - val_tp: 128765.0000 - val_fp: 71235.0000 - val_tn: 128765.0000 - val_fn: 71235.0000 - val_accuracy: 0.6438 - val_precision: 0.6438 - val_recall: 0.6438 - val_auc: 0.6438
+[INFO] saving weights to checkpoints/lstm-epoch-001-files-32-34-batch-0-1000000
+[INFO] processing batch 1000000-2000000/1879817
+[33m[INFO] loading file 35-36/50 on epoch 1/3[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-31_074818_111.log.part08_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-31_074818_111.log.part09_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1879817, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['appi_name', 'classification', 'dst', 'i/f_dir', 'i/f_name',
+       'modbus_function_code', 'modbus_function_description',
+       'modbus_transaction_id', 'orig', 'proto', 'proxy_src_ip', 's_port',
+       'scada_tag', 'service', 'src', 'type', 'unixtime'],
+      dtype='object')
+[INFO] processing batch 0-1000000/1879817
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 37s - loss: 0.6513 - tp: 514914.0000 - fp: 285086.0000 - tn: 514914.0000 - fn: 285086.0000 - accuracy: 0.6436 - precision: 0.6436 - recall: 0.6436 - auc: 0.6438 - val_loss: 0.6513 - val_tp: 128739.0000 - val_fp: 71261.0000 - val_tn: 128739.0000 - val_fn: 71261.0000 - val_accuracy: 0.6437 - val_precision: 0.6437 - val_recall: 0.6437 - val_auc: 0.6437
+[INFO] saving weights to checkpoints/lstm-epoch-001-files-34-36-batch-0-1000000
+[INFO] processing batch 1000000-2000000/1879817
+[33m[INFO] loading file 37-38/50 on epoch 1/3[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-31_074818_111.log.part10_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-31_074818_111.log.part11_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1879817, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['appi_name', 'classification', 'dst', 'i/f_dir', 'i/f_name',
+       'modbus_function_code', 'modbus_function_description',
+       'modbus_transaction_id', 'orig', 'proto', 'proxy_src_ip', 's_port',
+       'scada_tag', 'service', 'src', 'type', 'unixtime'],
+      dtype='object')
+[INFO] processing batch 0-1000000/1879817
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 36s - loss: 0.6512 - tp: 515096.0000 - fp: 284904.0000 - tn: 515096.0000 - fn: 284904.0000 - accuracy: 0.6439 - precision: 0.6439 - recall: 0.6439 - auc: 0.6439 - val_loss: 0.6516 - val_tp: 128626.0000 - val_fp: 71374.0000 - val_tn: 128626.0000 - val_fn: 71374.0000 - val_accuracy: 0.6431 - val_precision: 0.6431 - val_recall: 0.6431 - val_auc: 0.6431
+[INFO] saving weights to checkpoints/lstm-epoch-001-files-36-38-batch-0-1000000
+[INFO] processing batch 1000000-2000000/1879817
+[33m[INFO] loading file 39-40/50 on epoch 1/3[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-31_074818_111.log.part12_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-31_074818_111.log.part13_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1879817, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['appi_name', 'classification', 'dst', 'i/f_dir', 'i/f_name',
+       'modbus_function_code', 'modbus_function_description',
+       'modbus_transaction_id', 'orig', 'proto', 'proxy_src_ip', 's_port',
+       'scada_tag', 'service', 'src', 'type', 'unixtime'],
+      dtype='object')
+[INFO] processing batch 0-1000000/1879817
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 36s - loss: 0.6510 - tp: 515339.0000 - fp: 284661.0000 - tn: 515339.0000 - fn: 284661.0000 - accuracy: 0.6442 - precision: 0.6442 - recall: 0.6442 - auc: 0.6442 - val_loss: 0.6510 - val_tp: 128840.0000 - val_fp: 71160.0000 - val_tn: 128840.0000 - val_fn: 71160.0000 - val_accuracy: 0.6442 - val_precision: 0.6442 - val_recall: 0.6442 - val_auc: 0.6442
+[INFO] saving weights to checkpoints/lstm-epoch-001-files-38-40-batch-0-1000000
+[INFO] processing batch 1000000-2000000/1879817
+[33m[INFO] loading file 41-42/50 on epoch 1/3[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-31_074818_111.log.part14_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-31_130240_112.log.part01_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1819975, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['appi_name', 'classification', 'dst', 'i/f_dir', 'i/f_name',
+       'modbus_function_code', 'modbus_function_description',
+       'modbus_transaction_id', 'orig', 'proto', 'proxy_src_ip', 's_port',
+       'scada_tag', 'service', 'src', 'type', 'unixtime'],
+      dtype='object')
+[INFO] processing batch 0-1000000/1819975
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 39s - loss: 0.6513 - tp: 514961.0000 - fp: 285039.0000 - tn: 514961.0000 - fn: 285039.0000 - accuracy: 0.6437 - precision: 0.6437 - recall: 0.6437 - auc: 0.6437 - val_loss: 0.6515 - val_tp: 128671.0000 - val_fp: 71329.0000 - val_tn: 128671.0000 - val_fn: 71329.0000 - val_accuracy: 0.6434 - val_precision: 0.6434 - val_recall: 0.6434 - val_auc: 0.6434
+[INFO] saving weights to checkpoints/lstm-epoch-001-files-40-42-batch-0-1000000
+[INFO] processing batch 1000000-2000000/1819975
+[33m[INFO] loading file 43-44/50 on epoch 1/3[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-31_130240_112.log.part02_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-31_130240_112.log.part03_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1819975, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['appi_name', 'classification', 'dst', 'i/f_dir', 'i/f_name',
+       'modbus_function_code', 'modbus_function_description',
+       'modbus_transaction_id', 'orig', 'proto', 'proxy_src_ip', 's_port',
+       'scada_tag', 'service', 'src', 'type', 'unixtime'],
+      dtype='object')
+[INFO] processing batch 0-1000000/1819975
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 40s - loss: 0.6511 - tp: 515178.0000 - fp: 284822.0000 - tn: 515178.0000 - fn: 284822.0000 - accuracy: 0.6440 - precision: 0.6440 - recall: 0.6440 - auc: 0.6440 - val_loss: 0.6510 - val_tp: 128817.0000 - val_fp: 71183.0000 - val_tn: 128817.0000 - val_fn: 71183.0000 - val_accuracy: 0.6441 - val_precision: 0.6441 - val_recall: 0.6441 - val_auc: 0.6441
+[INFO] saving weights to checkpoints/lstm-epoch-001-files-42-44-batch-0-1000000
+[INFO] processing batch 1000000-2000000/1819975
+[33m[INFO] loading file 45-46/50 on epoch 1/3[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-31_130240_112.log.part04_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-31_130240_112.log.part05_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1819975, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['appi_name', 'classification', 'dst', 'i/f_dir', 'i/f_name',
+       'modbus_function_code', 'modbus_function_description',
+       'modbus_transaction_id', 'orig', 'proto', 'proxy_src_ip', 's_port',
+       'scada_tag', 'service', 'src', 'type', 'unixtime'],
+      dtype='object')
+[INFO] processing batch 0-1000000/1819975
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 38s - loss: 0.6513 - tp: 514967.0000 - fp: 285033.0000 - tn: 514967.0000 - fn: 285033.0000 - accuracy: 0.6437 - precision: 0.6437 - recall: 0.6437 - auc: 0.6437 - val_loss: 0.6508 - val_tp: 128912.0000 - val_fp: 71088.0000 - val_tn: 128912.0000 - val_fn: 71088.0000 - val_accuracy: 0.6446 - val_precision: 0.6446 - val_recall: 0.6446 - val_auc: 0.6446
+[INFO] saving weights to checkpoints/lstm-epoch-001-files-44-46-batch-0-1000000
+[INFO] processing batch 1000000-2000000/1819975
+[33m[INFO] loading file 47-48/50 on epoch 1/3[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-31_130240_112.log.part06_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-31_130240_112.log.part07_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1819975, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['appi_name', 'classification', 'dst', 'i/f_dir', 'i/f_name',
+       'modbus_function_code', 'modbus_function_description',
+       'modbus_transaction_id', 'orig', 'proto', 'proxy_src_ip', 's_port',
+       'scada_tag', 'service', 'src', 'type', 'unixtime'],
+      dtype='object')
+[INFO] processing batch 0-1000000/1819975
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 37s - loss: 0.6510 - tp: 515268.0000 - fp: 284732.0000 - tn: 515268.0000 - fn: 284732.0000 - accuracy: 0.6441 - precision: 0.6441 - recall: 0.6441 - auc: 0.6441 - val_loss: 0.6507 - val_tp: 128923.0000 - val_fp: 71077.0000 - val_tn: 128923.0000 - val_fn: 71077.0000 - val_accuracy: 0.6446 - val_precision: 0.6446 - val_recall: 0.6446 - val_auc: 0.6446
+[INFO] saving weights to checkpoints/lstm-epoch-001-files-46-48-batch-0-1000000
+[INFO] processing batch 1000000-2000000/1819975
+[33m[INFO] loading file 49-50/50 on epoch 1/3[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-31_130240_112.log.part08_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-31_130240_112.log.part09_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1819975, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['appi_name', 'classification', 'dst', 'i/f_dir', 'i/f_name',
+       'modbus_function_code', 'modbus_function_description',
+       'modbus_transaction_id', 'orig', 'proto', 'proxy_src_ip', 's_port',
+       'scada_tag', 'service', 'src', 'type', 'unixtime'],
+      dtype='object')
+[INFO] processing batch 0-1000000/1819975
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 38s - loss: 0.6511 - tp: 515194.0000 - fp: 284806.0000 - tn: 515194.0000 - fn: 284806.0000 - accuracy: 0.6440 - precision: 0.6440 - recall: 0.6440 - auc: 0.6440 - val_loss: 0.6512 - val_tp: 128751.0000 - val_fp: 71249.0000 - val_tn: 128751.0000 - val_fn: 71249.0000 - val_accuracy: 0.6438 - val_precision: 0.6438 - val_recall: 0.6438 - val_auc: 0.6438
+[INFO] saving weights to checkpoints/lstm-epoch-001-files-48-50-batch-0-1000000
+[INFO] processing batch 1000000-2000000/1819975
+[33m[LOSS] 0.6512268180847168[0m
+[33m[INFO] epoch 2/3[0m
+[33m[INFO] loading file 1-2/50 on epoch 2/3[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-28_113021_98.log.part13_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1000000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['unixtime', 'orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst',
+       'proto', 'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] processing batch 0-1000000/1000000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 37s - loss: 0.5424 - tp: 620154.0000 - fp: 179846.0000 - tn: 620154.0000 - fn: 179846.0000 - accuracy: 0.7752 - precision: 0.7752 - recall: 0.7752 - auc: 0.7737 - val_loss: 0.6192 - val_tp: 140283.0000 - val_fp: 59717.0000 - val_tn: 140283.0000 - val_fn: 59717.0000 - val_accuracy: 0.7014 - val_precision: 0.7014 - val_recall: 0.7014 - val_auc: 0.7014
+[INFO] saving weights to checkpoints/lstm-epoch-002-files-0-2-batch-0-1000000
+[33m[INFO] loading file 3-4/50 on epoch 2/3[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-28_164554_99.log.part01_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-28_164554_99.log.part02_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1000000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['unixtime', 'orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst',
+       'proto', 'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] processing batch 0-1000000/1000000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 38s - loss: 0.3191 - tp: 733557.0000 - fp: 66443.0000 - tn: 733557.0000 - fn: 66443.0000 - accuracy: 0.9169 - precision: 0.9169 - recall: 0.9169 - auc: 0.9197 - val_loss: 0.5569 - val_tp: 156221.0000 - val_fp: 43779.0000 - val_tn: 156221.0000 - val_fn: 43779.0000 - val_accuracy: 0.7811 - val_precision: 0.7811 - val_recall: 0.7811 - val_auc: 0.7811
+[INFO] saving weights to checkpoints/lstm-epoch-002-files-2-4-batch-0-1000000
+[33m[INFO] loading file 5-6/50 on epoch 2/3[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-28_164554_99.log.part03_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-28_164554_99.log.part05_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1000000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['unixtime', 'orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst',
+       'proto', 'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] processing batch 0-1000000/1000000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 39s - loss: 0.2635 - tp: 743655.0000 - fp: 56345.0000 - tn: 743655.0000 - fn: 56345.0000 - accuracy: 0.9296 - precision: 0.9296 - recall: 0.9296 - auc: 0.9311 - val_loss: 0.5553 - val_tp: 159595.0000 - val_fp: 40405.0000 - val_tn: 159595.0000 - val_fn: 40405.0000 - val_accuracy: 0.7980 - val_precision: 0.7980 - val_recall: 0.7980 - val_auc: 0.7980
+[INFO] saving weights to checkpoints/lstm-epoch-002-files-4-6-batch-0-1000000
+[33m[INFO] loading file 7-8/50 on epoch 2/3[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-28_164554_99.log.part06_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-28_164554_99.log.part08_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1000000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['unixtime', 'orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst',
+       'proto', 'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] processing batch 0-1000000/1000000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 39s - loss: 0.3429 - tp: 713581.0000 - fp: 86419.0000 - tn: 713581.0000 - fn: 86419.0000 - accuracy: 0.8920 - precision: 0.8920 - recall: 0.8920 - auc: 0.8915 - val_loss: 0.4185 - val_tp: 171422.0000 - val_fp: 28578.0000 - val_tn: 171422.0000 - val_fn: 28578.0000 - val_accuracy: 0.8571 - val_precision: 0.8571 - val_recall: 0.8571 - val_auc: 0.8571
+[INFO] saving weights to checkpoints/lstm-epoch-002-files-6-8-batch-0-1000000
+[33m[INFO] loading file 9-10/50 on epoch 2/3[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-28_164554_99.log.part09_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-29_134830_103.log.part08_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1000000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['unixtime', 'orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst',
+       'proto', 'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] processing batch 0-1000000/1000000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 40s - loss: 0.2392 - tp: 749970.0000 - fp: 50030.0000 - tn: 749970.0000 - fn: 50030.0000 - accuracy: 0.9375 - precision: 0.9375 - recall: 0.9375 - auc: 0.9381 - val_loss: 0.0837 - val_tp: 200000.0000 - val_fp: 0.0000e+00 - val_tn: 200000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-002-files-8-10-batch-0-1000000
+[33m[INFO] loading file 11-12/50 on epoch 2/3[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-29_134830_103.log.part09_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-29_134830_103.log.part10_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1000000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['unixtime', 'orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst',
+       'proto', 'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] processing batch 0-1000000/1000000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 38s - loss: 0.1899 - tp: 763809.0000 - fp: 36191.0000 - tn: 763809.0000 - fn: 36191.0000 - accuracy: 0.9548 - precision: 0.9548 - recall: 0.9548 - auc: 0.9548 - val_loss: 0.0648 - val_tp: 200000.0000 - val_fp: 0.0000e+00 - val_tn: 200000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-002-files-10-12-batch-0-1000000
+[33m[INFO] loading file 13-14/50 on epoch 2/3[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-29_190411_104.log.part03_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-29_190411_104.log.part04_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1000000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['unixtime', 'orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst',
+       'proto', 'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] processing batch 0-1000000/1000000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 38s - loss: 0.3726 - tp: 706030.0000 - fp: 93970.0000 - tn: 706030.0000 - fn: 93970.0000 - accuracy: 0.8825 - precision: 0.8825 - recall: 0.8825 - auc: 0.8818 - val_loss: 0.0957 - val_tp: 200000.0000 - val_fp: 0.0000e+00 - val_tn: 200000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-002-files-12-14-batch-0-1000000
+[33m[INFO] loading file 15-16/50 on epoch 2/3[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-29_190411_104.log.part13_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-29_190411_104.log.part14_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (939690, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['unixtime', 'orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst',
+       'proto', 'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] processing batch 0-1000000/939690
+[33m[INFO] loading file 17-18/50 on epoch 2/3[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-30_001940_105.log.part11_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-30_053515_106.log.part05_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1939690, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['appi_name', 'classification', 'dst', 'i/f_dir', 'i/f_name',
+       'modbus_function_code', 'modbus_function_description',
+       'modbus_transaction_id', 'orig', 'proto', 'proxy_src_ip', 's_port',
+       'scada_tag', 'service', 'src', 'type', 'unixtime'],
+      dtype='object')
+[INFO] processing batch 0-1000000/1939690
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 38s - loss: 0.4393 - tp: 676261.0000 - fp: 123739.0000 - tn: 676261.0000 - fn: 123739.0000 - accuracy: 0.8453 - precision: 0.8453 - recall: 0.8453 - auc: 0.8455 - val_loss: 0.1418 - val_tp: 200000.0000 - val_fp: 0.0000e+00 - val_tn: 200000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-002-files-16-18-batch-0-1000000
+[INFO] processing batch 1000000-2000000/1939690
+[33m[INFO] loading file 19-20/50 on epoch 2/3[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-30_105053_107.log.part12_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-30_105053_107.log.part13_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1939690, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['appi_name', 'classification', 'dst', 'i/f_dir', 'i/f_name',
+       'modbus_function_code', 'modbus_function_description',
+       'modbus_transaction_id', 'orig', 'proto', 'proxy_src_ip', 's_port',
+       'scada_tag', 'service', 'src', 'type', 'unixtime'],
+      dtype='object')
+[INFO] processing batch 0-1000000/1939690
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 38s - loss: 0.4405 - tp: 672152.0000 - fp: 127848.0000 - tn: 672152.0000 - fn: 127848.0000 - accuracy: 0.8402 - precision: 0.8402 - recall: 0.8402 - auc: 0.8406 - val_loss: 0.1656 - val_tp: 200000.0000 - val_fp: 0.0000e+00 - val_tn: 200000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-002-files-18-20-batch-0-1000000
+[INFO] processing batch 1000000-2000000/1939690
+[33m[INFO] loading file 21-22/50 on epoch 2/3[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-30_212042_109.log.part03_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-30_212042_109.log.part04_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1939687, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['appi_name', 'classification', 'dst', 'i/f_dir', 'i/f_name',
+       'modbus_function_code', 'modbus_function_description',
+       'modbus_transaction_id', 'orig', 'proto', 'proxy_src_ip', 's_port',
+       'scada_tag', 'service', 'src', 'type', 'unixtime'],
+      dtype='object')
+[INFO] processing batch 0-1000000/1939687
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 40s - loss: 0.4065 - tp: 687461.0000 - fp: 112539.0000 - tn: 687461.0000 - fn: 112539.0000 - accuracy: 0.8593 - precision: 0.8593 - recall: 0.8593 - auc: 0.8579 - val_loss: 0.1562 - val_tp: 200000.0000 - val_fp: 0.0000e+00 - val_tn: 200000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-002-files-20-22-batch-0-1000000
+[INFO] processing batch 1000000-2000000/1939687
+[33m[INFO] loading file 23-24/50 on epoch 2/3[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-30_212042_109.log.part05_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-31_023431_110.log.part11_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1939687, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['appi_name', 'classification', 'dst', 'i/f_dir', 'i/f_name',
+       'modbus_function_code', 'modbus_function_description',
+       'modbus_transaction_id', 'orig', 'proto', 'proxy_src_ip', 's_port',
+       'scada_tag', 'service', 'src', 'type', 'unixtime'],
+      dtype='object')
+[INFO] processing batch 0-1000000/1939687
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 38s - loss: 0.5328 - tp: 624588.0000 - fp: 175412.0000 - tn: 624588.0000 - fn: 175412.0000 - accuracy: 0.7807 - precision: 0.7807 - recall: 0.7807 - auc: 0.7793 - val_loss: 0.7389 - val_tp: 125264.0000 - val_fp: 74736.0000 - val_tn: 125264.0000 - val_fn: 74736.0000 - val_accuracy: 0.6263 - val_precision: 0.6263 - val_recall: 0.6263 - val_auc: 0.6263
+[INFO] saving weights to checkpoints/lstm-epoch-002-files-22-24-batch-0-1000000
+[INFO] processing batch 1000000-2000000/1939687
+[33m[INFO] loading file 25-26/50 on epoch 2/3[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-31_023431_110.log.part12_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-31_023431_110.log.part13_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1939687, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['appi_name', 'classification', 'dst', 'i/f_dir', 'i/f_name',
+       'modbus_function_code', 'modbus_function_description',
+       'modbus_transaction_id', 'orig', 'proto', 'proxy_src_ip', 's_port',
+       'scada_tag', 'service', 'src', 'type', 'unixtime'],
+      dtype='object')
+[INFO] processing batch 0-1000000/1939687
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 37s - loss: 0.1418 - tp: 800000.0000 - fp: 0.0000e+00 - tn: 800000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.6401 - val_tp: 152954.0000 - val_fp: 47046.0000 - val_tn: 152954.0000 - val_fn: 47046.0000 - val_accuracy: 0.7648 - val_precision: 0.7648 - val_recall: 0.7648 - val_auc: 0.7648
+[INFO] saving weights to checkpoints/lstm-epoch-002-files-24-26-batch-0-1000000
+[INFO] processing batch 1000000-2000000/1939687
+[33m[INFO] loading file 27-28/50 on epoch 2/3[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-31_023431_110.log.part14_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-31_074818_111.log.part01_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1879817, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['appi_name', 'classification', 'dst', 'i/f_dir', 'i/f_name',
+       'modbus_function_code', 'modbus_function_description',
+       'modbus_transaction_id', 'orig', 'proto', 'proxy_src_ip', 's_port',
+       'scada_tag', 'service', 'src', 'type', 'unixtime'],
+      dtype='object')
+[INFO] processing batch 0-1000000/1879817
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 40s - loss: 0.7978 - tp: 515023.0000 - fp: 284977.0000 - tn: 515023.0000 - fn: 284977.0000 - accuracy: 0.6438 - precision: 0.6438 - recall: 0.6438 - auc: 0.6442 - val_loss: 0.7126 - val_tp: 128667.0000 - val_fp: 71333.0000 - val_tn: 128667.0000 - val_fn: 71333.0000 - val_accuracy: 0.6433 - val_precision: 0.6433 - val_recall: 0.6433 - val_auc: 0.6433
+[INFO] saving weights to checkpoints/lstm-epoch-002-files-26-28-batch-0-1000000
+[INFO] processing batch 1000000-2000000/1879817
+[33m[INFO] loading file 29-30/50 on epoch 2/3[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-31_074818_111.log.part02_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-31_074818_111.log.part03_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1879817, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['appi_name', 'classification', 'dst', 'i/f_dir', 'i/f_name',
+       'modbus_function_code', 'modbus_function_description',
+       'modbus_transaction_id', 'orig', 'proto', 'proxy_src_ip', 's_port',
+       'scada_tag', 'service', 'src', 'type', 'unixtime'],
+      dtype='object')
+[INFO] processing batch 0-1000000/1879817
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 39s - loss: 0.6810 - tp: 514771.0000 - fp: 285229.0000 - tn: 514771.0000 - fn: 285229.0000 - accuracy: 0.6435 - precision: 0.6435 - recall: 0.6435 - auc: 0.6435 - val_loss: 0.6620 - val_tp: 128693.0000 - val_fp: 71307.0000 - val_tn: 128693.0000 - val_fn: 71307.0000 - val_accuracy: 0.6435 - val_precision: 0.6435 - val_recall: 0.6435 - val_auc: 0.6435
+[INFO] saving weights to checkpoints/lstm-epoch-002-files-28-30-batch-0-1000000
+[INFO] processing batch 1000000-2000000/1879817
+[33m[INFO] loading file 31-32/50 on epoch 2/3[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-31_074818_111.log.part04_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-31_074818_111.log.part05_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1879817, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['appi_name', 'classification', 'dst', 'i/f_dir', 'i/f_name',
+       'modbus_function_code', 'modbus_function_description',
+       'modbus_transaction_id', 'orig', 'proto', 'proxy_src_ip', 's_port',
+       'scada_tag', 'service', 'src', 'type', 'unixtime'],
+      dtype='object')
+[INFO] processing batch 0-1000000/1879817
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 40s - loss: 0.6558 - tp: 515055.0000 - fp: 284945.0000 - tn: 515055.0000 - fn: 284945.0000 - accuracy: 0.6438 - precision: 0.6438 - recall: 0.6438 - auc: 0.6439 - val_loss: 0.6523 - val_tp: 128841.0000 - val_fp: 71159.0000 - val_tn: 128841.0000 - val_fn: 71159.0000 - val_accuracy: 0.6442 - val_precision: 0.6442 - val_recall: 0.6442 - val_auc: 0.6442
+[INFO] saving weights to checkpoints/lstm-epoch-002-files-30-32-batch-0-1000000
+[INFO] processing batch 1000000-2000000/1879817
+[33m[INFO] loading file 33-34/50 on epoch 2/3[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-31_074818_111.log.part06_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-31_074818_111.log.part07_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1879817, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['appi_name', 'classification', 'dst', 'i/f_dir', 'i/f_name',
+       'modbus_function_code', 'modbus_function_description',
+       'modbus_transaction_id', 'orig', 'proto', 'proxy_src_ip', 's_port',
+       'scada_tag', 'service', 'src', 'type', 'unixtime'],
+      dtype='object')
+[INFO] processing batch 0-1000000/1879817
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 38s - loss: 0.6518 - tp: 514982.0000 - fp: 285018.0000 - tn: 514982.0000 - fn: 285018.0000 - accuracy: 0.6437 - precision: 0.6437 - recall: 0.6437 - auc: 0.6439 - val_loss: 0.6513 - val_tp: 128765.0000 - val_fp: 71235.0000 - val_tn: 128765.0000 - val_fn: 71235.0000 - val_accuracy: 0.6438 - val_precision: 0.6438 - val_recall: 0.6438 - val_auc: 0.6438
+[INFO] saving weights to checkpoints/lstm-epoch-002-files-32-34-batch-0-1000000
+[INFO] processing batch 1000000-2000000/1879817
+[33m[INFO] loading file 35-36/50 on epoch 2/3[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-31_074818_111.log.part08_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-31_074818_111.log.part09_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1879817, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['appi_name', 'classification', 'dst', 'i/f_dir', 'i/f_name',
+       'modbus_function_code', 'modbus_function_description',
+       'modbus_transaction_id', 'orig', 'proto', 'proxy_src_ip', 's_port',
+       'scada_tag', 'service', 'src', 'type', 'unixtime'],
+      dtype='object')
+[INFO] processing batch 0-1000000/1879817
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 39s - loss: 0.6513 - tp: 514914.0000 - fp: 285086.0000 - tn: 514914.0000 - fn: 285086.0000 - accuracy: 0.6436 - precision: 0.6436 - recall: 0.6436 - auc: 0.6436 - val_loss: 0.6513 - val_tp: 128739.0000 - val_fp: 71261.0000 - val_tn: 128739.0000 - val_fn: 71261.0000 - val_accuracy: 0.6437 - val_precision: 0.6437 - val_recall: 0.6437 - val_auc: 0.6437
+[INFO] saving weights to checkpoints/lstm-epoch-002-files-34-36-batch-0-1000000
+[INFO] processing batch 1000000-2000000/1879817
+[33m[INFO] loading file 37-38/50 on epoch 2/3[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-31_074818_111.log.part10_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-31_074818_111.log.part11_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1879817, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['appi_name', 'classification', 'dst', 'i/f_dir', 'i/f_name',
+       'modbus_function_code', 'modbus_function_description',
+       'modbus_transaction_id', 'orig', 'proto', 'proxy_src_ip', 's_port',
+       'scada_tag', 'service', 'src', 'type', 'unixtime'],
+      dtype='object')
+[INFO] processing batch 0-1000000/1879817
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 39s - loss: 0.6512 - tp: 515096.0000 - fp: 284904.0000 - tn: 515096.0000 - fn: 284904.0000 - accuracy: 0.6439 - precision: 0.6439 - recall: 0.6439 - auc: 0.6439 - val_loss: 0.6516 - val_tp: 128626.0000 - val_fp: 71374.0000 - val_tn: 128626.0000 - val_fn: 71374.0000 - val_accuracy: 0.6431 - val_precision: 0.6431 - val_recall: 0.6431 - val_auc: 0.6431
+[INFO] saving weights to checkpoints/lstm-epoch-002-files-36-38-batch-0-1000000
+[INFO] processing batch 1000000-2000000/1879817
+[33m[INFO] loading file 39-40/50 on epoch 2/3[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-31_074818_111.log.part12_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-31_074818_111.log.part13_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1879817, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['appi_name', 'classification', 'dst', 'i/f_dir', 'i/f_name',
+       'modbus_function_code', 'modbus_function_description',
+       'modbus_transaction_id', 'orig', 'proto', 'proxy_src_ip', 's_port',
+       'scada_tag', 'service', 'src', 'type', 'unixtime'],
+      dtype='object')
+[INFO] processing batch 0-1000000/1879817
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 40s - loss: 0.6510 - tp: 515339.0000 - fp: 284661.0000 - tn: 515339.0000 - fn: 284661.0000 - accuracy: 0.6442 - precision: 0.6442 - recall: 0.6442 - auc: 0.6442 - val_loss: 0.6510 - val_tp: 128840.0000 - val_fp: 71160.0000 - val_tn: 128840.0000 - val_fn: 71160.0000 - val_accuracy: 0.6442 - val_precision: 0.6442 - val_recall: 0.6442 - val_auc: 0.6442
+[INFO] saving weights to checkpoints/lstm-epoch-002-files-38-40-batch-0-1000000
+[INFO] processing batch 1000000-2000000/1879817
+[33m[INFO] loading file 41-42/50 on epoch 2/3[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-31_074818_111.log.part14_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-31_130240_112.log.part01_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1819975, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['appi_name', 'classification', 'dst', 'i/f_dir', 'i/f_name',
+       'modbus_function_code', 'modbus_function_description',
+       'modbus_transaction_id', 'orig', 'proto', 'proxy_src_ip', 's_port',
+       'scada_tag', 'service', 'src', 'type', 'unixtime'],
+      dtype='object')
+[INFO] processing batch 0-1000000/1819975
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 40s - loss: 0.6513 - tp: 514961.0000 - fp: 285039.0000 - tn: 514961.0000 - fn: 285039.0000 - accuracy: 0.6437 - precision: 0.6437 - recall: 0.6437 - auc: 0.6437 - val_loss: 0.6515 - val_tp: 128671.0000 - val_fp: 71329.0000 - val_tn: 128671.0000 - val_fn: 71329.0000 - val_accuracy: 0.6434 - val_precision: 0.6434 - val_recall: 0.6434 - val_auc: 0.6434
+[INFO] saving weights to checkpoints/lstm-epoch-002-files-40-42-batch-0-1000000
+[INFO] processing batch 1000000-2000000/1819975
+[33m[INFO] loading file 43-44/50 on epoch 2/3[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-31_130240_112.log.part02_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-31_130240_112.log.part03_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1819975, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['appi_name', 'classification', 'dst', 'i/f_dir', 'i/f_name',
+       'modbus_function_code', 'modbus_function_description',
+       'modbus_transaction_id', 'orig', 'proto', 'proxy_src_ip', 's_port',
+       'scada_tag', 'service', 'src', 'type', 'unixtime'],
+      dtype='object')
+[INFO] processing batch 0-1000000/1819975
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 42s - loss: 0.6511 - tp: 515178.0000 - fp: 284822.0000 - tn: 515178.0000 - fn: 284822.0000 - accuracy: 0.6440 - precision: 0.6440 - recall: 0.6440 - auc: 0.6440 - val_loss: 0.6510 - val_tp: 128817.0000 - val_fp: 71183.0000 - val_tn: 128817.0000 - val_fn: 71183.0000 - val_accuracy: 0.6441 - val_precision: 0.6441 - val_recall: 0.6441 - val_auc: 0.6441
+[INFO] saving weights to checkpoints/lstm-epoch-002-files-42-44-batch-0-1000000
+[INFO] processing batch 1000000-2000000/1819975
+[33m[INFO] loading file 45-46/50 on epoch 2/3[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-31_130240_112.log.part04_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-31_130240_112.log.part05_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1819975, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['appi_name', 'classification', 'dst', 'i/f_dir', 'i/f_name',
+       'modbus_function_code', 'modbus_function_description',
+       'modbus_transaction_id', 'orig', 'proto', 'proxy_src_ip', 's_port',
+       'scada_tag', 'service', 'src', 'type', 'unixtime'],
+      dtype='object')
+[INFO] processing batch 0-1000000/1819975
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 40s - loss: 0.6513 - tp: 514967.0000 - fp: 285033.0000 - tn: 514967.0000 - fn: 285033.0000 - accuracy: 0.6437 - precision: 0.6437 - recall: 0.6437 - auc: 0.6437 - val_loss: 0.6508 - val_tp: 128912.0000 - val_fp: 71088.0000 - val_tn: 128912.0000 - val_fn: 71088.0000 - val_accuracy: 0.6446 - val_precision: 0.6446 - val_recall: 0.6446 - val_auc: 0.6446
+[INFO] saving weights to checkpoints/lstm-epoch-002-files-44-46-batch-0-1000000
+[INFO] processing batch 1000000-2000000/1819975
+[33m[INFO] loading file 47-48/50 on epoch 2/3[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-31_130240_112.log.part06_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-31_130240_112.log.part07_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1819975, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['appi_name', 'classification', 'dst', 'i/f_dir', 'i/f_name',
+       'modbus_function_code', 'modbus_function_description',
+       'modbus_transaction_id', 'orig', 'proto', 'proxy_src_ip', 's_port',
+       'scada_tag', 'service', 'src', 'type', 'unixtime'],
+      dtype='object')
+[INFO] processing batch 0-1000000/1819975
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 38s - loss: 0.6510 - tp: 515268.0000 - fp: 284732.0000 - tn: 515268.0000 - fn: 284732.0000 - accuracy: 0.6441 - precision: 0.6441 - recall: 0.6441 - auc: 0.6441 - val_loss: 0.6507 - val_tp: 128923.0000 - val_fp: 71077.0000 - val_tn: 128923.0000 - val_fn: 71077.0000 - val_accuracy: 0.6446 - val_precision: 0.6446 - val_recall: 0.6446 - val_auc: 0.6446
+[INFO] saving weights to checkpoints/lstm-epoch-002-files-46-48-batch-0-1000000
+[INFO] processing batch 1000000-2000000/1819975
+[33m[INFO] loading file 49-50/50 on epoch 2/3[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-31_130240_112.log.part08_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-31_130240_112.log.part09_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1819975, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['appi_name', 'classification', 'dst', 'i/f_dir', 'i/f_name',
+       'modbus_function_code', 'modbus_function_description',
+       'modbus_transaction_id', 'orig', 'proto', 'proxy_src_ip', 's_port',
+       'scada_tag', 'service', 'src', 'type', 'unixtime'],
+      dtype='object')
+[INFO] processing batch 0-1000000/1819975
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 44s - loss: 0.6511 - tp: 515194.0000 - fp: 284806.0000 - tn: 515194.0000 - fn: 284806.0000 - accuracy: 0.6440 - precision: 0.6440 - recall: 0.6440 - auc: 0.6440 - val_loss: 0.6512 - val_tp: 128751.0000 - val_fp: 71249.0000 - val_tn: 128751.0000 - val_fn: 71249.0000 - val_accuracy: 0.6438 - val_precision: 0.6438 - val_recall: 0.6438 - val_auc: 0.6438
+[INFO] saving weights to checkpoints/lstm-epoch-002-files-48-50-batch-0-1000000
+[INFO] processing batch 1000000-2000000/1819975
+[33m[LOSS] 0.6512280173301697[0m
+[33m[INFO] epoch 3/3[0m
+[33m[INFO] loading file 1-2/50 on epoch 3/3[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-28_113021_98.log.part13_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1000000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['unixtime', 'orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst',
+       'proto', 'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] processing batch 0-1000000/1000000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 43s - loss: 0.5413 - tp: 620154.0000 - fp: 179846.0000 - tn: 620154.0000 - fn: 179846.0000 - accuracy: 0.7752 - precision: 0.7752 - recall: 0.7752 - auc: 0.7780 - val_loss: 0.6203 - val_tp: 140283.0000 - val_fp: 59717.0000 - val_tn: 140283.0000 - val_fn: 59717.0000 - val_accuracy: 0.7014 - val_precision: 0.7014 - val_recall: 0.7014 - val_auc: 0.7014
+[INFO] saving weights to checkpoints/lstm-epoch-003-files-0-2-batch-0-1000000
+[33m[INFO] loading file 3-4/50 on epoch 3/3[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-28_164554_99.log.part01_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-28_164554_99.log.part02_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1000000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['unixtime', 'orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst',
+       'proto', 'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] processing batch 0-1000000/1000000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 39s - loss: 0.3177 - tp: 733557.0000 - fp: 66443.0000 - tn: 733557.0000 - fn: 66443.0000 - accuracy: 0.9169 - precision: 0.9169 - recall: 0.9169 - auc: 0.9170 - val_loss: 0.5580 - val_tp: 156221.0000 - val_fp: 43779.0000 - val_tn: 156221.0000 - val_fn: 43779.0000 - val_accuracy: 0.7811 - val_precision: 0.7811 - val_recall: 0.7811 - val_auc: 0.7811
+[INFO] saving weights to checkpoints/lstm-epoch-003-files-2-4-batch-0-1000000
+[33m[INFO] loading file 5-6/50 on epoch 3/3[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-28_164554_99.log.part03_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-28_164554_99.log.part05_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1000000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['unixtime', 'orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst',
+       'proto', 'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] processing batch 0-1000000/1000000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 40s - loss: 0.2632 - tp: 743655.0000 - fp: 56345.0000 - tn: 743655.0000 - fn: 56345.0000 - accuracy: 0.9296 - precision: 0.9296 - recall: 0.9296 - auc: 0.9307 - val_loss: 0.5562 - val_tp: 159595.0000 - val_fp: 40405.0000 - val_tn: 159595.0000 - val_fn: 40405.0000 - val_accuracy: 0.7980 - val_precision: 0.7980 - val_recall: 0.7980 - val_auc: 0.7980
+[INFO] saving weights to checkpoints/lstm-epoch-003-files-4-6-batch-0-1000000
+[33m[INFO] loading file 7-8/50 on epoch 3/3[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-28_164554_99.log.part06_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-28_164554_99.log.part08_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1000000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['unixtime', 'orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst',
+       'proto', 'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] processing batch 0-1000000/1000000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 38s - loss: 0.3430 - tp: 713581.0000 - fp: 86419.0000 - tn: 713581.0000 - fn: 86419.0000 - accuracy: 0.8920 - precision: 0.8920 - recall: 0.8920 - auc: 0.8925 - val_loss: 0.4185 - val_tp: 171422.0000 - val_fp: 28578.0000 - val_tn: 171422.0000 - val_fn: 28578.0000 - val_accuracy: 0.8571 - val_precision: 0.8571 - val_recall: 0.8571 - val_auc: 0.8571
+[INFO] saving weights to checkpoints/lstm-epoch-003-files-6-8-batch-0-1000000
+[33m[INFO] loading file 9-10/50 on epoch 3/3[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-28_164554_99.log.part09_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-29_134830_103.log.part08_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1000000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['unixtime', 'orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst',
+       'proto', 'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] processing batch 0-1000000/1000000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 39s - loss: 0.2391 - tp: 749970.0000 - fp: 50030.0000 - tn: 749970.0000 - fn: 50030.0000 - accuracy: 0.9375 - precision: 0.9375 - recall: 0.9375 - auc: 0.9375 - val_loss: 0.0834 - val_tp: 200000.0000 - val_fp: 0.0000e+00 - val_tn: 200000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-003-files-8-10-batch-0-1000000
+[33m[INFO] loading file 11-12/50 on epoch 3/3[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-29_134830_103.log.part09_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-29_134830_103.log.part10_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1000000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['unixtime', 'orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst',
+       'proto', 'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] processing batch 0-1000000/1000000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 38s - loss: 0.1898 - tp: 763809.0000 - fp: 36191.0000 - tn: 763809.0000 - fn: 36191.0000 - accuracy: 0.9548 - precision: 0.9548 - recall: 0.9548 - auc: 0.9554 - val_loss: 0.0644 - val_tp: 200000.0000 - val_fp: 0.0000e+00 - val_tn: 200000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-003-files-10-12-batch-0-1000000
+[33m[INFO] loading file 13-14/50 on epoch 3/3[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-29_190411_104.log.part03_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-29_190411_104.log.part04_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1000000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['unixtime', 'orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst',
+       'proto', 'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] processing batch 0-1000000/1000000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 43s - loss: 0.3727 - tp: 706030.0000 - fp: 93970.0000 - tn: 706030.0000 - fn: 93970.0000 - accuracy: 0.8825 - precision: 0.8825 - recall: 0.8825 - auc: 0.8822 - val_loss: 0.0959 - val_tp: 200000.0000 - val_fp: 0.0000e+00 - val_tn: 200000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-003-files-12-14-batch-0-1000000
+[33m[INFO] loading file 15-16/50 on epoch 3/3[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-29_190411_104.log.part13_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-29_190411_104.log.part14_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (939690, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['unixtime', 'orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst',
+       'proto', 'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] processing batch 0-1000000/939690
+[33m[INFO] loading file 17-18/50 on epoch 3/3[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-30_001940_105.log.part11_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-30_053515_106.log.part05_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1939690, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['appi_name', 'classification', 'dst', 'i/f_dir', 'i/f_name',
+       'modbus_function_code', 'modbus_function_description',
+       'modbus_transaction_id', 'orig', 'proto', 'proxy_src_ip', 's_port',
+       'scada_tag', 'service', 'src', 'type', 'unixtime'],
+      dtype='object')
+[INFO] processing batch 0-1000000/1939690
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 41s - loss: 0.4390 - tp: 676261.0000 - fp: 123739.0000 - tn: 676261.0000 - fn: 123739.0000 - accuracy: 0.8453 - precision: 0.8453 - recall: 0.8453 - auc: 0.8459 - val_loss: 0.1431 - val_tp: 200000.0000 - val_fp: 0.0000e+00 - val_tn: 200000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-003-files-16-18-batch-0-1000000
+[INFO] processing batch 1000000-2000000/1939690
+[33m[INFO] loading file 19-20/50 on epoch 3/3[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-30_105053_107.log.part12_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-30_105053_107.log.part13_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1939690, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['appi_name', 'classification', 'dst', 'i/f_dir', 'i/f_name',
+       'modbus_function_code', 'modbus_function_description',
+       'modbus_transaction_id', 'orig', 'proto', 'proxy_src_ip', 's_port',
+       'scada_tag', 'service', 'src', 'type', 'unixtime'],
+      dtype='object')
+[INFO] processing batch 0-1000000/1939690
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+ - 45s - loss: 0.4404 - tp: 672152.0000 - fp: 127848.0000 - tn: 672152.0000 - fn: 127848.0000 - accuracy: 0.8402 - precision: 0.8402 - recall: 0.8402 - auc: 0.8400 - val_loss: 0.1665 - val_tp: 200000.0000 - val_fp: 0.0000e+00 - val_tn: 200000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+train.py:186: FutureWarning: Sorting because non-concatenation axis is not aligned. A future version
+of pandas will change to not sort by default.
+
+To accept the future behavior, pass 'sort=False'.
+
+To retain the current behavior and silence the warning, pass 'sort=True'.
+
+  df = pd.concat(df_from_each_file, ignore_index=True)
+  File "train.py", line 348, in <module>
+    run()
+  File "train.py", line 254, in run
+    history = train_dnn(dfCopy, i, epoch+1, batch=batch_size)
+  File "train.py", line 106, in train_dnn
+    epochs=1,
+  File "/usr/local/lib/python3.7/site-packages/keras/engine/training.py", line 1239, in fit
+    validation_freq=validation_freq)
+  File "/usr/local/lib/python3.7/site-packages/keras/engine/training_arrays.py", line 196, in fit_loop
+    outs = fit_function(ins_batch)
+  File "/usr/local/lib/python3.7/site-packages/tensorflow_core/python/keras/backend.py", line 3727, in __call__
+    outputs = self._graph_fn(*converted_inputs)
+  File "/usr/local/lib/python3.7/site-packages/tensorflow_core/python/eager/function.py", line 1551, in __call__
+    return self._call_impl(args, kwargs)
+  File "/usr/local/lib/python3.7/site-packages/tensorflow_core/python/eager/function.py", line 1591, in _call_impl
+    return self._call_flat(args, self.captured_inputs, cancellation_manager)
+  File "/usr/local/lib/python3.7/site-packages/tensorflow_core/python/eager/function.py", line 1692, in _call_flat
+    ctx, args, cancellation_manager=cancellation_manager))
+  File "/usr/local/lib/python3.7/site-packages/tensorflow_core/python/eager/function.py", line 545, in call
+    ctx=ctx)
+  File "/usr/local/lib/python3.7/site-packages/tensorflow_core/python/eager/execute.py", line 61, in quick_execute
+    num_outputs)
+[INFO] saving weights to checkpoints/lstm-epoch-003-files-18-20-batch-0-1000000
+[INFO] processing batch 1000000-2000000/1939690
+[33m[INFO] loading file 21-22/50 on epoch 3/3[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-30_212042_109.log.part03_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-minmax/train/2015-12-30_212042_109.log.part04_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1939687, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['appi_name', 'classification', 'dst', 'i/f_dir', 'i/f_name',
+       'modbus_function_code', 'modbus_function_description',
+       'modbus_transaction_id', 'orig', 'proto', 'proxy_src_ip', 's_port',
+       'scada_tag', 'service', 'src', 'type', 'unixtime'],
+      dtype='object')
+[INFO] processing batch 0-1000000/1939687
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 8000 samples, validate on 2000 samples
+Epoch 1/1
+[EXCEPTION] (<class 'KeyboardInterrupt'>, KeyboardInterrupt(), <traceback object at 0x14a05b190>)
+--- 2389.115727186203 seconds ---
+Traceback (most recent call last):
+  File "score.py", line 11, in <module>
+    import pandas as pd
+  File "/usr/local/lib/python3.7/site-packages/pandas/__init__.py", line 19, in <module>
+    "Missing required dependencies {0}".format(missing_dependencies))
+ImportError: Missing required dependencies ['numpy']

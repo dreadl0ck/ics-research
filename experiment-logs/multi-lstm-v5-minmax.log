@@ -1,0 +1,27 @@
+Traceback (most recent call last):
+  File "train.py", line 11, in <module>
+    import pandas as pd
+  File "/usr/local/lib/python3.7/site-packages/pandas/__init__.py", line 13, in <module>
+    __import__(dependency)
+  File "/usr/local/lib/python3.7/site-packages/numpy/__init__.py", line 154, in <module>
+    from . import ma
+  File "/usr/local/lib/python3.7/site-packages/numpy/ma/__init__.py", line 44, in <module>
+    from . import core
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 967, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 677, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 724, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 818, in get_code
+  File "<frozen importlib._bootstrap_external>", line 917, in get_data
+KeyboardInterrupt
+Fatal Python error: initsite: Failed to import the site module
+Traceback (most recent call last):
+  File "/usr/local/Cellar/python/3.7.6_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site.py", line 579, in <module>
+    main()
+  File "/usr/local/Cellar/python/3.7.6_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site.py", line 566, in main
+    known_paths = addsitepackages(known_paths)
+  File "/usr/local/Cellar/python/3.7.6_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site.py", line 349, in addsitepackages
+    addsitedir(sitedir, known_paths)
+  File "/usr/local/Cellar/python/3.7.6_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site.py", line 202, in addsitedir
+    names = os.listdir(sitedir)
+KeyboardInterrupt
