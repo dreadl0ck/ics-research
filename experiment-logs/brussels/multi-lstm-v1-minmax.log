@@ -1,0 +1,45 @@
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/numpy/compat/py3k.py", line 30, in <module>
+    import pickle5 as pickle
+ModuleNotFoundError: No module named 'pickle5'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "train.py", line 11, in <module>
+    import pandas as pd
+  File "/usr/local/lib/python3.6/dist-packages/pandas/__init__.py", line 11, in <module>
+    __import__(dependency)
+  File "/usr/local/lib/python3.6/dist-packages/numpy/__init__.py", line 142, in <module>
+    from . import core
+  File "/usr/local/lib/python3.6/dist-packages/numpy/core/__init__.py", line 24, in <module>
+    from . import multiarray
+  File "/usr/local/lib/python3.6/dist-packages/numpy/core/multiarray.py", line 14, in <module>
+    from . import overrides
+  File "/usr/local/lib/python3.6/dist-packages/numpy/core/overrides.py", line 9, in <module>
+    from numpy.compat._inspect import getargspec
+  File "/usr/local/lib/python3.6/dist-packages/numpy/compat/__init__.py", line 14, in <module>
+    from . import py3k
+  File "/usr/local/lib/python3.6/dist-packages/numpy/compat/py3k.py", line 32, in <module>
+    import pickle
+  File "/usr/lib/python3.6/pickle.py", line 1562, in <module>
+    from _pickle import (
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "score.py", line 11, in <module>
+    import pandas as pd
+  File "/usr/local/lib/python3.6/dist-packages/pandas/__init__.py", line 11, in <module>
+    __import__(dependency)
+  File "/usr/local/lib/python3.6/dist-packages/numpy/__init__.py", line 142, in <module>
+    from . import core
+  File "/usr/local/lib/python3.6/dist-packages/numpy/core/__init__.py", line 78, in <module>
+    from . import numeric
+  File "/usr/local/lib/python3.6/dist-packages/numpy/core/numeric.py", line 29, in <module>
+    from . import shape_base
+  File "/usr/local/lib/python3.6/dist-packages/numpy/core/shape_base.py", line 14, in <module>
+    from . import fromnumeric as _from_nx
+  File "/usr/local/lib/python3.6/dist-packages/numpy/core/fromnumeric.py", line 3614, in <module>
+    @array_function_dispatch(_cumprod_dispatcher, verify=False)
+  File "/usr/local/lib/python3.6/dist-packages/numpy/core/overrides.py", line 181, in decorator
+    source, filename='<__array_function__ internals>', mode='exec')
+KeyboardInterrupt

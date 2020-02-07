@@ -1,0 +1,71 @@
+Traceback (most recent call last):
+  File "train.py", line 11, in <module>
+    import pandas as pd
+  File "/usr/local/lib/python3.6/dist-packages/pandas/__init__.py", line 17, in <module>
+    "Unable to import required dependencies:\n" + "\n".join(missing_dependencies)
+ImportError: Unable to import required dependencies:
+numpy: 
+
+IMPORTANT: PLEASE READ THIS FOR ADVICE ON HOW TO SOLVE THIS ISSUE!
+
+Importing the numpy c-extensions failed.
+- Try uninstalling and reinstalling numpy.
+- If you have already done that, then:
+  1. Check that you expected to use Python3.6 from "/usr/bin/python3",
+     and that you have no directories in your PATH or PYTHONPATH that can
+     interfere with the Python and numpy version "1.18.1" you're trying to use.
+  2. If (1) looks fine, you can open a new issue at
+     https://github.com/numpy/numpy/issues.  Please include details on:
+     - how you installed Python
+     - how you installed numpy
+     - your operating system
+     - whether or not you have multiple versions of Python installed
+     - if you built from source, your compiler versions and ideally a build log
+
+- If you're working with a numpy git repository, try `git clean -xdf`
+  (removes all files not under version control) and rebuild numpy.
+
+Note: this error has many possible causes, so please don't comment on
+an existing issue about this - open a new one instead.
+
+Original error was: PyCapsule_Import could not import module "datetime"
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/numpy/compat/py3k.py", line 30, in <module>
+    import pickle5 as pickle
+ModuleNotFoundError: No module named 'pickle5'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "score.py", line 11, in <module>
+    import pandas as pd
+  File "/usr/local/lib/python3.6/dist-packages/pandas/__init__.py", line 11, in <module>
+    __import__(dependency)
+  File "/usr/local/lib/python3.6/dist-packages/numpy/__init__.py", line 142, in <module>
+    from . import core
+  File "/usr/local/lib/python3.6/dist-packages/numpy/core/__init__.py", line 24, in <module>
+    from . import multiarray
+  File "/usr/local/lib/python3.6/dist-packages/numpy/core/multiarray.py", line 14, in <module>
+    from . import overrides
+  File "/usr/local/lib/python3.6/dist-packages/numpy/core/overrides.py", line 9, in <module>
+    from numpy.compat._inspect import getargspec
+  File "/usr/local/lib/python3.6/dist-packages/numpy/compat/__init__.py", line 14, in <module>
+    from . import py3k
+  File "/usr/local/lib/python3.6/dist-packages/numpy/compat/py3k.py", line 32, in <module>
+    import pickle
+  File "/usr/lib/python3.6/pickle.py", line 181, in <module>
+    __all__.extend([x for x in dir() if re.match("[A-Z][A-Z0-9_]+$", x)])
+  File "/usr/lib/python3.6/pickle.py", line 181, in <listcomp>
+    __all__.extend([x for x in dir() if re.match("[A-Z][A-Z0-9_]+$", x)])
+  File "/usr/lib/python3.6/re.py", line 172, in match
+    return _compile(pattern, flags).match(string)
+  File "/usr/lib/python3.6/re.py", line 302, in _compile
+    if not (flags & DEBUG):
+  File "/usr/lib/python3.6/enum.py", line 806, in __and__
+    return self.__class__(self._value_ & self.__class__(other)._value_)
+  File "/usr/lib/python3.6/enum.py", line 293, in __call__
+    return cls.__new__(cls, value)
+  File "/usr/lib/python3.6/enum.py", line 521, in __new__
+    if type(value) is cls:
+KeyboardInterrupt

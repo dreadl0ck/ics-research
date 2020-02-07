@@ -1,0 +1,47 @@
+Traceback (most recent call last):
+  File "train.py", line 11, in <module>
+    import pandas as pd
+  File "/usr/local/lib/python3.6/dist-packages/pandas/__init__.py", line 11, in <module>
+    __import__(dependency)
+  File "/usr/local/lib/python3.6/dist-packages/numpy/__init__.py", line 142, in <module>
+    from . import core
+  File "/usr/local/lib/python3.6/dist-packages/numpy/core/__init__.py", line 24, in <module>
+    from . import multiarray
+  File "/usr/local/lib/python3.6/dist-packages/numpy/core/multiarray.py", line 14, in <module>
+    from . import overrides
+  File "/usr/local/lib/python3.6/dist-packages/numpy/core/overrides.py", line 9, in <module>
+    from numpy.compat._inspect import getargspec
+  File "/usr/local/lib/python3.6/dist-packages/numpy/compat/__init__.py", line 14, in <module>
+    from . import py3k
+  File "/usr/local/lib/python3.6/dist-packages/numpy/compat/py3k.py", line 22, in <module>
+    from pathlib import Path, PurePath
+  File "/usr/lib/python3.6/pathlib.py", line 1, in <module>
+    import fnmatch
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 658, in _load_unlocked
+  File "<frozen importlib._bootstrap>", line 577, in module_from_spec
+  File "<frozen importlib._bootstrap>", line 556, in _init_module_attrs
+  File "<frozen importlib._bootstrap>", line 406, in cached
+KeyboardInterrupt
+Exception ignored in: <function _get_module_lock.<locals>.cb at 0x7ff5130c7048>
+Traceback (most recent call last):
+  File "<frozen importlib._bootstrap>", line 177, in cb
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "score.py", line 11, in <module>
+    import pandas as pd
+  File "/usr/local/lib/python3.6/dist-packages/pandas/__init__.py", line 11, in <module>
+    __import__(dependency)
+  File "/usr/local/lib/python3.6/dist-packages/numpy/__init__.py", line 145, in <module>
+    from . import lib
+  File "/usr/local/lib/python3.6/dist-packages/numpy/lib/__init__.py", line 39, in <module>
+    from .npyio import *
+  File "/usr/local/lib/python3.6/dist-packages/numpy/lib/npyio.py", line 15, in <module>
+    from ._datasource import DataSource
+  File "/usr/local/lib/python3.6/dist-packages/numpy/lib/_datasource.py", line 42, in <module>
+    import shutil
+  File "/usr/lib/python3.6/shutil.py", line 36, in <module>
+    from pwd import getpwnam
+  File "<frozen importlib._bootstrap>", line 966, in _find_and_load
+KeyboardInterrupt

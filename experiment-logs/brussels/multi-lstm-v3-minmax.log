@@ -1,0 +1,34 @@
+Traceback (most recent call last):
+  File "train.py", line 11, in <module>
+    import pandas as pd
+  File "/usr/local/lib/python3.6/dist-packages/pandas/__init__.py", line 11, in <module>
+    __import__(dependency)
+  File "/usr/local/lib/python3.6/dist-packages/numpy/__init__.py", line 142, in <module>
+    from . import core
+  File "/usr/local/lib/python3.6/dist-packages/numpy/core/__init__.py", line 24, in <module>
+    from . import multiarray
+  File "/usr/local/lib/python3.6/dist-packages/numpy/core/multiarray.py", line 78, in <module>
+    def empty_like(prototype, dtype=None, order=None, subok=None, shape=None):
+  File "/usr/local/lib/python3.6/dist-packages/numpy/core/overrides.py", line 209, in decorator
+    docs_from_dispatcher=docs_from_dispatcher)(implementation)
+  File "/usr/local/lib/python3.6/dist-packages/numpy/core/overrides.py", line 181, in decorator
+    source, filename='<__array_function__ internals>', mode='exec')
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "score.py", line 11, in <module>
+    import pandas as pd
+  File "/usr/local/lib/python3.6/dist-packages/pandas/__init__.py", line 11, in <module>
+    __import__(dependency)
+  File "/usr/local/lib/python3.6/dist-packages/numpy/__init__.py", line 142, in <module>
+    from . import core
+  File "/usr/local/lib/python3.6/dist-packages/numpy/core/__init__.py", line 78, in <module>
+    from . import numeric
+  File "/usr/local/lib/python3.6/dist-packages/numpy/core/numeric.py", line 29, in <module>
+    from . import shape_base
+  File "/usr/local/lib/python3.6/dist-packages/numpy/core/shape_base.py", line 14, in <module>
+    from . import fromnumeric as _from_nx
+  File "/usr/local/lib/python3.6/dist-packages/numpy/core/fromnumeric.py", line 98, in <module>
+    def take(a, indices, axis=None, out=None, mode='raise'):
+  File "/usr/local/lib/python3.6/dist-packages/numpy/core/overrides.py", line 181, in decorator
+    source, filename='<__array_function__ internals>', mode='exec')
+KeyboardInterrupt

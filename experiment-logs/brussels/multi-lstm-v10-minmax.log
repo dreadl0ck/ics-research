@@ -1,0 +1,33 @@
+Fatal Python error: Py_Initialize: can't initialize sys standard streams
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/io.py", line 52, in <module>
+    import abc
+  File "/usr/lib/python3.6/abc.py", line 6, in <module>
+    from _weakrefset import WeakSet
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 674, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 779, in get_code
+  File "<frozen importlib._bootstrap_external>", line 487, in _compile_bytecode
+KeyboardInterrupt
+./experiments/lstm-v10.sh: line 14: 23194 Aborted                 python3 train.py -read "$1" -wrapLayerSize 8 -dropoutLayer false -relu false -coreLayerSize 32 -numCoreLayers 3 -optimizer adam -epoch 30  -features 16 -lstm true -drop modbus_value
+Traceback (most recent call last):
+  File "score.py", line 11, in <module>
+    import pandas as pd
+  File "/usr/local/lib/python3.6/dist-packages/pandas/__init__.py", line 11, in <module>
+    __import__(dependency)
+  File "/usr/local/lib/python3.6/dist-packages/numpy/__init__.py", line 142, in <module>
+    from . import core
+  File "/usr/local/lib/python3.6/dist-packages/numpy/core/__init__.py", line 78, in <module>
+    from . import numeric
+  File "/usr/local/lib/python3.6/dist-packages/numpy/core/numeric.py", line 29, in <module>
+    from . import shape_base
+  File "/usr/local/lib/python3.6/dist-packages/numpy/core/shape_base.py", line 12, in <module>
+    from ._asarray import array, asanyarray
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 674, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 750, in get_code
+KeyboardInterrupt
