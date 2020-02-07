@@ -286,8 +286,10 @@ def single_class_expansion(values, labeltypes, debug):
         #np.set_printoptions(threshold=sys.maxsize)
         print("indices", indices)
         #np.set_printoptions(threshold=10)
+    
     y_vector[indices,0] = 1
     y_vector[indices,1] = 0
+    
     if debug:
         #np.set_printoptions(threshold=sys.maxsize)
         print("y_vector", y_vector)
@@ -440,7 +442,14 @@ def encode_columns(df, result_column, lstm, debug):
         with pd.option_context('display.max_rows', 10, 'display.max_columns', None):  # more options can be specified also
             print(df)
 
-def create_dnn(input_dim, output_dim, loss, optimizer, lstm, numCoreLayers, coreLayerSize, dropoutLayer, lstmBatchSize, wrapLayerSize, relu):
+def create_dnn(input_dim, output_dim, loss, optimizer, lstm, numCoreLayers, coreLayerSize, dropoutLayer, lstmBatchSize, wrapLayerSize, relu, binaryClasses):
+
+    # softmax is the default for multi-class classifiers
+    outputLayerActivation = "softmax"
+    if binaryClasses:
+        loss = "binary_crossentropy"
+        output_dim = 2
+        outputLayerActivation = "sigmoid"
 
     # Create neural network
     # Type Sequential is a linear stack of layers
@@ -449,7 +458,7 @@ def create_dnn(input_dim, output_dim, loss, optimizer, lstm, numCoreLayers, core
     if lstm:
 
         # construct input shape
-        input_shape=(int(lstmBatchSize/10000),input_dim,)
+        input_shape=(32,input_dim,)
         print("[INFO] input_shape", input_shape)
 
         print("[INFO] LSTM first and last layer neurons:", wrapLayerSize)
@@ -508,7 +517,7 @@ def create_dnn(input_dim, output_dim, loss, optimizer, lstm, numCoreLayers, core
             model.add(Dropout(rate=0.5))
 
         # FINAL LAYER
-        model.add(layers.Dense(output_dim, activation='softmax'))
+        model.add(layers.Dense(output_dim, activation=outputLayerActivation))
     else:
 
         print(colored("[INFO] using Sequential Dense layers", 'yellow'))
@@ -558,7 +567,7 @@ def create_dnn(input_dim, output_dim, loss, optimizer, lstm, numCoreLayers, core
             model.add(Dropout(rate=0.5))
 
         # FINAL LAYER
-        model.add(Dense(output_dim, activation='softmax'))
+        model.add(Dense(output_dim, activation=outputLayerActivation))
 
     # metrics for model
     METRICS = [
@@ -571,6 +580,14 @@ def create_dnn(input_dim, output_dim, loss, optimizer, lstm, numCoreLayers, core
         keras.metrics.Recall(name='recall'),
         keras.metrics.AUC(name='auc'),
     ]
+
+    print("wrapLayerSize", wrapLayerSize)
+    print("coreLayerSize", coreLayerSize)
+    print("numCoreLayers", numCoreLayers)
+    print("outputLayerActivation", outputLayerActivation)
+    print("output_dim", output_dim)
+    print("loss", loss)
+    print("optimizer", optimizer)
 
     # compile model
     #

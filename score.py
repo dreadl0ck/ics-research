@@ -142,8 +142,8 @@ def eval_dnn(df):
     if arguments.lstm:
 
         print("[INFO] reshape for using LSTM layers")
-        x_test = x_test.reshape(10000, int(x_test.shape[0]/10000), x_test.shape[1])
-        y_test = y_test.reshape(10000, int(y_test.shape[0]/10000), y_test.shape[1])
+        x_test = x_test.reshape(3125, 32, x_test.shape[1])
+        y_test = y_test.reshape(3125, 32, y_test.shape[1])
 
         if arguments.debug:
             print("--------RESHAPED--------")
@@ -155,7 +155,7 @@ def eval_dnn(df):
 
     if arguments.lstm:
         #print("y_test shape", y_test.shape)
-        pred = pred.reshape(10000*y_test.shape[1], y_test.shape[2])
+        pred = pred.reshape(3125*y_test.shape[1], y_test.shape[2])
         #print("pred 2", pred, pred.shape)
 
     pred = np.argmax(pred,axis=1)
@@ -210,7 +210,7 @@ parser.add_argument('-drop', type=str, help='optionally drop specified columns, 
 #parser.add_argument('-sample', type=float, default=1.0, help='optionally sample only a fraction of records')
 #parser.add_argument('-dropna', default=False, action='store_true', help='drop rows with missing values')
 #parser.add_argument('-test_size', type=float, default=0.5, help='specify size of the test data in percent (default: 0.25)')
-parser.add_argument('-loss', type=str, default='categorical_crossentropy', help='set function (default: categorical_crossentropy)')
+parser.add_argument('-loss', type=str, default='sparse_categorical_crossentropy', help='set function (default: sparse_categorical_crossentropy)')
 parser.add_argument('-optimizer', type=str, default='adam', help='set optimizer (default: adam)')
 parser.add_argument('-resultColumn', type=str, default='classification', help='set name of the column with the prediction')
 parser.add_argument('-features', type=int, required=True, help='The amount of columns in the csv')
@@ -222,7 +222,7 @@ parser.add_argument('-dropoutLayer', default=False, help='insert a dropout layer
 parser.add_argument('-coreLayerSize', type=int, default=4, help='size of an DNN core layer')
 parser.add_argument('-wrapLayerSize', type=int, default=2, help='size of the first and last DNN layer')
 parser.add_argument('-lstm', default=False, help='use a LSTM network')
-parser.add_argument('-batchSize', type=int, default=100000, help='LSTM network input number of rows')
+parser.add_argument('-batchSize', type=int, default=100000, help='chunks of records read from CSV')
 parser.add_argument('-debug', default=False, help='debug mode on off')
 parser.add_argument('-classes', type=str, help='supply one or multiple comma separated class identifiers')
 parser.add_argument('-zscoreUnixtime', default=False, help='apply zscore to unixtime column')
@@ -255,7 +255,7 @@ if len(files) == 0:
     exit(1)
 
 print("=================================================")
-print("        SCORING v0.4.1 (binaryClasses)")
+print("        SCORING v0.4.2 (binaryClasses)")
 print("=================================================")
 print("Date:", datetime.datetime.now())
 start_time = time.time()
@@ -272,7 +272,8 @@ model = create_dnn(
     arguments.dropoutLayer,
     arguments.batchSize,
     arguments.wrapLayerSize,
-    arguments.relu
+    arguments.relu,
+    arguments.binaryClasses
 )
 print("[INFO] created DNN")
 

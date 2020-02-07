@@ -79,12 +79,12 @@ def train_dnn(df, i, epoch, batch=0):
     if arguments.lstm:
 
         print("[INFO] using LSTM layers")
-        x_train = x_train.reshape(8000, int(x_train.shape[0]/8000), x.shape[1])
-        y_train = y_train.reshape(8000, int(y_train.shape[0]/8000), y.shape[1])
+        x_train = x_train.reshape(2500, 32, x.shape[1])
+        y_train = y_train.reshape(2500, 32, y.shape[1])
 
-        x_test = x_test.reshape(2000, int(x_test.shape[0]/2000), x.shape[1])
-        y_test = y_test.reshape(2000, int(y_test.shape[0]/2000), y.shape[1])
-
+        x_test = x_test.reshape(625, 32, x.shape[1])
+        y_test = y_test.reshape(625, 32, y.shape[1])
+        
         if arguments.debug:
             print("--------RESHAPED--------")
             print("x_train.shape", x_train.shape)
@@ -95,6 +95,9 @@ def train_dnn(df, i, epoch, batch=0):
     # TODO: using a timestep size of 1 and feeding numRows batches should also work
     #x_train = np.reshape(x_train, (x_train.shape[0], 1, x_train.shape[1]))
     #x_test = np.reshape(x_test, (x_test.shape[0], 1, x_test.shape[1]))
+
+    if arguments.debug:
+        model.summary()
 
     print("[INFO] fitting model")
     history = model.fit(
@@ -254,19 +257,20 @@ def run():
                 history = train_dnn(dfCopy, i, epoch+1, batch=batch_size)
                 leftover = None
         
-        # get current loss
-        lossValues = history.history['val_loss']
-        currentLoss = lossValues[-1]
-        print(colored("[LOSS] " + str(currentLoss),'yellow'))
+        if history is not None:
+            # get current loss
+            lossValues = history.history['val_loss']
+            currentLoss = lossValues[-1]
+            print(colored("[LOSS] " + str(currentLoss),'yellow'))
 
-        # implement early stopping to avoid overfitting
-        # start checking the val_loss against the threshold after patience epochs
-        if epoch+1 >= patience:
-            print("[CHECKING EARLY STOP]: currentLoss < min_delta ? =>", currentLoss, " < ", min_delta)
-            if currentLoss < min_delta:
-                print("[STOPPING EARLY]: currentLoss < min_delta =>", currentLoss, " < ", min_delta)
-                print("EPOCH", epoch+1)
-                break
+            # implement early stopping to avoid overfitting
+            # start checking the val_loss against the threshold after patience epochs
+            if epoch+1 >= patience:
+                print("[CHECKING EARLY STOP]: currentLoss < min_delta ? =>", currentLoss, " < ", min_delta)
+                if currentLoss < min_delta:
+                    print("[STOPPING EARLY]: currentLoss < min_delta =>", currentLoss, " < ", min_delta)
+                    print("EPOCH", epoch+1)
+                    break
 
 # instantiate the parser
 parser = argparse.ArgumentParser(description='NETCAP compatible implementation of Network Anomaly Detection with a Deep Neural Network and TensorFlow')
@@ -277,12 +281,12 @@ parser.add_argument('-drop', type=str, help='optionally drop specified columns, 
 parser.add_argument('-sample', type=float, default=1.0, help='optionally sample only a fraction of records')
 parser.add_argument('-dropna', default=False, action='store_true', help='drop rows with missing values')
 parser.add_argument('-testSize', type=float, default=0.2, help='specify size of the test data in percent (default: 0.25)')
-parser.add_argument('-loss', type=str, default='categorical_crossentropy', help='set function (default: categorical_crossentropy)')
+parser.add_argument('-loss', type=str, default='sparse_categorical_crossentropy', help='set function (default: sparse_categorical_crossentropy)')
 parser.add_argument('-optimizer', type=str, default='adam', help='set optimizer (default: adam)')
 parser.add_argument('-resultColumn', type=str, default='classification', help='set name of the column with the prediction')
 parser.add_argument('-features', type=int, required=True, help='The amount of columns in the csv (dimensionality)')
 #parser.add_argument('-class_amount', type=int, default=2, help='The amount of classes e.g. normal, attack1, attack3 is 3')
-parser.add_argument('-fileBatchSize', type=int, default=1, help='The amount of files to be read in. (default: 1)')
+parser.add_argument('-fileBatchSize', type=int, default=2, help='The amount of files to be read in. (default: 2)')
 parser.add_argument('-epochs', type=int, default=1, help='The amount of epochs. (default: 1)')
 parser.add_argument('-numCoreLayers', type=int, default=1, help='set number of core layers to use')
 parser.add_argument('-shuffle', default=False, help='shuffle data before feeding it to the DNN')
@@ -290,7 +294,7 @@ parser.add_argument('-dropoutLayer', default=False, help='insert a dropout layer
 parser.add_argument('-coreLayerSize', type=int, default=4, help='size of an DNN core layer')
 parser.add_argument('-wrapLayerSize', type=int, default=2, help='size of the first and last DNN layer')
 parser.add_argument('-lstm', default=False, help='use a LSTM network')
-parser.add_argument('-batchSize', type=int, default=100000, help='chunks of records read from CSV and being passed to DNN')
+parser.add_argument('-batchSize', type=int, default=100000, help='chunks of records read from CSV')
 parser.add_argument('-debug', default=False, help='debug mode on off')
 parser.add_argument('-zscoreUnixtime', default=False, help='apply zscore to unixtime column')
 parser.add_argument('-encodeColumns', default=False, help='switch between auto encoding or using a fully encoded dataset')
@@ -313,7 +317,7 @@ if arguments.classes is not None:
     print("set classes to:", classes)
 
 print("=================================================")
-print("        TRAINING v0.4.1 (binaryClasses)")
+print("        TRAINING v0.4.2 (binaryClasses)")
 print("=================================================")
 print("Date:", datetime.datetime.now())
 start_time = time.time()
@@ -338,7 +342,8 @@ model = create_dnn(
     arguments.dropoutLayer,
     arguments.batchSize,
     arguments.wrapLayerSize,
-    arguments.relu
+    arguments.relu,
+    arguments.binaryClasses
 )
 print("[INFO] created DNN")
 
