@@ -73,11 +73,19 @@ def run():
     print(colored("[INFO] model summary:", 'yellow'))
     model.summary()
 
-    for file_name in files:
-        df = readCSV(file_name)
+    leftover = None
+    for i in range(0, len(files), arguments.fileBatchSize):
+
+        df_from_each_file = [readCSV(f) for f in files[i:(i+arguments.fileBatchSize)]]
+
+        # ValueError: The truth value of a DataFrame is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
+        if leftover is not None:
+            df_from_each_file.insert(0, leftover)
+
+        print("[INFO] concatenate the files")
+        df = pd.concat(df_from_each_file, ignore_index=True)
 
         print("[INFO] process dataset, shape:", df.shape)
-
         if arguments.drop is not None:
             for col in arguments.drop.split(","):
                 drop_col(col, df)
@@ -219,6 +227,7 @@ parser.add_argument('-numCoreLayers', type=int, default=1, help='set number of c
 parser.add_argument('-dropoutLayer', default=False, help='insert a dropout layer at the end')
 parser.add_argument('-coreLayerSize', type=int, default=4, help='size of an DNN core layer')
 parser.add_argument('-wrapLayerSize', type=int, default=2, help='size of the first and last DNN layer')
+parser.add_argument('-fileBatchSize', type=int, default=16, help='The amount of files to be read in')
 parser.add_argument('-lstm', default=False, help='use a LSTM network')
 parser.add_argument('-batchSize', type=int, default=256000, help='chunks of records read from CSV')
 parser.add_argument('-debug', default=False, help='debug mode on off')
