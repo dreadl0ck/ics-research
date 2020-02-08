@@ -9,7 +9,7 @@ python3 train.py \
     -numCoreLayers 3 \
     -optimizer sgd \
     -epoch 10 \
-    -features 16 \
+    -features 107 \
     -lstm true \
     -drop modbus_value
 
@@ -22,6 +22,6 @@ python3 score.py \
     -coreLayerSize 32 \
     -numCoreLayers 3 \
     -optimizer sgd \
-    -features 16 \
+    -features 107 \
     -lstm true \
     -drop modbus_value

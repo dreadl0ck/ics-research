@@ -337,7 +337,7 @@ if arguments.classes is not None:
     print("set classes to:", classes)
 
 print("=================================================")
-print("        TRAINING v0.4.3 (multi-class)")
+print("        TRAINING v0.4.4 (multi-class)")
 print("=================================================")
 print("Date:", datetime.datetime.now())
 start_time = time.time()
@@ -349,6 +349,9 @@ files.sort()
 if len(files) == 0:
     print("[INFO] no files matched")
     exit(1)
+
+if not arguments.binaryClasses:
+    print("MULTI-CLASS", "num classes:", len(classes))
 
 # create models
 model = create_dnn(

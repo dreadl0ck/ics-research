@@ -9,5 +9,5 @@ do
     filename=$(basename -- "$f")
 	file=${filename%.sh}
     echo "running $f"
-    "./$f" "data/SWaT2015-Attack-Files-v0.4-minmax/train/*-labeled.csv" "data/SWaT2015-Attack-Files-v0.4-minmax/eval/*-labeled.csv" &> "experiment-logs/multi-$file-minmax.log"
+    "./$f" "data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/*-labeled.csv" "data/SWaT2015-Attack-Files-v0.4.3-minmax-text/eval/*-labeled.csv" &> "experiment-logs/v0.4.3-multi-$file-minmax-text.log"
 done

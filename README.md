@@ -377,7 +377,7 @@ TODO
 DNN
 
 python3 train.py \
-    -read data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv \
+    -read data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/*2015-12-28_113021_98.log.part12_sorted*-labeled.csv \
     -wrapLayerSize 8 \
     -dropoutLayer false \
     -relu true \
@@ -402,21 +402,21 @@ python3 score.py \
 LSTM
 
 python3 train.py \
-    -read "data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-28_113021_98.log.part*_sorted-labeled.csv" \
+    -read "data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/*-labeled.csv" \
     -wrapLayerSize 16 \
     -dropoutLayer true \
     -relu true \
     -coreLayerSize 32 \
     -numCoreLayers 2 \
     -optimizer adam \
-    -epoch 30 \
+    -epoch 3 \
     -lstm true \
-    -features 84 \
+    -features 107 \
     -binaryClasses true \
     -drop modbus_value
 
 python3 score.py \
-    -read data/SWaT2015-Attack-Files-v0.4.3-minmax-text/eval/2015-12-31_130240_112.log.part10_sorted-labeled.csv \
+    -read "data/SWaT2015-Attack-Files-v0.4.3-minmax-text/eval/*-labeled.csv" \
     -wrapLayerSize 16 \
     -dropoutLayer true \
     -relu true \
@@ -424,6 +424,6 @@ python3 score.py \
     -numCoreLayers 2 \
     -optimizer adam \
     -lstm true \
-    -features 84 \
+    -features 107 \
     -binaryClasses true \
     -drop modbus_value

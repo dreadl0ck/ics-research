@@ -263,10 +263,13 @@ if len(files) == 0:
     exit(1)
 
 print("=================================================")
-print("        SCORING v0.4.3 (multi-class)")
+print("        SCORING v0.4.4 (multi-class)")
 print("=================================================")
 print("Date:", datetime.datetime.now())
 start_time = time.time()
+
+if not arguments.binaryClasses:
+    print("MULTI-CLASS", "num classes:", len(classes))
 
 # create models
 model = create_dnn(

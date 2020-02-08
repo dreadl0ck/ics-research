@@ -9,7 +9,7 @@ python3 train.py \
     -numCoreLayers 3 \
     -optimizer adam \
     -epoch 6 \
-    -features 16 \
+    -features 107 \
     -lstm true \
     -drop modbus_value
 
@@ -22,6 +22,6 @@ python3 score.py \
     -coreLayerSize 64 \
     -numCoreLayers 3 \
     -optimizer adam \
-    -features 16 \
+    -features 107 \
     -lstm true \
     -drop modbus_value
