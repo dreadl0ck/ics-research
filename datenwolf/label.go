@@ -234,15 +234,21 @@ func (t task) label() {
 					switch sum.Typ {
 					case typeString:
 
-						// get index num
-						i := getIndex(sum.UniqueStrings, v)
+						if *flagEncodeCategoricals {
 
-						// TODO: make normalization a second stage?
-						// normalize
-						if *flagZScore {
-							r[index] = zScore(i, sum)
-						} else {
-							r[index] = minMax(i, sum)
+							// get index num
+							i := getIndex(sum.UniqueStrings, v)
+							if *flagNormalizeCategoricals {
+								// TODO: make normalization a second stage?
+								// normalize
+								if *flagZScore {
+									r[index] = zScore(i, sum)
+								} else {
+									r[index] = minMax(i, sum)
+								}
+							} else {
+								r[index] = strconv.FormatInt(int64(i), 10)
+							}
 						}
 
 					case typeNumeric:

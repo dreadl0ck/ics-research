@@ -22,4 +22,6 @@ var (
 	flagVersion               = flag.Bool("version", false, "print version")
 	flagZScore                = flag.Bool("zscore", false, "use zscore for normalization")
 	flagEncode                = flag.Bool("encode", true, "encode the values to numeric format")
+	flagEncodeCategoricals    = flag.Bool("encodeCategoricals", true, "encode the categorical values to numeric format")
+	flagNormalizeCategoricals = flag.Bool("normalizeCategoricals", true, "normalize the categorical values after encoding them to numeric format")
 )
