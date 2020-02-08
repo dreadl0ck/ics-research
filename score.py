@@ -102,6 +102,10 @@ def run():
             encode_columns(df, arguments.resultColumn, arguments.lstm, arguments.debug)
             print("[INFO] Shape AFTER encoding dataset:", df.shape)
 
+        
+        if arguments.encodeCategoricals:
+            encode_categorical_columns(df, arguments.features)    
+
         batchSize = arguments.batchSize
         for batch_index in range(0, df.shape[0], batchSize):
             print("[INFO] processing batch {}-{}/{}".format(batch_index, batch_index+batchSize, df.shape[0]))
@@ -142,8 +146,8 @@ def eval_dnn(df):
     if arguments.lstm:
 
         print("[INFO] reshape for using LSTM layers")
-        x_test = x_test.reshape(3125, 32, x_test.shape[1])
-        y_test = y_test.reshape(3125, 32, y_test.shape[1])
+        x_test = x_test.reshape(2000, 128, x_test.shape[1])
+        y_test = y_test.reshape(2000, 128, y_test.shape[1])
 
         if arguments.debug:
             print("--------RESHAPED--------")
@@ -155,7 +159,7 @@ def eval_dnn(df):
 
     if arguments.lstm:
         #print("y_test shape", y_test.shape)
-        pred = pred.reshape(3125*y_test.shape[1], y_test.shape[2])
+        pred = pred.reshape(2000*y_test.shape[1], y_test.shape[2])
         #print("pred 2", pred, pred.shape)
 
     pred = np.argmax(pred,axis=1)
@@ -207,28 +211,23 @@ parser.add_argument('-read', required=True, type=str, help='Regex to find all la
 parser.add_argument('-model', type=str, help='the path to the model to be loaded')
 parser.add_argument('-weights', type=str, default='checkpoints/*', help='the path to the checkpoint to be loaded')
 parser.add_argument('-drop', type=str, help='optionally drop specified columns, supply multiple with comma')
-#parser.add_argument('-sample', type=float, default=1.0, help='optionally sample only a fraction of records')
-#parser.add_argument('-dropna', default=False, action='store_true', help='drop rows with missing values')
-#parser.add_argument('-test_size', type=float, default=0.5, help='specify size of the test data in percent (default: 0.25)')
-parser.add_argument('-loss', type=str, default='sparse_categorical_crossentropy', help='set function (default: sparse_categorical_crossentropy)')
+parser.add_argument('-loss', type=str, default='categorical_crossentropy', help='set function (default: categorical_crossentropy)')
 parser.add_argument('-optimizer', type=str, default='adam', help='set optimizer (default: adam)')
 parser.add_argument('-resultColumn', type=str, default='classification', help='set name of the column with the prediction')
 parser.add_argument('-features', type=int, required=True, help='The amount of columns in the csv')
-#parser.add_argument('-class_amount', type=int, default=2, help='The amount of classes e.g. normal, attack1, attack3 is 3')
-#parser.add_argument('-epochs', type=int, default=1, help='The amount of epochs. (default: 1)')
 parser.add_argument('-numCoreLayers', type=int, default=1, help='set number of core layers to use')
-#parser.add_argument('-shuffle', default=False, help='shuffle data before feeding it to the DNN')
 parser.add_argument('-dropoutLayer', default=False, help='insert a dropout layer at the end')
 parser.add_argument('-coreLayerSize', type=int, default=4, help='size of an DNN core layer')
 parser.add_argument('-wrapLayerSize', type=int, default=2, help='size of the first and last DNN layer')
 parser.add_argument('-lstm', default=False, help='use a LSTM network')
-parser.add_argument('-batchSize', type=int, default=100000, help='chunks of records read from CSV')
+parser.add_argument('-batchSize', type=int, default=256000, help='chunks of records read from CSV')
 parser.add_argument('-debug', default=False, help='debug mode on off')
 parser.add_argument('-classes', type=str, help='supply one or multiple comma separated class identifiers')
 parser.add_argument('-zscoreUnixtime', default=False, help='apply zscore to unixtime column')
 parser.add_argument('-encodeColumns', default=False, help='switch between auto encoding or using a fully encoded dataset')
-parser.add_argument('-binaryClasses', default=True, help='use binary classses')
+parser.add_argument('-binaryClasses', default=False, help='use binary classses')
 parser.add_argument('-relu', default=False, help='use ReLU activation function (default: LeakyReLU)')
+parser.add_argument('-encodeCategoricals', default=True, help='encode categorical with one hot strategy')
 
 # parse commandline arguments
 arguments = parser.parse_args()
@@ -255,7 +254,7 @@ if len(files) == 0:
     exit(1)
 
 print("=================================================")
-print("        SCORING v0.4.2 (binaryClasses)")
+print("        SCORING v0.4.3 (multi-class)")
 print("=================================================")
 print("Date:", datetime.datetime.now())
 start_time = time.time()

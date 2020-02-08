@@ -48,6 +48,44 @@ def encode_numeric_zscore(df, name, mean=None, sd=None):
 
     df[name] = (df[name] - mean) / sd
 
+categorical_columns = [
+    "orig",
+	"type",
+	"i/f_name",
+	"i/f_dir",
+	"src",
+	"dst",
+	"proto",
+	"appi_name",
+	"proxy_src_ip",
+	"modbus_function_description",
+	"scada_tag",
+]
+
+def encode_categorical_columns(df, numFeatures):
+    for c in categorical_columns:
+        encode_text_dummy(df, c)
+    
+    missing = numFeatures - len(df.columns)
+    if missing > 0:
+        for m in range(0,missing+1):
+            print("adding missing-"+str(m))
+            df["missing-"+str(m)] = 0
+
+    print("len(df.columns)", len(df.columns))
+    print("numFeatures", numFeatures)
+
+def encode_text_dummy(df, name):
+    """
+    Encodes text values to dummy variables(i.e. [1,0,0],[0,1,0],[0,0,1] for red,green,blue).
+    """
+    print(colored("encode_text_dummy " + name, "yellow"))
+    dummies = pd.get_dummies(df[name])
+    for x in dummies.columns:
+        dummy_name = "{}-{}".format(name, x)
+        df[dummy_name] = dummies[x]    
+    df.drop(name, axis=1, inplace=True)
+
 encoders = {
 
     # Flow / Connection
@@ -446,10 +484,25 @@ def create_dnn(input_dim, output_dim, loss, optimizer, lstm, numCoreLayers, core
 
     # softmax is the default for multi-class classifiers
     outputLayerActivation = "softmax"
+
     if binaryClasses:
         loss = "binary_crossentropy"
         output_dim = 2
         outputLayerActivation = "sigmoid"
+
+    if loss == "sparse_categorical_crossentropy":
+        output_dim = 1
+        input_dim = 1
+
+    print("------------DNN info-------------")
+    print("wrapLayerSize", wrapLayerSize)
+    print("coreLayerSize", coreLayerSize)
+    print("numCoreLayers", numCoreLayers)
+    print("outputLayerActivation", outputLayerActivation)
+    print("output_dim", output_dim)
+    print("loss", loss)
+    print("optimizer", optimizer)
+    print("------------DNN info-------------")
 
     # Create neural network
     # Type Sequential is a linear stack of layers
@@ -458,7 +511,7 @@ def create_dnn(input_dim, output_dim, loss, optimizer, lstm, numCoreLayers, core
     if lstm:
 
         # construct input shape
-        input_shape=(32,input_dim,)
+        input_shape=(128,input_dim,)
         print("[INFO] input_shape", input_shape)
 
         print("[INFO] LSTM first and last layer neurons:", wrapLayerSize)
@@ -580,14 +633,6 @@ def create_dnn(input_dim, output_dim, loss, optimizer, lstm, numCoreLayers, core
         keras.metrics.Recall(name='recall'),
         keras.metrics.AUC(name='auc'),
     ]
-
-    print("wrapLayerSize", wrapLayerSize)
-    print("coreLayerSize", coreLayerSize)
-    print("numCoreLayers", numCoreLayers)
-    print("outputLayerActivation", outputLayerActivation)
-    print("output_dim", output_dim)
-    print("loss", loss)
-    print("optimizer", optimizer)
 
     # compile model
     #

@@ -79,11 +79,11 @@ def train_dnn(df, i, epoch, batch=0):
     if arguments.lstm:
 
         print("[INFO] using LSTM layers")
-        x_train = x_train.reshape(2500, 32, x.shape[1])
-        y_train = y_train.reshape(2500, 32, y.shape[1])
+        x_train = x_train.reshape(1500, 128, x.shape[1])
+        y_train = y_train.reshape(1500, 128, y.shape[1])
 
-        x_test = x_test.reshape(625, 32, x.shape[1])
-        y_test = y_test.reshape(625, 32, y.shape[1])
+        x_test = x_test.reshape(500, 128, x.shape[1])
+        y_test = y_test.reshape(500, 128, y.shape[1])
         
         if arguments.debug:
             print("--------RESHAPED--------")
@@ -98,6 +98,22 @@ def train_dnn(df, i, epoch, batch=0):
 
     if arguments.debug:
         model.summary()
+    
+    # sparse shape fix
+    # if arguments.loss == "sparse_categorical_crossentropy":
+        
+    #     x_train = x_train.reshape((-1, 1, y.shape[1]))
+    #     x_test = x_test.reshape((-1, 1, y.shape[1]))
+
+    #     y_train = y_train.reshape((-1, 1, y.shape[1]))
+    #     y_test = y_test.reshape((-1, 1, y.shape[1]))
+
+    #     if arguments.debug:
+    #         print("-------- SPARSE RESHAPED --------")
+    #         print("x_train.shape", x_train.shape)
+    #         print("x_test.shape", x_test.shape)
+    #         print("y_train.shape", y_train.shape)
+    #         print("y_test.shape", y_test.shape)
 
     print("[INFO] fitting model")
     history = model.fit(
@@ -207,6 +223,9 @@ def run():
                 for col in arguments.drop.split(","):
                     drop_col(col, df)
 
+            if arguments.encodeCategoricals:
+                encode_categorical_columns(df, arguments.features)
+
             # Always drop columns that are unique for every record
 #           drop_col('UID', df)
 
@@ -280,13 +299,13 @@ parser.add_argument('-read', required=True, type=str, help='Regex to find all la
 parser.add_argument('-drop', type=str, help='optionally drop specified columns, supply multiple with comma')
 parser.add_argument('-sample', type=float, default=1.0, help='optionally sample only a fraction of records')
 parser.add_argument('-dropna', default=False, action='store_true', help='drop rows with missing values')
-parser.add_argument('-testSize', type=float, default=0.2, help='specify size of the test data in percent (default: 0.25)')
-parser.add_argument('-loss', type=str, default='sparse_categorical_crossentropy', help='set function (default: sparse_categorical_crossentropy)')
+parser.add_argument('-testSize', type=float, default=0.25, help='specify size of the test data in percent (default: 0.25)')
+parser.add_argument('-loss', type=str, default='categorical_crossentropy', help='set function (default: categorical_crossentropy)')
 parser.add_argument('-optimizer', type=str, default='adam', help='set optimizer (default: adam)')
 parser.add_argument('-resultColumn', type=str, default='classification', help='set name of the column with the prediction')
 parser.add_argument('-features', type=int, required=True, help='The amount of columns in the csv (dimensionality)')
 #parser.add_argument('-class_amount', type=int, default=2, help='The amount of classes e.g. normal, attack1, attack3 is 3')
-parser.add_argument('-fileBatchSize', type=int, default=2, help='The amount of files to be read in. (default: 2)')
+parser.add_argument('-fileBatchSize', type=int, default=50, help='The amount of files to be read in. (default: 2)')
 parser.add_argument('-epochs', type=int, default=1, help='The amount of epochs. (default: 1)')
 parser.add_argument('-numCoreLayers', type=int, default=1, help='set number of core layers to use')
 parser.add_argument('-shuffle', default=False, help='shuffle data before feeding it to the DNN')
@@ -294,14 +313,15 @@ parser.add_argument('-dropoutLayer', default=False, help='insert a dropout layer
 parser.add_argument('-coreLayerSize', type=int, default=4, help='size of an DNN core layer')
 parser.add_argument('-wrapLayerSize', type=int, default=2, help='size of the first and last DNN layer')
 parser.add_argument('-lstm', default=False, help='use a LSTM network')
-parser.add_argument('-batchSize', type=int, default=100000, help='chunks of records read from CSV')
+parser.add_argument('-batchSize', type=int, default=256000, help='chunks of records read from CSV')
 parser.add_argument('-debug', default=False, help='debug mode on off')
 parser.add_argument('-zscoreUnixtime', default=False, help='apply zscore to unixtime column')
 parser.add_argument('-encodeColumns', default=False, help='switch between auto encoding or using a fully encoded dataset')
 parser.add_argument('-classes', type=str, help='supply one or multiple comma separated class identifiers')
 parser.add_argument('-saveModel', default=False, help='save model (if false, only the weights will be saved)')
-parser.add_argument('-binaryClasses', default=True, help='use binary classses')
+parser.add_argument('-binaryClasses', default=False, help='use binary classses')
 parser.add_argument('-relu', default=False, help='use ReLU activation function (default: LeakyReLU)')
+parser.add_argument('-encodeCategoricals', default=True, help='encode categorical with one hot strategy')
 
 # parse commandline arguments
 arguments = parser.parse_args()
@@ -317,7 +337,7 @@ if arguments.classes is not None:
     print("set classes to:", classes)
 
 print("=================================================")
-print("        TRAINING v0.4.2 (binaryClasses)")
+print("        TRAINING v0.4.3 (multi-class)")
 print("=================================================")
 print("Date:", datetime.datetime.now())
 start_time = time.time()
