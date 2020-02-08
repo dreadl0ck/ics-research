@@ -1,0 +1,36 @@
+Traceback (most recent call last):
+  File "train.py", line 11, in <module>
+    import pandas as pd
+  File "/usr/local/lib/python3.6/dist-packages/pandas/__init__.py", line 11, in <module>
+    __import__(dependency)
+  File "/usr/local/lib/python3.6/dist-packages/numpy/__init__.py", line 142, in <module>
+    from . import core
+  File "/usr/local/lib/python3.6/dist-packages/numpy/core/__init__.py", line 24, in <module>
+    from . import multiarray
+  File "/usr/local/lib/python3.6/dist-packages/numpy/core/multiarray.py", line 78, in <module>
+    def empty_like(prototype, dtype=None, order=None, subok=None, shape=None):
+  File "/usr/local/lib/python3.6/dist-packages/numpy/core/overrides.py", line 209, in decorator
+    docs_from_dispatcher=docs_from_dispatcher)(implementation)
+  File "/usr/local/lib/python3.6/dist-packages/numpy/core/overrides.py", line 181, in decorator
+    source, filename='<__array_function__ internals>', mode='exec')
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "score.py", line 11, in <module>
+    import pandas as pd
+  File "/usr/local/lib/python3.6/dist-packages/pandas/__init__.py", line 11, in <module>
+    __import__(dependency)
+  File "/usr/local/lib/python3.6/dist-packages/numpy/__init__.py", line 142, in <module>
+    from . import core
+  File "/usr/local/lib/python3.6/dist-packages/numpy/core/__init__.py", line 76, in <module>
+    from . import numerictypes as nt
+  File "/usr/local/lib/python3.6/dist-packages/numpy/core/numerictypes.py", line 111, in <module>
+    from ._type_aliases import (
+  File "/usr/local/lib/python3.6/dist-packages/numpy/core/_type_aliases.py", line 32, in <module>
+    from numpy.core._dtype import _kind_name
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 674, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 771, in get_code
+  File "<frozen importlib._bootstrap_external>", line 482, in _validate_bytecode_header
+KeyboardInterrupt

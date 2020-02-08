@@ -1,0 +1,51 @@
+Traceback (most recent call last):
+  File "train.py", line 11, in <module>
+    import pandas as pd
+  File "/usr/local/lib/python3.6/dist-packages/pandas/__init__.py", line 11, in <module>
+    __import__(dependency)
+  File "/usr/local/lib/python3.6/dist-packages/numpy/__init__.py", line 142, in <module>
+    from . import core
+  File "/usr/local/lib/python3.6/dist-packages/numpy/core/__init__.py", line 24, in <module>
+    from . import multiarray
+  File "/usr/local/lib/python3.6/dist-packages/numpy/core/multiarray.py", line 14, in <module>
+    from . import overrides
+  File "/usr/local/lib/python3.6/dist-packages/numpy/core/overrides.py", line 69, in <module>
+    ArgSpec = collections.namedtuple('ArgSpec', 'args varargs keywords defaults')
+  File "/usr/lib/python3.6/collections/__init__.py", line 429, in namedtuple
+    exec(class_definition, namespace)
+  File "<string>", line 1, in <module>
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/numpy/compat/py3k.py", line 30, in <module>
+    import pickle5 as pickle
+ModuleNotFoundError: No module named 'pickle5'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "score.py", line 11, in <module>
+    import pandas as pd
+  File "/usr/local/lib/python3.6/dist-packages/pandas/__init__.py", line 11, in <module>
+    __import__(dependency)
+  File "/usr/local/lib/python3.6/dist-packages/numpy/__init__.py", line 142, in <module>
+    from . import core
+  File "/usr/local/lib/python3.6/dist-packages/numpy/core/__init__.py", line 24, in <module>
+    from . import multiarray
+  File "/usr/local/lib/python3.6/dist-packages/numpy/core/multiarray.py", line 14, in <module>
+    from . import overrides
+  File "/usr/local/lib/python3.6/dist-packages/numpy/core/overrides.py", line 9, in <module>
+    from numpy.compat._inspect import getargspec
+  File "/usr/local/lib/python3.6/dist-packages/numpy/compat/__init__.py", line 14, in <module>
+    from . import py3k
+  File "/usr/local/lib/python3.6/dist-packages/numpy/compat/py3k.py", line 32, in <module>
+    import pickle
+  File "/usr/lib/python3.6/pickle.py", line 37, in <module>
+    import _compat_pickle
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 951, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 894, in _find_spec
+  File "<frozen importlib._bootstrap_external>", line 1157, in find_spec
+  File "<frozen importlib._bootstrap_external>", line 1129, in _get_spec
+  File "<frozen importlib._bootstrap_external>", line 1241, in find_spec
+  File "<frozen importlib._bootstrap_external>", line 82, in _path_stat
+KeyboardInterrupt

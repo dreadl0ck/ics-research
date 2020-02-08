@@ -1,0 +1,32 @@
+Traceback (most recent call last):
+  File "train.py", line 11, in <module>
+    import pandas as pd
+  File "/usr/local/lib/python3.6/dist-packages/pandas/__init__.py", line 11, in <module>
+    __import__(dependency)
+  File "/usr/local/lib/python3.6/dist-packages/numpy/__init__.py", line 142, in <module>
+    from . import core
+  File "/usr/local/lib/python3.6/dist-packages/numpy/core/__init__.py", line 24, in <module>
+    from . import multiarray
+  File "/usr/local/lib/python3.6/dist-packages/numpy/core/multiarray.py", line 14, in <module>
+    from . import overrides
+  File "/usr/local/lib/python3.6/dist-packages/numpy/core/overrides.py", line 7, in <module>
+    from numpy.core._multiarray_umath import (
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "score.py", line 11, in <module>
+    import pandas as pd
+  File "/usr/local/lib/python3.6/dist-packages/pandas/__init__.py", line 11, in <module>
+    __import__(dependency)
+  File "/usr/local/lib/python3.6/dist-packages/numpy/__init__.py", line 142, in <module>
+    from . import core
+  File "/usr/local/lib/python3.6/dist-packages/numpy/core/__init__.py", line 76, in <module>
+    from . import numerictypes as nt
+  File "/usr/local/lib/python3.6/dist-packages/numpy/core/numerictypes.py", line 111, in <module>
+    from ._type_aliases import (
+  File "/usr/local/lib/python3.6/dist-packages/numpy/core/_type_aliases.py", line 152, in <module>
+    _add_aliases()
+  File "/usr/local/lib/python3.6/dist-packages/numpy/core/_type_aliases.py", line 122, in _add_aliases
+    base, bit, char = bitname(info.type)
+  File "/usr/local/lib/python3.6/dist-packages/numpy/core/_type_aliases.py", line 82, in bitname
+    dt = dtype(obj)
+KeyboardInterrupt

@@ -1,0 +1,90 @@
+2020-02-08 12:38:56.074221: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer.so.6'; dlerror: libnvinfer.so.6: cannot open shared object file: No such file or directory
+2020-02-08 12:38:56.074273: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer_plugin.so.6'; dlerror: libnvinfer_plugin.so.6: cannot open shared object file: No such file or directory
+2020-02-08 12:38:56.074279: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:30] Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+2020-02-08 12:38:56.563654: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
+2020-02-08 12:38:56.563673: E tensorflow/stream_executor/cuda/cuda_driver.cc:351] failed call to cuInit: UNKNOWN ERROR (303)
+2020-02-08 12:38:56.563688: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (brussels): /proc/driver/nvidia/version does not exist
+2020-02-08 12:38:56.563793: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2020-02-08 12:38:56.585811: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 3312000000 Hz
+2020-02-08 12:38:56.585982: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x54bad80 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-02-08 12:38:56.586008: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+Using TensorFlow backend.
+WARNING:tensorflow:Large dropout rate: 0.8 (>0.5). In TensorFlow 2.x, dropout() uses dropout rate instead of keep_prob. Please ensure that this is intended.
+=================================================
+        TRAINING v0.4.2 (binaryClasses)
+=================================================
+Date: 2020-02-08 12:38:56.560509
+[33m[INFO] using Sequential Dense layers[0m
+[INFO] adding core layer 0
+[INFO] adding core layer 1
+[INFO] adding core layer 2
+wrapLayerSize 8
+coreLayerSize 32
+numCoreLayers 3
+outputLayerActivation softmax
+output_dim 1
+loss categorical_crossentropy
+optimizer adam
+Traceback (most recent call last):
+  File "train.py", line 353, in <module>
+    arguments.binaryClasses
+  File "/home/***REMOVED***/ics-research/tfUtils.py", line 591, in create_dnn
+    metrics=METRICS
+  File "/usr/local/lib/python3.6/dist-packages/keras/backend/tensorflow_backend.py", line 75, in symbolic_fn_wrapper
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/keras/engine/training.py", line 222, in compile
+    masks=masks)
+  File "/usr/local/lib/python3.6/dist-packages/keras/engine/training.py", line 871, in _handle_metrics
+    self._per_output_metrics[i], target, output, output_mask)
+  File "/usr/local/lib/python3.6/dist-packages/keras/engine/training.py", line 842, in _handle_per_output_metrics
+    metric_fn, y_true, y_pred, weights=weights, mask=mask)
+  File "/usr/local/lib/python3.6/dist-packages/keras/engine/training_utils.py", line 1033, in call_metric_function
+    update_ops = metric_fn.update_state(y_true, y_pred, sample_weight=weights)
+  File "/usr/local/lib/python3.6/dist-packages/keras/utils/metrics_utils.py", line 42, in decorated
+    update_op = update_state_fn(*args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/keras/metrics.py", line 320, in update_state
+    matches, sample_weight=sample_weight)
+  File "/usr/local/lib/python3.6/dist-packages/keras/metrics.py", line 185, in update_state
+    value_sum = K.sum(values)
+  File "/usr/local/lib/python3.6/dist-packages/keras/backend/tensorflow_backend.py", line 1695, in sum
+    return tf.reduce_sum(x, axis, keepdims)
+  File "/usr/local/lib/python3.6/dist-packages/tensorflow_core/python/util/dispatch.py", line 180, in wrapper
+    return target(*args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/tensorflow_core/python/ops/math_ops.py", line 1595, in reduce_sum
+    _ReductionDims(input_tensor, axis))
+  File "/usr/local/lib/python3.6/dist-packages/tensorflow_core/python/ops/math_ops.py", line 1473, in _ReductionDims
+    return constant_op.constant(np.arange(rank, dtype=np.int32))
+  File "/usr/local/lib/python3.6/dist-packages/tensorflow_core/python/framework/constant_op.py", line 258, in constant
+    allow_broadcast=True)
+  File "/usr/local/lib/python3.6/dist-packages/tensorflow_core/python/framework/constant_op.py", line 302, in _constant_impl
+    name=name).outputs[0]
+  File "/usr/local/lib/python3.6/dist-packages/tensorflow_core/python/framework/func_graph.py", line 595, in _create_op_internal
+    compute_device)
+  File "/usr/local/lib/python3.6/dist-packages/tensorflow_core/python/framework/ops.py", line 3313, in _create_op_internal
+    with self._mutation_lock():
+  File "/usr/local/lib/python3.6/dist-packages/tensorflow_core/python/framework/ops.py", line 4999, in _mutation_lock
+    return self._group_lock.group(_MUTATION_LOCK_GROUP)
+  File "/usr/local/lib/python3.6/dist-packages/tensorflow_core/python/util/lock_util.py", line 83, in group
+    self._validate_group_id(group_id)
+  File "/usr/local/lib/python3.6/dist-packages/tensorflow_core/python/util/lock_util.py", line 111, in _validate_group_id
+    if group_id < 0 or group_id >= self._num_groups:
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "score.py", line 11, in <module>
+    import pandas as pd
+  File "/usr/local/lib/python3.6/dist-packages/pandas/__init__.py", line 30, in <module>
+    from pandas._libs import hashtable as _hashtable, lib as _lib, tslib as _tslib
+  File "/usr/local/lib/python3.6/dist-packages/pandas/_libs/__init__.py", line 3, in <module>
+    from .tslibs import (
+  File "/usr/local/lib/python3.6/dist-packages/pandas/_libs/tslibs/__init__.py", line 3, in <module>
+    from .conversion import localize_pydatetime, normalize_date
+  File "pandas/_libs/tslibs/c_timestamp.pxd", line 7, in init pandas._libs.tslibs.conversion
+  File "pandas/_libs/tslibs/c_timestamp.pyx", line 1, in init pandas._libs.tslibs.c_timestamp
+  File "pandas/_libs/tslibs/timezones.pyx", line 4, in init pandas._libs.tslibs.timezones
+  File "/usr/local/lib/python3.6/dist-packages/dateutil/tz/__init__.py", line 2, in <module>
+    from .tz import *
+  File "/usr/local/lib/python3.6/dist-packages/dateutil/tz/tz.py", line 19, in <module>
+    import six
+  File "/usr/local/lib/python3.6/dist-packages/six.py", line 164, in <module>
+    class _SixMetaPathImporter(object):
+KeyboardInterrupt

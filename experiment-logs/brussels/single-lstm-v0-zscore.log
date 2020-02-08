@@ -1,0 +1,20 @@
+Traceback (most recent call last):
+  File "train.py", line 11, in <module>
+    import pandas as pd
+  File "/usr/local/lib/python3.6/dist-packages/pandas/__init__.py", line 11, in <module>
+    __import__(dependency)
+  File "/usr/local/lib/python3.6/dist-packages/numpy/__init__.py", line 142, in <module>
+    from . import core
+  File "/usr/local/lib/python3.6/dist-packages/numpy/core/__init__.py", line 24, in <module>
+    from . import multiarray
+  File "/usr/local/lib/python3.6/dist-packages/numpy/core/multiarray.py", line 14, in <module>
+    from . import overrides
+  File "/usr/local/lib/python3.6/dist-packages/numpy/core/overrides.py", line 9, in <module>
+    from numpy.compat._inspect import getargspec
+  File "/usr/local/lib/python3.6/dist-packages/numpy/compat/__init__.py", line 14, in <module>
+    from . import py3k
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+KeyboardInterrupt

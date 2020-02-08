@@ -1,39 +1,27 @@
 Traceback (most recent call last):
   File "train.py", line 11, in <module>
     import pandas as pd
-  File "/usr/local/lib/python3.6/dist-packages/pandas/__init__.py", line 11, in <module>
+  File "/usr/local/lib/python3.7/site-packages/pandas/__init__.py", line 13, in <module>
     __import__(dependency)
-  File "/usr/local/lib/python3.6/dist-packages/numpy/__init__.py", line 142, in <module>
+  File "/usr/local/lib/python3.7/site-packages/numpy/__init__.py", line 154, in <module>
+    from . import ma
+  File "/usr/local/lib/python3.7/site-packages/numpy/ma/__init__.py", line 44, in <module>
     from . import core
-  File "/usr/local/lib/python3.6/dist-packages/numpy/core/__init__.py", line 24, in <module>
-    from . import multiarray
-  File "/usr/local/lib/python3.6/dist-packages/numpy/core/multiarray.py", line 14, in <module>
-    from . import overrides
-  File "/usr/local/lib/python3.6/dist-packages/numpy/core/overrides.py", line 9, in <module>
-    from numpy.compat._inspect import getargspec
-  File "/usr/local/lib/python3.6/dist-packages/numpy/compat/__init__.py", line 13, in <module>
-    from . import _inspect
-  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
-  File "<frozen importlib._bootstrap>", line 951, in _find_and_load_unlocked
-  File "<frozen importlib._bootstrap>", line 894, in _find_spec
-  File "<frozen importlib._bootstrap_external>", line 1157, in find_spec
-  File "<frozen importlib._bootstrap_external>", line 1129, in _get_spec
-  File "<frozen importlib._bootstrap_external>", line 1245, in find_spec
-  File "<frozen importlib._bootstrap_external>", line 1285, in _fill_cache
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 967, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 677, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 724, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 818, in get_code
+  File "<frozen importlib._bootstrap_external>", line 917, in get_data
 KeyboardInterrupt
+Fatal Python error: initsite: Failed to import the site module
 Traceback (most recent call last):
-  File "score.py", line 11, in <module>
-    import pandas as pd
-  File "/usr/local/lib/python3.6/dist-packages/pandas/__init__.py", line 11, in <module>
-    __import__(dependency)
-  File "/usr/local/lib/python3.6/dist-packages/numpy/__init__.py", line 142, in <module>
-    from . import core
-  File "/usr/local/lib/python3.6/dist-packages/numpy/core/__init__.py", line 24, in <module>
-    from . import multiarray
-  File "/usr/local/lib/python3.6/dist-packages/numpy/core/multiarray.py", line 388, in <module>
-    def lexsort(keys, axis=None):
-  File "/usr/local/lib/python3.6/dist-packages/numpy/core/overrides.py", line 209, in decorator
-    docs_from_dispatcher=docs_from_dispatcher)(implementation)
-  File "/usr/local/lib/python3.6/dist-packages/numpy/core/overrides.py", line 181, in decorator
-    source, filename='<__array_function__ internals>', mode='exec')
+  File "/usr/local/Cellar/python/3.7.6_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site.py", line 579, in <module>
+    main()
+  File "/usr/local/Cellar/python/3.7.6_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site.py", line 566, in main
+    known_paths = addsitepackages(known_paths)
+  File "/usr/local/Cellar/python/3.7.6_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site.py", line 349, in addsitepackages
+    addsitedir(sitedir, known_paths)
+  File "/usr/local/Cellar/python/3.7.6_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site.py", line 202, in addsitedir
+    names = os.listdir(sitedir)
 KeyboardInterrupt

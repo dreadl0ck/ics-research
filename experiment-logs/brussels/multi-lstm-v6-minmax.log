@@ -1,34 +1,28 @@
+Fatal Python error: init_sys_streams: can't initialize sys standard streams
 Traceback (most recent call last):
-  File "train.py", line 11, in <module>
-    import pandas as pd
-  File "/usr/local/lib/python3.6/dist-packages/pandas/__init__.py", line 11, in <module>
-    __import__(dependency)
-  File "/usr/local/lib/python3.6/dist-packages/numpy/__init__.py", line 142, in <module>
-    from . import core
-  File "/usr/local/lib/python3.6/dist-packages/numpy/core/__init__.py", line 78, in <module>
-    from . import numeric
-  File "/usr/local/lib/python3.6/dist-packages/numpy/core/numeric.py", line 29, in <module>
-    from . import shape_base
-  File "/usr/local/lib/python3.6/dist-packages/numpy/core/shape_base.py", line 14, in <module>
-    from . import fromnumeric as _from_nx
-  File "/usr/local/lib/python3.6/dist-packages/numpy/core/fromnumeric.py", line 2800, in <module>
-    @array_function_dispatch(_alen_dispathcer)
-  File "/usr/local/lib/python3.6/dist-packages/numpy/core/overrides.py", line 181, in decorator
-    source, filename='<__array_function__ internals>', mode='exec')
+  File "/usr/local/Cellar/python/3.7.6_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/encodings/latin_1.py", line 31, in <module>
+    class StreamReader(Codec,codecs.StreamReader):
 KeyboardInterrupt
+./experiments/lstm-v6.sh: line 14: 60546 Abort trap: 6           python3 train.py -read "$1" -wrapLayerSize 16 -dropoutLayer false -relu true -coreLayerSize 64 -numCoreLayers 1 -optimizer adam -epoch 3  -features 16 -lstm true -drop modbus_value
+Fatal Python error: initsite: Failed to import the site module
 Traceback (most recent call last):
-  File "score.py", line 11, in <module>
-    import pandas as pd
-  File "/usr/local/lib/python3.6/dist-packages/pandas/__init__.py", line 11, in <module>
-    __import__(dependency)
-  File "/usr/local/lib/python3.6/dist-packages/numpy/__init__.py", line 142, in <module>
-    from . import core
-  File "/usr/local/lib/python3.6/dist-packages/numpy/core/__init__.py", line 24, in <module>
-    from . import multiarray
-  File "/usr/local/lib/python3.6/dist-packages/numpy/core/multiarray.py", line 1310, in <module>
-    def may_share_memory(a, b, max_work=None):
-  File "/usr/local/lib/python3.6/dist-packages/numpy/core/overrides.py", line 209, in decorator
-    docs_from_dispatcher=docs_from_dispatcher)(implementation)
-  File "/usr/local/lib/python3.6/dist-packages/numpy/core/overrides.py", line 181, in decorator
-    source, filename='<__array_function__ internals>', mode='exec')
+  File "/usr/local/Cellar/python/3.7.6_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site.py", line 579, in <module>
+    main()
+  File "/usr/local/Cellar/python/3.7.6_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site.py", line 566, in main
+    known_paths = addsitepackages(known_paths)
+  File "/usr/local/Cellar/python/3.7.6_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site.py", line 349, in addsitepackages
+    addsitedir(sitedir, known_paths)
+  File "/usr/local/Cellar/python/3.7.6_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site.py", line 207, in addsitedir
+    addpackage(sitedir, name, known_paths)
+  File "/usr/local/Cellar/python/3.7.6_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site.py", line 168, in addpackage
+    exec(line)
+  File "<string>", line 1, in <module>
+  File "/usr/local/Cellar/python/3.7.6_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/importlib/util.py", line 14, in <module>
+    from contextlib import contextmanager
+  File "/usr/local/Cellar/python/3.7.6_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/contextlib.py", line 5, in <module>
+    from collections import deque
+  File "/usr/local/Cellar/python/3.7.6_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/collections/__init__.py", line 27, in <module>
+    from reprlib import recursive_repr as _recursive_repr
+  File "/usr/local/Cellar/python/3.7.6_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/reprlib.py", line 7, in <module>
+    from _thread import get_ident
 KeyboardInterrupt

@@ -1,0 +1,31 @@
+Traceback (most recent call last):
+  File "train.py", line 11, in <module>
+    import pandas as pd
+  File "/usr/local/lib/python3.6/dist-packages/pandas/__init__.py", line 11, in <module>
+    __import__(dependency)
+  File "/usr/local/lib/python3.6/dist-packages/numpy/__init__.py", line 142, in <module>
+    from . import core
+  File "/usr/local/lib/python3.6/dist-packages/numpy/core/__init__.py", line 76, in <module>
+    from . import numerictypes as nt
+  File "/usr/local/lib/python3.6/dist-packages/numpy/core/numerictypes.py", line 444, in <module>
+    _minvals = _typedict()
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "score.py", line 11, in <module>
+    import pandas as pd
+  File "/usr/local/lib/python3.6/dist-packages/pandas/__init__.py", line 11, in <module>
+    __import__(dependency)
+  File "/usr/local/lib/python3.6/dist-packages/numpy/__init__.py", line 142, in <module>
+    from . import core
+  File "/usr/local/lib/python3.6/dist-packages/numpy/core/__init__.py", line 78, in <module>
+    from . import numeric
+  File "/usr/local/lib/python3.6/dist-packages/numpy/core/numeric.py", line 29, in <module>
+    from . import shape_base
+  File "/usr/local/lib/python3.6/dist-packages/numpy/core/shape_base.py", line 14, in <module>
+    from . import fromnumeric as _from_nx
+  File "/usr/local/lib/python3.6/dist-packages/numpy/core/fromnumeric.py", line 18, in <module>
+    from . import _methods
+  File "/usr/local/lib/python3.6/dist-packages/numpy/core/_methods.py", line 11, in <module>
+    from numpy.core import umath as um
+  File "<frozen importlib._bootstrap>", line 202, in _lock_unlock_module
+KeyboardInterrupt

@@ -1,0 +1,59 @@
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/numpy/compat/py3k.py", line 30, in <module>
+    import pickle5 as pickle
+ModuleNotFoundError: No module named 'pickle5'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "train.py", line 11, in <module>
+    import pandas as pd
+  File "/usr/local/lib/python3.6/dist-packages/pandas/__init__.py", line 11, in <module>
+    __import__(dependency)
+  File "/usr/local/lib/python3.6/dist-packages/numpy/__init__.py", line 142, in <module>
+    from . import core
+  File "/usr/local/lib/python3.6/dist-packages/numpy/core/__init__.py", line 24, in <module>
+    from . import multiarray
+  File "/usr/local/lib/python3.6/dist-packages/numpy/core/multiarray.py", line 14, in <module>
+    from . import overrides
+  File "/usr/local/lib/python3.6/dist-packages/numpy/core/overrides.py", line 9, in <module>
+    from numpy.compat._inspect import getargspec
+  File "/usr/local/lib/python3.6/dist-packages/numpy/compat/__init__.py", line 14, in <module>
+    from . import py3k
+  File "/usr/local/lib/python3.6/dist-packages/numpy/compat/py3k.py", line 32, in <module>
+    import pickle
+  File "/usr/lib/python3.6/pickle.py", line 181, in <module>
+    __all__.extend([x for x in dir() if re.match("[A-Z][A-Z0-9_]+$", x)])
+  File "/usr/lib/python3.6/pickle.py", line 181, in <listcomp>
+    __all__.extend([x for x in dir() if re.match("[A-Z][A-Z0-9_]+$", x)])
+  File "/usr/lib/python3.6/re.py", line 172, in match
+    return _compile(pattern, flags).match(string)
+  File "/usr/lib/python3.6/re.py", line 301, in _compile
+    p = sre_compile.compile(pattern, flags)
+  File "/usr/lib/python3.6/sre_compile.py", line 566, in compile
+    code = _code(p, flags)
+  File "/usr/lib/python3.6/sre_compile.py", line 548, in _code
+    _compile_info(code, p, flags)
+  File "/usr/lib/python3.6/sre_compile.py", line 486, in _compile_info
+    lo, hi = pattern.getwidth()
+  File "/usr/lib/python3.6/sre_parse.py", line 196, in getwidth
+    elif op in _REPEATCODES:
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "score.py", line 11, in <module>
+    import pandas as pd
+  File "/usr/local/lib/python3.6/dist-packages/pandas/__init__.py", line 11, in <module>
+    __import__(dependency)
+  File "/usr/local/lib/python3.6/dist-packages/numpy/__init__.py", line 142, in <module>
+    from . import core
+  File "/usr/local/lib/python3.6/dist-packages/numpy/core/__init__.py", line 76, in <module>
+    from . import numerictypes as nt
+  File "/usr/local/lib/python3.6/dist-packages/numpy/core/numerictypes.py", line 86, in <module>
+    import numbers
+  File "/usr/lib/python3.6/numbers.py", line 294, in <module>
+    class Integral(Rational):
+  File "/usr/lib/python3.6/abc.py", line 136, in __new__
+    for name, value in namespace.items()
+  File "/usr/lib/python3.6/abc.py", line 137, in <setcomp>
+    if getattr(value, "__isabstractmethod__", False)}
+KeyboardInterrupt

@@ -1,0 +1,35 @@
+Traceback (most recent call last):
+  File "train.py", line 10, in <module>
+    import argparse
+  File "/usr/lib/python3.6/argparse.py", line 89, in <module>
+    import re as _re
+  File "/usr/lib/python3.6/re.py", line 123, in <module>
+    import sre_compile
+  File "/usr/lib/python3.6/sre_compile.py", line 14, in <module>
+    import sre_parse
+  File "/usr/lib/python3.6/sre_parse.py", line 15, in <module>
+    from sre_constants import *
+  File "/usr/lib/python3.6/sre_constants.py", line 54, in <module>
+    class _NamedIntConstant(int):
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "score.py", line 11, in <module>
+    import pandas as pd
+  File "/usr/local/lib/python3.6/dist-packages/pandas/__init__.py", line 11, in <module>
+    __import__(dependency)
+  File "/usr/local/lib/python3.6/dist-packages/numpy/__init__.py", line 142, in <module>
+    from . import core
+  File "/usr/local/lib/python3.6/dist-packages/numpy/core/__init__.py", line 78, in <module>
+    from . import numeric
+  File "/usr/local/lib/python3.6/dist-packages/numpy/core/numeric.py", line 29, in <module>
+    from . import shape_base
+  File "/usr/local/lib/python3.6/dist-packages/numpy/core/shape_base.py", line 14, in <module>
+    from . import fromnumeric as _from_nx
+  File "/usr/local/lib/python3.6/dist-packages/numpy/core/fromnumeric.py", line 2678, in <module>
+    where=np._NoValue):
+  File "/usr/local/lib/python3.6/dist-packages/numpy/core/overrides.py", line 168, in decorator
+    verify_matching_signatures(implementation, dispatcher)
+  File "/usr/local/lib/python3.6/dist-packages/numpy/core/overrides.py", line 75, in verify_matching_signatures
+    dispatcher_spec = ArgSpec(*getargspec(dispatcher))
+  File "<string>", line 12, in __new__
+KeyboardInterrupt
