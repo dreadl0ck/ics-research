@@ -1,0 +1,434 @@
+2020-02-08 11:14:55.442239: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer.so.6'; dlerror: libnvinfer.so.6: cannot open shared object file: No such file or directory
+2020-02-08 11:14:55.442293: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer_plugin.so.6'; dlerror: libnvinfer_plugin.so.6: cannot open shared object file: No such file or directory
+2020-02-08 11:14:55.442299: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:30] Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+2020-02-08 11:14:55.935497: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
+2020-02-08 11:14:55.935519: E tensorflow/stream_executor/cuda/cuda_driver.cc:351] failed call to cuInit: UNKNOWN ERROR (303)
+2020-02-08 11:14:55.935533: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (brussels): /proc/driver/nvidia/version does not exist
+2020-02-08 11:14:55.935638: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2020-02-08 11:14:55.957811: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 3312000000 Hz
+2020-02-08 11:14:55.958002: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x58ded30 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-02-08 11:14:55.958014: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+Using TensorFlow backend.
+WARNING:tensorflow:Large dropout rate: 0.8 (>0.5). In TensorFlow 2.x, dropout() uses dropout rate instead of keep_prob. Please ensure that this is intended.
+2020-02-08 11:14:58.428077: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] remapper failed: Invalid argument: MutableGraphView::MutableGraphView error: node 'loss/dense_2_loss/binary_crossentropy/weighted_loss/concat' has self cycle fanin 'loss/dense_2_loss/binary_crossentropy/weighted_loss/concat'.
+2020-02-08 11:14:58.440711: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 0, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-08 11:14:58.446434: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 1, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-08 11:14:58.492711: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] arithmetic_optimizer failed: Invalid argument: The graph couldn't be sorted in topological order.
+2020-02-08 11:14:58.495357: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] remapper failed: Invalid argument: MutableGraphView::MutableGraphView error: node 'loss/dense_2_loss/binary_crossentropy/weighted_loss/concat' has self cycle fanin 'loss/dense_2_loss/binary_crossentropy/weighted_loss/concat'.
+2020-02-08 11:14:58.499386: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 0, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-08 11:14:58.503346: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 1, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-08 11:14:58.514373: W tensorflow/core/common_runtime/process_function_library_runtime.cc:697] Ignoring multi-device function optimization failure: Invalid argument: The graph couldn't be sorted in topological order.
+2020-02-08 11:15:00.316943: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] remapper failed: Invalid argument: MutableGraphView::MutableGraphView error: node 'loss/dense_2_loss/binary_crossentropy/weighted_loss/concat' has self cycle fanin 'loss/dense_2_loss/binary_crossentropy/weighted_loss/concat'.
+2020-02-08 11:15:00.320327: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 0, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-08 11:15:00.321936: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 1, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-08 11:15:00.333610: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] arithmetic_optimizer failed: Invalid argument: The graph couldn't be sorted in topological order.
+2020-02-08 11:15:00.334385: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] remapper failed: Invalid argument: MutableGraphView::MutableGraphView error: node 'loss/dense_2_loss/binary_crossentropy/weighted_loss/concat' has self cycle fanin 'loss/dense_2_loss/binary_crossentropy/weighted_loss/concat'.
+2020-02-08 11:15:00.335517: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 0, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-08 11:15:00.336664: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 1, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-08 11:15:00.340568: W tensorflow/core/common_runtime/process_function_library_runtime.cc:697] Ignoring multi-device function optimization failure: Invalid argument: The graph couldn't be sorted in topological order.
+=================================================
+        TRAINING v0.4.2 (binaryClasses)
+=================================================
+Date: 2020-02-08 11:14:55.932106
+[INFO] input_shape (32, 16)
+[INFO] LSTM first and last layer neurons: 8
+[INFO] adding core layer 0
+wrapLayerSize 8
+coreLayerSize 32
+numCoreLayers 1
+outputLayerActivation sigmoid
+output_dim 2
+loss binary_crossentropy
+optimizer sgd
+[INFO] created DNN
+[33m[INFO] epoch 1/3[0m
+[33m[INFO] loading file 1-2/1 on epoch 1/3[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-zscore/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (500000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['unixtime', 'orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst',
+       'proto', 'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] processing batch 0-100000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 2500 samples, validate on 625 samples
+Epoch 1/1
+ - 3s - loss: 0.6481 - tp: 78392.0000 - fp: 860.0000 - tn: 79140.0000 - fn: 1608.0000 - accuracy: 0.9846 - precision: 0.9891 - recall: 0.9799 - auc: 0.9970 - val_loss: 0.6035 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 20000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-001-files-0-2-batch-0-100000
+[INFO] processing batch 100000-200000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 2500 samples, validate on 625 samples
+Epoch 1/1
+ - 2s - loss: 0.5663 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 80000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.5297 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 20000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-001-files-0-2-batch-100000-200000
+[INFO] processing batch 200000-300000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 2500 samples, validate on 625 samples
+Epoch 1/1
+ - 2s - loss: 0.5005 - tp: 79766.0000 - fp: 234.0000 - tn: 79766.0000 - fn: 234.0000 - accuracy: 0.9971 - precision: 0.9971 - recall: 0.9971 - auc: 0.9972 - val_loss: 0.7101 - val_tp: 10606.0000 - val_fp: 9394.0000 - val_tn: 10606.0000 - val_fn: 9394.0000 - val_accuracy: 0.5303 - val_precision: 0.5303 - val_recall: 0.5303 - val_auc: 0.5303
+[INFO] saving weights to checkpoints/lstm-epoch-001-files-0-2-batch-200000-300000
+[INFO] processing batch 300000-400000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 2500 samples, validate on 625 samples
+Epoch 1/1
+ - 2s - loss: 0.7083 - tp: 42447.0000 - fp: 37553.0000 - tn: 42447.0000 - fn: 37553.0000 - accuracy: 0.5306 - precision: 0.5306 - recall: 0.5306 - auc: 0.5306 - val_loss: 0.7064 - val_tp: 10626.0000 - val_fp: 9374.0000 - val_tn: 10626.0000 - val_fn: 9374.0000 - val_accuracy: 0.5313 - val_precision: 0.5313 - val_recall: 0.5313 - val_auc: 0.5313
+[INFO] saving weights to checkpoints/lstm-epoch-001-files-0-2-batch-300000-400000
+[INFO] processing batch 400000-500000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 2500 samples, validate on 625 samples
+Epoch 1/1
+ - 2s - loss: 0.7054 - tp: 42438.0000 - fp: 37562.0000 - tn: 42438.0000 - fn: 37562.0000 - accuracy: 0.5305 - precision: 0.5305 - recall: 0.5305 - auc: 0.5306 - val_loss: 0.7042 - val_tp: 10603.0000 - val_fp: 9397.0000 - val_tn: 10603.0000 - val_fn: 9397.0000 - val_accuracy: 0.5301 - val_precision: 0.5301 - val_recall: 0.5301 - val_auc: 0.5301
+[INFO] saving weights to checkpoints/lstm-epoch-001-files-0-2-batch-400000-500000
+[33m[LOSS] 0.7042339602470398[0m
+[33m[INFO] epoch 2/3[0m
+[33m[INFO] loading file 1-2/1 on epoch 2/3[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-zscore/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (500000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['unixtime', 'orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst',
+       'proto', 'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] processing batch 0-100000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 2500 samples, validate on 625 samples
+Epoch 1/1
+ - 2s - loss: 0.4677 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 80000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.4404 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 20000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-002-files-0-2-batch-0-100000
+[INFO] processing batch 100000-200000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 2500 samples, validate on 625 samples
+Epoch 1/1
+ - 2s - loss: 0.4173 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 80000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.3945 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 20000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-002-files-0-2-batch-100000-200000
+[INFO] processing batch 200000-300000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 2500 samples, validate on 625 samples
+Epoch 1/1
+ - 2s - loss: 0.3775 - tp: 79766.0000 - fp: 234.0000 - tn: 79766.0000 - fn: 234.0000 - accuracy: 0.9971 - precision: 0.9971 - recall: 0.9971 - auc: 0.9966 - val_loss: 0.7549 - val_tp: 10606.0000 - val_fp: 9394.0000 - val_tn: 10606.0000 - val_fn: 9394.0000 - val_accuracy: 0.5303 - val_precision: 0.5303 - val_recall: 0.5303 - val_auc: 0.5303
+[INFO] saving weights to checkpoints/lstm-epoch-002-files-0-2-batch-200000-300000
+[INFO] processing batch 300000-400000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 2500 samples, validate on 625 samples
+Epoch 1/1
+ - 2s - loss: 0.7494 - tp: 42447.0000 - fp: 37553.0000 - tn: 42447.0000 - fn: 37553.0000 - accuracy: 0.5306 - precision: 0.5306 - recall: 0.5306 - auc: 0.5302 - val_loss: 0.7437 - val_tp: 10626.0000 - val_fp: 9374.0000 - val_tn: 10626.0000 - val_fn: 9374.0000 - val_accuracy: 0.5313 - val_precision: 0.5313 - val_recall: 0.5313 - val_auc: 0.5313
+[INFO] saving weights to checkpoints/lstm-epoch-002-files-0-2-batch-300000-400000
+[INFO] processing batch 400000-500000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 2500 samples, validate on 625 samples
+Epoch 1/1
+ - 2s - loss: 0.7398 - tp: 42438.0000 - fp: 37562.0000 - tn: 42438.0000 - fn: 37562.0000 - accuracy: 0.5305 - precision: 0.5305 - recall: 0.5305 - auc: 0.5302 - val_loss: 0.7357 - val_tp: 10603.0000 - val_fp: 9397.0000 - val_tn: 10603.0000 - val_fn: 9397.0000 - val_accuracy: 0.5301 - val_precision: 0.5301 - val_recall: 0.5301 - val_auc: 0.5301
+[INFO] saving weights to checkpoints/lstm-epoch-002-files-0-2-batch-400000-500000
+[33m[LOSS] 0.7356814756393433[0m
+[33m[INFO] epoch 3/3[0m
+[33m[INFO] loading file 1-2/1 on epoch 3/3[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-zscore/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (500000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['unixtime', 'orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst',
+       'proto', 'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] processing batch 0-100000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 2500 samples, validate on 625 samples
+Epoch 1/1
+ - 2s - loss: 0.3754 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 80000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.3561 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 20000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-003-files-0-2-batch-0-100000
+[INFO] processing batch 100000-200000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 2500 samples, validate on 625 samples
+Epoch 1/1
+ - 2s - loss: 0.3397 - tp: 80000.0000 - fp: 0.0000e+00 - tn: 80000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.3234 - val_tp: 20000.0000 - val_fp: 0.0000e+00 - val_tn: 20000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-003-files-0-2-batch-100000-200000
+[INFO] processing batch 200000-300000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 2500 samples, validate on 625 samples
+Epoch 1/1
+ - 2s - loss: 0.3125 - tp: 79766.0000 - fp: 234.0000 - tn: 79766.0000 - fn: 234.0000 - accuracy: 0.9971 - precision: 0.9971 - recall: 0.9971 - auc: 0.9973 - val_loss: 0.7968 - val_tp: 10606.0000 - val_fp: 9394.0000 - val_tn: 10606.0000 - val_fn: 9394.0000 - val_accuracy: 0.5303 - val_precision: 0.5303 - val_recall: 0.5303 - val_auc: 0.5303
+[INFO] saving weights to checkpoints/lstm-epoch-003-files-0-2-batch-200000-300000
+[INFO] processing batch 300000-400000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 2500 samples, validate on 625 samples
+Epoch 1/1
+ - 2s - loss: 0.7881 - tp: 42447.0000 - fp: 37553.0000 - tn: 42447.0000 - fn: 37553.0000 - accuracy: 0.5306 - precision: 0.5306 - recall: 0.5306 - auc: 0.5300 - val_loss: 0.7791 - val_tp: 10626.0000 - val_fp: 9374.0000 - val_tn: 10626.0000 - val_fn: 9374.0000 - val_accuracy: 0.5313 - val_precision: 0.5313 - val_recall: 0.5313 - val_auc: 0.5313
+[INFO] saving weights to checkpoints/lstm-epoch-003-files-0-2-batch-300000-400000
+[INFO] processing batch 400000-500000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.2
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 2500 samples, validate on 625 samples
+Epoch 1/1
+ - 2s - loss: 0.7727 - tp: 42438.0000 - fp: 37562.0000 - tn: 42438.0000 - fn: 37562.0000 - accuracy: 0.5305 - precision: 0.5305 - recall: 0.5305 - auc: 0.5305 - val_loss: 0.7659 - val_tp: 10603.0000 - val_fp: 9397.0000 - val_tn: 10603.0000 - val_fn: 9397.0000 - val_accuracy: 0.5301 - val_precision: 0.5301 - val_recall: 0.5301 - val_auc: 0.5301
+[INFO] saving weights to checkpoints/lstm-epoch-003-files-0-2-batch-400000-500000
+[33m[LOSS] 0.7659276186943054[0m
+[CHECKING EARLY STOP]: currentLoss < min_delta ? => 0.7659276186943054  <  0.001
+--- 29.09584617614746 seconds ---
+2020-02-08 11:15:25.912824: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer.so.6'; dlerror: libnvinfer.so.6: cannot open shared object file: No such file or directory
+2020-02-08 11:15:25.912871: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer_plugin.so.6'; dlerror: libnvinfer_plugin.so.6: cannot open shared object file: No such file or directory
+2020-02-08 11:15:25.912878: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:30] Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+2020-02-08 11:15:26.403912: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
+2020-02-08 11:15:26.403933: E tensorflow/stream_executor/cuda/cuda_driver.cc:351] failed call to cuInit: UNKNOWN ERROR (303)
+2020-02-08 11:15:26.403947: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (brussels): /proc/driver/nvidia/version does not exist
+2020-02-08 11:15:26.404052: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2020-02-08 11:15:26.425828: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 3312000000 Hz
+2020-02-08 11:15:26.426021: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x4ff25b0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-02-08 11:15:26.426049: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+Using TensorFlow backend.
+WARNING:tensorflow:Large dropout rate: 0.8 (>0.5). In TensorFlow 2.x, dropout() uses dropout rate instead of keep_prob. Please ensure that this is intended.
+2020-02-08 11:15:28.517779: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] remapper failed: Invalid argument: MutableGraphView::MutableGraphView error: node 'loss/dense_2_loss/binary_crossentropy/weighted_loss/concat' has self cycle fanin 'loss/dense_2_loss/binary_crossentropy/weighted_loss/concat'.
+2020-02-08 11:15:28.521043: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 0, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-08 11:15:28.522617: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 1, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-08 11:15:28.533924: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] arithmetic_optimizer failed: Invalid argument: The graph couldn't be sorted in topological order.
+2020-02-08 11:15:28.534683: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] remapper failed: Invalid argument: MutableGraphView::MutableGraphView error: node 'loss/dense_2_loss/binary_crossentropy/weighted_loss/concat' has self cycle fanin 'loss/dense_2_loss/binary_crossentropy/weighted_loss/concat'.
+2020-02-08 11:15:28.535776: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 0, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-08 11:15:28.536867: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 1, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-08 11:15:28.539653: W tensorflow/core/common_runtime/process_function_library_runtime.cc:697] Ignoring multi-device function optimization failure: Invalid argument: The graph couldn't be sorted in topological order.
+=================================================
+        SCORING v0.4.2 (binaryClasses)
+=================================================
+Date: 2020-02-08 11:15:26.400597
+[INFO] input_shape (32, 16)
+[INFO] LSTM first and last layer neurons: 8
+[INFO] adding core layer 0
+wrapLayerSize 8
+coreLayerSize 32
+numCoreLayers 1
+outputLayerActivation sigmoid
+output_dim 2
+loss binary_crossentropy
+optimizer sgd
+[INFO] created DNN
+loading weights: checkpoints/*
+loading file checkpoints/lstm-epoch-003-files-0-2-batch-400000-500000
+[33m[INFO] model summary:[0m
+Model: "sequential_1"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+lstm_1 (LSTM)                (None, 32, 8)             800       
+_________________________________________________________________
+dropout_1 (Dropout)          (None, 32, 8)             0         
+_________________________________________________________________
+lstm_2 (LSTM)                (None, 32, 32)            5248      
+_________________________________________________________________
+dropout_2 (Dropout)          (None, 32, 32)            0         
+_________________________________________________________________
+lstm_3 (LSTM)                (None, 32, 8)             1312      
+_________________________________________________________________
+dropout_3 (Dropout)          (None, 32, 8)             0         
+_________________________________________________________________
+dense_1 (Dense)              (None, 32, 1)             9         
+_________________________________________________________________
+dropout_4 (Dropout)          (None, 32, 1)             0         
+_________________________________________________________________
+dense_2 (Dense)              (None, 32, 2)             4         
+=================================================================
+Total params: 7,373
+Trainable params: 7,373
+Non-trainable params: 0
+_________________________________________________________________
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-zscore/train/2015-12-28_113021_98.log.part13_sorted-labeled.csv
+[INFO] process dataset, shape: (500000, 18)
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['unixtime', 'orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst',
+       'proto', 'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] analyze dataset: (500000, 17)
+
+[INFO] analyzing data
+[INFO] 500000 rows
+[INFO] ** unixtime:1359 (0.2718%)
+[INFO] ** orig:[0.0:100.0%]
+[INFO] ** type:[1.0:100.0%]
+[INFO] ** i/f_name:[-1.0:99.9996%,0.0:0.0004%]
+[INFO] ** i/f_dir:[-0.7071067812:99.9996%,0.7071067812:0.0004%]
+[INFO] ** src:[-1.3652730819:38.3832%,1.3652730819:25.9606%,0.5251050315:18.1352%,-0.5251050315:17.52%,-1.1552310693:0.0004%,1.5753150944999998:0.0004%,0.10502100630000001:0.0002%]
+[INFO] ** dst:[-1.0302443927:43.3108%,1.4048787174000001:21.0326%,1.2175615551:18.135%,0.0936585812:17.5198%,-1.5921958797:0.0008%,-0.6556100681:0.0004%,-0.28097574350000004:0.0004%,-0.8429272304000001:0.0002%]
+[INFO] ** proto:[0.0:99.9996%,-1.0:0.0004%]
+[INFO] ** appi_name:[-1.6378460497:99.9992%,-1.5118578919999999:0.0004%,0.1259881577:0.0002%,0.7559289459999999:0.0002%]
+[INFO] ** proxy_src_ip:[0.5251050315:38.3832%,-1.5753150944999998:25.9606%,1.3652730819:18.1352%,-0.3150630189:17.52%,0.10502100630000001:0.0004%,0.7351470441:0.0004%,0.3150630189:0.0002%]
+[INFO] ** modbus_function_code:[0.005653795200000001:99.9992%,-176.7993450566:0.0008%]
+[INFO] ** modbus_function_description:[-0.8017837256999999:50.0%,-1.3363062096:49.9992%,-0.2672612419:0.0008%]
+[INFO] ** modbus_transaction_id:65536 (13.1072%)
+[INFO] ** scada_tag:[1.3363062096:25.9596%,0.2672612419:21.0326%,0.8017837256999999:18.1348%,-1.3363062096:17.5194%,-0.2672612419:17.3504%,-0.8017837256999999:0.0032%]
+[INFO] ** service:[0.0054950911:99.9992%,-185.27759935790002:0.0004%,-184.94686957169998:0.0002%,-184.71949284369998:0.0002%]
+[INFO] ** s_port:[1.4631574735:25.96%,-0.2976951931:21.0326%,-1.2442195994:18.1348%,-0.2104457366:17.5196%,-0.3109148077:17.3506%,-70.70536262659999:0.0004%,1.4658013963999998:0.0004%,-0.9904029989:0.0002%,12.520043136500002:0.0002%,-1.2415756765000001:0.0002%,-0.2183775054:0.0002%,-1.2389317536:0.0002%,-0.22630927420000002:0.0002%,-3.3289528241000004:0.0002%,1.4843088569:0.0002%]
+[INFO] ** classification:[normal:72.7902%,Single Stage Single Point:27.2098%]
+[INFO] columns with count within 2-10 {'i/f_name': 2, 'i/f_dir': 2, 'src': 7, 'dst': 8, 'proto': 2, 'appi_name': 4, 'proxy_src_ip': 7, 'modbus_function_code': 2, 'modbus_function_description': 3, 'scada_tag': 6, 'service': 4, 'classification': 2}
+[INFO] processing batch 0-100000/500000
+[33m[INFO] measuring accuracy...[0m
+x_test.shape: (100000, 16)
+y_eval [1 0 1 ... 0 1 0] (100000,)
+[INFO] reshape for using LSTM layers
+[33m[INFO] metrics:[0m
+loss :  0.7658456566429138
+tp :  53024.0
+fp :  46976.0
+tn :  53024.0
+fn :  46976.0
+accuracy :  0.530239999294281
+precision :  0.530239999294281
+recall :  0.530239999294281
+auc :  0.5302400588989258
+
+y_eval {0: 53024, 1: 46976}
+pred {0: 100000}
+[INFO] confusion matrix for file 
+[[53024     0]
+ [46976     0]]
+[INFO] confusion matrix after adding it to total:
+[[53024     0]
+ [46976     0]]
+[INFO] processing batch 100000-200000/500000
+[33m[INFO] measuring accuracy...[0m
+x_test.shape: (100000, 16)
+y_eval [0 1 0 ... 0 0 0] (100000,)
+[INFO] reshape for using LSTM layers
+[33m[INFO] metrics:[0m
+loss :  0.45085941519737244
+tp :  87619.0
+fp :  12381.0
+tn :  87619.0
+fn :  12381.0
+accuracy :  0.8761900067329407
+precision :  0.8761900067329407
+recall :  0.8761900067329407
+auc :  0.8761899471282959
+
+y_eval {0: 87619, 1: 12381}
+pred {0: 100000}
+[INFO] confusion matrix for file 
+[[87619     0]
+ [12381     0]]
+[INFO] confusion matrix after adding it to total:
+[[140643      0]
+ [ 59357      0]]
+[INFO] processing batch 200000-300000/500000
+[33m[INFO] measuring accuracy...[0m
+x_test.shape: (100000, 16)
+y_eval [0 0 0 ... 1 0 1] (100000,)
+[INFO] reshape for using LSTM layers
+[33m[INFO] metrics:[0m
+loss :  0.4926876329803467
+tp :  83025.0
+fp :  16975.0
+tn :  83025.0
+fn :  16975.0
+accuracy :  0.8302500247955322
+precision :  0.8302500247955322
+recall :  0.8302500247955322
+auc :  0.8302500247955322
+
+y_eval {0: 83025, 1: 16975}
+pred {0: 100000}
+[INFO] confusion matrix for file 
+[[83025     0]
+ [16975     0]]
+[INFO] confusion matrix after adding it to total:
+[[223668      0]
+ [ 76332      0]]
+[INFO] processing batch 300000-400000/500000
+[33m[INFO] measuring accuracy...[0m
+x_test.shape: (100000, 16)
+y_eval [1 0 0 ... 1 1 0] (100000,)
+[INFO] reshape for using LSTM layers
+[33m[INFO] metrics:[0m
+loss :  0.7667652562332153
+tp :  52923.0
+fp :  47077.0
+tn :  52923.0
+fn :  47077.0
+accuracy :  0.529229998588562
+precision :  0.529229998588562
+recall :  0.529229998588562
+auc :  0.529229998588562
+
+y_eval {0: 52923, 1: 47077}
+pred {0: 100000}
+[INFO] confusion matrix for file 
+[[52923     0]
+ [47077     0]]
+[INFO] confusion matrix after adding it to total:
+[[276591      0]
+ [123409      0]]
+[INFO] processing batch 400000-500000/500000
+[33m[INFO] measuring accuracy...[0m
+x_test.shape: (100000, 16)
+y_eval [0 0 1 ... 0 0 0] (100000,)
+[INFO] reshape for using LSTM layers
+[33m[INFO] metrics:[0m
+loss :  0.45321760642051695
+tp :  87360.0
+fp :  12640.0
+tn :  87360.0
+fn :  12640.0
+accuracy :  0.8736000061035156
+precision :  0.8736000061035156
+recall :  0.8736000061035156
+auc :  0.8736000061035156
+
+y_eval {0: 87360, 1: 12640}
+pred {0: 100000}
+[INFO] confusion matrix for file 
+[[87360     0]
+ [12640     0]]
+[INFO] confusion matrix after adding it to total:
+[[363951      0]
+ [136049      0]]
+--- 6.784610033035278 seconds ---

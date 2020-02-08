@@ -1,0 +1,224 @@
+searching for logs in experiment-logs/brussels-v0.4.2-single-minxmax-binary
+experiment-logs/brussels-v0.4.2-single-minxmax-binary/single-dnn-v9-minmax.log experiment-logs/brussels-v0.4.2-single-minxmax-binary/single-lstm-v1-minmax.log experiment-logs/brussels-v0.4.2-single-minxmax-binary/single-dnn-v4-minmax.log experiment-logs/brussels-v0.4.2-single-minxmax-binary/single-dnn-v1-minmax.log experiment-logs/brussels-v0.4.2-single-minxmax-binary/single-lstm-v9-minmax.log experiment-logs/brussels-v0.4.2-single-minxmax-binary/single-lstm-v4-minmax.log experiment-logs/brussels-v0.4.2-single-minxmax-binary/single-dnn-v0-physical-minmax.log experiment-logs/brussels-v0.4.2-single-minxmax-binary/single-lstm-v3-minmax.log experiment-logs/brussels-v0.4.2-single-minxmax-binary/single-dnn-v6-minmax.log experiment-logs/brussels-v0.4.2-single-minxmax-binary/single-dnn-v3-minmax.log experiment-logs/brussels-v0.4.2-single-minxmax-binary/single-lstm-v6-minmax.log experiment-logs/brussels-v0.4.2-single-minxmax-binary/single-dnn-v0-minmax.log experiment-logs/brussels-v0.4.2-single-minxmax-binary/single-lstm-v8-minmax.log experiment-logs/brussels-v0.4.2-single-minxmax-binary/single-lstm-v5-minmax.log experiment-logs/brussels-v0.4.2-single-minxmax-binary/single-dnn-v8-minmax.log experiment-logs/brussels-v0.4.2-single-minxmax-binary/single-lstm-v0-minmax.log experiment-logs/brussels-v0.4.2-single-minxmax-binary/single-lstm-v10-minmax.log experiment-logs/brussels-v0.4.2-single-minxmax-binary/single-dnn-v5-minmax.log experiment-logs/brussels-v0.4.2-single-minxmax-binary/single-dnn-v2-minmax.log experiment-logs/brussels-v0.4.2-single-minxmax-binary/single-lstm-v7-minmax.log experiment-logs/brussels-v0.4.2-single-minxmax-binary/single-lstm-v2-minmax.log experiment-logs/brussels-v0.4.2-single-minxmax-binary/single-dnn-v10-minmax.log experiment-logs/brussels-v0.4.2-single-minxmax-binary/single-dnn-v7-minmax.log
+set classes to: ['normal', 'attack']
+--- experiment-logs/brussels-v0.4.2-single-minxmax-binary/single-dnn-v9-minmax.log ---
+[[363951      0]
+ [136049      0]]
+
+name                           precision   recall   f1-score
+normal                             0.728    1.000      0.843
+attack                             zero tp
+accuracy: 0.728
+
+set classes to: ['normal', 'attack']
+--- experiment-logs/brussels-v0.4.2-single-minxmax-binary/single-lstm-v1-minmax.log ---
+[[363951      0]
+ [136049      0]]
+
+name                           precision   recall   f1-score
+normal                             0.728    1.000      0.843
+attack                             zero tp
+accuracy: 0.728
+
+set classes to: ['normal', 'attack']
+--- experiment-logs/brussels-v0.4.2-single-minxmax-binary/single-dnn-v4-minmax.log ---
+[[363951      0]
+ [136049      0]]
+
+name                           precision   recall   f1-score
+normal                             0.728    1.000      0.843
+attack                             zero tp
+accuracy: 0.728
+
+set classes to: ['normal', 'attack']
+--- experiment-logs/brussels-v0.4.2-single-minxmax-binary/single-dnn-v1-minmax.log ---
+[[363951      0]
+ [136049      0]]
+
+name                           precision   recall   f1-score
+normal                             0.728    1.000      0.843
+attack                             zero tp
+accuracy: 0.728
+
+set classes to: ['normal', 'attack']
+--- experiment-logs/brussels-v0.4.2-single-minxmax-binary/single-lstm-v9-minmax.log ---
+[[363951      0]
+ [136049      0]]
+
+name                           precision   recall   f1-score
+normal                             0.728    1.000      0.843
+attack                             zero tp
+accuracy: 0.728
+
+set classes to: ['normal', 'attack']
+--- experiment-logs/brussels-v0.4.2-single-minxmax-binary/single-lstm-v4-minmax.log ---
+[[363951      0]
+ [136049      0]]
+
+name                           precision   recall   f1-score
+normal                             0.728    1.000      0.843
+attack                             zero tp
+accuracy: 0.728
+
+set classes to: ['normal', 'attack']
+--- experiment-logs/brussels-v0.4.2-single-minxmax-binary/single-dnn-v0-physical-minmax.log ---
+set classes to: ['normal', 'attack']
+--- experiment-logs/brussels-v0.4.2-single-minxmax-binary/single-lstm-v3-minmax.log ---
+[[363951      0]
+ [136049      0]]
+
+name                           precision   recall   f1-score
+normal                             0.728    1.000      0.843
+attack                             zero tp
+accuracy: 0.728
+
+set classes to: ['normal', 'attack']
+--- experiment-logs/brussels-v0.4.2-single-minxmax-binary/single-dnn-v6-minmax.log ---
+[[363951      0]
+ [136049      0]]
+
+name                           precision   recall   f1-score
+normal                             0.728    1.000      0.843
+attack                             zero tp
+accuracy: 0.728
+
+set classes to: ['normal', 'attack']
+--- experiment-logs/brussels-v0.4.2-single-minxmax-binary/single-dnn-v3-minmax.log ---
+[[363951      0]
+ [136049      0]]
+
+name                           precision   recall   f1-score
+normal                             0.728    1.000      0.843
+attack                             zero tp
+accuracy: 0.728
+
+set classes to: ['normal', 'attack']
+--- experiment-logs/brussels-v0.4.2-single-minxmax-binary/single-lstm-v6-minmax.log ---
+[[363951      0]
+ [136049      0]]
+
+name                           precision   recall   f1-score
+normal                             0.728    1.000      0.843
+attack                             zero tp
+accuracy: 0.728
+
+set classes to: ['normal', 'attack']
+--- experiment-logs/brussels-v0.4.2-single-minxmax-binary/single-dnn-v0-minmax.log ---
+[[363951      0]
+ [136049      0]]
+
+name                           precision   recall   f1-score
+normal                             0.728    1.000      0.843
+attack                             zero tp
+accuracy: 0.728
+
+set classes to: ['normal', 'attack']
+--- experiment-logs/brussels-v0.4.2-single-minxmax-binary/single-lstm-v8-minmax.log ---
+[[363951      0]
+ [136049      0]]
+
+name                           precision   recall   f1-score
+normal                             0.728    1.000      0.843
+attack                             zero tp
+accuracy: 0.728
+
+set classes to: ['normal', 'attack']
+--- experiment-logs/brussels-v0.4.2-single-minxmax-binary/single-lstm-v5-minmax.log ---
+[[363951      0]
+ [136049      0]]
+
+name                           precision   recall   f1-score
+normal                             0.728    1.000      0.843
+attack                             zero tp
+accuracy: 0.728
+
+set classes to: ['normal', 'attack']
+--- experiment-logs/brussels-v0.4.2-single-minxmax-binary/single-dnn-v8-minmax.log ---
+[[363951      0]
+ [136049      0]]
+
+name                           precision   recall   f1-score
+normal                             0.728    1.000      0.843
+attack                             zero tp
+accuracy: 0.728
+
+set classes to: ['normal', 'attack']
+--- experiment-logs/brussels-v0.4.2-single-minxmax-binary/single-lstm-v0-minmax.log ---
+[[363951      0]
+ [136049      0]]
+
+name                           precision   recall   f1-score
+normal                             0.728    1.000      0.843
+attack                             zero tp
+accuracy: 0.728
+
+set classes to: ['normal', 'attack']
+--- experiment-logs/brussels-v0.4.2-single-minxmax-binary/single-lstm-v10-minmax.log ---
+[[363951      0]
+ [136049      0]]
+
+name                           precision   recall   f1-score
+normal                             0.728    1.000      0.843
+attack                             zero tp
+accuracy: 0.728
+
+set classes to: ['normal', 'attack']
+--- experiment-logs/brussels-v0.4.2-single-minxmax-binary/single-dnn-v5-minmax.log ---
+[[363951      0]
+ [136049      0]]
+
+name                           precision   recall   f1-score
+normal                             0.728    1.000      0.843
+attack                             zero tp
+accuracy: 0.728
+
+set classes to: ['normal', 'attack']
+--- experiment-logs/brussels-v0.4.2-single-minxmax-binary/single-dnn-v2-minmax.log ---
+[[363951      0]
+ [136049      0]]
+
+name                           precision   recall   f1-score
+normal                             0.728    1.000      0.843
+attack                             zero tp
+accuracy: 0.728
+
+set classes to: ['normal', 'attack']
+--- experiment-logs/brussels-v0.4.2-single-minxmax-binary/single-lstm-v7-minmax.log ---
+[[363951      0]
+ [136049      0]]
+
+name                           precision   recall   f1-score
+normal                             0.728    1.000      0.843
+attack                             zero tp
+accuracy: 0.728
+
+set classes to: ['normal', 'attack']
+--- experiment-logs/brussels-v0.4.2-single-minxmax-binary/single-lstm-v2-minmax.log ---
+[[363951      0]
+ [136049      0]]
+
+name                           precision   recall   f1-score
+normal                             0.728    1.000      0.843
+attack                             zero tp
+accuracy: 0.728
+
+set classes to: ['normal', 'attack']
+--- experiment-logs/brussels-v0.4.2-single-minxmax-binary/single-dnn-v10-minmax.log ---
+[[363951      0]
+ [136049      0]]
+
+name                           precision   recall   f1-score
+normal                             0.728    1.000      0.843
+attack                             zero tp
+accuracy: 0.728
+
+set classes to: ['normal', 'attack']
+--- experiment-logs/brussels-v0.4.2-single-minxmax-binary/single-dnn-v7-minmax.log ---
+[[363951      0]
+ [136049      0]]
+
+name                           precision   recall   f1-score
+normal                             0.728    1.000      0.843
+attack                             zero tp
+accuracy: 0.728
+
