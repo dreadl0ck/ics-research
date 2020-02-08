@@ -305,7 +305,7 @@ parser.add_argument('-optimizer', type=str, default='adam', help='set optimizer 
 parser.add_argument('-resultColumn', type=str, default='classification', help='set name of the column with the prediction')
 parser.add_argument('-features', type=int, required=True, help='The amount of columns in the csv (dimensionality)')
 #parser.add_argument('-class_amount', type=int, default=2, help='The amount of classes e.g. normal, attack1, attack3 is 3')
-parser.add_argument('-fileBatchSize', type=int, default=50, help='The amount of files to be read in. (default: 2)')
+parser.add_argument('-fileBatchSize', type=int, default=50, help='The amount of files to be read in')
 parser.add_argument('-epochs', type=int, default=1, help='The amount of epochs. (default: 1)')
 parser.add_argument('-numCoreLayers', type=int, default=1, help='set number of core layers to use')
 parser.add_argument('-shuffle', default=False, help='shuffle data before feeding it to the DNN')
