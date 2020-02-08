@@ -11,6 +11,7 @@ python3 train.py \
     -epoch 3 \
     -features 16 \
     -lstm true \
+    -debug true \
     -drop modbus_value
 
 # EVAL
