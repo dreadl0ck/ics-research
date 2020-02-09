@@ -115,7 +115,7 @@ def train_dnn(df, i, epoch, batch=0):
     #         print("y_train.shape", y_train.shape)
     #         print("y_test.shape", y_test.shape)
 
-    print("[INFO] fitting model. xtrain.shape:", xtrain.shape, "y_train.shape:", y_train.shape)
+    print("[INFO] fitting model. xtrain.shape:", x_train.shape, "y_train.shape:", y_train.shape)
     history = model.fit(
         x_train,
         y_train,
