@@ -237,7 +237,7 @@ parser.add_argument('-encodeColumns', default=False, help='switch between auto e
 parser.add_argument('-binaryClasses', default=False, help='use binary classses')
 parser.add_argument('-relu', default=False, help='use ReLU activation function (default: LeakyReLU)')
 parser.add_argument('-encodeCategoricals', default=True, help='encode categorical with one hot strategy')
-parser.add_argument('-dnnBatchSize', default=16, help='set dnn batch size')
+parser.add_argument('-dnnBatchSize', type=int, default=16, help='set dnn batch size')
 
 # parse commandline arguments
 arguments = parser.parse_args()

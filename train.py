@@ -79,8 +79,8 @@ def train_dnn(df, i, epoch, batch=0):
     if arguments.lstm:
 
         print("[INFO] using LSTM layers")
-        x_train = x_train.reshape((arguments.batchSize / arguments.dnnBatchSize) * (1 - arguments.testSize), arguments.dnnBatchSize, x.shape[1])
-        y_train = y_train.reshape((arguments.batchSize / arguments.dnnBatchSize) * (1 - arguments.testSize), arguments.dnnBatchSize, y.shape[1])
+        x_train = x_train.reshape((arguments.batchSize / arguments.dnnBatchSize) * (1.0 - arguments.testSize), arguments.dnnBatchSize, x.shape[1])
+        y_train = y_train.reshape((arguments.batchSize / arguments.dnnBatchSize) * (1.0 - arguments.testSize), arguments.dnnBatchSize, y.shape[1])
 
         x_test = x_test.reshape((arguments.batchSize / arguments.dnnBatchSize) * arguments.testSize, arguments.dnnBatchSize, x.shape[1])
         y_test = y_test.reshape((arguments.batchSize / arguments.dnnBatchSize) * arguments.testSize, arguments.dnnBatchSize, y.shape[1])
@@ -321,7 +321,7 @@ parser.add_argument('-saveModel', default=False, help='save model (if false, onl
 parser.add_argument('-binaryClasses', default=True, help='use binary classses')
 parser.add_argument('-relu', default=False, help='use ReLU activation function (default: LeakyReLU)')
 parser.add_argument('-encodeCategoricals', default=True, help='encode categorical with one hot strategy')
-parser.add_argument('-dnnBatchSize', default=16, help='set dnn batch size')
+parser.add_argument('-dnnBatchSize', type=int, default=16, help='set dnn batch size')
 
 # parse commandline arguments
 arguments = parser.parse_args()
