@@ -167,7 +167,7 @@ def eval_dnn(df):
 
     if arguments.lstm:
         #print("y_test shape", y_test.shape)
-        pred = pred.reshape((arguments.batchSize / arguments.dnnBatchSize) * y_test.shape[1], y_test.shape[2])
+        pred = pred.reshape(int((arguments.batchSize / arguments.dnnBatchSize) * y_test.shape[1]), y_test.shape[2])
         #print("pred 2", pred, pred.shape)
 
     pred = np.argmax(pred,axis=1)
