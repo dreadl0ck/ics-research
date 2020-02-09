@@ -2,9 +2,11 @@ import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
 
-# Data for plotting
+# epochs
 t = [1,2,3,4,5,6,7,8,9,10]
-s = [ 
+
+# data
+lstm10 = [ 
     0.5293578505516052,
     0.4077320396900177,
     0.3176637887954712,
@@ -17,12 +19,50 @@ s = [
     0.07391022890806198
 ]
 
-fig, ax = plt.subplots()
-ax.plot(t, s)
+lstm9 = [ 
+    0.38593482971191406,
+    0.251350462436676,
+    0.18181410431861877,
+    0.14079728722572327,
+    0.11419308930635452,
+    0.09571122378110886,
+    0.08219939470291138,
+    0.07192675769329071,
+    0.06387258321046829,
+    0.05739925801753998
+]
 
-ax.set(xlabel='epoch (#)', ylabel='loss',
-       title='Loss over time, LSTM v10')
+lstm7 = [
+    0.35587241077423093,
+    0.20242344546318053,
+    0.12633623445034028
+]
+
+lstm6 = [
+    1.57361756064347e-05,
+    1.097172254560519e-08,
+    6.895389076388981e-11
+]
+
+fig, ax = plt.subplots()
+
+l6 = ax.plot([1,2,3], lstm6)
+l7 = ax.plot([1,2,3], lstm7)
+l9 = ax.plot(t, lstm9)
+l10 = ax.plot(t, lstm10)
+
+ax.set(
+    xlabel='epoch (#)', 
+    ylabel='loss', 
+    title='Loss development, v0.4.3 single file LSTMs'
+)
+
+plt.legend(
+    (l6[0], l7[0], l9[0], l10[0]), 
+    ('LSTM v6', 'LSTM v7', 'LSTM v9', 'LSTM v10')
+)
+
 ax.grid()
 
-fig.savefig("test.png")
+fig.savefig("loss-development-v0.4.3-single-lstm.png")
 plt.show()
