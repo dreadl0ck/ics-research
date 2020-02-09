@@ -154,8 +154,8 @@ def eval_dnn(df):
     if arguments.lstm:
 
         print("[INFO] reshape for using LSTM layers")
-        x_test = x_test.reshape(2000, 128, x_test.shape[1])
-        y_test = y_test.reshape(2000, 128, y_test.shape[1])
+        x_test = x_test.reshape(arguments.batchSize / arguments.dnnBatchSize, arguments.dnnBatchSize, x_test.shape[1])
+        y_test = y_test.reshape(arguments.batchSize / arguments.dnnBatchSize, arguments.dnnBatchSize, y_test.shape[1])
 
         if arguments.debug:
             print("--------RESHAPED--------")
@@ -167,7 +167,7 @@ def eval_dnn(df):
 
     if arguments.lstm:
         #print("y_test shape", y_test.shape)
-        pred = pred.reshape(2000*y_test.shape[1], y_test.shape[2])
+        pred = pred.reshape((arguments.batchSize / arguments.dnnBatchSize) * y_test.shape[1], y_test.shape[2])
         #print("pred 2", pred, pred.shape)
 
     pred = np.argmax(pred,axis=1)
@@ -237,6 +237,7 @@ parser.add_argument('-encodeColumns', default=False, help='switch between auto e
 parser.add_argument('-binaryClasses', default=False, help='use binary classses')
 parser.add_argument('-relu', default=False, help='use ReLU activation function (default: LeakyReLU)')
 parser.add_argument('-encodeCategoricals', default=True, help='encode categorical with one hot strategy')
+parser.add_argument('-dnnBatchSize', default=16, help='set dnn batch size')
 
 # parse commandline arguments
 arguments = parser.parse_args()
@@ -263,7 +264,7 @@ if len(files) == 0:
     exit(1)
 
 print("=================================================")
-print("        SCORING v0.4.4 (multi-class)")
+print("        SCORING v0.4.5 (binary)")
 print("=================================================")
 print("Date:", datetime.datetime.now())
 start_time = time.time()
@@ -284,7 +285,8 @@ model = create_dnn(
     arguments.batchSize,
     arguments.wrapLayerSize,
     arguments.relu,
-    arguments.binaryClasses
+    arguments.binaryClasses,
+    arguments.dnnBatchSize
 )
 print("[INFO] created DNN")
 

@@ -79,11 +79,11 @@ def train_dnn(df, i, epoch, batch=0):
     if arguments.lstm:
 
         print("[INFO] using LSTM layers")
-        x_train = x_train.reshape(1500, 128, x.shape[1])
-        y_train = y_train.reshape(1500, 128, y.shape[1])
+        x_train = x_train.reshape((arguments.batchSize / arguments.dnnBatchSize) * (1 - arguments.testSize), arguments.dnnBatchSize, x.shape[1])
+        y_train = y_train.reshape((arguments.batchSize / arguments.dnnBatchSize) * (1 - arguments.testSize), arguments.dnnBatchSize, y.shape[1])
 
-        x_test = x_test.reshape(500, 128, x.shape[1])
-        y_test = y_test.reshape(500, 128, y.shape[1])
+        x_test = x_test.reshape((arguments.batchSize / arguments.dnnBatchSize) * arguments.testSize), arguments.dnnBatchSize, x.shape[1])
+        y_test = y_test.reshape((arguments.batchSize / arguments.dnnBatchSize) * arguments.testSize), arguments.dnnBatchSize, y.shape[1])
         
         if arguments.debug:
             print("--------RESHAPED--------")
@@ -264,8 +264,6 @@ def run():
 
             for batch_size in range(0, df.shape[0], arguments.batchSize):
 
-                print("[INFO] processing batch {}-{}/{}".format(batch_size, batch_size+arguments.batchSize, df.shape[0]))
-
                 dfCopy = df[batch_size:batch_size+arguments.batchSize]
 
                 # skip leftover that does not reach batch size
@@ -273,6 +271,7 @@ def run():
                     leftover = dfCopy
                     continue
 
+                print("[INFO] processing batch {}-{}/{}".format(batch_size, batch_size+arguments.batchSize, df.shape[0]))                    
                 history = train_dnn(dfCopy, i, epoch+1, batch=batch_size)
                 leftover = None
         
@@ -319,9 +318,10 @@ parser.add_argument('-zscoreUnixtime', default=False, help='apply zscore to unix
 parser.add_argument('-encodeColumns', default=False, help='switch between auto encoding or using a fully encoded dataset')
 parser.add_argument('-classes', type=str, help='supply one or multiple comma separated class identifiers')
 parser.add_argument('-saveModel', default=False, help='save model (if false, only the weights will be saved)')
-parser.add_argument('-binaryClasses', default=False, help='use binary classses')
+parser.add_argument('-binaryClasses', default=True, help='use binary classses')
 parser.add_argument('-relu', default=False, help='use ReLU activation function (default: LeakyReLU)')
 parser.add_argument('-encodeCategoricals', default=True, help='encode categorical with one hot strategy')
+parser.add_argument('-dnnBatchSize', default=16, help='set dnn batch size')
 
 # parse commandline arguments
 arguments = parser.parse_args()
@@ -337,7 +337,7 @@ if arguments.classes is not None:
     print("set classes to:", classes)
 
 print("=================================================")
-print("        TRAINING v0.4.4 (multi-class)")
+print("        TRAINING v0.4.5 (binary)")
 print("=================================================")
 print("Date:", datetime.datetime.now())
 start_time = time.time()
@@ -366,7 +366,8 @@ model = create_dnn(
     arguments.batchSize,
     arguments.wrapLayerSize,
     arguments.relu,
-    arguments.binaryClasses
+    arguments.binaryClasses,
+    arguments.dnnBatchSize
 )
 print("[INFO] created DNN")
 
