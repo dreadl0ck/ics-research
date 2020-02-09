@@ -427,3 +427,27 @@ python3 score.py \
     -features 107 \
     -binaryClasses true \
     -drop modbus_value
+
+## eval
+
+    $ grep attack logs/allstats-v0.4.3-binary.log | grep -v "set classes" | grep -v "zero"
+    attack                             0.579    1.000      0.733
+    attack                             0.579    1.000      0.733
+
+    $ grep Single logs/allstats-v0.4.3-multi-class.log | grep -v "zero"
+    Single Stage Single Point          0.579    1.000      0.733
+    Single Stage Single Point          0.111    0.009      0.016
+    Single Stage Single Point          0.060    0.583      0.108
+    Multi Stage Single Point           0.013    0.441      0.025
+    Single Stage Single Point          0.054    0.453      0.096
+    Single Stage Multi Point           0.004    0.071      0.007
+    Single Stage Single Point          0.047    0.355      0.083
+    Single Stage Single Point          0.079    0.404      0.132
+    Single Stage Single Point          0.080    1.000      0.148
+    Single Stage Single Point          0.122    0.003      0.005
+    Single Stage Single Point          0.092    0.191      0.124
+    Single Stage Single Point          0.077    0.000      0.000
+    Single Stage Single Point          0.036    0.267      0.063
+    Single Stage Single Point          0.578    0.995      0.731
+    Single Stage Single Point          0.080    1.000      0.148
+    Single Stage Single Point          0.579    1.000      0.733
