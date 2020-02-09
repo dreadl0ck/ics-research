@@ -223,29 +223,11 @@ def run():
                 for col in arguments.drop.split(","):
                     drop_col(col, df)
 
-            if arguments.encodeCategoricals:
-                print("[INFO] Shape when encoding dataset:", df.shape)
-                encode_categorical_columns(df, arguments.features)
-                print("[INFO] Shape AFTER encoding dataset:", df.shape)
-
-            # Always drop columns that are unique for every record
-#           drop_col('UID', df)
-
-            # Tag is always 0, remove this column
-#           drop_col('Tag', df)
-
             if not arguments.lstm:
                 print("dropping all time related columns...")
                 drop_col('unixtime', df)
-#               drop_col('Timestamp', df)
-#               drop_col('num', df)
-#               drop_col('date', df)
-#               drop_col('time', df)
-
-#           drop_col('SessionID', df)
 
             print("[INFO] columns:", df.columns)
-
             if arguments.debug:
                 print("[INFO] analyze dataset:", df.shape)
                 analyze(df)
@@ -263,6 +245,11 @@ def run():
                 print("df.columns", df.columns, len(df.columns))
                 with pd.option_context('display.max_rows', 10, 'display.max_columns', None):  # more options can be specified also
                     print(df)
+
+            if arguments.encodeCategoricals:
+                print("[INFO] Shape when encoding dataset:", df.shape)
+                encode_categorical_columns(df, arguments.features)
+                print("[INFO] Shape AFTER encoding dataset:", df.shape)    
 
             for batch_size in range(0, df.shape[0], arguments.batchSize):
 

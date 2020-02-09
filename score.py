@@ -90,17 +90,14 @@ def run():
             for col in arguments.drop.split(","):
                 drop_col(col, df)
 
-
         if not arguments.lstm:
             print("dropping all time related columns...")
             drop_col('unixtime',df)
 
-        drop_col('SessionID', df)
-
         print("[INFO] columns:", df.columns)
-
-        print("[INFO] analyze dataset:", df.shape)
-        analyze(df)
+        if arguments.debug:
+            print("[INFO] analyze dataset:", df.shape)
+            analyze(df)
 
         if arguments.zscoreUnixtime:
             encode_numeric_zscore(df, "unixtime")
@@ -109,7 +106,6 @@ def run():
             print("[INFO] Shape when encoding dataset:", df.shape)
             encode_columns(df, arguments.resultColumn, arguments.lstm, arguments.debug)
             print("[INFO] Shape AFTER encoding dataset:", df.shape)
-
         
         if arguments.encodeCategoricals:
             print("[INFO] Shape when encoding dataset:", df.shape)
