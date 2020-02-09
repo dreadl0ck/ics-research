@@ -116,7 +116,7 @@ def run():
 
         batchSize = arguments.batchSize
         for batch_index in range(0, df.shape[0], batchSize):
-            print("[INFO] processing batch {}-{}/{}".format(batch_index, batch_index+batchSize, df.shape[0]))
+            
             dfCopy = df[batch_index:batch_index+batchSize]
 
             # skip leftover that does not reach batch size
@@ -124,6 +124,7 @@ def run():
                 leftover = dfCopy
                 continue
 
+            print("[INFO] processing batch {}-{}/{}".format(batch_index, batch_index+batchSize, df.shape[0]))
             eval_dnn(dfCopy)
             leftover = None
 
