@@ -1,0 +1,138 @@
+searching for logs in experiment-logs/v0.4.4-minmax-multi-lstm
+experiment-logs/v0.4.4-minmax-multi-lstm/v0.4.4-multi-lstm-v10-minmax-text.log experiment-logs/v0.4.4-minmax-multi-lstm/v0.4.4-multi-lstm-v0-minmax-text.log experiment-logs/v0.4.4-minmax-multi-lstm/v0.4.4-multi-lstm-v7-minmax-text.log experiment-logs/v0.4.4-minmax-multi-lstm/v0.4.4-multi-lstm-v8-minmax-text.log experiment-logs/v0.4.4-minmax-multi-lstm/v0.4.4-multi-lstm-v6-minmax-text.log experiment-logs/v0.4.4-minmax-multi-lstm/v0.4.4-multi-lstm-v1-minmax-text.log experiment-logs/v0.4.4-minmax-multi-lstm/v0.4.4-multi-lstm-v4-minmax-text.log experiment-logs/v0.4.4-minmax-multi-lstm/v0.4.4-multi-lstm-v3-minmax-text.log experiment-logs/v0.4.4-minmax-multi-lstm/v0.4.4-multi-lstm-v2-minmax-text.log experiment-logs/v0.4.4-minmax-multi-lstm/v0.4.4-multi-lstm-v5-minmax-text.log
+--- experiment-logs/v0.4.4-minmax-multi-lstm/v0.4.4-multi-lstm-v10-minmax-text.log ---
+[[6948538       0       0       0       0]
+ [ 629608       0       0       0       0]
+ [ 109697       0       0       0       0]
+ [  45355       0       0       0       0]
+ [ 202802       0       0       0       0]]
+
+name                           precision   recall   f1-score
+normal                             0.876    1.000      0.934
+Single Stage Single Point          zero tp
+Single Stage Multi Point           zero tp
+Multi Stage Single Point           zero tp
+Multi Stage Multi Point            zero tp
+accuracy: 0.876
+
+--- experiment-logs/v0.4.4-minmax-multi-lstm/v0.4.4-multi-lstm-v0-minmax-text.log ---
+[[6948538       0       0       0       0]
+ [ 629608       0       0       0       0]
+ [ 109697       0       0       0       0]
+ [  45355       0       0       0       0]
+ [ 202802       0       0       0       0]]
+
+name                           precision   recall   f1-score
+normal                             0.876    1.000      0.934
+Single Stage Single Point          zero tp
+Single Stage Multi Point           zero tp
+Multi Stage Single Point           zero tp
+Multi Stage Multi Point            zero tp
+accuracy: 0.876
+
+--- experiment-logs/v0.4.4-minmax-multi-lstm/v0.4.4-multi-lstm-v7-minmax-text.log ---
+[[6948538       0       0       0       0]
+ [ 629608       0       0       0       0]
+ [ 109697       0       0       0       0]
+ [  45355       0       0       0       0]
+ [ 202802       0       0       0       0]]
+
+name                           precision   recall   f1-score
+normal                             0.876    1.000      0.934
+Single Stage Single Point          zero tp
+Single Stage Multi Point           zero tp
+Multi Stage Single Point           zero tp
+Multi Stage Multi Point            zero tp
+accuracy: 0.876
+
+--- experiment-logs/v0.4.4-minmax-multi-lstm/v0.4.4-multi-lstm-v8-minmax-text.log ---
+--- experiment-logs/v0.4.4-minmax-multi-lstm/v0.4.4-multi-lstm-v6-minmax-text.log ---
+[[6948538       0       0       0       0]
+ [ 629608       0       0       0       0]
+ [ 109697       0       0       0       0]
+ [  45355       0       0       0       0]
+ [ 202802       0       0       0       0]]
+
+name                           precision   recall   f1-score
+normal                             0.876    1.000      0.934
+Single Stage Single Point          zero tp
+Single Stage Multi Point           zero tp
+Multi Stage Single Point           zero tp
+Multi Stage Multi Point            zero tp
+accuracy: 0.876
+
+--- experiment-logs/v0.4.4-minmax-multi-lstm/v0.4.4-multi-lstm-v1-minmax-text.log ---
+[[6948538       0       0       0       0]
+ [ 629608       0       0       0       0]
+ [ 109697       0       0       0       0]
+ [  45355       0       0       0       0]
+ [ 202802       0       0       0       0]]
+
+name                           precision   recall   f1-score
+normal                             0.876    1.000      0.934
+Single Stage Single Point          zero tp
+Single Stage Multi Point           zero tp
+Multi Stage Single Point           zero tp
+Multi Stage Multi Point            zero tp
+accuracy: 0.876
+
+--- experiment-logs/v0.4.4-minmax-multi-lstm/v0.4.4-multi-lstm-v4-minmax-text.log ---
+[[6948538       0       0       0       0]
+ [ 629608       0       0       0       0]
+ [ 109697       0       0       0       0]
+ [  45355       0       0       0       0]
+ [ 202802       0       0       0       0]]
+
+name                           precision   recall   f1-score
+normal                             0.876    1.000      0.934
+Single Stage Single Point          zero tp
+Single Stage Multi Point           zero tp
+Multi Stage Single Point           zero tp
+Multi Stage Multi Point            zero tp
+accuracy: 0.876
+
+--- experiment-logs/v0.4.4-minmax-multi-lstm/v0.4.4-multi-lstm-v3-minmax-text.log ---
+[[6948538       0       0       0       0]
+ [ 629608       0       0       0       0]
+ [ 109697       0       0       0       0]
+ [  45355       0       0       0       0]
+ [ 202802       0       0       0       0]]
+
+name                           precision   recall   f1-score
+normal                             0.876    1.000      0.934
+Single Stage Single Point          zero tp
+Single Stage Multi Point           zero tp
+Multi Stage Single Point           zero tp
+Multi Stage Multi Point            zero tp
+accuracy: 0.876
+
+--- experiment-logs/v0.4.4-minmax-multi-lstm/v0.4.4-multi-lstm-v2-minmax-text.log ---
+[[6948538       0       0       0       0]
+ [ 629608       0       0       0       0]
+ [ 109697       0       0       0       0]
+ [  45355       0       0       0       0]
+ [ 202802       0       0       0       0]]
+
+name                           precision   recall   f1-score
+normal                             0.876    1.000      0.934
+Single Stage Single Point          zero tp
+Single Stage Multi Point           zero tp
+Multi Stage Single Point           zero tp
+Multi Stage Multi Point            zero tp
+accuracy: 0.876
+
+--- experiment-logs/v0.4.4-minmax-multi-lstm/v0.4.4-multi-lstm-v5-minmax-text.log ---
+[[6948538       0       0       0       0]
+ [ 629608       0       0       0       0]
+ [ 109697       0       0       0       0]
+ [  45355       0       0       0       0]
+ [ 202802       0       0       0       0]]
+
+name                           precision   recall   f1-score
+normal                             0.876    1.000      0.934
+Single Stage Single Point          zero tp
+Single Stage Multi Point           zero tp
+Multi Stage Single Point           zero tp
+Multi Stage Multi Point            zero tp
+accuracy: 0.876
+

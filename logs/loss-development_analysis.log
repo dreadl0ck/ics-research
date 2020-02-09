@@ -1,0 +1,185 @@
+Loss development:
+
+=> most between 0.65 - 0.7
+
+=> exception: lstm v9
+
+    experiment-logs/brussels/v0.4.3-single-dnn-v9-minmax-text.log:[LOSS] 0.03548255190253258
+    experiment-logs/brussels/v0.4.3-single-dnn-v9-minmax-text.log:[LOSS] 0.017402052879333496
+    experiment-logs/brussels/v0.4.3-single-dnn-v9-minmax-text.log:[LOSS] 0.01148796733468771
+    experiment-logs/brussels/v0.4.3-single-dnn-v9-minmax-text.log:[LOSS] 0.008565006777644157
+    experiment-logs/brussels/v0.4.3-single-dnn-v9-minmax-text.log:[LOSS] 0.006824727635830641
+    experiment-logs/brussels/v0.4.3-single-dnn-v9-minmax-text.log:[LOSS] 0.005670863203704357
+    experiment-logs/brussels/v0.4.3-single-dnn-v9-minmax-text.log:[LOSS] 0.004850076045840979
+    experiment-logs/brussels/v0.4.3-single-dnn-v9-minmax-text.log:[LOSS] 0.00423642760142684
+    experiment-logs/brussels/v0.4.3-single-dnn-v9-minmax-text.log:[LOSS] 0.0037603937089443207
+    experiment-logs/brussels/v0.4.3-single-dnn-v9-minmax-text.log:[LOSS] 0.0033803717233240604
+
+LSTM v5:
+
+    experiment-logs/brussels/v0.4.3-single-lstm-v5-minmax-text.log:[LOSS] 0.37900722861289976
+    experiment-logs/brussels/v0.4.3-single-lstm-v5-minmax-text.log:[LOSS] 0.23461277568340302
+    experiment-logs/brussels/v0.4.3-single-lstm-v5-minmax-text.log:[LOSS] 0.15536491870880126
+    experiment-logs/brussels/v0.4.3-single-dnn-v6-minmax-text.log:[LOSS] 0.026262447237968445
+    experiment-logs/brussels/v0.4.3-single-dnn-v6-minmax-text.log:[LOSS] 0.0020667370408773422
+    experiment-logs/brussels/v0.4.3-single-dnn-v6-minmax-text.log:[LOSS] 0.00017093864153139293
+
+LSTM v2:
+
+    experiment-logs/brussels/v0.4.3-single-dnn-v1-minmax-text.log:[LOSS] 0.035482555627822876
+    experiment-logs/brussels/v0.4.3-single-dnn-v1-minmax-text.log:[LOSS] 0.017402052879333496
+    experiment-logs/brussels/v0.4.3-single-dnn-v1-minmax-text.log:[LOSS] 0.01148796733468771
+    experiment-logs/brussels/v0.4.3-single-lstm-v2-minmax-text.log:[LOSS] 0.5293353796005249
+    experiment-logs/brussels/v0.4.3-single-lstm-v2-minmax-text.log:[LOSS] 0.4077104926109314
+    experiment-logs/brussels/v0.4.3-single-lstm-v2-minmax-text.log:[LOSS] 0.31764546036720276
+
+DNN v6:
+
+    experiment-logs/brussels/dnn-v6.log:[LOSS] 0.2228963176727295
+    experiment-logs/brussels/dnn-v6.log:[LOSS] 0.41515131821632384
+    experiment-logs/brussels/dnn-v6.log:[LOSS] 0.5668838532447815
+    experiment-logs/brussels/dnn-v6.log:[LOSS] 0.5441243013381958
+    experiment-logs/brussels/dnn-v6.log:[LOSS] 0.6286374074935913
+    experiment-logs/brussels/dnn-v6.log:[LOSS] 0.5575207685470581
+    experiment-logs/brussels/dnn-v6.log:[LOSS] 0.6266236924171448
+    experiment-logs/brussels/dnn-v6.log:[LOSS] 0.5582606091499328
+    experiment-logs/brussels/dnn-v6.log:[LOSS] 0.5493700493812561
+    experiment-logs/brussels/dnn-v6.log:[LOSS] 0.3784349170684814
+
+DNN v0:
+
+    experiment-logs/brussels/v0.4.3-single-dnn-v0-minmax-text.log:[LOSS] 0.0262601338326931
+    experiment-logs/brussels/v0.4.3-single-dnn-v0-minmax-text.log:[LOSS] 0.002066559623926878
+    experiment-logs/brussels/v0.4.3-single-dnn-v0-minmax-text.log:[LOSS] 0.0001709242060314864
+
+LSTM v3:
+
+    experiment-logs/brussels/v0.4.3-single-lstm-v3-minmax-text.log:[LOSS] 0.38593435287475586
+    experiment-logs/brussels/v0.4.3-single-lstm-v3-minmax-text.log:[LOSS] 0.25135037302970886
+    experiment-logs/brussels/v0.4.3-single-lstm-v3-minmax-text.log:[LOSS] 0.18181388080120087
+
+LSTM v4:
+
+    experiment-logs/brussels/v0.4.3-single-lstm-v4-minmax-text.log:[LOSS] 0.5292245149612427
+    experiment-logs/brussels/v0.4.3-single-lstm-v4-minmax-text.log:[LOSS] 0.40762507915496826
+    experiment-logs/brussels/v0.4.3-single-lstm-v4-minmax-text.log:[LOSS] 0.3175787031650543
+
+DNN v7:
+
+    experiment-logs/brussels/v0.4.3-single-dnn-v7-minmax-text.log:[LOSS] 0.03548252582550049
+    experiment-logs/brussels/v0.4.3-single-dnn-v7-minmax-text.log:[LOSS] 0.01740204356610775
+    experiment-logs/brussels/v0.4.3-single-dnn-v7-minmax-text.log:[LOSS] 0.011487961746752262
+
+DNN v2:
+
+    experiment-logs/brussels/v0.4.3-single-dnn-v2-minmax-text.log:[LOSS] 0.026276541873812675
+    experiment-logs/brussels/v0.4.3-single-dnn-v2-minmax-text.log:[LOSS] 0.0020678008440881968
+    experiment-logs/brussels/v0.4.3-single-dnn-v2-minmax-text.log:[LOSS] 0.00017102668061852455
+
+LSTM v1:
+
+    experiment-logs/brussels/v0.4.3-single-lstm-v1-minmax-text.log:[LOSS] 0.38593485951423645
+    experiment-logs/brussels/v0.4.3-single-lstm-v1-minmax-text.log:[LOSS] 0.251350462436676
+    experiment-logs/brussels/v0.4.3-single-lstm-v1-minmax-text.log:[LOSS] 0.18181410431861877
+
+LSTM v10:
+
+    experiment-logs/brussels/v0.4.3-single-lstm-v10-minmax-text.log:[LOSS] 0.5293578505516052
+    experiment-logs/brussels/v0.4.3-single-lstm-v10-minmax-text.log:[LOSS] 0.4077320396900177
+    experiment-logs/brussels/v0.4.3-single-lstm-v10-minmax-text.log:[LOSS] 0.3176637887954712
+    experiment-logs/brussels/v0.4.3-single-lstm-v10-minmax-text.log:[LOSS] 0.25053125619888306
+    experiment-logs/brussels/v0.4.3-single-lstm-v10-minmax-text.log:[LOSS] 0.19991521537303925
+    experiment-logs/brussels/v0.4.3-single-lstm-v10-minmax-text.log:[LOSS] 0.16122758388519287
+    experiment-logs/brussels/v0.4.3-single-lstm-v10-minmax-text.log:[LOSS] 0.13124048709869385
+    experiment-logs/brussels/v0.4.3-single-lstm-v10-minmax-text.log:[LOSS] 0.10768652707338333
+    experiment-logs/brussels/v0.4.3-single-lstm-v10-minmax-text.log:[LOSS] 0.08896003663539886
+    experiment-logs/brussels/v0.4.3-single-lstm-v10-minmax-text.log:[LOSS] 0.07391022890806198
+
+LSTM v9:
+
+    experiment-logs/brussels/v0.4.3-single-lstm-v9-minmax-text.log:[LOSS] 0.38593482971191406
+    experiment-logs/brussels/v0.4.3-single-lstm-v9-minmax-text.log:[LOSS] 0.251350462436676
+    experiment-logs/brussels/v0.4.3-single-lstm-v9-minmax-text.log:[LOSS] 0.18181410431861877
+    experiment-logs/brussels/v0.4.3-single-lstm-v9-minmax-text.log:[LOSS] 0.14079728722572327
+    experiment-logs/brussels/v0.4.3-single-lstm-v9-minmax-text.log:[LOSS] 0.11419308930635452
+    experiment-logs/brussels/v0.4.3-single-lstm-v9-minmax-text.log:[LOSS] 0.09571122378110886
+    experiment-logs/brussels/v0.4.3-single-lstm-v9-minmax-text.log:[LOSS] 0.08219939470291138
+    experiment-logs/brussels/v0.4.3-single-lstm-v9-minmax-text.log:[LOSS] 0.07192675769329071
+    experiment-logs/brussels/v0.4.3-single-lstm-v9-minmax-text.log:[LOSS] 0.06387258321046829
+    experiment-logs/brussels/v0.4.3-single-lstm-v9-minmax-text.log:[LOSS] 0.05739925801753998
+
+LSTM v6:
+
+    experiment-logs/brussels/v0.4.3-single-lstm-v6-minmax-text.log:[LOSS] 1.57361756064347e-05
+    experiment-logs/brussels/v0.4.3-single-lstm-v6-minmax-text.log:[LOSS] 1.097172254560519e-08
+    experiment-logs/brussels/v0.4.3-single-lstm-v6-minmax-text.log:[LOSS] 6.895389076388981e-11
+
+DNN v5:
+
+    experiment-logs/brussels/v0.4.3-single-dnn-v5-minmax-text.log:[LOSS] 0.026438630910590292
+    experiment-logs/brussels/v0.4.3-single-dnn-v5-minmax-text.log:[LOSS] 0.009981560349464416
+    experiment-logs/brussels/v0.4.3-single-dnn-v5-minmax-text.log:[LOSS] 0.0056012896548490974
+
+LSTM v8:
+
+    experiment-logs/brussels/v0.4.3-single-lstm-v8-minmax-text.log:[LOSS] 0.5293307900428772
+    experiment-logs/brussels/v0.4.3-single-lstm-v8-minmax-text.log:[LOSS] 0.4077058732509613
+    experiment-logs/brussels/v0.4.3-single-lstm-v8-minmax-text.log:[LOSS] 0.3176422417163849
+    experiment-logs/brussels/v0.4.3-single-lstm-v8-minmax-text.log:[LOSS] 0.25051385164260864
+    experiment-logs/brussels/v0.4.3-single-lstm-v8-minmax-text.log:[LOSS] 0.199901282787323
+    experiment-logs/brussels/v0.4.3-single-lstm-v8-minmax-text.log:[LOSS] 0.16121608018875122
+
+LSTM v7:
+
+    experiment-logs/brussels/v0.4.3-single-lstm-v7-minmax-text.log:[LOSS] 0.35587241077423093
+    experiment-logs/brussels/v0.4.3-single-lstm-v7-minmax-text.log:[LOSS] 0.20242344546318053
+    experiment-logs/brussels/v0.4.3-single-lstm-v7-minmax-text.log:[LOSS] 0.12633623445034028
+
+DNN v4:
+
+    experiment-logs/brussels/v0.4.3-single-dnn-v4-minmax-text.log:[LOSS] 4.4148956447850306e-13
+    experiment-logs/brussels/v0.4.3-single-dnn-v4-minmax-text.log:[LOSS] 3.0158371146252256e-16
+    experiment-logs/brussels/v0.4.3-single-dnn-v4-minmax-text.log:[LOSS] 4.3354478969826267e-19
+
+DNN v3:
+
+    experiment-logs/brussels/v0.4.3-single-dnn-v3-minmax-text.log:[LOSS] 0.0089775005383417
+    experiment-logs/brussels/v0.4.3-single-dnn-v3-minmax-text.log:[LOSS] 0.0038611729828407987
+    experiment-logs/brussels/v0.4.3-single-dnn-v3-minmax-text.log:[LOSS] 0.002377939756726846
+
+LSTM v0:
+
+experiment-logs/brussels/v0.4.3-single-lstm-v0-minmax-text.log:[LOSS] 0.5293278694152832
+experiment-logs/brussels/v0.4.3-single-lstm-v0-minmax-text.log:[LOSS] 0.40770474076271057
+experiment-logs/brussels/v0.4.3-single-lstm-v0-minmax-text.log:[LOSS] 0.31764090061187744
+
+LSTM v7:
+
+    experiment-logs/brussels-v0.4.2-single-zscore-binary/single-lstm-v7-zscore.log:[LOSS] nan
+    experiment-logs/brussels-v0.4.2-single-zscore-binary/single-lstm-v7-zscore.log:[LOSS] nan
+    experiment-logs/brussels-v0.4.2-single-zscore-binary/single-lstm-v7-zscore.log:[LOSS] nan
+
+LSTM v8:
+
+    experiment-logs/mac2/lstm-v7.log:[LOSS] 3.95452429256693e-06
+    experiment-logs/mac2/lstm-v7.log:[LOSS] 3.244073723180918e-06
+    experiment-logs/mac2/lstm-v7.log:[LOSS] 2.6251702056470096e-06
+    experiment-logs/mac2/lstm-v6.log:[LOSS] 1.1920928955078125e-07
+    experiment-logs/mac2/lstm-v6.log:[LOSS] 1.1920928955078125e-07
+    experiment-logs/mac2/lstm-v6.log:[LOSS] 1.9804853366167662e-07
+    experiment-logs/mac2/lstm-v8.log:[LOSS] 5.1722862226597495e-06
+    experiment-logs/mac2/lstm-v8.log:[LOSS] 2.0477941761782858e-06
+    experiment-logs/mac2/lstm-v8.log:[LOSS] 1.949107997461397e-06
+
+LSTM v9:
+
+    experiment-logs/mac2/lstm-v9.log:[LOSS] 0.6555843076705933
+    experiment-logs/mac2/lstm-v9.log:[LOSS] 0.6525418858528137
+    experiment-logs/mac2/lstm-v9.log:[LOSS] 0.651814793586731
+    experiment-logs/mac2/lstm-v9.log:[LOSS] 0.6514826488494873
+    experiment-logs/mac2/lstm-v9.log:[LOSS] 0.0047221042029559615
+    experiment-logs/mac2/lstm-v9.log:[LOSS] 0.002121064009144902
+    experiment-logs/mac2/lstm-v9.log:[LOSS] 0.0021279129367321728
+    experiment-logs/mac2/lstm-v9.log:[LOSS] 0.0017699931981042028
+    experiment-logs/mac2/lstm-v9.log:[LOSS] 5.744519138336182
+    experiment-logs/mac2/lstm-v9.log:[LOSS] 0.001956060971133411

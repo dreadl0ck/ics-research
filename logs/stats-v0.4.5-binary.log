@@ -1,0 +1,128 @@
+searching for logs in experiment-logs/v0.4.5-binary
+experiment-logs/v0.4.5-binary/v0.4.5-binary-multi-lstm-v10-minmax-text.log experiment-logs/v0.4.5-binary/v0.4.5-binary-multi-lstm-v5-minmax-text.log experiment-logs/v0.4.5-binary/v0.4.5-binary-multi-dnn-v0-physical-minmax-text.log experiment-logs/v0.4.5-binary/v0.4.5-binary-multi-dnn-v1-minmax-text.log experiment-logs/v0.4.5-binary/v0.4.5-binary-multi-dnn-v6-minmax-text.log experiment-logs/v0.4.5-binary/v0.4.5-binary-multi-lstm-v2-minmax-text.log experiment-logs/v0.4.5-binary/v0.4.5-binary-multi-dnn-v9-minmax-text.log experiment-logs/v0.4.5-binary/v0.4.5-binary-multi-dnn-v7-minmax-text.log experiment-logs/v0.4.5-binary/v0.4.5-binary-multi-lstm-v3-minmax-text.log experiment-logs/v0.4.5-binary/v0.4.5-binary-multi-dnn-v8-minmax-text.log experiment-logs/v0.4.5-binary/v0.4.5-binary-multi-dnn-v10-minmax-text.log experiment-logs/v0.4.5-binary/v0.4.5-binary-multi-lstm-v4-minmax-text.log experiment-logs/v0.4.5-binary/v0.4.5-binary-multi-dnn-v0-minmax-text.log experiment-logs/v0.4.5-binary/v0.4.5-binary-multi-lstm-v1-minmax-text.log experiment-logs/v0.4.5-binary/v0.4.5-binary-multi-dnn-v5-minmax-text.log experiment-logs/v0.4.5-binary/v0.4.5-binary-multi-lstm-v9-minmax-text.log experiment-logs/v0.4.5-binary/v0.4.5-binary-multi-dnn-v2-minmax-text.log experiment-logs/v0.4.5-binary/v0.4.5-binary-multi-lstm-v6-minmax-text.log experiment-logs/v0.4.5-binary/v0.4.5-binary-multi-lstm-v8-minmax-text.log experiment-logs/v0.4.5-binary/v0.4.5-binary-multi-dnn-v3-minmax-text.log experiment-logs/v0.4.5-binary/v0.4.5-binary-multi-lstm-v7-minmax-text.log experiment-logs/v0.4.5-binary/v0.4.5-binary-multi-lstm-v0-minmax-text.log experiment-logs/v0.4.5-binary/v0.4.5-binary-multi-dnn-v4-minmax-text.log
+set classes to: ['normal', 'attack']
+--- experiment-logs/v0.4.5-binary/v0.4.5-binary-multi-lstm-v10-minmax-text.log ---
+[[6948538       0]
+ [ 987462       0]]
+
+name                           precision   recall   f1-score
+normal                             0.876    1.000      0.934
+attack                             zero tp
+accuracy: 0.876
+
+set classes to: ['normal', 'attack']
+--- experiment-logs/v0.4.5-binary/v0.4.5-binary-multi-lstm-v5-minmax-text.log ---
+[[6948538       0]
+ [ 987462       0]]
+
+name                           precision   recall   f1-score
+normal                             0.876    1.000      0.934
+attack                             zero tp
+accuracy: 0.876
+
+set classes to: ['normal', 'attack']
+--- experiment-logs/v0.4.5-binary/v0.4.5-binary-multi-dnn-v0-physical-minmax-text.log ---
+set classes to: ['normal', 'attack']
+--- experiment-logs/v0.4.5-binary/v0.4.5-binary-multi-dnn-v1-minmax-text.log ---
+set classes to: ['normal', 'attack']
+--- experiment-logs/v0.4.5-binary/v0.4.5-binary-multi-dnn-v6-minmax-text.log ---
+set classes to: ['normal', 'attack']
+--- experiment-logs/v0.4.5-binary/v0.4.5-binary-multi-lstm-v2-minmax-text.log ---
+[[6948538       0]
+ [ 987462       0]]
+
+name                           precision   recall   f1-score
+normal                             0.876    1.000      0.934
+attack                             zero tp
+accuracy: 0.876
+
+set classes to: ['normal', 'attack']
+--- experiment-logs/v0.4.5-binary/v0.4.5-binary-multi-dnn-v9-minmax-text.log ---
+set classes to: ['normal', 'attack']
+--- experiment-logs/v0.4.5-binary/v0.4.5-binary-multi-dnn-v7-minmax-text.log ---
+set classes to: ['normal', 'attack']
+--- experiment-logs/v0.4.5-binary/v0.4.5-binary-multi-lstm-v3-minmax-text.log ---
+[[6948538       0]
+ [ 987462       0]]
+
+name                           precision   recall   f1-score
+normal                             0.876    1.000      0.934
+attack                             zero tp
+accuracy: 0.876
+
+set classes to: ['normal', 'attack']
+--- experiment-logs/v0.4.5-binary/v0.4.5-binary-multi-dnn-v8-minmax-text.log ---
+set classes to: ['normal', 'attack']
+--- experiment-logs/v0.4.5-binary/v0.4.5-binary-multi-dnn-v10-minmax-text.log ---
+set classes to: ['normal', 'attack']
+--- experiment-logs/v0.4.5-binary/v0.4.5-binary-multi-lstm-v4-minmax-text.log ---
+[[6948538       0]
+ [ 987462       0]]
+
+name                           precision   recall   f1-score
+normal                             0.876    1.000      0.934
+attack                             zero tp
+accuracy: 0.876
+
+set classes to: ['normal', 'attack']
+--- experiment-logs/v0.4.5-binary/v0.4.5-binary-multi-dnn-v0-minmax-text.log ---
+set classes to: ['normal', 'attack']
+--- experiment-logs/v0.4.5-binary/v0.4.5-binary-multi-lstm-v1-minmax-text.log ---
+set classes to: ['normal', 'attack']
+--- experiment-logs/v0.4.5-binary/v0.4.5-binary-multi-dnn-v5-minmax-text.log ---
+set classes to: ['normal', 'attack']
+--- experiment-logs/v0.4.5-binary/v0.4.5-binary-multi-lstm-v9-minmax-text.log ---
+[[6948538       0]
+ [ 987462       0]]
+
+name                           precision   recall   f1-score
+normal                             0.876    1.000      0.934
+attack                             zero tp
+accuracy: 0.876
+
+set classes to: ['normal', 'attack']
+--- experiment-logs/v0.4.5-binary/v0.4.5-binary-multi-dnn-v2-minmax-text.log ---
+set classes to: ['normal', 'attack']
+--- experiment-logs/v0.4.5-binary/v0.4.5-binary-multi-lstm-v6-minmax-text.log ---
+[[6948538       0]
+ [ 987462       0]]
+
+name                           precision   recall   f1-score
+normal                             0.876    1.000      0.934
+attack                             zero tp
+accuracy: 0.876
+
+set classes to: ['normal', 'attack']
+--- experiment-logs/v0.4.5-binary/v0.4.5-binary-multi-lstm-v8-minmax-text.log ---
+[[6948538       0]
+ [ 987462       0]]
+
+name                           precision   recall   f1-score
+normal                             0.876    1.000      0.934
+attack                             zero tp
+accuracy: 0.876
+
+set classes to: ['normal', 'attack']
+--- experiment-logs/v0.4.5-binary/v0.4.5-binary-multi-dnn-v3-minmax-text.log ---
+set classes to: ['normal', 'attack']
+--- experiment-logs/v0.4.5-binary/v0.4.5-binary-multi-lstm-v7-minmax-text.log ---
+[[6948538       0]
+ [ 987462       0]]
+
+name                           precision   recall   f1-score
+normal                             0.876    1.000      0.934
+attack                             zero tp
+accuracy: 0.876
+
+set classes to: ['normal', 'attack']
+--- experiment-logs/v0.4.5-binary/v0.4.5-binary-multi-lstm-v0-minmax-text.log ---
+[[6948538       0]
+ [ 987462       0]]
+
+name                           precision   recall   f1-score
+normal                             0.876    1.000      0.934
+attack                             zero tp
+accuracy: 0.876
+
+set classes to: ['normal', 'attack']
+--- experiment-logs/v0.4.5-binary/v0.4.5-binary-multi-dnn-v4-minmax-text.log ---
