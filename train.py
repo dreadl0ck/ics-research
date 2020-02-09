@@ -224,7 +224,9 @@ def run():
                     drop_col(col, df)
 
             if arguments.encodeCategoricals:
+                print("[INFO] Shape when encoding dataset:", df.shape)
                 encode_categorical_columns(df, arguments.features)
+                print("[INFO] Shape AFTER encoding dataset:", df.shape)
 
             # Always drop columns that are unique for every record
 #           drop_col('UID', df)

@@ -112,7 +112,9 @@ def run():
 
         
         if arguments.encodeCategoricals:
+            print("[INFO] Shape when encoding dataset:", df.shape)
             encode_categorical_columns(df, arguments.features)    
+            print("[INFO] Shape AFTER encoding dataset:", df.shape)
 
         batchSize = arguments.batchSize
         for batch_index in range(0, df.shape[0], batchSize):
