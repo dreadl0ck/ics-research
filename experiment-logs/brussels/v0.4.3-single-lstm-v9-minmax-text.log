@@ -1,0 +1,899 @@
+2020-02-09 10:14:09.035446: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer.so.6'; dlerror: libnvinfer.so.6: cannot open shared object file: No such file or directory
+2020-02-09 10:14:09.035499: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer_plugin.so.6'; dlerror: libnvinfer_plugin.so.6: cannot open shared object file: No such file or directory
+2020-02-09 10:14:09.035505: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:30] Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+2020-02-09 10:14:09.525576: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
+2020-02-09 10:14:09.525616: E tensorflow/stream_executor/cuda/cuda_driver.cc:351] failed call to cuInit: UNKNOWN ERROR (303)
+2020-02-09 10:14:09.525631: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (brussels): /proc/driver/nvidia/version does not exist
+2020-02-09 10:14:09.525750: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2020-02-09 10:14:09.545814: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 3312000000 Hz
+2020-02-09 10:14:09.545997: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x4dd6d40 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-02-09 10:14:09.546008: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+Using TensorFlow backend.
+WARNING:tensorflow:Large dropout rate: 0.8 (>0.5). In TensorFlow 2.x, dropout() uses dropout rate instead of keep_prob. Please ensure that this is intended.
+2020-02-09 10:14:13.823304: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] remapper failed: Invalid argument: MutableGraphView::MutableGraphView error: node 'loss/dense_2_loss/categorical_crossentropy/weighted_loss/concat' has self cycle fanin 'loss/dense_2_loss/categorical_crossentropy/weighted_loss/concat'.
+2020-02-09 10:14:13.846041: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 0, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-09 10:14:13.855331: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 1, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-09 10:14:13.935237: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] arithmetic_optimizer failed: Invalid argument: The graph couldn't be sorted in topological order.
+2020-02-09 10:14:13.939651: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] remapper failed: Invalid argument: MutableGraphView::MutableGraphView error: node 'loss/dense_2_loss/categorical_crossentropy/weighted_loss/concat' has self cycle fanin 'loss/dense_2_loss/categorical_crossentropy/weighted_loss/concat'.
+2020-02-09 10:14:13.946330: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 0, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-09 10:14:13.952485: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 1, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-09 10:14:13.970441: W tensorflow/core/common_runtime/process_function_library_runtime.cc:697] Ignoring multi-device function optimization failure: Invalid argument: The graph couldn't be sorted in topological order.
+2020-02-09 10:14:20.487720: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] remapper failed: Invalid argument: MutableGraphView::MutableGraphView error: node 'loss/dense_2_loss/categorical_crossentropy/weighted_loss/concat' has self cycle fanin 'loss/dense_2_loss/categorical_crossentropy/weighted_loss/concat'.
+2020-02-09 10:14:20.492494: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 0, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-09 10:14:20.494696: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 1, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-09 10:14:20.510544: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] arithmetic_optimizer failed: Invalid argument: The graph couldn't be sorted in topological order.
+2020-02-09 10:14:20.511602: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] remapper failed: Invalid argument: MutableGraphView::MutableGraphView error: node 'loss/dense_2_loss/categorical_crossentropy/weighted_loss/concat' has self cycle fanin 'loss/dense_2_loss/categorical_crossentropy/weighted_loss/concat'.
+2020-02-09 10:14:20.513133: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 0, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-09 10:14:20.514654: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 1, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-09 10:14:20.520506: W tensorflow/core/common_runtime/process_function_library_runtime.cc:697] Ignoring multi-device function optimization failure: Invalid argument: The graph couldn't be sorted in topological order.
+=================================================
+        TRAINING v0.4.4 (multi-class)
+=================================================
+Date: 2020-02-09 10:14:09.522249
+MULTI-CLASS num classes: 5
+------------DNN info-------------
+wrapLayerSize 8
+coreLayerSize 32
+numCoreLayers 3
+outputLayerActivation softmax
+output_dim 5
+loss categorical_crossentropy
+optimizer sgd
+------------DNN info-------------
+[INFO] input_shape (128, 107)
+[INFO] LSTM first and last layer neurons: 8
+[INFO] adding core layer 0
+[INFO] adding core layer 1
+[INFO] adding core layer 2
+[INFO] created DNN
+[33m[INFO] epoch 1/10[0m
+[33m[INFO] loading file 1-50/1 on epoch 1/10[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (500000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[33mencode_text_dummy orig[0m
+[33mencode_text_dummy type[0m
+[33mencode_text_dummy i/f_name[0m
+[33mencode_text_dummy i/f_dir[0m
+[33mencode_text_dummy src[0m
+[33mencode_text_dummy dst[0m
+[33mencode_text_dummy proto[0m
+[33mencode_text_dummy appi_name[0m
+[33mencode_text_dummy proxy_src_ip[0m
+[33mencode_text_dummy modbus_function_description[0m
+[33mencode_text_dummy scada_tag[0m
+adding missing-0
+adding missing-1
+adding missing-2
+adding missing-3
+adding missing-4
+adding missing-5
+adding missing-6
+adding missing-7
+adding missing-8
+adding missing-9
+adding missing-10
+adding missing-11
+adding missing-12
+adding missing-13
+adding missing-14
+adding missing-15
+adding missing-16
+adding missing-17
+adding missing-18
+adding missing-19
+adding missing-20
+adding missing-21
+adding missing-22
+adding missing-23
+adding missing-24
+len(df.columns) 108
+numFeatures 107
+[INFO] columns: Index(['unixtime', 'modbus_function_code', 'modbus_transaction_id', 'service',
+       's_port', 'classification', 'orig-192.168.1.48', 'type-alert',
+       'type-log', 'i/f_name-0',
+       ...
+       'missing-15', 'missing-16', 'missing-17', 'missing-18', 'missing-19',
+       'missing-20', 'missing-21', 'missing-22', 'missing-23', 'missing-24'],
+      dtype='object', length=108)
+[INFO] processing batch 0-256000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.25
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 1500 samples, validate on 500 samples
+Epoch 1/1
+ - 8s - loss: 1.4373 - tp: 0.0000e+00 - fp: 2.0000 - tn: 767998.0000 - fn: 192000.0000 - accuracy: 0.8000 - precision: 0.0000e+00 - recall: 0.0000e+00 - auc: 0.9977 - val_loss: 1.2691 - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 256000.0000 - val_fn: 64000.0000 - val_accuracy: 0.8000 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-001-files-0-50-batch-0-256000
+[INFO] processing batch 256000-512000/500000
+[33m[LOSS] 1.269105224609375[0m
+[33m[INFO] epoch 2/10[0m
+[33m[INFO] loading file 1-50/1 on epoch 2/10[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (500000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[33mencode_text_dummy orig[0m
+[33mencode_text_dummy type[0m
+[33mencode_text_dummy i/f_name[0m
+[33mencode_text_dummy i/f_dir[0m
+[33mencode_text_dummy src[0m
+[33mencode_text_dummy dst[0m
+[33mencode_text_dummy proto[0m
+[33mencode_text_dummy appi_name[0m
+[33mencode_text_dummy proxy_src_ip[0m
+[33mencode_text_dummy modbus_function_description[0m
+[33mencode_text_dummy scada_tag[0m
+adding missing-0
+adding missing-1
+adding missing-2
+adding missing-3
+adding missing-4
+adding missing-5
+adding missing-6
+adding missing-7
+adding missing-8
+adding missing-9
+adding missing-10
+adding missing-11
+adding missing-12
+adding missing-13
+adding missing-14
+adding missing-15
+adding missing-16
+adding missing-17
+adding missing-18
+adding missing-19
+adding missing-20
+adding missing-21
+adding missing-22
+adding missing-23
+adding missing-24
+len(df.columns) 108
+numFeatures 107
+[INFO] columns: Index(['unixtime', 'modbus_function_code', 'modbus_transaction_id', 'service',
+       's_port', 'classification', 'orig-192.168.1.48', 'type-alert',
+       'type-log', 'i/f_name-0',
+       ...
+       'missing-15', 'missing-16', 'missing-17', 'missing-18', 'missing-19',
+       'missing-20', 'missing-21', 'missing-22', 'missing-23', 'missing-24'],
+      dtype='object', length=108)
+[INFO] processing batch 0-256000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.25
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 1500 samples, validate on 500 samples
+Epoch 1/1
+ - 7s - loss: 1.1323 - tp: 0.0000e+00 - fp: 2.0000 - tn: 767998.0000 - fn: 192000.0000 - accuracy: 0.8000 - precision: 0.0000e+00 - recall: 0.0000e+00 - auc: 1.0000 - val_loss: 1.0002 - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 256000.0000 - val_fn: 64000.0000 - val_accuracy: 0.8000 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-002-files-0-50-batch-0-256000
+[INFO] processing batch 256000-512000/500000
+[33m[LOSS] 1.0001846885681152[0m
+[33m[INFO] epoch 3/10[0m
+[33m[INFO] loading file 1-50/1 on epoch 3/10[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (500000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[33mencode_text_dummy orig[0m
+[33mencode_text_dummy type[0m
+[33mencode_text_dummy i/f_name[0m
+[33mencode_text_dummy i/f_dir[0m
+[33mencode_text_dummy src[0m
+[33mencode_text_dummy dst[0m
+[33mencode_text_dummy proto[0m
+[33mencode_text_dummy appi_name[0m
+[33mencode_text_dummy proxy_src_ip[0m
+[33mencode_text_dummy modbus_function_description[0m
+[33mencode_text_dummy scada_tag[0m
+adding missing-0
+adding missing-1
+adding missing-2
+adding missing-3
+adding missing-4
+adding missing-5
+adding missing-6
+adding missing-7
+adding missing-8
+adding missing-9
+adding missing-10
+adding missing-11
+adding missing-12
+adding missing-13
+adding missing-14
+adding missing-15
+adding missing-16
+adding missing-17
+adding missing-18
+adding missing-19
+adding missing-20
+adding missing-21
+adding missing-22
+adding missing-23
+adding missing-24
+len(df.columns) 108
+numFeatures 107
+[INFO] columns: Index(['unixtime', 'modbus_function_code', 'modbus_transaction_id', 'service',
+       's_port', 'classification', 'orig-192.168.1.48', 'type-alert',
+       'type-log', 'i/f_name-0',
+       ...
+       'missing-15', 'missing-16', 'missing-17', 'missing-18', 'missing-19',
+       'missing-20', 'missing-21', 'missing-22', 'missing-23', 'missing-24'],
+      dtype='object', length=108)
+[INFO] processing batch 0-256000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.25
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 1500 samples, validate on 500 samples
+Epoch 1/1
+ - 7s - loss: 0.8953 - tp: 0.0000e+00 - fp: 0.0000e+00 - tn: 768000.0000 - fn: 192000.0000 - accuracy: 0.8000 - precision: 0.0000e+00 - recall: 0.0000e+00 - auc: 1.0000 - val_loss: 0.7952 - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 256000.0000 - val_fn: 64000.0000 - val_accuracy: 0.8000 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-003-files-0-50-batch-0-256000
+[INFO] processing batch 256000-512000/500000
+[33m[LOSS] 0.7951680278778076[0m
+[CHECKING EARLY STOP]: currentLoss < min_delta ? => 0.7951680278778076  <  0.001
+[33m[INFO] epoch 4/10[0m
+[33m[INFO] loading file 1-50/1 on epoch 4/10[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (500000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[33mencode_text_dummy orig[0m
+[33mencode_text_dummy type[0m
+[33mencode_text_dummy i/f_name[0m
+[33mencode_text_dummy i/f_dir[0m
+[33mencode_text_dummy src[0m
+[33mencode_text_dummy dst[0m
+[33mencode_text_dummy proto[0m
+[33mencode_text_dummy appi_name[0m
+[33mencode_text_dummy proxy_src_ip[0m
+[33mencode_text_dummy modbus_function_description[0m
+[33mencode_text_dummy scada_tag[0m
+adding missing-0
+adding missing-1
+adding missing-2
+adding missing-3
+adding missing-4
+adding missing-5
+adding missing-6
+adding missing-7
+adding missing-8
+adding missing-9
+adding missing-10
+adding missing-11
+adding missing-12
+adding missing-13
+adding missing-14
+adding missing-15
+adding missing-16
+adding missing-17
+adding missing-18
+adding missing-19
+adding missing-20
+adding missing-21
+adding missing-22
+adding missing-23
+adding missing-24
+len(df.columns) 108
+numFeatures 107
+[INFO] columns: Index(['unixtime', 'modbus_function_code', 'modbus_transaction_id', 'service',
+       's_port', 'classification', 'orig-192.168.1.48', 'type-alert',
+       'type-log', 'i/f_name-0',
+       ...
+       'missing-15', 'missing-16', 'missing-17', 'missing-18', 'missing-19',
+       'missing-20', 'missing-21', 'missing-22', 'missing-23', 'missing-24'],
+      dtype='object', length=108)
+[INFO] processing batch 0-256000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.25
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 1500 samples, validate on 500 samples
+Epoch 1/1
+ - 7s - loss: 0.7165 - tp: 69120.0000 - fp: 0.0000e+00 - tn: 768000.0000 - fn: 122880.0000 - accuracy: 0.8720 - precision: 1.0000 - recall: 0.3600 - auc: 1.0000 - val_loss: 0.6417 - val_tp: 64000.0000 - val_fp: 0.0000e+00 - val_tn: 256000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-004-files-0-50-batch-0-256000
+[INFO] processing batch 256000-512000/500000
+[33m[LOSS] 0.6417355680465698[0m
+[CHECKING EARLY STOP]: currentLoss < min_delta ? => 0.6417355680465698  <  0.001
+[33m[INFO] epoch 5/10[0m
+[33m[INFO] loading file 1-50/1 on epoch 5/10[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (500000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[33mencode_text_dummy orig[0m
+[33mencode_text_dummy type[0m
+[33mencode_text_dummy i/f_name[0m
+[33mencode_text_dummy i/f_dir[0m
+[33mencode_text_dummy src[0m
+[33mencode_text_dummy dst[0m
+[33mencode_text_dummy proto[0m
+[33mencode_text_dummy appi_name[0m
+[33mencode_text_dummy proxy_src_ip[0m
+[33mencode_text_dummy modbus_function_description[0m
+[33mencode_text_dummy scada_tag[0m
+adding missing-0
+adding missing-1
+adding missing-2
+adding missing-3
+adding missing-4
+adding missing-5
+adding missing-6
+adding missing-7
+adding missing-8
+adding missing-9
+adding missing-10
+adding missing-11
+adding missing-12
+adding missing-13
+adding missing-14
+adding missing-15
+adding missing-16
+adding missing-17
+adding missing-18
+adding missing-19
+adding missing-20
+adding missing-21
+adding missing-22
+adding missing-23
+adding missing-24
+len(df.columns) 108
+numFeatures 107
+[INFO] columns: Index(['unixtime', 'modbus_function_code', 'modbus_transaction_id', 'service',
+       's_port', 'classification', 'orig-192.168.1.48', 'type-alert',
+       'type-log', 'i/f_name-0',
+       ...
+       'missing-15', 'missing-16', 'missing-17', 'missing-18', 'missing-19',
+       'missing-20', 'missing-21', 'missing-22', 'missing-23', 'missing-24'],
+      dtype='object', length=108)
+[INFO] processing batch 0-256000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.25
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 1500 samples, validate on 500 samples
+Epoch 1/1
+ - 7s - loss: 0.5831 - tp: 192000.0000 - fp: 0.0000e+00 - tn: 768000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.5272 - val_tp: 64000.0000 - val_fp: 0.0000e+00 - val_tn: 256000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-005-files-0-50-batch-0-256000
+[INFO] processing batch 256000-512000/500000
+[33m[LOSS] 0.5272254014015197[0m
+[CHECKING EARLY STOP]: currentLoss < min_delta ? => 0.5272254014015197  <  0.001
+[33m[INFO] epoch 6/10[0m
+[33m[INFO] loading file 1-50/1 on epoch 6/10[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (500000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[33mencode_text_dummy orig[0m
+[33mencode_text_dummy type[0m
+[33mencode_text_dummy i/f_name[0m
+[33mencode_text_dummy i/f_dir[0m
+[33mencode_text_dummy src[0m
+[33mencode_text_dummy dst[0m
+[33mencode_text_dummy proto[0m
+[33mencode_text_dummy appi_name[0m
+[33mencode_text_dummy proxy_src_ip[0m
+[33mencode_text_dummy modbus_function_description[0m
+[33mencode_text_dummy scada_tag[0m
+adding missing-0
+adding missing-1
+adding missing-2
+adding missing-3
+adding missing-4
+adding missing-5
+adding missing-6
+adding missing-7
+adding missing-8
+adding missing-9
+adding missing-10
+adding missing-11
+adding missing-12
+adding missing-13
+adding missing-14
+adding missing-15
+adding missing-16
+adding missing-17
+adding missing-18
+adding missing-19
+adding missing-20
+adding missing-21
+adding missing-22
+adding missing-23
+adding missing-24
+len(df.columns) 108
+numFeatures 107
+[INFO] columns: Index(['unixtime', 'modbus_function_code', 'modbus_transaction_id', 'service',
+       's_port', 'classification', 'orig-192.168.1.48', 'type-alert',
+       'type-log', 'i/f_name-0',
+       ...
+       'missing-15', 'missing-16', 'missing-17', 'missing-18', 'missing-19',
+       'missing-20', 'missing-21', 'missing-22', 'missing-23', 'missing-24'],
+      dtype='object', length=108)
+[INFO] processing batch 0-256000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.25
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 1500 samples, validate on 500 samples
+Epoch 1/1
+ - 7s - loss: 0.4833 - tp: 191998.0000 - fp: 1.0000 - tn: 767999.0000 - fn: 2.0000 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.4411 - val_tp: 64000.0000 - val_fp: 0.0000e+00 - val_tn: 256000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-006-files-0-50-batch-0-256000
+[INFO] processing batch 256000-512000/500000
+[33m[LOSS] 0.44107061743736264[0m
+[CHECKING EARLY STOP]: currentLoss < min_delta ? => 0.44107061743736264  <  0.001
+[33m[INFO] epoch 7/10[0m
+[33m[INFO] loading file 1-50/1 on epoch 7/10[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (500000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[33mencode_text_dummy orig[0m
+[33mencode_text_dummy type[0m
+[33mencode_text_dummy i/f_name[0m
+[33mencode_text_dummy i/f_dir[0m
+[33mencode_text_dummy src[0m
+[33mencode_text_dummy dst[0m
+[33mencode_text_dummy proto[0m
+[33mencode_text_dummy appi_name[0m
+[33mencode_text_dummy proxy_src_ip[0m
+[33mencode_text_dummy modbus_function_description[0m
+[33mencode_text_dummy scada_tag[0m
+adding missing-0
+adding missing-1
+adding missing-2
+adding missing-3
+adding missing-4
+adding missing-5
+adding missing-6
+adding missing-7
+adding missing-8
+adding missing-9
+adding missing-10
+adding missing-11
+adding missing-12
+adding missing-13
+adding missing-14
+adding missing-15
+adding missing-16
+adding missing-17
+adding missing-18
+adding missing-19
+adding missing-20
+adding missing-21
+adding missing-22
+adding missing-23
+adding missing-24
+len(df.columns) 108
+numFeatures 107
+[INFO] columns: Index(['unixtime', 'modbus_function_code', 'modbus_transaction_id', 'service',
+       's_port', 'classification', 'orig-192.168.1.48', 'type-alert',
+       'type-log', 'i/f_name-0',
+       ...
+       'missing-15', 'missing-16', 'missing-17', 'missing-18', 'missing-19',
+       'missing-20', 'missing-21', 'missing-22', 'missing-23', 'missing-24'],
+      dtype='object', length=108)
+[INFO] processing batch 0-256000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.25
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 1500 samples, validate on 500 samples
+Epoch 1/1
+ - 7s - loss: 0.4075 - tp: 192000.0000 - fp: 0.0000e+00 - tn: 768000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.3753 - val_tp: 64000.0000 - val_fp: 0.0000e+00 - val_tn: 256000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-007-files-0-50-batch-0-256000
+[INFO] processing batch 256000-512000/500000
+[33m[LOSS] 0.37531654834747313[0m
+[CHECKING EARLY STOP]: currentLoss < min_delta ? => 0.37531654834747313  <  0.001
+[33m[INFO] epoch 8/10[0m
+[33m[INFO] loading file 1-50/1 on epoch 8/10[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (500000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[33mencode_text_dummy orig[0m
+[33mencode_text_dummy type[0m
+[33mencode_text_dummy i/f_name[0m
+[33mencode_text_dummy i/f_dir[0m
+[33mencode_text_dummy src[0m
+[33mencode_text_dummy dst[0m
+[33mencode_text_dummy proto[0m
+[33mencode_text_dummy appi_name[0m
+[33mencode_text_dummy proxy_src_ip[0m
+[33mencode_text_dummy modbus_function_description[0m
+[33mencode_text_dummy scada_tag[0m
+adding missing-0
+adding missing-1
+adding missing-2
+adding missing-3
+adding missing-4
+adding missing-5
+adding missing-6
+adding missing-7
+adding missing-8
+adding missing-9
+adding missing-10
+adding missing-11
+adding missing-12
+adding missing-13
+adding missing-14
+adding missing-15
+adding missing-16
+adding missing-17
+adding missing-18
+adding missing-19
+adding missing-20
+adding missing-21
+adding missing-22
+adding missing-23
+adding missing-24
+len(df.columns) 108
+numFeatures 107
+[INFO] columns: Index(['unixtime', 'modbus_function_code', 'modbus_transaction_id', 'service',
+       's_port', 'classification', 'orig-192.168.1.48', 'type-alert',
+       'type-log', 'i/f_name-0',
+       ...
+       'missing-15', 'missing-16', 'missing-17', 'missing-18', 'missing-19',
+       'missing-20', 'missing-21', 'missing-22', 'missing-23', 'missing-24'],
+      dtype='object', length=108)
+[INFO] processing batch 0-256000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.25
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 1500 samples, validate on 500 samples
+Epoch 1/1
+ - 7s - loss: 0.3496 - tp: 191995.0000 - fp: 3.0000 - tn: 767997.0000 - fn: 5.0000 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.3243 - val_tp: 64000.0000 - val_fp: 0.0000e+00 - val_tn: 256000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-008-files-0-50-batch-0-256000
+[INFO] processing batch 256000-512000/500000
+[33m[LOSS] 0.3242798149585724[0m
+[CHECKING EARLY STOP]: currentLoss < min_delta ? => 0.3242798149585724  <  0.001
+[33m[INFO] epoch 9/10[0m
+[33m[INFO] loading file 1-50/1 on epoch 9/10[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (500000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[33mencode_text_dummy orig[0m
+[33mencode_text_dummy type[0m
+[33mencode_text_dummy i/f_name[0m
+[33mencode_text_dummy i/f_dir[0m
+[33mencode_text_dummy src[0m
+[33mencode_text_dummy dst[0m
+[33mencode_text_dummy proto[0m
+[33mencode_text_dummy appi_name[0m
+[33mencode_text_dummy proxy_src_ip[0m
+[33mencode_text_dummy modbus_function_description[0m
+[33mencode_text_dummy scada_tag[0m
+adding missing-0
+adding missing-1
+adding missing-2
+adding missing-3
+adding missing-4
+adding missing-5
+adding missing-6
+adding missing-7
+adding missing-8
+adding missing-9
+adding missing-10
+adding missing-11
+adding missing-12
+adding missing-13
+adding missing-14
+adding missing-15
+adding missing-16
+adding missing-17
+adding missing-18
+adding missing-19
+adding missing-20
+adding missing-21
+adding missing-22
+adding missing-23
+adding missing-24
+len(df.columns) 108
+numFeatures 107
+[INFO] columns: Index(['unixtime', 'modbus_function_code', 'modbus_transaction_id', 'service',
+       's_port', 'classification', 'orig-192.168.1.48', 'type-alert',
+       'type-log', 'i/f_name-0',
+       ...
+       'missing-15', 'missing-16', 'missing-17', 'missing-18', 'missing-19',
+       'missing-20', 'missing-21', 'missing-22', 'missing-23', 'missing-24'],
+      dtype='object', length=108)
+[INFO] processing batch 0-256000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.25
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 1500 samples, validate on 500 samples
+Epoch 1/1
+ - 7s - loss: 0.3038 - tp: 192000.0000 - fp: 0.0000e+00 - tn: 768000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.2840 - val_tp: 64000.0000 - val_fp: 0.0000e+00 - val_tn: 256000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-009-files-0-50-batch-0-256000
+[INFO] processing batch 256000-512000/500000
+[33m[LOSS] 0.2839761984348297[0m
+[CHECKING EARLY STOP]: currentLoss < min_delta ? => 0.2839761984348297  <  0.001
+[33m[INFO] epoch 10/10[0m
+[33m[INFO] loading file 1-50/1 on epoch 10/10[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (500000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[33mencode_text_dummy orig[0m
+[33mencode_text_dummy type[0m
+[33mencode_text_dummy i/f_name[0m
+[33mencode_text_dummy i/f_dir[0m
+[33mencode_text_dummy src[0m
+[33mencode_text_dummy dst[0m
+[33mencode_text_dummy proto[0m
+[33mencode_text_dummy appi_name[0m
+[33mencode_text_dummy proxy_src_ip[0m
+[33mencode_text_dummy modbus_function_description[0m
+[33mencode_text_dummy scada_tag[0m
+adding missing-0
+adding missing-1
+adding missing-2
+adding missing-3
+adding missing-4
+adding missing-5
+adding missing-6
+adding missing-7
+adding missing-8
+adding missing-9
+adding missing-10
+adding missing-11
+adding missing-12
+adding missing-13
+adding missing-14
+adding missing-15
+adding missing-16
+adding missing-17
+adding missing-18
+adding missing-19
+adding missing-20
+adding missing-21
+adding missing-22
+adding missing-23
+adding missing-24
+len(df.columns) 108
+numFeatures 107
+[INFO] columns: Index(['unixtime', 'modbus_function_code', 'modbus_transaction_id', 'service',
+       's_port', 'classification', 'orig-192.168.1.48', 'type-alert',
+       'type-log', 'i/f_name-0',
+       ...
+       'missing-15', 'missing-16', 'missing-17', 'missing-18', 'missing-19',
+       'missing-20', 'missing-21', 'missing-22', 'missing-23', 'missing-24'],
+      dtype='object', length=108)
+[INFO] processing batch 0-256000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.25
+[INFO] using LSTM layers
+[INFO] fitting model
+Train on 1500 samples, validate on 500 samples
+Epoch 1/1
+ - 7s - loss: 0.2676 - tp: 192000.0000 - fp: 0.0000e+00 - tn: 768000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.2516 - val_tp: 64000.0000 - val_fp: 0.0000e+00 - val_tn: 256000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/lstm-epoch-010-files-0-50-batch-0-256000
+[INFO] processing batch 256000-512000/500000
+[33m[LOSS] 0.25161141633987427[0m
+[CHECKING EARLY STOP]: currentLoss < min_delta ? => 0.25161141633987427  <  0.001
+--- 91.32791304588318 seconds ---
+2020-02-09 10:15:41.755800: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer.so.6'; dlerror: libnvinfer.so.6: cannot open shared object file: No such file or directory
+2020-02-09 10:15:41.755843: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer_plugin.so.6'; dlerror: libnvinfer_plugin.so.6: cannot open shared object file: No such file or directory
+2020-02-09 10:15:41.755849: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:30] Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+2020-02-09 10:15:42.246572: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
+2020-02-09 10:15:42.246592: E tensorflow/stream_executor/cuda/cuda_driver.cc:351] failed call to cuInit: UNKNOWN ERROR (303)
+2020-02-09 10:15:42.246606: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (brussels): /proc/driver/nvidia/version does not exist
+2020-02-09 10:15:42.246709: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2020-02-09 10:15:42.269793: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 3312000000 Hz
+2020-02-09 10:15:42.269986: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x5f20b90 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-02-09 10:15:42.269998: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+Using TensorFlow backend.
+WARNING:tensorflow:Large dropout rate: 0.8 (>0.5). In TensorFlow 2.x, dropout() uses dropout rate instead of keep_prob. Please ensure that this is intended.
+2020-02-09 10:15:47.247756: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] remapper failed: Invalid argument: MutableGraphView::MutableGraphView error: node 'loss/dense_2_loss/categorical_crossentropy/weighted_loss/concat' has self cycle fanin 'loss/dense_2_loss/categorical_crossentropy/weighted_loss/concat'.
+2020-02-09 10:15:47.252251: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 0, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-09 10:15:47.254314: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 1, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-09 10:15:47.269369: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] arithmetic_optimizer failed: Invalid argument: The graph couldn't be sorted in topological order.
+2020-02-09 10:15:47.270349: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] remapper failed: Invalid argument: MutableGraphView::MutableGraphView error: node 'loss/dense_2_loss/categorical_crossentropy/weighted_loss/concat' has self cycle fanin 'loss/dense_2_loss/categorical_crossentropy/weighted_loss/concat'.
+2020-02-09 10:15:47.271768: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 0, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-09 10:15:47.273185: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 1, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-09 10:15:47.276973: W tensorflow/core/common_runtime/process_function_library_runtime.cc:697] Ignoring multi-device function optimization failure: Invalid argument: The graph couldn't be sorted in topological order.
+=================================================
+        SCORING v0.4.4 (multi-class)
+=================================================
+Date: 2020-02-09 10:15:42.243308
+MULTI-CLASS num classes: 5
+------------DNN info-------------
+wrapLayerSize 8
+coreLayerSize 32
+numCoreLayers 3
+outputLayerActivation softmax
+output_dim 5
+loss categorical_crossentropy
+optimizer sgd
+------------DNN info-------------
+[INFO] input_shape (128, 107)
+[INFO] LSTM first and last layer neurons: 8
+[INFO] adding core layer 0
+[INFO] adding core layer 1
+[INFO] adding core layer 2
+[INFO] created DNN
+loading weights: checkpoints/*
+loading file checkpoints/lstm-epoch-010-files-0-50-batch-0-256000
+[33m[INFO] model summary:[0m
+Model: "sequential_1"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+lstm_1 (LSTM)                (None, 128, 8)            3712      
+_________________________________________________________________
+dropout_1 (Dropout)          (None, 128, 8)            0         
+_________________________________________________________________
+lstm_2 (LSTM)                (None, 128, 32)           5248      
+_________________________________________________________________
+dropout_2 (Dropout)          (None, 128, 32)           0         
+_________________________________________________________________
+lstm_3 (LSTM)                (None, 128, 32)           8320      
+_________________________________________________________________
+dropout_3 (Dropout)          (None, 128, 32)           0         
+_________________________________________________________________
+lstm_4 (LSTM)                (None, 128, 32)           8320      
+_________________________________________________________________
+dropout_4 (Dropout)          (None, 128, 32)           0         
+_________________________________________________________________
+lstm_5 (LSTM)                (None, 128, 8)            1312      
+_________________________________________________________________
+dropout_5 (Dropout)          (None, 128, 8)            0         
+_________________________________________________________________
+dense_1 (Dense)              (None, 128, 1)            9         
+_________________________________________________________________
+dropout_6 (Dropout)          (None, 128, 1)            0         
+_________________________________________________________________
+dense_2 (Dense)              (None, 128, 5)            10        
+=================================================================
+Total params: 26,931
+Trainable params: 26,931
+Non-trainable params: 0
+_________________________________________________________________
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-28_113021_98.log.part13_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (500000, 18)
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['unixtime', 'orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst',
+       'proto', 'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] analyze dataset: (500000, 17)
+
+[INFO] analyzing data
+[INFO] 500000 rows
+[INFO] ** unixtime:1359 (0.2718%)
+[INFO] ** orig:[192.168.1.48:100.0%]
+[INFO] ** type:[log:100.0%]
+[INFO] ** i/f_name:[eth1:99.9996%,0:0.0004%]
+[INFO] ** i/f_dir:[outbound:99.9996%,inbound:0.0004%]
+[INFO] ** src:[192.168.1.60:38.3832%,192.168.1.10:25.9606%,192.168.1.30:18.1352%,192.168.1.20:17.52%,192.168.1.201:0.0004%,0:0.0004%,192.168.1.40:0.0002%]
+[INFO] ** dst:[192.168.1.20:43.3108%,192.168.1.10:21.0326%,192.168.1.40:18.135%,192.168.1.30:17.5198%,192.168.1.50:0.0008%,192.168.1.88:0.0004%,0:0.0004%,192.168.1.60:0.0002%]
+[INFO] ** proto:[tcp:99.9996%,0:0.0004%]
+[INFO] ** appi_name:[CIP_read_tag_service:99.9992%,0:0.0004%,DCE-RPC Protocol:0.0002%,Web Browsing:0.0002%]
+[INFO] ** proxy_src_ip:[192.168.1.60:38.3832%,192.168.1.10:25.9606%,192.168.1.30:18.1352%,192.168.1.20:17.52%,192.168.1.201:0.0004%,0:0.0004%,192.168.1.40:0.0002%]
+[INFO] ** modbus_function_code:[0.9743589744:99.9992%,0.0:0.0008%]
+[INFO] ** modbus_function_description:[Read Tag Service - Response:50.0%,Read Tag Service:49.9992%,0:0.0008%]
+[INFO] ** modbus_transaction_id:65536 (13.1072%)
+[INFO] ** scada_tag:[HMI_FIT201:25.9596%,HMI_LIT101:21.0326%,HMI_LIT401:18.1348%,HMI_LIT301:17.5194%,HMI_AIT202:17.3504%,0:0.0032%]
+[INFO] ** service:[0.7025755984000001:99.9992%,0.0:0.0004%,0.0012540954:0.0002%,0.002116286:0.0002%]
+[INFO] ** s_port:[0.834280824:25.96%,0.8139250565:21.0326%,0.8029830673999999:18.1348%,0.8149336757:17.5196%,0.8137722355:17.3506%,0.8343113882:0.0004%,0.0:0.0004%,0.8059172320999999:0.0002%,0.8030136315999999:0.0002%,0.8147502904:0.0002%,0.8030441959000001:0.0002%,0.814841983:0.0002%,0.9621003729000001:0.0002%,0.8345253376999999:0.0002%,0.7788831836:0.0002%]
+[INFO] ** classification:[normal:72.7902%,Single Stage Single Point:27.2098%]
+[INFO] columns with count within 2-10 {'i/f_name': 2, 'i/f_dir': 2, 'src': 7, 'dst': 8, 'proto': 2, 'appi_name': 4, 'proxy_src_ip': 7, 'modbus_function_code': 2, 'modbus_function_description': 3, 'scada_tag': 6, 'service': 4, 'classification': 2}
+[33mencode_text_dummy orig[0m
+[33mencode_text_dummy type[0m
+[33mencode_text_dummy i/f_name[0m
+[33mencode_text_dummy i/f_dir[0m
+[33mencode_text_dummy src[0m
+[33mencode_text_dummy dst[0m
+[33mencode_text_dummy proto[0m
+[33mencode_text_dummy appi_name[0m
+[33mencode_text_dummy proxy_src_ip[0m
+[33mencode_text_dummy modbus_function_description[0m
+[33mencode_text_dummy scada_tag[0m
+adding missing-0
+adding missing-1
+adding missing-2
+adding missing-3
+adding missing-4
+adding missing-5
+adding missing-6
+adding missing-7
+adding missing-8
+adding missing-9
+adding missing-10
+adding missing-11
+adding missing-12
+adding missing-13
+adding missing-14
+adding missing-15
+adding missing-16
+adding missing-17
+adding missing-18
+adding missing-19
+adding missing-20
+adding missing-21
+adding missing-22
+adding missing-23
+adding missing-24
+adding missing-25
+adding missing-26
+adding missing-27
+adding missing-28
+adding missing-29
+adding missing-30
+adding missing-31
+adding missing-32
+adding missing-33
+adding missing-34
+adding missing-35
+adding missing-36
+adding missing-37
+adding missing-38
+adding missing-39
+adding missing-40
+adding missing-41
+adding missing-42
+adding missing-43
+adding missing-44
+adding missing-45
+adding missing-46
+adding missing-47
+adding missing-48
+adding missing-49
+adding missing-50
+adding missing-51
+adding missing-52
+adding missing-53
+adding missing-54
+adding missing-55
+adding missing-56
+adding missing-57
+adding missing-58
+len(df.columns) 108
+numFeatures 107
+[INFO] processing batch 0-256000/500000
+[33m[INFO] measuring accuracy...[0m
+x_test.shape: (256000, 107)
+y_eval [1 0 1 ... 0 0 0] (256000,)
+[INFO] reshape for using LSTM layers
+[33m[INFO] metrics:[0m
+loss :  0.8631987602710723
+tp :  196643.0
+fp :  59357.0
+tn :  964643.0
+fn :  59357.0
+accuracy :  0.9072555899620056
+precision :  0.768136739730835
+recall :  0.768136739730835
+auc :  0.8550854325294495
+
+y_eval {0: 196643, 1: 59357}
+pred {0: 256000}
+[INFO] confusion matrix for file 
+[[196643      0      0      0      0]
+ [ 59357      0      0      0      0]
+ [     0      0      0      0      0]
+ [     0      0      0      0      0]
+ [     0      0      0      0      0]]
+[INFO] confusion matrix after adding it to total:
+[[196643      0      0      0      0]
+ [ 59357      0      0      0      0]
+ [     0      0      0      0      0]
+ [     0      0      0      0      0]
+ [     0      0      0      0      0]]
+[INFO] processing batch 256000-512000/500000
+--- 8.168360233306885 seconds ---

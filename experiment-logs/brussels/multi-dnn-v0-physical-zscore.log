@@ -1,0 +1,24 @@
+Traceback (most recent call last):
+  File "train.py", line 11, in <module>
+    import pandas as pd
+  File "/usr/local/lib/python3.7/site-packages/pandas/__init__.py", line 42, in <module>
+    from pandas.core.api import *
+  File "/usr/local/lib/python3.7/site-packages/pandas/core/api.py", line 10, in <module>
+    from pandas.core.groupby.groupby import Grouper
+  File "/usr/local/lib/python3.7/site-packages/pandas/core/groupby/__init__.py", line 2, in <module>
+    from pandas.core.groupby.groupby import (
+  File "/usr/local/lib/python3.7/site-packages/pandas/core/groupby/groupby.py", line 49, in <module>
+    from pandas.core.frame import DataFrame
+  File "/usr/local/lib/python3.7/site-packages/pandas/core/frame.py", line 74, in <module>
+    from pandas.core.series import Series
+  File "/usr/local/lib/python3.7/site-packages/pandas/core/series.py", line 81, in <module>
+    import pandas.plotting._core as gfx
+  File "/usr/local/lib/python3.7/site-packages/pandas/plotting/__init__.py", line 11, in <module>
+    from pandas.plotting._core import boxplot
+  File "/usr/local/lib/python3.7/site-packages/pandas/plotting/_core.py", line 45, in <module>
+    from pandas.plotting import _converter
+  File "/usr/local/lib/python3.7/site-packages/pandas/plotting/_converter.py", line 8, in <module>
+    import matplotlib.units as units
+  File "/usr/local/lib/python3.7/site-packages/matplotlib/units.py", line 133, in <module>
+    class Registry(dict):
+KeyboardInterrupt

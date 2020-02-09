@@ -1,0 +1,136 @@
+2020-02-09 10:05:43.954584: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer.so.6'; dlerror: libnvinfer.so.6: cannot open shared object file: No such file or directory
+2020-02-09 10:05:43.954638: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer_plugin.so.6'; dlerror: libnvinfer_plugin.so.6: cannot open shared object file: No such file or directory
+2020-02-09 10:05:43.954644: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:30] Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+2020-02-09 10:05:44.442492: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
+2020-02-09 10:05:44.442510: E tensorflow/stream_executor/cuda/cuda_driver.cc:351] failed call to cuInit: UNKNOWN ERROR (303)
+2020-02-09 10:05:44.442524: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (brussels): /proc/driver/nvidia/version does not exist
+2020-02-09 10:05:44.442630: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2020-02-09 10:05:44.465829: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 3312000000 Hz
+2020-02-09 10:05:44.466015: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x43f7e60 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-02-09 10:05:44.466028: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+Using TensorFlow backend.
+WARNING:tensorflow:Large dropout rate: 0.8 (>0.5). In TensorFlow 2.x, dropout() uses dropout rate instead of keep_prob. Please ensure that this is intended.
+  File "train.py", line 375, in <module>
+    run()
+  File "train.py", line 276, in run
+    history = train_dnn(dfCopy, i, epoch+1, batch=batch_size)
+  File "train.py", line 125, in train_dnn
+    epochs=1,
+  File "/usr/local/lib/python3.6/dist-packages/keras/engine/training.py", line 1154, in fit
+    batch_size=batch_size)
+  File "/usr/local/lib/python3.6/dist-packages/keras/engine/training.py", line 579, in _standardize_user_data
+    exception_prefix='input')
+  File "/usr/local/lib/python3.6/dist-packages/keras/engine/training_utils.py", line 145, in standardize_input_data
+    str(data_shape))
+=================================================
+        TRAINING v0.4.4 (multi-class)
+=================================================
+Date: 2020-02-09 10:05:44.439326
+MULTI-CLASS num classes: 5
+------------DNN info-------------
+wrapLayerSize 2
+coreLayerSize 4
+numCoreLayers 1
+outputLayerActivation softmax
+output_dim 5
+loss categorical_crossentropy
+optimizer adam
+------------DNN info-------------
+[33m[INFO] using Sequential Dense layers[0m
+[INFO] adding core layer 0
+[INFO] created DNN
+[33m[INFO] epoch 1/3[0m
+[33m[INFO] loading file 1-50/1 on epoch 1/3[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (500000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[33mencode_text_dummy orig[0m
+[33mencode_text_dummy type[0m
+[33mencode_text_dummy i/f_name[0m
+[33mencode_text_dummy i/f_dir[0m
+[33mencode_text_dummy src[0m
+[33mencode_text_dummy dst[0m
+[33mencode_text_dummy proto[0m
+[33mencode_text_dummy appi_name[0m
+[33mencode_text_dummy proxy_src_ip[0m
+[33mencode_text_dummy modbus_function_description[0m
+[33mencode_text_dummy scada_tag[0m
+adding missing-0
+adding missing-1
+adding missing-2
+adding missing-3
+adding missing-4
+adding missing-5
+adding missing-6
+adding missing-7
+adding missing-8
+adding missing-9
+adding missing-10
+adding missing-11
+adding missing-12
+adding missing-13
+adding missing-14
+adding missing-15
+adding missing-16
+adding missing-17
+adding missing-18
+adding missing-19
+adding missing-20
+adding missing-21
+adding missing-22
+adding missing-23
+len(df.columns) 107
+numFeatures 106
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['modbus_function_code', 'modbus_transaction_id', 'service', 's_port',
+       'classification', 'orig-192.168.1.48', 'type-alert', 'type-log',
+       'i/f_name-0', 'i/f_name-eth1',
+       ...
+       'missing-14', 'missing-15', 'missing-16', 'missing-17', 'missing-18',
+       'missing-19', 'missing-20', 'missing-21', 'missing-22', 'missing-23'],
+      dtype='object', length=106)
+[INFO] processing batch 0-256000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.25
+[INFO] fitting model
+[EXCEPTION] (<class 'ValueError'>, ValueError('Error when checking input: expected dense_1_input to have shape (106,) but got array with shape (105,)',), <traceback object at 0x7fc2b41b3f08>)
+--- 2.368326425552368 seconds ---
+2020-02-09 10:05:47.663235: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer.so.6'; dlerror: libnvinfer.so.6: cannot open shared object file: No such file or directory
+2020-02-09 10:05:47.663297: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer_plugin.so.6'; dlerror: libnvinfer_plugin.so.6: cannot open shared object file: No such file or directory
+2020-02-09 10:05:47.665141: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:30] Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+2020-02-09 10:05:48.151547: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
+2020-02-09 10:05:48.151567: E tensorflow/stream_executor/cuda/cuda_driver.cc:351] failed call to cuInit: UNKNOWN ERROR (303)
+2020-02-09 10:05:48.151581: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (brussels): /proc/driver/nvidia/version does not exist
+2020-02-09 10:05:48.151685: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2020-02-09 10:05:48.173803: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 3312000000 Hz
+2020-02-09 10:05:48.173984: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x4d28f00 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-02-09 10:05:48.173995: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+Using TensorFlow backend.
+WARNING:tensorflow:Large dropout rate: 0.8 (>0.5). In TensorFlow 2.x, dropout() uses dropout rate instead of keep_prob. Please ensure that this is intended.
+  File "score.py", line 293, in <module>
+    run()
+  File "score.py", line 70, in run
+    print("loading file", weight_files[-1])
+=================================================
+        SCORING v0.4.4 (multi-class)
+=================================================
+Date: 2020-02-09 10:05:48.148485
+MULTI-CLASS num classes: 5
+------------DNN info-------------
+wrapLayerSize 2
+coreLayerSize 4
+numCoreLayers 1
+outputLayerActivation softmax
+output_dim 5
+loss categorical_crossentropy
+optimizer adam
+------------DNN info-------------
+[33m[INFO] using Sequential Dense layers[0m
+[INFO] adding core layer 0
+[INFO] created DNN
+loading weights: checkpoints/*
+[EXCEPTION] (<class 'IndexError'>, IndexError('list index out of range',), <traceback object at 0x7f52dc28bec8>)
+--- 0.1833479404449463 seconds ---

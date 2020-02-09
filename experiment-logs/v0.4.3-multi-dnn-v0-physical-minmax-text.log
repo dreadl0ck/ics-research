@@ -1,0 +1,84 @@
+Using TensorFlow backend.
+set classes to: ['Normal', 'Attack']
+=================================================
+        TRAINING v0.4.4 (multi-class)
+=================================================
+Date: 2020-02-09 00:40:55.410407
+MULTI-CLASS num classes: 2
+------------DNN info-------------
+wrapLayerSize 10
+coreLayerSize 50
+numCoreLayers 1
+outputLayerActivation softmax
+output_dim 2
+loss categorical_crossentropy
+optimizer adam
+------------DNN info-------------
+[33m[INFO] using Sequential Dense layers[0m
+2020-02-09 00:40:55.420873: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2020-02-09 00:40:55.451901: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7f901bab6a10 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-02-09 00:40:55.451983: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+WARNING:tensorflow:Large dropout rate: 0.8 (>0.5). In TensorFlow 2.x, dropout() uses dropout rate instead of keep_prob. Please ensure that this is intended.
+[INFO] adding core layer 0
+[INFO] created DNN
+[33m[INFO] epoch 1/3[0m
+[33m[INFO] loading file 1-1/1 on epoch 1/3[0m
+[INFO] reading file data/SWaT_Dataset_Attack_v0-fixed-zscore-train-test.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (337500, 46)
+[INFO] sampling 1.0
+[33mencode_text_dummy orig[0m
+[EXCEPTION] (<class 'KeyError'>, KeyError('orig'), <traceback object at 0x146ba7960>)
+  File "train.py", line 375, in <module>
+    run()
+  File "train.py", line 227, in run
+    encode_categorical_columns(df, arguments.features)
+  File "/Users/alien/go/src/github.com/dreadl0ck/ics-research/tfUtils.py", line 67, in encode_categorical_columns
+    encode_text_dummy(df, c)
+  File "/Users/alien/go/src/github.com/dreadl0ck/ics-research/tfUtils.py", line 83, in encode_text_dummy
+    dummies = pd.get_dummies(df[name])
+  File "/usr/local/lib/python3.7/site-packages/pandas/core/frame.py", line 2688, in __getitem__
+    return self._getitem_column(key)
+  File "/usr/local/lib/python3.7/site-packages/pandas/core/frame.py", line 2695, in _getitem_column
+    return self._get_item_cache(key)
+  File "/usr/local/lib/python3.7/site-packages/pandas/core/generic.py", line 2489, in _get_item_cache
+    values = self._data.get(item)
+  File "/usr/local/lib/python3.7/site-packages/pandas/core/internals.py", line 4115, in get
+    loc = self.items.get_loc(item)
+  File "/usr/local/lib/python3.7/site-packages/pandas/core/indexes/base.py", line 3080, in get_loc
+    return self._engine.get_loc(self._maybe_cast_indexer(key))
+  File "pandas/_libs/index.pyx", line 140, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 162, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 1492, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 1500, in pandas._libs.hashtable.PyObjectHashTable.get_item
+--- 9.804490089416504 seconds ---
+Using TensorFlow backend.
+set classes to: ['Normal', 'Attack']
+=================================================
+        SCORING v0.4.4 (multi-class)
+=================================================
+Date: 2020-02-09 00:41:11.360456
+MULTI-CLASS num classes: 2
+------------DNN info-------------
+wrapLayerSize 10
+coreLayerSize 50
+numCoreLayers 1
+outputLayerActivation softmax
+output_dim 2
+loss categorical_crossentropy
+optimizer adam
+------------DNN info-------------
+[33m[INFO] using Sequential Dense layers[0m
+2020-02-09 00:41:11.367405: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2020-02-09 00:41:11.390775: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7fbbfc7838c0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-02-09 00:41:11.390847: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+WARNING:tensorflow:Large dropout rate: 0.8 (>0.5). In TensorFlow 2.x, dropout() uses dropout rate instead of keep_prob. Please ensure that this is intended.
+[INFO] adding core layer 0
+[INFO] created DNN
+loading weights: checkpoints/*
+[EXCEPTION] (<class 'IndexError'>, IndexError('list index out of range'), <traceback object at 0x14018a960>)
+  File "score.py", line 293, in <module>
+    run()
+  File "score.py", line 70, in run
+    print("loading file", weight_files[-1])
+--- 0.5390210151672363 seconds ---

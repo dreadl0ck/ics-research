@@ -1,0 +1,76 @@
+2020-02-08 12:48:04.122929: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2020-02-08 12:48:04.133509: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7f992e152da0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-02-08 12:48:04.133539: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+Using TensorFlow backend.
+WARNING:tensorflow:Large dropout rate: 0.8 (>0.5). In TensorFlow 2.x, dropout() uses dropout rate instead of keep_prob. Please ensure that this is intended.
+  File "train.py", line 360, in <module>
+    run()
+  File "train.py", line 265, in run
+    history = train_dnn(dfCopy, i, epoch+1, batch=batch_size)
+  File "train.py", line 82, in train_dnn
+    x_train = x_train.reshape(2500, 32, x.shape[1])
+=================================================
+        TRAINING v0.4.2 (binaryClasses)
+=================================================
+Date: 2020-02-08 12:48:04.119349
+wrapLayerSize 8
+coreLayerSize 32
+numCoreLayers 3
+outputLayerActivation sigmoid
+output_dim 2
+loss binary_crossentropy
+optimizer sgd
+[INFO] input_shape (32, 16)
+[INFO] LSTM first and last layer neurons: 8
+[INFO] adding core layer 0
+[INFO] adding core layer 1
+[INFO] adding core layer 2
+[INFO] created DNN
+[33m[INFO] epoch 1/10[0m
+[33m[INFO] loading file 1-2/50 on epoch 1/10[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-zscore/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4-zscore/train/2015-12-28_113021_98.log.part13_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (1000000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+[INFO] columns: Index(['unixtime', 'orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst',
+       'proto', 'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] processing batch 0-100000/1000000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.5
+[INFO] using LSTM layers
+[EXCEPTION] (<class 'ValueError'>, ValueError('cannot reshape array of size 800000 into shape (2500,32,16)'), <traceback object at 0x14caa91e0>)
+--- 3.826539993286133 seconds ---
+2020-02-08 12:48:10.580956: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2020-02-08 12:48:10.592389: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7f9c66058ad0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-02-08 12:48:10.592421: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+Using TensorFlow backend.
+WARNING:tensorflow:Large dropout rate: 0.8 (>0.5). In TensorFlow 2.x, dropout() uses dropout rate instead of keep_prob. Please ensure that this is intended.
+  File "score.py", line 276, in <module>
+    run()
+  File "score.py", line 70, in run
+    print("loading file", weight_files[-1])
+=================================================
+        SCORING v0.4.2 (binaryClasses)
+=================================================
+Date: 2020-02-08 12:48:10.577063
+wrapLayerSize 8
+coreLayerSize 32
+numCoreLayers 3
+outputLayerActivation sigmoid
+output_dim 2
+loss binary_crossentropy
+optimizer sgd
+[INFO] input_shape (32, 16)
+[INFO] LSTM first and last layer neurons: 8
+[INFO] adding core layer 0
+[INFO] adding core layer 1
+[INFO] adding core layer 2
+[INFO] created DNN
+loading weights: checkpoints/*
+[EXCEPTION] (<class 'IndexError'>, IndexError('list index out of range'), <traceback object at 0x1410386e0>)
+--- 0.5793578624725342 seconds ---
