@@ -25,4 +25,5 @@ python3 score.py \
     -optimizer adam \
     -lstm true \
     -features 107 \
+    -debug true \
     -drop modbus_value

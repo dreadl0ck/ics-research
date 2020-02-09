@@ -10,6 +10,7 @@ python3 train.py \
     -optimizer adam \
     -epoch 3 \
     -features 105 \
+    -debug true \
     -drop modbus_value
 
 # EVAL
@@ -22,4 +23,5 @@ python3 score.py \
     -numCoreLayers 1 \
     -optimizer adam \
     -features 105 \
+    -debug true \
     -drop modbus_value
