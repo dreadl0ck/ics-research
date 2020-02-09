@@ -1,0 +1,162 @@
+2020-02-09 13:30:30.633599: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer.so.6'; dlerror: libnvinfer.so.6: cannot open shared object file: No such file or directory
+2020-02-09 13:30:30.633852: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer_plugin.so.6'; dlerror: libnvinfer_plugin.so.6: cannot open shared object file: No such file or directory
+2020-02-09 13:30:30.635012: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:30] Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+2020-02-09 13:30:31.432574: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
+2020-02-09 13:30:31.432606: E tensorflow/stream_executor/cuda/cuda_driver.cc:351] failed call to cuInit: UNKNOWN ERROR (303)
+2020-02-09 13:30:31.432635: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (***REMOVED***): /proc/driver/nvidia/version does not exist
+2020-02-09 13:30:31.432817: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2020-02-09 13:30:31.441939: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2112050000 Hz
+2020-02-09 13:30:31.443580: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x5266560 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-02-09 13:30:31.443628: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+Using TensorFlow backend.
+WARNING:tensorflow:Large dropout rate: 0.8 (>0.5). In TensorFlow 2.x, dropout() uses dropout rate instead of keep_prob. Please ensure that this is intended.
+=================================================
+        TRAINING v0.4.5 (binary)
+=================================================
+Date: 2020-02-09 13:30:31.427306
+------------DNN info-------------
+dnnBatchSize 16
+wrapLayerSize 8
+coreLayerSize 32
+numCoreLayers 1
+outputLayerActivation sigmoid
+output_dim 2
+loss binary_crossentropy
+optimizer adam
+------------DNN info-------------
+[33m[INFO] using Sequential Dense layers[0m
+[INFO] adding core layer 0
+[INFO] created DNN
+[33m[INFO] epoch 1/3[0m
+[33m[INFO] loading file 1-50/50 on epoch 1/3[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-28_113021_98.log.part13_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-28_164554_99.log.part01_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-28_164554_99.log.part02_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-28_164554_99.log.part03_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-28_164554_99.log.part05_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-28_164554_99.log.part06_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-28_164554_99.log.part08_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-28_164554_99.log.part09_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-29_134830_103.log.part08_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-29_134830_103.log.part09_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-29_134830_103.log.part10_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-29_190411_104.log.part03_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-29_190411_104.log.part04_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-29_190411_104.log.part13_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-29_190411_104.log.part14_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-30_001940_105.log.part11_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-30_053515_106.log.part05_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-30_105053_107.log.part12_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-30_105053_107.log.part13_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-30_212042_109.log.part03_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-30_212042_109.log.part04_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-30_212042_109.log.part05_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-31_023431_110.log.part11_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-31_023431_110.log.part12_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-31_023431_110.log.part13_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-31_023431_110.log.part14_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-31_074818_111.log.part01_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-31_074818_111.log.part02_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-31_074818_111.log.part03_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-31_074818_111.log.part04_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-31_074818_111.log.part05_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-31_074818_111.log.part06_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-31_074818_111.log.part07_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-31_074818_111.log.part08_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-31_074818_111.log.part09_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-31_074818_111.log.part10_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-31_074818_111.log.part11_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-31_074818_111.log.part12_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-31_074818_111.log.part13_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-31_074818_111.log.part14_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-31_130240_112.log.part01_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-31_130240_112.log.part02_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-31_130240_112.log.part03_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-31_130240_112.log.part04_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-31_130240_112.log.part05_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-31_130240_112.log.part06_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-31_130240_112.log.part07_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-31_130240_112.log.part08_sorted-labeled.csv
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-31_130240_112.log.part09_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (24819975, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst', 'proto',
+       'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] Shape when encoding dataset: (24819975, 16)
+[33mencode_text_dummy orig[0m
+[33mencode_text_dummy type[0m
+[33mencode_text_dummy i/f_name[0m
+[33mencode_text_dummy i/f_dir[0m
+[33mencode_text_dummy src[0m
+[33mencode_text_dummy dst[0m
+[33mencode_text_dummy proto[0m
+[33mencode_text_dummy appi_name[0m
+[33mencode_text_dummy proxy_src_ip[0m
+[33mencode_text_dummy modbus_function_description[0m
+[33mencode_text_dummy scada_tag[0m
+missing -2
+len(df.columns) 107
+numFeatures 105
+[INFO] Shape AFTER encoding dataset: (24819975, 107)
+[INFO] processing batch 0-256000/24819975
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.25
+[INFO] fitting model. xtrain.shape: (192000, 106) y_train.shape: (192000, 2)
+[EXCEPTION] (<class 'ValueError'>, ValueError('Error when checking input: expected dense_1_input to have shape (105,) but got array with shape (106,)',), <traceback object at 0x7f22b9a39e88>)
+--- 334.062402009964 seconds ---  File "train.py", line 365, in <module>
+    run()
+  File "train.py", line 264, in run
+    history = train_dnn(dfCopy, i, epoch+1, batch=batch_size)
+  File "train.py", line 125, in train_dnn
+    epochs=1,
+  File "/usr/local/lib/python3.6/dist-packages/keras/engine/training.py", line 1154, in fit
+    batch_size=batch_size)
+  File "/usr/local/lib/python3.6/dist-packages/keras/engine/training.py", line 579, in _standardize_user_data
+    exception_prefix='input')
+  File "/usr/local/lib/python3.6/dist-packages/keras/engine/training_utils.py", line 145, in standardize_input_data
+    str(data_shape))
+
+2020-02-09 13:36:07.993864: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer.so.6'; dlerror: libnvinfer.so.6: cannot open shared object file: No such file or directory
+2020-02-09 13:36:07.994026: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer_plugin.so.6'; dlerror: libnvinfer_plugin.so.6: cannot open shared object file: No such file or directory
+2020-02-09 13:36:07.994041: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:30] Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+2020-02-09 13:36:09.332729: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
+2020-02-09 13:36:09.332760: E tensorflow/stream_executor/cuda/cuda_driver.cc:351] failed call to cuInit: UNKNOWN ERROR (303)
+2020-02-09 13:36:09.332787: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (***REMOVED***): /proc/driver/nvidia/version does not exist
+2020-02-09 13:36:09.332969: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2020-02-09 13:36:09.341939: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2112050000 Hz
+2020-02-09 13:36:09.343199: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x4a05e00 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-02-09 13:36:09.343235: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+Using TensorFlow backend.
+WARNING:tensorflow:Large dropout rate: 0.8 (>0.5). In TensorFlow 2.x, dropout() uses dropout rate instead of keep_prob. Please ensure that this is intended.
+  File "score.py", line 294, in <module>
+    run()
+  File "score.py", line 70, in run
+    print("loading file", weight_files[-1])
+=================================================
+        SCORING v0.4.5 (binary)
+=================================================
+Date: 2020-02-09 13:36:09.327665
+------------DNN info-------------
+dnnBatchSize 16
+wrapLayerSize 8
+coreLayerSize 32
+numCoreLayers 1
+outputLayerActivation sigmoid
+output_dim 2
+loss binary_crossentropy
+optimizer adam
+------------DNN info-------------
+[33m[INFO] using Sequential Dense layers[0m
+[INFO] adding core layer 0
+[INFO] created DNN
+loading weights: checkpoints/*
+[EXCEPTION] (<class 'IndexError'>, IndexError('list index out of range',), <traceback object at 0x7fdcec48df88>)
+--- 0.24560546875 seconds ---

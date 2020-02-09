@@ -1,0 +1,102 @@
+Using TensorFlow backend.
+2020-02-09 13:01:04.216051: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer.so.6'; dlerror: libnvinfer.so.6: cannot open shared object file: No such file or directory
+2020-02-09 13:01:04.216205: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer_plugin.so.6'; dlerror: libnvinfer_plugin.so.6: cannot open shared object file: No such file or directory
+2020-02-09 13:01:04.216219: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:30] Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+set classes to: ['Normal', 'Attack']
+=================================================
+        TRAINING v0.4.5 (binary)
+=================================================
+Date: 2020-02-09 13:01:05.013595
+------------DNN info-------------
+dnnBatchSize 16
+wrapLayerSize 10
+coreLayerSize 50
+numCoreLayers 1
+outputLayerActivation sigmoid
+output_dim 2
+loss binary_crossentropy
+optimizer adam
+------------DNN info-------------
+[33m[INFO] using Sequential Dense layers[0m
+2020-02-09 13:01:05.018674: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
+2020-02-09 13:01:05.018699: E tensorflow/stream_executor/cuda/cuda_driver.cc:351] failed call to cuInit: UNKNOWN ERROR (303)
+2020-02-09 13:01:05.018728: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (***REMOVED***): /proc/driver/nvidia/version does not exist
+2020-02-09 13:01:05.018928: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2020-02-09 13:01:05.028925: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2112050000 Hz
+2020-02-09 13:01:05.030454: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x40ea210 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-02-09 13:01:05.030494: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+WARNING:tensorflow:Large dropout rate: 0.8 (>0.5). In TensorFlow 2.x, dropout() uses dropout rate instead of keep_prob. Please ensure that this is intended.
+[INFO] adding core layer 0
+[INFO] created DNN
+[33m[INFO] epoch 1/3[0m
+[33m[INFO] loading file 1-1/1 on epoch 1/3[0m
+[INFO] reading file data/SWaT_Dataset_Attack_v0-fixed-zscore-train-test.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (337500, 46)
+[INFO] sampling 1.0
+dropping all time related columns...
+[INFO] columns: Index([' Timestamp', 'FIT101', 'LIT101', ' MV101', 'P101', 'P102', ' AIT201',
+       'AIT202', 'AIT203', 'FIT201', ' MV201', ' P201', 'P203', ' P204',
+       'P205', 'P206', 'DPIT301', 'FIT301', 'LIT301', 'MV301', 'MV302',
+       ' MV303', 'MV304', 'P302', 'AIT401', 'AIT402', 'FIT401', 'LIT401',
+       'P402', 'P403', 'UV401', 'AIT501', 'AIT502', 'AIT503', 'AIT504',
+       'FIT501', 'FIT502', 'FIT503', 'FIT504', 'P501', 'PIT501', 'PIT502',
+       'PIT503', 'FIT601', 'P602', 'Normal/Attack'],
+      dtype='object')
+[INFO] Shape when encoding dataset: (337500, 46)
+[33mencode_text_dummy orig[0m
+[EXCEPTION] (<class 'KeyError'>, KeyError('orig',), <traceback object at 0x7f320c224188>)
+  File "train.py", line 365, in <module>
+    run()
+  File "train.py", line 251, in run
+    encode_categorical_columns(df, arguments.features)
+  File "/ics/ics-research/tfUtils.py", line 67, in encode_categorical_columns
+    encode_text_dummy(df, c)
+  File "/ics/ics-research/tfUtils.py", line 84, in encode_text_dummy
+    dummies = pd.get_dummies(df[name])
+  File "/usr/local/lib/python3.6/dist-packages/pandas/core/frame.py", line 2995, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/usr/local/lib/python3.6/dist-packages/pandas/core/indexes/base.py", line 2899, in get_loc
+    return self._engine.get_loc(self._maybe_cast_indexer(key))
+  File "pandas/_libs/index.pyx", line 107, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 131, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 1607, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 1614, in pandas._libs.hashtable.PyObjectHashTable.get_item
+--- 3.348402500152588 seconds ---
+Using TensorFlow backend.
+2020-02-09 13:01:09.879798: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer.so.6'; dlerror: libnvinfer.so.6: cannot open shared object file: No such file or directory
+2020-02-09 13:01:09.879955: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer_plugin.so.6'; dlerror: libnvinfer_plugin.so.6: cannot open shared object file: No such file or directory
+2020-02-09 13:01:09.879969: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:30] Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+set classes to: ['Normal', 'Attack']
+=================================================
+        SCORING v0.4.5 (binary)
+=================================================
+Date: 2020-02-09 13:01:10.670122
+------------DNN info-------------
+dnnBatchSize 16
+wrapLayerSize 10
+coreLayerSize 50
+numCoreLayers 1
+outputLayerActivation sigmoid
+output_dim 2
+loss binary_crossentropy
+optimizer adam
+------------DNN info-------------
+[33m[INFO] using Sequential Dense layers[0m
+2020-02-09 13:01:10.675234: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
+2020-02-09 13:01:10.675259: E tensorflow/stream_executor/cuda/cuda_driver.cc:351] failed call to cuInit: UNKNOWN ERROR (303)
+2020-02-09 13:01:10.675288: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (***REMOVED***): /proc/driver/nvidia/version does not exist
+2020-02-09 13:01:10.675431: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2020-02-09 13:01:10.684559: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2112050000 Hz
+2020-02-09 13:01:10.685769: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x4e7b370 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-02-09 13:01:10.685795: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+WARNING:tensorflow:Large dropout rate: 0.8 (>0.5). In TensorFlow 2.x, dropout() uses dropout rate instead of keep_prob. Please ensure that this is intended.
+[INFO] adding core layer 0
+[INFO] created DNN
+loading weights: checkpoints/*
+[EXCEPTION] (<class 'IndexError'>, IndexError('list index out of range',), <traceback object at 0x7f8bb075ee48>)
+  File "score.py", line 294, in <module>
+    run()
+  File "score.py", line 70, in run
+    print("loading file", weight_files[-1])
+--- 0.23737215995788574 seconds ---
