@@ -520,3 +520,60 @@ lstm v9:
     -epoch 10 \
     -drop modbus_value
 
+## report
+
+system stats
+
+    lshw -C system,memory,processor -short
+    uname -a
+    python3 -c 'import tensorflow as tf; print(tf.__version__)' 
+
+Brussels:
+
+    # lshw -C system,memory,processor -short
+    H/W path            Device     Class          Description
+    =========================================================
+                                system         PowerEdge R240 (SKU=NotProvided;ModelName=PowerEdge R240)
+    /0/0                           memory         64KiB BIOS
+    /0/400                         processor      Intel(R) Xeon(R) E-2124 CPU @ 3.30GHz
+    /0/400/700                     memory         256KiB L1 cache
+    /0/400/701                     memory         1MiB L2 cache
+    /0/400/702                     memory         8MiB L3 cache
+    /0/1000                        memory         16GiB System Memory
+    /0/1000/0                      memory         8GiB DIMM DDR4 Synchronous Unbuffered (Unregistered) 2666 MHz (0.4 ns)
+    /0/1000/1                      memory         8GiB DIMM DDR4 Synchronous Unbuffered (Unregistered) 2666 MHz (0.4 ns)
+    /0/1000/2                      memory         [empty]
+    /0/1000/3                      memory         [empty]
+    /0/100/14.2                    memory         RAM memory
+    ***REMOVED***@brussels:/home/***REMOVED***# uname -a
+    Linux brussels 4.15.0-74-generic #84-Ubuntu SMP Thu Dec 19 08:06:28 UTC 2019 x86_64 x86_64 x86_64 GNU/Linux
+    ***REMOVED***@brussels:/home/***REMOVED***# python3 -c 'import tensorflow as tf; print(tf.__version__)'
+    2020-02-09 21:57:08.780537: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer.so.6'; dlerror: libnvinfer.so.6: cannot open shared object file: No such file or directory
+    2020-02-09 21:57:08.780594: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer_plugin.so.6'; dlerror: libnvinfer_plugin.so.6: cannot open shared object file: No such file or directory
+    2020-02-09 21:57:08.780615: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:30] Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+    2.1.0
+
+Bastia:
+
+    # lshw -C system,memory,processor -short
+    H/W path             Device     Class          Description
+    ==========================================================
+                                    system         PowerEdge R230 (SKU=NotProvided;ModelName=PowerEdge R230)
+    /0/0                            memory         64KiB BIOS
+    /0/400                          processor      Intel(R) Xeon(R) CPU E3-1240L v5 @ 2.10GHz
+    /0/400/700                      memory         256KiB L1 cache
+    /0/400/701                      memory         1MiB L2 cache
+    /0/400/702                      memory         8MiB L3 cache
+    /0/1000                         memory         16GiB System Memory
+    /0/1000/0                       memory         [empty]
+    /0/1000/1                       memory         8GiB DIMM DDR4 Synchronous 2133 MHz (0.5 ns)
+    /0/1000/2                       memory         [empty]
+    /0/1000/3                       memory         8GiB DIMM DDR4 Synchronous 2133 MHz (0.5 ns)
+    /0/100/1f.2                     memory         Memory controller
+    ***REMOVED***@***REMOVED***:/home/***REMOVED***# uname -a
+    Linux ***REMOVED*** 4.15.0-66-generic #75-Ubuntu SMP Tue Oct 1 05:24:09 UTC 2019 x86_64 x86_64 x86_64 GNU/Linux
+    ***REMOVED***@***REMOVED***:/home/***REMOVED***#     python3 -c 'import tensorflow as tf; print(tf.__version__)'
+    2020-02-09 21:58:02.454559: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer.so.6'; dlerror: libnvinfer.so.6: cannot open shared object file: No such file or directory
+    2020-02-09 21:58:02.454784: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer_plugin.so.6'; dlerror: libnvinfer_plugin.so.6: cannot open shared object file: No such file or directory
+    2020-02-09 21:58:02.454820: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:30] Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+    2.1.0
