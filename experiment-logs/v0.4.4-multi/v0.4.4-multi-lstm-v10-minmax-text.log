@@ -1,0 +1,38 @@
+2020-02-09 14:22:48.513461: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2020-02-09 14:22:48.525089: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7feb9f4a1460 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-02-09 14:22:48.525121: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+Using TensorFlow backend.
+WARNING:tensorflow:Large dropout rate: 0.8 (>0.5). In TensorFlow 2.x, dropout() uses dropout rate instead of keep_prob. Please ensure that this is intended.
+./experiments/lstm-v10.sh: line 14: 36743 Terminated: 15          python3 train.py -read "$1" -wrapLayerSize 8 -dropoutLayer false -relu false -coreLayerSize 32 -numCoreLayers 3 -optimizer adam -epoch 10  -features 107 -lstm true -drop modbus_value
+2020-02-09 14:24:16.392388: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2020-02-09 14:24:16.401927: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7fa2170e6d50 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-02-09 14:24:16.402004: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+Using TensorFlow backend.
+WARNING:tensorflow:Large dropout rate: 0.8 (>0.5). In TensorFlow 2.x, dropout() uses dropout rate instead of keep_prob. Please ensure that this is intended.
+  File "score.py", line 294, in <module>
+    run()
+  File "score.py", line 70, in run
+    print("loading file", weight_files[-1])
+=================================================
+        SCORING v0.4.5 (binary)
+=================================================
+Date: 2020-02-09 14:24:16.389394
+------------DNN info-------------
+dnnBatchSize 16
+wrapLayerSize 8
+coreLayerSize 32
+numCoreLayers 3
+outputLayerActivation sigmoid
+output_dim 2
+loss binary_crossentropy
+optimizer adam
+------------DNN info-------------
+[INFO] input_shape (16, 107)
+[INFO] LSTM first and last layer neurons: 8
+[INFO] adding core layer 0
+[INFO] adding core layer 1
+[INFO] adding core layer 2
+[INFO] created DNN
+loading weights: checkpoints/*
+[EXCEPTION] (<class 'IndexError'>, IndexError('list index out of range'), <traceback object at 0x149472b90>)
+--- 0.5022892951965332 seconds ---
