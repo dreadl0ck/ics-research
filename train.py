@@ -82,8 +82,8 @@ def train_dnn(df, i, epoch, batch=0):
         x_train = x_train.reshape((arguments.batchSize / arguments.dnnBatchSize) * (1 - arguments.testSize), arguments.dnnBatchSize, x.shape[1])
         y_train = y_train.reshape((arguments.batchSize / arguments.dnnBatchSize) * (1 - arguments.testSize), arguments.dnnBatchSize, y.shape[1])
 
-        x_test = x_test.reshape((arguments.batchSize / arguments.dnnBatchSize) * arguments.testSize), arguments.dnnBatchSize, x.shape[1])
-        y_test = y_test.reshape((arguments.batchSize / arguments.dnnBatchSize) * arguments.testSize), arguments.dnnBatchSize, y.shape[1])
+        x_test = x_test.reshape((arguments.batchSize / arguments.dnnBatchSize) * arguments.testSize, arguments.dnnBatchSize, x.shape[1])
+        y_test = y_test.reshape((arguments.batchSize / arguments.dnnBatchSize) * arguments.testSize, arguments.dnnBatchSize, y.shape[1])
         
         if arguments.debug:
             print("--------RESHAPED--------")
