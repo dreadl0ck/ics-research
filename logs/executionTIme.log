@@ -1,0 +1,116 @@
+Brussels:
+
+$ grep --color seconds experiment-logs/brussels/v0.4.3-multi-dnn-v*
+experiment-logs/brussels/v0.4.3-multi-dnn-v0-minmax-text.log:--- 152.63970303535461 seconds ---
+experiment-logs/brussels/v0.4.3-multi-dnn-v0-minmax-text.log:--- 0.1997530460357666 seconds ---
+experiment-logs/brussels/v0.4.3-multi-dnn-v1-minmax-text.log:--- 3327.5233359336853 seconds ---
+experiment-logs/brussels/v0.4.3-multi-dnn-v1-minmax-text.log:--- 330.9769699573517 seconds ---
+experiment-logs/brussels/v0.4.3-multi-dnn-v2-minmax-text.log:--- 3722.1535308361053 seconds ---
+experiment-logs/brussels/v0.4.3-multi-dnn-v2-minmax-text.log:--- 337.5228111743927 seconds ---
+experiment-logs/brussels/v0.4.3-multi-dnn-v3-minmax-text.log:--- 3376.951555967331 seconds ---
+experiment-logs/brussels/v0.4.3-multi-dnn-v3-minmax-text.log:--- 328.9883460998535 seconds ---
+experiment-logs/brussels/v0.4.3-multi-dnn-v4-minmax-text.log:--- 3731.2494027614594 seconds ---
+experiment-logs/brussels/v0.4.3-multi-dnn-v4-minmax-text.log:--- 325.98398518562317 seconds ---
+
+Bastia:
+
+$ grep --color seconds experiment-logs/***REMOVED***/multi-lstm-v*
+experiment-logs/***REMOVED***/multi-lstm-v0-minmax.log:--- 3258.9188261032104 seconds ---
+experiment-logs/***REMOVED***/multi-lstm-v0-minmax.log:--- 281.4199731349945 seconds ---
+experiment-logs/***REMOVED***/multi-lstm-v0-zscore.log:--- 2627.5276186466217 seconds ---
+experiment-logs/***REMOVED***/multi-lstm-v0-zscore.log:--- 219.45136308670044 seconds ---
+experiment-logs/***REMOVED***/multi-lstm-v1-minmax.log:--- 3316.363499879837 seconds ---
+experiment-logs/***REMOVED***/multi-lstm-v1-minmax.log:--- 222.00064897537231 seconds ---
+experiment-logs/***REMOVED***/multi-lstm-v1-zscore.log:--- 2564.1124942302704 seconds ---
+experiment-logs/***REMOVED***/multi-lstm-v1-zscore.log:--- 215.64348888397217 seconds ---
+experiment-logs/***REMOVED***/multi-lstm-v10-minmax.log:--- 17202.112220287323 seconds ---
+experiment-logs/***REMOVED***/multi-lstm-v10-minmax.log:--- 286.992467880249 seconds ---
+experiment-logs/***REMOVED***/multi-lstm-v10-zscore.log:--- 16351.045068025589 seconds ---
+experiment-logs/***REMOVED***/multi-lstm-v10-zscore.log:--- 301.45813488960266 seconds ---
+experiment-logs/***REMOVED***/multi-lstm-v2-minmax.log:--- 2859.723904132843 seconds ---
+experiment-logs/***REMOVED***/multi-lstm-v2-minmax.log:--- 165.8326768875122 seconds ---
+experiment-logs/***REMOVED***/multi-lstm-v2-zscore.log:--- 2757.629835128784 seconds ---
+experiment-logs/***REMOVED***/multi-lstm-v2-zscore.log:--- 215.34554600715637 seconds ---
+experiment-logs/***REMOVED***/multi-lstm-v3-minmax.log:--- 2971.371057987213 seconds ---
+experiment-logs/***REMOVED***/multi-lstm-v3-minmax.log:--- 177.00539922714233 seconds ---
+experiment-logs/***REMOVED***/multi-lstm-v3-zscore.log:--- 3144.7604327201843 seconds ---
+experiment-logs/***REMOVED***/multi-lstm-v3-zscore.log:--- 235.17874002456665 seconds ---
+experiment-logs/***REMOVED***/multi-lstm-v4-minmax.log:--- 2389.115727186203 seconds ---
+experiment-logs/***REMOVED***/multi-lstm-v4-zscore.log:--- 3129.6550798416138 seconds ---
+experiment-logs/***REMOVED***/multi-lstm-v4-zscore.log:--- 228.545428276062 seconds ---
+experiment-logs/***REMOVED***/multi-lstm-v5-zscore.log:--- 3508.6650030612946 seconds ---
+experiment-logs/***REMOVED***/multi-lstm-v5-zscore.log:--- 256.0043468475342 seconds ---
+experiment-logs/***REMOVED***/multi-lstm-v6-minmax.log:--- 3867.5028913021088 seconds ---
+experiment-logs/***REMOVED***/multi-lstm-v6-minmax.log:--- 302.29459619522095 seconds ---
+experiment-logs/***REMOVED***/multi-lstm-v6-zscore.log:--- 3412.4144909381866 seconds ---
+experiment-logs/***REMOVED***/multi-lstm-v6-zscore.log:--- 254.1569950580597 seconds ---
+experiment-logs/***REMOVED***/multi-lstm-v7-minmax.log:--- 5542.33841586113 seconds ---
+experiment-logs/***REMOVED***/multi-lstm-v7-minmax.log:--- 399.91830253601074 seconds ---
+experiment-logs/***REMOVED***/multi-lstm-v7-zscore.log:--- 4991.364769935608 seconds ---
+experiment-logs/***REMOVED***/multi-lstm-v7-zscore.log:--- 377.4690980911255 seconds ---
+experiment-logs/***REMOVED***/multi-lstm-v8-minmax.log:--- 11133.490471839905 seconds ---
+experiment-logs/***REMOVED***/multi-lstm-v8-minmax.log:--- 401.85139560699463 seconds ---
+experiment-logs/***REMOVED***/multi-lstm-v8-zscore.log:--- 4.149476051330566 seconds ---
+experiment-logs/***REMOVED***/multi-lstm-v8-zscore.log:--- 0.591663122177124 seconds ---
+experiment-logs/***REMOVED***/multi-lstm-v9-minmax.log:--- 15900.906625032425 seconds ---
+experiment-logs/***REMOVED***/multi-lstm-v9-minmax.log:--- 346.9917116165161 seconds ---
+experiment-logs/***REMOVED***/multi-lstm-v9-zscore.log:--- 3.826539993286133 seconds ---
+experiment-logs/***REMOVED***/multi-lstm-v9-zscore.log:--- 0.5793578624725342 seconds ---
+
+$ grep --color seconds experiment-logs/***REMOVED***/multi-dnn-v*
+experiment-logs/***REMOVED***/multi-dnn-v0-minmax.log:--- 2836.243975877762 seconds ---
+experiment-logs/***REMOVED***/multi-dnn-v0-minmax.log:--- 227.705561876297 seconds ---
+experiment-logs/***REMOVED***/multi-dnn-v0-physical-minmax.log:--- 86.52630710601807 seconds ---
+experiment-logs/***REMOVED***/multi-dnn-v0-physical-minmax.log:--- 6.984651803970337 seconds ---
+experiment-logs/***REMOVED***/multi-dnn-v1-minmax.log:--- 2477.029799938202 seconds ---
+experiment-logs/***REMOVED***/multi-dnn-v1-minmax.log:--- 223.25745368003845 seconds ---
+experiment-logs/***REMOVED***/multi-dnn-v10-minmax.log:--- 10903.091249227524 seconds ---
+experiment-logs/***REMOVED***/multi-dnn-v10-minmax.log:--- 232.7515389919281 seconds ---
+experiment-logs/***REMOVED***/multi-dnn-v2-minmax.log:--- 2869.403575181961 seconds ---
+experiment-logs/***REMOVED***/multi-dnn-v2-minmax.log:--- 227.13731598854065 seconds ---
+experiment-logs/***REMOVED***/multi-dnn-v3-minmax.log:--- 2501.775759935379 seconds ---
+experiment-logs/***REMOVED***/multi-dnn-v3-minmax.log:--- 226.6994469165802 seconds ---
+experiment-logs/***REMOVED***/multi-dnn-v4-minmax.log:--- 3211.7726521492004 seconds ---
+experiment-logs/***REMOVED***/multi-dnn-v4-minmax.log:--- 223.74853014945984 seconds ---
+experiment-logs/***REMOVED***/multi-dnn-v5-minmax.log:--- 2927.6795377731323 seconds ---
+experiment-logs/***REMOVED***/multi-dnn-v5-minmax.log:--- 307.2155318260193 seconds ---
+experiment-logs/***REMOVED***/multi-dnn-v6-minmax.log:--- 3451.0114040374756 seconds ---
+experiment-logs/***REMOVED***/multi-dnn-v6-minmax.log:--- 260.78112602233887 seconds ---
+experiment-logs/***REMOVED***/multi-dnn-v7-minmax.log:--- 3193.887693166733 seconds ---
+experiment-logs/***REMOVED***/multi-dnn-v7-minmax.log:--- 319.9011116027832 seconds ---
+experiment-logs/***REMOVED***/multi-dnn-v8-minmax.log:--- 7882.401880741119 seconds ---
+experiment-logs/***REMOVED***/multi-dnn-v8-minmax.log:--- 296.5455837249756 seconds ---
+experiment-logs/***REMOVED***/multi-dnn-v9-minmax.log:--- 11195.486163854599 seconds ---
+experiment-logs/***REMOVED***/multi-dnn-v9-minmax.log:--- 315.3522570133209 seconds ---
+
+On mac:
+
+$ grep --color seconds experiment-logs/v0.4.3-multi-*
+experiment-logs/v0.4.3-multi-dnn-v0-minmax-text.log:--- 4418.805278301239 seconds ---
+experiment-logs/v0.4.3-multi-dnn-v0-minmax-text.log:--- 326.07098174095154 seconds ---
+experiment-logs/v0.4.3-multi-dnn-v0-physical-minmax-text.log:--- 9.804490089416504 seconds ---
+experiment-logs/v0.4.3-multi-dnn-v0-physical-minmax-text.log:--- 0.5390210151672363 seconds ---
+experiment-logs/v0.4.3-multi-dnn-v1-minmax-text.log:--- 3327.5233359336853 seconds ---
+experiment-logs/v0.4.3-multi-dnn-v1-minmax-text.log:--- 330.9769699573517 seconds ---
+experiment-logs/v0.4.3-multi-dnn-v10-minmax-text.log:--- 13815.009990930557 seconds ---
+experiment-logs/v0.4.3-multi-dnn-v10-minmax-text.log:--- 341.69068002700806 seconds ---
+experiment-logs/v0.4.3-multi-dnn-v2-minmax-text.log:--- 3722.1535308361053 seconds ---
+experiment-logs/v0.4.3-multi-dnn-v2-minmax-text.log:--- 337.5228111743927 seconds ---
+experiment-logs/v0.4.3-multi-dnn-v3-minmax-text.log:--- 3376.951555967331 seconds ---
+experiment-logs/v0.4.3-multi-dnn-v3-minmax-text.log:--- 328.9883460998535 seconds ---
+experiment-logs/v0.4.3-multi-dnn-v4-minmax-text.log:--- 3731.2494027614594 seconds ---
+experiment-logs/v0.4.3-multi-dnn-v4-minmax-text.log:--- 325.98398518562317 seconds ---
+experiment-logs/v0.4.3-multi-dnn-v5-minmax-text.log:--- 3546.9919340610504 seconds ---
+experiment-logs/v0.4.3-multi-dnn-v5-minmax-text.log:--- 342.27073192596436 seconds ---
+experiment-logs/v0.4.3-multi-dnn-v6-minmax-text.log:--- 4392.7165620327 seconds ---
+experiment-logs/v0.4.3-multi-dnn-v6-minmax-text.log:--- 0.25307226181030273 seconds ---
+experiment-logs/v0.4.3-multi-dnn-v7-minmax-text.log:--- 153.5849108695984 seconds ---
+experiment-logs/v0.4.3-multi-dnn-v7-minmax-text.log:--- 0.22061824798583984 seconds ---
+experiment-logs/v0.4.3-multi-dnn-v8-minmax-text.log:--- 152.88709712028503 seconds ---
+experiment-logs/v0.4.3-multi-dnn-v8-minmax-text.log:--- 0.2176210880279541 seconds ---
+experiment-logs/v0.4.3-multi-dnn-v9-minmax-text.log:--- 153.16942715644836 seconds ---
+experiment-logs/v0.4.3-multi-dnn-v9-minmax-text.log:--- 0.22092604637145996 seconds ---
+experiment-logs/v0.4.3-multi-lstm-v0-minmax-text.log:--- 3426.173665046692 seconds ---
+experiment-logs/v0.4.3-multi-lstm-v0-minmax-text.log:--- 256.4721667766571 seconds ---
+experiment-logs/v0.4.3-multi-lstm-v1-minmax-text.log:--- 181.23247289657593 seconds ---
+experiment-logs/v0.4.3-multi-lstm-v10-minmax-text.log:--- 0.5022892951965332 seconds ---
