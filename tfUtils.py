@@ -67,6 +67,7 @@ def encode_categorical_columns(df, numFeatures):
         encode_text_dummy(df, c)
     
     missing = numFeatures - len(df.columns)
+    print("missing", missing)
     if missing > 0:
         for m in range(0,missing+1):
             print("adding missing-"+str(m))
