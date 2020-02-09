@@ -154,8 +154,8 @@ def eval_dnn(df):
     if arguments.lstm:
 
         print("[INFO] reshape for using LSTM layers")
-        x_test = x_test.reshape(arguments.batchSize / arguments.dnnBatchSize, arguments.dnnBatchSize, x_test.shape[1])
-        y_test = y_test.reshape(arguments.batchSize / arguments.dnnBatchSize, arguments.dnnBatchSize, y_test.shape[1])
+        x_test = x_test.reshape(int(arguments.batchSize / arguments.dnnBatchSize), arguments.dnnBatchSize, x_test.shape[1])
+        y_test = y_test.reshape(int(arguments.batchSize / arguments.dnnBatchSize), arguments.dnnBatchSize, y_test.shape[1])
 
         if arguments.debug:
             print("--------RESHAPED--------")
