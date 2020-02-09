@@ -451,3 +451,72 @@ python3 score.py \
     Single Stage Single Point          0.578    0.995      0.731
     Single Stage Single Point          0.080    1.000      0.148
     Single Stage Single Point          0.579    1.000      0.733
+
+latest:
+
+    $ grep Single logs/allstats.log | grep -v "zero"
+    Single Stage Multi Point           0.003    0.033      0.005
+    Single Stage Single Point          0.029    0.081      0.043
+    Single Stage Single Point          0.053    0.415      0.094
+    Single Stage Single Point          0.579    1.000      0.733
+    Single Stage Single Point          0.080    1.000      0.148
+    Single Stage Single Point          0.050    0.027      0.035
+    Single Stage Single Point          0.111    0.009      0.016
+    Single Stage Single Point          0.060    0.583      0.108
+    Multi Stage Single Point           0.013    0.441      0.025
+    Single Stage Single Point          0.579    1.000      0.733
+    Single Stage Single Point          0.054    0.453      0.096
+    Single Stage Multi Point           0.004    0.071      0.007
+    Single Stage Single Point          0.047    0.355      0.083
+    Single Stage Single Point          0.079    0.404      0.132
+    Single Stage Single Point          0.080    1.000      0.148
+    Single Stage Single Point          0.122    0.003      0.005
+    Single Stage Single Point          0.092    0.191      0.124
+    Single Stage Single Point          0.077    0.000      0.000
+    Single Stage Single Point          0.036    0.267      0.063
+    Single Stage Single Point          0.578    0.995      0.731
+    Single Stage Single Point          0.080    1.000      0.148
+    Multi Stage Single Point           0.006    1.000      0.011
+    Single Stage Single Point          0.579    1.000      0.733
+    Single Stage Single Point          0.143    0.334      0.200
+    Single Stage Single Point          0.130    0.136      0.133
+    Single Stage Single Point          0.087    0.646      0.153
+
+=> 0.7 f1 score for ?-file multi class: dnn-v6
+=> 0.7 f1 score for single-file zscore binary: dnn-v4, v6
+
+=> 0.1 f1 score for multi class: lstm-v9
+
+dnn v4:
+
+    -wrapLayerSize 8 \
+    -dropoutLayer true \
+    -relu false \
+    -coreLayerSize 32 \
+    -numCoreLayers 1 \
+    -optimizer adam \
+    -epoch 3 \
+    -drop modbus_value
+
+dnn v6:
+
+    -wrapLayerSize 16 \
+    -dropoutLayer false \
+    -relu true \
+    -coreLayerSize 64 \
+    -numCoreLayers 1 \
+    -optimizer adam \
+    -epoch 3 \
+    -drop modbus_value
+
+lstm v9:
+
+    -wrapLayerSize 8 \
+    -dropoutLayer true \
+    -relu true \
+    -coreLayerSize 32 \
+    -numCoreLayers 3 \
+    -optimizer sgd \
+    -epoch 10 \
+    -drop modbus_value
+
