@@ -1,3 +1,6 @@
 running experiments/dnn-v0-physical.sh
 running experiments/dnn-v0.sh
-^C^C
+^C^Crunning experiments/lstm-v2.sh
+running experiments/lstm-v3.sh
+running experiments/lstm-v4.sh
+running experiments/lstm-v5.sh

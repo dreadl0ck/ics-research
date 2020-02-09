@@ -1,0 +1,16 @@
+# dnn minmax train    #  mean = 4706.6521157351 # stdev = 3105.1911079113
+# dnn minmax evaluate #  mean = 296.27600346912 # stdev = 45.743318925473
+# lstm zscore train   #  mean = 4720.7971991698 # stdev = 4168.9289826181
+# lstm zscore eval    #  mean = 255.91701568498 # stdev = 50.143164352902
+# lstm minmax train   #  mean = 6947.8901577473 # stdev = 5348.0274423987
+# lstm minmax eval    #  mean = 284.37326285574 # stdev = 82.764334243422
+
+
+
+                         mean          stdev
+# dnn minmax train    #  mean = 4706 # stdev = 3105
+# dnn minmax evaluate #  mean = 296  # stdev = 45
+# lstm zscore train   #  mean = 4720 # stdev = 4168
+# lstm zscore eval    #  mean = 255  # stdev = 50
+# lstm minmax train   #  mean = 6947 # stdev = 5348
+# lstm minmax eval    #  mean = 284  # stdev = 82
