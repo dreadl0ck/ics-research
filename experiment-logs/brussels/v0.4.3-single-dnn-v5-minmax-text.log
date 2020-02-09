@@ -1,39 +1,27 @@
-2020-02-09 10:06:14.587180: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer.so.6'; dlerror: libnvinfer.so.6: cannot open shared object file: No such file or directory
-2020-02-09 10:06:14.587232: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer_plugin.so.6'; dlerror: libnvinfer_plugin.so.6: cannot open shared object file: No such file or directory
-2020-02-09 10:06:14.587239: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:30] Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
-2020-02-09 10:06:15.074350: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
-2020-02-09 10:06:15.074370: E tensorflow/stream_executor/cuda/cuda_driver.cc:351] failed call to cuInit: UNKNOWN ERROR (303)
-2020-02-09 10:06:15.074383: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (brussels): /proc/driver/nvidia/version does not exist
-2020-02-09 10:06:15.074485: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
-2020-02-09 10:06:15.097812: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 3312000000 Hz
-2020-02-09 10:06:15.097999: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x45e6b20 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
-2020-02-09 10:06:15.098010: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2020-02-09 12:24:18.778777: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer.so.6'; dlerror: libnvinfer.so.6: cannot open shared object file: No such file or directory
+2020-02-09 12:24:18.778828: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer_plugin.so.6'; dlerror: libnvinfer_plugin.so.6: cannot open shared object file: No such file or directory
+2020-02-09 12:24:18.778835: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:30] Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+2020-02-09 12:24:19.266996: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
+2020-02-09 12:24:19.267017: E tensorflow/stream_executor/cuda/cuda_driver.cc:351] failed call to cuInit: UNKNOWN ERROR (303)
+2020-02-09 12:24:19.267032: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (brussels): /proc/driver/nvidia/version does not exist
+2020-02-09 12:24:19.267138: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2020-02-09 12:24:19.289829: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 3312000000 Hz
+2020-02-09 12:24:19.290024: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x4d13a10 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-02-09 12:24:19.290053: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
 Using TensorFlow backend.
 WARNING:tensorflow:Large dropout rate: 0.8 (>0.5). In TensorFlow 2.x, dropout() uses dropout rate instead of keep_prob. Please ensure that this is intended.
-  File "train.py", line 375, in <module>
-    run()
-  File "train.py", line 276, in run
-    history = train_dnn(dfCopy, i, epoch+1, batch=batch_size)
-  File "train.py", line 125, in train_dnn
-    epochs=1,
-  File "/usr/local/lib/python3.6/dist-packages/keras/engine/training.py", line 1154, in fit
-    batch_size=batch_size)
-  File "/usr/local/lib/python3.6/dist-packages/keras/engine/training.py", line 579, in _standardize_user_data
-    exception_prefix='input')
-  File "/usr/local/lib/python3.6/dist-packages/keras/engine/training_utils.py", line 145, in standardize_input_data
-    str(data_shape))
 =================================================
-        TRAINING v0.4.4 (multi-class)
+        TRAINING v0.4.5 (binary)
 =================================================
-Date: 2020-02-09 10:06:15.071267
-MULTI-CLASS num classes: 5
+Date: 2020-02-09 12:24:19.263865
 ------------DNN info-------------
+dnnBatchSize 16
 wrapLayerSize 16
 coreLayerSize 64
 numCoreLayers 1
-outputLayerActivation softmax
-output_dim 5
-loss categorical_crossentropy
+outputLayerActivation sigmoid
+output_dim 2
+loss binary_crossentropy
 optimizer sgd
 ------------DNN info-------------
 [33m[INFO] using Sequential Dense layers[0m
@@ -46,6 +34,14 @@ optimizer sgd
 [INFO] process dataset, shape: (500000, 18)
 [INFO] sampling 1.0
 [33mdropping column: modbus_value[0m
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst', 'proto',
+       'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] Shape when encoding dataset: (500000, 16)
 [33mencode_text_dummy orig[0m
 [33mencode_text_dummy type[0m
 [33mencode_text_dummy i/f_name[0m
@@ -57,6 +53,7 @@ optimizer sgd
 [33mencode_text_dummy proxy_src_ip[0m
 [33mencode_text_dummy modbus_function_description[0m
 [33mencode_text_dummy scada_tag[0m
+missing 23
 adding missing-0
 adding missing-1
 adding missing-2
@@ -81,56 +78,311 @@ adding missing-20
 adding missing-21
 adding missing-22
 adding missing-23
-len(df.columns) 107
-numFeatures 106
-dropping all time related columns...
-[33mdropping column: unixtime[0m
-[INFO] columns: Index(['modbus_function_code', 'modbus_transaction_id', 'service', 's_port',
-       'classification', 'orig-192.168.1.48', 'type-alert', 'type-log',
-       'i/f_name-0', 'i/f_name-eth1',
-       ...
-       'missing-14', 'missing-15', 'missing-16', 'missing-17', 'missing-18',
-       'missing-19', 'missing-20', 'missing-21', 'missing-22', 'missing-23'],
-      dtype='object', length=106)
+len(df.columns) 106
+numFeatures 105
+[INFO] Shape AFTER encoding dataset: (500000, 106)
 [INFO] processing batch 0-256000/500000
 [INFO] breaking into predictors and prediction...
 [INFO] creating train/test split: 0.25
-[INFO] fitting model
-[EXCEPTION] (<class 'ValueError'>, ValueError('Error when checking input: expected dense_1_input to have shape (106,) but got array with shape (105,)',), <traceback object at 0x7fdd58685dc8>)
---- 2.1560704708099365 seconds ---
-2020-02-09 10:06:18.077904: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer.so.6'; dlerror: libnvinfer.so.6: cannot open shared object file: No such file or directory
-2020-02-09 10:06:18.077966: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer_plugin.so.6'; dlerror: libnvinfer_plugin.so.6: cannot open shared object file: No such file or directory
-2020-02-09 10:06:18.079702: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:30] Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
-2020-02-09 10:06:18.568434: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
-2020-02-09 10:06:18.568454: E tensorflow/stream_executor/cuda/cuda_driver.cc:351] failed call to cuInit: UNKNOWN ERROR (303)
-2020-02-09 10:06:18.568469: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (brussels): /proc/driver/nvidia/version does not exist
-2020-02-09 10:06:18.568574: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
-2020-02-09 10:06:18.589835: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 3312000000 Hz
-2020-02-09 10:06:18.590021: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x5c9be30 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
-2020-02-09 10:06:18.590032: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+[INFO] fitting model. xtrain.shape: (192000, 105) y_train.shape: (192000, 2)
+Train on 192000 samples, validate on 64000 samples
+Epoch 1/1
+ - 6s - loss: 0.1203 - tp: 191974.0000 - fp: 59.0000 - tn: 191941.0000 - fn: 26.0000 - accuracy: 0.9998 - precision: 0.9997 - recall: 0.9999 - auc: 1.0000 - val_loss: 0.0264 - val_tp: 64000.0000 - val_fp: 0.0000e+00 - val_tn: 64000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-0-50
+[33m[LOSS] 0.026438630910590292[0m
+[33m[INFO] epoch 2/3[0m
+[33m[INFO] loading file 1-50/1 on epoch 2/3[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (500000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst', 'proto',
+       'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] Shape when encoding dataset: (500000, 16)
+[33mencode_text_dummy orig[0m
+[33mencode_text_dummy type[0m
+[33mencode_text_dummy i/f_name[0m
+[33mencode_text_dummy i/f_dir[0m
+[33mencode_text_dummy src[0m
+[33mencode_text_dummy dst[0m
+[33mencode_text_dummy proto[0m
+[33mencode_text_dummy appi_name[0m
+[33mencode_text_dummy proxy_src_ip[0m
+[33mencode_text_dummy modbus_function_description[0m
+[33mencode_text_dummy scada_tag[0m
+missing 23
+adding missing-0
+adding missing-1
+adding missing-2
+adding missing-3
+adding missing-4
+adding missing-5
+adding missing-6
+adding missing-7
+adding missing-8
+adding missing-9
+adding missing-10
+adding missing-11
+adding missing-12
+adding missing-13
+adding missing-14
+adding missing-15
+adding missing-16
+adding missing-17
+adding missing-18
+adding missing-19
+adding missing-20
+adding missing-21
+adding missing-22
+adding missing-23
+len(df.columns) 106
+numFeatures 105
+[INFO] Shape AFTER encoding dataset: (500000, 106)
+[INFO] processing batch 0-256000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.25
+[INFO] fitting model. xtrain.shape: (192000, 105) y_train.shape: (192000, 2)
+Train on 192000 samples, validate on 64000 samples
+Epoch 1/1
+ - 6s - loss: 0.0206 - tp: 192000.0000 - fp: 0.0000e+00 - tn: 192000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0100 - val_tp: 64000.0000 - val_fp: 0.0000e+00 - val_tn: 64000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-002-files-0-50
+[33m[LOSS] 0.009981560349464416[0m
+[33m[INFO] epoch 3/3[0m
+[33m[INFO] loading file 1-50/1 on epoch 3/3[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (500000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst', 'proto',
+       'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] Shape when encoding dataset: (500000, 16)
+[33mencode_text_dummy orig[0m
+[33mencode_text_dummy type[0m
+[33mencode_text_dummy i/f_name[0m
+[33mencode_text_dummy i/f_dir[0m
+[33mencode_text_dummy src[0m
+[33mencode_text_dummy dst[0m
+[33mencode_text_dummy proto[0m
+[33mencode_text_dummy appi_name[0m
+[33mencode_text_dummy proxy_src_ip[0m
+[33mencode_text_dummy modbus_function_description[0m
+[33mencode_text_dummy scada_tag[0m
+missing 23
+adding missing-0
+adding missing-1
+adding missing-2
+adding missing-3
+adding missing-4
+adding missing-5
+adding missing-6
+adding missing-7
+adding missing-8
+adding missing-9
+adding missing-10
+adding missing-11
+adding missing-12
+adding missing-13
+adding missing-14
+adding missing-15
+adding missing-16
+adding missing-17
+adding missing-18
+adding missing-19
+adding missing-20
+adding missing-21
+adding missing-22
+adding missing-23
+len(df.columns) 106
+numFeatures 105
+[INFO] Shape AFTER encoding dataset: (500000, 106)
+[INFO] processing batch 0-256000/500000
+[INFO] breaking into predictors and prediction...
+[INFO] creating train/test split: 0.25
+[INFO] fitting model. xtrain.shape: (192000, 105) y_train.shape: (192000, 2)
+Train on 192000 samples, validate on 64000 samples
+Epoch 1/1
+ - 6s - loss: 0.0115 - tp: 192000.0000 - fp: 0.0000e+00 - tn: 192000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0056 - val_tp: 64000.0000 - val_fp: 0.0000e+00 - val_tn: 64000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-003-files-0-50
+[33m[LOSS] 0.0056012896548490974[0m
+[CHECKING EARLY STOP]: currentLoss < min_delta ? => 0.0056012896548490974  <  0.001
+--- 24.354153633117676 seconds ---
+2020-02-09 12:24:44.489762: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer.so.6'; dlerror: libnvinfer.so.6: cannot open shared object file: No such file or directory
+2020-02-09 12:24:44.489809: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer_plugin.so.6'; dlerror: libnvinfer_plugin.so.6: cannot open shared object file: No such file or directory
+2020-02-09 12:24:44.489815: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:30] Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+2020-02-09 12:24:44.981262: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
+2020-02-09 12:24:44.981282: E tensorflow/stream_executor/cuda/cuda_driver.cc:351] failed call to cuInit: UNKNOWN ERROR (303)
+2020-02-09 12:24:44.981296: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (brussels): /proc/driver/nvidia/version does not exist
+2020-02-09 12:24:44.981403: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2020-02-09 12:24:45.001806: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 3312000000 Hz
+2020-02-09 12:24:45.001992: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x4ecdd40 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-02-09 12:24:45.002003: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
 Using TensorFlow backend.
 WARNING:tensorflow:Large dropout rate: 0.8 (>0.5). In TensorFlow 2.x, dropout() uses dropout rate instead of keep_prob. Please ensure that this is intended.
-  File "score.py", line 293, in <module>
-    run()
-  File "score.py", line 70, in run
-    print("loading file", weight_files[-1])
 =================================================
-        SCORING v0.4.4 (multi-class)
+        SCORING v0.4.5 (binary)
 =================================================
-Date: 2020-02-09 10:06:18.565383
-MULTI-CLASS num classes: 5
+Date: 2020-02-09 12:24:44.978234
 ------------DNN info-------------
+dnnBatchSize 16
 wrapLayerSize 16
 coreLayerSize 64
 numCoreLayers 1
-outputLayerActivation softmax
-output_dim 5
-loss categorical_crossentropy
+outputLayerActivation sigmoid
+output_dim 2
+loss binary_crossentropy
 optimizer sgd
 ------------DNN info-------------
 [33m[INFO] using Sequential Dense layers[0m
 [INFO] adding core layer 0
 [INFO] created DNN
 loading weights: checkpoints/*
-[EXCEPTION] (<class 'IndexError'>, IndexError('list index out of range',), <traceback object at 0x7f0510420d88>)
---- 0.18282222747802734 seconds ---
+loading file checkpoints/dnn-epoch-003-files-0-50
+[33m[INFO] model summary:[0m
+Model: "sequential_1"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+dense_1 (Dense)              (None, 16)                1696      
+_________________________________________________________________
+dropout_1 (Dropout)          (None, 16)                0         
+_________________________________________________________________
+dense_2 (Dense)              (None, 64)                1088      
+_________________________________________________________________
+dropout_2 (Dropout)          (None, 64)                0         
+_________________________________________________________________
+dense_3 (Dense)              (None, 16)                1040      
+_________________________________________________________________
+dropout_3 (Dropout)          (None, 16)                0         
+_________________________________________________________________
+dense_4 (Dense)              (None, 1)                 17        
+_________________________________________________________________
+dropout_4 (Dropout)          (None, 1)                 0         
+_________________________________________________________________
+dense_5 (Dense)              (None, 2)                 4         
+=================================================================
+Total params: 3,845
+Trainable params: 3,845
+Non-trainable params: 0
+_________________________________________________________________
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-28_113021_98.log.part13_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (500000, 18)
+[33mdropping column: modbus_value[0m
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst', 'proto',
+       'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] Shape when encoding dataset: (500000, 16)
+[33mencode_text_dummy orig[0m
+[33mencode_text_dummy type[0m
+[33mencode_text_dummy i/f_name[0m
+[33mencode_text_dummy i/f_dir[0m
+[33mencode_text_dummy src[0m
+[33mencode_text_dummy dst[0m
+[33mencode_text_dummy proto[0m
+[33mencode_text_dummy appi_name[0m
+[33mencode_text_dummy proxy_src_ip[0m
+[33mencode_text_dummy modbus_function_description[0m
+[33mencode_text_dummy scada_tag[0m
+missing 57
+adding missing-0
+adding missing-1
+adding missing-2
+adding missing-3
+adding missing-4
+adding missing-5
+adding missing-6
+adding missing-7
+adding missing-8
+adding missing-9
+adding missing-10
+adding missing-11
+adding missing-12
+adding missing-13
+adding missing-14
+adding missing-15
+adding missing-16
+adding missing-17
+adding missing-18
+adding missing-19
+adding missing-20
+adding missing-21
+adding missing-22
+adding missing-23
+adding missing-24
+adding missing-25
+adding missing-26
+adding missing-27
+adding missing-28
+adding missing-29
+adding missing-30
+adding missing-31
+adding missing-32
+adding missing-33
+adding missing-34
+adding missing-35
+adding missing-36
+adding missing-37
+adding missing-38
+adding missing-39
+adding missing-40
+adding missing-41
+adding missing-42
+adding missing-43
+adding missing-44
+adding missing-45
+adding missing-46
+adding missing-47
+adding missing-48
+adding missing-49
+adding missing-50
+adding missing-51
+adding missing-52
+adding missing-53
+adding missing-54
+adding missing-55
+adding missing-56
+adding missing-57
+len(df.columns) 106
+numFeatures 105
+[INFO] Shape AFTER encoding dataset: (500000, 106)
+[INFO] processing batch 0-256000/500000
+[33m[INFO] measuring accuracy...[0m
+x_test.shape: (256000, 105)
+y_eval [1 0 1 ... 0 0 0] (256000,)
+[INFO] Validation score: [33m0.76813671875[0m
+[33m[INFO] metrics:[0m
+loss :  1.2244365626150975
+tp :  196643.0
+fp :  59357.0
+tn :  196643.0
+fn :  59357.0
+accuracy :  0.768136739730835
+precision :  0.768136739730835
+recall :  0.768136739730835
+auc :  0.768136739730835
+
+y_eval {0: 196643, 1: 59357}
+pred {0: 256000}
+[INFO] confusion matrix for file 
+[[196643      0]
+ [ 59357      0]]
+[INFO] confusion matrix after adding it to total:
+[[196643      0]
+ [ 59357      0]]
+--- 8.203752517700195 seconds ---

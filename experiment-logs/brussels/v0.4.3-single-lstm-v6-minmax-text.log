@@ -1,46 +1,46 @@
-2020-02-09 10:11:34.465034: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer.so.6'; dlerror: libnvinfer.so.6: cannot open shared object file: No such file or directory
-2020-02-09 10:11:34.465084: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer_plugin.so.6'; dlerror: libnvinfer_plugin.so.6: cannot open shared object file: No such file or directory
-2020-02-09 10:11:34.465090: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:30] Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
-2020-02-09 10:11:34.954217: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
-2020-02-09 10:11:34.954237: E tensorflow/stream_executor/cuda/cuda_driver.cc:351] failed call to cuInit: UNKNOWN ERROR (303)
-2020-02-09 10:11:34.954251: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (brussels): /proc/driver/nvidia/version does not exist
-2020-02-09 10:11:34.954358: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
-2020-02-09 10:11:34.977887: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 3312000000 Hz
-2020-02-09 10:11:34.978193: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x5a15a20 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
-2020-02-09 10:11:34.978220: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2020-02-09 12:32:59.416857: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer.so.6'; dlerror: libnvinfer.so.6: cannot open shared object file: No such file or directory
+2020-02-09 12:32:59.416906: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer_plugin.so.6'; dlerror: libnvinfer_plugin.so.6: cannot open shared object file: No such file or directory
+2020-02-09 12:32:59.416912: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:30] Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+2020-02-09 12:32:59.906431: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
+2020-02-09 12:32:59.906451: E tensorflow/stream_executor/cuda/cuda_driver.cc:351] failed call to cuInit: UNKNOWN ERROR (303)
+2020-02-09 12:32:59.906466: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (brussels): /proc/driver/nvidia/version does not exist
+2020-02-09 12:32:59.906570: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2020-02-09 12:32:59.929826: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 3312000000 Hz
+2020-02-09 12:32:59.930019: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x53b55c0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-02-09 12:32:59.930046: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
 Using TensorFlow backend.
 WARNING:tensorflow:Large dropout rate: 0.8 (>0.5). In TensorFlow 2.x, dropout() uses dropout rate instead of keep_prob. Please ensure that this is intended.
-2020-02-09 10:11:38.788348: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] remapper failed: Invalid argument: MutableGraphView::MutableGraphView error: node 'loss/dense_2_loss/categorical_crossentropy/weighted_loss/concat' has self cycle fanin 'loss/dense_2_loss/categorical_crossentropy/weighted_loss/concat'.
-2020-02-09 10:11:38.802819: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 0, topological sort failed with message: The graph couldn't be sorted in topological order.
-2020-02-09 10:11:38.809107: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 1, topological sort failed with message: The graph couldn't be sorted in topological order.
-2020-02-09 10:11:38.861208: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] arithmetic_optimizer failed: Invalid argument: The graph couldn't be sorted in topological order.
-2020-02-09 10:11:38.864254: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] remapper failed: Invalid argument: MutableGraphView::MutableGraphView error: node 'loss/dense_2_loss/categorical_crossentropy/weighted_loss/concat' has self cycle fanin 'loss/dense_2_loss/categorical_crossentropy/weighted_loss/concat'.
-2020-02-09 10:11:38.868747: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 0, topological sort failed with message: The graph couldn't be sorted in topological order.
-2020-02-09 10:11:38.873158: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 1, topological sort failed with message: The graph couldn't be sorted in topological order.
-2020-02-09 10:11:38.885389: W tensorflow/core/common_runtime/process_function_library_runtime.cc:697] Ignoring multi-device function optimization failure: Invalid argument: The graph couldn't be sorted in topological order.
-2020-02-09 10:11:43.602680: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] remapper failed: Invalid argument: MutableGraphView::MutableGraphView error: node 'loss/dense_2_loss/categorical_crossentropy/weighted_loss/concat' has self cycle fanin 'loss/dense_2_loss/categorical_crossentropy/weighted_loss/concat'.
-2020-02-09 10:11:43.606137: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 0, topological sort failed with message: The graph couldn't be sorted in topological order.
-2020-02-09 10:11:43.607744: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 1, topological sort failed with message: The graph couldn't be sorted in topological order.
-2020-02-09 10:11:43.619742: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] arithmetic_optimizer failed: Invalid argument: The graph couldn't be sorted in topological order.
-2020-02-09 10:11:43.620535: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] remapper failed: Invalid argument: MutableGraphView::MutableGraphView error: node 'loss/dense_2_loss/categorical_crossentropy/weighted_loss/concat' has self cycle fanin 'loss/dense_2_loss/categorical_crossentropy/weighted_loss/concat'.
-2020-02-09 10:11:43.621688: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 0, topological sort failed with message: The graph couldn't be sorted in topological order.
-2020-02-09 10:11:43.622880: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 1, topological sort failed with message: The graph couldn't be sorted in topological order.
-2020-02-09 10:11:43.626405: W tensorflow/core/common_runtime/process_function_library_runtime.cc:697] Ignoring multi-device function optimization failure: Invalid argument: The graph couldn't be sorted in topological order.
+2020-02-09 12:33:03.722388: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] remapper failed: Invalid argument: MutableGraphView::MutableGraphView error: node 'loss/dense_2_loss/binary_crossentropy/weighted_loss/concat' has self cycle fanin 'loss/dense_2_loss/binary_crossentropy/weighted_loss/concat'.
+2020-02-09 12:33:03.736744: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 0, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-09 12:33:03.742918: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 1, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-09 12:33:03.794016: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] arithmetic_optimizer failed: Invalid argument: The graph couldn't be sorted in topological order.
+2020-02-09 12:33:03.797088: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] remapper failed: Invalid argument: MutableGraphView::MutableGraphView error: node 'loss/dense_2_loss/binary_crossentropy/weighted_loss/concat' has self cycle fanin 'loss/dense_2_loss/binary_crossentropy/weighted_loss/concat'.
+2020-02-09 12:33:03.801483: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 0, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-09 12:33:03.805846: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 1, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-09 12:33:03.817815: W tensorflow/core/common_runtime/process_function_library_runtime.cc:697] Ignoring multi-device function optimization failure: Invalid argument: The graph couldn't be sorted in topological order.
+2020-02-09 12:33:08.288034: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] remapper failed: Invalid argument: MutableGraphView::MutableGraphView error: node 'loss/dense_2_loss/binary_crossentropy/weighted_loss/concat' has self cycle fanin 'loss/dense_2_loss/binary_crossentropy/weighted_loss/concat'.
+2020-02-09 12:33:08.291582: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 0, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-09 12:33:08.293258: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 1, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-09 12:33:08.305527: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] arithmetic_optimizer failed: Invalid argument: The graph couldn't be sorted in topological order.
+2020-02-09 12:33:08.306366: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] remapper failed: Invalid argument: MutableGraphView::MutableGraphView error: node 'loss/dense_2_loss/binary_crossentropy/weighted_loss/concat' has self cycle fanin 'loss/dense_2_loss/binary_crossentropy/weighted_loss/concat'.
+2020-02-09 12:33:08.307565: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 0, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-09 12:33:08.308766: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 1, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-09 12:33:08.312941: W tensorflow/core/common_runtime/process_function_library_runtime.cc:697] Ignoring multi-device function optimization failure: Invalid argument: The graph couldn't be sorted in topological order.
 =================================================
-        TRAINING v0.4.4 (multi-class)
+        TRAINING v0.4.5 (binary)
 =================================================
-Date: 2020-02-09 10:11:34.950815
-MULTI-CLASS num classes: 5
+Date: 2020-02-09 12:32:59.903066
 ------------DNN info-------------
+dnnBatchSize 16
 wrapLayerSize 16
 coreLayerSize 64
 numCoreLayers 1
-outputLayerActivation softmax
-output_dim 5
-loss categorical_crossentropy
+outputLayerActivation sigmoid
+output_dim 2
+loss binary_crossentropy
 optimizer adam
 ------------DNN info-------------
-[INFO] input_shape (128, 107)
+[INFO] input_shape (16, 107)
 [INFO] LSTM first and last layer neurons: 16
 [INFO] adding core layer 0
 [INFO] created DNN
@@ -51,6 +51,12 @@ optimizer adam
 [INFO] process dataset, shape: (500000, 18)
 [INFO] sampling 1.0
 [33mdropping column: modbus_value[0m
+[INFO] columns: Index(['unixtime', 'orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst',
+       'proto', 'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] Shape when encoding dataset: (500000, 17)
 [33mencode_text_dummy orig[0m
 [33mencode_text_dummy type[0m
 [33mencode_text_dummy i/f_name[0m
@@ -62,6 +68,7 @@ optimizer adam
 [33mencode_text_dummy proxy_src_ip[0m
 [33mencode_text_dummy modbus_function_description[0m
 [33mencode_text_dummy scada_tag[0m
+missing 24
 adding missing-0
 adding missing-1
 adding missing-2
@@ -89,24 +96,17 @@ adding missing-23
 adding missing-24
 len(df.columns) 108
 numFeatures 107
-[INFO] columns: Index(['unixtime', 'modbus_function_code', 'modbus_transaction_id', 'service',
-       's_port', 'classification', 'orig-192.168.1.48', 'type-alert',
-       'type-log', 'i/f_name-0',
-       ...
-       'missing-15', 'missing-16', 'missing-17', 'missing-18', 'missing-19',
-       'missing-20', 'missing-21', 'missing-22', 'missing-23', 'missing-24'],
-      dtype='object', length=108)
+[INFO] Shape AFTER encoding dataset: (500000, 108)
 [INFO] processing batch 0-256000/500000
 [INFO] breaking into predictors and prediction...
 [INFO] creating train/test split: 0.25
 [INFO] using LSTM layers
-[INFO] fitting model
-Train on 1500 samples, validate on 500 samples
+[INFO] fitting model. xtrain.shape: (12000, 16, 107) y_train.shape: (12000, 16, 2)
+Train on 12000 samples, validate on 4000 samples
 Epoch 1/1
- - 6s - loss: 1.5132 - tp: 0.0000e+00 - fp: 3416.0000 - tn: 764584.0000 - fn: 192000.0000 - accuracy: 0.7964 - precision: 0.0000e+00 - recall: 0.0000e+00 - auc: 0.8326 - val_loss: 1.4261 - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 256000.0000 - val_fn: 64000.0000 - val_accuracy: 0.8000 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00 - val_auc: 0.7784
+ - 6s - loss: 0.3362 - tp: 191707.0000 - fp: 0.0000e+00 - tn: 192000.0000 - fn: 293.0000 - accuracy: 0.9992 - precision: 1.0000 - recall: 0.9985 - auc: 0.9999 - val_loss: 1.5736e-05 - val_tp: 64000.0000 - val_fp: 0.0000e+00 - val_tn: 64000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
 [INFO] saving weights to checkpoints/lstm-epoch-001-files-0-50-batch-0-256000
-[INFO] processing batch 256000-512000/500000
-[33m[LOSS] 1.4260701160430909[0m
+[33m[LOSS] 1.57361756064347e-05[0m
 [33m[INFO] epoch 2/3[0m
 [33m[INFO] loading file 1-50/1 on epoch 2/3[0m
 [INFO] reading file data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv
@@ -114,6 +114,12 @@ Epoch 1/1
 [INFO] process dataset, shape: (500000, 18)
 [INFO] sampling 1.0
 [33mdropping column: modbus_value[0m
+[INFO] columns: Index(['unixtime', 'orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst',
+       'proto', 'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] Shape when encoding dataset: (500000, 17)
 [33mencode_text_dummy orig[0m
 [33mencode_text_dummy type[0m
 [33mencode_text_dummy i/f_name[0m
@@ -125,6 +131,7 @@ Epoch 1/1
 [33mencode_text_dummy proxy_src_ip[0m
 [33mencode_text_dummy modbus_function_description[0m
 [33mencode_text_dummy scada_tag[0m
+missing 24
 adding missing-0
 adding missing-1
 adding missing-2
@@ -152,24 +159,17 @@ adding missing-23
 adding missing-24
 len(df.columns) 108
 numFeatures 107
-[INFO] columns: Index(['unixtime', 'modbus_function_code', 'modbus_transaction_id', 'service',
-       's_port', 'classification', 'orig-192.168.1.48', 'type-alert',
-       'type-log', 'i/f_name-0',
-       ...
-       'missing-15', 'missing-16', 'missing-17', 'missing-18', 'missing-19',
-       'missing-20', 'missing-21', 'missing-22', 'missing-23', 'missing-24'],
-      dtype='object', length=108)
+[INFO] Shape AFTER encoding dataset: (500000, 108)
 [INFO] processing batch 0-256000/500000
 [INFO] breaking into predictors and prediction...
 [INFO] creating train/test split: 0.25
 [INFO] using LSTM layers
-[INFO] fitting model
-Train on 1500 samples, validate on 500 samples
+[INFO] fitting model. xtrain.shape: (12000, 16, 107) y_train.shape: (12000, 16, 2)
+Train on 12000 samples, validate on 4000 samples
 Epoch 1/1
- - 5s - loss: 1.3829 - tp: 0.0000e+00 - fp: 7926.0000 - tn: 760074.0000 - fn: 192000.0000 - accuracy: 0.7917 - precision: 0.0000e+00 - recall: 0.0000e+00 - auc: 0.8831 - val_loss: 1.2503 - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 256000.0000 - val_fn: 64000.0000 - val_accuracy: 0.8000 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00 - val_auc: 0.8539
+ - 5s - loss: 0.2444 - tp: 192000.0000 - fp: 0.0000e+00 - tn: 192000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 1.0972e-08 - val_tp: 64000.0000 - val_fp: 0.0000e+00 - val_tn: 64000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
 [INFO] saving weights to checkpoints/lstm-epoch-002-files-0-50-batch-0-256000
-[INFO] processing batch 256000-512000/500000
-[33m[LOSS] 1.2502710103988648[0m
+[33m[LOSS] 1.097172254560519e-08[0m
 [33m[INFO] epoch 3/3[0m
 [33m[INFO] loading file 1-50/1 on epoch 3/3[0m
 [INFO] reading file data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv
@@ -177,6 +177,12 @@ Epoch 1/1
 [INFO] process dataset, shape: (500000, 18)
 [INFO] sampling 1.0
 [33mdropping column: modbus_value[0m
+[INFO] columns: Index(['unixtime', 'orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst',
+       'proto', 'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] Shape when encoding dataset: (500000, 17)
 [33mencode_text_dummy orig[0m
 [33mencode_text_dummy type[0m
 [33mencode_text_dummy i/f_name[0m
@@ -188,6 +194,7 @@ Epoch 1/1
 [33mencode_text_dummy proxy_src_ip[0m
 [33mencode_text_dummy modbus_function_description[0m
 [33mencode_text_dummy scada_tag[0m
+missing 24
 adding missing-0
 adding missing-1
 adding missing-2
@@ -215,61 +222,56 @@ adding missing-23
 adding missing-24
 len(df.columns) 108
 numFeatures 107
-[INFO] columns: Index(['unixtime', 'modbus_function_code', 'modbus_transaction_id', 'service',
-       's_port', 'classification', 'orig-192.168.1.48', 'type-alert',
-       'type-log', 'i/f_name-0',
-       ...
-       'missing-15', 'missing-16', 'missing-17', 'missing-18', 'missing-19',
-       'missing-20', 'missing-21', 'missing-22', 'missing-23', 'missing-24'],
-      dtype='object', length=108)
+[INFO] Shape AFTER encoding dataset: (500000, 108)
 [INFO] processing batch 0-256000/500000
 [INFO] breaking into predictors and prediction...
 [INFO] creating train/test split: 0.25
 [INFO] using LSTM layers
-[INFO] fitting model
-Train on 1500 samples, validate on 500 samples
+[INFO] fitting model. xtrain.shape: (12000, 16, 107) y_train.shape: (12000, 16, 2)
+Train on 12000 samples, validate on 4000 samples
 Epoch 1/1
- - 5s - loss: 1.2476 - tp: 0.0000e+00 - fp: 15371.0000 - tn: 752629.0000 - fn: 192000.0000 - accuracy: 0.7840 - precision: 0.0000e+00 - recall: 0.0000e+00 - auc: 0.8861 - val_loss: 1.0357 - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 256000.0000 - val_fn: 64000.0000 - val_accuracy: 0.8000 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00 - val_auc: 0.9928
+ - 5s - loss: 0.1911 - tp: 192000.0000 - fp: 0.0000e+00 - tn: 192000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 6.8954e-11 - val_tp: 64000.0000 - val_fp: 0.0000e+00 - val_tn: 64000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
 [INFO] saving weights to checkpoints/lstm-epoch-003-files-0-50-batch-0-256000
-[INFO] processing batch 256000-512000/500000
-[33m[LOSS] 1.0357141332626343[0m
-[CHECKING EARLY STOP]: currentLoss < min_delta ? => 1.0357141332626343  <  0.001
---- 23.562087535858154 seconds ---
-2020-02-09 10:11:59.406955: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer.so.6'; dlerror: libnvinfer.so.6: cannot open shared object file: No such file or directory
-2020-02-09 10:11:59.407000: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer_plugin.so.6'; dlerror: libnvinfer_plugin.so.6: cannot open shared object file: No such file or directory
-2020-02-09 10:11:59.407006: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:30] Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
-2020-02-09 10:11:59.897080: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
-2020-02-09 10:11:59.897100: E tensorflow/stream_executor/cuda/cuda_driver.cc:351] failed call to cuInit: UNKNOWN ERROR (303)
-2020-02-09 10:11:59.897114: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (brussels): /proc/driver/nvidia/version does not exist
-2020-02-09 10:11:59.897218: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
-2020-02-09 10:11:59.917805: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 3312000000 Hz
-2020-02-09 10:11:59.917987: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x4187080 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
-2020-02-09 10:11:59.917998: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+[33m[LOSS] 6.895389076388981e-11[0m
+[CHECKING EARLY STOP]: currentLoss < min_delta ? => 6.895389076388981e-11  <  0.001
+[STOPPING EARLY]: currentLoss < min_delta => 6.895389076388981e-11  <  0.001
+EPOCH 3
+--- 22.596017360687256 seconds ---
+2020-02-09 12:33:23.388050: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer.so.6'; dlerror: libnvinfer.so.6: cannot open shared object file: No such file or directory
+2020-02-09 12:33:23.388098: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer_plugin.so.6'; dlerror: libnvinfer_plugin.so.6: cannot open shared object file: No such file or directory
+2020-02-09 12:33:23.388104: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:30] Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+2020-02-09 12:33:23.878886: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
+2020-02-09 12:33:23.878906: E tensorflow/stream_executor/cuda/cuda_driver.cc:351] failed call to cuInit: UNKNOWN ERROR (303)
+2020-02-09 12:33:23.878920: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (brussels): /proc/driver/nvidia/version does not exist
+2020-02-09 12:33:23.879020: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2020-02-09 12:33:23.901897: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 3312000000 Hz
+2020-02-09 12:33:23.902298: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x49a1010 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-02-09 12:33:23.902333: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
 Using TensorFlow backend.
 WARNING:tensorflow:Large dropout rate: 0.8 (>0.5). In TensorFlow 2.x, dropout() uses dropout rate instead of keep_prob. Please ensure that this is intended.
-2020-02-09 10:12:04.303193: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] remapper failed: Invalid argument: MutableGraphView::MutableGraphView error: node 'loss/dense_2_loss/categorical_crossentropy/weighted_loss/concat' has self cycle fanin 'loss/dense_2_loss/categorical_crossentropy/weighted_loss/concat'.
-2020-02-09 10:12:04.306441: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 0, topological sort failed with message: The graph couldn't be sorted in topological order.
-2020-02-09 10:12:04.307989: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 1, topological sort failed with message: The graph couldn't be sorted in topological order.
-2020-02-09 10:12:04.319340: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] arithmetic_optimizer failed: Invalid argument: The graph couldn't be sorted in topological order.
-2020-02-09 10:12:04.320097: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] remapper failed: Invalid argument: MutableGraphView::MutableGraphView error: node 'loss/dense_2_loss/categorical_crossentropy/weighted_loss/concat' has self cycle fanin 'loss/dense_2_loss/categorical_crossentropy/weighted_loss/concat'.
-2020-02-09 10:12:04.321195: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 0, topological sort failed with message: The graph couldn't be sorted in topological order.
-2020-02-09 10:12:04.322287: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 1, topological sort failed with message: The graph couldn't be sorted in topological order.
-2020-02-09 10:12:04.325038: W tensorflow/core/common_runtime/process_function_library_runtime.cc:697] Ignoring multi-device function optimization failure: Invalid argument: The graph couldn't be sorted in topological order.
+2020-02-09 12:33:27.543702: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] remapper failed: Invalid argument: MutableGraphView::MutableGraphView error: node 'loss/dense_2_loss/binary_crossentropy/weighted_loss/concat' has self cycle fanin 'loss/dense_2_loss/binary_crossentropy/weighted_loss/concat'.
+2020-02-09 12:33:27.547012: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 0, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-09 12:33:27.548555: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 1, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-09 12:33:27.559641: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] arithmetic_optimizer failed: Invalid argument: The graph couldn't be sorted in topological order.
+2020-02-09 12:33:27.560381: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:561] remapper failed: Invalid argument: MutableGraphView::MutableGraphView error: node 'loss/dense_2_loss/binary_crossentropy/weighted_loss/concat' has self cycle fanin 'loss/dense_2_loss/binary_crossentropy/weighted_loss/concat'.
+2020-02-09 12:33:27.561449: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 0, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-09 12:33:27.562522: E tensorflow/core/grappler/optimizers/dependency_optimizer.cc:717] Iteration = 1, topological sort failed with message: The graph couldn't be sorted in topological order.
+2020-02-09 12:33:27.565187: W tensorflow/core/common_runtime/process_function_library_runtime.cc:697] Ignoring multi-device function optimization failure: Invalid argument: The graph couldn't be sorted in topological order.
 =================================================
-        SCORING v0.4.4 (multi-class)
+        SCORING v0.4.5 (binary)
 =================================================
-Date: 2020-02-09 10:11:59.893786
-MULTI-CLASS num classes: 5
+Date: 2020-02-09 12:33:23.875596
 ------------DNN info-------------
+dnnBatchSize 16
 wrapLayerSize 16
 coreLayerSize 64
 numCoreLayers 1
-outputLayerActivation softmax
-output_dim 5
-loss categorical_crossentropy
+outputLayerActivation sigmoid
+output_dim 2
+loss binary_crossentropy
 optimizer adam
 ------------DNN info-------------
-[INFO] input_shape (128, 107)
+[INFO] input_shape (16, 107)
 [INFO] LSTM first and last layer neurons: 16
 [INFO] adding core layer 0
 [INFO] created DNN
@@ -280,26 +282,26 @@ Model: "sequential_1"
 _________________________________________________________________
 Layer (type)                 Output Shape              Param #   
 =================================================================
-lstm_1 (LSTM)                (None, 128, 16)           7936      
+lstm_1 (LSTM)                (None, 16, 16)            7936      
 _________________________________________________________________
-dropout_1 (Dropout)          (None, 128, 16)           0         
+dropout_1 (Dropout)          (None, 16, 16)            0         
 _________________________________________________________________
-lstm_2 (LSTM)                (None, 128, 64)           20736     
+lstm_2 (LSTM)                (None, 16, 64)            20736     
 _________________________________________________________________
-dropout_2 (Dropout)          (None, 128, 64)           0         
+dropout_2 (Dropout)          (None, 16, 64)            0         
 _________________________________________________________________
-lstm_3 (LSTM)                (None, 128, 16)           5184      
+lstm_3 (LSTM)                (None, 16, 16)            5184      
 _________________________________________________________________
-dropout_3 (Dropout)          (None, 128, 16)           0         
+dropout_3 (Dropout)          (None, 16, 16)            0         
 _________________________________________________________________
-dense_1 (Dense)              (None, 128, 1)            17        
+dense_1 (Dense)              (None, 16, 1)             17        
 _________________________________________________________________
-dropout_4 (Dropout)          (None, 128, 1)            0         
+dropout_4 (Dropout)          (None, 16, 1)             0         
 _________________________________________________________________
-dense_2 (Dense)              (None, 128, 5)            10        
+dense_2 (Dense)              (None, 16, 2)             4         
 =================================================================
-Total params: 33,883
-Trainable params: 33,883
+Total params: 33,877
+Trainable params: 33,877
 Non-trainable params: 0
 _________________________________________________________________
 [INFO] reading file data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-28_113021_98.log.part13_sorted-labeled.csv
@@ -311,28 +313,7 @@ _________________________________________________________________
        'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
        'service', 's_port', 'classification'],
       dtype='object')
-[INFO] analyze dataset: (500000, 17)
-
-[INFO] analyzing data
-[INFO] 500000 rows
-[INFO] ** unixtime:1359 (0.2718%)
-[INFO] ** orig:[192.168.1.48:100.0%]
-[INFO] ** type:[log:100.0%]
-[INFO] ** i/f_name:[eth1:99.9996%,0:0.0004%]
-[INFO] ** i/f_dir:[outbound:99.9996%,inbound:0.0004%]
-[INFO] ** src:[192.168.1.60:38.3832%,192.168.1.10:25.9606%,192.168.1.30:18.1352%,192.168.1.20:17.52%,192.168.1.201:0.0004%,0:0.0004%,192.168.1.40:0.0002%]
-[INFO] ** dst:[192.168.1.20:43.3108%,192.168.1.10:21.0326%,192.168.1.40:18.135%,192.168.1.30:17.5198%,192.168.1.50:0.0008%,192.168.1.88:0.0004%,0:0.0004%,192.168.1.60:0.0002%]
-[INFO] ** proto:[tcp:99.9996%,0:0.0004%]
-[INFO] ** appi_name:[CIP_read_tag_service:99.9992%,0:0.0004%,Web Browsing:0.0002%,DCE-RPC Protocol:0.0002%]
-[INFO] ** proxy_src_ip:[192.168.1.60:38.3832%,192.168.1.10:25.9606%,192.168.1.30:18.1352%,192.168.1.20:17.52%,192.168.1.201:0.0004%,0:0.0004%,192.168.1.40:0.0002%]
-[INFO] ** modbus_function_code:[0.9743589744:99.9992%,0.0:0.0008%]
-[INFO] ** modbus_function_description:[Read Tag Service - Response:50.0%,Read Tag Service:49.9992%,0:0.0008%]
-[INFO] ** modbus_transaction_id:65536 (13.1072%)
-[INFO] ** scada_tag:[HMI_FIT201:25.9596%,HMI_LIT101:21.0326%,HMI_LIT401:18.1348%,HMI_LIT301:17.5194%,HMI_AIT202:17.3504%,0:0.0032%]
-[INFO] ** service:[0.7025755984000001:99.9992%,0.0:0.0004%,0.0012540954:0.0002%,0.002116286:0.0002%]
-[INFO] ** s_port:[0.834280824:25.96%,0.8139250565:21.0326%,0.8029830673999999:18.1348%,0.8149336757:17.5196%,0.8137722355:17.3506%,0.8343113882:0.0004%,0.0:0.0004%,0.8059172320999999:0.0002%,0.8030136315999999:0.0002%,0.8147502904:0.0002%,0.8030441959000001:0.0002%,0.814841983:0.0002%,0.9621003729000001:0.0002%,0.8345253376999999:0.0002%,0.7788831836:0.0002%]
-[INFO] ** classification:[normal:72.7902%,Single Stage Single Point:27.2098%]
-[INFO] columns with count within 2-10 {'i/f_name': 2, 'i/f_dir': 2, 'src': 7, 'dst': 8, 'proto': 2, 'appi_name': 4, 'proxy_src_ip': 7, 'modbus_function_code': 2, 'modbus_function_description': 3, 'scada_tag': 6, 'service': 4, 'classification': 2}
+[INFO] Shape when encoding dataset: (500000, 17)
 [33mencode_text_dummy orig[0m
 [33mencode_text_dummy type[0m
 [33mencode_text_dummy i/f_name[0m
@@ -344,6 +325,7 @@ _________________________________________________________________
 [33mencode_text_dummy proxy_src_ip[0m
 [33mencode_text_dummy modbus_function_description[0m
 [33mencode_text_dummy scada_tag[0m
+missing 58
 adding missing-0
 adding missing-1
 adding missing-2
@@ -405,34 +387,29 @@ adding missing-57
 adding missing-58
 len(df.columns) 108
 numFeatures 107
+[INFO] Shape AFTER encoding dataset: (500000, 108)
 [INFO] processing batch 0-256000/500000
 [33m[INFO] measuring accuracy...[0m
 x_test.shape: (256000, 107)
 y_eval [1 0 1 ... 0 0 0] (256000,)
 [INFO] reshape for using LSTM layers
 [33m[INFO] metrics:[0m
-loss :  1.2084927492141724
-tp :  0.0
-fp :  0.0
-tn :  1024000.0
-fn :  256000.0
-accuracy :  0.7999964356422424
-precision :  0.0
-recall :  0.0
-auc :  0.8747725486755371
+loss :  6137598.728100246
+tp :  196643.0
+fp :  59357.0
+tn :  196643.0
+fn :  59357.0
+accuracy :  0.768136739730835
+precision :  0.768136739730835
+recall :  0.768136739730835
+auc :  0.7659643888473511
 
 y_eval {0: 196643, 1: 59357}
 pred {0: 256000}
 [INFO] confusion matrix for file 
-[[196643      0      0      0      0]
- [ 59357      0      0      0      0]
- [     0      0      0      0      0]
- [     0      0      0      0      0]
- [     0      0      0      0      0]]
+[[196643      0]
+ [ 59357      0]]
 [INFO] confusion matrix after adding it to total:
-[[196643      0      0      0      0]
- [ 59357      0      0      0      0]
- [     0      0      0      0      0]
- [     0      0      0      0      0]
- [     0      0      0      0      0]]
---- 7.016337633132935 seconds ---
+[[196643      0]
+ [ 59357      0]]
+--- 5.87063193321228 seconds ---

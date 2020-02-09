@@ -1,39 +1,27 @@
-2020-02-09 10:05:43.954584: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer.so.6'; dlerror: libnvinfer.so.6: cannot open shared object file: No such file or directory
-2020-02-09 10:05:43.954638: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer_plugin.so.6'; dlerror: libnvinfer_plugin.so.6: cannot open shared object file: No such file or directory
-2020-02-09 10:05:43.954644: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:30] Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
-2020-02-09 10:05:44.442492: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
-2020-02-09 10:05:44.442510: E tensorflow/stream_executor/cuda/cuda_driver.cc:351] failed call to cuInit: UNKNOWN ERROR (303)
-2020-02-09 10:05:44.442524: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (brussels): /proc/driver/nvidia/version does not exist
-2020-02-09 10:05:44.442630: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
-2020-02-09 10:05:44.465829: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 3312000000 Hz
-2020-02-09 10:05:44.466015: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x43f7e60 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
-2020-02-09 10:05:44.466028: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2020-02-09 12:20:36.926218: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer.so.6'; dlerror: libnvinfer.so.6: cannot open shared object file: No such file or directory
+2020-02-09 12:20:36.926270: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer_plugin.so.6'; dlerror: libnvinfer_plugin.so.6: cannot open shared object file: No such file or directory
+2020-02-09 12:20:36.926277: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:30] Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+2020-02-09 12:20:37.416372: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
+2020-02-09 12:20:37.416392: E tensorflow/stream_executor/cuda/cuda_driver.cc:351] failed call to cuInit: UNKNOWN ERROR (303)
+2020-02-09 12:20:37.416408: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (brussels): /proc/driver/nvidia/version does not exist
+2020-02-09 12:20:37.416516: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2020-02-09 12:20:37.437811: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 3312000000 Hz
+2020-02-09 12:20:37.437985: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x46d1e30 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-02-09 12:20:37.438011: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
 Using TensorFlow backend.
 WARNING:tensorflow:Large dropout rate: 0.8 (>0.5). In TensorFlow 2.x, dropout() uses dropout rate instead of keep_prob. Please ensure that this is intended.
-  File "train.py", line 375, in <module>
-    run()
-  File "train.py", line 276, in run
-    history = train_dnn(dfCopy, i, epoch+1, batch=batch_size)
-  File "train.py", line 125, in train_dnn
-    epochs=1,
-  File "/usr/local/lib/python3.6/dist-packages/keras/engine/training.py", line 1154, in fit
-    batch_size=batch_size)
-  File "/usr/local/lib/python3.6/dist-packages/keras/engine/training.py", line 579, in _standardize_user_data
-    exception_prefix='input')
-  File "/usr/local/lib/python3.6/dist-packages/keras/engine/training_utils.py", line 145, in standardize_input_data
-    str(data_shape))
 =================================================
-        TRAINING v0.4.4 (multi-class)
+        TRAINING v0.4.5 (binary)
 =================================================
-Date: 2020-02-09 10:05:44.439326
-MULTI-CLASS num classes: 5
+Date: 2020-02-09 12:20:37.413210
 ------------DNN info-------------
+dnnBatchSize 16
 wrapLayerSize 2
 coreLayerSize 4
 numCoreLayers 1
-outputLayerActivation softmax
-output_dim 5
-loss categorical_crossentropy
+outputLayerActivation sigmoid
+output_dim 2
+loss binary_crossentropy
 optimizer adam
 ------------DNN info-------------
 [33m[INFO] using Sequential Dense layers[0m
@@ -46,6 +34,94 @@ optimizer adam
 [INFO] process dataset, shape: (500000, 18)
 [INFO] sampling 1.0
 [33mdropping column: modbus_value[0m
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst', 'proto',
+       'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] analyze dataset: (500000, 16)
+
+[INFO] analyzing data
+[INFO] 500000 rows
+[INFO] ** orig:[192.168.1.48:100.0%]
+[INFO] ** type:[log:99.9998%,alert:0.0002%]
+[INFO] ** i/f_name:[eth1:99.9988%,0:0.0012%]
+[INFO] ** i/f_dir:[outbound:99.9988%,inbound:0.0012%]
+[INFO] ** src:[192.168.1.60:38.4088%,192.168.1.10:25.8982%,192.168.1.30:18.1636%,192.168.1.20:17.5218%,192.168.1.136:0.0014%,192.168.1.19:0.0014%,0:0.0012%,192.168.1.201:0.001%,192.168.1.49:0.001%,192.168.1.88:0.0006%,192.168.1.200:0.0004%,192.168.1.40:0.0004%,192.168.1.199:0.0002%]
+[INFO] ** dst:[192.168.1.20:43.266%,192.168.1.10:21.0416%,192.168.1.40:18.1634%,192.168.1.30:17.5214%,192.168.1.255:0.0016%,192.168.1.201:0.0012%,0:0.0012%,192.168.1.50:0.001%,224.0.0.252:0.0006%,224.0.0.251:0.0004%,192.168.1.200:0.0004%,192.168.1.19:0.0004%,192.168.1.49:0.0004%,192.168.1.60:0.0002%,239.255.255.250:0.0002%]
+[INFO] ** proto:[tcp:99.996%,udp:0.0028%,0:0.0012%]
+[INFO] ** appi_name:[CIP_read_tag_service:99.9928%,0:0.0012%,NetBIOS Name Service:0.001%,Unknown Traffic:0.0008%,DCE-RPC Protocol:0.0006%,NetBIOS Datagram Service:0.0006%,LLMNR Protocol:0.0006%,Multicast DNS Protocol (mDNS):0.0004%,NetBIOS Session Service:0.0004%,Server Message Block (SMB):0.0004%,Common Industrial Protocol:0.0002%,SSDP:0.0002%,EtherNet/IP:0.0002%,Common Industrial Protocol - RMW (Read/Modify/Write):0.0002%,OSIsoft PI:0.0002%,CIP_gen:0.0002%]
+[INFO] ** proxy_src_ip:[192.168.1.60:38.4088%,192.168.1.10:25.8982%,192.168.1.30:18.1636%,192.168.1.20:17.5218%,192.168.1.136:0.0014%,192.168.1.19:0.0014%,0:0.0012%,192.168.1.201:0.001%,192.168.1.49:0.001%,192.168.1.88:0.0006%,192.168.1.200:0.0004%,192.168.1.40:0.0004%,192.168.1.199:0.0002%]
+[INFO] ** modbus_function_code:[0.9743589744:99.9928%,0.0:0.007%,1.0:0.0002%]
+[INFO] ** modbus_function_description:[Read Tag Service - Response:49.9974%,Read Tag Service:49.9954%,0:0.007%,Forward Close - Response:0.0002%]
+[INFO] ** modbus_transaction_id:65536 (13.1072%)
+[INFO] ** scada_tag:[HMI_FIT201:25.8976%,HMI_LIT101:21.0406%,HMI_LIT401:18.163%,HMI_LIT301:17.521%,HMI_AIT202:17.3678%,0:0.01%]
+[INFO] ** service:[0.7025755984000001:99.9936%,0.0:0.0012%,0.0021476384:0.001%,0.0021789908:0.0008%,0.0208806885:0.0008%,0.0021633145999999997:0.0006%,0.08394601119999999:0.0006%,0.002116286:0.0006%,0.08391465880000001:0.0004%,0.0297847659:0.0002%,0.08543524949999999:0.0002%]
+[INFO] ** s_port:[0.834280824:25.8978%,0.8139250565:21.0408%,0.8029830673999999:18.1632%,0.8149336757:17.5212%,0.8137722355:17.368%,0.0:0.0012%,0.0020936488:0.001%,0.792988569:0.0008%,0.0021089309:0.0006%,0.814841983:0.0006%,0.7897640443:0.0004%,0.0818051226:0.0004%,0.8685433095:0.0004%,0.8059172320999999:0.0004%,0.8643407299:0.0002%,0.15240846019999998:0.0002%,0.9399107525:0.0002%,0.15243902439999998:0.0002%,0.980989058:0.0002%,0.8344030809:0.0002%,0.7593068036:0.0002%,0.8411730545999999:0.0002%,0.8668928418999999:0.0002%,0.7586191087:0.0002%,0.8345253376999999:0.0002%,0.0290360046:0.0002%,0.8030136315999999:0.0002%,0.8030441959000001:0.0002%,0.315972859:0.0002%,0.8876612262000001:0.0002%]
+[INFO] ** classification:[normal:79.2972%,Single Stage Single Point:20.7028%]
+[INFO] columns with count within 2-10 {'type': 2, 'i/f_name': 2, 'i/f_dir': 2, 'proto': 3, 'modbus_function_code': 3, 'modbus_function_description': 4, 'scada_tag': 6, 'classification': 2}
+--------------AFTER DROPPING COLUMNS ----------------
+df.columns Index(['orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst', 'proto',
+       'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object') 16
+                orig type i/f_name   i/f_dir           src           dst  \
+0       192.168.1.48  log     eth1  outbound  192.168.1.60  192.168.1.20   
+1       192.168.1.48  log     eth1  outbound  192.168.1.10  192.168.1.20   
+2       192.168.1.48  log     eth1  outbound  192.168.1.30  192.168.1.40   
+3       192.168.1.48  log     eth1  outbound  192.168.1.20  192.168.1.30   
+4       192.168.1.48  log     eth1  outbound  192.168.1.60  192.168.1.10   
+...              ...  ...      ...       ...           ...           ...   
+499995  192.168.1.48  log     eth1  outbound  192.168.1.30  192.168.1.40   
+499996  192.168.1.48  log     eth1  outbound  192.168.1.60  192.168.1.10   
+499997  192.168.1.48  log     eth1  outbound  192.168.1.60  192.168.1.20   
+499998  192.168.1.48  log     eth1  outbound  192.168.1.60  192.168.1.10   
+499999  192.168.1.48  log     eth1  outbound  192.168.1.30  192.168.1.40   
+
+       proto             appi_name  proxy_src_ip  modbus_function_code  \
+0        tcp  CIP_read_tag_service  192.168.1.60              0.974359   
+1        tcp  CIP_read_tag_service  192.168.1.10              0.974359   
+2        tcp  CIP_read_tag_service  192.168.1.30              0.974359   
+3        tcp  CIP_read_tag_service  192.168.1.20              0.974359   
+4        tcp  CIP_read_tag_service  192.168.1.60              0.974359   
+...      ...                   ...           ...                   ...   
+499995   tcp  CIP_read_tag_service  192.168.1.30              0.974359   
+499996   tcp  CIP_read_tag_service  192.168.1.60              0.974359   
+499997   tcp  CIP_read_tag_service  192.168.1.60              0.974359   
+499998   tcp  CIP_read_tag_service  192.168.1.60              0.974359   
+499999   tcp  CIP_read_tag_service  192.168.1.30              0.974359   
+
+        modbus_function_description  modbus_transaction_id   scada_tag  \
+0       Read Tag Service - Response               0.105043  HMI_AIT202   
+1       Read Tag Service - Response               0.049699  HMI_FIT201   
+2                  Read Tag Service               0.760021  HMI_LIT401   
+3                  Read Tag Service               0.724208  HMI_LIT301   
+4                  Read Tag Service               0.099031  HMI_LIT101   
+...                             ...                    ...         ...   
+499995             Read Tag Service               0.129915  HMI_LIT401   
+499996             Read Tag Service               0.570916  HMI_LIT101   
+499997             Read Tag Service               0.713100  HMI_AIT202   
+499998  Read Tag Service - Response               0.570916  HMI_LIT101   
+499999  Read Tag Service - Response               0.129915  HMI_LIT401   
+
+         service    s_port             classification  
+0       0.702576  0.813772                     normal  
+1       0.702576  0.834281                     normal  
+2       0.702576  0.802983                     normal  
+3       0.702576  0.814934                     normal  
+4       0.702576  0.813925                     normal  
+...          ...       ...                        ...  
+499995  0.702576  0.802983                     normal  
+499996  0.702576  0.813925  Single Stage Single Point  
+499997  0.702576  0.813772                     normal  
+499998  0.702576  0.813925  Single Stage Single Point  
+499999  0.702576  0.802983                     normal  
+
+[500000 rows x 16 columns]
+[INFO] Shape when encoding dataset: (500000, 16)
 [33mencode_text_dummy orig[0m
 [33mencode_text_dummy type[0m
 [33mencode_text_dummy i/f_name[0m
@@ -57,6 +133,886 @@ optimizer adam
 [33mencode_text_dummy proxy_src_ip[0m
 [33mencode_text_dummy modbus_function_description[0m
 [33mencode_text_dummy scada_tag[0m
+missing 22
+adding missing-0
+adding missing-1
+adding missing-2
+adding missing-3
+adding missing-4
+adding missing-5
+adding missing-6
+adding missing-7
+adding missing-8
+adding missing-9
+adding missing-10
+adding missing-11
+adding missing-12
+adding missing-13
+adding missing-14
+adding missing-15
+adding missing-16
+adding missing-17
+adding missing-18
+adding missing-19
+adding missing-20
+adding missing-21
+adding missing-22
+len(df.columns) 105
+numFeatures 104
+[INFO] Shape AFTER encoding dataset: (500000, 105)
+[INFO] processing batch 0-256000/500000
+[INFO] breaking into predictors and prediction...
+CHUNK ANALYZE
+
+[INFO] analyzing data
+[INFO] 256000 rows
+[INFO] ** modbus_function_code:[0.9743589744:99.99297%,0.0:0.00664%,1.0:0.00039%]
+[INFO] ** modbus_transaction_id:57548 (22.47969%)
+[INFO] ** service:[0.7025755984000001:99.99453%,0.0021476384:0.00117%,0.0:0.00117%,0.0021789908:0.00078%,0.0021633145999999997:0.00078%,0.08391465880000001:0.00078%,0.0297847659:0.00039%,0.08394601119999999:0.00039%]
+[INFO] ** s_port:[0.834280824:25.90586%,0.8139250565:21.04297%,0.8029830673999999:18.20469%,0.8149336757:17.47891%,0.8137722355:17.3582%,0.792988569:0.00156%,0.0:0.00117%,0.0020936488:0.00117%,0.0021089309:0.00078%,0.814841983:0.00078%,0.8059172320999999:0.00078%,0.7897640443:0.00078%,0.0818051226:0.00078%,0.0290360046:0.00039%,0.8030441959000001:0.00039%,0.980989058:0.00039%,0.8345253376999999:0.00039%]
+[INFO] ** classification:[normal:100.0%]
+[INFO] ** orig-192.168.1.48:[1:100.0%]
+[INFO] ** type-alert:[0:99.99961%,1:0.00039%]
+[INFO] ** type-log:[1:99.99961%,0:0.00039%]
+[INFO] ** i/f_name-0:[0:99.99883%,1:0.00117%]
+[INFO] ** i/f_name-eth1:[1:99.99883%,0:0.00117%]
+[INFO] ** i/f_dir-inbound:[0:99.99883%,1:0.00117%]
+[INFO] ** i/f_dir-outbound:[1:99.99883%,0:0.00117%]
+[INFO] ** src-0:[0:99.99883%,1:0.00117%]
+[INFO] ** src-192.168.1.10:[0:74.09375%,1:25.90625%]
+[INFO] ** src-192.168.1.136:[0:99.99727%,1:0.00273%]
+[INFO] ** src-192.168.1.19:[0:99.99727%,1:0.00273%]
+[INFO] ** src-192.168.1.199:[0:100.0%]
+[INFO] ** src-192.168.1.20:[0:82.52031%,1:17.47969%]
+[INFO] ** src-192.168.1.200:[0:100.0%]
+[INFO] ** src-192.168.1.201:[0:100.0%]
+[INFO] ** src-192.168.1.30:[0:81.79492%,1:18.20508%]
+[INFO] ** src-192.168.1.40:[0:99.99922%,1:0.00078%]
+[INFO] ** src-192.168.1.49:[0:99.99961%,1:0.00039%]
+[INFO] ** src-192.168.1.60:[0:61.59883%,1:38.40117%]
+[INFO] ** src-192.168.1.88:[0:100.0%]
+[INFO] ** dst-0:[0:99.99883%,1:0.00117%]
+[INFO] ** dst-192.168.1.10:[0:78.95547%,1:21.04453%]
+[INFO] ** dst-192.168.1.19:[0:100.0%]
+[INFO] ** dst-192.168.1.20:[0:56.73555%,1:43.26445%]
+[INFO] ** dst-192.168.1.200:[0:100.0%]
+[INFO] ** dst-192.168.1.201:[0:100.0%]
+[INFO] ** dst-192.168.1.255:[0:99.99805%,1:0.00195%]
+[INFO] ** dst-192.168.1.30:[0:82.5207%,1:17.4793%]
+[INFO] ** dst-192.168.1.40:[0:81.79531%,1:18.20469%]
+[INFO] ** dst-192.168.1.49:[0:99.99922%,1:0.00078%]
+[INFO] ** dst-192.168.1.50:[0:99.99844%,1:0.00156%]
+[INFO] ** dst-192.168.1.60:[0:100.0%]
+[INFO] ** dst-224.0.0.251:[0:99.99922%,1:0.00078%]
+[INFO] ** dst-224.0.0.252:[0:99.99961%,1:0.00039%]
+[INFO] ** dst-239.255.255.250:[0:99.99961%,1:0.00039%]
+[INFO] ** proto-0:[0:99.99883%,1:0.00117%]
+[INFO] ** proto-tcp:[1:99.99531%,0:0.00469%]
+[INFO] ** proto-udp:[0:99.99648%,1:0.00352%]
+[INFO] ** appi_name-0:[0:99.99883%,1:0.00117%]
+[INFO] ** appi_name-CIP_gen:[0:99.99961%,1:0.00039%]
+[INFO] ** appi_name-CIP_read_tag_service:[1:99.99297%,0:0.00703%]
+[INFO] ** appi_name-Common Industrial Protocol:[0:99.99961%,1:0.00039%]
+[INFO] ** appi_name-Common Industrial Protocol - RMW (Read/Modify/Write):[0:99.99961%,1:0.00039%]
+[INFO] ** appi_name-DCE-RPC Protocol:[0:100.0%]
+[INFO] ** appi_name-EtherNet/IP:[0:99.99961%,1:0.00039%]
+[INFO] ** appi_name-LLMNR Protocol:[0:99.99961%,1:0.00039%]
+[INFO] ** appi_name-Multicast DNS Protocol (mDNS):[0:99.99922%,1:0.00078%]
+[INFO] ** appi_name-NetBIOS Datagram Service:[0:99.99922%,1:0.00078%]
+[INFO] ** appi_name-NetBIOS Name Service:[0:99.99883%,1:0.00117%]
+[INFO] ** appi_name-NetBIOS Session Service:[0:99.99961%,1:0.00039%]
+[INFO] ** appi_name-OSIsoft PI:[0:100.0%]
+[INFO] ** appi_name-SSDP:[0:99.99961%,1:0.00039%]
+[INFO] ** appi_name-Server Message Block (SMB):[0:99.99961%,1:0.00039%]
+[INFO] ** appi_name-Unknown Traffic:[0:100.0%]
+[INFO] ** proxy_src_ip-0:[0:99.99883%,1:0.00117%]
+[INFO] ** proxy_src_ip-192.168.1.10:[0:74.09375%,1:25.90625%]
+[INFO] ** proxy_src_ip-192.168.1.136:[0:99.99727%,1:0.00273%]
+[INFO] ** proxy_src_ip-192.168.1.19:[0:99.99727%,1:0.00273%]
+[INFO] ** proxy_src_ip-192.168.1.199:[0:100.0%]
+[INFO] ** proxy_src_ip-192.168.1.20:[0:82.52031%,1:17.47969%]
+[INFO] ** proxy_src_ip-192.168.1.200:[0:100.0%]
+[INFO] ** proxy_src_ip-192.168.1.201:[0:100.0%]
+[INFO] ** proxy_src_ip-192.168.1.30:[0:81.79492%,1:18.20508%]
+[INFO] ** proxy_src_ip-192.168.1.40:[0:99.99922%,1:0.00078%]
+[INFO] ** proxy_src_ip-192.168.1.49:[0:99.99961%,1:0.00039%]
+[INFO] ** proxy_src_ip-192.168.1.60:[0:61.59883%,1:38.40117%]
+[INFO] ** proxy_src_ip-192.168.1.88:[0:100.0%]
+[INFO] ** modbus_function_description-0:[0:99.99336%,1:0.00664%]
+[INFO] ** modbus_function_description-Forward Close - Response:[0:99.99961%,1:0.00039%]
+[INFO] ** modbus_function_description-Read Tag Service:[0:50.00508%,1:49.99492%]
+[INFO] ** modbus_function_description-Read Tag Service - Response:[0:50.00195%,1:49.99805%]
+[INFO] ** scada_tag-0:[0:99.98984%,1:0.01016%]
+[INFO] ** scada_tag-HMI_AIT202:[0:82.64219%,1:17.35781%]
+[INFO] ** scada_tag-HMI_FIT201:[0:74.09453%,1:25.90547%]
+[INFO] ** scada_tag-HMI_LIT101:[0:78.95703%,1:21.04297%]
+[INFO] ** scada_tag-HMI_LIT301:[0:82.52109%,1:17.47891%]
+[INFO] ** scada_tag-HMI_LIT401:[0:81.79531%,1:18.20469%]
+[INFO] ** missing-0:[0:100.0%]
+[INFO] ** missing-1:[0:100.0%]
+[INFO] ** missing-2:[0:100.0%]
+[INFO] ** missing-3:[0:100.0%]
+[INFO] ** missing-4:[0:100.0%]
+[INFO] ** missing-5:[0:100.0%]
+[INFO] ** missing-6:[0:100.0%]
+[INFO] ** missing-7:[0:100.0%]
+[INFO] ** missing-8:[0:100.0%]
+[INFO] ** missing-9:[0:100.0%]
+[INFO] ** missing-10:[0:100.0%]
+[INFO] ** missing-11:[0:100.0%]
+[INFO] ** missing-12:[0:100.0%]
+[INFO] ** missing-13:[0:100.0%]
+[INFO] ** missing-14:[0:100.0%]
+[INFO] ** missing-15:[0:100.0%]
+[INFO] ** missing-16:[0:100.0%]
+[INFO] ** missing-17:[0:100.0%]
+[INFO] ** missing-18:[0:100.0%]
+[INFO] ** missing-19:[0:100.0%]
+[INFO] ** missing-20:[0:100.0%]
+[INFO] ** missing-21:[0:100.0%]
+[INFO] ** missing-22:[0:100.0%]
+[INFO] columns with count within 2-10 {'modbus_function_code': 3, 'service': 8, 'type-alert': 2, 'type-log': 2, 'i/f_name-0': 2, 'i/f_name-eth1': 2, 'i/f_dir-inbound': 2, 'i/f_dir-outbound': 2, 'src-0': 2, 'src-192.168.1.10': 2, 'src-192.168.1.136': 2, 'src-192.168.1.19': 2, 'src-192.168.1.20': 2, 'src-192.168.1.30': 2, 'src-192.168.1.40': 2, 'src-192.168.1.49': 2, 'src-192.168.1.60': 2, 'dst-0': 2, 'dst-192.168.1.10': 2, 'dst-192.168.1.20': 2, 'dst-192.168.1.255': 2, 'dst-192.168.1.30': 2, 'dst-192.168.1.40': 2, 'dst-192.168.1.49': 2, 'dst-192.168.1.50': 2, 'dst-224.0.0.251': 2, 'dst-224.0.0.252': 2, 'dst-239.255.255.250': 2, 'proto-0': 2, 'proto-tcp': 2, 'proto-udp': 2, 'appi_name-0': 2, 'appi_name-CIP_gen': 2, 'appi_name-CIP_read_tag_service': 2, 'appi_name-Common Industrial Protocol': 2, 'appi_name-Common Industrial Protocol - RMW (Read/Modify/Write)': 2, 'appi_name-EtherNet/IP': 2, 'appi_name-LLMNR Protocol': 2, 'appi_name-Multicast DNS Protocol (mDNS)': 2, 'appi_name-NetBIOS Datagram Service': 2, 'appi_name-NetBIOS Name Service': 2, 'appi_name-NetBIOS Session Service': 2, 'appi_name-SSDP': 2, 'appi_name-Server Message Block (SMB)': 2, 'proxy_src_ip-0': 2, 'proxy_src_ip-192.168.1.10': 2, 'proxy_src_ip-192.168.1.136': 2, 'proxy_src_ip-192.168.1.19': 2, 'proxy_src_ip-192.168.1.20': 2, 'proxy_src_ip-192.168.1.30': 2, 'proxy_src_ip-192.168.1.40': 2, 'proxy_src_ip-192.168.1.49': 2, 'proxy_src_ip-192.168.1.60': 2, 'modbus_function_description-0': 2, 'modbus_function_description-Forward Close - Response': 2, 'modbus_function_description-Read Tag Service': 2, 'modbus_function_description-Read Tag Service - Response': 2, 'scada_tag-0': 2, 'scada_tag-HMI_AIT202': 2, 'scada_tag-HMI_FIT201': 2, 'scada_tag-HMI_LIT101': 2, 'scada_tag-HMI_LIT301': 2, 'scada_tag-HMI_LIT401': 2}
+[INFO] to_xy labeltype: normal
+indices (array([     0,      1,      2, ..., 255997, 255998, 255999]),)
+y_vector [[1. 0.]
+ [1. 0.]
+ [1. 0.]
+ ...
+ [1. 0.]
+ [1. 0.]
+ [1. 0.]]
+z vector sum [256000.      0.]
+[INFO] creating train/test split: 0.25
+--------SHAPES--------
+x_train.shape (192000, 104)
+x_test.shape (64000, 104)
+y_train.shape (192000, 2)
+y_test.shape (64000, 2)
+Model: "sequential_1"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+dense_1 (Dense)              (None, 2)                 210       
+_________________________________________________________________
+dropout_1 (Dropout)          (None, 2)                 0         
+_________________________________________________________________
+dense_2 (Dense)              (None, 4)                 12        
+_________________________________________________________________
+dropout_2 (Dropout)          (None, 4)                 0         
+_________________________________________________________________
+dense_3 (Dense)              (None, 2)                 10        
+_________________________________________________________________
+dropout_3 (Dropout)          (None, 2)                 0         
+_________________________________________________________________
+dense_4 (Dense)              (None, 1)                 3         
+_________________________________________________________________
+dropout_4 (Dropout)          (None, 1)                 0         
+_________________________________________________________________
+dense_5 (Dense)              (None, 2)                 4         
+=================================================================
+Total params: 239
+Trainable params: 239
+Non-trainable params: 0
+_________________________________________________________________
+[INFO] fitting model. xtrain.shape: (192000, 104) y_train.shape: (192000, 2)
+Train on 192000 samples, validate on 64000 samples
+Epoch 1/1
+ - 7s - loss: 0.1774 - tp: 191968.0000 - fp: 0.0000e+00 - tn: 192000.0000 - fn: 32.0000 - accuracy: 0.9999 - precision: 1.0000 - recall: 0.9998 - auc: 1.0000 - val_loss: 0.0263 - val_tp: 64000.0000 - val_fp: 0.0000e+00 - val_tn: 64000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-001-files-0-50
+[33m[LOSS] 0.0262601338326931[0m
+[33m[INFO] epoch 2/3[0m
+[33m[INFO] loading file 1-50/1 on epoch 2/3[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (500000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst', 'proto',
+       'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] analyze dataset: (500000, 16)
+
+[INFO] analyzing data
+[INFO] 500000 rows
+[INFO] ** orig:[192.168.1.48:100.0%]
+[INFO] ** type:[log:99.9998%,alert:0.0002%]
+[INFO] ** i/f_name:[eth1:99.9988%,0:0.0012%]
+[INFO] ** i/f_dir:[outbound:99.9988%,inbound:0.0012%]
+[INFO] ** src:[192.168.1.60:38.4088%,192.168.1.10:25.8982%,192.168.1.30:18.1636%,192.168.1.20:17.5218%,192.168.1.136:0.0014%,192.168.1.19:0.0014%,0:0.0012%,192.168.1.201:0.001%,192.168.1.49:0.001%,192.168.1.88:0.0006%,192.168.1.200:0.0004%,192.168.1.40:0.0004%,192.168.1.199:0.0002%]
+[INFO] ** dst:[192.168.1.20:43.266%,192.168.1.10:21.0416%,192.168.1.40:18.1634%,192.168.1.30:17.5214%,192.168.1.255:0.0016%,192.168.1.201:0.0012%,0:0.0012%,192.168.1.50:0.001%,224.0.0.252:0.0006%,224.0.0.251:0.0004%,192.168.1.200:0.0004%,192.168.1.19:0.0004%,192.168.1.49:0.0004%,192.168.1.60:0.0002%,239.255.255.250:0.0002%]
+[INFO] ** proto:[tcp:99.996%,udp:0.0028%,0:0.0012%]
+[INFO] ** appi_name:[CIP_read_tag_service:99.9928%,0:0.0012%,NetBIOS Name Service:0.001%,Unknown Traffic:0.0008%,DCE-RPC Protocol:0.0006%,NetBIOS Datagram Service:0.0006%,LLMNR Protocol:0.0006%,Multicast DNS Protocol (mDNS):0.0004%,NetBIOS Session Service:0.0004%,Server Message Block (SMB):0.0004%,Common Industrial Protocol:0.0002%,SSDP:0.0002%,EtherNet/IP:0.0002%,Common Industrial Protocol - RMW (Read/Modify/Write):0.0002%,OSIsoft PI:0.0002%,CIP_gen:0.0002%]
+[INFO] ** proxy_src_ip:[192.168.1.60:38.4088%,192.168.1.10:25.8982%,192.168.1.30:18.1636%,192.168.1.20:17.5218%,192.168.1.136:0.0014%,192.168.1.19:0.0014%,0:0.0012%,192.168.1.201:0.001%,192.168.1.49:0.001%,192.168.1.88:0.0006%,192.168.1.200:0.0004%,192.168.1.40:0.0004%,192.168.1.199:0.0002%]
+[INFO] ** modbus_function_code:[0.9743589744:99.9928%,0.0:0.007%,1.0:0.0002%]
+[INFO] ** modbus_function_description:[Read Tag Service - Response:49.9974%,Read Tag Service:49.9954%,0:0.007%,Forward Close - Response:0.0002%]
+[INFO] ** modbus_transaction_id:65536 (13.1072%)
+[INFO] ** scada_tag:[HMI_FIT201:25.8976%,HMI_LIT101:21.0406%,HMI_LIT401:18.163%,HMI_LIT301:17.521%,HMI_AIT202:17.3678%,0:0.01%]
+[INFO] ** service:[0.7025755984000001:99.9936%,0.0:0.0012%,0.0021476384:0.001%,0.0021789908:0.0008%,0.0208806885:0.0008%,0.0021633145999999997:0.0006%,0.08394601119999999:0.0006%,0.002116286:0.0006%,0.08391465880000001:0.0004%,0.0297847659:0.0002%,0.08543524949999999:0.0002%]
+[INFO] ** s_port:[0.834280824:25.8978%,0.8139250565:21.0408%,0.8029830673999999:18.1632%,0.8149336757:17.5212%,0.8137722355:17.368%,0.0:0.0012%,0.0020936488:0.001%,0.792988569:0.0008%,0.0021089309:0.0006%,0.814841983:0.0006%,0.7897640443:0.0004%,0.0818051226:0.0004%,0.8685433095:0.0004%,0.8059172320999999:0.0004%,0.8643407299:0.0002%,0.15240846019999998:0.0002%,0.9399107525:0.0002%,0.15243902439999998:0.0002%,0.980989058:0.0002%,0.8344030809:0.0002%,0.7593068036:0.0002%,0.8411730545999999:0.0002%,0.8668928418999999:0.0002%,0.7586191087:0.0002%,0.8345253376999999:0.0002%,0.0290360046:0.0002%,0.8030136315999999:0.0002%,0.8030441959000001:0.0002%,0.315972859:0.0002%,0.8876612262000001:0.0002%]
+[INFO] ** classification:[normal:79.2972%,Single Stage Single Point:20.7028%]
+[INFO] columns with count within 2-10 {'type': 2, 'i/f_name': 2, 'i/f_dir': 2, 'proto': 3, 'modbus_function_code': 3, 'modbus_function_description': 4, 'scada_tag': 6, 'classification': 2}
+--------------AFTER DROPPING COLUMNS ----------------
+df.columns Index(['orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst', 'proto',
+       'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object') 16
+                orig type i/f_name   i/f_dir           src           dst  \
+0       192.168.1.48  log     eth1  outbound  192.168.1.60  192.168.1.20   
+1       192.168.1.48  log     eth1  outbound  192.168.1.10  192.168.1.20   
+2       192.168.1.48  log     eth1  outbound  192.168.1.30  192.168.1.40   
+3       192.168.1.48  log     eth1  outbound  192.168.1.20  192.168.1.30   
+4       192.168.1.48  log     eth1  outbound  192.168.1.60  192.168.1.10   
+...              ...  ...      ...       ...           ...           ...   
+499995  192.168.1.48  log     eth1  outbound  192.168.1.30  192.168.1.40   
+499996  192.168.1.48  log     eth1  outbound  192.168.1.60  192.168.1.10   
+499997  192.168.1.48  log     eth1  outbound  192.168.1.60  192.168.1.20   
+499998  192.168.1.48  log     eth1  outbound  192.168.1.60  192.168.1.10   
+499999  192.168.1.48  log     eth1  outbound  192.168.1.30  192.168.1.40   
+
+       proto             appi_name  proxy_src_ip  modbus_function_code  \
+0        tcp  CIP_read_tag_service  192.168.1.60              0.974359   
+1        tcp  CIP_read_tag_service  192.168.1.10              0.974359   
+2        tcp  CIP_read_tag_service  192.168.1.30              0.974359   
+3        tcp  CIP_read_tag_service  192.168.1.20              0.974359   
+4        tcp  CIP_read_tag_service  192.168.1.60              0.974359   
+...      ...                   ...           ...                   ...   
+499995   tcp  CIP_read_tag_service  192.168.1.30              0.974359   
+499996   tcp  CIP_read_tag_service  192.168.1.60              0.974359   
+499997   tcp  CIP_read_tag_service  192.168.1.60              0.974359   
+499998   tcp  CIP_read_tag_service  192.168.1.60              0.974359   
+499999   tcp  CIP_read_tag_service  192.168.1.30              0.974359   
+
+        modbus_function_description  modbus_transaction_id   scada_tag  \
+0       Read Tag Service - Response               0.105043  HMI_AIT202   
+1       Read Tag Service - Response               0.049699  HMI_FIT201   
+2                  Read Tag Service               0.760021  HMI_LIT401   
+3                  Read Tag Service               0.724208  HMI_LIT301   
+4                  Read Tag Service               0.099031  HMI_LIT101   
+...                             ...                    ...         ...   
+499995             Read Tag Service               0.129915  HMI_LIT401   
+499996             Read Tag Service               0.570916  HMI_LIT101   
+499997             Read Tag Service               0.713100  HMI_AIT202   
+499998  Read Tag Service - Response               0.570916  HMI_LIT101   
+499999  Read Tag Service - Response               0.129915  HMI_LIT401   
+
+         service    s_port             classification  
+0       0.702576  0.813772                     normal  
+1       0.702576  0.834281                     normal  
+2       0.702576  0.802983                     normal  
+3       0.702576  0.814934                     normal  
+4       0.702576  0.813925                     normal  
+...          ...       ...                        ...  
+499995  0.702576  0.802983                     normal  
+499996  0.702576  0.813925  Single Stage Single Point  
+499997  0.702576  0.813772                     normal  
+499998  0.702576  0.813925  Single Stage Single Point  
+499999  0.702576  0.802983                     normal  
+
+[500000 rows x 16 columns]
+[INFO] Shape when encoding dataset: (500000, 16)
+[33mencode_text_dummy orig[0m
+[33mencode_text_dummy type[0m
+[33mencode_text_dummy i/f_name[0m
+[33mencode_text_dummy i/f_dir[0m
+[33mencode_text_dummy src[0m
+[33mencode_text_dummy dst[0m
+[33mencode_text_dummy proto[0m
+[33mencode_text_dummy appi_name[0m
+[33mencode_text_dummy proxy_src_ip[0m
+[33mencode_text_dummy modbus_function_description[0m
+[33mencode_text_dummy scada_tag[0m
+missing 22
+adding missing-0
+adding missing-1
+adding missing-2
+adding missing-3
+adding missing-4
+adding missing-5
+adding missing-6
+adding missing-7
+adding missing-8
+adding missing-9
+adding missing-10
+adding missing-11
+adding missing-12
+adding missing-13
+adding missing-14
+adding missing-15
+adding missing-16
+adding missing-17
+adding missing-18
+adding missing-19
+adding missing-20
+adding missing-21
+adding missing-22
+len(df.columns) 105
+numFeatures 104
+[INFO] Shape AFTER encoding dataset: (500000, 105)
+[INFO] processing batch 0-256000/500000
+[INFO] breaking into predictors and prediction...
+CHUNK ANALYZE
+
+[INFO] analyzing data
+[INFO] 256000 rows
+[INFO] ** modbus_function_code:[0.9743589744:99.99297%,0.0:0.00664%,1.0:0.00039%]
+[INFO] ** modbus_transaction_id:57548 (22.47969%)
+[INFO] ** service:[0.7025755984000001:99.99453%,0.0021476384:0.00117%,0.0:0.00117%,0.0021789908:0.00078%,0.0021633145999999997:0.00078%,0.08391465880000001:0.00078%,0.0297847659:0.00039%,0.08394601119999999:0.00039%]
+[INFO] ** s_port:[0.834280824:25.90586%,0.8139250565:21.04297%,0.8029830673999999:18.20469%,0.8149336757:17.47891%,0.8137722355:17.3582%,0.792988569:0.00156%,0.0:0.00117%,0.0020936488:0.00117%,0.0021089309:0.00078%,0.814841983:0.00078%,0.8059172320999999:0.00078%,0.7897640443:0.00078%,0.0818051226:0.00078%,0.0290360046:0.00039%,0.8030441959000001:0.00039%,0.980989058:0.00039%,0.8345253376999999:0.00039%]
+[INFO] ** classification:[normal:100.0%]
+[INFO] ** orig-192.168.1.48:[1:100.0%]
+[INFO] ** type-alert:[0:99.99961%,1:0.00039%]
+[INFO] ** type-log:[1:99.99961%,0:0.00039%]
+[INFO] ** i/f_name-0:[0:99.99883%,1:0.00117%]
+[INFO] ** i/f_name-eth1:[1:99.99883%,0:0.00117%]
+[INFO] ** i/f_dir-inbound:[0:99.99883%,1:0.00117%]
+[INFO] ** i/f_dir-outbound:[1:99.99883%,0:0.00117%]
+[INFO] ** src-0:[0:99.99883%,1:0.00117%]
+[INFO] ** src-192.168.1.10:[0:74.09375%,1:25.90625%]
+[INFO] ** src-192.168.1.136:[0:99.99727%,1:0.00273%]
+[INFO] ** src-192.168.1.19:[0:99.99727%,1:0.00273%]
+[INFO] ** src-192.168.1.199:[0:100.0%]
+[INFO] ** src-192.168.1.20:[0:82.52031%,1:17.47969%]
+[INFO] ** src-192.168.1.200:[0:100.0%]
+[INFO] ** src-192.168.1.201:[0:100.0%]
+[INFO] ** src-192.168.1.30:[0:81.79492%,1:18.20508%]
+[INFO] ** src-192.168.1.40:[0:99.99922%,1:0.00078%]
+[INFO] ** src-192.168.1.49:[0:99.99961%,1:0.00039%]
+[INFO] ** src-192.168.1.60:[0:61.59883%,1:38.40117%]
+[INFO] ** src-192.168.1.88:[0:100.0%]
+[INFO] ** dst-0:[0:99.99883%,1:0.00117%]
+[INFO] ** dst-192.168.1.10:[0:78.95547%,1:21.04453%]
+[INFO] ** dst-192.168.1.19:[0:100.0%]
+[INFO] ** dst-192.168.1.20:[0:56.73555%,1:43.26445%]
+[INFO] ** dst-192.168.1.200:[0:100.0%]
+[INFO] ** dst-192.168.1.201:[0:100.0%]
+[INFO] ** dst-192.168.1.255:[0:99.99805%,1:0.00195%]
+[INFO] ** dst-192.168.1.30:[0:82.5207%,1:17.4793%]
+[INFO] ** dst-192.168.1.40:[0:81.79531%,1:18.20469%]
+[INFO] ** dst-192.168.1.49:[0:99.99922%,1:0.00078%]
+[INFO] ** dst-192.168.1.50:[0:99.99844%,1:0.00156%]
+[INFO] ** dst-192.168.1.60:[0:100.0%]
+[INFO] ** dst-224.0.0.251:[0:99.99922%,1:0.00078%]
+[INFO] ** dst-224.0.0.252:[0:99.99961%,1:0.00039%]
+[INFO] ** dst-239.255.255.250:[0:99.99961%,1:0.00039%]
+[INFO] ** proto-0:[0:99.99883%,1:0.00117%]
+[INFO] ** proto-tcp:[1:99.99531%,0:0.00469%]
+[INFO] ** proto-udp:[0:99.99648%,1:0.00352%]
+[INFO] ** appi_name-0:[0:99.99883%,1:0.00117%]
+[INFO] ** appi_name-CIP_gen:[0:99.99961%,1:0.00039%]
+[INFO] ** appi_name-CIP_read_tag_service:[1:99.99297%,0:0.00703%]
+[INFO] ** appi_name-Common Industrial Protocol:[0:99.99961%,1:0.00039%]
+[INFO] ** appi_name-Common Industrial Protocol - RMW (Read/Modify/Write):[0:99.99961%,1:0.00039%]
+[INFO] ** appi_name-DCE-RPC Protocol:[0:100.0%]
+[INFO] ** appi_name-EtherNet/IP:[0:99.99961%,1:0.00039%]
+[INFO] ** appi_name-LLMNR Protocol:[0:99.99961%,1:0.00039%]
+[INFO] ** appi_name-Multicast DNS Protocol (mDNS):[0:99.99922%,1:0.00078%]
+[INFO] ** appi_name-NetBIOS Datagram Service:[0:99.99922%,1:0.00078%]
+[INFO] ** appi_name-NetBIOS Name Service:[0:99.99883%,1:0.00117%]
+[INFO] ** appi_name-NetBIOS Session Service:[0:99.99961%,1:0.00039%]
+[INFO] ** appi_name-OSIsoft PI:[0:100.0%]
+[INFO] ** appi_name-SSDP:[0:99.99961%,1:0.00039%]
+[INFO] ** appi_name-Server Message Block (SMB):[0:99.99961%,1:0.00039%]
+[INFO] ** appi_name-Unknown Traffic:[0:100.0%]
+[INFO] ** proxy_src_ip-0:[0:99.99883%,1:0.00117%]
+[INFO] ** proxy_src_ip-192.168.1.10:[0:74.09375%,1:25.90625%]
+[INFO] ** proxy_src_ip-192.168.1.136:[0:99.99727%,1:0.00273%]
+[INFO] ** proxy_src_ip-192.168.1.19:[0:99.99727%,1:0.00273%]
+[INFO] ** proxy_src_ip-192.168.1.199:[0:100.0%]
+[INFO] ** proxy_src_ip-192.168.1.20:[0:82.52031%,1:17.47969%]
+[INFO] ** proxy_src_ip-192.168.1.200:[0:100.0%]
+[INFO] ** proxy_src_ip-192.168.1.201:[0:100.0%]
+[INFO] ** proxy_src_ip-192.168.1.30:[0:81.79492%,1:18.20508%]
+[INFO] ** proxy_src_ip-192.168.1.40:[0:99.99922%,1:0.00078%]
+[INFO] ** proxy_src_ip-192.168.1.49:[0:99.99961%,1:0.00039%]
+[INFO] ** proxy_src_ip-192.168.1.60:[0:61.59883%,1:38.40117%]
+[INFO] ** proxy_src_ip-192.168.1.88:[0:100.0%]
+[INFO] ** modbus_function_description-0:[0:99.99336%,1:0.00664%]
+[INFO] ** modbus_function_description-Forward Close - Response:[0:99.99961%,1:0.00039%]
+[INFO] ** modbus_function_description-Read Tag Service:[0:50.00508%,1:49.99492%]
+[INFO] ** modbus_function_description-Read Tag Service - Response:[0:50.00195%,1:49.99805%]
+[INFO] ** scada_tag-0:[0:99.98984%,1:0.01016%]
+[INFO] ** scada_tag-HMI_AIT202:[0:82.64219%,1:17.35781%]
+[INFO] ** scada_tag-HMI_FIT201:[0:74.09453%,1:25.90547%]
+[INFO] ** scada_tag-HMI_LIT101:[0:78.95703%,1:21.04297%]
+[INFO] ** scada_tag-HMI_LIT301:[0:82.52109%,1:17.47891%]
+[INFO] ** scada_tag-HMI_LIT401:[0:81.79531%,1:18.20469%]
+[INFO] ** missing-0:[0:100.0%]
+[INFO] ** missing-1:[0:100.0%]
+[INFO] ** missing-2:[0:100.0%]
+[INFO] ** missing-3:[0:100.0%]
+[INFO] ** missing-4:[0:100.0%]
+[INFO] ** missing-5:[0:100.0%]
+[INFO] ** missing-6:[0:100.0%]
+[INFO] ** missing-7:[0:100.0%]
+[INFO] ** missing-8:[0:100.0%]
+[INFO] ** missing-9:[0:100.0%]
+[INFO] ** missing-10:[0:100.0%]
+[INFO] ** missing-11:[0:100.0%]
+[INFO] ** missing-12:[0:100.0%]
+[INFO] ** missing-13:[0:100.0%]
+[INFO] ** missing-14:[0:100.0%]
+[INFO] ** missing-15:[0:100.0%]
+[INFO] ** missing-16:[0:100.0%]
+[INFO] ** missing-17:[0:100.0%]
+[INFO] ** missing-18:[0:100.0%]
+[INFO] ** missing-19:[0:100.0%]
+[INFO] ** missing-20:[0:100.0%]
+[INFO] ** missing-21:[0:100.0%]
+[INFO] ** missing-22:[0:100.0%]
+[INFO] columns with count within 2-10 {'modbus_function_code': 3, 'service': 8, 'type-alert': 2, 'type-log': 2, 'i/f_name-0': 2, 'i/f_name-eth1': 2, 'i/f_dir-inbound': 2, 'i/f_dir-outbound': 2, 'src-0': 2, 'src-192.168.1.10': 2, 'src-192.168.1.136': 2, 'src-192.168.1.19': 2, 'src-192.168.1.20': 2, 'src-192.168.1.30': 2, 'src-192.168.1.40': 2, 'src-192.168.1.49': 2, 'src-192.168.1.60': 2, 'dst-0': 2, 'dst-192.168.1.10': 2, 'dst-192.168.1.20': 2, 'dst-192.168.1.255': 2, 'dst-192.168.1.30': 2, 'dst-192.168.1.40': 2, 'dst-192.168.1.49': 2, 'dst-192.168.1.50': 2, 'dst-224.0.0.251': 2, 'dst-224.0.0.252': 2, 'dst-239.255.255.250': 2, 'proto-0': 2, 'proto-tcp': 2, 'proto-udp': 2, 'appi_name-0': 2, 'appi_name-CIP_gen': 2, 'appi_name-CIP_read_tag_service': 2, 'appi_name-Common Industrial Protocol': 2, 'appi_name-Common Industrial Protocol - RMW (Read/Modify/Write)': 2, 'appi_name-EtherNet/IP': 2, 'appi_name-LLMNR Protocol': 2, 'appi_name-Multicast DNS Protocol (mDNS)': 2, 'appi_name-NetBIOS Datagram Service': 2, 'appi_name-NetBIOS Name Service': 2, 'appi_name-NetBIOS Session Service': 2, 'appi_name-SSDP': 2, 'appi_name-Server Message Block (SMB)': 2, 'proxy_src_ip-0': 2, 'proxy_src_ip-192.168.1.10': 2, 'proxy_src_ip-192.168.1.136': 2, 'proxy_src_ip-192.168.1.19': 2, 'proxy_src_ip-192.168.1.20': 2, 'proxy_src_ip-192.168.1.30': 2, 'proxy_src_ip-192.168.1.40': 2, 'proxy_src_ip-192.168.1.49': 2, 'proxy_src_ip-192.168.1.60': 2, 'modbus_function_description-0': 2, 'modbus_function_description-Forward Close - Response': 2, 'modbus_function_description-Read Tag Service': 2, 'modbus_function_description-Read Tag Service - Response': 2, 'scada_tag-0': 2, 'scada_tag-HMI_AIT202': 2, 'scada_tag-HMI_FIT201': 2, 'scada_tag-HMI_LIT101': 2, 'scada_tag-HMI_LIT301': 2, 'scada_tag-HMI_LIT401': 2}
+[INFO] to_xy labeltype: normal
+indices (array([     0,      1,      2, ..., 255997, 255998, 255999]),)
+y_vector [[1. 0.]
+ [1. 0.]
+ [1. 0.]
+ ...
+ [1. 0.]
+ [1. 0.]
+ [1. 0.]]
+z vector sum [256000.      0.]
+[INFO] creating train/test split: 0.25
+--------SHAPES--------
+x_train.shape (192000, 104)
+x_test.shape (64000, 104)
+y_train.shape (192000, 2)
+y_test.shape (64000, 2)
+Model: "sequential_1"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+dense_1 (Dense)              (None, 2)                 210       
+_________________________________________________________________
+dropout_1 (Dropout)          (None, 2)                 0         
+_________________________________________________________________
+dense_2 (Dense)              (None, 4)                 12        
+_________________________________________________________________
+dropout_2 (Dropout)          (None, 4)                 0         
+_________________________________________________________________
+dense_3 (Dense)              (None, 2)                 10        
+_________________________________________________________________
+dropout_3 (Dropout)          (None, 2)                 0         
+_________________________________________________________________
+dense_4 (Dense)              (None, 1)                 3         
+_________________________________________________________________
+dropout_4 (Dropout)          (None, 1)                 0         
+_________________________________________________________________
+dense_5 (Dense)              (None, 2)                 4         
+=================================================================
+Total params: 239
+Trainable params: 239
+Non-trainable params: 0
+_________________________________________________________________
+[INFO] fitting model. xtrain.shape: (192000, 104) y_train.shape: (192000, 2)
+Train on 192000 samples, validate on 64000 samples
+Epoch 1/1
+ - 6s - loss: 0.0094 - tp: 192000.0000 - fp: 0.0000e+00 - tn: 192000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 0.0021 - val_tp: 64000.0000 - val_fp: 0.0000e+00 - val_tn: 64000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-002-files-0-50
+[33m[LOSS] 0.002066559623926878[0m
+[33m[INFO] epoch 3/3[0m
+[33m[INFO] loading file 1-50/1 on epoch 3/3[0m
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-28_113021_98.log.part12_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (500000, 18)
+[INFO] sampling 1.0
+[33mdropping column: modbus_value[0m
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst', 'proto',
+       'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] analyze dataset: (500000, 16)
+
+[INFO] analyzing data
+[INFO] 500000 rows
+[INFO] ** orig:[192.168.1.48:100.0%]
+[INFO] ** type:[log:99.9998%,alert:0.0002%]
+[INFO] ** i/f_name:[eth1:99.9988%,0:0.0012%]
+[INFO] ** i/f_dir:[outbound:99.9988%,inbound:0.0012%]
+[INFO] ** src:[192.168.1.60:38.4088%,192.168.1.10:25.8982%,192.168.1.30:18.1636%,192.168.1.20:17.5218%,192.168.1.136:0.0014%,192.168.1.19:0.0014%,0:0.0012%,192.168.1.201:0.001%,192.168.1.49:0.001%,192.168.1.88:0.0006%,192.168.1.200:0.0004%,192.168.1.40:0.0004%,192.168.1.199:0.0002%]
+[INFO] ** dst:[192.168.1.20:43.266%,192.168.1.10:21.0416%,192.168.1.40:18.1634%,192.168.1.30:17.5214%,192.168.1.255:0.0016%,192.168.1.201:0.0012%,0:0.0012%,192.168.1.50:0.001%,224.0.0.252:0.0006%,224.0.0.251:0.0004%,192.168.1.200:0.0004%,192.168.1.19:0.0004%,192.168.1.49:0.0004%,192.168.1.60:0.0002%,239.255.255.250:0.0002%]
+[INFO] ** proto:[tcp:99.996%,udp:0.0028%,0:0.0012%]
+[INFO] ** appi_name:[CIP_read_tag_service:99.9928%,0:0.0012%,NetBIOS Name Service:0.001%,Unknown Traffic:0.0008%,DCE-RPC Protocol:0.0006%,NetBIOS Datagram Service:0.0006%,LLMNR Protocol:0.0006%,Multicast DNS Protocol (mDNS):0.0004%,NetBIOS Session Service:0.0004%,Server Message Block (SMB):0.0004%,Common Industrial Protocol:0.0002%,SSDP:0.0002%,EtherNet/IP:0.0002%,Common Industrial Protocol - RMW (Read/Modify/Write):0.0002%,OSIsoft PI:0.0002%,CIP_gen:0.0002%]
+[INFO] ** proxy_src_ip:[192.168.1.60:38.4088%,192.168.1.10:25.8982%,192.168.1.30:18.1636%,192.168.1.20:17.5218%,192.168.1.136:0.0014%,192.168.1.19:0.0014%,0:0.0012%,192.168.1.201:0.001%,192.168.1.49:0.001%,192.168.1.88:0.0006%,192.168.1.200:0.0004%,192.168.1.40:0.0004%,192.168.1.199:0.0002%]
+[INFO] ** modbus_function_code:[0.9743589744:99.9928%,0.0:0.007%,1.0:0.0002%]
+[INFO] ** modbus_function_description:[Read Tag Service - Response:49.9974%,Read Tag Service:49.9954%,0:0.007%,Forward Close - Response:0.0002%]
+[INFO] ** modbus_transaction_id:65536 (13.1072%)
+[INFO] ** scada_tag:[HMI_FIT201:25.8976%,HMI_LIT101:21.0406%,HMI_LIT401:18.163%,HMI_LIT301:17.521%,HMI_AIT202:17.3678%,0:0.01%]
+[INFO] ** service:[0.7025755984000001:99.9936%,0.0:0.0012%,0.0021476384:0.001%,0.0021789908:0.0008%,0.0208806885:0.0008%,0.0021633145999999997:0.0006%,0.08394601119999999:0.0006%,0.002116286:0.0006%,0.08391465880000001:0.0004%,0.0297847659:0.0002%,0.08543524949999999:0.0002%]
+[INFO] ** s_port:[0.834280824:25.8978%,0.8139250565:21.0408%,0.8029830673999999:18.1632%,0.8149336757:17.5212%,0.8137722355:17.368%,0.0:0.0012%,0.0020936488:0.001%,0.792988569:0.0008%,0.0021089309:0.0006%,0.814841983:0.0006%,0.7897640443:0.0004%,0.0818051226:0.0004%,0.8685433095:0.0004%,0.8059172320999999:0.0004%,0.8643407299:0.0002%,0.15240846019999998:0.0002%,0.9399107525:0.0002%,0.15243902439999998:0.0002%,0.980989058:0.0002%,0.8344030809:0.0002%,0.7593068036:0.0002%,0.8411730545999999:0.0002%,0.8668928418999999:0.0002%,0.7586191087:0.0002%,0.8345253376999999:0.0002%,0.0290360046:0.0002%,0.8030136315999999:0.0002%,0.8030441959000001:0.0002%,0.315972859:0.0002%,0.8876612262000001:0.0002%]
+[INFO] ** classification:[normal:79.2972%,Single Stage Single Point:20.7028%]
+[INFO] columns with count within 2-10 {'type': 2, 'i/f_name': 2, 'i/f_dir': 2, 'proto': 3, 'modbus_function_code': 3, 'modbus_function_description': 4, 'scada_tag': 6, 'classification': 2}
+--------------AFTER DROPPING COLUMNS ----------------
+df.columns Index(['orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst', 'proto',
+       'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object') 16
+                orig type i/f_name   i/f_dir           src           dst  \
+0       192.168.1.48  log     eth1  outbound  192.168.1.60  192.168.1.20   
+1       192.168.1.48  log     eth1  outbound  192.168.1.10  192.168.1.20   
+2       192.168.1.48  log     eth1  outbound  192.168.1.30  192.168.1.40   
+3       192.168.1.48  log     eth1  outbound  192.168.1.20  192.168.1.30   
+4       192.168.1.48  log     eth1  outbound  192.168.1.60  192.168.1.10   
+...              ...  ...      ...       ...           ...           ...   
+499995  192.168.1.48  log     eth1  outbound  192.168.1.30  192.168.1.40   
+499996  192.168.1.48  log     eth1  outbound  192.168.1.60  192.168.1.10   
+499997  192.168.1.48  log     eth1  outbound  192.168.1.60  192.168.1.20   
+499998  192.168.1.48  log     eth1  outbound  192.168.1.60  192.168.1.10   
+499999  192.168.1.48  log     eth1  outbound  192.168.1.30  192.168.1.40   
+
+       proto             appi_name  proxy_src_ip  modbus_function_code  \
+0        tcp  CIP_read_tag_service  192.168.1.60              0.974359   
+1        tcp  CIP_read_tag_service  192.168.1.10              0.974359   
+2        tcp  CIP_read_tag_service  192.168.1.30              0.974359   
+3        tcp  CIP_read_tag_service  192.168.1.20              0.974359   
+4        tcp  CIP_read_tag_service  192.168.1.60              0.974359   
+...      ...                   ...           ...                   ...   
+499995   tcp  CIP_read_tag_service  192.168.1.30              0.974359   
+499996   tcp  CIP_read_tag_service  192.168.1.60              0.974359   
+499997   tcp  CIP_read_tag_service  192.168.1.60              0.974359   
+499998   tcp  CIP_read_tag_service  192.168.1.60              0.974359   
+499999   tcp  CIP_read_tag_service  192.168.1.30              0.974359   
+
+        modbus_function_description  modbus_transaction_id   scada_tag  \
+0       Read Tag Service - Response               0.105043  HMI_AIT202   
+1       Read Tag Service - Response               0.049699  HMI_FIT201   
+2                  Read Tag Service               0.760021  HMI_LIT401   
+3                  Read Tag Service               0.724208  HMI_LIT301   
+4                  Read Tag Service               0.099031  HMI_LIT101   
+...                             ...                    ...         ...   
+499995             Read Tag Service               0.129915  HMI_LIT401   
+499996             Read Tag Service               0.570916  HMI_LIT101   
+499997             Read Tag Service               0.713100  HMI_AIT202   
+499998  Read Tag Service - Response               0.570916  HMI_LIT101   
+499999  Read Tag Service - Response               0.129915  HMI_LIT401   
+
+         service    s_port             classification  
+0       0.702576  0.813772                     normal  
+1       0.702576  0.834281                     normal  
+2       0.702576  0.802983                     normal  
+3       0.702576  0.814934                     normal  
+4       0.702576  0.813925                     normal  
+...          ...       ...                        ...  
+499995  0.702576  0.802983                     normal  
+499996  0.702576  0.813925  Single Stage Single Point  
+499997  0.702576  0.813772                     normal  
+499998  0.702576  0.813925  Single Stage Single Point  
+499999  0.702576  0.802983                     normal  
+
+[500000 rows x 16 columns]
+[INFO] Shape when encoding dataset: (500000, 16)
+[33mencode_text_dummy orig[0m
+[33mencode_text_dummy type[0m
+[33mencode_text_dummy i/f_name[0m
+[33mencode_text_dummy i/f_dir[0m
+[33mencode_text_dummy src[0m
+[33mencode_text_dummy dst[0m
+[33mencode_text_dummy proto[0m
+[33mencode_text_dummy appi_name[0m
+[33mencode_text_dummy proxy_src_ip[0m
+[33mencode_text_dummy modbus_function_description[0m
+[33mencode_text_dummy scada_tag[0m
+missing 22
+adding missing-0
+adding missing-1
+adding missing-2
+adding missing-3
+adding missing-4
+adding missing-5
+adding missing-6
+adding missing-7
+adding missing-8
+adding missing-9
+adding missing-10
+adding missing-11
+adding missing-12
+adding missing-13
+adding missing-14
+adding missing-15
+adding missing-16
+adding missing-17
+adding missing-18
+adding missing-19
+adding missing-20
+adding missing-21
+adding missing-22
+len(df.columns) 105
+numFeatures 104
+[INFO] Shape AFTER encoding dataset: (500000, 105)
+[INFO] processing batch 0-256000/500000
+[INFO] breaking into predictors and prediction...
+CHUNK ANALYZE
+
+[INFO] analyzing data
+[INFO] 256000 rows
+[INFO] ** modbus_function_code:[0.9743589744:99.99297%,0.0:0.00664%,1.0:0.00039%]
+[INFO] ** modbus_transaction_id:57548 (22.47969%)
+[INFO] ** service:[0.7025755984000001:99.99453%,0.0021476384:0.00117%,0.0:0.00117%,0.0021789908:0.00078%,0.0021633145999999997:0.00078%,0.08391465880000001:0.00078%,0.0297847659:0.00039%,0.08394601119999999:0.00039%]
+[INFO] ** s_port:[0.834280824:25.90586%,0.8139250565:21.04297%,0.8029830673999999:18.20469%,0.8149336757:17.47891%,0.8137722355:17.3582%,0.792988569:0.00156%,0.0:0.00117%,0.0020936488:0.00117%,0.0021089309:0.00078%,0.814841983:0.00078%,0.8059172320999999:0.00078%,0.7897640443:0.00078%,0.0818051226:0.00078%,0.0290360046:0.00039%,0.8030441959000001:0.00039%,0.980989058:0.00039%,0.8345253376999999:0.00039%]
+[INFO] ** classification:[normal:100.0%]
+[INFO] ** orig-192.168.1.48:[1:100.0%]
+[INFO] ** type-alert:[0:99.99961%,1:0.00039%]
+[INFO] ** type-log:[1:99.99961%,0:0.00039%]
+[INFO] ** i/f_name-0:[0:99.99883%,1:0.00117%]
+[INFO] ** i/f_name-eth1:[1:99.99883%,0:0.00117%]
+[INFO] ** i/f_dir-inbound:[0:99.99883%,1:0.00117%]
+[INFO] ** i/f_dir-outbound:[1:99.99883%,0:0.00117%]
+[INFO] ** src-0:[0:99.99883%,1:0.00117%]
+[INFO] ** src-192.168.1.10:[0:74.09375%,1:25.90625%]
+[INFO] ** src-192.168.1.136:[0:99.99727%,1:0.00273%]
+[INFO] ** src-192.168.1.19:[0:99.99727%,1:0.00273%]
+[INFO] ** src-192.168.1.199:[0:100.0%]
+[INFO] ** src-192.168.1.20:[0:82.52031%,1:17.47969%]
+[INFO] ** src-192.168.1.200:[0:100.0%]
+[INFO] ** src-192.168.1.201:[0:100.0%]
+[INFO] ** src-192.168.1.30:[0:81.79492%,1:18.20508%]
+[INFO] ** src-192.168.1.40:[0:99.99922%,1:0.00078%]
+[INFO] ** src-192.168.1.49:[0:99.99961%,1:0.00039%]
+[INFO] ** src-192.168.1.60:[0:61.59883%,1:38.40117%]
+[INFO] ** src-192.168.1.88:[0:100.0%]
+[INFO] ** dst-0:[0:99.99883%,1:0.00117%]
+[INFO] ** dst-192.168.1.10:[0:78.95547%,1:21.04453%]
+[INFO] ** dst-192.168.1.19:[0:100.0%]
+[INFO] ** dst-192.168.1.20:[0:56.73555%,1:43.26445%]
+[INFO] ** dst-192.168.1.200:[0:100.0%]
+[INFO] ** dst-192.168.1.201:[0:100.0%]
+[INFO] ** dst-192.168.1.255:[0:99.99805%,1:0.00195%]
+[INFO] ** dst-192.168.1.30:[0:82.5207%,1:17.4793%]
+[INFO] ** dst-192.168.1.40:[0:81.79531%,1:18.20469%]
+[INFO] ** dst-192.168.1.49:[0:99.99922%,1:0.00078%]
+[INFO] ** dst-192.168.1.50:[0:99.99844%,1:0.00156%]
+[INFO] ** dst-192.168.1.60:[0:100.0%]
+[INFO] ** dst-224.0.0.251:[0:99.99922%,1:0.00078%]
+[INFO] ** dst-224.0.0.252:[0:99.99961%,1:0.00039%]
+[INFO] ** dst-239.255.255.250:[0:99.99961%,1:0.00039%]
+[INFO] ** proto-0:[0:99.99883%,1:0.00117%]
+[INFO] ** proto-tcp:[1:99.99531%,0:0.00469%]
+[INFO] ** proto-udp:[0:99.99648%,1:0.00352%]
+[INFO] ** appi_name-0:[0:99.99883%,1:0.00117%]
+[INFO] ** appi_name-CIP_gen:[0:99.99961%,1:0.00039%]
+[INFO] ** appi_name-CIP_read_tag_service:[1:99.99297%,0:0.00703%]
+[INFO] ** appi_name-Common Industrial Protocol:[0:99.99961%,1:0.00039%]
+[INFO] ** appi_name-Common Industrial Protocol - RMW (Read/Modify/Write):[0:99.99961%,1:0.00039%]
+[INFO] ** appi_name-DCE-RPC Protocol:[0:100.0%]
+[INFO] ** appi_name-EtherNet/IP:[0:99.99961%,1:0.00039%]
+[INFO] ** appi_name-LLMNR Protocol:[0:99.99961%,1:0.00039%]
+[INFO] ** appi_name-Multicast DNS Protocol (mDNS):[0:99.99922%,1:0.00078%]
+[INFO] ** appi_name-NetBIOS Datagram Service:[0:99.99922%,1:0.00078%]
+[INFO] ** appi_name-NetBIOS Name Service:[0:99.99883%,1:0.00117%]
+[INFO] ** appi_name-NetBIOS Session Service:[0:99.99961%,1:0.00039%]
+[INFO] ** appi_name-OSIsoft PI:[0:100.0%]
+[INFO] ** appi_name-SSDP:[0:99.99961%,1:0.00039%]
+[INFO] ** appi_name-Server Message Block (SMB):[0:99.99961%,1:0.00039%]
+[INFO] ** appi_name-Unknown Traffic:[0:100.0%]
+[INFO] ** proxy_src_ip-0:[0:99.99883%,1:0.00117%]
+[INFO] ** proxy_src_ip-192.168.1.10:[0:74.09375%,1:25.90625%]
+[INFO] ** proxy_src_ip-192.168.1.136:[0:99.99727%,1:0.00273%]
+[INFO] ** proxy_src_ip-192.168.1.19:[0:99.99727%,1:0.00273%]
+[INFO] ** proxy_src_ip-192.168.1.199:[0:100.0%]
+[INFO] ** proxy_src_ip-192.168.1.20:[0:82.52031%,1:17.47969%]
+[INFO] ** proxy_src_ip-192.168.1.200:[0:100.0%]
+[INFO] ** proxy_src_ip-192.168.1.201:[0:100.0%]
+[INFO] ** proxy_src_ip-192.168.1.30:[0:81.79492%,1:18.20508%]
+[INFO] ** proxy_src_ip-192.168.1.40:[0:99.99922%,1:0.00078%]
+[INFO] ** proxy_src_ip-192.168.1.49:[0:99.99961%,1:0.00039%]
+[INFO] ** proxy_src_ip-192.168.1.60:[0:61.59883%,1:38.40117%]
+[INFO] ** proxy_src_ip-192.168.1.88:[0:100.0%]
+[INFO] ** modbus_function_description-0:[0:99.99336%,1:0.00664%]
+[INFO] ** modbus_function_description-Forward Close - Response:[0:99.99961%,1:0.00039%]
+[INFO] ** modbus_function_description-Read Tag Service:[0:50.00508%,1:49.99492%]
+[INFO] ** modbus_function_description-Read Tag Service - Response:[0:50.00195%,1:49.99805%]
+[INFO] ** scada_tag-0:[0:99.98984%,1:0.01016%]
+[INFO] ** scada_tag-HMI_AIT202:[0:82.64219%,1:17.35781%]
+[INFO] ** scada_tag-HMI_FIT201:[0:74.09453%,1:25.90547%]
+[INFO] ** scada_tag-HMI_LIT101:[0:78.95703%,1:21.04297%]
+[INFO] ** scada_tag-HMI_LIT301:[0:82.52109%,1:17.47891%]
+[INFO] ** scada_tag-HMI_LIT401:[0:81.79531%,1:18.20469%]
+[INFO] ** missing-0:[0:100.0%]
+[INFO] ** missing-1:[0:100.0%]
+[INFO] ** missing-2:[0:100.0%]
+[INFO] ** missing-3:[0:100.0%]
+[INFO] ** missing-4:[0:100.0%]
+[INFO] ** missing-5:[0:100.0%]
+[INFO] ** missing-6:[0:100.0%]
+[INFO] ** missing-7:[0:100.0%]
+[INFO] ** missing-8:[0:100.0%]
+[INFO] ** missing-9:[0:100.0%]
+[INFO] ** missing-10:[0:100.0%]
+[INFO] ** missing-11:[0:100.0%]
+[INFO] ** missing-12:[0:100.0%]
+[INFO] ** missing-13:[0:100.0%]
+[INFO] ** missing-14:[0:100.0%]
+[INFO] ** missing-15:[0:100.0%]
+[INFO] ** missing-16:[0:100.0%]
+[INFO] ** missing-17:[0:100.0%]
+[INFO] ** missing-18:[0:100.0%]
+[INFO] ** missing-19:[0:100.0%]
+[INFO] ** missing-20:[0:100.0%]
+[INFO] ** missing-21:[0:100.0%]
+[INFO] ** missing-22:[0:100.0%]
+[INFO] columns with count within 2-10 {'modbus_function_code': 3, 'service': 8, 'type-alert': 2, 'type-log': 2, 'i/f_name-0': 2, 'i/f_name-eth1': 2, 'i/f_dir-inbound': 2, 'i/f_dir-outbound': 2, 'src-0': 2, 'src-192.168.1.10': 2, 'src-192.168.1.136': 2, 'src-192.168.1.19': 2, 'src-192.168.1.20': 2, 'src-192.168.1.30': 2, 'src-192.168.1.40': 2, 'src-192.168.1.49': 2, 'src-192.168.1.60': 2, 'dst-0': 2, 'dst-192.168.1.10': 2, 'dst-192.168.1.20': 2, 'dst-192.168.1.255': 2, 'dst-192.168.1.30': 2, 'dst-192.168.1.40': 2, 'dst-192.168.1.49': 2, 'dst-192.168.1.50': 2, 'dst-224.0.0.251': 2, 'dst-224.0.0.252': 2, 'dst-239.255.255.250': 2, 'proto-0': 2, 'proto-tcp': 2, 'proto-udp': 2, 'appi_name-0': 2, 'appi_name-CIP_gen': 2, 'appi_name-CIP_read_tag_service': 2, 'appi_name-Common Industrial Protocol': 2, 'appi_name-Common Industrial Protocol - RMW (Read/Modify/Write)': 2, 'appi_name-EtherNet/IP': 2, 'appi_name-LLMNR Protocol': 2, 'appi_name-Multicast DNS Protocol (mDNS)': 2, 'appi_name-NetBIOS Datagram Service': 2, 'appi_name-NetBIOS Name Service': 2, 'appi_name-NetBIOS Session Service': 2, 'appi_name-SSDP': 2, 'appi_name-Server Message Block (SMB)': 2, 'proxy_src_ip-0': 2, 'proxy_src_ip-192.168.1.10': 2, 'proxy_src_ip-192.168.1.136': 2, 'proxy_src_ip-192.168.1.19': 2, 'proxy_src_ip-192.168.1.20': 2, 'proxy_src_ip-192.168.1.30': 2, 'proxy_src_ip-192.168.1.40': 2, 'proxy_src_ip-192.168.1.49': 2, 'proxy_src_ip-192.168.1.60': 2, 'modbus_function_description-0': 2, 'modbus_function_description-Forward Close - Response': 2, 'modbus_function_description-Read Tag Service': 2, 'modbus_function_description-Read Tag Service - Response': 2, 'scada_tag-0': 2, 'scada_tag-HMI_AIT202': 2, 'scada_tag-HMI_FIT201': 2, 'scada_tag-HMI_LIT101': 2, 'scada_tag-HMI_LIT301': 2, 'scada_tag-HMI_LIT401': 2}
+[INFO] to_xy labeltype: normal
+indices (array([     0,      1,      2, ..., 255997, 255998, 255999]),)
+y_vector [[1. 0.]
+ [1. 0.]
+ [1. 0.]
+ ...
+ [1. 0.]
+ [1. 0.]
+ [1. 0.]]
+z vector sum [256000.      0.]
+[INFO] creating train/test split: 0.25
+--------SHAPES--------
+x_train.shape (192000, 104)
+x_test.shape (64000, 104)
+y_train.shape (192000, 2)
+y_test.shape (64000, 2)
+Model: "sequential_1"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+dense_1 (Dense)              (None, 2)                 210       
+_________________________________________________________________
+dropout_1 (Dropout)          (None, 2)                 0         
+_________________________________________________________________
+dense_2 (Dense)              (None, 4)                 12        
+_________________________________________________________________
+dropout_2 (Dropout)          (None, 4)                 0         
+_________________________________________________________________
+dense_3 (Dense)              (None, 2)                 10        
+_________________________________________________________________
+dropout_3 (Dropout)          (None, 2)                 0         
+_________________________________________________________________
+dense_4 (Dense)              (None, 1)                 3         
+_________________________________________________________________
+dropout_4 (Dropout)          (None, 1)                 0         
+_________________________________________________________________
+dense_5 (Dense)              (None, 2)                 4         
+=================================================================
+Total params: 239
+Trainable params: 239
+Non-trainable params: 0
+_________________________________________________________________
+[INFO] fitting model. xtrain.shape: (192000, 104) y_train.shape: (192000, 2)
+Train on 192000 samples, validate on 64000 samples
+Epoch 1/1
+ - 6s - loss: 7.6008e-04 - tp: 192000.0000 - fp: 0.0000e+00 - tn: 192000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 1.7092e-04 - val_tp: 64000.0000 - val_fp: 0.0000e+00 - val_tn: 64000.0000 - val_fn: 0.0000e+00 - val_accuracy: 1.0000 - val_precision: 1.0000 - val_recall: 1.0000 - val_auc: 1.0000
+[INFO] saving weights to checkpoints/dnn-epoch-003-files-0-50
+[33m[LOSS] 0.0001709242060314864[0m
+[CHECKING EARLY STOP]: currentLoss < min_delta ? => 0.0001709242060314864  <  0.001
+[STOPPING EARLY]: currentLoss < min_delta => 0.0001709242060314864  <  0.001
+EPOCH 3
+--- 29.52216100692749 seconds ---
+2020-02-09 12:21:07.811812: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer.so.6'; dlerror: libnvinfer.so.6: cannot open shared object file: No such file or directory
+2020-02-09 12:21:07.811862: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer_plugin.so.6'; dlerror: libnvinfer_plugin.so.6: cannot open shared object file: No such file or directory
+2020-02-09 12:21:07.811868: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:30] Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+2020-02-09 12:21:08.301909: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
+2020-02-09 12:21:08.301928: E tensorflow/stream_executor/cuda/cuda_driver.cc:351] failed call to cuInit: UNKNOWN ERROR (303)
+2020-02-09 12:21:08.301943: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (brussels): /proc/driver/nvidia/version does not exist
+2020-02-09 12:21:08.302047: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2020-02-09 12:21:08.325832: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 3312000000 Hz
+2020-02-09 12:21:08.326017: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x5160030 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-02-09 12:21:08.326029: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+Using TensorFlow backend.
+WARNING:tensorflow:Large dropout rate: 0.8 (>0.5). In TensorFlow 2.x, dropout() uses dropout rate instead of keep_prob. Please ensure that this is intended.
+=================================================
+        SCORING v0.4.5 (binary)
+=================================================
+Date: 2020-02-09 12:21:08.298828
+------------DNN info-------------
+dnnBatchSize 16
+wrapLayerSize 2
+coreLayerSize 4
+numCoreLayers 1
+outputLayerActivation sigmoid
+output_dim 2
+loss binary_crossentropy
+optimizer adam
+------------DNN info-------------
+[33m[INFO] using Sequential Dense layers[0m
+[INFO] adding core layer 0
+[INFO] created DNN
+loading weights: checkpoints/*
+loading file checkpoints/dnn-epoch-003-files-0-50
+[33m[INFO] model summary:[0m
+Model: "sequential_1"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+dense_1 (Dense)              (None, 2)                 210       
+_________________________________________________________________
+dropout_1 (Dropout)          (None, 2)                 0         
+_________________________________________________________________
+dense_2 (Dense)              (None, 4)                 12        
+_________________________________________________________________
+dropout_2 (Dropout)          (None, 4)                 0         
+_________________________________________________________________
+dense_3 (Dense)              (None, 2)                 10        
+_________________________________________________________________
+dropout_3 (Dropout)          (None, 2)                 0         
+_________________________________________________________________
+dense_4 (Dense)              (None, 1)                 3         
+_________________________________________________________________
+dropout_4 (Dropout)          (None, 1)                 0         
+_________________________________________________________________
+dense_5 (Dense)              (None, 2)                 4         
+=================================================================
+Total params: 239
+Trainable params: 239
+Non-trainable params: 0
+_________________________________________________________________
+[INFO] reading file data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-28_113021_98.log.part13_sorted-labeled.csv
+[INFO] concatenate the files
+[INFO] process dataset, shape: (500000, 18)
+[33mdropping column: modbus_value[0m
+dropping all time related columns...
+[33mdropping column: unixtime[0m
+[INFO] columns: Index(['orig', 'type', 'i/f_name', 'i/f_dir', 'src', 'dst', 'proto',
+       'appi_name', 'proxy_src_ip', 'modbus_function_code',
+       'modbus_function_description', 'modbus_transaction_id', 'scada_tag',
+       'service', 's_port', 'classification'],
+      dtype='object')
+[INFO] analyze dataset: (500000, 16)
+
+[INFO] analyzing data
+[INFO] 500000 rows
+[INFO] ** orig:[192.168.1.48:100.0%]
+[INFO] ** type:[log:100.0%]
+[INFO] ** i/f_name:[eth1:99.9996%,0:0.0004%]
+[INFO] ** i/f_dir:[outbound:99.9996%,inbound:0.0004%]
+[INFO] ** src:[192.168.1.60:38.3832%,192.168.1.10:25.9606%,192.168.1.30:18.1352%,192.168.1.20:17.52%,0:0.0004%,192.168.1.201:0.0004%,192.168.1.40:0.0002%]
+[INFO] ** dst:[192.168.1.20:43.3108%,192.168.1.10:21.0326%,192.168.1.40:18.135%,192.168.1.30:17.5198%,192.168.1.50:0.0008%,0:0.0004%,192.168.1.88:0.0004%,192.168.1.60:0.0002%]
+[INFO] ** proto:[tcp:99.9996%,0:0.0004%]
+[INFO] ** appi_name:[CIP_read_tag_service:99.9992%,0:0.0004%,DCE-RPC Protocol:0.0002%,Web Browsing:0.0002%]
+[INFO] ** proxy_src_ip:[192.168.1.60:38.3832%,192.168.1.10:25.9606%,192.168.1.30:18.1352%,192.168.1.20:17.52%,0:0.0004%,192.168.1.201:0.0004%,192.168.1.40:0.0002%]
+[INFO] ** modbus_function_code:[0.9743589744:99.9992%,0.0:0.0008%]
+[INFO] ** modbus_function_description:[Read Tag Service - Response:50.0%,Read Tag Service:49.9992%,0:0.0008%]
+[INFO] ** modbus_transaction_id:65536 (13.1072%)
+[INFO] ** scada_tag:[HMI_FIT201:25.9596%,HMI_LIT101:21.0326%,HMI_LIT401:18.1348%,HMI_LIT301:17.5194%,HMI_AIT202:17.3504%,0:0.0032%]
+[INFO] ** service:[0.7025755984000001:99.9992%,0.0:0.0004%,0.0012540954:0.0002%,0.002116286:0.0002%]
+[INFO] ** s_port:[0.834280824:25.96%,0.8139250565:21.0326%,0.8029830673999999:18.1348%,0.8149336757:17.5196%,0.8137722355:17.3506%,0.8343113882:0.0004%,0.0:0.0004%,0.8059172320999999:0.0002%,0.8030136315999999:0.0002%,0.8147502904:0.0002%,0.8030441959000001:0.0002%,0.814841983:0.0002%,0.9621003729000001:0.0002%,0.8345253376999999:0.0002%,0.7788831836:0.0002%]
+[INFO] ** classification:[normal:72.7902%,Single Stage Single Point:27.2098%]
+[INFO] columns with count within 2-10 {'i/f_name': 2, 'i/f_dir': 2, 'src': 7, 'dst': 8, 'proto': 2, 'appi_name': 4, 'proxy_src_ip': 7, 'modbus_function_code': 2, 'modbus_function_description': 3, 'scada_tag': 6, 'service': 4, 'classification': 2}
+[INFO] Shape when encoding dataset: (500000, 16)
+[33mencode_text_dummy orig[0m
+[33mencode_text_dummy type[0m
+[33mencode_text_dummy i/f_name[0m
+[33mencode_text_dummy i/f_dir[0m
+[33mencode_text_dummy src[0m
+[33mencode_text_dummy dst[0m
+[33mencode_text_dummy proto[0m
+[33mencode_text_dummy appi_name[0m
+[33mencode_text_dummy proxy_src_ip[0m
+[33mencode_text_dummy modbus_function_description[0m
+[33mencode_text_dummy scada_tag[0m
+missing 56
 adding missing-0
 adding missing-1
 adding missing-2
@@ -81,56 +1037,187 @@ adding missing-20
 adding missing-21
 adding missing-22
 adding missing-23
-len(df.columns) 107
-numFeatures 106
-dropping all time related columns...
-[33mdropping column: unixtime[0m
-[INFO] columns: Index(['modbus_function_code', 'modbus_transaction_id', 'service', 's_port',
-       'classification', 'orig-192.168.1.48', 'type-alert', 'type-log',
-       'i/f_name-0', 'i/f_name-eth1',
-       ...
-       'missing-14', 'missing-15', 'missing-16', 'missing-17', 'missing-18',
-       'missing-19', 'missing-20', 'missing-21', 'missing-22', 'missing-23'],
-      dtype='object', length=106)
+adding missing-24
+adding missing-25
+adding missing-26
+adding missing-27
+adding missing-28
+adding missing-29
+adding missing-30
+adding missing-31
+adding missing-32
+adding missing-33
+adding missing-34
+adding missing-35
+adding missing-36
+adding missing-37
+adding missing-38
+adding missing-39
+adding missing-40
+adding missing-41
+adding missing-42
+adding missing-43
+adding missing-44
+adding missing-45
+adding missing-46
+adding missing-47
+adding missing-48
+adding missing-49
+adding missing-50
+adding missing-51
+adding missing-52
+adding missing-53
+adding missing-54
+adding missing-55
+adding missing-56
+len(df.columns) 105
+numFeatures 104
+[INFO] Shape AFTER encoding dataset: (500000, 105)
 [INFO] processing batch 0-256000/500000
-[INFO] breaking into predictors and prediction...
-[INFO] creating train/test split: 0.25
-[INFO] fitting model
-[EXCEPTION] (<class 'ValueError'>, ValueError('Error when checking input: expected dense_1_input to have shape (106,) but got array with shape (105,)',), <traceback object at 0x7fc2b41b3f08>)
---- 2.368326425552368 seconds ---
-2020-02-09 10:05:47.663235: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer.so.6'; dlerror: libnvinfer.so.6: cannot open shared object file: No such file or directory
-2020-02-09 10:05:47.663297: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer_plugin.so.6'; dlerror: libnvinfer_plugin.so.6: cannot open shared object file: No such file or directory
-2020-02-09 10:05:47.665141: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:30] Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
-2020-02-09 10:05:48.151547: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
-2020-02-09 10:05:48.151567: E tensorflow/stream_executor/cuda/cuda_driver.cc:351] failed call to cuInit: UNKNOWN ERROR (303)
-2020-02-09 10:05:48.151581: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (brussels): /proc/driver/nvidia/version does not exist
-2020-02-09 10:05:48.151685: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
-2020-02-09 10:05:48.173803: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 3312000000 Hz
-2020-02-09 10:05:48.173984: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x4d28f00 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
-2020-02-09 10:05:48.173995: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
-Using TensorFlow backend.
-WARNING:tensorflow:Large dropout rate: 0.8 (>0.5). In TensorFlow 2.x, dropout() uses dropout rate instead of keep_prob. Please ensure that this is intended.
-  File "score.py", line 293, in <module>
-    run()
-  File "score.py", line 70, in run
-    print("loading file", weight_files[-1])
-=================================================
-        SCORING v0.4.4 (multi-class)
-=================================================
-Date: 2020-02-09 10:05:48.148485
-MULTI-CLASS num classes: 5
-------------DNN info-------------
-wrapLayerSize 2
-coreLayerSize 4
-numCoreLayers 1
-outputLayerActivation softmax
-output_dim 5
-loss categorical_crossentropy
-optimizer adam
-------------DNN info-------------
-[33m[INFO] using Sequential Dense layers[0m
-[INFO] adding core layer 0
-[INFO] created DNN
-loading weights: checkpoints/*
-[EXCEPTION] (<class 'IndexError'>, IndexError('list index out of range',), <traceback object at 0x7f52dc28bec8>)
---- 0.1833479404449463 seconds ---
+CHUNK ANALYZE
+
+[INFO] analyzing data
+[INFO] 256000 rows
+[INFO] ** modbus_function_code:[0.9743589744:99.99961%,0.0:0.00039%]
+[INFO] ** modbus_transaction_id:65536 (25.6%)
+[INFO] ** service:[0.7025755984000001:99.99961%,0.002116286:0.00039%]
+[INFO] ** s_port:[0.834280824:25.96055%,0.8139250565:20.97969%,0.8029830673999999:18.17383%,0.8149336757:17.51914%,0.8137722355:17.36445%,0.8030136315999999:0.00039%,0.9621003729000001:0.00039%,0.8345253376999999:0.00039%,0.8343113882:0.00039%,0.8147502904:0.00039%,0.814841983:0.00039%]
+[INFO] ** classification:[normal:76.81367%,Single Stage Single Point:23.18633%]
+[INFO] ** orig-192.168.1.48:[1:100.0%]
+[INFO] ** type-log:[1:100.0%]
+[INFO] ** i/f_name-0:[0:100.0%]
+[INFO] ** i/f_name-eth1:[1:100.0%]
+[INFO] ** i/f_dir-inbound:[0:100.0%]
+[INFO] ** i/f_dir-outbound:[1:100.0%]
+[INFO] ** src-0:[0:100.0%]
+[INFO] ** src-192.168.1.10:[0:74.03867%,1:25.96133%]
+[INFO] ** src-192.168.1.20:[0:82.48008%,1:17.51992%]
+[INFO] ** src-192.168.1.201:[0:99.99961%,1:0.00039%]
+[INFO] ** src-192.168.1.30:[0:81.82578%,1:18.17422%]
+[INFO] ** src-192.168.1.40:[0:100.0%]
+[INFO] ** src-192.168.1.60:[0:61.65586%,1:38.34414%]
+[INFO] ** dst-0:[0:100.0%]
+[INFO] ** dst-192.168.1.10:[0:79.02031%,1:20.97969%]
+[INFO] ** dst-192.168.1.20:[0:56.675%,1:43.325%]
+[INFO] ** dst-192.168.1.30:[0:82.48047%,1:17.51953%]
+[INFO] ** dst-192.168.1.40:[0:81.82578%,1:18.17422%]
+[INFO] ** dst-192.168.1.50:[0:99.99922%,1:0.00078%]
+[INFO] ** dst-192.168.1.60:[0:99.99961%,1:0.00039%]
+[INFO] ** dst-192.168.1.88:[0:99.99961%,1:0.00039%]
+[INFO] ** proto-0:[0:100.0%]
+[INFO] ** proto-tcp:[1:100.0%]
+[INFO] ** appi_name-0:[0:100.0%]
+[INFO] ** appi_name-CIP_read_tag_service:[1:99.99961%,0:0.00039%]
+[INFO] ** appi_name-DCE-RPC Protocol:[0:99.99961%,1:0.00039%]
+[INFO] ** appi_name-Web Browsing:[0:100.0%]
+[INFO] ** proxy_src_ip-0:[0:100.0%]
+[INFO] ** proxy_src_ip-192.168.1.10:[0:74.03867%,1:25.96133%]
+[INFO] ** proxy_src_ip-192.168.1.20:[0:82.48008%,1:17.51992%]
+[INFO] ** proxy_src_ip-192.168.1.201:[0:99.99961%,1:0.00039%]
+[INFO] ** proxy_src_ip-192.168.1.30:[0:81.82578%,1:18.17422%]
+[INFO] ** proxy_src_ip-192.168.1.40:[0:100.0%]
+[INFO] ** proxy_src_ip-192.168.1.60:[0:61.65586%,1:38.34414%]
+[INFO] ** modbus_function_description-0:[0:99.99961%,1:0.00039%]
+[INFO] ** modbus_function_description-Read Tag Service:[0:50.00117%,1:49.99883%]
+[INFO] ** modbus_function_description-Read Tag Service - Response:[1:50.00078%,0:49.99922%]
+[INFO] ** scada_tag-0:[0:99.99648%,1:0.00352%]
+[INFO] ** scada_tag-HMI_AIT202:[0:82.63555%,1:17.36445%]
+[INFO] ** scada_tag-HMI_FIT201:[0:74.04023%,1:25.95977%]
+[INFO] ** scada_tag-HMI_LIT101:[0:79.02031%,1:20.97969%]
+[INFO] ** scada_tag-HMI_LIT301:[0:82.48125%,1:17.51875%]
+[INFO] ** scada_tag-HMI_LIT401:[0:81.82617%,1:18.17383%]
+[INFO] ** missing-0:[0:100.0%]
+[INFO] ** missing-1:[0:100.0%]
+[INFO] ** missing-2:[0:100.0%]
+[INFO] ** missing-3:[0:100.0%]
+[INFO] ** missing-4:[0:100.0%]
+[INFO] ** missing-5:[0:100.0%]
+[INFO] ** missing-6:[0:100.0%]
+[INFO] ** missing-7:[0:100.0%]
+[INFO] ** missing-8:[0:100.0%]
+[INFO] ** missing-9:[0:100.0%]
+[INFO] ** missing-10:[0:100.0%]
+[INFO] ** missing-11:[0:100.0%]
+[INFO] ** missing-12:[0:100.0%]
+[INFO] ** missing-13:[0:100.0%]
+[INFO] ** missing-14:[0:100.0%]
+[INFO] ** missing-15:[0:100.0%]
+[INFO] ** missing-16:[0:100.0%]
+[INFO] ** missing-17:[0:100.0%]
+[INFO] ** missing-18:[0:100.0%]
+[INFO] ** missing-19:[0:100.0%]
+[INFO] ** missing-20:[0:100.0%]
+[INFO] ** missing-21:[0:100.0%]
+[INFO] ** missing-22:[0:100.0%]
+[INFO] ** missing-23:[0:100.0%]
+[INFO] ** missing-24:[0:100.0%]
+[INFO] ** missing-25:[0:100.0%]
+[INFO] ** missing-26:[0:100.0%]
+[INFO] ** missing-27:[0:100.0%]
+[INFO] ** missing-28:[0:100.0%]
+[INFO] ** missing-29:[0:100.0%]
+[INFO] ** missing-30:[0:100.0%]
+[INFO] ** missing-31:[0:100.0%]
+[INFO] ** missing-32:[0:100.0%]
+[INFO] ** missing-33:[0:100.0%]
+[INFO] ** missing-34:[0:100.0%]
+[INFO] ** missing-35:[0:100.0%]
+[INFO] ** missing-36:[0:100.0%]
+[INFO] ** missing-37:[0:100.0%]
+[INFO] ** missing-38:[0:100.0%]
+[INFO] ** missing-39:[0:100.0%]
+[INFO] ** missing-40:[0:100.0%]
+[INFO] ** missing-41:[0:100.0%]
+[INFO] ** missing-42:[0:100.0%]
+[INFO] ** missing-43:[0:100.0%]
+[INFO] ** missing-44:[0:100.0%]
+[INFO] ** missing-45:[0:100.0%]
+[INFO] ** missing-46:[0:100.0%]
+[INFO] ** missing-47:[0:100.0%]
+[INFO] ** missing-48:[0:100.0%]
+[INFO] ** missing-49:[0:100.0%]
+[INFO] ** missing-50:[0:100.0%]
+[INFO] ** missing-51:[0:100.0%]
+[INFO] ** missing-52:[0:100.0%]
+[INFO] ** missing-53:[0:100.0%]
+[INFO] ** missing-54:[0:100.0%]
+[INFO] ** missing-55:[0:100.0%]
+[INFO] ** missing-56:[0:100.0%]
+[INFO] columns with count within 2-10 {'modbus_function_code': 2, 'service': 2, 'classification': 2, 'src-192.168.1.10': 2, 'src-192.168.1.20': 2, 'src-192.168.1.201': 2, 'src-192.168.1.30': 2, 'src-192.168.1.60': 2, 'dst-192.168.1.10': 2, 'dst-192.168.1.20': 2, 'dst-192.168.1.30': 2, 'dst-192.168.1.40': 2, 'dst-192.168.1.50': 2, 'dst-192.168.1.60': 2, 'dst-192.168.1.88': 2, 'appi_name-CIP_read_tag_service': 2, 'appi_name-DCE-RPC Protocol': 2, 'proxy_src_ip-192.168.1.10': 2, 'proxy_src_ip-192.168.1.20': 2, 'proxy_src_ip-192.168.1.201': 2, 'proxy_src_ip-192.168.1.30': 2, 'proxy_src_ip-192.168.1.60': 2, 'modbus_function_description-0': 2, 'modbus_function_description-Read Tag Service': 2, 'modbus_function_description-Read Tag Service - Response': 2, 'scada_tag-0': 2, 'scada_tag-HMI_AIT202': 2, 'scada_tag-HMI_FIT201': 2, 'scada_tag-HMI_LIT101': 2, 'scada_tag-HMI_LIT301': 2, 'scada_tag-HMI_LIT401': 2}
+[INFO] to_xy labeltype: normal
+indices (array([     1,      4,      6, ..., 255997, 255998, 255999]),)
+y_vector [[0. 1.]
+ [1. 0.]
+ [0. 1.]
+ ...
+ [1. 0.]
+ [1. 0.]
+ [1. 0.]]
+z vector sum [196643.  59357.]
+[33m[INFO] measuring accuracy...[0m
+x_test.shape: (256000, 104)
+y_eval [1 0 1 ... 0 0 0] (256000,)
+--------SHAPES--------
+x_test.shape (256000, 104)
+y_test.shape (256000, 2)
+[INFO] Validation score: [33m0.76813671875[0m
+[33m[INFO] metrics:[0m
+loss :  2.011400489210435
+tp :  196643.0
+fp :  59357.0
+tn :  196643.0
+fn :  59357.0
+accuracy :  0.768136739730835
+precision :  0.768136739730835
+recall :  0.768136739730835
+auc :  0.768136739730835
+
+y_eval {0: 196643, 1: 59357}
+pred {0: 256000}
+[INFO] confusion matrix for file 
+[[196643      0]
+ [ 59357      0]]
+[INFO] confusion matrix after adding it to total:
+[[196643      0]
+ [ 59357      0]]
+--- 9.101969003677368 seconds ---

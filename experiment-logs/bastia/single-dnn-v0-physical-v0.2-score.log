@@ -1,0 +1,60 @@
+Using TensorFlow backend.
+Traceback (most recent call last):
+  File "train.py", line 17, in <module>
+    from tfUtils import * 
+  File "/Users/alien/go/src/github.com/dreadl0ck/ics-research/tfUtils.py", line 1, in <module>
+    from keras.models import Sequential
+  File "/usr/local/lib/python3.7/site-packages/keras/__init__.py", line 3, in <module>
+    from . import utils
+  File "/usr/local/lib/python3.7/site-packages/keras/utils/__init__.py", line 6, in <module>
+    from . import conv_utils
+  File "/usr/local/lib/python3.7/site-packages/keras/utils/conv_utils.py", line 9, in <module>
+    from .. import backend as K
+  File "/usr/local/lib/python3.7/site-packages/keras/backend/__init__.py", line 1, in <module>
+    from .load_backend import epsilon
+  File "/usr/local/lib/python3.7/site-packages/keras/backend/load_backend.py", line 90, in <module>
+    from .tensorflow_backend import *
+  File "/usr/local/lib/python3.7/site-packages/keras/backend/tensorflow_backend.py", line 5, in <module>
+    import tensorflow as tf
+  File "/usr/local/lib/python3.7/site-packages/tensorflow/__init__.py", line 101, in <module>
+    from tensorflow_core import *
+  File "/usr/local/lib/python3.7/site-packages/tensorflow_core/__init__.py", line 46, in <module>
+    from . _api.v2 import compat
+  File "/usr/local/lib/python3.7/site-packages/tensorflow_core/_api/v2/compat/__init__.py", line 39, in <module>
+    from . import v1
+  File "/usr/local/lib/python3.7/site-packages/tensorflow_core/_api/v2/compat/v1/__init__.py", line 32, in <module>
+    from . import compat
+  File "/usr/local/lib/python3.7/site-packages/tensorflow_core/_api/v2/compat/v1/compat/__init__.py", line 39, in <module>
+    from . import v1
+  File "/usr/local/lib/python3.7/site-packages/tensorflow_core/_api/v2/compat/v1/compat/v1/__init__.py", line 29, in <module>
+    from tensorflow._api.v2.compat.v1 import app
+  File "/usr/local/lib/python3.7/site-packages/tensorflow_core/_api/v2/compat/__init__.py", line 39, in <module>
+    from . import v1
+  File "/usr/local/lib/python3.7/site-packages/tensorflow_core/_api/v2/compat/v1/__init__.py", line 32, in <module>
+    from . import compat
+  File "/usr/local/lib/python3.7/site-packages/tensorflow_core/_api/v2/compat/v1/compat/__init__.py", line 40, in <module>
+    from . import v2
+  File "/usr/local/lib/python3.7/site-packages/tensorflow_core/_api/v2/compat/v1/compat/v2/__init__.py", line 30, in <module>
+    from tensorflow._api.v2.compat.v2 import audio
+  File "/usr/local/lib/python3.7/site-packages/tensorflow_core/_api/v2/compat/v2/__init__.py", line 33, in <module>
+    from . import compat
+  File "/usr/local/lib/python3.7/site-packages/tensorflow_core/_api/v2/compat/v2/compat/__init__.py", line 40, in <module>
+    from . import v2
+  File "/usr/local/lib/python3.7/site-packages/tensorflow_core/_api/v2/compat/v2/compat/v2/__init__.py", line 339, in <module>
+    from tensorflow.python.keras.api._v2 import keras
+  File "/usr/local/lib/python3.7/site-packages/tensorflow_core/python/keras/api/_v2/__init__.py", line 10, in <module>
+    from . import keras
+  File "/usr/local/lib/python3.7/site-packages/tensorflow_core/python/keras/api/_v2/keras/__init__.py", line 15, in <module>
+    from . import applications
+  File "/usr/local/lib/python3.7/site-packages/tensorflow_core/python/keras/api/_v2/keras/applications/__init__.py", line 22, in <module>
+    from . import xception
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 963, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 906, in _find_spec
+  File "<frozen importlib._bootstrap_external>", line 1280, in find_spec
+  File "<frozen importlib._bootstrap_external>", line 1252, in _get_spec
+  File "<frozen importlib._bootstrap_external>", line 1383, in find_spec
+  File "<frozen importlib._bootstrap_external>", line 95, in _path_isfile
+  File "<frozen importlib._bootstrap_external>", line 87, in _path_is_mode_type
+  File "<frozen importlib._bootstrap_external>", line 81, in _path_stat
+KeyboardInterrupt
