@@ -6,7 +6,7 @@ package main
 // build:
 // GOOS=linux go build -o bin/label-2015-dataset label-2015-dataset.go
 // server: cd /datasets/SWaT/01_SWaT_Dataset_Dec\ 2015/Network
-// label-2015-dataset -attacks List_of_attacks_Final-fixed.csv -out /home/***REMOVED***/labeled-SWaT-2015-network
+// label-2015-dataset -attacks List_of_attacks_Final-fixed.csv -out /home/user/labeled-SWaT-2015-network
 
 import (
 	"encoding/json"

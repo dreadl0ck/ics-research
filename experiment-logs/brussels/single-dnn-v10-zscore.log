@@ -28,7 +28,7 @@ optimizer adam
 Traceback (most recent call last):
   File "train.py", line 353, in <module>
     arguments.binaryClasses
-  File "/home/***REMOVED***/ics-research/tfUtils.py", line 591, in create_dnn
+  File "/home/user/ics-research/tfUtils.py", line 591, in create_dnn
     metrics=METRICS
   File "/usr/local/lib/python3.6/dist-packages/keras/backend/tensorflow_backend.py", line 75, in symbolic_fn_wrapper
     return func(*args, **kwargs)

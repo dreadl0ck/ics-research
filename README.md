@@ -68,21 +68,21 @@ Grab TF source and build: https://www.tensorflow.org/install/source
 Build tool for linux:
 
 	GOOS=linux go build -o bin/label-2015-dataset label-2015-dataset.go
-	scp bin/label-2015-dataset ***REMOVED***@***REMOVED***:/home/***REMOVED***
+	scp bin/label-2015-dataset user@someserver.net:/home/user
 
 On server: 
 	
-	sudo mv /home/***REMOVED***/label-2015-dataset /usr/local/bin
+	sudo mv /home/user/label-2015-dataset /usr/local/bin
 	cd /datasets/SWaT/01_SWaT_Dataset_Dec\ 2015/Network
-	screen -L label-2015-dataset -attacks List_of_attacks_Final-fixed.csv -out /home/***REMOVED***/labeled-SWaT-2015-network
+	screen -L label-2015-dataset -attacks List_of_attacks_Final-fixed.csv -out /home/user/labeled-SWaT-2015-network
 
 Compress data:
 
-	screen -L zip -r /home/***REMOVED***/labeled-SWaT-2015-network.zip /home/***REMOVED***/labeled-SWaT-2015-network
+	screen -L zip -r /home/user/labeled-SWaT-2015-network.zip /home/user/labeled-SWaT-2015-network
 
 Download:
 
-	scp ***REMOVED***@***REMOVED***:/home/***REMOVED***/labeled-SWaT-2015-network.zip .
+	scp user@someserver.net:/home/user/labeled-SWaT-2015-network.zip .
 
 ## Label 2015 dataset attack files
 
@@ -118,7 +118,7 @@ Remove labeled CSV files inside the current directory to free up storage space:
 Connect brussels
         
     sudo su
-    cd /home/***REMOVED***/labeled-SWaT-2015-network
+    cd /home/user/labeled-SWaT-2015-network
     screen -L ../ics-research/readcsv.py -read "*-labeled.csv" -dimensionality 19 -lstm true -lstmBatchSize 250000
 
 Dimension Problems:
@@ -139,7 +139,7 @@ Dimension Problems:
 
 Start experiments on Brussels:
 
-    ***REMOVED***@brussels:/home/***REMOVED***/labeled-SWaT-2015-network# ../ics-research/readcsv.py -read "*-labeled.csv" -dimensionality 19 -lstm true -lstmBatchSize 10000 -epochs 3
+    user@brussels:/home/user/labeled-SWaT-2015-network# ../ics-research/readcsv.py -read "*-labeled.csv" -dimensionality 19 -lstm true -lstmBatchSize 10000 -epochs 3
     
 > commit version: 8fd1f38e275303bca1ae861a21b91720e4856bd2
 
@@ -152,7 +152,7 @@ command:
 
 commit version:
     
-    ***REMOVED***@***REMOVED***:~/ics-research$ git rev-parse HEAD  
+    user@***REMOVED***:~/ics-research$ git rev-parse HEAD  
     4f5ed93d439ca30cf82654f77f0186447327b9e0
 
 
@@ -162,7 +162,7 @@ command:
    python3 readcsv.py -read "/mnt/terradrive/labeled-SW015-network/*.csv" -dimensionality 19 -epochs 10
 
 commit version:
-   ***REMOVED***@***REMOVED***:~/ics-research$ git rev-parse HEAD
+   user@***REMOVED***:~/ics-research$ git rev-parse HEAD
 f54739686d56ae45d7d0eeb9c2bbfaa3fcb7d10a
 
 
@@ -171,7 +171,7 @@ command:
 screen -L python3 readcsv.py -read "/mnt/terradrive/labeled-SWaT-2015-network/2015-12-26_121116_89.log.part03_sorted-labeled.csv" -dimensionality 14 -epochs 10 -debug true -drop service,Modbus_Function_Code
 
 commit version:
-***REMOVED***@***REMOVED***:~/ics-research$ git rev-parse HEAD
+user@***REMOVED***:~/ics-research$ git rev-parse HEAD
 20fd6a5fb6239627eb4e7d791496368861e0e3f0
 
 run 4: 28/1 16:16
@@ -179,7 +179,7 @@ command:
 screen -L python3 -u readcsv.py -read "/mnt/terradrive/labeled-SWaT-2015-network/*csv" -dimensionality 14 -epochs 10 -debug true -drop service,Modbus_Function_Cod
 
 commit version:
-***REMOVED***@***REMOVED***:/home/***REMOVED***/ics-research# git rev-parse HEAD
+user@***REMOVED***:/home/user/ics-research# git rev-parse HEAD
 20fd6a5fb6239627eb4e7d791496368861e0e3f0
 
 
@@ -189,7 +189,7 @@ command
 
 
 commit version:
-***REMOVED***@***REMOVED***:/home/***REMOVED***/ics-research# git rev-parse HEAD
+user@***REMOVED***:/home/user/ics-research# git rev-parse HEAD
 322ee5783702a582b86dd7dd015ccb84be3d54e2
 
 
@@ -240,7 +240,7 @@ Generate colsums:
 Build:
 
     GOOS=linux go build -o bin/datenwolf ./datenwolf
-	scp bin/datenwolf ***REMOVED***@***REMOVED***:/home/***REMOVED***
+	scp bin/datenwolf user@someserver.net:/home/user
 
 Start analysis and labeling on oslo:
 
@@ -253,24 +253,24 @@ Local:
 
 Oslo:
 
-    screen -L /home/***REMOVED***/datenwolf -attacks List_of_attacks_Final-fixed.csv -suffix "_sorted.csv" -out /home/***REMOVED***/labeled-SWaT-2015-network -colsums /home/***REMOVED***/colSums-29Jan2020-221001.json -workers 25
+    screen -L /home/user/datenwolf -attacks List_of_attacks_Final-fixed.csv -suffix "_sorted.csv" -out /home/user/labeled-SWaT-2015-network -colsums /home/user/colSums-29Jan2020-221001.json -workers 25
 
 Brussels:
 
-    screen -L /home/***REMOVED***/datenwolf -attacks List_of_attacks_Final-fixed.csv -suffix "_sorted.csv" -colsums /home/***REMOVED***/colSums-29Jan2020-221001.json -workers 25 -offset 392
+    screen -L /home/user/datenwolf -attacks List_of_attacks_Final-fixed.csv -suffix "_sorted.csv" -colsums /home/user/colSums-29Jan2020-221001.json -workers 25 -offset 392
 
 # Push dataset to all servers
 
-    scp -r -P 9876 data/Network ***REMOVED***@***REMOVED***:/home/***REMOVED***
-    scp -r -P 9876 data/Network ***REMOVED***@***REMOVED***:/home/***REMOVED***
-    scp -r data/Network ***REMOVED***@***REMOVED***:/home/***REMOVED***
+    scp -r -P 9876 data/Network user@someserver.net:/home/user
+    scp -r -P 9876 data/Network user@someserver.net:/home/user
+    scp -r data/Network user@someserver.net:/home/user
 
 Push labeling tool:
 
     GOOS=linux go build -o bin/datenwolf ./datenwolf
-    scp -P 9876 bin/datenwolf ***REMOVED***@***REMOVED***:/home/***REMOVED***
-    scp -P 9876 bin/datenwolf ***REMOVED***@***REMOVED***:/home/***REMOVED***
-    scp bin/datenwolf ***REMOVED***@***REMOVED***:/home/***REMOVED***
+    scp -P 9876 bin/datenwolf user@someserver.net:/home/user
+    scp -P 9876 bin/datenwolf user@someserver.net:/home/user
+    scp bin/datenwolf user@someserver.net:/home/user
 
 Start:
 
@@ -288,13 +288,13 @@ Mac (3/4 Test)
 
     go run ../../datenwolf -attacks List_of_attacks_Final-fixed.csv -suffix _sorted.csv -colsums colSums-29Jan2020-221001.json -workers 25 -offset 392 -max 588 -out SWaT2015-Network-Labeled-Pt3
 
-    screen -L /home/***REMOVED***/datenwolf -attacks /home/***REMOVED***/Network/List_of_attacks_Final-fixed.csv -suffix _sorted.csv -colsums /home/***REMOVED***/Network/colSums-29Jan2020-221001.json -workers 25 -offset 392 -max 588 -out /home/***REMOVED***/Network/SWaT2015-Network-Labeled
+    screen -L /home/user/datenwolf -attacks /home/user/Network/List_of_attacks_Final-fixed.csv -suffix _sorted.csv -colsums /home/user/Network/colSums-29Jan2020-221001.json -workers 25 -offset 392 -max 588 -out /home/user/Network/SWaT2015-Network-Labeled
 
 Bastia (4/4 Eval)
 
     ../datenwolf -attacks List_of_attacks_Final-fixed.csv -suffix _sorted.csv -colsums colSums-29Jan2020-221001.json -workers 25 -offset 588 -out SWaT2015-Network-Labeled-Pt4
 
-    screen -L /home/***REMOVED***/datenwolf -attacks /home/***REMOVED***/Network/List_of_attacks_Final-fixed.csv -suffix _sorted.csv -colsums /home/***REMOVED***/Network/colSums-29Jan2020-221001.json -workers 25 -offset 392 -max 588 -out /home/***REMOVED***/Network/SWaT2015-Network-Labeled
+    screen -L /home/user/datenwolf -attacks /home/user/Network/List_of_attacks_Final-fixed.csv -suffix _sorted.csv -colsums /home/user/Network/colSums-29Jan2020-221001.json -workers 25 -offset 392 -max 588 -out /home/user/Network/SWaT2015-Network-Labeled
 
 ## LSTM Evaluation
 
@@ -545,9 +545,9 @@ Brussels:
     /0/1000/2                      memory         [empty]
     /0/1000/3                      memory         [empty]
     /0/100/14.2                    memory         RAM memory
-    ***REMOVED***@brussels:/home/***REMOVED***# uname -a
+    user@brussels:/home/user# uname -a
     Linux brussels 4.15.0-74-generic #84-Ubuntu SMP Thu Dec 19 08:06:28 UTC 2019 x86_64 x86_64 x86_64 GNU/Linux
-    ***REMOVED***@brussels:/home/***REMOVED***# python3 -c 'import tensorflow as tf; print(tf.__version__)'
+    user@brussels:/home/user# python3 -c 'import tensorflow as tf; print(tf.__version__)'
     2020-02-09 21:57:08.780537: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer.so.6'; dlerror: libnvinfer.so.6: cannot open shared object file: No such file or directory
     2020-02-09 21:57:08.780594: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer_plugin.so.6'; dlerror: libnvinfer_plugin.so.6: cannot open shared object file: No such file or directory
     2020-02-09 21:57:08.780615: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:30] Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
@@ -570,9 +570,9 @@ Bastia:
     /0/1000/2                       memory         [empty]
     /0/1000/3                       memory         8GiB DIMM DDR4 Synchronous 2133 MHz (0.5 ns)
     /0/100/1f.2                     memory         Memory controller
-    ***REMOVED***@***REMOVED***:/home/***REMOVED***# uname -a
+    user@***REMOVED***:/home/user# uname -a
     Linux ***REMOVED*** 4.15.0-66-generic #75-Ubuntu SMP Tue Oct 1 05:24:09 UTC 2019 x86_64 x86_64 x86_64 GNU/Linux
-    ***REMOVED***@***REMOVED***:/home/***REMOVED***#     python3 -c 'import tensorflow as tf; print(tf.__version__)'
+    user@***REMOVED***:/home/user#     python3 -c 'import tensorflow as tf; print(tf.__version__)'
     2020-02-09 21:58:02.454559: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer.so.6'; dlerror: libnvinfer.so.6: cannot open shared object file: No such file or directory
     2020-02-09 21:58:02.454784: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer_plugin.so.6'; dlerror: libnvinfer_plugin.so.6: cannot open shared object file: No such file or directory
     2020-02-09 21:58:02.454820: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:30] Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.

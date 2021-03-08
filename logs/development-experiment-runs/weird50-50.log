@@ -153,19 +153,19 @@ Epoch 1/1
 ^CTraceback (most recent call last):
   File "readcsv.py", line 10, in <module>
     from tfUtils import * 
-  File "/home/***REMOVED***/ics-research/tfUtils.py", line 1, in <module>
+  File "/home/user/ics-research/tfUtils.py", line 1, in <module>
     from keras.models import Sequential
-  File "/home/***REMOVED***/.local/lib/python3.6/site-packages/keras/__init__.py", line 3, in <module>
+  File "/home/user/.local/lib/python3.6/site-packages/keras/__init__.py", line 3, in <module>
     from . import utils
-  File "/home/***REMOVED***/.local/lib/python3.6/site-packages/keras/utils/__init__.py", line 2, in <module>
+  File "/home/user/.local/lib/python3.6/site-packages/keras/utils/__init__.py", line 2, in <module>
     from . import np_utils
-  File "/home/***REMOVED***/.local/lib/python3.6/site-packages/keras/utils/np_utils.py", line 6, in <module>
+  File "/home/user/.local/lib/python3.6/site-packages/keras/utils/np_utils.py", line 6, in <module>
     import numpy as np
-  File "/home/***REMOVED***/.local/lib/python3.6/site-packages/numpy/__init__.py", line 142, in <module>
+  File "/home/user/.local/lib/python3.6/site-packages/numpy/__init__.py", line 142, in <module>
     from . import core
-  File "/home/***REMOVED***/.local/lib/python3.6/site-packages/numpy/core/__init__.py", line 107, in <module>
+  File "/home/user/.local/lib/python3.6/site-packages/numpy/core/__init__.py", line 107, in <module>
     from . import _internal
-  File "/home/***REMOVED***/.local/lib/python3.6/site-packages/numpy/core/_internal.py", line 11, in <module>
+  File "/home/user/.local/lib/python3.6/site-packages/numpy/core/_internal.py", line 11, in <module>
     import platform
   File "/usr/lib/python3.6/platform.py", line 116, in <module>
     import sys, os, re, subprocess
@@ -334,21 +334,21 @@ Epoch 1/1
     train_dnn(df, i, epoch+1)
   File "readcsv.py", line 92, in train_dnn
     batch_size=32
-  File "/home/***REMOVED***/.local/lib/python3.6/site-packages/keras/engine/training.py", line 1239, in fit
+  File "/home/user/.local/lib/python3.6/site-packages/keras/engine/training.py", line 1239, in fit
     validation_freq=validation_freq)
-  File "/home/***REMOVED***/.local/lib/python3.6/site-packages/keras/engine/training_arrays.py", line 196, in fit_loop
+  File "/home/user/.local/lib/python3.6/site-packages/keras/engine/training_arrays.py", line 196, in fit_loop
     outs = fit_function(ins_batch)
-  File "/home/***REMOVED***/.local/lib/python3.6/site-packages/tensorflow_core/python/keras/backend.py", line 3727, in __call__
+  File "/home/user/.local/lib/python3.6/site-packages/tensorflow_core/python/keras/backend.py", line 3727, in __call__
     outputs = self._graph_fn(*converted_inputs)
-  File "/home/***REMOVED***/.local/lib/python3.6/site-packages/tensorflow_core/python/eager/function.py", line 1551, in __call__
+  File "/home/user/.local/lib/python3.6/site-packages/tensorflow_core/python/eager/function.py", line 1551, in __call__
     return self._call_impl(args, kwargs)
-  File "/home/***REMOVED***/.local/lib/python3.6/site-packages/tensorflow_core/python/eager/function.py", line 1591, in _call_impl
+  File "/home/user/.local/lib/python3.6/site-packages/tensorflow_core/python/eager/function.py", line 1591, in _call_impl
     return self._call_flat(args, self.captured_inputs, cancellation_manager)
-  File "/home/***REMOVED***/.local/lib/python3.6/site-packages/tensorflow_core/python/eager/function.py", line 1692, in _call_flat
+  File "/home/user/.local/lib/python3.6/site-packages/tensorflow_core/python/eager/function.py", line 1692, in _call_flat
     ctx, args, cancellation_manager=cancellation_manager))
-  File "/home/***REMOVED***/.local/lib/python3.6/site-packages/tensorflow_core/python/eager/function.py", line 545, in call
+  File "/home/user/.local/lib/python3.6/site-packages/tensorflow_core/python/eager/function.py", line 545, in call
     ctx=ctx)
-  File "/home/***REMOVED***/.local/lib/python3.6/site-packages/tensorflow_core/python/eager/execute.py", line 61, in quick_execute
+  File "/home/user/.local/lib/python3.6/site-packages/tensorflow_core/python/eager/execute.py", line 61, in quick_execute
     num_outputs)
 Using TensorFlow backend.
 2020-01-31 12:07:16.655123: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer.so.6'; dlerror: libnvinfer.so.6: cannot open shared object file: No such file or directory
