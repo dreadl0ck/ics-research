@@ -152,7 +152,7 @@ command:
 
 commit version:
     
-    user@***REMOVED***:~/ics-research$ git rev-parse HEAD  
+    user@someserver.net:~/ics-research$ git rev-parse HEAD  
     4f5ed93d439ca30cf82654f77f0186447327b9e0
 
 
@@ -162,7 +162,7 @@ command:
    python3 readcsv.py -read "/mnt/terradrive/labeled-SW015-network/*.csv" -dimensionality 19 -epochs 10
 
 commit version:
-   user@***REMOVED***:~/ics-research$ git rev-parse HEAD
+   user@someserver.net:~/ics-research$ git rev-parse HEAD
 f54739686d56ae45d7d0eeb9c2bbfaa3fcb7d10a
 
 
@@ -171,7 +171,7 @@ command:
 screen -L python3 readcsv.py -read "/mnt/terradrive/labeled-SWaT-2015-network/2015-12-26_121116_89.log.part03_sorted-labeled.csv" -dimensionality 14 -epochs 10 -debug true -drop service,Modbus_Function_Code
 
 commit version:
-user@***REMOVED***:~/ics-research$ git rev-parse HEAD
+user@someserver.net:~/ics-research$ git rev-parse HEAD
 20fd6a5fb6239627eb4e7d791496368861e0e3f0
 
 run 4: 28/1 16:16
@@ -179,7 +179,7 @@ command:
 screen -L python3 -u readcsv.py -read "/mnt/terradrive/labeled-SWaT-2015-network/*csv" -dimensionality 14 -epochs 10 -debug true -drop service,Modbus_Function_Cod
 
 commit version:
-user@***REMOVED***:/home/user/ics-research# git rev-parse HEAD
+user@someserver.net:/home/user/ics-research# git rev-parse HEAD
 20fd6a5fb6239627eb4e7d791496368861e0e3f0
 
 
@@ -189,7 +189,7 @@ command
 
 
 commit version:
-user@***REMOVED***:/home/user/ics-research# git rev-parse HEAD
+user@someserver.net:/home/user/ics-research# git rev-parse HEAD
 322ee5783702a582b86dd7dd015ccb84be3d54e2
 
 
@@ -570,9 +570,9 @@ Bastia:
     /0/1000/2                       memory         [empty]
     /0/1000/3                       memory         8GiB DIMM DDR4 Synchronous 2133 MHz (0.5 ns)
     /0/100/1f.2                     memory         Memory controller
-    user@***REMOVED***:/home/user# uname -a
-    Linux ***REMOVED*** 4.15.0-66-generic #75-Ubuntu SMP Tue Oct 1 05:24:09 UTC 2019 x86_64 x86_64 x86_64 GNU/Linux
-    user@***REMOVED***:/home/user#     python3 -c 'import tensorflow as tf; print(tf.__version__)'
+    user@someserver.net:/home/user# uname -a
+    Linux bastia 4.15.0-66-generic #75-Ubuntu SMP Tue Oct 1 05:24:09 UTC 2019 x86_64 x86_64 x86_64 GNU/Linux
+    user@someserver.net:/home/user#     python3 -c 'import tensorflow as tf; print(tf.__version__)'
     2020-02-09 21:58:02.454559: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer.so.6'; dlerror: libnvinfer.so.6: cannot open shared object file: No such file or directory
     2020-02-09 21:58:02.454784: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer_plugin.so.6'; dlerror: libnvinfer_plugin.so.6: cannot open shared object file: No such file or directory
     2020-02-09 21:58:02.454820: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:30] Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.

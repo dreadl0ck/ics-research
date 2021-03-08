@@ -3,7 +3,7 @@
 2020-02-09 20:46:45.499278: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:30] Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
 2020-02-09 20:46:46.292433: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
 2020-02-09 20:46:46.292463: E tensorflow/stream_executor/cuda/cuda_driver.cc:351] failed call to cuInit: UNKNOWN ERROR (303)
-2020-02-09 20:46:46.292493: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (***REMOVED***): /proc/driver/nvidia/version does not exist
+2020-02-09 20:46:46.292493: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (bastia): /proc/driver/nvidia/version does not exist
 2020-02-09 20:46:46.292693: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
 2020-02-09 20:46:46.302202: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2112050000 Hz
 2020-02-09 20:46:46.303649: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x4168000 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
@@ -2877,7 +2877,7 @@ Epoch 1/1
 2020-02-09 21:40:12.019722: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:30] Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
 2020-02-09 21:40:13.441193: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
 2020-02-09 21:40:13.441255: E tensorflow/stream_executor/cuda/cuda_driver.cc:351] failed call to cuInit: UNKNOWN ERROR (303)
-2020-02-09 21:40:13.441300: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (***REMOVED***): /proc/driver/nvidia/version does not exist
+2020-02-09 21:40:13.441300: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (bastia): /proc/driver/nvidia/version does not exist
 2020-02-09 21:40:13.441463: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
 2020-02-09 21:40:13.459741: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2112050000 Hz
 2020-02-09 21:40:13.460989: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x597b250 initialized for platform Host (this does not guarantee that XLA will be used). Devices:

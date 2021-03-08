@@ -20,7 +20,7 @@ optimizer adam
 [33m[INFO] using Sequential Dense layers[0m
 2020-02-09 13:01:05.018674: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
 2020-02-09 13:01:05.018699: E tensorflow/stream_executor/cuda/cuda_driver.cc:351] failed call to cuInit: UNKNOWN ERROR (303)
-2020-02-09 13:01:05.018728: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (***REMOVED***): /proc/driver/nvidia/version does not exist
+2020-02-09 13:01:05.018728: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (bastia): /proc/driver/nvidia/version does not exist
 2020-02-09 13:01:05.018928: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
 2020-02-09 13:01:05.028925: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2112050000 Hz
 2020-02-09 13:01:05.030454: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x40ea210 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
@@ -85,7 +85,7 @@ optimizer adam
 [33m[INFO] using Sequential Dense layers[0m
 2020-02-09 13:01:10.675234: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
 2020-02-09 13:01:10.675259: E tensorflow/stream_executor/cuda/cuda_driver.cc:351] failed call to cuInit: UNKNOWN ERROR (303)
-2020-02-09 13:01:10.675288: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (***REMOVED***): /proc/driver/nvidia/version does not exist
+2020-02-09 13:01:10.675288: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (bastia): /proc/driver/nvidia/version does not exist
 2020-02-09 13:01:10.675431: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
 2020-02-09 13:01:10.684559: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2112050000 Hz
 2020-02-09 13:01:10.685769: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x4e7b370 initialized for platform Host (this does not guarantee that XLA will be used). Devices:

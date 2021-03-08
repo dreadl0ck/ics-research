@@ -49,7 +49,7 @@ Multi Stage Single Point           zero tp
 Multi Stage Multi Point            zero tp
 accuracy: 0.802
 
---- experiment-logs/***REMOVED***/lstm-v0.log ---
+--- experiment-logs/bastia/lstm-v0.log ---
 [[265035  98916      0      0      0]
  [   706 135343      0      0      0]
  [     0      0      0      0      0]
@@ -94,7 +94,7 @@ Multi Stage Single Point           zero tp
 Multi Stage Multi Point            zero tp
 accuracy: 0.802
 
---- experiment-logs/***REMOVED***/dnn-v6.log ---
+--- experiment-logs/bastia/dnn-v6.log ---
 [[265030  98921      0      0      0]
  [     0 136049      0      0      0]
  [     0      0      0      0      0]
@@ -158,7 +158,7 @@ Multi Stage Multi Point            zero tp
 accuracy: 0.802
 
 
---- experiment-logs/***REMOVED***/lstm-v0.log ---
+--- experiment-logs/bastia/lstm-v0.log ---
 [[265035  98916      0      0      0]
  [   706 135343      0      0      0]
  [     0      0      0      0      0]
@@ -218,7 +218,7 @@ Multi Stage Single Point           zero tp
 Multi Stage Multi Point            zero tp
 accuracy: 0.802
 
---- experiment-logs/***REMOVED***/lstm-v0.log ---
+--- experiment-logs/bastia/lstm-v0.log ---
 [[265035  98916      0      0      0]
  [   706 135343      0      0      0]
  [     0      0      0      0      0]

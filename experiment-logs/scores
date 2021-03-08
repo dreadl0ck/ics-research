@@ -1,4 +1,4 @@
-../experiment-logs/lstm-v8.log ../experiment-logs/lstm-v9.log ../experiment-logs/lstm-v6.log ../experiment-logs/lstm-v7.log ../experiment-logs/mac2/lstm-v8.log ../experiment-logs/mac2/lstm-v9.log ../experiment-logs/mac2/lstm-v7.log ../experiment-logs/***REMOVED***/lstm-v10.log ../experiment-logs/***REMOVED***/lstm-v1.log ../experiment-logs/brussels/dnn-v1.log ../experiment-logs/brussels/dnn-v2.log ../experiment-logs/brussels/dnn-v3.log
+../experiment-logs/lstm-v8.log ../experiment-logs/lstm-v9.log ../experiment-logs/lstm-v6.log ../experiment-logs/lstm-v7.log ../experiment-logs/mac2/lstm-v8.log ../experiment-logs/mac2/lstm-v9.log ../experiment-logs/mac2/lstm-v7.log ../experiment-logs/bastia/lstm-v10.log ../experiment-logs/bastia/lstm-v1.log ../experiment-logs/brussels/dnn-v1.log ../experiment-logs/brussels/dnn-v2.log ../experiment-logs/brussels/dnn-v3.log
 --- ../experiment-logs/lstm-v8.log ---
 [[6910760    1778       0       0       0]
  [ 629604       4       0       0       0]
@@ -90,7 +90,7 @@ Multi Stage Single Point           zero tp
 Multi Stage Multi Point            zero tp
 accuracy: 0.080
 
---- ../experiment-logs/***REMOVED***/lstm-v10.log ---
+--- ../experiment-logs/bastia/lstm-v10.log ---
 [[6912538       0       0       0       0]
  [ 629608       0       0       0       0]
  [ 109697       0       0       0       0]
@@ -105,7 +105,7 @@ Multi Stage Single Point           zero tp
 Multi Stage Multi Point            zero tp
 accuracy: 0.875
 
---- ../experiment-logs/***REMOVED***/lstm-v1.log ---
+--- ../experiment-logs/bastia/lstm-v1.log ---
 --- ../experiment-logs/brussels/dnn-v1.log ---
 [[6952362       0       0       0       0]
  [ 629608       0       0       0       0]

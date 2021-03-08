@@ -1,4 +1,4 @@
-experiment-logs/dnn-v2.log experiment-logs/dnn-v0-physical.log experiment-logs/dnn-v3.log experiment-logs/dnn-v1.log experiment-logs/dnn-v0.log experiment-logs/dnn-v4.log experiment-logs/dnn-v5.log experiment-logs/dnn-v7.log experiment-logs/lstm-v10.log experiment-logs/dnn-v6.log experiment-logs/mac2/lstm-v5.log experiment-logs/mac2/lstm-v7.log experiment-logs/mac2/lstm-v6.log experiment-logs/mac2/lstm-v8.log experiment-logs/mac2/lstm-v9.log experiment-logs/lstm-v4.log experiment-logs/lstm-v5.log experiment-logs/lstm-v7.log experiment-logs/lstm-v6.log experiment-logs/lstm-v2.log experiment-logs/lstm-v3.log experiment-logs/dnn-v10.log experiment-logs/lstm-v1.log experiment-logs/lstm-v0.log experiment-logs/lstm-v8.log experiment-logs/lstm-v9.log experiment-logs/dnn-v8.log experiment-logs/dnn-v9.log experiment-logs/***REMOVED***/dnn-v2.log experiment-logs/***REMOVED***/dnn-v3.log experiment-logs/***REMOVED***/dnn-v1.log experiment-logs/***REMOVED***/dnn-v0.log experiment-logs/***REMOVED***/dnn-v4.log experiment-logs/***REMOVED***/dnn-v5.log experiment-logs/***REMOVED***/lstm-v10.log experiment-logs/***REMOVED***/lstm-v4.log experiment-logs/***REMOVED***/lstm-v5.log experiment-logs/***REMOVED***/lstm-v7.log experiment-logs/***REMOVED***/lstm-v6.log experiment-logs/***REMOVED***/lstm-v2.log experiment-logs/***REMOVED***/lstm-v3.log experiment-logs/***REMOVED***/lstm-v1.log experiment-logs/***REMOVED***/lstm-v0.log experiment-logs/***REMOVED***/lstm-v8.log experiment-logs/***REMOVED***/lstm-v9.log experiment-logs/brussels/dnn-v2.log experiment-logs/brussels/dnn-v3.log experiment-logs/brussels/dnn-v1.log experiment-logs/brussels/dnn-v0.log experiment-logs/brussels/dnn-v4.log experiment-logs/brussels/dnn-v5.log experiment-logs/brussels/lstm-v10.log experiment-logs/brussels/lstm-v4.log experiment-logs/brussels/lstm-v5.log experiment-logs/brussels/lstm-v7.log experiment-logs/brussels/lstm-v6.log experiment-logs/brussels/lstm-v2.log experiment-logs/brussels/lstm-v3.log experiment-logs/brussels/lstm-v1.log experiment-logs/brussels/lstm-v0.log experiment-logs/brussels/lstm-v8.log experiment-logs/brussels/lstm-v9.log
+experiment-logs/dnn-v2.log experiment-logs/dnn-v0-physical.log experiment-logs/dnn-v3.log experiment-logs/dnn-v1.log experiment-logs/dnn-v0.log experiment-logs/dnn-v4.log experiment-logs/dnn-v5.log experiment-logs/dnn-v7.log experiment-logs/lstm-v10.log experiment-logs/dnn-v6.log experiment-logs/mac2/lstm-v5.log experiment-logs/mac2/lstm-v7.log experiment-logs/mac2/lstm-v6.log experiment-logs/mac2/lstm-v8.log experiment-logs/mac2/lstm-v9.log experiment-logs/lstm-v4.log experiment-logs/lstm-v5.log experiment-logs/lstm-v7.log experiment-logs/lstm-v6.log experiment-logs/lstm-v2.log experiment-logs/lstm-v3.log experiment-logs/dnn-v10.log experiment-logs/lstm-v1.log experiment-logs/lstm-v0.log experiment-logs/lstm-v8.log experiment-logs/lstm-v9.log experiment-logs/dnn-v8.log experiment-logs/dnn-v9.log experiment-logs/bastia/dnn-v2.log experiment-logs/bastia/dnn-v3.log experiment-logs/bastia/dnn-v1.log experiment-logs/bastia/dnn-v0.log experiment-logs/bastia/dnn-v4.log experiment-logs/bastia/dnn-v5.log experiment-logs/bastia/lstm-v10.log experiment-logs/bastia/lstm-v4.log experiment-logs/bastia/lstm-v5.log experiment-logs/bastia/lstm-v7.log experiment-logs/bastia/lstm-v6.log experiment-logs/bastia/lstm-v2.log experiment-logs/bastia/lstm-v3.log experiment-logs/bastia/lstm-v1.log experiment-logs/bastia/lstm-v0.log experiment-logs/bastia/lstm-v8.log experiment-logs/bastia/lstm-v9.log experiment-logs/brussels/dnn-v2.log experiment-logs/brussels/dnn-v3.log experiment-logs/brussels/dnn-v1.log experiment-logs/brussels/dnn-v0.log experiment-logs/brussels/dnn-v4.log experiment-logs/brussels/dnn-v5.log experiment-logs/brussels/lstm-v10.log experiment-logs/brussels/lstm-v4.log experiment-logs/brussels/lstm-v5.log experiment-logs/brussels/lstm-v7.log experiment-logs/brussels/lstm-v6.log experiment-logs/brussels/lstm-v2.log experiment-logs/brussels/lstm-v3.log experiment-logs/brussels/lstm-v1.log experiment-logs/brussels/lstm-v0.log experiment-logs/brussels/lstm-v8.log experiment-logs/brussels/lstm-v9.log
 --- experiment-logs/dnn-v2.log ---
 [[363951      0      0      0      0]
  [136049      0      0      0      0]
@@ -377,7 +377,7 @@ Multi Stage Single Point           zero tp
 Multi Stage Multi Point            zero tp
 accuracy: 0.728
 
---- experiment-logs/***REMOVED***/dnn-v2.log ---
+--- experiment-logs/bastia/dnn-v2.log ---
 [[ 428499 4728704 1755335       0       0]
  [  24760  285483  319365       0       0]
  [  11029   90904    7764       0       0]
@@ -392,7 +392,7 @@ Multi Stage Single Point           zero tp
 Multi Stage Multi Point            zero tp
 accuracy: 0.091
 
---- experiment-logs/***REMOVED***/dnn-v3.log ---
+--- experiment-logs/bastia/dnn-v3.log ---
 [[2591652 4320886       0       0       0]
  [ 405788  223820       0       0       0]
  [  23668   86029       0       0       0]
@@ -407,9 +407,9 @@ Multi Stage Single Point           zero tp
 Multi Stage Multi Point            zero tp
 accuracy: 0.356
 
---- experiment-logs/***REMOVED***/dnn-v1.log ---
---- experiment-logs/***REMOVED***/dnn-v0.log ---
---- experiment-logs/***REMOVED***/dnn-v4.log ---
+--- experiment-logs/bastia/dnn-v1.log ---
+--- experiment-logs/bastia/dnn-v0.log ---
+--- experiment-logs/bastia/dnn-v4.log ---
 [[4071875 2840654       0       9       0]
  [ 375177  254431       0       0       0]
  [  72466   37231       0       0       0]
@@ -424,7 +424,7 @@ Multi Stage Single Point           zero tp
 Multi Stage Multi Point            zero tp
 accuracy: 0.548
 
---- experiment-logs/***REMOVED***/dnn-v5.log ---
+--- experiment-logs/bastia/dnn-v5.log ---
 [[      0 6912538       0       0       0]
  [      0  629608       0       0       0]
  [      0  109697       0       0       0]
@@ -439,7 +439,7 @@ Multi Stage Single Point           zero tp
 Multi Stage Multi Point            zero tp
 accuracy: 0.080
 
---- experiment-logs/***REMOVED***/lstm-v10.log ---
+--- experiment-logs/bastia/lstm-v10.log ---
 [[6912538       0       0       0       0]
  [ 629608       0       0       0       0]
  [ 109697       0       0       0       0]
@@ -454,7 +454,7 @@ Multi Stage Single Point           zero tp
 Multi Stage Multi Point            zero tp
 accuracy: 0.875
 
---- experiment-logs/***REMOVED***/lstm-v4.log ---
+--- experiment-logs/bastia/lstm-v4.log ---
 [[6901134   11404       0       0       0]
  [ 628006    1602       0       0       0]
  [ 109622      75       0       0       0]
@@ -469,7 +469,7 @@ Multi Stage Single Point           zero tp
 Multi Stage Multi Point            zero tp
 accuracy: 0.874
 
---- experiment-logs/***REMOVED***/lstm-v5.log ---
+--- experiment-logs/bastia/lstm-v5.log ---
 [[6912537       1       0       0       0]
  [ 629608       0       0       0       0]
  [ 109697       0       0       0       0]
@@ -484,8 +484,8 @@ Multi Stage Single Point           zero tp
 Multi Stage Multi Point            zero tp
 accuracy: 0.875
 
---- experiment-logs/***REMOVED***/lstm-v7.log ---
---- experiment-logs/***REMOVED***/lstm-v6.log ---
+--- experiment-logs/bastia/lstm-v7.log ---
+--- experiment-logs/bastia/lstm-v6.log ---
 [[5783593 1128945       0       0       0]
  [ 509057  120551       0       0       0]
  [  87570   22127       0       0       0]
@@ -500,7 +500,7 @@ Multi Stage Single Point           zero tp
 Multi Stage Multi Point            zero tp
 accuracy: 0.747
 
---- experiment-logs/***REMOVED***/lstm-v2.log ---
+--- experiment-logs/bastia/lstm-v2.log ---
 [[6912526      12       0       0       0]
  [ 629607       1       0       0       0]
  [ 109697       0       0       0       0]
@@ -515,7 +515,7 @@ Multi Stage Single Point           zero tp
 Multi Stage Multi Point            zero tp
 accuracy: 0.875
 
---- experiment-logs/***REMOVED***/lstm-v3.log ---
+--- experiment-logs/bastia/lstm-v3.log ---
 [[2629375 4283163       0       0       0]
  [ 461289  168319       0       0       0]
  [  23848   85849       0       0       0]
@@ -530,8 +530,8 @@ Multi Stage Single Point           zero tp
 Multi Stage Multi Point            zero tp
 accuracy: 0.354
 
---- experiment-logs/***REMOVED***/lstm-v1.log ---
---- experiment-logs/***REMOVED***/lstm-v0.log ---
+--- experiment-logs/bastia/lstm-v1.log ---
+--- experiment-logs/bastia/lstm-v0.log ---
 [[265035  98916      0      0      0]
  [   706 135343      0      0      0]
  [     0      0      0      0      0]
@@ -546,7 +546,7 @@ Multi Stage Single Point           zero tp
 Multi Stage Multi Point            zero tp
 accuracy: 0.801
 
---- experiment-logs/***REMOVED***/lstm-v8.log ---
+--- experiment-logs/bastia/lstm-v8.log ---
 [[6912535       3       0       0       0]
  [ 629608       0       0       0       0]
  [ 109697       0       0       0       0]
@@ -561,7 +561,7 @@ Multi Stage Single Point           zero tp
 Multi Stage Multi Point            zero tp
 accuracy: 0.875
 
---- experiment-logs/***REMOVED***/lstm-v9.log ---
+--- experiment-logs/bastia/lstm-v9.log ---
 [[      1 6910855       0    1682       0]
  [      0  629441       0     167       0]
  [      0  109688       0       9       0]
