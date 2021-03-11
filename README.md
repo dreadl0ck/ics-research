@@ -157,7 +157,7 @@ run 1: 27/1
 
 command:
    
-   python3 readcsv.py -read "/mnt/terradrive/labeled-SW015-network/*.csv" -dimensionality 19 -epochs 10
+    python3 readcsv.py -read "/mnt/terradrive/labeled-SW015-network/*.csv" -dimensionality 19 -epochs 10
 
 commit version:
     
