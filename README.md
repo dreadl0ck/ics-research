@@ -150,8 +150,9 @@ Start experiments on Brussels:
     
 > commit version: 8fd1f38e275303bca1ae861a21b91720e4856bd2
 
-## commands ran
-### for normal dnn on 2015 labeled dataset:
+## Command Log
+
+### Regular DNN on 2015 labeled dataset
 
 run 1: 27/1
 
@@ -218,28 +219,30 @@ run 6: 29-1 16:40 - prepared, but not ran
 
 ## Dataset analyzer
 
-### analysis
+Tool is located in _cmd/analyzer_.
+
+### Analysis
 
 - which files contain attacks
 - unique strings for each row
 - mean, stddev, min and max for numbers
 
-### preprocessing
+### Preprocessing
 
 - drop columns that only contain a single value
 - fix typos: ip, log and loe, Responqe etc
 - merge num, date and time to UNIX timestamps
 
-### encoding
+### Encoding
 
 - zscore numbers
 - encode strings to numbers
 
-### labeling
+### Labeling
 
 - use attack types
 
-### split
+### Dataset split
 
 - dataset split: 50% train, 25% test, 25% validation, LSTM batch size: 125000
 
@@ -248,7 +251,7 @@ run 6: 29-1 16:40 - prepared, but not ran
 
 - DROP columns: Tag, date, num and time
 
-### TODO
+### TODOs
 
 - add progress indicator
 - fix checkpoint naming for lstm: 'files' wrong
@@ -393,61 +396,61 @@ With test_size = 0.25 set lstmBatchSize to (numRows) * 0.25
 - use smaller batch for training? with equal distribution of attack types?
 - one hot encoding
 
-DNN
+### DNN
 
-python3 train.py \
-    -read data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/*2015-12-28_113021_98.log.part12_sorted*-labeled.csv \
-    -wrapLayerSize 8 \
-    -dropoutLayer false \
-    -relu true \
-    -coreLayerSize 16 \
-    -numCoreLayers 2 \
-    -optimizer adam \
-    -epoch 10 \
-    -features 81 \
-    -drop modbus_value
+    python3 train.py \
+        -read data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/*2015-12-28_113021_98.log.part12_sorted*-labeled.csv \
+        -wrapLayerSize 8 \
+        -dropoutLayer false \
+        -relu true \
+        -coreLayerSize 16 \
+        -numCoreLayers 2 \
+        -optimizer adam \
+        -epoch 10 \
+        -features 81 \
+        -drop modbus_value
+    
+    python3 score.py \
+        -read data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-28_113021_98.log.part13_sorted-labeled.csv \
+        -wrapLayerSize 8 \
+        -dropoutLayer false \
+        -relu true \
+        -coreLayerSize 16 \
+        -numCoreLayers 2 \
+        -optimizer adam \
+        -features 81 \
+        -drop modbus_value
 
-python3 score.py \
-    -read data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/2015-12-28_113021_98.log.part13_sorted-labeled.csv \
-    -wrapLayerSize 8 \
-    -dropoutLayer false \
-    -relu true \
-    -coreLayerSize 16 \
-    -numCoreLayers 2 \
-    -optimizer adam \
-    -features 81 \
-    -drop modbus_value
+### LSTM
 
-LSTM
+    python3 train.py \
+        -read "data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/*-labeled.csv" \
+        -wrapLayerSize 16 \
+        -dropoutLayer true \
+        -relu true \
+        -coreLayerSize 32 \
+        -numCoreLayers 2 \
+        -optimizer adam \
+        -epoch 3 \
+        -lstm true \
+        -features 107 \
+        -binaryClasses true \
+        -drop modbus_value
+    
+    python3 score.py \
+        -read "data/SWaT2015-Attack-Files-v0.4.3-minmax-text/eval/*-labeled.csv" \
+        -wrapLayerSize 16 \
+        -dropoutLayer true \
+        -relu true \
+        -coreLayerSize 32 \
+        -numCoreLayers 2 \
+        -optimizer adam \
+        -lstm true \
+        -features 107 \
+        -binaryClasses true \
+        -drop modbus_value
 
-python3 train.py \
-    -read "data/SWaT2015-Attack-Files-v0.4.3-minmax-text/train/*-labeled.csv" \
-    -wrapLayerSize 16 \
-    -dropoutLayer true \
-    -relu true \
-    -coreLayerSize 32 \
-    -numCoreLayers 2 \
-    -optimizer adam \
-    -epoch 3 \
-    -lstm true \
-    -features 107 \
-    -binaryClasses true \
-    -drop modbus_value
-
-python3 score.py \
-    -read "data/SWaT2015-Attack-Files-v0.4.3-minmax-text/eval/*-labeled.csv" \
-    -wrapLayerSize 16 \
-    -dropoutLayer true \
-    -relu true \
-    -coreLayerSize 32 \
-    -numCoreLayers 2 \
-    -optimizer adam \
-    -lstm true \
-    -features 107 \
-    -binaryClasses true \
-    -drop modbus_value
-
-## eval
+## Evaluation
 
     $ grep attack logs/allstats-v0.4.3-binary.log | grep -v "set classes" | grep -v "zero"
     attack                             0.579    1.000      0.733
@@ -539,7 +542,7 @@ lstm v9:
     -epoch 10 \
     -drop modbus_value
 
-## report
+## Report
 
 system stats
 
