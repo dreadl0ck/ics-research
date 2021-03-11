@@ -154,14 +154,15 @@ Start experiments on Brussels:
 ### for normal dnn on 2015 labeled dataset:
 
 run 1: 27/1
+
 command:
+   
    python3 readcsv.py -read "/mnt/terradrive/labeled-SW015-network/*.csv" -dimensionality 19 -epochs 10
 
 commit version:
     
     user@someserver.net:~/ics-research$ git rev-parse HEAD  
     4f5ed93d439ca30cf82654f77f0186447327b9e0
-
 
 run 2: 28/1
 
