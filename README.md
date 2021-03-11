@@ -1,5 +1,12 @@
 # README
 
+This repository contains code and configuration notes for Intrusion Detection in Industrial Control Systems, in the context of the SWaT testbed maintained by the University of Singapore.
+
+Created by Philipp Mieden and Rutger Beltman as part of their RP1 at the Security and Network Engineering programme at the University of Amsterdam.
+
+- Paper: https://delaat.net/rp/2019-2020/p52/report.pdf
+- Presentation: https://delaat.net/rp/2019-2020/p52/presentation.pdf
+
 ## Server
 
 The datasets are stored on a partition that needs to be mounted:
@@ -88,12 +95,12 @@ Download:
 
 Generate colsums:
 
-    datenwolf -attacks data/List_of_attacks_Final-fixed.csv -file-filter data/Network/attack-files.txt -out data/SWaT2015-Attack-Files-v0.4
+    analyze -attacks data/List_of_attacks_Final-fixed.csv -file-filter data/Network/attack-files.txt -out data/SWaT2015-Attack-Files-v0.4
 
 Use colSums to label:
 
     $ mkdir data/SWaT2015-Attack-Files-v0.4
-    $ go run ./datenwolf -attacks data/List_of_attacks_Final-fixed.csv -file-filter data/Network/attack-files.txt -out data/SWaT2015-Attack-Files-v0.4 -in data/Network -colsums colSums-5Feb2020-194133.json
+    $ go run ./analyze -attacks data/List_of_attacks_Final-fixed.csv -file-filter data/Network/attack-files.txt -out data/SWaT2015-Attack-Files-v0.4 -in data/Network -colsums colSums-5Feb2020-194133.json
 
 ## Label 2019 dataset
 
@@ -159,46 +166,59 @@ commit version:
 run 2: 28/1
 
 command:
+
    python3 readcsv.py -read "/mnt/terradrive/labeled-SW015-network/*.csv" -dimensionality 19 -epochs 10
 
 commit version:
-   user@someserver.net:~/ics-research$ git rev-parse HEAD
-f54739686d56ae45d7d0eeb9c2bbfaa3fcb7d10a
+
+    user@someserver.net:~/ics-research$ git rev-parse HEAD
+    f54739686d56ae45d7d0eeb9c2bbfaa3fcb7d10a
 
 
 run 3: 28/1 14:55
+
 command:
-screen -L python3 readcsv.py -read "/mnt/terradrive/labeled-SWaT-2015-network/2015-12-26_121116_89.log.part03_sorted-labeled.csv" -dimensionality 14 -epochs 10 -debug true -drop service,Modbus_Function_Code
+
+    screen -L python3 readcsv.py -read "/mnt/terradrive/labeled-SWaT-2015-network/2015-12-26_121116_89.log.part03_sorted-labeled.csv" -dimensionality 14 -epochs 10 -debug true -drop service,Modbus_Function_Code
 
 commit version:
-user@someserver.net:~/ics-research$ git rev-parse HEAD
-20fd6a5fb6239627eb4e7d791496368861e0e3f0
+
+    user@someserver.net:~/ics-research$ git rev-parse HEAD
+    20fd6a5fb6239627eb4e7d791496368861e0e3f0
 
 run 4: 28/1 16:16
+
 command:
-screen -L python3 -u readcsv.py -read "/mnt/terradrive/labeled-SWaT-2015-network/*csv" -dimensionality 14 -epochs 10 -debug true -drop service,Modbus_Function_Cod
+
+    screen -L python3 -u readcsv.py -read "/mnt/terradrive/labeled-SWaT-2015-network/*csv" -dimensionality 14 -epochs 10 -debug true -drop service,Modbus_Function_Cod
 
 commit version:
-user@someserver.net:/home/user/ics-research# git rev-parse HEAD
-20fd6a5fb6239627eb4e7d791496368861e0e3f0
+
+    user@someserver.net:/home/user/ics-research# git rev-parse HEAD
+    20fd6a5fb6239627eb4e7d791496368861e0e3f0
 
 
 run 5: 28/1 23:55
-command
-(reverse-i-search)`-L': screen -L python3 -u readcsv.py -read "/mnt/terradrive/labeled-SWaT-2015-network/*csv" -dimensionality 15 -epochs 10 -debug true -drop service,Modbus_Function_Cod
+
+command:
+
+    (reverse-i-search)`-L': screen -L python3 -u readcsv.py -read "/mnt/terradrive/labeled-SWaT-2015-network/*csv" -dimensionality 15 -epochs 10 -debug true -drop service,Modbus_Function_Cod
 
 
 commit version:
-user@someserver.net:/home/user/ics-research# git rev-parse HEAD
-322ee5783702a582b86dd7dd015ccb84be3d54e2
+
+    user@someserver.net:/home/user/ics-research# git rev-parse HEAD
+    322ee5783702a582b86dd7dd015ccb84be3d54e2
 
 
 run 6: 29-1 16:40 - prepared, but not ran
-screen -L python3 -u readcsv.py -read "/mnt/terradrive/labeled-SWaT-2015-network/*csv" -dimensionality 15 -epochs 10 -debug true -drop service,Modbus_Function_Code
+
+    screen -L python3 -u readcsv.py -read "/mnt/terradrive/labeled-SWaT-2015-network/*csv" -dimensionality 15 -epochs 10 -debug true -drop service,Modbus_Function_Code
 
 ## Dataset analyzer
 
 ### analysis
+
 - which files contain attacks
 - unique strings for each row
 - mean, stddev, min and max for numbers
@@ -234,13 +254,13 @@ screen -L python3 -u readcsv.py -read "/mnt/terradrive/labeled-SWaT-2015-network
 
 Generate colsums:
 
-    go run ../../datenwolf -analyze
+    go run ../../analyze -analyze
     # output: colSums-29Jan2020-170358.json
 
 Build:
 
-    GOOS=linux go build -o bin/datenwolf ./datenwolf
-	scp bin/datenwolf user@someserver.net:/home/user
+    GOOS=linux go build -o bin/analyze ./analyze
+	scp bin/analyze user@someserver.net:/home/user
 
 Start analysis and labeling on oslo:
 
@@ -249,15 +269,15 @@ Start analysis and labeling on oslo:
 Local:
 
     cd Network
-    go run ../../datenwolf -attacks List_of_attacks_Final-fixed.csv -file-filter attack-files.txt -suffix "_sorted.csv" -colsums colSums-29Jan2020-221001.json -workers 25
+    go run ../../analyze -attacks List_of_attacks_Final-fixed.csv -file-filter attack-files.txt -suffix "_sorted.csv" -colsums colSums-29Jan2020-221001.json -workers 25
 
 Oslo:
 
-    screen -L /home/user/datenwolf -attacks List_of_attacks_Final-fixed.csv -suffix "_sorted.csv" -out /home/user/labeled-SWaT-2015-network -colsums /home/user/colSums-29Jan2020-221001.json -workers 25
+    screen -L /home/user/analyze -attacks List_of_attacks_Final-fixed.csv -suffix "_sorted.csv" -out /home/user/labeled-SWaT-2015-network -colsums /home/user/colSums-29Jan2020-221001.json -workers 25
 
 Brussels:
 
-    screen -L /home/user/datenwolf -attacks List_of_attacks_Final-fixed.csv -suffix "_sorted.csv" -colsums /home/user/colSums-29Jan2020-221001.json -workers 25 -offset 392
+    screen -L /home/user/analyze -attacks List_of_attacks_Final-fixed.csv -suffix "_sorted.csv" -colsums /home/user/colSums-29Jan2020-221001.json -workers 25 -offset 392
 
 # Push dataset to all servers
 
@@ -267,10 +287,10 @@ Brussels:
 
 Push labeling tool:
 
-    GOOS=linux go build -o bin/datenwolf ./datenwolf
-    scp -P 9876 bin/datenwolf user@someserver.net:/home/user
-    scp -P 9876 bin/datenwolf user@someserver.net:/home/user
-    scp bin/datenwolf user@someserver.net:/home/user
+    GOOS=linux go build -o bin/analyze ./analyze
+    scp -P 9876 bin/analyze user@someserver.net:/home/user
+    scp -P 9876 bin/analyze user@someserver.net:/home/user
+    scp bin/analyze user@someserver.net:/home/user
 
 Start:
 
@@ -278,23 +298,23 @@ Start:
 
 Brussels (1/4 Train)
 
-    ../datenwolf -attacks List_of_attacks_Final-fixed.csv -suffix _sorted.csv -colsums colSums-29Jan2020-221001.json -workers 25 -offset 0 -max 196 -out SWaT2015-Network-Labeled-Pt1
+    ../analyze -attacks List_of_attacks_Final-fixed.csv -suffix _sorted.csv -colsums colSums-29Jan2020-221001.json -workers 25 -offset 0 -max 196 -out SWaT2015-Network-Labeled-Pt1
 
 Oslo (2/4 Train)
 
-    ../datenwolf -attacks List_of_attacks_Final-fixed.csv -suffix _sorted.csv -colsums colSums-29Jan2020-221001.json -workers 25 -offset 196 -max 392 -out SWaT2015-Network-Labeled-Pt2
+    ../analyze -attacks List_of_attacks_Final-fixed.csv -suffix _sorted.csv -colsums colSums-29Jan2020-221001.json -workers 25 -offset 196 -max 392 -out SWaT2015-Network-Labeled-Pt2
 
 Mac (3/4 Test)
 
-    go run ../../datenwolf -attacks List_of_attacks_Final-fixed.csv -suffix _sorted.csv -colsums colSums-29Jan2020-221001.json -workers 25 -offset 392 -max 588 -out SWaT2015-Network-Labeled-Pt3
+    go run ../../analyze -attacks List_of_attacks_Final-fixed.csv -suffix _sorted.csv -colsums colSums-29Jan2020-221001.json -workers 25 -offset 392 -max 588 -out SWaT2015-Network-Labeled-Pt3
 
-    screen -L /home/user/datenwolf -attacks /home/user/Network/List_of_attacks_Final-fixed.csv -suffix _sorted.csv -colsums /home/user/Network/colSums-29Jan2020-221001.json -workers 25 -offset 392 -max 588 -out /home/user/Network/SWaT2015-Network-Labeled
+    screen -L /home/user/analyze -attacks /home/user/Network/List_of_attacks_Final-fixed.csv -suffix _sorted.csv -colsums /home/user/Network/colSums-29Jan2020-221001.json -workers 25 -offset 392 -max 588 -out /home/user/Network/SWaT2015-Network-Labeled
 
 Bastia (4/4 Eval)
 
-    ../datenwolf -attacks List_of_attacks_Final-fixed.csv -suffix _sorted.csv -colsums colSums-29Jan2020-221001.json -workers 25 -offset 588 -out SWaT2015-Network-Labeled-Pt4
+    ../analyze -attacks List_of_attacks_Final-fixed.csv -suffix _sorted.csv -colsums colSums-29Jan2020-221001.json -workers 25 -offset 588 -out SWaT2015-Network-Labeled-Pt4
 
-    screen -L /home/user/datenwolf -attacks /home/user/Network/List_of_attacks_Final-fixed.csv -suffix _sorted.csv -colsums /home/user/Network/colSums-29Jan2020-221001.json -workers 25 -offset 392 -max 588 -out /home/user/Network/SWaT2015-Network-Labeled
+    screen -L /home/user/analyze -attacks /home/user/Network/List_of_attacks_Final-fixed.csv -suffix _sorted.csv -colsums /home/user/Network/colSums-29Jan2020-221001.json -workers 25 -offset 392 -max 588 -out /home/user/Network/SWaT2015-Network-Labeled
 
 ## LSTM Evaluation
 
@@ -336,7 +356,7 @@ With test_size = 0.25 set lstmBatchSize to (numRows) * 0.25
 
     python3 ../score.py -read "SWaT_Dataset_Attack_v0-fixed-eval.csv" -dimensionality 52 -optimizer sgd -model checkpoints/lstm-epoch-1-files-0-1-batch-262452-349936 -debug true -result_column Normal/Attack -lstm true -lstmBatchSize 87484
 
-TODO
+## TODOs
 
 - normalize values for strings and rerun experiments
 - zscore timestamps
@@ -349,8 +369,6 @@ TODO
 - save and load entire model configuration:
 
 > Call model.save to save the a model's architecture, weights, and training configuration in a single file/folder. This allows you to export a model so it can be used without access to the original Python code*. Since the optimizer-state is recovered, you can resume training from exactly where you left off.
-
-## TODO
 
 - fix eval of physical data
 - read multiple files and increase amount of samples passed to tensorflow

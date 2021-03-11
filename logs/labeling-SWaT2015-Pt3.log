@@ -1,4 +1,4 @@
-$ go run ../../datenwolf -attacks List_of_attacks_Final-fixed.csv -suffix _sorted.csv -colsums colSums-29Jan2020-221001.json -workers 25 -offset 392 -max 588 -out SWaT2015-Network-Labeled-Pt3
+$ go run ../../analyze -attacks List_of_attacks_Final-fixed.csv -suffix _sorted.csv -colsums colSums-29Jan2020-221001.json -workers 25 -offset 392 -max 588 -out SWaT2015-Network-Labeled-Pt3
 parsing attacks in List_of_attacks_Final-fixed.csv
 started at 2020-01-31 01:50:04.017897 +0100 CET m=+0.004170102
 collected 588 CSV files for labeling, num workers: 25

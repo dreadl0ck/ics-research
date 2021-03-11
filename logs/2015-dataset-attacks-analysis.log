@@ -1,4 +1,4 @@
-$ go run ./datenwolf -attacks data/List_of_attacks_Final-fixed.csv -file-filter data/Network/attack-files.txt -out data/SWaT2015-Attack-Files-v0.4 -in data/Network -analyze
+$ go run ./analyze -attacks data/List_of_attacks_Final-fixed.csv -file-filter data/Network/attack-files.txt -out data/SWaT2015-Attack-Files-v0.4 -in data/Network -analyze
 parsing attacks in data/List_of_attacks_Final-fixed.csv
 started at 2020-02-05 18:17:26.234675 +0100 CET m=+0.005887396
 collected 66 CSV files for labeling, num workers: 100

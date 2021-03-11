@@ -1,4 +1,4 @@
-$ go run ./datenwolf -attacks data/List_of_attacks_Final-fixed.csv -file-filter data/Network/attack-files.txt -out data/SWaT2015-Attack-Files-v0.4-zscore -in data/Network -colsums colSums-5Feb2020-194133.json -zscore=true
+$ go run ./analyze -attacks data/List_of_attacks_Final-fixed.csv -file-filter data/Network/attack-files.txt -out data/SWaT2015-Attack-Files-v0.4-zscore -in data/Network -colsums colSums-5Feb2020-194133.json -zscore=true
 parsing attacks in data/List_of_attacks_Final-fixed.csv
 started at 2020-02-05 23:58:00.164294 +0100 CET m=+0.005155311
 collected 66 CSV files for labeling, num workers: 100
