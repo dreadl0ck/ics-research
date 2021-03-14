@@ -7,6 +7,25 @@ Created by Philipp Mieden and Rutger Beltman as part of their RP1 at the Securit
 - Paper: https://delaat.net/rp/2019-2020/p52/report.pdf
 - Presentation: https://delaat.net/rp/2019-2020/p52/presentation.pdf
 
+## Dataset download
+
+Infos about the dataset and procedure to obtain access can be found here: https://itrust.sutd.edu.sg/itrust-labs_datasets/dataset_info
+
+We used the drive tool to download the files: https://github.com/odeke-em/drive
+
+  go get -u github.com/odeke-em/drive/cmd/drive
+  mkdir /mnt/storage/gdrive
+  drive init /mnt/storage/gdrive
+  cd /mnt/storage/gdrive
+  drive list
+
+In order to be able to download the shared files, we first had to import them into our own drive, as described here: https://webapps.stackexchange.com/a/141694
+
+Afterwards pull with:
+
+  cd /mnt/storage/gdrive
+  drive pull SWaT-Dataset
+
 ## Server
 
 The datasets are stored on a partition that needs to be mounted:
