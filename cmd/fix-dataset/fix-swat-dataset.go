@@ -1,8 +1,12 @@
 package main
 
-// simple dataset cleaner
+// simple dataset cleaner for the SWaT 2015 Physical Attack data file: SWaT_Dataset_Attack_v0.csv
+
 // compile:
 // $ go build -o bin/fix-swat-dataset fix-swat-dataset.go
+
+// use:
+// $ bin/fix-swat-dataset SWaT_Dataset_Attack_v0.csv
 
 import (
 	"bufio"

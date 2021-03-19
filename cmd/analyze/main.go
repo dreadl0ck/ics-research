@@ -106,6 +106,13 @@ func main() {
 		return
 	}
 
+	if *flagOut != "." {
+		if _, err := os.Stat(*flagOut); err != nil {
+			// ensure the directory exists
+			os.MkdirAll(*flagOut, 0700)
+		}
+	}
+
 	if *flagAttackList != "" {
 		attacks = parseAttackList(*flagAttackList)
 	}

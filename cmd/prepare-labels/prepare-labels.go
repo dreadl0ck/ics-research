@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/csv"
+	"flag"
 	"fmt"
 	"log"
 	"os"
@@ -10,6 +11,14 @@ import (
 	"time"
 )
 
+// label preparation code for the SWaT 2015 Dataset Network attack list: List_of_attacks_Final.csv
+// usage:
+
+// you can convert the provided xlsx spreadsheet using gnumeric:
+// apt install -y gnumeric
+// cd '/mnt/storage/gdrive/SWaT-Dataset/SWaT.A1 & A2_Dec 2015'
+// ssconvert List_of_attacks_Final.xlsx List_of_attacks_Final.csv > /dev/null 2>&1
+
 type stage struct {
 	name    string
 	addrs   []string
@@ -17,87 +26,57 @@ type stage struct {
 }
 
 var stages = map[int]stage{
-	1: stage{
+	1: {
 		name:    "Raw Water",
 		addrs:   []string{"192.168.1.10", "192.168.0.10"},
 		devices: []string{"T101", "P101", "P102", "LIT101", "FIT101", "MV101"},
 	},
-	2: stage{
+	2: {
 		name:    "Chemical Dosing",
 		addrs:   []string{"192.168.1.20", "192.168.0.20"},
 		devices: []string{"P201", "P202", "P203", "P204", "P205", "P206", "P207", "P208", "FIT201", "AIT201", "AIT202", "AIT203", "LS201", "LS202", "LS203", "MV201"},
 	},
-	3: stage{
+	3: {
 		name:    "Ultrafiltration",
 		addrs:   []string{"192.168.1.30", "192.168.0.30"},
 		devices: []string{"T301", "P301", "P302", "LIT301", "FIT301", "FI301", "PSH301", "DPSH301", "DPIT301", "MV301", "MV302", "MV303", "MV304"},
 	},
-	4: stage{
+	4: {
 		name:    "Dechlorination",
 		addrs:   []string{"192.168.1.40", "192.168.0.40"},
 		devices: []string{"T401", "P401", "P402", "P403", "P404", "UV401", "LIT401", "AIT401", "AIT402", "FIT401"},
 	},
-	5: stage{
+	5: {
 		name:    "Reverse Osmosis",
 		addrs:   []string{"192.168.1.50", "192.168.0.50"},
 		devices: []string{"P501", "P502", "P503", "P504", "P505", "AIT501", "AIT502", "AIT503", "AIT504", "PSL501", "PSH501", "PIT501", "PIT502", "PIT503", "FIT503", "FIT504", "MV501", "MV502", "MV503", "MV504"},
 	},
-	6: stage{
+	6: {
 		name:    "Reverse Osmosis permeate transfer, UF backwash",
 		addrs:   []string{"192.168.1.60", "192.168.0.60"},
 		devices: []string{"T601", "P601", "T602", "P602", "P603", "LS601", "LS602", "LS603", "FIT601", "FI601", "FI602"},
 	},
 }
 
-// var stages = map[int]stage{
-// 	1: stage{
-// 		name:    "Raw Water",
-// 		addrs:   []string{"192.168.1.10", "192.168.1.11", "192.168.0.10", "192.168.0.11"},
-// 		devices: []string{"T101", "P101", "P102", "LIT101", "FIT101", "MV101"},
-// 	},
-// 	2: stage{
-// 		name:    "Chemical Dosing",
-// 		addrs:   []string{"192.168.1.20", "192.168.1.21", "192.168.0.20", "192.168.0.21"},
-// 		devices: []string{"P201", "P202", "P203", "P204", "P205", "P206", "P207", "P208", "FIT201", "AIT201", "AIT202", "AIT203", "LS201", "LS202", "LS203", "MV201"},
-// 	},
-// 	3: stage{
-// 		name:    "Ultrafiltration",
-// 		addrs:   []string{"192.168.1.30", "192.168.1.31", "192.168.0.30", "192.168.0.31"},
-// 		devices: []string{"T301", "P301", "P302", "LIT301", "FIT301", "FI301", "PSH301", "DPSH301", "DPIT301", "MV301", "MV302", "MV303", "MV304"},
-// 	},
-// 	4: stage{
-// 		name:    "Dechlorination",
-// 		addrs:   []string{"192.168.1.40", "192.168.1.41", "192.168.0.40", "192.168.0.41"},
-// 		devices: []string{"T401", "P401", "P402", "P403", "P404", "UV401", "LIT401", "AIT401", "AIT402", "FIT401"},
-// 	},
-// 	5: stage{
-// 		name:    "Reverse Osmosis",
-// 		addrs:   []string{"192.168.1.50", "192.168.1.51", "192.168.0.50", "192.168.0.51", "192.168.0.56", "192.168.0.57", "192.168.0.58", "192.168.0.59"},
-// 		devices: []string{"P501", "P502", "P503", "P504", "P505", "AIT501", "AIT502", "AIT503", "AIT504", "PSL501", "PSH501", "PIT501", "PIT502", "PIT503", "FIT503", "FIT504", "MV501", "MV502", "MV503", "MV504"},
-// 	},
-// 	6: stage{
-// 		name:    "Reverse Osmosis permeate transfer, UF backwash",
-// 		addrs:   []string{"192.168.1.60", "192.168.1.61", "192.168.0.60", "192.168.0.61"},
-// 		devices: []string{"T601", "P601", "T602", "P602", "P603", "LS601", "LS602", "LS603", "FIT601", "FI601", "FI602"},
-// 	},
-// }
-
 var attackTypes = map[string][]int{
-	"Single Stage Single Point": []int{1, 2, 3, 4, 6, 7, 8, 10, 11, 13, 14, 16, 17, 19, 20, 28, 31, 32, 33, 34, 36, 40, 41},
-	"Single Stage Multi Point":  []int{21, 24, 25, 29, 35, 37},
-	"Multi Stage Single Point":  []int{26, 27, 38, 39},
-	"Multi Stage Multi Point":   []int{22, 23, 30},
+	"Single Stage Single Point": {1, 2, 3, 4, 6, 7, 8, 10, 11, 13, 14, 16, 17, 19, 20, 28, 31, 32, 33, 34, 36, 40, 41},
+	"Single Stage Multi Point":  {21, 24, 25, 29, 35, 37},
+	"Multi Stage Single Point":  {26, 27, 38, 39},
+	"Multi Stage Multi Point":   {22, 23, 30},
 }
 
 func main() {
 
-	inputFile, err := os.Open("data/List_of_attacks_Final.csv")
+	inFile := flag.String("input", "List_of_attacks_Final.csv", "specify input file path")
+	flag.Parse()
+
+	inputFile, err := os.Open(*inFile)
 	if err != nil {
 		log.Fatal(err)
 	}
 	defer inputFile.Close()
 
-	outputFile, err := os.Create("data/List_of_attacks_Final-fixed.csv")
+	outputFile, err := os.Create("List_of_attacks_Final-fixed.csv")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -116,7 +95,7 @@ func main() {
 		"EndTime",
 		"AttackDuration",
 		"AttackPoints",
-		"Adresses",
+		"Addresses",
 		"AttackName",
 		"AttackType",
 		"Intent",
@@ -171,7 +150,7 @@ func main() {
 		for _, point := range attackPoints {
 			for _, stage := range stages {
 				for _, device := range stage.devices {
-					if device == point {
+					if device == strings.ToUpper(point) {
 						addrs = stage.addrs
 						break
 					}
@@ -219,7 +198,7 @@ func main() {
 			strconv.FormatInt(end.Unix(), 10),   // End Time
 			duration,                            // Attack Duration
 			r[3],                                // Attack Points
-			strings.Join(addrs, ","),            // Adresses
+			strings.Join(addrs, ","),            // Addresses
 			r[5],                                // Attack Name
 			attackType,                          // Attack Type
 			r[7],                                // Intent

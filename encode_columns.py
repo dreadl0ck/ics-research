@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 
 # Run LSTM, locally:
-# $ ./readcsv.py -read data/TCP_labeled.csv -dimensionality 22 -class_amount 2 -sample 0.5 -lstm true
+# $ ./train.py -read data/TCP_labeled.csv -dimensionality 22 -class_amount 2 -sample 0.5 -lstm true
 # on server, 2019 SWaT dataset:
-# $ ./readcsv.py -read */TCP_labeled.csv -dimensionality 22 -class_amount 2 -sample 0.5 -lstm true
+# $ ./train.py -read */TCP_labeled.csv -dimensionality 22 -class_amount 2 -sample 0.5 -lstm true
 # on server, 2015 SWaT dataset:
-# $ ./readcsv.py -read */*_labeled.csv -dimensionality XX -class_amount 2 -sample 0.5 -lstm true
+# $ ./train.py -read */*_labeled.csv -dimensionality XX -class_amount 2 -sample 0.5 -lstm true
 
 import argparse
 import pandas as pd

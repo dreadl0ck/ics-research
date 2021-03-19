@@ -15,7 +15,7 @@ var (
 	flagZeroIncompleteRecords = flag.Bool("zero-incomplete", true, "skip lines that contain empty values")
 	flagCountAttacks          = flag.Bool("count-attacks", false, "count attacks")
 	flagColumnSummaries       = flag.String("colsums", "", "column summary JSON file for loading")
-	flagAnalyzeOnly           = flag.Bool("analyze", false, "analyze only")
+	flagAnalyzeOnly           = flag.Bool("analyze-only", false, "analyze only")
 	flagPathSuffix            = flag.String("suffix", "_sorted.csv", "suffix for all csv files to be parsed")
 	flagOffset                = flag.Int("offset", 0, "index offset from which file to start")
 	flagFileFilter            = flag.String("file-filter", "", "supply a text file with newline separated filenames to process")

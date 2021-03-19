@@ -1,0 +1,55 @@
+# ________ ____  __ __  ______     
+#  \___   // __ \|  |  \/  ___/    
+#   /    /\  ___/|  |  /\___ \    
+#  /_____ \\___  >____//____  >  
+#        \/    \/           \/  
+#                    Build System
+#                          v0.9.8
+#
+
+# default language
+language: bash
+
+# globals for all commands
+globals:
+    USR: ${ICS_RESEARCH_USER}
+    DOMAIN: ${ICS_RESEARCH_EXPERIMENT_SERVER}
+
+# command data
+commands:
+
+    ssh:
+        description: jump on server via ssh
+        exec: ssh ${USR}@${DOMAIN}
+
+    setup-server:
+        description: bootstrap the toolchain needed on the linux server
+        exec: |
+            ssh ${USR}@${DOMAIN} "apt update && apt install -y gnumeric vim tree"
+            ssh ${USR}@${DOMAIN} apt install -y python3-pip python3-dev
+            ssh ${USR}@${DOMAIN} pip3 install --upgrade pip
+            ssh ${USR}@${DOMAIN} pip3 install setuptools requests pandas keras numpy matplotlib
+            ssh ${USR}@${DOMAIN} pip3 install tensorflow sklearn
+
+    server-info:
+        description: display server info
+        exec: |
+            echo "server hardware info:"
+            ssh ${USR}@${DOMAIN} "uname -a && lshw -C system,memory,processor -short"
+            echo "tensorflow version:"
+            ssh ${USR}@${DOMAIN} "python3 -c 'import tensorflow as tf; print(tf.__version__)'"
+
+    deploy-tools:
+        description: deploy dataset processing tools to the linux server
+        exec: |
+            GOOS=linux go build -o bin/fix-swat-dataset cmd/fix-dataset/fix-swat-dataset.go
+            scp bin/fix-swat-dataset ${USR}@${DOMAIN}:/usr/bin
+
+            GOOS=linux go build -o bin/prepare-labels cmd/prepare-labels/prepare-labels.go
+            scp bin/prepare-labels ${USR}@${DOMAIN}:/usr/bin
+
+            GOOS=linux go build -o bin/label-dataset cmd/label-dataset/label-dataset.go
+            scp bin/label-dataset ${USR}@${DOMAIN}:/usr/bin
+
+            GOOS=linux go build -o bin/analyze cmd/analyze/*.go
+            scp bin/analyze ${USR}@${DOMAIN}:/usr/bin

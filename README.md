@@ -14,7 +14,7 @@ Infos about the dataset and procedure to obtain access can be found here: https:
 We used the drive tool to download the files: https://github.com/odeke-em/drive
 
   go get -u github.com/odeke-em/drive/cmd/drive
-  mkdir /mnt/storage/gdrive
+  mkdir -p /mnt/storage/gdrive
   drive init /mnt/storage/gdrive
   cd /mnt/storage/gdrive
   drive list
@@ -25,6 +25,23 @@ Afterwards pull with:
 
   cd /mnt/storage/gdrive
   drive pull SWaT-Dataset
+
+## Setup scripts
+
+The [zeus](http://github.com/dreadl0ck/zeus) build system is used to compile all the go tools and deploy them to the experiment server.
+
+You will need to export two environment variables to indicate your user account name and the server host, in order to connect via SSH:
+
+    export ICS_RESEARCH_USER="..." 
+    export ICS_RESEARCH_EXPERIMENT_SERVER="..."
+
+Afterwards, compile the tools and deploy to your server:
+
+    $ zeus deploy-tools
+
+To install the required python toolchain and tensorflow on a debian linux system, use:
+
+    $ zeus setup-server
 
 ## Server
 
@@ -75,6 +92,8 @@ Find all netcap DNS log files, select the Questions field and print all unique v
     
 ## Tensorflow build from source
 
+If you are using a recent CPU on your experiment server, you can simply install the latest version of tensorflow from the standard package mirrors of your distribution.
+
 Older CPUs do not support the AVX instruction that all recent TF releases are compiled to use.
 This results in an 'Invalid instruction' error when using TF.
 TF needs to be recompiled from source on the system.
@@ -89,39 +108,145 @@ Grab TF source and build: https://www.tensorflow.org/install/source
     ./bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tensorflow_pkg
     pip install /tmp/tensorflow_pkg/tensorflow-version-tags.whl
     
-## Label 2015 dataset
+## Label 2015 Dataset
 
-Build tool for linux:
+### Physical Data
 
-	GOOS=linux go build -o bin/label-2015-dataset label-2015-dataset.go
-	scp bin/label-2015-dataset user@someserver.net:/home/user
+We did analyze and experiment with the physical data, but did not use it for our experiments and evaluation,
+since we scoped the research to the analysis of network events only.
 
-On server: 
-	
-	sudo mv /home/user/label-2015-dataset /usr/local/bin
-	cd /datasets/SWaT/01_SWaT_Dataset_Dec\ 2015/Network
-	screen -L label-2015-dataset -attacks List_of_attacks_Final-fixed.csv -out /home/user/labeled-SWaT-2015-network
+During analysis, we noticed that there were some typos in the classification columns, and created a small tool to automate fixing them:
 
-Compress data:
+    $ GOOS=linux go build -o bin/fix-swat-dataset cmd/fix-dataset/fix-swat-dataset.go
+    $ fix-swat-dataset SWaT_Dataset_Attack_v0.csv
 
-	screen -L zip -r /home/user/labeled-SWaT-2015-network.zip /home/user/labeled-SWaT-2015-network
+### Network Data
 
-Download:
+Convert Attack .xlsx Spreadsheet to CSV:
 
-	scp user@someserver.net:/home/user/labeled-SWaT-2015-network.zip .
+    apt install -y gnumeric
+    cd '/mnt/storage/gdrive/SWaT-Dataset/SWaT.A1 & A2_Dec 2015'
+    ssconvert List_of_attacks_Final.xlsx List_of_attacks_Final.csv > /dev/null 2>&1
 
-## Label 2015 dataset attack files
+Next we need to prepare the list of attacks to be usable for labeling the network data.
+We convert the timestamps to Unix, calculate attack durations and add the information about the attack type to every row of the data.
+The attack types have been previously marked by colorization of a row, we have manually mapped each attack number to the corresponding attack type,
+the logic for this can be found in the _cmd/prepare-labels_ tool.
+Finally, the IP addresses associated with the attacked devices are added to each column.
+The timeframe of an attack in combination with the affected device IPs will be used to label the provided network data later on. 
 
-Generate colsums:
+We ignore all attacks that are listed as 'No Physical Impact',
+since there is no further information provided for those and we are only interested in attacks that caused changes to the physical environment.
 
-    analyze -attacks data/List_of_attacks_Final-fixed.csv -file-filter data/Network/attack-files.txt -out data/SWaT2015-Attack-Files-v0.4
+Prepare label information for 2015 Network Data using the _cmd/prepare-labels_ tool:
 
-Use colSums to label:
+	GOOS=linux go build -o bin/prepare-labels cmd/prepare-labels/prepare-labels.go
+	scp bin/prepare-labels user@someserver.net:/home/user
+    $ prepare-labels -input List_of_attacks_Final.csv
+    skipping attack number 5
+    skipping attack number 9
+    skipping attack number 12
+    skipping attack number 15
+    skipping attack number 18
+    36 attacks written to List_of_attacks_Final-fixed.csv
+    header: [AttackNumber AttackNumberOriginal StartTime EndTime AttackDuration AttackPoints Addresses AttackName AttackType Intent ActualChange Notes]
 
-    $ mkdir data/SWaT2015-Attack-Files-v0.4
-    $ go run ./analyze -attacks data/List_of_attacks_Final-fixed.csv -file-filter data/Network/attack-files.txt -out data/SWaT2015-Attack-Files-v0.4 -in data/Network -colsums colSums-5Feb2020-194133.json
+Now we can apply label information to the provided network data.
 
-## Label 2019 dataset
+The first tool we created for this purpose can be found in _cmd/label-dataset_. 
+During our experiments however, we found that in order to encode the chunked data properly, 
+the normalization needs to be calculated based on the entire available data.
+
+An additional tool for processing has been created, that can be found in _cmd/analyze_.
+It supports not only labeling the network events based on the previously generated attack information,
+but also handles encoding and normalization, based on standard deviation over the entire dataset.  
+
+#### Label 2015 dataset attack files
+
+In order to encode and normalize the data, a summary for all values that appear in a column over the entire dataset needs to be created.
+Due to performance reasons, we ported this functionality from python (encode_columns.py) to Go. 
+
+We named this summary structure column summaries, it is sometimes referred to as colsums in our documentation and code.
+
+The file _data/attack-files.txt_ contains the names of all files that contained attacks,
+the analyze tool offers a flag to filter the files selected for processing based on this list. 
+
+Build analyze tool:
+
+```
+GOOS=linux go build -o bin/analyze cmd/analyze/*.go
+```
+
+You can either:
+
+1) Generate column summaries only:
+
+```
+analyze -attacks List_of_attacks_Final-fixed.csv -file-filter attack-files.txt -analyze-only
+```
+
+2) Generate column summaries and use them to generate labeled files with numeric value encoding and normalization:
+
+```
+$ screen -L analyze -attacks List_of_attacks_Final-fixed.csv -file-filter attack-files.txt -out SWaT2015-Attack-Files
+```
+
+To label using a specific column summary version, use the _-colsums_ flag.
+
+The analyze tool will search recursively in the current directory for files that end on '_sorted.csv', you can pass a specific location via _-in_.
+
+All flags available for the _analyze_ tool:
+
+    $ analyze -h
+    Usage of analyze:
+      -analyze-only
+        analyze only
+      -attacks string
+        attack list CSV
+      -colsums string
+        column summary JSON file for loading
+      -count-attacks
+        count attacks
+      -debug
+        toggle debug mode
+      -encode
+        encode the values to numeric format (default true)
+      -encodeCategoricals
+        encode the categorical values to numeric format (default true)
+      -file-filter string
+        supply a text file with newline separated filenames to process
+      -in string
+        input directory (default is current directory) (default ".")
+      -max int
+        max number of processed files
+      -normalizeCategoricals
+        normalize the categorical values after encoding them to numeric format (default true)
+      -offset int
+        index offset from which file to start
+      -out string
+        output path (default ".")
+      -reuse
+        reuse CSV line buffer (default true)
+      -skip-incomplete
+        skip lines that contain empty values
+      -suffix string
+        suffix for all csv files to be parsed (default "_sorted.csv")
+      -version
+        print version
+      -workers int
+        number of parallel processed files (default 100)
+      -zero-incomplete
+        skip lines that contain empty values (default true)
+      -zscore
+        use zscore for normalization
+
+> TODO: Dump the tool configuration and a short summary into the output directory. 
+
+## Label 2019 Dataset
+
+We experimented also with the 2019 captures of the dataset, created tooling to analyze them using netcap and label the resulting audit records.
+
+However, we had to stop this effort due to time constraints.   
 
 On server, test by moving into a directory that contains audit records:
 
@@ -145,7 +270,7 @@ Connect brussels
         
     sudo su
     cd /home/user/labeled-SWaT-2015-network
-    screen -L ../ics-research/readcsv.py -read "*-labeled.csv" -dimensionality 19 -lstm true -lstmBatchSize 250000
+    screen -L ../ics-research/train.py -read "*-labeled.csv" -dimensionality 19 -lstm true -lstmBatchSize 250000
 
 Dimension Problems:
     
@@ -165,7 +290,7 @@ Dimension Problems:
 
 Start experiments on Brussels:
 
-    user@brussels:/home/user/labeled-SWaT-2015-network# ../ics-research/readcsv.py -read "*-labeled.csv" -dimensionality 19 -lstm true -lstmBatchSize 10000 -epochs 3
+    user@brussels:/home/user/labeled-SWaT-2015-network# ../ics-research/train.py -read "*-labeled.csv" -dimensionality 19 -lstm true -lstmBatchSize 10000 -epochs 3
     
 > commit version: 8fd1f38e275303bca1ae861a21b91720e4856bd2
 
@@ -177,7 +302,7 @@ run 1: 27/1
 
 command:
    
-    python3 readcsv.py -read "/mnt/terradrive/labeled-SW015-network/*.csv" -dimensionality 19 -epochs 10
+    python3 train.py -read "/mnt/terradrive/labeled-SW015-network/*.csv" -dimensionality 19 -epochs 10
 
 commit version:
     
@@ -188,7 +313,7 @@ run 2: 28/1
 
 command:
 
-   python3 readcsv.py -read "/mnt/terradrive/labeled-SW015-network/*.csv" -dimensionality 19 -epochs 10
+   python3 train.py -read "/mnt/terradrive/labeled-SW015-network/*.csv" -dimensionality 19 -epochs 10
 
 commit version:
 
@@ -200,7 +325,7 @@ run 3: 28/1 14:55
 
 command:
 
-    screen -L python3 readcsv.py -read "/mnt/terradrive/labeled-SWaT-2015-network/2015-12-26_121116_89.log.part03_sorted-labeled.csv" -dimensionality 14 -epochs 10 -debug true -drop service,Modbus_Function_Code
+    screen -L python3 train.py -read "/mnt/terradrive/labeled-SWaT-2015-network/2015-12-26_121116_89.log.part03_sorted-labeled.csv" -dimensionality 14 -epochs 10 -debug true -drop service,Modbus_Function_Code
 
 commit version:
 
@@ -211,7 +336,7 @@ run 4: 28/1 16:16
 
 command:
 
-    screen -L python3 -u readcsv.py -read "/mnt/terradrive/labeled-SWaT-2015-network/*csv" -dimensionality 14 -epochs 10 -debug true -drop service,Modbus_Function_Cod
+    screen -L python3 -u train.py -read "/mnt/terradrive/labeled-SWaT-2015-network/*csv" -dimensionality 14 -epochs 10 -debug true -drop service,Modbus_Function_Cod
 
 commit version:
 
@@ -223,7 +348,7 @@ run 5: 28/1 23:55
 
 command:
 
-    (reverse-i-search)`-L': screen -L python3 -u readcsv.py -read "/mnt/terradrive/labeled-SWaT-2015-network/*csv" -dimensionality 15 -epochs 10 -debug true -drop service,Modbus_Function_Cod
+    (reverse-i-search)`-L': screen -L python3 -u train.py -read "/mnt/terradrive/labeled-SWaT-2015-network/*csv" -dimensionality 15 -epochs 10 -debug true -drop service,Modbus_Function_Cod
 
 
 commit version:
@@ -234,7 +359,7 @@ commit version:
 
 run 6: 29-1 16:40 - prepared, but not ran
 
-    screen -L python3 -u readcsv.py -read "/mnt/terradrive/labeled-SWaT-2015-network/*csv" -dimensionality 15 -epochs 10 -debug true -drop service,Modbus_Function_Code
+    screen -L python3 -u train.py -read "/mnt/terradrive/labeled-SWaT-2015-network/*csv" -dimensionality 15 -epochs 10 -debug true -drop service,Modbus_Function_Code
 
 ## Dataset analyzer
 
@@ -347,7 +472,7 @@ Train
 
     python3 ../../train.py -read "*-labeled.csv" -dimensionality 16 -lstm true -optimizer sgd -drop modbus_value
 
-    python3 ../../readcsv.py -read "*-labeled.csv" -dimensionality 17 -lstm true -optimizer sgd
+    python3 ../../train.py -read "*-labeled.csv" -dimensionality 17 -lstm true -optimizer sgd
 
 Score
 

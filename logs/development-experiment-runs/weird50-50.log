@@ -151,7 +151,7 @@ Epoch 1/1
  - 20s - loss: 0.0000e+00 - tp: 250000.0000 - fp: 0.0000e+00 - tn: 1000000.0000 - fn: 0.0000e+00 - accuracy: 1.0000 - precision: 1.0000 - recall: 1.0000 - auc: 1.0000 - val_loss: 48452747734.2863 - val_tp: 146486.0000 - val_fp: 103514.0000 - val_tn: 896486.0000 - val_fn: 103514.0000 - val_accuracy: 0.8344 - val_precision: 0.5859 - val_recall: 0.5859 - val_auc: 0.7412
 [INFO] saving weights to checkpoints/epoch-3-files-0-2
 ^CTraceback (most recent call last):
-  File "readcsv.py", line 10, in <module>
+  File "train.py", line 10, in <module>
     from tfUtils import * 
   File "/home/user/ics-research/tfUtils.py", line 1, in <module>
     from keras.models import Sequential
@@ -328,11 +328,11 @@ dropping all time related columns...
 Train on 500000 samples, validate on 500000 samples
 Epoch 1/1
 ^C[EXCEPTION] (<class 'KeyboardInterrupt'>, KeyboardInterrupt(), <traceback object at 0x7fbd581af588>)
-  File "readcsv.py", line 243, in <module>
+  File "train.py", line 243, in <module>
     run()
-  File "readcsv.py", line 186, in run
+  File "train.py", line 186, in run
     train_dnn(df, i, epoch+1)
-  File "readcsv.py", line 92, in train_dnn
+  File "train.py", line 92, in train_dnn
     batch_size=32
   File "/home/user/.local/lib/python3.6/site-packages/keras/engine/training.py", line 1239, in fit
     validation_freq=validation_freq)

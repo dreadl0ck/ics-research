@@ -59,7 +59,7 @@ var (
 	flagAttackList = flag.String("attacks", "", "attack list CSV")
 	flagInput      = flag.String("in", ".", "input directory (default is current directory)")
 	flagOut        = flag.String("out", ".", "output path")
-	flagNumWorkers = flag.Int("workers", 100, "number of parallel processed files")
+	flagNumWorkers = flag.Int("workers", 100, "number of files processed in parallel")
 
 	// stats about applied labels
 	hitMap     = make(map[string]int)
@@ -80,6 +80,13 @@ var (
 func main() {
 
 	flag.Parse()
+
+	if *flagOut != "." {
+		if _, err := os.Stat(*flagOut); err != nil {
+			// ensure the directory exists
+			os.MkdirAll(*flagOut, 0700)
+		}
+	}
 
 	if *flagAttackList == "" {
 		log.Fatal("need an attack CSV for labeling")

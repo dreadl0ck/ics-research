@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 
 # Run LSTM, locally:
-# $ ./readcsv.py -read data/TCP_labeled.csv -dimensionality 22 -class_amount 2 -sample 0.5 -lstm true
+# $ ./score.py -read data/TCP_labeled.csv -dimensionality 22 -class_amount 2 -sample 0.5 -lstm true
 # on server, 2019 SWaT dataset:
-# $ ./readcsv.py -read */TCP_labeled.csv -dimensionality 22 -class_amount 2 -sample 0.5 -lstm true
+# $ ./score.py -read */TCP_labeled.csv -dimensionality 22 -class_amount 2 -sample 0.5 -lstm true
 # on server, 2015 SWaT dataset:
-# $ ./readcsv.py -read */*_labeled.csv -dimensionality XX -class_amount 2 -sample 0.5 -lstm true
+# $ ./score.py -read */*_labeled.csv -dimensionality XX -class_amount 2 -sample 0.5 -lstm true
 
 import argparse
 import pandas as pd
@@ -27,14 +27,13 @@ from termcolor import colored
 from os import path
 from keras.models import load_model
 
+# cf_total is for summing up all of the confusion matrices from all of the separate files
 cf_total = None
 
 # configurable via argument
 # hardcoded these are the labeltypes that can be found in the dataset
 classes = ["normal", "Single Stage Single Point", "Single Stage Multi Point", "Multi Stage Single Point", "Multi Stage Multi Point"]
 #classes = ["Normal", "Attack"]
-
-# cf_total is for summing up all of the confusion matrices from all of the seperate files
 
 def readCSV(f):
     print("[INFO] reading file", f)

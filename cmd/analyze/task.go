@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"sync"
 )
@@ -17,6 +18,10 @@ type fileSummary struct {
 	skipped       int
 	attacks       int
 	uniqueAttacks map[string]struct{}
+}
+
+func (f *fileSummary) String() string {
+	return fmt.Sprintf("lines: %d, columns: %d, strings: %d, skipped: %d, attacks: %d, uniqueAttacks: %d", f.lineCount, len(f.columns), len(f.strings), f.skipped, f.attacks, len(f.uniqueAttacks))
 }
 
 type datasetSummary struct {
