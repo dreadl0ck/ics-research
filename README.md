@@ -13,18 +13,22 @@ Infos about the dataset and procedure to obtain access can be found here: https:
 
 We used the drive tool to download the files: https://github.com/odeke-em/drive
 
-  go get -u github.com/odeke-em/drive/cmd/drive
-  mkdir -p /mnt/storage/gdrive
-  drive init /mnt/storage/gdrive
-  cd /mnt/storage/gdrive
-  drive list
+```
+go get -u github.com/odeke-em/drive/cmd/drive
+mkdir -p /mnt/storage/gdrive
+drive init /mnt/storage/gdrive
+cd /mnt/storage/gdrive
+drive list
+```
 
 In order to be able to download the shared files, we first had to import them into our own drive, as described here: https://webapps.stackexchange.com/a/141694
 
 Afterwards pull with:
 
-  cd /mnt/storage/gdrive
-  drive pull SWaT-Dataset
+```
+cd /mnt/storage/gdrive
+drive pull SWaT-Dataset
+```
 
 ## Setup scripts
 
